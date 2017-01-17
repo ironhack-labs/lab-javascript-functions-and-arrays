@@ -1,15 +1,19 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first < second) {
+    return second;
+  }
+  else {
+    return first;
+  }
 }
+
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
 
-}
 
 var words = [
   "mystery",
@@ -19,21 +23,40 @@ var words = [
   "pearl",
   "orchard",
   "crackpot"
-];
-var longest = findLongestWord(words);
-console.log(longest);
+]
+
+function findLongestWord (words) {
+  var arr = [];
+  for (i= 0; i < words.length; i++) {
+    arr.push(words[i].length);
+  }
+  var longest = Math.max.apply(null, arr);
+  return(longest);
+}
+
+console.log(findLongestWord(words));
+
+
 
 // Calculating a Sum
-function sumArray (array) {
-
+function sumArray(numbers) {
+for(var sum = 0, i = 0; i < numbers.length; i++){
+  sum += numbers[i];
 }
+  return sum;
+}
+
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
 
 // Calculate the Average
-function averageNumbers (array) {
+function averageNumbers(array) {
+  for (var sum = 0, i = 0; i < array.length; i++){
+    sum += array[i]
+  }
+    return sum/array.length;
 
 }
 
@@ -42,8 +65,26 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
 
+function findAverageLength (words) {
+  var arr = [];
+  for (i= 0; i < words.length; i++) {
+    arr.push(words[i].length);
+  }
+
+  for(var sum = 0, i = 0; i < arr.length; i++){
+    sum += arr[i]
+  }
+    return sum/arr.length;
+}
+
+
+  function averageNumbers(array) {
+  for (var sum = 0, i = 0; i < arr.length; i++){
+    sum += arr[i]
+  }
+    return sum/arr.length;
+}
 }
 
 var words = [
@@ -58,26 +99,44 @@ var words = [
   "fuel",
   "palace"
 ];
-var averageLength = averageWordLength(words);
+
+var averageLength = findAverageLength(words);
 console.log(averageLength);
 
-// Unique Arrays
+
+
+
+// // Unique Arrays
 function uniquifyArray (array) {
 
+    var duplicates = [];
+
+    for (i = 0; i < (array.length); i++) {
+     var indexSearch = array.indexOf(array[i], (i+1));
+     if (indexSearch != -1) {
+        duplicates.push(indexSearch);
+      }
+    }
+    for (j = 0; j < duplicates.length; j++) {
+      array.splice(duplicates[j], 1);
+    }
+    return array;
 }
 
 var words = [
   "crab",
   "poison",
   "contagious",
-  "simple",
+  "crab",
   "bring",
   "sharp",
   "playground",
   "poison",
   "communion",
+  "bring",
   "simple",
-  "bring"
+  "thor",
+  "thor"
 ];
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
