@@ -184,45 +184,39 @@ console.log(howManyDog);
 
 // Bonus Quest
 var x = 0;
-var y = 0;
-var productOfFourV;
-function horizontalIteration (matrix) {
+
+function greatestProduct (matrix) {
   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
-      var productOfFourH = (matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]);
-      if (productOfFourH > x) {
-        x = productOfFourH;
+      if (i > 0 && i < 19 && j > 0 && j < 19) {
+        var productOfFour = (matrix[i][j]*matrix[i][j+1]*matrix[i][j-1]*matrix[i-1][j]*matrix[i+1][j]);
+        if (productOfFour > x) {
+          x = productOfFour;
+        }
+      }else if (i <= 0) {
+        var productOfThreeTop = (matrix[i][j]*matrix[i][j+1]*matrix[i][j-1]*matrix[i+1][j]);
+        if (productOfThreeTop > x) {
+          x = productOfThreeTop;
+        }
+      }else if (i >= 19){
+        var productOfThreeBottom = (matrix[i][j]*matrix[i][j+1]*matrix[i][j-1]*matrix[i-1][j]);
+        if (productOfThreeBottom > x) {
+          x = productOfThreeBottom;
+        }
+      }else if (j <= 0) {
+        var productOfThreeLeft = (matrix[i][j]*matrix[i][j+1]*matrix[i-1][j]*matrix[i+1][j]);
+        if (productOfThreeLeft > x) {
+          x = productOfThreeLeft;
+        }
+      }else if (j >= 19) {
+        var productOfThreeRight = (matrix[i][j]*matrix[i][j-1]*matrix[i-1][j]*matrix[i+1][j]);
+        if (productOfThreeRight > x) {
+          x = productOfThreeRight;
+        }
       }
     }
   }
   return x;
-}
-
-function verticalIteration (matrix) {
-  for (var w = 0; w < matrix.length; w++) {
-    for (var q = 0; q < matrix[w].length; q++) {
-      if (w < 16) {
-        var productOfFourV = (matrix[w][q]*matrix[w+1][q]*matrix[w+2][q]*matrix[w+3][q]);
-        if (productOfFourV > y) {
-          y = productOfFourV;
-        }
-      } else if (w > 16) {
-        break;
-       }
-     }
-  }
-  return y;
-}
-
-
-function greatestProduct (matrix) {
-  horizontalIteration (matrix);
-  verticalIteration (matrix);
-  if (x > y) {
-    return x;
-  } else {
-    return y;
-  }
 }
 
 var matrix = [
