@@ -172,24 +172,15 @@ console.log(howManyDog);
 // Bonus Quest
 function greatestProduct (matrix) {
   var result = 1;
-  for(var i = 0; i < matrix.length; ++i){
-    for(var j = 0; j < matrix[i].length; ++j){
-      var curProduct = matrix[i][j];
+  for(var i = 1; i < matrix.length - 1; ++i){
+    for(var j = 1; j < matrix[i].length - 1; ++j){
+      var curProduct = 1;
       //get product right
-      if (j + 3 < matrix[i].length){
-        for (var k = j + 1; k <= j + 3; ++k){
-          curProduct *= matrix[i][k];
-        }
-        result = curProduct > result ? curProduct : result;
-      }
-      //get product down
-      curProduct = matrix[i][j];
-      if (i + 3 < matrix.length){
-        for (var k = i + 1; k <= i + 3; ++k){
-          curProduct *= matrix[k][j];
-        }
-        result = curProduct > result ? curProduct : result;
-      }
+      curProduct *= matrix[i - 1][j];
+      curProduct *= matrix[i][j + 1];
+      curProduct *= matrix[i + 1][j];
+      curProduct *= matrix[i][j - 1];
+      result = curProduct > result ? curProduct : result;
     }
   }
   return result;
