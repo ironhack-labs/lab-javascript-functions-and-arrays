@@ -1,16 +1,15 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first > second){console.log('first number is bigger: ' + first);}
+    else if (first < second) {console.log('second number is bigger: ' + second);}
+      else {console.log('imput numbers are equal');}
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
+
 // Finding Longest Word
-function findLongestWord (words) {
-
-}
-
 var words = [
   "mystery",
   "brother",
@@ -20,21 +19,41 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+function findLongestWord (words) {
+  var longestWordIndex = 0;
+  var longestWordlen = words[0].length;
+
+  for (var i = 1; i < words.length; ++i){
+    var curWordlen = words[i].length;
+    if (curWordlen > longestWordlen){
+      longestWordIndex = i;
+      longestWordlen = curWordlen;
+    }
+  }
+
+  return words[longestWordIndex];
+}
+
 var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
-function sumArray (array) {
-
-}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+
+var sumNumbers = numbers.reduce(function(a, b){
+  return a + b;
+});
+
+console.log(sumNumbers);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  for (var sum=0, i=0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -42,10 +61,22 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
+// Array of Strings
 function averageWordLength (array) {
-
+array.forEach (function(element) {
+  arr.push(element.length);
+});
+return arr;
 }
 
+function averageNumbers (array) {
+  for (var sum=0, i=0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum/array.length;
+}
+
+var arr = [];
 var words = [
   "seat",
   "correspond",
@@ -59,13 +90,11 @@ var words = [
   "palace"
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+var average = averageNumbers(arr);
+var roundDown = Math.floor(average);
+console.log("The average length of the words into this array is: " + roundDown);
 
 // Unique Arrays
-function uniquifyArray (array) {
-
-}
-
 var words = [
   "crab",
   "poison",
@@ -79,12 +108,21 @@ var words = [
   "simple",
   "bring"
 ];
-var uniqued = uniquifyArray(words);
-console.log(uniqued);
+
+uniqueArray = words.filter(function(item, pos) {
+    return words.indexOf(item) == pos;
+});
+
+console.log(uniqueArray);
 
 // Finding Elements
-function doesWordExist (wordsArray, word) {
-
+function doesWordExist (array, obj) {
+  for (var i = 0; i < array.length; i++) {
+      if (array[i] === obj) {
+          return true;
+      }
+  }
+  return false;
 }
 
 var words = [
@@ -105,10 +143,6 @@ var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
 // Counting Repetion
-function howManyTimes (words, word) {
-
-}
-
 var words = [
   "machine",
   "matter",
@@ -120,14 +154,26 @@ var words = [
   "matter",
   "truth",
   "disobedience",
-  "matter"
+  "matter",
+  "dog",
 ];
 
-var howManyMatter = howManyTimes(words, "matter");
-console.log(howManyMatter);
 
-var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
+var howManyMatters = 0;
+
+function howManyTimes (array, word) {
+  for (var i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+      howManyMatters = howManyMatters += 1;
+      }
+  }
+}
+
+  howManyTimes(words, "matter");
+  console.log(howManyMatters);
+
+  // Don't know how to calculate function again with another argument ex. "dog"
+  howManyTimes(words, "dog");
 
 // Bonus Quest
 function greatestProduct (matrix) {
