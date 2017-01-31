@@ -1,15 +1,35 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first > second) {
+    console.log("First (" + first + ") is bigger");
+  } else if (second > first) {
+    console.log("Second (" + second + ") is bigger");
+  } else {
+    console.log("Both numbers are the same size.");
+  }
 }
 
+
+
+
 var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
+
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+  //var s = words.sort();
+  words.sort(function(a, b) {
+    if (a.length < b.length)
+    return -1;
+    if (a.length > b.length)
+    return 1;
+    if (a.length === b.length) // a must be equal to b
+    return 0;
+  })
+  var wordsLength = words.length -1;
+  console.log("Longest Word: " + words[wordsLength]);
 }
+
 
 var words = [
   "mystery",
@@ -21,29 +41,41 @@ var words = [
   "crackpot"
 ];
 var longest = findLongestWord(words);
-console.log(longest);
+console.log("Find the Longest word: " + longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+var tot = 0;
+  numbers.forEach(function(nums, i) {
+    tot = tot + nums;
+  });
+  return tot;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
-console.log(total);
+console.log("Calculate the Array total: " + total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var total1 = sumArray(numbers);
+  //console.log(total1);
+  var total2 = total1 / numbers.length;
+  return total2;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
-console.log(average);
+console.log("Array Average: " + average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var total1 = 0
+  words.forEach(function(len, i) {
+    total1 = total1 + len.length;
+  })
+  var total2 = total1 / words.length;
+  return total2;
 }
 
 var words = [
@@ -59,12 +91,31 @@ var words = [
   "palace"
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+console.log("Average Length of Words: " + averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
+  words.sort(function(a, b) {
+    if (a.length < b.length)
+    return -1;
+    if (a.length > b.length)
+    return 1;
+    if (a.length === b.length) // a must be equal to b
+    return 0;
+  });
+  //console.log(words);
+  var temporaryArray = [];
+  for (var i = 0; i < words.length; i++) {
+        if(words[i] === words[i - 1]) {
+          // nothing
+        } else {
+          temporaryArray.push(words[i]);
+        }
+    }
+      return temporaryArray;
+      //console.log(temporaryArray);
+  }
 
-}
 
 var words = [
   "crab",
@@ -80,7 +131,7 @@ var words = [
   "bring"
 ];
 var uniqued = uniquifyArray(words);
-console.log(uniqued);
+console.log("Remove duplicate Array entries: " +uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
