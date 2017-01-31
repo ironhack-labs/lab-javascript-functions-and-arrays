@@ -2,7 +2,7 @@
 function maxOfTwoNumbers (first, second) {
 
 }
-
+console.log("Thank you for understanding!");
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
