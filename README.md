@@ -105,14 +105,14 @@ var rope = {
 // etc
 ```
 
-## Iteration 2 - <small>Creating and revealing the mistery</small>
+## Iteration 2 - <small>Creating and revealing the mystery</small>
 
- At the beginning of the game, players shuffle each one of the card stacks to create a combination of *suspect*, *weapon* and *room*. This will be the mistery to solve.
+ At the beginning of the game, players shuffle each one of the card stacks to create a combination of *suspect*, *weapon* and *room*. This will be the mystery to solve.
 
 1. Create a method to randomly select one element from a card stack.
 2. Create another function that calls the method above once for each card stack.
 3. Place the “Case File Confidential” in a virtual envelope. :wink:
-4. Create a method to reveal the mistery.
+4. Create a method to reveal the mystery.
 
 ## Extra Resources
 
