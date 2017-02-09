@@ -2,7 +2,7 @@
 
 # JS | Clue - Mixing objects and arrays
 
-Do you remember de classic detective game?
+Do you remember this classic detective game?
 
 Clue was a very popular game in the 90's. The plot starts with Mr. Boddy being killed by one of his guests. He was the very rich owner of Tudor Close, who takes the stock character of a generic victim. After his dead, Clue players have to to discover who murdered him, with what implement, and where the crime scene took place in his mansion.
 
