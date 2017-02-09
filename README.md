@@ -39,7 +39,7 @@ In order to do this, you will need to know the game's characters (possible kille
 
 ### Game Characters
 
-This Clue board game has a new roster of playable characters. All of them  have first names, last names, occupations, age, description and images. Here you will find a list of some of their attributes. Search or create what you miss -give you the opportunity to play with your imagination :satisfied:
+This Clue board game has a new roster of playable characters. All of them  have first names, last names, occupations, age, descriptions and images. Here you will find a list of some of their attributes. :satisfied:
 
 - **Jacob Green:** his color is *green*. He has a lot of connections and is always willing to help people out -- for a price.
 
@@ -59,7 +59,7 @@ This Clue board game has a new roster of playable characters. All of them  have 
 
 ### Available Weapons
 
-There are nine weapons. Keep in mind you can add new attributes as weight, color, or even count how much one of these weapons can hurt!
+There are nine weapons. Keep in mind you can add new attributes like weight, color, or even how much each of these weapons hurts!
 
 - Rope
 - Knife
