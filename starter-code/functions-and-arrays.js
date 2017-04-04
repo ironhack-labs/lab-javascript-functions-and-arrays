@@ -1,13 +1,26 @@
-// Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first>second){
+    return first;
+  }else if (first<second){
+    return second;
+  }else{
+    console.log("Numbers are the same");
+  }
 }
+maxOfTwoNumbers (6, 2);
 
-var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
+var larga ="";
+var  longitud = 0;
 
-// Finding Longest Word
 function findLongestWord (words) {
+
+  for(var i = 0; i < words.length; i++){
+    if(words[i].length > longitud){
+      longitud = words[i].length;
+      larga = words[i];
+    }
+  }
+return larga;
 
 }
 
@@ -20,20 +33,42 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+
 var longest = findLongestWord(words);
 console.log(longest);
 
+
+
 // Calculating a Sum
+var suma= 0;
 function sumArray (array) {
+  for(i = 0; i<numbers.length; i++){
+     suma += numbers[i];
+    //suma = suma + numbers[i];
+
+  }
+  return suma;
 
 }
 
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
 var total = sumArray(numbers);
 console.log(total);
 
+
 // Calculate the Average
 function averageNumbers (array) {
+  var suma= 0;
+  var average;
+  for(i =0; i <numbers.length; i++){
+    suma += numbers[i];
+  }
+  average = suma / numbers.length;
+
+  return average;
 
 }
 
@@ -41,9 +76,14 @@ var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
 console.log(average);
 
-// Array of Strings
 function averageWordLength (array) {
-
+  var longitud= 0;
+  var average;
+   for(i = 0; i < words.length; i++){
+    longitud += words[i].length;
+  }
+  average = longitud / words.length;
+  return average;
 }
 
 var words = [
@@ -63,9 +103,17 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  //recorremos array
+  for(i = 0; i < words.length; i ++){
+    // words.indexOf buscar coincidencias con word[i] a partir de la siguiente posición [i+1]
+    if(words.indexOf(words[i],i+1) !== -1){
+     //almacena elementos repetidos en nuestro nuevo array
+      palabras.push(words[i]);
+    }
+  }
+return palabras;
 }
-
+var palabras = [];
 var words = [
   "crab",
   "poison",
@@ -79,6 +127,8 @@ var words = [
   "simple",
   "bring"
 ];
+
+//console.log(words.indexOf("crab"));
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
