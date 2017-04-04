@@ -1,139 +1,156 @@
 // Find the maximum
-function maxOfTwoNumbers (first, second) {
-
+var n1='';
+n1=prompt('primer numero');
+var n2="";
+n2=prompt('segundo numero');
+function maxOfTwoNumbers(n1, n2) {
+ if(n1>=n2) {
+   return(n1);
+ } else {
+   return(n2);
+ }
 }
 
-var largest = maxOfTwoNumbers(2, 6);
+var largest = maxOfTwoNumbers(n1,n2);
 console.log(largest);
 
-// Finding Longest Word
-function findLongestWord (words) {
 
+
+// Finding Longest Word
+var palabras = ["mystery","brother","aviator","crocodile","pearl","orchard","crackpot"];
+
+var i=0;
+var larga = "";
+
+function findLongestWord(palabras) {
+ for(var i=0;i<palabras.length;i++){
+   if(palabras[i].length>larga.length) {
+     larga = palabras[i];
+     i++;
+   } else {
+   }
+ }
+ return(larga);
 }
 
-var words = [
-  "mystery",
-  "brother",
-  "aviator",
-  "crocodile",
-  "pearl",
-  "orchard",
-  "crackpot"
-];
-var longest = findLongestWord(words);
+var longest = findLongestWord(palabras);
 console.log(longest);
 
+
+
+
+
 // Calculating a Sum
-function sumArray (array) {
+var numeros = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numeros){
+ var suma = 0;
+ for( var i=0; i<numeros.length;i++) {
+   suma=suma+numeros[i];
 
+ }
+ return(suma);
 }
-
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
+var total = sumArray(numeros);
 console.log(total);
 
+
+
+
+
 // Calculate the Average
-function averageNumbers (array) {
-
+var numeros = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numeros){
+ var suma = 0;
+ var avarage;
+ for(var i=0;i<numeros.length;i++) {
+ suma=suma+numeros[i];
+ }
+ avarage = suma/i;
+ return(avarage);
 }
+var porcentaje = averageNumbers(numeros);
+console.log(porcentaje);
 
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
-console.log(average);
+
+
+
+
 
 // Array of Strings
-function averageWordLength (array) {
+var array = ["seat","correspond","linen","motif","hole","smell","smart","chaos","fuel","palace"];
 
+function averageWordLength(array){
+ var tamañototal = 0;
+ var lengthAvarage = 0;
+ for(var i=0;i<array.length;i++) {
+   tamañototal = tamañototal + array[i].length;
+ }
+ lengthAvarage = tamañototal/i;
+ return(lengthAvarage);
 }
-
-var words = [
-  "seat",
-  "correspond",
-  "linen",
-  "motif",
-  "hole",
-  "smell",
-  "smart",
-  "chaos",
-  "fuel",
-  "palace"
-];
-var averageLength = averageWordLength(words);
+var averageLength = averageWordLength(array);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
-
+var repetidas = ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "poison", "communion", "simple", "bring"];
+function uniquifyArray(array){
+ i=0;
+ repe=[];
+ while(i<repetidas.length) {
+   no = repetidas[i];
+   if(repe.indexOf(no)==-1){
+     repe.push(no);
+     i=i+1;
+   } else {
+     i=i+1;
+   }
+ }return(repe);
 }
-
-var words = [
-  "crab",
-  "poison",
-  "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
-  "poison",
-  "communion",
-  "simple",
-  "bring"
-];
-var uniqued = uniquifyArray(words);
+var uniqued = uniquifyArray(repetidas);
 console.log(uniqued);
 
 // Finding Elements
-function doesWordExist (wordsArray, word) {
+var arr  = ["machine","subset","trouble","starting","matter","eating","truth","disobedience"];
 
+var imput="";
+imput=prompt();
+
+function doesWordExist(arr, imput) {
+ var resta = arr.indexOf(imput);
+ if(resta===-1) {
+   return(false);
+ } else {
+   return(true);
+ }
 }
-
-var words = [
-  "machine",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "truth",
-  "disobedience"
-];
-
-var hasMatter = doesWordExist(words, "matter");
-console.log(hasMatter);
-
-var hasDog = doesWordExist(words, "dog");
-console.log(hasDog);
+var respuesta = doesWordExist(arr, imput);
+console.log(respuesta);
 
 // Counting Repetion
-function howManyTimes (words, word) {
+var ARR = [  "machine","matter","subset","trouble","starting","matter","eating","matter","truth","disobedience","matter"];
+var imput="";
+imput=prompt();
 
+function howManyTimes(ARR, imput) {
+  i = 0;
+  counter = 0;
+ while(i<ARR.length) {
+   if(ARR[i]==imput) {
+     counter=counter+1;
+     i++;
+   } else {
+     i++;
+   }
+ } return(counter);
 }
-
-var words = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
-
-var howManyMatter = howManyTimes(words, "matter");
+var howManyMatter = howManyTimes(ARR, imput);
 console.log(howManyMatter);
-
-var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
 
 }
-
+//con esto si que no puedo, pero no tardaré en ponerme al nivel!!!!
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
   [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,04,56,62,0],
