@@ -1,16 +1,16 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+if (first>second){
+  return first;
+}else{
+  return second ;
+}
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
-// Finding Longest Word
-function findLongestWord (words) {
-
-}
-
+// Finding Longest Words
 var words = [
   "mystery",
   "brother",
@@ -20,12 +20,26 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+function findLongestWord(words){
+  var longestWord = "";
+ words.forEach(function(element){
+   if(longestWord.length<element.length){
+     longestWord = element;
+   }
+ });
+ return longestWord;
+}
 var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var sum = 0;
+ array.forEach(function(element){
+   sum += element;
+ });
+ return sum;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +48,9 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var average = sumArray(array);
+ average = average/array.length;
+ return average;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -42,8 +58,19 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
+function sumLenghtWorlds (array) {
+  var sum = 0;
+ array.forEach(function(element){
+   sum += element.length;
+ });
+ console.log(sum);
+ return sum;
+}
 
+function averageWordLength (array) {
+var averageWorld = sumLenghtWorlds(array);
+ averageWorld /= array.length ;
+ return averageWorld;
 }
 
 var words = [
@@ -62,8 +89,19 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
 
+function uniquifyArray (array) {
+  
+  var newArray =[];
+    
+    array.forEach(function(element,index){
+    var findeCopy = array.indexOf(element);
+    console.log(findeCopy);
+    if(index===findeCopy){
+      newArray.push(element);
+    }
+  });
+  return newArray;
 }
 
 var words = [
@@ -79,12 +117,19 @@ var words = [
   "simple",
   "bring"
 ];
+
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var find = false;
+wordsArray.forEach(function(element){
+  if(element===word){
+    find = true ;
+  }
+});
+return find;
 }
 
 var words = [
@@ -106,7 +151,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var count =0;
+   words.forEach(function(element){
+    if(element===word){
+      count += 1;
+    }
+  });
+  return count;
 }
 
 var words = [
