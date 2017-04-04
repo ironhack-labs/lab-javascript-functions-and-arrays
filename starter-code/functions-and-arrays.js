@@ -19,7 +19,16 @@ function findLongestWord(words) {
 }
 
 
-var words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
+var words = [
+    "mystery", 
+    "brother", 
+    "aviator", 
+    "crocodile", 
+    "pearl", 
+    "orchard", 
+    "crackpot"
+    ];
+    
 var longest = findLongestWord(words);
 console.log(longest);
 
@@ -53,7 +62,19 @@ function averageWordLength (array) {
 }
 
 
-var words = ["seat", "correspond", "linen", "motif", "hole", "smell", "smart", "chaos", "fuel", "palace"];
+var words = [
+    "seat", 
+    "correspond", 
+    "linen", 
+    "motif", 
+    "hole", 
+    "smell", 
+    "smart", 
+    "chaos", 
+    "fuel", 
+    "palace"
+    ];
+    
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 
@@ -66,16 +87,38 @@ function uniquifyArray(array) {
   return array;
 }
 
-var words = ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "poison", "communion", "simple", "bring"];
+var words = [
+    "crab", 
+    "poison", 
+    "contagious", 
+    "simple", 
+    "bring", 
+    "sharp", 
+    "playground", 
+    "poison", 
+    "communion", 
+    "simple", 
+    "bring"
+    ];
+    
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+    return wordsArray.find(function(e){ return e==word; }) !== undefined ? true : false;
 }
 
-var words = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
+var words = [
+    "machine", 
+    "subset", 
+    "trouble", 
+    "starting", 
+    "matter", 
+    "eating", 
+    "truth", 
+    "disobedience"
+    ];
 
 var hasMatter = doesWordExist(words, "matter");
 console.log(hasMatter);
@@ -85,10 +128,23 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+    return words.filter(function(e){ return e==word; }).length;
 }
 
-var words = ["machine", "matter", "subset", "trouble", "starting", "matter", "eating", "matter", "truth", "disobedience", "matter"];
+var words = [
+    "machine", 
+    "matter", 
+    "subset", 
+    "trouble", 
+    "starting", 
+    "matter", 
+    "eating", 
+    "matter", 
+    "truth", 
+    "disobedience", 
+    "matter"
+    ];
+    
 
 var howManyMatter = howManyTimes(words, "matter");
 console.log(howManyMatter);
