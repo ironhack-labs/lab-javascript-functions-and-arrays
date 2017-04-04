@@ -1,6 +1,10 @@
 // Find the maximum
-function maxOfTwoNumbers (first, second) {
 
+function maxOfTwoNumbers (first, second) {
+  var numList = [first, second];
+  var maxNum = numList.sort().reverse();
+  maxNum = maxNum[0];
+  return maxNum;
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,6 +12,16 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
+
+  var longestWord = words.sort(function(a, b){
+      // ASC  -> a.length - b.length
+      // DESC -> b.length - a.length
+
+      return b.length - a.length;
+    });
+
+    longestWord = longestWord[0]
+    return longestWord;
 
 }
 
@@ -20,12 +34,18 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+
 var longest = findLongestWord(words);
 console.log(longest);
+
 
 // Calculating a Sum
 function sumArray (array) {
 
+  for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
+
+  return sum;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +54,9 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
+  var getAverage = sum / array.length;
+  return getAverage
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +65,10 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
+  for (var i = 0, sumArray = 0; i < array.length; sumArray += array[i++].length);
 
+  avgLength = sumArray / array.length;
+  return avgLength;
 }
 
 var words = [
