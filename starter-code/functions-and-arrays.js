@@ -7,13 +7,13 @@ function maxOfTwoNumbers (first, second) {
     console.log("Numbers are the same");
   }
 }
-maxOfTwoNumbers (6, 2);
+var largest = maxOfTwoNumbers (6, 2);
+console.log(largest);
 
-var larga ="";
-var  longitud = 0;
 
 function findLongestWord (words) {
-
+  var larga ="";
+  var  longitud = 0;
   for(var i = 0; i < words.length; i++){
     if(words[i].length > longitud){
       longitud = words[i].length;
