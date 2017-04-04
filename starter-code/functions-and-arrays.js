@@ -169,11 +169,11 @@ function greatestProduct (matrix) {
   return greatestProduct;
 }
 function calculateProductOnPosition(row, column, matrix) {
-  if(row<1 || column<1 || row>=matrix.length-1 || column>=matrix[0].length-1) {
-    return 0;
-  } else {
-    return matrix[row-1][column] * matrix[row+1][column] * matrix[row][column-1] * matrix[row][column+1];
-  }
+  var up = row < 1 ? matrix[matrix.length-1][column] : matrix[row-1][column];
+  var down = row === matrix.length-1 ? matrix[0][column] : matrix[row+1][column];
+  var left = column < 1 ? matrix[row][matrix[0].length-1] : matrix[row][column-1];
+  var right = column === matrix[row].length-1 ? matrix[row][0] : matrix[row][column+1];
+  return up*down*left*right;
 }
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
