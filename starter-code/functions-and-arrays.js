@@ -162,12 +162,13 @@ console.log(howManyDog);
 function greatestProduct (matrix) {
   var greatestProduct = 0;
   matrix.forEach(function(row, rowIndex, matrix) {
-    for(var columnIndex = 0; columnIndex<row.length; columnIndex++) {
+    row.forEach(function(value, columnIndex) {
       greatestProduct = maxOfTwoNumbers(greatestProduct, calculateProductOnPosition(rowIndex, columnIndex, matrix));
-    }
+    });
   });
   return greatestProduct;
 }
+
 function calculateProductOnPosition(row, column, matrix) {
   var up = row < 1 ? matrix[matrix.length-1][column] : matrix[row-1][column];
   var down = row === matrix.length-1 ? matrix[0][column] : matrix[row+1][column];
