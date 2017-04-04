@@ -2,8 +2,8 @@
 
 function maxOfTwoNumbers (first, second) {
   var numList = [first, second];
-  var maxNum = numList.sort().reverse();
-  maxNum = maxNum[0];
+  var maxNum = numList.sort().reverse(); //sort the numbers in order and then reverse it
+  maxNum = maxNum[0]; //select the index[0] because it's sorted in descendant order
   return maxNum;
 }
 
@@ -17,10 +17,10 @@ function findLongestWord (words) {
       // ASC  -> a.length - b.length
       // DESC -> b.length - a.length
 
-      return b.length - a.length;
+      return b.length - a.length; //it sorts the elements from the longest to the shortest
     });
 
-    longestWord = longestWord[0]
+    longestWord = longestWord[0] // save the index[0] because it's sorted in descendant order
     return longestWord;
 
 }
@@ -43,8 +43,7 @@ console.log(longest);
 // Calculating a Sum
 function sumArray (array) {
 
-  for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
-
+  for (var i = 0, sum = 0; i < array.length; sum += array[i++]); //sum += array[i++] means sum each array value
   return sum;
 }
 
@@ -55,7 +54,7 @@ console.log(total);
 // Calculate the Average
 function averageNumbers (array) {
   for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
-  var getAverage = sum / array.length;
+  var getAverage = sum / array.length; //in the previous exercise we got the sum. Here it's only necessary to calculate the avg
   return getAverage
 }
 
@@ -88,7 +87,12 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newArray = [];
+  array.forEach(function(word, index){
+    if (index === array.indexOf(word)) //only if index is equal to the first time it finds the word -->
+      newArray.push(word); //adds the word to the array
+  })
+  return newArray;
 }
 
 var words = [
@@ -109,6 +113,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
+
+  if (wordsArray.includes(word)) { //includes checks if the word it's within the array
+   return true;
+ } else {
+   return false;
+ }
 
 }
 
