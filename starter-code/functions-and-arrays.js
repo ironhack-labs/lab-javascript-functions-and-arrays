@@ -106,7 +106,7 @@ function uniquifyArray (array) {
   //recorremos array
   for(i = 0; i < words.length; i ++){
     // words.indexOf buscar coincidencias con word[i] a partir de la siguiente posición [i+1]
-    if(words.indexOf(words[i],i+1) !== -1){
+    if(words.indexOf(words[i],i+1) === -1){
      //almacena elementos repetidos en nuestro nuevo array
       palabras.push(words[i]);
     }
@@ -134,9 +134,13 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var check =false;
+  for(i = 0; i < words.length; i ++){
+   if(word == words[i]) {
+     check = true;
+   }
+}return check;
 }
-
 var words = [
   "machine",
   "subset",
@@ -154,9 +158,17 @@ console.log(hasMatter);
 var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
+
+// Counting Repetion
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var counter = 0;
+    for(i = 0; i < words.length; i ++){
+      if(word == words[i]){
+        counter ++;
+      }
+    }
+  return counter;
 }
 
 var words = [
@@ -178,7 +190,6 @@ console.log(howManyMatter);
 
 var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
-
 // Bonus Quest
 function greatestProduct (matrix) {
 
