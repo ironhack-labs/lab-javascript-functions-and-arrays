@@ -34,6 +34,12 @@ function sumArray (array) {
   return total;
 }
 
+function sumArrayV2(array){
+  return array.reduce(function(a, b){
+    return a+b;
+  });
+}
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
@@ -55,6 +61,10 @@ function averageWordLength (array) {
   return total/array.length;
 }
 
+function averageWordLengthV2 (array) {
+  return (array.map(function(a){ return a.length;}).reduce(function(a, b){ return a + b; }))/array.length;
+}
+
 var words = [
   "seat",
   "correspond",
@@ -69,6 +79,7 @@ var words = [
 ];
 var averageLength = averageWordLength(words);
 console.log(averageLength);
+
 
 // Unique Arrays
 function uniquifyArray (array) {
@@ -105,6 +116,14 @@ function doesWordExist (wordsArray, word) {
   return false;
 }
 
+function doesWordExistV2 (wordArray, word){
+  var check = 0;
+  wordArray.forEach(function(element){
+    if(element == word) check++;
+  });
+  return (check ? true : false);
+}
+
 var words = [
   "machine",
   "subset",
@@ -130,6 +149,12 @@ function howManyTimes (words, word) {
   return counter;
 }
 
+function howManyTimesV2 (words, word){
+  var counter = 0;
+  words.forEach(function(element){if(element == word) counter++;});
+  return counter;
+}
+
 var words = [
   "machine",
   "matter",
@@ -151,22 +176,6 @@ var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
 
 // Bonus Quest
-function fixPosition(limit1, limit2){
-  switch(i){
-    case 0:
-      limit1 = matrix.length - 1;
-      limit2 = 1;
-      break;
-    case (matrix.length - 1):
-      limit2 = 0;
-      limit1 = 1;
-      break;
-    default:
-      limit1 = i - 1;
-      limit2 = i + 1;
-    }
-}
-
 
 function greatestProduct (matrix) {
   var max = 0, holder = 0;
@@ -184,7 +193,7 @@ function greatestProduct (matrix) {
   return max;
 }
 
-/*(*/
+//
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
   [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,04,56,62,0],
