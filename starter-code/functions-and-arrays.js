@@ -106,7 +106,7 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-    return wordsArray.find(function(e){ return e==word; }) !== undefined ? true : false;
+    return wordsArray.find(function(e){ return e==word; }) !== undefined;
 }
 
 var words = [
