@@ -186,12 +186,12 @@ function greatestProduct (matrix) {
   var k = 0;
   for (i=0; i < matrix.length;i++) {
     for (j=0; j<matrix[i].length;j++) {
-      if (i == 0) {
+      if (i === 0) {
         topNumber = matrix[i+19][j];
       } else {
         topNumber = matrix[i-1][j];
       }
-      if (j == 0) {
+      if (j === 0) {
         leftNumber = matrix[i][j+19];
       } else {
         leftNumber = matrix[i][j-1];
