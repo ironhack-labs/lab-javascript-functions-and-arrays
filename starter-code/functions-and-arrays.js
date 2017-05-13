@@ -211,25 +211,18 @@ howManyTimes(words, "matter");
 // Bonus Quest
 function greatestProduct (matriz) {
   var result = 0;
-  var top = 0;
-  var bottom = 0;
-  var left = 0;
-  var right = 0;
 
   for(i = 0; i < matriz.length; i++){
     for (j=0; j< matriz[i].length; j++){
 
-      top = i-1;
-      if(top < 0){top = 19;}
-      bottom= i+1;
-      if(bottom > 19){bottom = 0;}
-      left = j-1;
-      if(left < 0){left = 19;}
-      right = j+1;
-      if(right > 19){right = 0;}
+       var top    = i > 0 ? matrix[i - 1][j] : 1;
+       var bottom = i < matrix.length - 1 ? matrix[i + 1][j] : 1;
+       var left   = j > 0 ? matrix[i][j - 1] : 1;
+       var right  = j < matrix.length - 1 ? matrix[i][j + 1] : 1;
 
-      if (result < matriz[bottom][j]*matriz[top][j]*matriz[i][right]*matriz[i][left] ){
-        result = matriz[bottom][j]*matriz[top][j]*matriz[i][right]*matriz[i][left];
+
+      if (result < top * bottom *right * left ){
+        result = top * bottom *right * left;
       }
 
     }
