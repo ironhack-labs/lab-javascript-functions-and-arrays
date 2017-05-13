@@ -1,18 +1,29 @@
-// Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+    if(first > second) {
+     return first;
+    }
+    if(first < second) {
+      return second;
+    }
 }
 
-var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
+var largest = maxOfTwoNumbers(12, 6);
+//console.log(largest);
 
-// Finding Longest Word
-function findLongestWord (words) {
 
+function findLongestWord(wordsArray){
+  var longestWord = "";
+  wordsArray.forEach(function(name){
+
+    if (longestWord.length < name.length) {
+    longestWord = name;
+    }
+
+})
+return longestWord;
 }
-
 var words = [
-  "mystery",
+  "mys",
   "brother",
   "aviator",
   "crocodile",
@@ -20,30 +31,59 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
 var longest = findLongestWord(words);
-console.log(longest);
+//console.log(longest);
+// crocodile
 
-// Calculating a Sum
-function sumArray (array) {
-
-}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
 
-// Calculate the Average
-function averageNumbers (array) {
-
+function sumArray(array){
+    var suma = array.reduce(function(a,b) {
+      return a+b;
+    }, 0);
+    //console.log(suma);
+return suma;
 }
 
+var total = sumArray(numbers);
+// 87
+//console.log(total);
+
+
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  var averageSuma = array.reduce(function(a, b) { return a + b;});
+  averageSuma = averageSuma / array.length;
+  return averageSuma;
+}
+
 var average = averageNumbers(numbers);
-console.log(average);
+//console.log(average);
+// 6
+
+var words = [
+	"seat",
+	"correspond",
+	"linen",
+	"motif",
+	"hole",
+	"smell",
+	"smart",
+	"chaos",
+	"fuel",
+	"palace"
+];
 
 // Array of Strings
 function averageWordLength (array) {
+  var totalLength = array.reduce(function (sum, number){
+    return sum + number.length;
+  }, 0);
 
+  return totalLength / array.length;
 }
 
 var words = [
@@ -59,11 +99,16 @@ var words = [
   "palace"
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+//console.log(averageLength);
 
-// Unique Arrays
-function uniquifyArray (array) {
-
+function uniquifyArray(array){
+  var newArray = [];
+  array.forEach(function(word){
+    if (newArray.indexOf(word) == -1){
+      newArray.push(word);
+    }
+  });
+  return newArray;
 }
 
 var words = [
@@ -79,13 +124,10 @@ var words = [
   "simple",
   "bring"
 ];
+
 var uniqued = uniquifyArray(words);
-console.log(uniqued);
-
-// Finding Elements
-function doesWordExist (wordsArray, word) {
-
-}
+//console.log(uniqued);
+// ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "communion"]
 
 var words = [
   "machine",
@@ -97,17 +139,22 @@ var words = [
   "truth",
   "disobedience"
 ];
-
+function doesWordExist(wordsArray, word){
+ var exist = false;
+ wordsArray.forEach(function(currentWord){
+   if(currentWord === word){
+     exist = true;
+   }
+ });
+ return exist;
+}
 var hasMatter = doesWordExist(words, "matter");
-console.log(hasMatter);
+//console.log(hasMatter);
+// true
 
 var hasDog = doesWordExist(words, "dog");
-console.log(hasDog);
-
-// Counting Repetion
-function howManyTimes (words, word) {
-
-}
+//console.log(hasDog);
+// false
 
 var words = [
   "machine",
@@ -122,40 +169,65 @@ var words = [
   "disobedience",
   "matter"
 ];
-
+function howManyTimes(arrayWords, word){
+  var counter = 0;
+  arrayWords.forEach(function(currentWord){
+    if (currentWord == word) {
+      counter++;
+    }
+  });
+  return counter;
+}
 var howManyMatter = howManyTimes(words, "matter");
-console.log(howManyMatter);
+//console.log(howManyMatter);
+// 4
 
 var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
-
-// Bonus Quest
-function greatestProduct (matrix) {
-
-}
+//console.log(howManyDog);
+// 0
 
 var matrix = [
-  [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
+  [8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8],
   [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,04,56,62,0],
   [81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,03,49,13,36,65],
   [52,70,95,23,04,60,11,42,69,24,68,56,01,32,56,71,37,02,36,91],
   [22,31,16,71,51,67,63,89,41,92,36,54,22,40,40,28,66,33,13,80],
   [24,47,32,60,99,03,45,02,44,75,33,53,78,36,84,20,35,17,12,50],
   [32,98,81,28,64,23,67,10,26,38,40,67,59,54,70,66,18,38,64,70],
-  [67,26,20,68,02,62,12,20,95,63,94,39,63,08,40,91,66,49,94,21],
-  [24,55,58,05,66,73,99,26,97,17,78,78,96,83,14,88,34,89,63,72],
-  [21,36,23,09,75,0,76,44,20,45,35,14,0,61,33,97,34,31,33,95],
-  [78,17,53,28,22,75,31,67,15,94,03,80,04,62,16,14,09,53,56,92],
-  [16,39,05,42,96,35,31,47,55,58,88,24,0,17,54,24,36,29,85,57],
-  [86,56,0,48,35,71,89,07,05,44,44,37,44,60,21,58,51,54,17,58],
+  [67,26,20,68,2,62,12,20,95,63,94,39,63,8,40,91,66,49,94,21],
+  [24,55,58,5,66,73,99,26,97,17,78,78,96,83,14,88,34,89,63,72],
+  [21,36,23,9,75,0,76,44,20,45,35,14,0,61,33,97,34,31,33,95],
+  [78,17,53,28,22,75,31,67,15,94,3,80,4,62,16,14,9,53,56,92],
+  [16,39,5,42,96,35,31,47,55,58,88,24,0,17,54,24,36,29,85,57],
+  [86,56,0,48,35,71,89,7,05,44,44,37,44,60,21,58,51,54,17,58],
   [19,80,81,68,05,94,47,69,28,73,92,13,86,52,17,77,04,89,55,40],
-  [04,52,08,83,97,35,99,16,07,97,57,32,16,26,26,79,33,27,98,66],
+  [4,52,8,83,97,35,99,16,7,97,57,32,16,26,26,79,33,27,98,66],
   [88,36,68,87,57,62,20,72,03,46,33,67,46,55,12,32,63,93,53,69],
-  [04,42,16,73,38,25,39,11,24,94,72,18,08,46,29,32,40,62,76,36],
+  [4,42,16,73,38,25,39,11,24,94,72,18,8,46,29,32,40,62,76,36],
   [20,69,36,41,72,30,23,88,34,62,99,69,82,67,59,85,74,04,36,16],
   [20,73,35,29,78,31,90,01,74,31,49,71,48,86,81,16,23,57,05,54],
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
+function greatestProduct(arrayMatrix){
+  var greatProduct = 0;
+  var greaterPosition;
 
+  for(var i = 0 ; i < matrix.length ; i++) {
+    for(var j = 0 ; j < matrix.length ; j++) {
+       var top    = i > 0 ? matrix[i - 1][j] : 1;
+      var bottom = i < matrix.length - 1 ? matrix[i + 1][j] : 1;
+      var left   = j > 0 ? matrix[i][j - 1] : 1;
+      var right  = j < matrix.length - 1 ? matrix[i][j + 1] : 1;
+
+      var result = top*bottom*left*right;
+      if (result > greatProduct){
+        greatProduct = result;
+        greaterPosition = [i,j];
+      }
+    }
+  }
+  return [greatProduct, greaterPosition];
+}
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
+// => 57,148,146
