@@ -3,7 +3,7 @@ function maxOfTwoNumbers (first, second) {
 
 }
 
-var largest = maxOfTwoNumbers(2, 6);
+javascript-functions-and-arraysvar largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
