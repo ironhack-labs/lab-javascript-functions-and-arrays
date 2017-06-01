@@ -1,14 +1,31 @@
+// nice nik and Victorious valerie
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if(first > second) {
+   largest = first;
+  }
+  else if(first < second){
+   largest = second;
+  }
+  else{
+    console.log("the two numbers are the same")
+  }
+  console.log(largest);
 }
+var largest = maxOfTwoNumbers(2,6 );
 
-var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
+ function findLongestWord (words){
+  var length=0;
+  for (i = 0; i < words.length;i++)
+    if (words[i].length> length){
+      length = words[i].length;
+    }
+    console.log(length);
+    //if (words[i].length){
 
+    //}
 }
 
 var words = [
@@ -21,11 +38,15 @@ var words = [
   "crackpot"
 ];
 var longest = findLongestWord(words);
-console.log(longest);
+
 
 // Calculating a Sum
-function sumArray (array) {
-
+function sumArray (numbers) {
+  var total=0;
+  for (i = 0; i < numbers.length;i++){
+      total += numbers[i];
+}
+return(total);
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,15 +55,27 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
+  var sum=0;
+  for (i = 0; i < array.length;i++){
+      sum += array[i];
+}
+console.log(average = sum / array.length);
+return(average);
 
 }
 
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9,];
 var average = averageNumbers(numbers);
-console.log(average);
+
 
 // Array of Strings
 function averageWordLength (array) {
+ var length=0;
+  for (i = 0; i < array.length;i++){
+      length += array[i].length;
+}
+console.log(averageLength = length / array.length);
+return(averageLength);
 
 }
 
@@ -59,12 +92,22 @@ var words = [
   "palace"
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+
 
 // Unique Arrays
 function uniquifyArray (array) {
+var indices = [];
+var element = words[i];
+var idx = array.indexOf(element);
 
+while  (idx != -1) {
+  indices.push(idx);
+  idx = array.indexOf(element, idx + 1);
 }
+console.log(indices);
+}
+// [0, 2, 4]
+
 
 var words = [
   "crab",
@@ -81,7 +124,7 @@ var words = [
 ];
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
-
+/*
 // Finding Elements
 function doesWordExist (wordsArray, word) {
 
@@ -159,3 +202,4 @@ var matrix = [
 
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
+*/
