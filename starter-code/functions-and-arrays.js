@@ -268,3 +268,37 @@ var matrix = [
 
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
+
+
+//With Correct instruction
+function greatestProduct_rev(matrix){
+  var greatest = 0;
+  for(var i=0; i< matrix.length; i++){
+    for(var j=0; j<matrix[i].length;j++){
+      var mult =1;
+      //top
+      if (i !== 0){
+        mult *= matrix[i-1][j];
+      }
+      //bottom
+      if(i < matrix.length -1){
+        mult *= matrix[i+1][j];
+      }
+      //right
+      if(j !== 0){
+        mult *= matrix[i][j-1];
+      }
+      //left
+      if(j < matrix[i].length-1){
+        mult *= matrix[i][j+1];
+      }
+      if(mult > greatest){
+        greatest = mult;
+      }
+    }
+  }
+  return greatest;
+}
+
+var maxProduct_rev = greatestProduct_rev(matrix);
+console.log(maxProduct_rev);
