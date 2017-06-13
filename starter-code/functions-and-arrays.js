@@ -1,31 +1,54 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+if (first > second){
+  return first;
+}else if (second > first){
+  return second;
+}else {
+  return first, second;
 }
+}
+
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
+  var longitud = 0;
+  var longest;
+for (var i = 0; i < words.length; i++) {
+   if (words[i].length > longitud){
+     longitud = words[i].length;
+     longest = words[i];
+   }else if (words[i].length === longitud){
+     longest += " " +words[i]
+   }
+}return longest;
 
 }
+
 
 var words = [
   "mystery",
   "brother",
-  "aviator",
+  "aviatorkkkkkk",
   "crocodile",
   "pearl",
-  "orchard",
+  "aviatorkkkkkk",
   "crackpot"
 ];
-var longest = findLongestWord(words);
-console.log(longest);
+var a = findLongestWord(words);
+console.log(a);
 
 // Calculating a Sum
 function sumArray (array) {
+  var suma;
+  for (i=0; i<array.length; i++){
+    suma += array[i];
+  }
 
+  return suma;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +57,14 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
+var total=0;
+var media;
+for (var i = 0; i < array.length; i++) {
+  total += array[i];
+  media = total / array.length;
 
+}
+return media;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,8 +73,18 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
+  var total= 0;
+  var media;
+  for (var i = 0; i < array.length; i++) {
+    total += array[i].length;
 
+  }
+  media = total / array.length;
+  return media;
 }
+
+
+
 
 var words = [
   "seat",
@@ -62,9 +102,21 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
+// indexOf devuelve -1 si no encuentra y position o indice de 1
 function uniquifyArray (array) {
+ var nuevoArray = [];
 
+ for (i=0; i<array.length; i++){
+   if(nuevoArray.indexOf(array[i],0) === -1){
+     console.log("Introducimos el elemento");
+     nuevoArray.push(array[i]);
+   }
+ }
+ console.log(nuevoArray);
 }
+
+
+
 
 var words = [
   "crab",
@@ -78,9 +130,9 @@ var words = [
   "communion",
   "simple",
   "bring"
-];
-var uniqued = uniquifyArray(words);
+];var uniqued = uniquifyArray(words);
 console.log(uniqued);
+
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
