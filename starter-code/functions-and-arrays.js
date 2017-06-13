@@ -176,27 +176,24 @@ function greatestProduct (matrix) {
   var left;
   matrix.forEach(function(row, rowIndex) {
     row.forEach(function(element, colIndex) {
-      // console.log(rowIndex + ", " + colIndex);
-      up = out(rowIndex - 1);
-      down = out(rowIndex + 1);
-      right = out(colIndex + 1);
-      left = out(colIndex - 1);
-      // console.log(up + " " + down + " " + right + " " + left);
+      up = out(rowIndex - 1, row.length - 1);
+      down = out(rowIndex + 1, row.length - 1);
+      right = out(colIndex + 1, matrix.length - 1);
+      left = out(colIndex - 1, matrix.length - 1);
       star = row[right] * row[left] * matrix[up][colIndex] * matrix[down][colIndex];
       if (star > product) {
         product = star;
       }
     });
   });
-  // console.log(up + " " + down + " " + right + " " + left);
   return product;
 }
 
-function out (number) {
-  if (number > 19) {
+function out (number, max) {
+  if (number > max) {
     number = 0;
   } else if (number < 0) {
-    number = 19;
+    number = max;
   }
   return number;
 }
