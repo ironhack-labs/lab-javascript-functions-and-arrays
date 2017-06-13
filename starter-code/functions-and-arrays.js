@@ -76,13 +76,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
+  var newArray = [];
   array.forEach(function(i){
-    var newArray = [];
-    if (array.indexOf(i) === -1) {
-      newArray.push(i);
-    };
-    console.log(i);
+    if (newArray.indexOf(i) === -1){
+      newArray.push(i); 
+    }
   })
+  return newArray;
 }
 
 var words = [
@@ -103,7 +103,13 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  wordsArray.forEach(function(i){
+    if (i !== word){
+      return false;
+    } else {
+      return true;
+    }
+  })
 }
 
 var words = [
