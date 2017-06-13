@@ -172,7 +172,6 @@ function greatestProduct (matrix) {
     matrixArray.forEach(function(arrayElent, arrayIndex) {
       if(arrayIndex <= matrixArray.length - 4) {
         var tempProductH = matrixArray[arrayIndex] * matrixArray[arrayIndex + 1] * matrixArray[arrayIndex + 2] * matrixArray[arrayIndex + 3]
-        // console.log(matrixIndex, arrayIndex ,tempProductH)
         if(tempProductH > maxProductH) {
           maxProductH = tempProductH
         }
@@ -183,8 +182,8 @@ function greatestProduct (matrix) {
   var maxProductV = 0
   for(var i = 0; i < matrix.length; i++) {
     for(var j = 0; j < matrix[i].length; j++) {
-      if(i <=matrix[i].length - 4) {
-        var tempProductV = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];           // console.log(i, j ,tempProductV)
+      if(i <= matrix[i].length - 4) {
+        var tempProductV = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
         if(tempProductV > maxProductV) {
             maxProductV = tempProductV
         }
@@ -193,7 +192,7 @@ function greatestProduct (matrix) {
 
   }
 
-  if (maxProductH => maxProductV){
+  if (maxProductH > maxProductV){
     return maxProductH
   } else {
       return maxProductV
