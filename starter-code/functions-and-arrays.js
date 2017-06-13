@@ -37,7 +37,11 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-  sumArray(array);
+  for (var sum=0, i=0; i < array.length; i++) {
+  sum += array[i];
+  }
+  var average = sum/array.length;
+  return average;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -45,8 +49,13 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
+var average= 0;
 
+function averageWordLength (array) {
+  for (var i=0; i<array.length; i++) {
+      average += array[i].length;
+  }
+  return average;
 }
 
 var words = [
@@ -65,8 +74,14 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
+var unificada = [];
 function uniquifyArray (array) {
-
+  for (b = 0; b<array.length; b++){
+    if (unificada.indexOf(array[b], 0) === -1) {
+      unificada.push(array[b]);
+    }
+  }
+  console.log(unificada);
 }
 
 var words = [
