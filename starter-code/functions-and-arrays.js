@@ -1,6 +1,5 @@
-// Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  return Math.max(first, second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +7,13 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+  var longest = words[0];
+  words.forEach(function(word){
+    if (word.length > longest.length){
+      longest=word;
+    }
+  })
+  return longest.length
 }
 
 var words = [
@@ -25,7 +30,9 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+    return array.reduce(function(acc, val) {
+      return acc + val;
+    });
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,6 +41,11 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
+  var sum = 0;
+  array.forEach(function(number){
+    sum += number;
+  })
+  return sum/array.length;
 
 }
 
@@ -43,7 +55,11 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var sum = 0;
+  array.forEach(function(word){
+    sum += word.length;
+  })
+  return sum/array.length
 }
 
 var words = [
@@ -63,7 +79,15 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newArray = [];
+  var i = 0;
+  array.forEach(function(word) {
+    if (array.indexOf(word) === i) {
+      newArray.push(word);
+    }
+    i++;
+  })
+  return newArray;
 }
 
 var words = [
@@ -84,7 +108,13 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var exists = false
+  wordsArray.forEach(function(element){
+    if (element === word) {
+      exists = true;
+    }
+  })
+  return exists;
 }
 
 var words = [
@@ -106,7 +136,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var acc = 0;
+  words.forEach(function(element){
+    if (element === word) {
+      acc++;
+    }
+  })
+  return acc;
 }
 
 var words = [
@@ -131,6 +167,14 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
+  var maxProduct = 0;
+  matrix.forEach(function (matrixArray, matrixIndex) {
+    matrixArray.forEach(function(arrayElent, arrayIndex) {
+      if(arrayIndex < matrixArray.length - 4) {
+        maxProduct = matrixArray[arrayIndex]
+      }
+    })
+  })
 
 }
 
