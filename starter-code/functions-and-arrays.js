@@ -73,8 +73,18 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
+  var total= 0;
+  var media;
+  for (var i = 0; i < array.length; i++) {
+    total += array[i].length;
 
+  }
+  media = total / array.length;
+  return media;
 }
+
+
+
 
 var words = [
   "seat",
@@ -92,9 +102,21 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
+// indexOf devuelve -1 si no encuentra y position o indice de 1
 function uniquifyArray (array) {
+ var nuevoArray = [];
 
+ for (i=0; i<array.length; i++){
+   if(nuevoArray.indexOf(array[i],0) === -1){
+     console.log("Introducimos el elemento");
+     nuevoArray.push(array[i]);
+   }
+ }
+ console.log(nuevoArray);
 }
+
+
+
 
 var words = [
   "crab",
@@ -108,9 +130,9 @@ var words = [
   "communion",
   "simple",
   "bring"
-];
-var uniqued = uniquifyArray(words);
+];var uniqued = uniquifyArray(words);
 console.log(uniqued);
+
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
