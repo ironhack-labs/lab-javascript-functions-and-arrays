@@ -1,5 +1,11 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
+  
+  if (first > second) {
+    return first;
+  } else {
+    return second;
+  }
 
 }
 
@@ -8,7 +14,17 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
+  
+  var longestWord = '';
+  
+  words.forEach(function(word) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }    
+  });
 
+  return longestWord;
+  
 }
 
 var words = [
@@ -25,7 +41,11 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+    var sum = array.reduce(function(acc, num) {
+    return acc + num;   
+  }, 0);
+  
+  return sum;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,6 +54,12 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
+  
+
+  var sum = sumArray(array);
+  
+  return sum / array.length;
+  
 
 }
 
@@ -44,6 +70,11 @@ console.log(average);
 // Array of Strings
 function averageWordLength (array) {
 
+  var wordLengths = array.map(function(word){
+    return word.length;
+  });
+  
+  return averageNumbers(wordLengths);
 }
 
 var words = [
@@ -63,6 +94,16 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
+  
+  var unique = [];
+  
+  array.forEach(function(item){
+    if (unique.indexOf(item) === -1) {
+      unique.push(item);
+    }
+  });
+  
+  return unique;
 
 }
 
@@ -85,6 +126,16 @@ console.log(uniqued);
 // Finding Elements
 function doesWordExist (wordsArray, word) {
 
+  var exists = false;
+  
+  // not efficient because cannot break loop
+  wordsArray.forEach(function(item){
+    if (item === word) {
+      exists = true;
+    }
+  });
+  
+  return exists;
 }
 
 var words = [
@@ -106,6 +157,10 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
+  
+  return words.filter(function(candidate) {
+    return candidate === word;
+  }).length;
 
 }
 
@@ -131,8 +186,113 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
+  
+  var gp = 0;
+  
+  for (var i = 0; i < matrix.length; i++) {
+    
+    var row = matrix[i];
+    
+    for (var j = 0; j < row.length; j++) {
+      
+      var vals = [];
+      
+      vals.push(getUpValue(matrix, i, j));
+      vals.push(getDownValue(matrix, i, j));
+      vals.push(getRightValue(matrix, i, j));
+      vals.push(getLeftValue(matrix, i, j));
+      
+      var product = getProduct(vals);
+      
+      if (product > gp) {
+        gp = product;
+      }
+      
+    }
+  }
+  
+  return gp;
 
 }
+
+function getUpValue(matrix, rowIndex, columnIndex) {
+  
+  var rowAbove;
+  
+  if (rowIndex === 0) {
+    rowAbove = matrix[matrix.length - 1];
+  } else {
+    rowAbove = matrix[rowIndex - 1];
+  }
+  
+  return rowAbove[columnIndex];
+}
+
+function getDownValue(matrix, rowIndex, columnIndex) {
+  
+  var rowBelow;
+  
+  if (rowIndex === matrix.length - 1) {
+    rowBelow = matrix[0];
+  } else {
+    rowBelow = matrix[rowIndex + 1];
+  }
+  
+  return rowBelow[columnIndex];
+}
+
+function getRightValue(matrix, rowIndex, columnIndex) {
+  
+  var row = matrix[rowIndex];
+  
+  var rightColumnIndex = columnIndex + 1;
+  
+  if (rightColumnIndex === row.length) {
+    rightColumnIndex = 0;
+  }
+  
+  return row[rightColumnIndex];
+}
+
+function getLeftValue(matrix, rowIndex, columnIndex) {
+  
+  var row = matrix[rowIndex];
+  
+  var leftColumnIndex = columnIndex - 1;
+  
+  if (leftColumnIndex < 0) {
+    leftColumnIndex = row.length - 1;
+  }
+  
+  return row[leftColumnIndex];
+}
+
+function greatestProductInArray(matrix) {
+  
+  var greatestProduct = 0;
+  
+  for (var j = 0; j < matrix.length; j++) {
+    
+    var arr = matrix[j];
+    
+    for (var i = 0; i < arr.length - 3; i++) {
+      
+      var product = getProduct(arr.slice(i, i + 3));
+      
+      if (product > greatestProduct) {
+        greatestProduct = product;
+      }
+    }
+  }
+  
+  return greatestProduct;
+}
+
+function getProduct(nums) {
+  return nums.reduce(function(acc, num){
+    return acc * num;
+  });
+} 
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
