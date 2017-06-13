@@ -167,16 +167,40 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-  var maxProduct = 0;
+  var maxProductH = 0;
   matrix.forEach(function (matrixArray, matrixIndex) {
     matrixArray.forEach(function(arrayElent, arrayIndex) {
-      if(arrayIndex < matrixArray.length - 4) {
-        maxProduct = matrixArray[arrayIndex]
+      if(arrayIndex <= matrixArray.length - 4) {
+        var tempProductH = matrixArray[arrayIndex] * matrixArray[arrayIndex + 1] * matrixArray[arrayIndex + 2] * matrixArray[arrayIndex + 3]
+        // console.log(matrixIndex, arrayIndex ,tempProductH)
+        if(tempProductH > maxProductH) {
+          maxProductH = tempProductH
+        }
       }
     })
   })
 
+  var maxProductV = 0
+  for(var i = 0; i < matrix.length; i++) {
+    for(var j = 0; j < matrix[i].length; j++) {
+      if(i <=matrix[i].length - 4) {
+        var tempProductV = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];           // console.log(i, j ,tempProductV)
+        if(tempProductV > maxProductV) {
+            maxProductV = tempProductV
+        }
+      }
+    }
+
+  }
+
+  if (maxProductH => maxProductV){
+    return maxProductH
+  } else {
+      return maxProductV
+  }
+
 }
+
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
