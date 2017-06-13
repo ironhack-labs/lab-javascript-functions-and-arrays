@@ -81,15 +81,15 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
-  var counter = 0;
-  var newArray = [];
-  for(var i = 0; i<array.length; i++) {
-    if (newArray.indexOf(array[i]) === -1) {
-      newArray.push(array[i]);
+function uniquifyArray(array){
+  var wordsSorted = words.slice().sort();
+  var results = [];
+  for (var i = 0; i <= wordsSorted.length - 1; i++) {
+    if (wordsSorted[i + 1] !== wordsSorted[i]) {
+        results.push(wordsSorted[i]);
     }
   }
-  return newArray;
+return results;
 }
 
 var words = [
