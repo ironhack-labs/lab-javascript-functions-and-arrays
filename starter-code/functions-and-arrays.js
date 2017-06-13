@@ -20,8 +20,8 @@ function findLongestWord (words) {
     if (longer.length < words[i].length) {
       longer = words[i];
       }
-  }
-  return longer;
+    }
+      return longer;
 }
 
 var words = [
@@ -55,11 +55,11 @@ console.log(total);
 function averageNumbers (array) {
   var sum = 0;
   for (var i=0; i<array.length; i++){
-    sum += 0;
+    sum += array[i];
   }
   var result = 0;
-  result = sum / array.length;
-  return = result;
+  result = (sum / array.length);
+  return result;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
