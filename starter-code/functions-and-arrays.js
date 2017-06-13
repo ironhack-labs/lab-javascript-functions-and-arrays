@@ -1,16 +1,16 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if(first < second) {
+    return second;
+  } else {
+    return first;
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
-
-}
-
 var words = [
   "mystery",
   "brother",
@@ -20,11 +20,39 @@ var words = [
   "orchard",
   "crackpot"
 ];
+var namelongest = "dsdsd";
+
+
+function findLongestWord(words) {
+  words.forEach(function(name) {
+    var nameactual = name;
+
+    if (nameactual.length > namelongest.length) {
+      namelongest = nameactual;
+
+
+    }
+
+
+  });
+
+  return namelongest;
+
+}
+
+
+
 var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
-function sumArray (array) {
+var sumtemp = 0;
+function sumArray(array) {
+  numbers.forEach(function(number){
+    sumtemp+=number;
+
+  });
+  return sumtemp;
 
 }
 
@@ -33,18 +61,20 @@ var total = sumArray(numbers);
 console.log(total);
 
 // Calculate the Average
-function averageNumbers (array) {
-
-}
-
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+var sumtemp2 = 0;
+function averageNumbers (numbers) {
+  numbers.forEach(function(num) {
+    sumtemp2 += num;
+  });
+  var avg = sumtemp2/numbers.length;
+  return avg;
+}
 var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
-
-}
+var sumtemp3 = 0;
 
 var words = [
   "seat",
@@ -58,13 +88,38 @@ var words = [
   "fuel",
   "palace"
 ];
+
+function averageWordLength (array) {
+  words.forEach(function(index) {
+    sumtemp3 += index.length;
+  });
+  var avg1 = sumtemp3/words.length;
+  return avg1;
+}
+
+
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
+var wordtemp="";
 function uniquifyArray (array) {
+for(i=0;i<words.length;i++){
+  for(j=0;j<words.length;j++){
+    if(words.indexof(j)!=i){
+    if(words[i]==words[j]){
 
+      words.splice(i,1);
+      words.splice(j,1);
+
+
+    }
+    }
+  }
+
+  }
 }
+
 
 var words = [
   "crab",
