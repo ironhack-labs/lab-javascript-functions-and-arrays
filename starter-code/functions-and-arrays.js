@@ -87,17 +87,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-  var arrayNew = [];
   for(var i = 0; i < array.length; i++) {
-    for (var j = 0; j < array.length; j++) {
-      if (array[i] === array[j] && array.indexOf(i) === array.indexOf(j)){
-        arrayNew.push(array[i]);
-      } else {
-        arrayNew.push(array[j]);
-      }
-    }
-  }
-  return arrayNew;
+     var index = array.indexOf(array[i], i+1);
+     if (index != -1) {
+         array.splice(index,1);
+       }
+     }
+   return array;
 }
 
 var words = [
