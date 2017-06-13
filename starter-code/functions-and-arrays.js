@@ -77,3 +77,29 @@ function averageWordLength(array){
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 // 5.3
+
+var words = [
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
+];
+
+function uniquifyArray(array){
+  for (var i=0; i < array[i].length; i++) {
+    for (var j = 0; j < array[j].length; j++) {
+      if (i != j && array[i] === array[j]) {delete array[j]; }
+    }
+  }
+  return array;
+}
+
+var uniqued = uniquifyArray(words);
+console.log(uniqued);
