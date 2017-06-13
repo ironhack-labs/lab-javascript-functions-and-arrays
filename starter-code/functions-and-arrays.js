@@ -1,16 +1,16 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if(first>second){
+    return first}
+    else{
+    return second
+    }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
-
-}
-
 var words = [
   "mystery",
   "brother",
@@ -20,21 +20,45 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+
+function findLongestWord (words) {
+  var j = "";
+    for(var i=0; i < words.length; i++){
+        if( words[i].length > j.length) {
+            j = words[i];
+          }
+    }
+
+  return j
+}
+
+
+
 var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var j = 0;
+  for(var i = 0; i < numbers.length; i++) {
+    j = j + numbers[i];
+  }
+  return j
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
 
+
 // Calculate the Average
 function averageNumbers (array) {
-
+  var j = 0;
+  for(var i = 0; i < numbers.length; i++) {
+    j = j + numbers[i];
+  }
+  return j/numbers.length
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +67,11 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var j = 0;
+  for(var i = 0; i < words.length; i++) {
+    j = j + words[i].length;
+  }
+  return j/words.length
 }
 
 var words = [
@@ -62,10 +90,6 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
-
-}
-
 var words = [
   "crab",
   "poison",
@@ -79,14 +103,28 @@ var words = [
   "simple",
   "bring"
 ];
+
+var words2 = [];
+
+function uniquifyArray (array) {
+  for(var i = 0; i < words.length; i++) {
+      var j = words[i];
+      if(words2.indexOf(j) === -1) {
+        words2.push(j);
+      }
+    }
+  return words2
+}
+
+
+
+
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
+
+
 // Finding Elements
-function doesWordExist (wordsArray, word) {
-
-}
-
 var words = [
   "machine",
   "subset",
@@ -98,6 +136,21 @@ var words = [
   "disobedience"
 ];
 
+function doesWordExist (wordsArray, word) {
+  var result = false
+  for(i = 0; i < words.length; i++) {
+    if(words[i] === word) {
+      result = true
+      }
+
+
+    }
+    return result
+  }
+
+
+
+
 var hasMatter = doesWordExist(words, "matter");
 console.log(hasMatter);
 
@@ -105,23 +158,35 @@ var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
 // Counting Repetion
-function howManyTimes (words, word) {
+  var indices = []
+  var words = [
+    "machine",
+    "matter",
+    "subset",
+    "trouble",
+    "starting",
+    "matter",
+    "eating",
+    "matter",
+    "truth",
+    "disobedience",
+    "matter"
+  ];
+  var element = ""
+  var idx = words.indexOf(element);
 
+function howManyTimes (words, word) {
+  for(i = 0; i < words.length; i++) {
+    element = words[i];
+    while (idx != -1) {
+      indices.push(idx);
+      idx = words.indexOf(element, idx + 1);
+    }
+  }
+  return (indices)
 }
 
-var words = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
+
 
 var howManyMatter = howManyTimes(words, "matter");
 console.log(howManyMatter);
