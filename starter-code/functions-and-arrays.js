@@ -1,3 +1,6 @@
+/* Completed by Jonathyn (JB) Tellez and Julius Suominen for Barcelona Web Dev 2017 */
+
+
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
   
@@ -233,26 +236,7 @@ function getLeftValue(matrix, rowIndex, columnIndex) {
   
   return row[leftColumnIndex];
 }
-function greatestProductInArray(matrix) {
-  
-  var greatestProduct = 0;
-  
-  for (var j = 0; j < matrix.length; j++) {
-    
-    var arr = matrix[j];
-    
-    for (var i = 0; i < arr.length - 3; i++) {
-      
-      var product = getProduct(arr.slice(i, i + 3));
-      
-      if (product > greatestProduct) {
-        greatestProduct = product;
-      }
-    }
-  }
-  
-  return greatestProduct;
-}
+
 function getProduct(nums) {
   return nums.reduce(function(acc, num){
     return acc * num;
@@ -283,7 +267,3 @@ var matrix = [
 ];
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
-console.log('up value', getUpValue(matrix, 19,0));
-console.log('left value', getLeftValue(matrix, 19,0));
-console.log('right value', getRightValue(matrix, 19,0));
-console.log('down value', getDownValue(matrix, 19,0));
