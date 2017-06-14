@@ -50,8 +50,6 @@ var total = sumArray(numbers);
 console.log(total);
 
 // Calculate the Average
-// NOS HEMOS QUEDADO A LA MITAD! AYUDA: Porque el result me da error?
-// Nos gustaría saber que falta
 function averageNumbers (array) {
   var sum = 0;
   for (var i=0; i<array.length; i++){
@@ -67,8 +65,13 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
+// Array of Strings
 function averageWordLength (array) {
-
+  for (var i = 0; i < array.length; i++) {
+    var letters = array[i].length ;
+    console.log(letters);
+  }
+  return letters;
 }
 
 var words = [
