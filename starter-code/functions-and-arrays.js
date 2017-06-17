@@ -1,32 +1,19 @@
-// #1 ---- Find the maximum
-function maxOfTwoNumbers (first, second) {
+//DAY 2 - FUNCTION AND ARRAYS
+//#1 Find the maximum
+//Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+function maxOfTwoNumbers(first, second){
   if (first > second) {
     return first;
-      } else {
-        return second;
-      }
-    }
-
-var largest = maxOfTwoNumbers(2, 6);
-// #1 ----- print out the largest number // 6
-console.log(largest);
-
-
-// #2 ------ Finding Longest Word
-var longestWord;
-
-var longestLength = 0;
-
-function findLongestWord (words) {
-  for (var i = 0; i < words.length; i++) {
-      if (words[i].length > longestLength){
-          longestWord = words[i];
-            longestLength = words[i].length;
-          }
-        }
-      return longestWord;
+  } else {
+    return second;
+  }
 }
 
+var largest = maxOfTwoNumbers(2, 6);
+console.log(largest); // 6
+
+//#2 Finding Longest Word
+//Write a function findLongestWord that takes an array of words and returns the length of the longest one.
 var words = [
   "mystery",
   "brother",
@@ -36,108 +23,92 @@ var words = [
   "orchard",
   "crackpot"
 ];
+//create an empty array and push the word's length inside
+var longestWord;
 
-var longest = findLongestWord(words);
-// #2 ----- print out the longest word // crocodile
-console.log(longest);
-
-
-// #3 ----- Calculating a Sum
-var sum = 0;
-
-function sumArray (array) {
-  for (var i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+function findLongestWord(array) {
+  var lgt = 0;
+  for (var i = 0; i < array.length; i++) {
+    if(array[i].length > lgt) {
+      lgt = array[i].length;
+      longestWord = array[i];
+    }
   }
-    return sum;
+  return longestWord;
 }
+var longest = findLongestWord(words);
+console.log(longest); // crocodile
+
+//#3 Calculating a Sum
+//Calculating a sum is as simple as iterating over an array and adding each of the elements together.
+//Semantically reduce is the best method to use for this, but you can use any loop we've discussed so far.
+//Calculate the sum of the following array:
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-var total = sumArray(numbers);
-// #3 ----- print out the sum // 87
-console.log(total);
+var numbersAdded = [];
 
-
-// #4  LEVEL 1 ----- Calculate the Average
-function sumArray2 (array) {
-  for (var sum = 0, i = 0; i < numbers2.length; i++) {
-    sum += numbers2[i];
-  }
-    return sum;
-}
-
-function averageNumbers (array) {
-  var averageArray = total2/numbers2.length;
-    return averageArray;
-}
-
-//counting the total of numbers2
-var numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
-
-//calling the sum of the numbers of the array
-var total2 = sumArray2(numbers2);
-console.log(total2);
-
-//# 4 LEVEL 1 ----- Calculating the average of the number's array // 6
-var average = averageNumbers(numbers);
-console.log(average);
-
-
-// # 4 LEVEL 2 ----- Array of Strings
-var numLengthArray = [];
-var avWordLength;
-
-//Calculating the word's length
-function wordLength(array) {
-  for (var i = 0; i < array.length; i++) {
-    numLengthArray.push(array[i].length);
-  }
-    return numLengthArray;
-}
-
-function sumArray3 (array) {
-  for (var sum = 0, i = 0; i < array.length; i++) {
+function sumArray(array){
+  for(var sum = 0, i = 0; i < array.length; i++) {
     sum += array[i];
   }
-    return sum;
+  return sum;
+}
+var total = console.log(sumArray(numbers));
+// 87
+
+//#4 Calculate the Average
+//Level 1: Array of Numbers
+//Write code to calculate the average of the following array:
+
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+//var numbersTotal = sumArray(numbers);
+//var arrayLength = numbers.length;
+
+function averageNumbers(array){
+  return sumArray(array) / array.length;
 }
 
-function averageWordLength (array) {
-  avWordLength = avSum / words2.length;
-    return avWordLength;
-}
+var average = averageNumbers(numbers);
+console.log(average);
+// 6
 
-var words2 = [
-  "seat",
-  "correspond",
-  "linen",
-  "motif",
-  "hole",
-  "smell",
-  "smart",
-  "chaos",
-  "fuel",
-  "palace"
+//Level 2: Array of Strings
+//Write code to calculate the average length of the strings inside of the following array:
+
+var words = [
+	"seat",
+	"correspond",
+	"linen",
+	"motif",
+	"hole",
+	"smell",
+	"smart",
+	"chaos",
+	"fuel",
+	"palace"
 ];
 
-//priting out the wordLength function
-var result = wordLength(words2);
-//console.log(result);
+var wordsLength = [];
 
-//printing out the sumArray3 function
-var avSum = sumArray3(numLengthArray);
-//console.log(avSum);
+function averageWordLength(array){
+  array.forEach(function(array) {
+    wordsLength.push(array.length);
+  });
 
-//#4 LEVEL 2----- printig out the average length of the string array // 5.3
-var averageLength = averageWordLength(words2);
-console.log(averageLength);
-
-// # 5 ----- Unique Arrays
-function uniquifyArray (array) {
-
+  return wordsLength / array.length;
 }
 
+averageWordLength(words);
+
+var averageLength = averageNumbers(wordsLength);
+console.log(averageLength);
+// 5.3
+
+//#5 Unique Arrays
+//Take the following array, remove the duplicates, and return a new array. You're more than likely going to want to check out the indexOf function.
+//Do this in the form of a function.
+/*
 var words = [
   "crab",
   "poison",
@@ -151,83 +122,29 @@ var words = [
   "simple",
   "bring"
 ];
-var uniqued = uniquifyArray(words);
+var duplicates = [];
+//find the duplicate words indexes and put them into a new array
+function findDuplicates(array, arrayN) {
+  for (var i = 0; i < array.length - 1; i++) {
+    if (array[i + 1] === array[i]) {
+      arrayN.push(array.indexOf(array[i]));
+    }
+  }
+  return newArray;
+}
+
+console.log(findDuplicates(words, duplicates));
+
+
+var uniqueArray = [];
+function uniquifyArray(array, arrayN){
+  for (var i = 0; i < array.length; i++) {
+    arrayN.push(array.splice(findDuplicates(array), 1));
+  }
+return array;
+}
+
+var uniqued = uniquifyArray(words, uniqueArray);
 console.log(uniqued);
-
-// Finding Elements
-function doesWordExist (wordsArray, word) {
-
-}
-
-var words = [
-  "machine",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "truth",
-  "disobedience"
-];
-
-var hasMatter = doesWordExist(words, "matter");
-console.log(hasMatter);
-
-var hasDog = doesWordExist(words, "dog");
-console.log(hasDog);
-
-// Counting Repetion
-function howManyTimes (words, word) {
-
-}
-
-var words = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
-
-var howManyMatter = howManyTimes(words, "matter");
-console.log(howManyMatter);
-
-var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
-
-// Bonus Quest
-function greatestProduct (matrix) {
-
-}
-
-var matrix = [
-  [8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8],
-  [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,4,56,62,0],
-  [81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,3,49,13,36,65],
-  [52,70,95,23,4,60,11,42,69,24,68,56,1,32,56,71,37,2,36,91],
-  [22,31,16,71,51,67,63,89,41,92,36,54,22,40,40,28,66,33,13,80],
-  [24,47,32,60,99,3,45,2,44,75,33,53,78,36,84,20,35,17,12,50],
-  [32,98,81,28,64,23,67,10,26,38,40,67,59,54,70,66,18,38,64,70],
-  [67,26,20,68,2,62,12,20,95,63,94,39,63,8,40,91,66,49,94,21],
-  [24,55,58,5,66,73,99,26,97,17,78,78,96,83,14,88,34,89,63,72],
-  [21,36,23,9,75,0,76,44,20,45,35,14,0,61,33,97,34,31,33,95],
-  [78,17,53,28,22,75,31,67,15,94,3,80,4,62,16,14,9,53,56,92],
-  [16,39,5,42,96,35,31,47,55,58,88,24,0,17,54,24,36,29,85,57],
-  [86,56,0,48,35,71,89,7,5,44,44,37,44,60,21,58,51,54,17,58],
-  [19,80,81,68,5,94,47,69,28,73,92,13,86,52,17,77,4,89,55,40],
-  [4,52,8,83,97,35,99,16,7,97,57,32,16,26,26,79,33,27,98,66],
-  [88,36,68,87,57,62,20,72,03,46,33,67,46,55,12,32,63,93,53,69],
-  [4,42,16,73,38,25,39,11,24,94,72,18,8,46,29,32,40,62,76,36],
-  [20,69,36,41,72,30,23,88,34,62,99,69,82,67,59,85,74,4,36,16],
-  [20,73,35,29,78,31,90,1,74,31,49,71,48,86,81,16,23,57,5,54],
-  [1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48],
-];
-
-var maxProduct = greatestProduct(matrix);
-console.log(maxProduct);
+// ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "communion"]
+*/
