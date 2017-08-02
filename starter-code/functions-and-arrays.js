@@ -1,6 +1,10 @@
 // Find the maximum
-function maxOfTwoNumbers (first, second) {
 
+function maxOfTwoNumbers (first, second) {
+  var numList = [first, second];
+  var maxNum = numList.sort().reverse(); //sort the numbers in order and then reverse it
+  maxNum = maxNum[0]; //select the index[0] because it's sorted in descendant order
+  return maxNum;
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,6 +12,16 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
+
+  var longestWord = words.sort(function(a, b){
+      // ASC  -> a.length - b.length
+      // DESC -> b.length - a.length
+
+      return b.length - a.length; //it sorts the elements from the longest to the shortest
+    });
+
+    longestWord = longestWord[0] // save the index[0] because it's sorted in descendant order
+    return longestWord;
 
 }
 
@@ -20,12 +34,17 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+
 var longest = findLongestWord(words);
 console.log(longest);
+
 
 // Calculating a Sum
 function sumArray (array) {
 
+  for (var i = 0, sum = 0; i < array.length; sum += array[i++]); //sum += array[i++] means sum each array value
+  return sum;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +53,9 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  for (var i = 0, sum = 0; i < array.length; sum += array[i++]);
+  var getAverage = sum / array.length; //in the previous exercise we got the sum. Here it's only necessary to calculate the avg
+  return getAverage
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +64,10 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
+  for (var i = 0, sumArray = 0; i < array.length; sumArray += array[i++].length);
 
+  avgLength = sumArray / array.length;
+  return avgLength;
 }
 
 var words = [
@@ -63,7 +87,12 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newArray = [];
+  array.forEach(function(word, index){
+    if (index === array.indexOf(word)) //only if index is equal to the first time it finds the word -->
+      newArray.push(word); //adds the word to the array
+  })
+  return newArray;
 }
 
 var words = [
@@ -84,6 +113,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
+
+  if (wordsArray.includes(word)) { //includes checks if the word it's within the array
+   return true;
+ } else {
+   return false;
+ }
 
 }
 
