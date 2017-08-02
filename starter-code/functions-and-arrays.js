@@ -1,6 +1,12 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if(first>second) {
+    return first;
+  } else if (second>first) {
+    return second;
+  } else {
+    return "The two numbers are equals";
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +14,15 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+  var longest=0;
+  var name="";
+  words.forEach(function(element) {
+    if (element.length>longest) {
+      name=element;
+      longest=element.length;
+    }
+  });
+  return name;
 }
 
 var words = [
@@ -25,6 +39,11 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
+  var sum=0;
+  array.forEach(function(element) {
+    sum+=element;
+  });
+  return sum;
 
 }
 
@@ -34,6 +53,7 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
+  return sumArray(array)/array.length;
 
 }
 
@@ -42,8 +62,13 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
 
+function averageWordLength (array) {
+  var lengthWords=[];
+  array.forEach(function(element) {
+    lengthWords.push(element.length);
+  });
+  return averageNumbers(lengthWords);
 }
 
 var words = [
@@ -63,6 +88,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
+  var uniqueWords=[];
+  array.forEach(function(element) {
+    if (uniqueWords.indexOf(element) === -1) {
+      uniqueWords.push(element);
+    }
+  });
+  return uniqueWords;
 
 }
 
@@ -77,14 +109,21 @@ var words = [
   "poison",
   "communion",
   "simple",
-  "bring"
+  "bring",
 ];
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var isWordFound=false;
+  words.forEach(function(element){
+    if (element===word) {
+      isWordFound=true;
+      return isWordFound;
+    }
+  });
+  return isWordFound;
 }
 
 var words = [
@@ -106,7 +145,14 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
+  var times=0;
+  words.forEach(function(element){
+    if (element===word) {
+      times++;
 
+    }
+  });
+  return times;
 }
 
 var words = [
@@ -130,8 +176,22 @@ var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
 
 // Bonus Quest
-function greatestProduct (matrix) {
 
+function correctPosition (i) {
+  return(i+matrixSize)%matrixSize;
+}
+
+function greatestProduct (matrix) {
+  var max=0;
+  for (var i=0; i<matrix.length-1; i++) {
+    for (var j=0; j<matrix[i].length-1; j++){
+      product=matrix[correctPosition(i-1)][j]*matrix[correctPosition(i+1)][j]*matrix[i][correctPosition(j-1)]*matrix[i][correctPosition(j+1)];
+      if(product>max) {
+        max=product;
+      }
+    }
+  }
+  return max;
 }
 
 var matrix = [
@@ -156,6 +216,7 @@ var matrix = [
   [20,73,35,29,78,31,90,01,74,31,49,71,48,86,81,16,23,57,05,54],
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
+var matrixSize=matrix.length;
 
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
