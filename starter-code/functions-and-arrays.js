@@ -1,14 +1,32 @@
 // Find the maximum
-function maxOfTwoNumbers (first, second) {
+function maxOfTwoNumbers(first, second) {
+  const equalNumbers = `Both numbers are equal`;
 
+  if (first > second) {
+    return first;
+  } else if (second > first) {
+    return second;
+  } else {
+    return equalNumbers;
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
+function findLongestWord(words) {
+  let longestWord = '';
+  let output;
 
+  words.forEach(word => {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+      output = `Longest word: ${longestWord}, length: ${longestWord.length}`;
+    }
+  });
+
+  return output;
 }
 
 var words = [
@@ -24,8 +42,10 @@ var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
-function sumArray (array) {
-
+function sumArray(array) {
+  return array.reduce((previous, current) => {
+    return previous + current;
+  }, 0);
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -33,8 +53,12 @@ var total = sumArray(numbers);
 console.log(total);
 
 // Calculate the Average
-function averageNumbers (array) {
+function averageNumbers(array) {
+  const sum = sumArray(array);
 
+  const average = sum / array.length;
+
+  return average;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -42,8 +66,18 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
+function averageWordLength(array) {
+  let averageLength;
+  let output;
 
+  let totalWordLength = array.reduce((acc, current) => {
+    return acc += current.length;
+  }, 0);
+
+  averageLength = totalWordLength / array.length;
+  output = `Amount of words: ${array.length}, average length: ${averageLength}`;
+
+  return output;
 }
 
 var words = [
@@ -62,8 +96,16 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
+function uniquifyArray(array) {
+  const uniqueArray = [];
 
+  array.forEach(word => {
+    if (uniqueArray.indexOf(word) === -1 ) {
+      uniqueArray.push(word);
+    }
+  });
+
+  return uniqueArray;
 }
 
 var words = [
@@ -83,8 +125,16 @@ var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
 // Finding Elements
-function doesWordExist (wordsArray, word) {
+function doesWordExist(wordsArray, word) {
+  let searchResult = wordsArray.filter(wordToSearch => {
+    return wordToSearch === word;
+  });
 
+  if (searchResult.length > 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 var words = [
@@ -105,8 +155,24 @@ var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
 // Counting Repetion
-function howManyTimes (words, word) {
+function howManyTimes(wordsArray, wordToSearch) {
+  let output;
 
+  let wordCounter = wordsArray.reduce((acc, word) => {
+    if (word === wordToSearch) {
+      acc++;
+    }
+
+    return acc;
+  }, 0);
+
+  if (wordCounter > 0) {
+    output = `The word ${wordToSearch} appears ${wordCounter} times.`;
+  } else {
+    output = `The word ${wordToSearch} is not part of this list.`;
+  }
+
+  return output;
 }
 
 var words = [
