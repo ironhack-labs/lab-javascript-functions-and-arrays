@@ -1,17 +1,20 @@
-// Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  return first > second ? first : second;
 }
 
-var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
-
-// Finding Longest Word
 function findLongestWord (words) {
-
+  var longest = 0;
+  var longestWord = "";
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > longest) {
+      longestWord = words[i];
+      longest = words[i].length;
+    }
+  }
+  return longestWord;
 }
 
-var words = [
+findLongestWord([
   "mystery",
   "brother",
   "aviator",
@@ -19,34 +22,26 @@ var words = [
   "pearl",
   "orchard",
   "crackpot"
-];
-var longest = findLongestWord(words);
-console.log(longest);
+]);
 
-// Calculating a Sum
-function sumArray (array) {
+const sumArray=array=>array.reduce((a,b)=>a+b);
 
-}
+sumArray([6, 12, 1, 18, 13, 16, 2, 1, 8, 10]);
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+const averageNumbers=array=>sumArray(array)/array.length;
 
-// Calculate the Average
-function averageNumbers (array) {
-
-}
-
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
-console.log(average);
-
-// Array of Strings
 function averageWordLength (array) {
-
+  var sum = 0;
+  /*for (var i = 0; i < array.length; i++) {
+    sum += array[i].length;
+  }*/
+  array.forEach(function(word) {
+    sum += word.length;
+  });
+  return sum / array.length;
 }
 
-var words = [
+averageWordLength([
   "seat",
   "correspond",
   "linen",
@@ -57,16 +52,19 @@ var words = [
   "chaos",
   "fuel",
   "palace"
-];
-var averageLength = averageWordLength(words);
-console.log(averageLength);
+]);
 
-// Unique Arrays
 function uniquifyArray (array) {
-
+  var newArray = [];
+  array.forEach(word => {
+    if (!newArray.includes(word)) {
+      newArray.push(word);
+    }
+  });
+  return newArray;
 }
 
-var words = [
+uniquifyArray([
   "crab",
   "poison",
   "contagious",
@@ -78,14 +76,7 @@ var words = [
   "communion",
   "simple",
   "bring"
-];
-var uniqued = uniquifyArray(words);
-console.log(uniqued);
-
-// Finding Elements
-function doesWordExist (wordsArray, word) {
-
-}
+]);
 
 var words = [
   "machine",
@@ -98,41 +89,20 @@ var words = [
   "disobedience"
 ];
 
-var hasMatter = doesWordExist(words, "matter");
-console.log(hasMatter);
+const doesWordExist=(wordsArray, word)=>wordsArray.includes(word);
 
-var hasDog = doesWordExist(words, "dog");
-console.log(hasDog);
+doesWordExist(words, "matte");
 
-// Counting Repetion
 function howManyTimes (words, word) {
-
+  var count = 0;
+  words.forEach(function(w){
+    if(w === word){
+      count++;
+    }
+  });
+  return count;
 }
 
-var words = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
-
-var howManyMatter = howManyTimes(words, "matter");
-console.log(howManyMatter);
-
-var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
-
-// Bonus Quest
-function greatestProduct (matrix) {
-
-}
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
@@ -157,5 +127,38 @@ var matrix = [
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
 
-var maxProduct = greatestProduct(matrix);
-console.log(maxProduct);
+function greatestProduct(matrix){
+  var products = [];
+  for(var x = 0; x < matrix.length; x++){
+    for(var y = 0; y < matrix[x].length; y++) {
+      var n = matrix[x][y];
+
+      if (x === 0) {
+        if (y === 0) {
+          products.push(matrix[x][y+1] * matrix[x+1][y]);
+        } else if (y === matrix.length - 1) {
+          products.push(matrix[x][y-1] * matrix[x+1][y]);
+        } else {
+          products.push(matrix[x][y-1] * matrix[x][y+1] * matrix[x+1][y]);
+        }
+      } else if (x === matrix.length - 1) {
+        if (y === 0) {
+          products.push(matrix[x][y+1] * matrix[x-1][y]);
+        } else if (y === matrix.length - 1) {
+          products.push(matrix[x][y-1] * matrix[x-1][y]);
+        } else {
+          products.push(matrix[x][y-1] * matrix[x][y+1] * matrix[x-1][y]);
+        }
+      } else if (y === 0) {
+        products.push(matrix[x-1][y] * matrix[x][y+1] * matrix[x+1][y]);
+      } else if (y === matrix.length - 1) {
+        products.push(matrix[x-1][y] * matrix[x][y-1] * matrix[x+1][y]);
+      } else {
+        products.push(matrix[x-1][y] * matrix[x][y-1] * matrix[x+1][y] * matrix[x][y+1]);
+      }
+    }
+  }
+  return Math.max.apply(Math, products);
+}
+
+greatestProduct(matrix);
