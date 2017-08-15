@@ -1,137 +1,220 @@
-// Find the maximum
-function maxOfTwoNumbers (first, second) {
+// // Find the maximum
+// function maxOfTwoNumbers (first, second) {
+//   if (first>second) {
+//     return first;
+//   } else {
+//     return second;
+//   }
+// }
 
-}
-
-var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
+// var largest = maxOfTwoNumbers(2, 6);
+// console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
+// function findLongestWord (words) {
+//   var empty = "";
+//   for (i=0; i<words.length; i++) {
+//     if (words[i].length > empty.length) {
+//       empty = words[i];
+//     }
+//   }
+//   return empty;
+// }
 
-}
-
-var words = [
-  "mystery",
-  "brother",
-  "aviator",
-  "crocodile",
-  "pearl",
-  "orchard",
-  "crackpot"
-];
-var longest = findLongestWord(words);
-console.log(longest);
+// var words = [
+//   "mystery",
+//   "brother",
+//   "aviator",
+//   "crocodile",
+//   "pearl",
+//   "orchard",
+//   "crackpot"
+// ];
+// var longest = findLongestWord(words);
+// console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var total = 0;
+  for (i=0; i < array.length; i++) {
+    total += array[i];
+  }
+  return total;
 }
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+// var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// var total = sumArray(numbers);
+// console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  return sumArray(array)/array.length;
 }
 
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
-console.log(average);
+// var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+// var average = averageNumbers(numbers);
+// console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+ var emptyArray=[];
+ for (i=0; i < array.length; i++) {
+     emptyArray.push(array[i].length);
+   }
+  return averageNumbers(emptyArray);
 }
 
-var words = [
-  "seat",
-  "correspond",
-  "linen",
-  "motif",
-  "hole",
-  "smell",
-  "smart",
-  "chaos",
-  "fuel",
-  "palace"
-];
-var averageLength = averageWordLength(words);
-console.log(averageLength);
+// var words = [
+//   "seat",
+//   "correspond",
+//   "linen",
+//   "motif",
+//   "hole",
+//   "smell",
+//   "smart",
+//   "chaos",
+//   "fuel",
+//   "palace"
+// ];
+// var averageLength = averageWordLength(words);
+// console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var emptyArray = [];
+  for (i=0;i<array.length;i++) {
+    if (array.indexOf(array[i],(i + 1)) === -1) {
+      emptyArray.push(array[i]);
+    }
+  }
+  return emptyArray;
 }
 
-var words = [
-  "crab",
-  "poison",
-  "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
-  "poison",
-  "communion",
-  "simple",
-  "bring"
-];
-var uniqued = uniquifyArray(words);
-console.log(uniqued);
+// var words = [
+//   "crab",
+//   "poison",
+//   "contagious",
+//   "simple",
+//   "bring",
+//   "sharp",
+//   "playground",
+//   "poison",
+//   "communion",
+//   "simple",
+//   "bring"
+// ];
+// var uniqued = uniquifyArray(words);
+// console.log(uniqued);
 
-// Finding Elements
+// // Finding Elements
 function doesWordExist (wordsArray, word) {
+  for (i=0; i<wordsArray.length; i++) {
+    if (wordsArray[i] === word) {
+      return true;
+    }
 
+  }
+  return false;
 }
 
-var words = [
-  "machine",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "truth",
-  "disobedience"
-];
+// var words = [
+//   "machine",
+//   "subset",
+//   "trouble",
+//   "starting",
+//   "matter",
+//   "eating",
+//   "truth",
+//   "disobedience"
+// ];
 
-var hasMatter = doesWordExist(words, "matter");
-console.log(hasMatter);
+// var hasMatter = doesWordExist(words, "matter");
+// console.log(hasMatter);
 
-var hasDog = doesWordExist(words, "dog");
-console.log(hasDog);
+// var hasDog = doesWordExist(words, "dog");
+// console.log(hasDog);
 
-// Counting Repetion
+// // Counting Repetion
 function howManyTimes (words, word) {
+  var count = 0;
+  for (i=0; i<words.length; i++) {
+    if (words[i] === word) {
+      count += 1;
+    }
 
+  }
+  return count;
 }
 
-var words = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
+// var words = [
+//   "machine",
+//   "matter",
+//   "subset",
+//   "trouble",
+//   "starting",
+//   "matter",
+//   "eating",
+//   "matter",
+//   "truth",
+//   "disobedience",
+//   "matter"
+// ];
 
-var howManyMatter = howManyTimes(words, "matter");
-console.log(howManyMatter);
+// var howManyMatter = howManyTimes(words, "matter");
+// console.log(howManyMatter);
 
-var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
+// var howManyDog = howManyTimes(words, "dog");
+// console.log(howManyDog);
 
-// Bonus Quest
+// // Bonus Quest
 function greatestProduct (matrix) {
+  var total = 0;
+  for (i = 0; i < matrix.length; i++) {
+    for (j = 0; j < matrix.length; j++) {
+      var product = 0;
+       
+      if (i != 0 && j != 0 && i != matrix.length - 1 && j != matrix.length - 1) {
 
+      product = matrix[i][j+1] * matrix[i][j - 1] * matrix[i - 1][j] * matrix[i + 1][j];
+
+      } else if (i === 0 && j === 0) {
+
+      product = matrix[i][j+1] * matrix[i][matrix.length - 1] * matrix[matrix.length - 1][j] * matrix[i + 1][j];
+
+      } else if (j === 0 && i === matrix.length - 1) {
+
+      product = matrix[i][j+1] * matrix[i][matrix.length - 1] * matrix[i - 1][j] * matrix[0][j];
+
+      } else if (j === matrix.length && i === 0) {
+
+      product = matrix[i][0] * matrix[i][j - 1] * matrix[matrix.length - 1][j] * matrix[i + 1][j];
+
+      } else if (j === matrix.length && i === matrix.length - 1) {
+
+      product = matrix[i][0] * matrix[i][j - 1] * matrix[i - 1][j] * matrix[0][j];
+
+      } else if (i === 0) {
+
+      product = matrix[i][j+1] * matrix[i][j - 1] * matrix[matrix.length - 1][j] * matrix[i + 1][j];
+
+      } else if (j === 0) {
+
+      product = matrix[i][j+1] * matrix[i][matrix.length - 1] * matrix[matrix.length - 1][j] * matrix[i + 1][j];
+
+      } else if (i === matrix.length - 1) {
+
+      product = matrix[0][j] * matrix[i - 1][j] * matrix[i][j + 1] * matrix[i][j - 1];
+
+      } else if (j === matrix.length - 1) {
+
+      product = matrix[i][0] * matrix[i][j - 1] * matrix[i - 1][j] * matrix[i + 1][j];
+      } 
+      if (product > total) {
+        total = product;
+      }
+    }
+  }
+  return total; 
 }
 
 var matrix = [
