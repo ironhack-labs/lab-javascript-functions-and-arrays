@@ -211,9 +211,38 @@ function greatestProduct(nums){
   var currentValue = 0;
   for(var i = 0; i < nums.length; i++){
     for(var j = 0; j< nums[i].length; j++){
+      if(i === 0 && j === 0){
+        currentValue = nums[0][1] * nums[1][0];
+        if(finalValue < currentValue){
+         finalValue = currentValue;
+       }
+      }
+      else if(i === 0 && j === nums[0].length-1){
+        currentValue = nums[i][j-1]*nums[i+1][j];
 
-
-      if(i>0 && i<nums.length-1 && j>0 && j<nums[i].length-1){
+      if(finalValue < currentValue){
+         finalValue = currentValue;
+       }
+      }
+      else if(i=== nums.length-1 && j === nums[i].length-1){
+        currentValue = nums[i-1][j]*nums[i][j-1]
+        if(finalValue < currentValue){
+         finalValue = currentValue;
+       }
+      }
+      else if (i === nums.length-1 && j === 0){
+        currentValue = nums[i-1][j]*nums[i][j+1];
+        if(finalValue < currentValue){
+         finalValue = currentValue;
+       }
+      }
+      else if (i === 0){
+        currentValue = nums[i][j-1]*nums[i][j+1]*nums[i+1][j];
+         if(finalValue < currentValue){
+         finalValue = currentValue;
+       }
+      }
+      else if(i>0 && i<nums.length-1 && j>0 && j<nums[i].length-1){
 
       currentValue = nums[i-1][j]*nums[i][j+1]*nums[i][j-1]*nums[i+1][j];
 
