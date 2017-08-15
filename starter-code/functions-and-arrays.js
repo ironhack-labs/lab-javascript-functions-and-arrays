@@ -1,16 +1,21 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first > second) {
+    console.log(first);
+  }
+  else if (first < second){
+    console.log(second);
+  }
+  else{
+    console.log("son iguales");
+  }
 }
+
+maxOfTwoNumbers(2,0);
 
 var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
-
-}
-
 var words = [
   "mystery",
   "brother",
@@ -20,32 +25,53 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+function findLongestWord (words) {
+  max = words[0].length;
+
+  for (var i = 0; i < words.length; i++) {
+
+    if (max < words[i].length){
+      max = words[i].length;
+    }
+  }
+  console.log("la palabra mas larga tiene " +max + " letras");
+}
+
 var longest = findLongestWord(words);
-console.log(longest);
 
 // Calculating a Sum
-function sumArray (array) {
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (array) {
+  var result=0;
+  for (var i=0; i < array.length; i++){
+     result += array[i];
+  }
+   return(result);
 }
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
-console.log(total);
+console.log("lo q devuelve la funcion es " + total);
 
 // Calculate the Average
-function averageNumbers (array) {
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (array) {
+  var result=0;
+  for (var i=0; i < array.length; i++){
+     result += array[i];
+  }
+
+   var average = result/array.length;
+   return(average);
 }
 
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
-console.log(average);
+var total = averageNumbers (numbers);
+console.log(total);
+
 
 // Array of Strings
-function averageWordLength (array) {
-
-}
-
 var words = [
   "seat",
   "correspond",
@@ -58,14 +84,29 @@ var words = [
   "fuel",
   "palace"
 ];
-var averageLength = averageWordLength(words);
-console.log(averageLength);
 
-// Unique Arrays
-function uniquifyArray (array) {
-
+for(i=0; i<words.length; i++){
+  words[i] = words[i].length;
 }
 
+function averageNumbers (array) {
+  var result=0;
+  for (var i=0; i < array.length; i++){
+     result += array[i];
+  }
+
+   var average = result/array.length;
+   return(average);
+}
+
+var total = averageNumbers (words);
+console.log(total);
+
+
+
+
+// Unique Arrays
+// Unique Arrays
 var words = [
   "crab",
   "poison",
@@ -79,6 +120,21 @@ var words = [
   "simple",
   "bring"
 ];
+
+var uniqued = [];
+function uniquifyArray (array,array2) {
+  for(i=0; i<array.length; i++){
+    for(j=0; j<array2.length;j++){
+      if(array[i] != array2[j]){
+        array2[j] = array[i]
+      }
+
+    }
+  }
+
+}
+
+
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
