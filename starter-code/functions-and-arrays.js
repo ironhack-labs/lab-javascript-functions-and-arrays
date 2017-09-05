@@ -183,16 +183,128 @@ var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
 
 // Bonus Quest
+
+//The following function works but I found a better solution, scroll past it! :)
+
+/*function greatestProduct (matrix) {
+  var max_product = 0
+  for (var row = 0; row < matrix.length; row++) {
+    for (var column = 0; column < matrix[row].length; column++) {
+      //current element => matrix[row][column]
+
+      // =========================
+      // Special case: corners
+      // =========================
+
+      // corner 1
+      if (row === 0 && column == 0) {
+        var product = matrix[row + 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // corner 2
+      if (row === 0 && column == matrix[row].length - 1) {
+        var product = matrix[row + 1][column] * matrix[row][column - 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // corner 3
+      if (row === matrix.length - 1 && column == 0) {
+        var product = matrix[row - 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // corner 4
+      if (row === matrix.length - 1 && column == matrix[row].length - 1) {
+        var product = matrix[row - 1][column] * matrix[row][column - 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // =========================
+      // Special case: Rows
+      // =========================
+      if (row === 0) {
+        var product = matrix[row][column - 1] * matrix[row + 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      if (row === matrix.length - 1) {
+        var product = matrix[row][column - 1] * matrix[row - 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // =========================
+      // Special case: Columns
+      // =========================
+      if (column === 0 && row != 0 && row != matrix.length - 1) {
+        var product = matrix[row - 1][column] * matrix[row][column + 1] * matrix[row + 1][column]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      if (column === matrix[row].length - 1 && row != 0 && row != matrix.length - 1) {
+        var product = matrix[row - 1][column] * matrix[row][column + 1] * matrix[row + 1][column]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // =========================
+      // General case
+      // =========================
+      if (column != 0 && row != 0 && column != matrix[row].length - 1 && row != matrix.length - 1) {
+        var product = matrix[row + 1][column] * matrix[row - 1][column] * matrix[row][column - 1] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+  }}
+  return max_product
+}*/
+
 function greatestProduct (matrix) {
   var max_product = 0
   for (var row = 0; row < matrix.length; row++) {
     for (var column = 0; column < matrix[row].length; column++) {
-      //matrix[row][column]
-      if (row === 0) {
+      //current element => matrix[row][column]
 
+      var prod1 = 1, prod2 = 1, prod3 = 1, prod4 = 1
+
+      if (matrix[row - 1]) {
+        prod1 = matrix[row - 1][column]
       }
+      if (matrix[row + 1]) {
+        prod2 = matrix[row + 1][column]
+      }
+      if (matrix[row][column - 1]) {
+        prod3 = matrix[row][column - 1]
+      }
+      if (matrix[row][column + 1]) {
+        prod4 = matrix[row][column + 1]
+      }
+
+      var product = prod1 * prod2 * prod3 * prod4
+
+      if (product > max_product) {
+        max_product = product
+      }
+    }
   }
-}}
+  return max_product
+}
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
