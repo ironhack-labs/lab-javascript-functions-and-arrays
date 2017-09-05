@@ -139,7 +139,7 @@ console.log(hasDog);
 function howManyTimes (array, word) {
   var newTab =[word];
   for (var i=0;i<array.length ; i++){
-    if (array.indexOf(word,i)===-1){
+    if (array.indexOf(word)===-1){
       return newTab.length-1;
     } else {
       newTab.push(word);
