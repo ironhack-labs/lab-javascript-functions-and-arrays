@@ -1,14 +1,28 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first >= second) {
+    return first
+  } else {
+    return second
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
+
 // Finding Longest Word
 function findLongestWord (words) {
+  var max_length = 0
+  var max_word = ''
 
+  words.forEach( function (word) {
+    if (word.length > max_length) {
+      max_length = word.length
+      max_word = word
+    }
+  })
+  return max_word
 }
 
 var words = [
@@ -23,27 +37,39 @@ var words = [
 var longest = findLongestWord(words);
 console.log(longest);
 
+
 // Calculating a Sum
 function sumArray (array) {
-
+  var sum = 0
+  for (var i = 0; i < numbers.length; i++) {
+    sum += array[i]
+  }
+  return sum
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
 
+
 // Calculate the Average
 function averageNumbers (array) {
-
+  return sumArray(array) / array.length
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
 console.log(average);
 
+
 // Array of Strings
 function averageWordLength (array) {
-
+  var lenArray = []
+  words.forEach( function (word) {
+    lenArray.push(word.length)
+  })
+/*  console.log(lenArray)*/
+  return averageNumbers(lenArray)
 }
 
 var words = [
@@ -61,9 +87,17 @@ var words = [
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 
+
+
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var uniqueArray = []
+  array.forEach( function (item) {
+    if (uniqueArray.indexOf(item) === -1) {
+      uniqueArray.push(item)
+    }
+  })
+  return uniqueArray
 }
 
 var words = [
@@ -82,9 +116,16 @@ var words = [
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
+
+
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  for (var i = 0; i < wordsArray.length; i++) {
+  if (wordsArray[i] === word) {
+      return true
+    }
+  }
+  return false
 }
 
 var words = [
@@ -104,9 +145,21 @@ console.log(hasMatter);
 var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
+
+
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  wordsBis = words
+  if (wordsBis.indexOf(word) === -1) {
+    return 0
+  } else { //minimum  number of 1
+    var counter = 0
+    while (wordsBis.indexOf(word) != -1) {
+      wordsBis.splice(wordsBis.indexOf(word), 1)
+      counter += 1
+    }
+    return counter
+  }
 }
 
 var words = [
@@ -130,8 +183,127 @@ var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
 
 // Bonus Quest
-function greatestProduct (matrix) {
 
+//The following function works but I found a better solution, scroll past it! :)
+
+/*function greatestProduct (matrix) {
+  var max_product = 0
+  for (var row = 0; row < matrix.length; row++) {
+    for (var column = 0; column < matrix[row].length; column++) {
+      //current element => matrix[row][column]
+
+      // =========================
+      // Special case: corners
+      // =========================
+
+      // corner 1
+      if (row === 0 && column == 0) {
+        var product = matrix[row + 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // corner 2
+      if (row === 0 && column == matrix[row].length - 1) {
+        var product = matrix[row + 1][column] * matrix[row][column - 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // corner 3
+      if (row === matrix.length - 1 && column == 0) {
+        var product = matrix[row - 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // corner 4
+      if (row === matrix.length - 1 && column == matrix[row].length - 1) {
+        var product = matrix[row - 1][column] * matrix[row][column - 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // =========================
+      // Special case: Rows
+      // =========================
+      if (row === 0) {
+        var product = matrix[row][column - 1] * matrix[row + 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      if (row === matrix.length - 1) {
+        var product = matrix[row][column - 1] * matrix[row - 1][column] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // =========================
+      // Special case: Columns
+      // =========================
+      if (column === 0 && row != 0 && row != matrix.length - 1) {
+        var product = matrix[row - 1][column] * matrix[row][column + 1] * matrix[row + 1][column]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      if (column === matrix[row].length - 1 && row != 0 && row != matrix.length - 1) {
+        var product = matrix[row - 1][column] * matrix[row][column + 1] * matrix[row + 1][column]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+
+      // =========================
+      // General case
+      // =========================
+      if (column != 0 && row != 0 && column != matrix[row].length - 1 && row != matrix.length - 1) {
+        var product = matrix[row + 1][column] * matrix[row - 1][column] * matrix[row][column - 1] * matrix[row][column + 1]
+        if (product > max_product) {
+          max_product = product
+        }
+      }
+  }}
+  return max_product
+}*/
+
+function greatestProduct (matrix) {
+  var max_product = 0
+  for (var row = 0; row < matrix.length; row++) {
+    for (var column = 0; column < matrix[row].length; column++) {
+      //current element => matrix[row][column]
+
+      var prod1 = 1, prod2 = 1, prod3 = 1, prod4 = 1
+
+      if (matrix[row - 1]) {
+        prod1 = matrix[row - 1][column]
+      }
+      if (matrix[row + 1]) {
+        prod2 = matrix[row + 1][column]
+      }
+      if (matrix[row][column - 1]) {
+        prod3 = matrix[row][column - 1]
+      }
+      if (matrix[row][column + 1]) {
+        prod4 = matrix[row][column + 1]
+      }
+
+      var product = prod1 * prod2 * prod3 * prod4
+
+      if (product > max_product) {
+        max_product = product
+      }
+    }
+  }
+  return max_product
 }
 
 var matrix = [
