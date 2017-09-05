@@ -1,6 +1,9 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first>=second) {
+    return first;
+  }
+    return second ;
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +11,15 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+  var result = words[0];
+  for(var i=1; i<words.length;i++) {
+    if (result.length > words[i].length) {
+      result = result;
+    } else {
+      result = words[i];
+    }
+  }
+  return result;
 }
 
 var words = [
@@ -25,7 +36,11 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var result = 0;
+  for (i=0; i<array.length ; i++){
+    result += array[i];
+  }
+  return result;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +49,11 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var result = 0;
+  for (i=0; i<array.length ; i++){
+    result += array[i];
+  }
+  return result/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +62,11 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var result = 0;
+  for(var i=0; i<array.length;i++) {
+    result += array[i].length;
+}
+ return result/array.length;
 }
 
 var words = [
@@ -63,7 +86,15 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newTab =[];
+  for (i=0;i<array.length ; i++){
+    if (newTab.indexOf(array[i])===-1){
+      newTab.push(array[i]);
+    } else {
+      continue;
+    }
+  }
+  return newTab;
 }
 
 var words = [
@@ -105,8 +136,17 @@ var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
 // Counting Repetion
-function howManyTimes (words, word) {
-
+function howManyTimes (array, word) {
+  var newTab =[word];
+  for (var i=0;i<array.length ; i++){
+    if (array.indexOf(word)===-1){
+      return newTab.length-1;
+    } else {
+      newTab.push(word);
+      array.splice(array.indexOf(word,i),1);
+    }
+  }
+  return newTab.length - 1;
 }
 
 var words = [
