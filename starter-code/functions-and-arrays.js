@@ -59,7 +59,7 @@ console.log(average);
 // Array of Strings
 function averageWordLength (array) {
   var newArray = [];
-  words.forEach(function(element, i){
+  array.forEach(function(element, i){
     var newElement = element.length;
     newArray.push(newElement);
     });
@@ -82,17 +82,44 @@ var words = [
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 
-// Unique Arrays
+/// Unique Arrays
 function uniquifyArray (array) {
   var uniqueArray = [];
+  var wordsIndexes = [];
+  var uniqueIndexes = [];
+  array.forEach(function(element, i) {
+    var index = array.indexOf(element);
+    wordsIndexes.push(index);
+    });
+
+    for (var j = 0; j < wordsIndexes.length-1; j++) {
+    if ( wordsIndexes[j] != j) { continue; }
+    else {
+      uniqueIndexes.push(wordsIndexes[j]);
+      uniqueArray.push(array[j]);
+    }
+    //console.log(uniqueIndexes);
+    }
+  //console.log(uniqueArray);
+
+  return uniqueArray;
+}
+
+// Unique Arrays
+/*
+Alternative possibility:
+
+ function uniquifyArray (array) {
+  var uniqueArray = [];
   array.forEach(function(element) {
-    var uniqueElement;
-    var index = element.indexOf();
-    uniqueElement = array[index];
-    uniqueArray[index] = uniqueElement;
+    if (uniqueArray.indexOf(element) === -1 ) {
+      uniqueArray.push(element);
+    }
   });
   return uniqueArray;
 }
+
+*/
 
 var words = [
   "crab",
@@ -110,9 +137,25 @@ var words = [
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
-// Finding Elements
+/* Finding Elements -- Thibaut's answer
 function doesWordExist (wordsArray, word) {
+ for (var i = 0; i < wordsArray.length; i++){
+   if (wordsArray[i] === word ) {
+     return true;
+   }
+ } return false;
+}
 
+*/
+
+// Finding Elements -- Liuda's answer
+
+function doesWordExist (wordsArray, word) {
+  var result = wordsArray.indexOf(word);
+  if (result===-1) {
+    return false;
+  }
+  return true;
 }
 
 var words = [
@@ -134,7 +177,12 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var counter=0;
+  for (var i= 0; i < words.length; i++){
+    if (words[i] === word) {
+      counter += 1;
+    }
+  } return counter;
 }
 
 var words = [
