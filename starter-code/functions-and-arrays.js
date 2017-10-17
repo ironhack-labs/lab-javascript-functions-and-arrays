@@ -103,6 +103,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
+var uniqueArr = [];
+array.forEach(function(word){
+  if (uniqueArr.indexOf(word) === -1) {
+    uniqueArr.push(word);
+  }
+});
+  return uniqueArr;
 
 }
 
