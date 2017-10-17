@@ -1,6 +1,10 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first > second){
+    return first;
+  } else {
+    return second;
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +12,13 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+ var longestWord = words[0].length;
+ for (var i = 0; i < words.length; i++) {
+   if (words[i].length > longestWord) {
+     longestWord = words[i];
+     return longestWord
+   }
+ }
 }
 
 var words = [
@@ -25,7 +35,10 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var suma = array.reduce(function(sum, value){
+    return sum + value;
+  }, 1);
+  return suma
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +47,9 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var total = sumArray(array);
+  var count = array.length;
+  return total/count
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +58,13 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var arrayLength = [];
+  array.forEach(function(word){
+    arrayLength.push(word.length);
+  });
+  var total = sumArray(arrayLength);
+  var count = array.length;
+  return total/count
 }
 
 var words = [
@@ -62,8 +83,15 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
-
+function uniquifyArray(array) {
+  var uniqueArray = [];
+  for (var i = 0; i < array.length; i++) {
+    var word = array[i];
+    if (array.indexOf(word) == i) {
+      uniqueArray.push(word);
+    }
+  }
+  return uniqueArray;
 }
 
 var words = [
@@ -84,7 +112,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  for(var i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] == word) {
+      return true;
+    }
+  }
+  return false;
 }
 
 var words = [
@@ -106,7 +139,12 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var wordCount = 0;
+  for (var i = 0; i < words.length; i++) {
+    if (words[i] == word)
+      wordCount++;
+  }
+  return wordCount;
 }
 
 var words = [
@@ -158,4 +196,4 @@ var matrix = [
 ];
 
 var maxProduct = greatestProduct(matrix);
-console.log(maxProduct);
+//console.log(maxProduct);
