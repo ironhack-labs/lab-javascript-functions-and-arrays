@@ -1,14 +1,22 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  var theBiggest = Math.max(first, second);
+  return theBiggest;
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
-// Finding Longest Word
-function findLongestWord (words) {
 
+// Finding the Longest word
+function findLongestWord(words) {
+  var longestWord = "";
+  words.forEach(function(word) {
+    if(word.length > longestWord.length) {
+      longestWord = word;
+    }
+  });
+  return longestWord;
 }
 
 var words = [
@@ -20,30 +28,46 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
 var longest = findLongestWord(words);
 console.log(longest);
 
+
 // Calculating a Sum
 function sumArray (array) {
-
+  var total = 0;
+  array.forEach(function(element) {
+    total += element;
+  });
+  return total;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
 
+
 // Calculate the Average
 function averageNumbers (array) {
-
+  var total = 0;
+  array.forEach(function(element) {
+    total += element;
+  });
+  return total/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
 console.log(average);
 
+
 // Array of Strings
 function averageWordLength (array) {
-
+  var total = "";
+  array.forEach(function(element) {
+    total += element;
+  });
+  return total.length/array.length;
 }
 
 var words = [
@@ -61,9 +85,16 @@ var words = [
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 
+
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newArray =[];
+  array.forEach(function(element) {
+    if (newArray.indexOf(element) === -1) {
+      newArray.push(element);
+    }
+  });
+  return newArray;
 }
 
 var words = [
@@ -82,6 +113,7 @@ var words = [
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
+/*
 // Finding Elements
 function doesWordExist (wordsArray, word) {
 
@@ -159,3 +191,4 @@ var matrix = [
 
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
+*/
