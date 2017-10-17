@@ -1,14 +1,29 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first>second) {
+    return first;
+  }
+  else {
+    return second;
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
+
 // Finding Longest Word
 function findLongestWord (words) {
+  var longest;
+  var flag = 0;
+ for(var i = 0; i < words.length ; i++){
+   if (words[i].length > flag ) {
+     flag = words[i].length;
+     longest = words[i];
+   }
+ }
 
+ return longest;
 }
 
 var words = [
@@ -25,7 +40,11 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var sumTotal=0;
+for (var i = 0; i < array.length; i++) {
+  sumTotal+= array[i];
+}
+return sumTotal;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +53,12 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+var sumTotal = 0;
+for (var i = 0; i < array.length; i++) {
+  sumTotal += array[i];
+}
+var avg = sumTotal/array.length;
+return avg;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +67,12 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+ var total = 0;
+ for (var i = 0; i < array.length; i++) {
+   total += array[i].length;
+ }
+ var avg = total/array.length;
+ return avg;
 }
 
 var words = [
@@ -63,6 +92,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
+  var temp ={};
+    for (var i = 0; i < array.length; i++)
+        temp[array[i]] = true;
+    var uarray = [];
+    for (var k in temp)
+        uarray.push(k);
+    return uarray;
 
 }
 
@@ -84,7 +120,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+var exist = false;
+for (var i = 0; i < wordsArray.length; i++) {
+  if (wordsArray[i] === word) {
+    exist = true;
+  }
+}return exist;
 }
 
 var words = [
@@ -106,7 +147,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+var flag = 0;
+for (var i = 0; i < words.length; i++) {
+  if (words[i] === word) {
+    flag ++;
+  }
+}
+return flag;
 }
 
 var words = [
