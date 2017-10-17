@@ -8,7 +8,7 @@ function maxOfTwoNumbers(first, second){
 
 var largest = maxOfTwoNumbers(2, 1);
 console.log(largest);
-// 6
+
 
 var words = [
   "mystery",
@@ -30,13 +30,10 @@ function findLongestWord(arr) {
       longestWord = arr[i];
     }
   }
-
   return longestWord;
-
 }
 
 findLongestWord(words);
-
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -49,65 +46,28 @@ function sum(a, b) {
 
 console.log(total);
 
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-
-var sumTotal = numbers.reduce(sum, 0);
-
-function avg(arr) {
-  return sumTotal / arr.length;
-}
-
-avg(numbers);
-
 var words = [
-	"seat",
-	"correspond",
-	"linen",
-	"motif",
-	"hole",
-	"smell",
-	"smart",
-	"chaos",
-	"fuel",
-	"palace"
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
 
-var lengthWord = 0;
-var averageWord = 0;
-
-function averageWordLength(array) {
-
-for (var i = 0; i < array.length; i++) {
-  lengthWord += array[i].length;
-  averageWord = lengthWord / array.length;
- }
- return averageWord;
-}
-averageWordLength(words);
-
-
-
-var result = [];
-
-words.forEach(function (item){
-  if (result.indexOf(item) < 0) {
-    result.push(item);
+function howManyTimes(array, what) {
+  var count = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === what) {
+      count++;
+    }
   }
-})
+  return count;
+}
 
-var words = [
-  "crab",
-  "poison",
-  "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
-  "poison",
-  "communion",
-  "simple",
-  "bring"
-];
-
-
-// ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "communion"]
+howManyTimes(words, "matter");
