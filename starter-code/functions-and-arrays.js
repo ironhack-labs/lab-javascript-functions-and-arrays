@@ -65,8 +65,25 @@ function stringToNum(arrayStr) {
   return numArr;
 }
 // Array of Strings
+function sumArray (array) {
+  console.log(array);
+  var totalSum = array.reduce(function(acc, el) {
+    return acc + el;
+  });
+  return totalSum;
+}
+
+function stringToNum(arrayStr) {
+  numArr = [];
+  arrayStr.forEach(function(word) {
+    numArr.push(word.length);
+  });
+  return numArr;
+}
+
 function averageWordLength (array) {
- stringToNum(array) + sumArray(array);
+ return sumArray(stringToNum(array)) / array.length;
+
 }
 
 var words = [
