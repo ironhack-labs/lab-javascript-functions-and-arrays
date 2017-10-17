@@ -4,11 +4,28 @@ function maxOfTwoNumbers (first, second) {
 }
 
 var largest = maxOfTwoNumbers(2, 6);
+
+function maxOfTwoNumbers(a,b) {
+  if (a >= b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
 console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
+  var c = 0;
 
+  words.forEach(function(e) {
+    if (c <= e.length) {
+      c = e.length;
+    }
+  });
+
+  return c;
 }
 
 var words = [
@@ -25,7 +42,9 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  return array.reduce(function (sum, val) {
+    return sum + val;
+  }, 0);
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +53,7 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  return sumArray(array)/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +62,13 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
+  var c = 0;
 
+  words.forEach(function(e) {
+    c += e.length;
+  });
+
+  return c/array.length;
 }
 
 var words = [
@@ -63,7 +88,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newArr = [];
+  array.forEach(function(e, i) {
+    if (newArr.indexOf(e) == -1) {
+      newArr.push(e);
+    }
+  });
+  return newArr;
 }
 
 var words = [
@@ -84,7 +115,15 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
+  var exist = false;
 
+  wordsArray.forEach(function(e){
+    if (e == word) {
+      exist = true;
+    }
+  });
+
+  return exist;
 }
 
 var words = [
@@ -106,7 +145,21 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
+  var c = 0;
 
+  words.forEach(function(e){
+    var exist = false;
+
+    if (e == word) {
+      exist = true;
+
+      if (exist) {
+        c += 1;
+      }
+    }
+  });
+
+  return c;
 }
 
 var words = [
