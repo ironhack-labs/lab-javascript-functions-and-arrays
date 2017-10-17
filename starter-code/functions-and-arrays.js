@@ -58,11 +58,11 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-    var wordslength = [];
-    array.forEach(function(word){
+    var wordsLength = [];
+    array.forEach(function(word) {
         wordslength.push(word.length);
     });
-    return averageNumbers(wordslength);
+    return averageNumbers(wordsLength);
 }
 
 var words = [
@@ -83,8 +83,8 @@ console.log(averageLength);
 // Unique Arrays
 function uniquifyArray (array) {
     var uniqueArray = [];
-    array.forEach(function(word){
-        if (uniqueArray.indexOf(word) === -1){
+    array.forEach(function(word) {
+        if (uniqueArray.indexOf(word) === -1) {
             uniqueArray.push(word);
         }
     });
@@ -137,7 +137,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+    var numberOfTimes = 0;
+    words.forEach(function(element) {
+        if (element === word) {
+            numberOfTimes++;
+        }
+    });
+    return numberOfTimes;
 }
 
 var words = [
