@@ -1,7 +1,13 @@
 // Find the maximum
+maxOfTwoNumbers (2,6);
 function maxOfTwoNumbers (first, second) {
-
-}
+    if (first>second)
+      return first;
+    else if (second>first)
+      return second;
+    else
+      return "iguales";
+  }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
