@@ -184,7 +184,37 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
+  console.log("matriz");
+  var c = 0;
+  var mult = 1;
+  matrix.forEach(function(vec, i){
+    vec.forEach(function(e,j){
 
+      if (i < 19) {
+        mult = mult * matrix[i+1][j];
+
+      }
+
+      if (j < 19) {
+        mult = mult * matrix[i][j+1];
+      }
+
+      if (i > 0) {
+        mult = mult * matrix[i-1][j];
+      }
+
+      if (j > 0) {
+        mult = mult * matrix[i][j-1];
+      }
+
+      if (mult > c) {
+        c = mult;
+
+      }
+      mult = 1;
+    });
+  });
+  return c;
 }
 
 var matrix = [
