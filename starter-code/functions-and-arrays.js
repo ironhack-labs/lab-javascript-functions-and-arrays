@@ -57,14 +57,6 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function sumArray (array) {
-  var suma = array.reduce(function(sum, value){
-    return sum + value;
-  }, 1);
-  return suma
-}
-
-
 function averageWordLength (array) {
   var arrayLength = [];
   array.forEach(function(word){
@@ -91,8 +83,15 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
-
+function uniquifyArray(array) {
+  var uniqueArray = [];
+  for (var i = 0; i < array.length; i++) {
+    var word = array[i];
+    if (array.indexOf(word) == i) {
+      uniqueArray.push(word);
+    }
+  }
+  return uniqueArray;
 }
 
 var words = [
@@ -113,7 +112,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  for(var i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] == word) {
+      return true;
+    }
+  }
+  return false;
 }
 
 var words = [
@@ -135,7 +139,12 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var wordCount = 0;
+  for (var i = 0; i < words.length; i++) {
+    if (words[i] == word)
+      wordCount++;
+  }
+  return wordCount;
 }
 
 var words = [
@@ -187,4 +196,4 @@ var matrix = [
 ];
 
 var maxProduct = greatestProduct(matrix);
-console.log(maxProduct);
+//console.log(maxProduct);
