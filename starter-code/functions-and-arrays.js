@@ -1,27 +1,37 @@
-// Find the maximum
-function maxOfTwoNumbers (first, second) {
-
+function maxOfTwoNumbers(first, second){
+    if(first>second){
+      console.log ("first");
+      return first;
+}else{
+      console.log ("second");
+      return second;
+}
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
-// Finding Longest Word
-function findLongestWord (words) {
+function findLongestWord(words){
+      var length = 0 , longestWord = "";
+      var pp = words.split(" ");
+      for(var i=0 ; i < pp.length; i++)
+      {
+        if(pp[i].length > length) {
+          length = pp[i].length;
+          longestWord = pp[i];
 
+        }
+        }
+        return longestWord;
 }
 
-var words = [
-  "mystery",
-  "brother",
-  "aviator",
-  "crocodile",
-  "pearl",
-  "orchard",
-  "crackpot"
-];
-var longest = findLongestWord(words);
-console.log(longest);
+      var words = ["mystery","brother","aviator","crocodile","pearl","orchard","crackpot"];
+      console.log ()
+
+      //var longest = findLongestWord(words);}
+//console.log(longest);
+// crocodile
+
 
 // Calculating a Sum
 function sumArray (array) {
