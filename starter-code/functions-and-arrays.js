@@ -1,6 +1,6 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  return Math.max(first, second)
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -20,46 +20,81 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+function findLongestWord(exampleArray){
+  var longWord = '';
+  for(var i=0; i<exampleArray.length; i++) {
+    if (exampleArray[i].length > longWord.length) {
+      longWord = exampleArray[i];
+    }
+  }
+  return longWord
+}
 var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
-function sumArray (array) {
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+/* function sumArray(array){
+  var result=0;
+for(var index= 0; index< array.length; index++){
+  result = result + array[index];
+}
+return result
+} */
+
+function sumArray(array){
+  var result=0;
+  array.forEach(function(number) {
+    result = result + number;
+  })
+  
+return result
 }
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+
+var total = sumArray(numbers)
+console.log("total",total)
 
 // Calculate the Average
-function averageNumbers (array) {
-
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+var average= 0;
+var result= 0;
+function averageNumbers(array){
+  for(index=0; index<array.length; index++){
+    result+= array[index]; 
+    average= result/array.length
+  }
+  return average
 }
 
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
-console.log(average);
+averageNumbers(numbers);
 
 // Array of Strings
-function averageWordLength (array) {
-
-}
-
 var words = [
-  "seat",
-  "correspond",
-  "linen",
-  "motif",
-  "hole",
-  "smell",
-  "smart",
-  "chaos",
-  "fuel",
-  "palace"
+	"seat",
+	"correspond",
+	"linen",
+	"motif",
+	"hole",
+	"smell",
+	"smart",
+	"chaos",
+	"fuel",
+	"palace"
 ];
+
+function averageWordLength(array){
+  var sum=0;
+  array.forEach(function(element){
+    sum+= element.length
+  })
+  return sum / array.length;
+}
 var averageLength = averageWordLength(words);
 console.log(averageLength);
+// 5.3
 
 // Unique Arrays
 function uniquifyArray (array) {
