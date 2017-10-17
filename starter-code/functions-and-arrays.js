@@ -1,14 +1,34 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first>second){
+    console.log ("first");
+  }
+  else if (second>first){
+    console.log ("second");
+  }
+  else {
+    console.log("the numbers are the same");
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
 
+function findLongestWord (words) {
+    var biggest="";
+    for ( var ix=0; ix < words.length; ix++){
+      if ( biggest.length < words[ix].length){
+        biggest=words[ix];
+      }
+    }
+    for ( var j=0; j<words.lenght; j++){
+      if (biggest.length==words[j].length){
+        console.log (words[j]);
+      }
+    }
+    console.log(biggest);
 }
 
 var words = [
@@ -20,12 +40,16 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
 var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var totalSum=0;
+  array.forEach(function(number){
+      totalSum+=number;
+    });
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +58,11 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var totalSum=0;
+  array.forEach(function(number){
+      totalSum+=number;
+    });
+    return totalSum/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,8 +71,13 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var total=0;
+  array.forEach(function(number){
+      total+=number.length;
+    });
+    return total/array.length;
 }
+
 
 var words = [
   "seat",
@@ -63,9 +96,14 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+    var newarray=[];
+    for ( var ix=0; ix < array.length; ix++){
+        if ( newarray.indexOf(array[ix])===-1 ){
+          newarray.push(array[ix]);
+        }
+    }
+    return newarray;
 }
-
 var words = [
   "crab",
   "poison",
@@ -84,7 +122,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var biggest="";
+  for ( var ix=0; ix < words.length; ix++){
+    if ( biggest.length < words[ix].length){
+      biggest=words[ix];
+    }
+  }
 }
 
 var words = [
