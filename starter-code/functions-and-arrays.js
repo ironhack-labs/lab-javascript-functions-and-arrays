@@ -1,15 +1,26 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if (first>second){
+    return(first)
+    } else {
+      return(second);
+    }
 }
 
+maxOfTwoNumbers(3,6)
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord (words) {
-
-}
+function findLongestWord(words) {
+  
+     var longestWord = 0;
+      for(var i = 0; i < words.length; i++){
+        console.log(words[i].length)
+      }
+      
+   
+ }
 
 var words = [
   "mystery",
