@@ -1,6 +1,10 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if(first > second) {
+    return first
+  } else {
+    return second
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
