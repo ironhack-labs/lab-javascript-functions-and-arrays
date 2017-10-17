@@ -1,14 +1,31 @@
 // Find the maximum
-function maxOfTwoNumbers (first, second) {
+maxOfTwoNumbers (3,5);
 
+function maxOfTwoNumbers (first, second) {
+  var result;
+  if (first>second){
+  result=first;
+  }
+  else if (first<second) {
+  result=second;
+  }
+  else {
+    result = 'both numbers are equal';
+  }
+  return result;
 }
 
-var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
-
 // Finding Longest Word
-function findLongestWord (words) {
-
+function findLongestWord (palabras) {
+  var longestWord='';
+  palabras.forEach(function (word){
+    var wordElement = word;
+    var wordLength= wordElement.length;
+    if (wordLength>longestWord.length){
+      longestWord=word;
+    }
+  });
+  return longestWord;
 }
 
 var words = [
@@ -20,17 +37,57 @@ var words = [
   "orchard",
   "crackpot"
 ];
-var longest = findLongestWord(words);
-console.log(longest);
+
+findLongestWord (words);
+console.log(findLongestWord (words));
+
+
+/*
+
+var longestWord='';
+
+function findLongestWord (words) {
+  for(var ix = 0; ix < words.length; ix++){
+    var wordElement = words[ix];
+    var wordLength= wordElement.length;
+    if (wordLength>longestWord.length){
+      longestWord=words[ix];
+  }
+    }
+
+ return longestWord;
+ //console.log(longestWord);
+}
+
+var words = [
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot"
+];
+//var longest = findLongestWord(words);
+//console.log(longest);
+findLongestWord (words);
+*/
+
+
 
 // Calculating a Sum
 function sumArray (array) {
+var sum =0;
+array.forEach(function(number){
+  sum = sum + number;
 
+});
+return sum;
 }
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+
+var test = sumArray(numbers);
+
 
 // Calculate the Average
 function averageNumbers (array) {
