@@ -82,11 +82,9 @@ console.log(averageLength);
 function uniquifyArray (array) {
   var unique = [];
   array.forEach(function(element, position){
-    array.forEach(function(item, index){
-      if(element === item && position != index){
-        unique.push();
-      }
-    });
+    if(array.indexOf(element) === position){
+      unique.push(element);
+    }
   });
   return unique;
 }
@@ -109,7 +107,12 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var index = wordsArray.indexOf(word);
+  if(index > -1){
+    return true;
+  }else{
+    return false;
+  }
 }
 
 var words = [
@@ -131,7 +134,11 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var occurences = 0;
+  words.forEach(function(element){
+    if(element===word) occurences++;
+  });
+  return occurences;
 }
 
 var words = [
@@ -156,7 +163,20 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-
+  var results = matrix;
+  var max;
+matrix.forEach(function(element, index){
+  element.forEach(function(item, position){
+    results[index][position] = matrix[index-1][position]+matrix[index][position+1]+matrix[index+1][position]+matrix[index][position-1];
+  });
+});
+max = results[0][0];
+results.forEach(function(element){
+  element.forEach(function(item){
+    if(max < item) max = item;
+  });
+});
+return max;
 }
 
 var matrix = [
