@@ -62,7 +62,13 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var average = 0;
+  var lengthAccu = 0;
+  for (var i = 0; i < array.length; i++){
+    lengthAccu += array[i].length;
+  }
+  average = lengthAccu / array.length;
+  return average;
 }
 
 var words = [
@@ -82,7 +88,13 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var unique = [];
+  for (var i = 0; i < array.length; i++){
+    if (unique.indexOf(array[i]) === -1){
+      unique.push(array[i]);
+    }
+  }
+  return unique;
 }
 
 var words = [
@@ -103,7 +115,32 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var palabraIgual;
+  var letraIgual;
+  var actualWord;
+  for (var i = 0; i < wordsArray.length; i++) {
+    actualWord = wordsArray[i];
+    if (actualWord.length == word.length) {
+      for (var j = 0; j < word.length; j++) {
+        if (actualWord[j] === word[j]) {
+          letraIgual = true;
+        }
+        else {
+          letraIgual = false;
+        }
+      }
+    }
+    else {
+      palabraIgual = false;
+    }
+  }
+  if (letraIgual){
+    palabraIgual = true;
+  }
+  else {
+    palabraIgual = false;
+  }
+  return palabraIgual;
 }
 
 var words = [
@@ -125,7 +162,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var counter = 0;
+  var idx = words.indexOf(word);
+  while (idx != -1) {
+    counter++;
+    idx = words.indexOf(word, idx + 1);
+  }
+  return counter;
 }
 
 var words = [
