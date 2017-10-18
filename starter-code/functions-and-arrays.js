@@ -1,40 +1,43 @@
 // Find the maximum
+maxOfTwoNumbers (2,6);
 function maxOfTwoNumbers (first, second) {
-
-}
+    if (first>second)
+      return first;
+    else if (second>first)
+      return second;
+    else
+      return "iguales";
+  }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
 }
 
-var words = [
-  "mystery",
-  "brother",
-  "aviator",
-  "crocodile",
-  "pearl",
-  "orchard",
-  "crackpot"
-];
+var words = ("mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot");
+console.log(words.length +1);
 var longest = findLongestWord(words);
 console.log(longest);
+// crocodile
 
 // Calculating a Sum
 function sumArray (array) {
-
+  return array.reduce(function(numa,numb){
+  return (numa + numb);
+});
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
+//87
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var sum = sumArray(numbers);
+  return sum / numbers.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +46,9 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  return array.reduce(function(a, b){
+    return a + b;
+  });
 }
 
 var words = [
@@ -58,8 +63,10 @@ var words = [
   "fuel",
   "palace"
 ];
-var averageLength = averageWordLength(words);
-console.log(averageLength);
+
+var numpalabras = words.length;
+console.log(numpalabras);
+// 5.3
 
 // Unique Arrays
 function uniquifyArray (array) {
@@ -81,6 +88,7 @@ var words = [
 ];
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
+// ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "communion"]
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
