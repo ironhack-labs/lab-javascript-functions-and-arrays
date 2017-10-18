@@ -47,6 +47,16 @@ Define a function `maxOfTwoNumbers` that takes two numbers as arguments and retu
 ```javascript
 function maxOfTwoNumbers(first, second){
   // Your Code Here
+  function maxOfTwoNumbers(first, second){
+  if (first > second) {
+    console.log(first);
+  } else {
+    console.log(second);
+  }
+}
+
+var largest = maxOfTwoNumbers(2, 6);
+console.log(largest);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
