@@ -110,7 +110,36 @@ var howManyDog = howManyTimes(words, 'dog');
 console.log(howManyDog);
 
 // Bonus Quest
-function greatestProduct(matrix) {}
+function arrayProduct(array) {
+  return array.reduce(function(total, currentValue) {
+    return total * currentValue;
+  });
+}
+
+function adjacentNumbersProduct(array, xPosition, yPosition) {
+  var adjacentNumbers = [];
+  adjacentNumbers.push(array[xPosition - 1] ? array[xPosition - 1][yPosition] : 1);
+  adjacentNumbers.push(array[xPosition + 1] ? array[xPosition + 1][yPosition] : 1);
+  adjacentNumbers.push(isNaN(array[xPosition][yPosition - 1]) ? 1 : array[xPosition][yPosition - 1]);
+  adjacentNumbers.push(isNaN(array[xPosition][yPosition + 1]) ? 1 : array[xPosition][yPosition + 1]);
+  return arrayProduct(adjacentNumbers);
+}
+
+function arrayOfAdjacentProducts(array) {
+  var finalArray = [];
+  for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < array[i].length; j++) {
+      finalArray.push(adjacentNumbersProduct(array, i, j));
+    }
+  }
+  return finalArray;
+}
+
+function greatestProduct(matrix) {
+  return arrayOfAdjacentProducts(matrix).reduce(function(a, b) {
+    return Math.max(a, b);
+  });
+}
 
 var matrix = [
   [08, 02, 22, 97, 38, 15, 0, 40, 0, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08],
