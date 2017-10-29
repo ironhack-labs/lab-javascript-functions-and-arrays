@@ -1,14 +1,43 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  if(first > second) {
+    return first;
+  }
+  else if(second > first) {
+    return second;
+  }
+  else {
+    console.log("The numbers are equal: " + first);
+    return first;
+  }
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
 // Finding Longest Word
+/* Con un for
 function findLongestWord (words) {
+  var longestWord = "";
+  for(var i = 0; i < words.length; i++) {
+    if(words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
+*/
 
+// Finding Longest Word
+// Con un forEach
+function findLongestWord (words) {
+  var longestWord = "";
+  words.forEach(function(element) {
+    if(element.length > longestWord.length) {
+      longestWord = element;
+    }
+  }, this);
+  return longestWord;
 }
 
 var words = [
@@ -25,7 +54,11 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var sum = 0;
+  array.forEach(function(number){
+    sum += number;
+  });
+  return sum;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +67,7 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  return sumArray(array)/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -42,8 +75,12 @@ var average = averageNumbers(numbers);
 console.log(average);
 
 // Array of Strings
-function averageWordLength (array) {
-
+function averageWordLength (array) {  
+  var arrayLengths = [];
+  array.forEach(function(element){
+    arrayLengths.push(element.length);
+  });
+  return averageNumbers(arrayLengths);
 }
 
 var words = [
@@ -62,8 +99,25 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
+/* Para explicar
 function uniquifyArray (array) {
+  function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+  }
+  var unique = array.filter( onlyUnique );
+  return unique;
+}
+*/
 
+// Unique Arrays
+function uniquifyArray (array) {
+  var arrayUnique = [];
+  array.forEach(function(element){
+    if (arrayUnique.indexOf(element) == -1) {
+      arrayUnique.push(element);
+    }
+  });
+  return arrayUnique;
 }
 
 var words = [
@@ -84,7 +138,16 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var response = false;
+  for( var i = 0; i < wordsArray.length; i++) {
+    if(wordsArray[i] === word) {
+      response = true;
+      // En cuanto haya una coincidencia salimos
+      // Tambien podemos pasar antes por uniquifyArray para eliminar duplicados
+      break;
+    }
+  }
+  return response;
 }
 
 var words = [
@@ -106,7 +169,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  var numOcurrences = 0;
+  for( var i = 0; i < words.length; i++) {
+    if(words[i] === word) {
+      numOcurrences += 1;
+    }
+  }
+  return numOcurrences;
 }
 
 var words = [
@@ -131,7 +200,26 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-
+  var maxProduct = 0;
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
+      var center, up, down, left, right;
+      center = matrix[i][j];
+      matrix[i-1] ? up = matrix[i-1][j] : up = 1;
+      matrix[i+1] ? down = matrix[i+1][j] : down = 1;
+      matrix[i][j-1] ? left = matrix[i][j-1] : left = 1;
+      matrix[i][j+1] ? right = matrix[i][j+1] : right = 1;
+      var product = center * up * down * left * right;
+      //(product > maxProduct) ? maxProduct = product : maxProduct = maxProduct;
+      if (product > maxProduct) {
+        maxProduct = product;
+        var indiceI = i;
+        var indiceJ = j;
+      }
+    }
+  }
+  //console.log("POSICION CENTRAL es: [" + indiceI + "]" + "[" + indiceJ + "]" + " = " + matrix[indiceI][indiceJ]);
+  return maxProduct;
 }
 
 var matrix = [
