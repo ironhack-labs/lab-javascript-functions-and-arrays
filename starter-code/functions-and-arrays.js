@@ -1,6 +1,7 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  var largest = (first > second) ? first : second;
+  return largest;
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -9,6 +10,16 @@ console.log(largest);
 // Finding Longest Word
 function findLongestWord (words) {
 
+  var max = words[0].length;
+  var word = words[0];
+
+  for(var i = 0; i < words.length; i++)
+  {
+    word = (max < words[i].length) ? words[i] : word;
+    max = (max < words[i].length) ? words[i].length : max;
+  }
+
+  return word;
 }
 
 var words = [
@@ -25,7 +36,12 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var total = 0;
+  for(var i = 0; i<array.length; i++)
+  {
+   total += array[i];
+  } 
+  return total;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +50,10 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
+  var sumArr = sumArray(array);
+  var total = sumArr/array.length;
 
+  return total;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +62,13 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var array2 = [];
+  for(var i = 0; i<array.length; i++)
+  {
+    array2[i]=array[i].length;
+  }
+  total = sumArray(array2)/array2.length;
+  return total;
 }
 
 var words = [
@@ -59,11 +84,24 @@ var words = [
   "palace"
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+console.log(averageLength); 
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  for(var i=0;i<array.length;i++)
+  {
+    j=i+1;
+    while(j<array.length && i<array.length)
+   { 
+     if(array[i]===array[j])
+     {
+      array.splice(j,1);
+      j--;
+     }
+     j++;
+   } 
+  }
+  return array;
 }
 
 var words = [
@@ -84,7 +122,17 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var exists = false;
+  var i = 0;
+  while(i < wordsArray.length && !exists)
+  { 
+    if(wordsArray[i]===word)
+    {
+      exists=true;
+    }
+    i++;
+  }
+  return exists;
 }
 
 var words = [
@@ -106,7 +154,15 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+var count = 0;
+for(var i=0;i<words.length;i++)
+{
+  if(words[i]==word)
+  {
+    count++;
+  }
+}
+return count;
 }
 
 var words = [
@@ -131,7 +187,22 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-
+  var max = 0;
+  for(var i=0;i<matrix.length;i++)
+  {
+    for(var j=0;j<matrix[0].length;j++)
+    { 
+      a = ((j-1)<0) ? 1 : matrix[i][j-1];
+      b = ((j+1)>matrix[0].length-2) ? 1 : matrix[i][j+1];
+      c = ((i-1)<0) ? 1 : matrix[i-1][j];
+      d = ((i+1)>matrix.length-2) ? 1 : matrix[i+1][j];
+    
+      mult = a*b*c*d;
+     // console.log("Mult de matrix["+i+","+j+"] "+mult);
+      max = (mult<max) ? max : mult;
+    }
+  }
+  return max;
 }
 
 var matrix = [
