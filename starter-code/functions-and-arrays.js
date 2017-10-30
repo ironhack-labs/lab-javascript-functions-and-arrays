@@ -1,11 +1,11 @@
 // Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
 function maxOfTwoNumbers(first, second) {
   if (first > second) {
-    return first
+    return first;
   } else if (first < second) {
-    return second
+    return second;
   } else {
-    return 'The numbers are equal'
+    return 'The numbers are equal';
   }
 }
 
@@ -17,10 +17,10 @@ function findLongestWord(words) {
   var longestWord = 0;
   for (var i = 0; i < words.length; i++) {
     if (longestWord < words[i].length) {
-      longestWord = words[i].length
+      longestWord = words[i].length;
     }
   }
-  return longestWord
+  return longestWord;
 }
 
 var words = [
@@ -41,7 +41,7 @@ console.log(longest);
 function sumArray(array) {
   totalSum = 0;
   for (var i = 0; i < array.length; i++) {
-    totalSum += array[i]
+    totalSum += array[i];
   }
   return totalSum;
 }
@@ -88,7 +88,7 @@ var words = [
 var averageLength = averageWordLength(words);
 console.log(averageLength);
 
-// Take the following array, remove the duplicates, and return a new array. 
+// Take the following array, remove the duplicates, and return a new array.
 //You're more than likely going to want to check out the indexOf function.
 
 function uniquifyArray(array) {
@@ -123,7 +123,7 @@ function doesWordExist(wordsArray, word) {
   for (var i = 0; i < wordsArray.length; i++) {
     if (word === wordsArray[i]) {
       wordExist = true;
-      return wordExist
+      return wordExist;
     } else {
       wordExist = false;
     }
@@ -148,17 +148,17 @@ console.log(hasMatter);
 var hasDog = doesWordExist(words, 'dog');
 console.log(hasDog);
 
-//Write a function that will take in an array of words as one argument, and a word to search for as the other. 
+//Write a function that will take in an array of words as one argument, and a word to search for as the other.
 //The function will return the number of times that word appears in the array.
 
 function howManyTimes(words, word) {
   var repeatWord = 0;
   for (var i = 0; i < words.length; i++) {
     if (word === words[i]) {
-      repeatWord++
+      repeatWord++;
     }
   }
-  return repeatWord
+  return repeatWord;
 }
 
 var words = [
