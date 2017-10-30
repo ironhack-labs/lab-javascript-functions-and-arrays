@@ -56,7 +56,7 @@ function averageWordLength (array) {
     lengths += array[i].length;
   }
   return lengths/array.length;
-}
+}//I could store lengths within an array using push() then calling averageNumbers()
 
 var words = [
   "seat",
@@ -100,10 +100,10 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-  var value = false;
-  for(i=0; i<wordsArray.length; i++){
+  var value = false;                        //var value = -1;
+  for(i=0; i<wordsArray.length; i++){       //for(i=0; i<wordsArray.length; i++){
     if(wordsArray[i]===word) value = true;  //value = wordsArray.indexOf(word);
-  }                                         //
+  }                                         //}
   return value;                             //return value>=0 ? true : false;
 }
 
@@ -155,7 +155,18 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-
+  var value = 0, over, right, below, left, mult;
+  for(var i=0; i < matrix.length; i++){
+    for(var j=0; j < matrix[i].length; j++){
+      over = matrix[i-1] ? matrix[i-1][j] : 1;
+      right = matrix[i][j+1] ? matrix[i][j+1] : 1;
+      below = matrix[i+1] ? matrix[i+1][j] : 1;
+      left = matrix[i][j-1] ? matrix[i][j-1] : 1;
+      mult = over * right * below * left;
+      if(value < mult) value = mult;
+    }
+  }
+  return value;
 }
 
 var matrix = [
