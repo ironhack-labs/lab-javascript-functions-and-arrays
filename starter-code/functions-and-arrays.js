@@ -34,12 +34,13 @@ console.log("The total sum is " + total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var sum = sumArray(numbers);
+  return sum/numbers.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
-console.log(average);
+console.log("The averange is " + average);
 
 // Array of Strings
 function averageWordLength (array) {
