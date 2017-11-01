@@ -176,6 +176,7 @@ var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
 
 // Bonus Quest
+// Voy a intentar despues, despues del instagram clone :)
 function greatestProduct(matrix) {
 
 }
