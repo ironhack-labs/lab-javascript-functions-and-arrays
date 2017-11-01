@@ -36,7 +36,11 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray(array) {
-
+  var currentAmount = 0;
+  for (var i = 0; i < array.length; i++) {
+    currentAmount += array[i];
+  }
+  return currentAmount;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
