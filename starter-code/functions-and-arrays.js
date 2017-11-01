@@ -1,6 +1,6 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+    return Math.max(first,second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +8,15 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+    var flag;
+    var cont = 0;
+    for(var i=0; i < words.length; i++){
+        if(words[i].length > cont){
+            cont = words[i].length;
+            flag = words[i];
+        }
+    }
+  return flag;
 }
 
 var words = [
@@ -33,12 +41,15 @@ var total = sumArray(numbers);
 console.log(total);
 
 // Calculate the Average
-function averageNumbers (array) {
+/*function averageNumbers (array) {
 
-}
+}*/
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
+//reduce(), método que aplica una función contra un acumulador y cada elemento de la matriz (de izquierda a derecha) para reducirlo a un único valor.
+var average = numbers.reduce(function(accumulator, currentValue){
+    return accumulator + currentValue;
+});
 console.log(average);
 
 // Array of Strings
