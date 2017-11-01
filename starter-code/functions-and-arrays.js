@@ -63,13 +63,13 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength(array) {
-  var strSum = 0;
+  var sum = 0;
 
   for (var i = 0; i < array.length; i++) {
-    strSum += array[i].length;
+    sum += array[i].length;
   }
 
-  var result = strSum / array.length;
+  var result = sum / array.length;
   return result;
 }
 
@@ -91,6 +91,15 @@ console.log(averageLength);
 // Unique Arrays
 function uniquifyArray(array) {
 
+  var newArray = [];
+
+  array.forEach(function(indexValue) {
+    if (newArray.indexOf(indexValue) === -1) {
+      newArray.push(indexValue);
+    }
+  });
+
+  return newArray;
 }
 
 var words = [
@@ -106,8 +115,10 @@ var words = [
   "simple",
   "bring"
 ];
+
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
+
 
 // Finding Elements
 function doesWordExist(wordsArray, word) {
