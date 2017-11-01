@@ -202,7 +202,7 @@ var maxProduct = 0;
       for (k=0; k<=multiplesNSRIL.length-1; k++) {
         product = product*multiplesNSRIL[k];
       }
-      if (product>maxProduct) {
+      if (maxProduct<product) {
       maxProduct = product;
       }
     }
