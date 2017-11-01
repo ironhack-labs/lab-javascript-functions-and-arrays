@@ -1,6 +1,6 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+    return Math.max(first,second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +8,15 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+    var flag;
+    var cont = 0;
+    for(var i=0; i < words.length; i++){
+        if(words[i].length > cont){
+            cont = words[i].length;
+            flag = words[i];
+        }
+    }
+  return flag;
 }
 
 var words = [
@@ -24,26 +32,34 @@ var longest = findLongestWord(words);
 console.log(longest);
 
 // Calculating a Sum
+//reduce(), método que aplica una función contra un acumulador y cada elemento de la matriz (de izquierda a derecha) para reducirlo a un único valor.
 function sumArray (array) {
-
+    var total = array.reduce(function(accumulator, currentValue){
+        return accumulator + currentValue;
+    });
+    return total;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+console.log(sumArray(numbers));
 
 // Calculate the Average
 function averageNumbers (array) {
-
+    var total = array.reduce(function(accumulator, currentValue){
+        return accumulator + currentValue;    
+    });
+    return average = total / array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-var average = averageNumbers(numbers);
-console.log(average);
+console.log(averageNumbers(numbers));
 
 // Array of Strings
 function averageWordLength (array) {
-
+    var total = array.reduce(function(accumulator, currentValue){      
+      return accumulator + currentValue.length;    
+    },0);
+    return total / array.length;
 }
 
 var words = [
@@ -62,8 +78,20 @@ var averageLength = averageWordLength(words);
 console.log(averageLength);
 
 // Unique Arrays
-function uniquifyArray (array) {
 
+function uniquifyArray (array) {
+    for  ( var i in array){
+      var count = 0;
+      var value = 0;
+      while(array.indexOf(array[i],value+1) != -1){
+        value = array.indexOf(array[i],value+1);          
+        count ++;
+        if(count > 1){
+          array.splice(value,1);
+        }
+      }
+    }
+  return array;
 }
 
 var words = [
@@ -84,6 +112,14 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
+    var value = false;
+    for(var i=0; i < wordsArray.length && value === false; i++){
+        if(wordsArray[i] === word){
+            value = true;
+            
+        }
+    }
+    return value;
 
 }
 
@@ -106,7 +142,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+    var count = 0;
+    for(var i=0; i < words.length; i++){      
+        if(words[i] === word){
+            count ++;            
+        }
+    }
+    return count;
 }
 
 var words = [
@@ -131,7 +173,34 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-
+    var maxProduct = 0;
+    for(var i = 0; i < matrix.length; i++){
+        for(var j = 0; j < matrix[i].length; j++){
+            var up = 1;
+            var down = 1;
+            var left = 1;
+            var right = 1;
+            
+            if(i !== 0){
+                up = matrix[i-1][j];
+            }
+            if( i+1 !== matrix.length){
+                down = matrix[i+1][j];                
+            }
+            if(j !== 0){
+                left = matrix[i][j-1];                
+            }
+            if(j+1 !== matrix[i].length){
+                right = matrix[i][j+1];                
+            }
+            
+            var product = up*down*left*right;
+            if(product > maxProduct){
+                maxProduct = product;
+            }
+        }
+    }
+    return maxProduct;
 }
 
 var matrix = [
