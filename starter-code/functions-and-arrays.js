@@ -1,10 +1,10 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  return Math.max(first, second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
-console.log(largest);
+console.log("The maximum number is " + largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
