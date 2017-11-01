@@ -8,7 +8,7 @@ console.log("The maximum number is " + largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+  return words.sort(function (a, b) { return b.length - a.length; });
 }
 
 var words = [
@@ -21,7 +21,7 @@ var words = [
   "crackpot"
 ];
 var longest = findLongestWord(words);
-console.log(longest);
+console.log(longest[0]);
 
 // Calculating a Sum
 function sumArray (array) {
