@@ -33,6 +33,8 @@ var total = sumArray(numbers);
 console.log("The total sum is " + total);
 
 // Calculate the Average
+
+// Calculate the Average: Level 1
 function averageNumbers (array) {
   var sum = sumArray(numbers);
   return sum/numbers.length;
@@ -42,9 +44,9 @@ var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
 console.log("The averange is " + average);
 
-// Array of Strings
+// Calculate the Average: Level 2
 function averageWordLength (array) {
-
+  return array.reduce(function(a, b){ return a + b; });
 }
 
 var words = [
@@ -60,7 +62,7 @@ var words = [
   "palace"
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+console.log("The average letters of the words is  " + averageWordLength(words).length/words.length);
 
 // Unique Arrays
 function uniquifyArray (array) {
