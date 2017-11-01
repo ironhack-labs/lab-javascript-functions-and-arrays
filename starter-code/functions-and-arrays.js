@@ -181,18 +181,36 @@ console.log("'Dog' appears " + howManyDog + " times." );
 
 // Bonus Quest
 function greatestProduct (matrix) {
-var tempMaxProduct = 0;
-  for (i=0; i<= matrix.length-1; i++) {
-   console.log (matrix[i]);
-  }
-}
+var maxProduct = 0;
 
- for (j=0; j<=matrix[i].length-1; j++) {
-      console.log(matrix[i][j]);
+   for (i=0; i<= matrix.length-1; i++) {
+   for(j=0; j<= matrix[i].length-1; j++) {
+      var multiplesNSRIL = [];
+      if ([i-1]>=0) {
+        multiplesNSRIL.push(matrix[i-1][j]);
+      }
+      if ([j+1]<=19) {
+        multiplesNSRIL.push(matrix[i][j+1]);
+      }
+      if ([i+1]<=19) {
+        multiplesNSRIL.push(matrix[i+1][j]);
+      }
+      if ([j-1]>=0) {
+        multiplesNSRIL.push(matrix[i][j-1]);
+      }
+      var product = 1;
+      for (k=0; k<=multiplesNSRIL.length-1; k++) {
+        product = product*multiplesNSRIL[k];
+      }
+      if (product>maxProduct) {
+      maxProduct = product;
+      }
     }
 
+  }
+  return maxProduct;
+}
 
-greatestProduct(matrix);
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
@@ -216,7 +234,13 @@ var matrix = [
   [20,73,35,29,78,31,90,01,74,31,49,71,48,86,81,16,23,57,05,54],
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
-/*
+
+
+
+
+
+greatestProduct(matrix);
+
+
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
-*/
