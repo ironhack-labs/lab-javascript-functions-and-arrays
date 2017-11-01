@@ -21,16 +21,16 @@ var words = [
   "crackpot"
 ];
 var longest = findLongestWord(words);
-console.log(longest[0]);
+console.log("The longest word is " + longest[0]);
 
 // Calculating a Sum
 function sumArray (array) {
-
+    return array.reduce(function(a, b){ return a + b; });
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
-console.log(total);
+console.log("The total sum is " + total);
 
 // Calculate the Average
 function averageNumbers (array) {
