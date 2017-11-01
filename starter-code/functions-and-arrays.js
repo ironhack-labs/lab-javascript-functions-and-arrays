@@ -146,7 +146,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes(words, word) {
-
+  var count = 0;
+  for (var i = 0; i < words.length; i++) {
+    if (word === words[i]) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 var words = [
