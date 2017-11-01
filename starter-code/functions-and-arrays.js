@@ -63,7 +63,14 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength(array) {
+  var strSum = 0;
 
+  for (var i = 0; i < array.length; i++) {
+    strSum += array[i].length;
+  }
+
+  var result = strSum / array.length;
+  return result;
 }
 
 var words = [
