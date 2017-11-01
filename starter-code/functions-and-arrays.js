@@ -64,11 +64,9 @@ console.log(average);
 // Array of Strings
 function averageWordLength(array) {
   var sum = 0;
-
   for (var i = 0; i < array.length; i++) {
     sum += array[i].length;
   }
-
   var result = sum / array.length;
   return result;
 }
@@ -90,15 +88,12 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray(array) {
-
   var newArray = [];
-
   array.forEach(function(indexValue) {
     if (newArray.indexOf(indexValue) === -1) {
       newArray.push(indexValue);
     }
   });
-
   return newArray;
 }
 
@@ -122,7 +117,13 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist(wordsArray, word) {
-
+  var result = false;
+  for (var i = 0; i < wordsArray.length; i++) {
+    if (word === wordsArray[i]) {
+      result = true;
+    }
+  }
+  return result;
 }
 
 var words = [
@@ -141,6 +142,7 @@ console.log(hasMatter);
 
 var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
+
 
 // Counting Repetion
 function howManyTimes(words, word) {
