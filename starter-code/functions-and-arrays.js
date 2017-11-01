@@ -11,10 +11,6 @@ var largest = maxOfTwoNumbers(8, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord(words) {
-
-}
-
 var words = [
   "mystery",
   "brother",
@@ -24,6 +20,17 @@ var words = [
   "orchard",
   "crackpot"
 ];
+
+function findLongestWord(array) {
+  var count = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length > count) {
+      count = array[i].length;
+    }
+  }
+  return count;
+}
+
 var longest = findLongestWord(words);
 console.log(longest);
 
