@@ -1,50 +1,66 @@
 // Find the maximum
-function maxOfTwoNumbers (first, second) {
-
+function maxOfTwoNumbers(first, second){
+  return Math.max(first, second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
 console.log(largest);
 
+//--------------------------
 // Finding Longest Word
-function findLongestWord (words) {
+var words = [
+"mystery",
+"brother",
+"aviator",
+"crocodile",
+"pearl",
+"orchard",
+"crackpot"
+];
 
+
+function findLongestWord(array){
+  array.sort(function(a, b) {
+  return b.length - a.length; });
+  return (array[0]);
 }
 
-var words = [
-  "mystery",
-  "brother",
-  "aviator",
-  "crocodile",
-  "pearl",
-  "orchard",
-  "crackpot"
-];
 var longest = findLongestWord(words);
 console.log(longest);
 
+//--------------------------
 // Calculating a Sum
-function sumArray (array) {
-
-}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
+var suma = 0;
 
-// Calculate the Average
-function averageNumbers (array) {
-
+function sumArray(array){
+  for ( var i = 0; i < array.length; i++ ){
+    suma += array[i];
+  }
 }
+
+var total = sumArray(numbers);
+console.log(suma);
+
+//--------------------------
+// Calculate the Average
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+var suma = 0;
+
+function averageNumbers(array){
+  for ( var i = 0; i < array.length; i++ ){
+    suma += array[i];
+  } return suma/numbers.length;
+}
+
 var average = averageNumbers(numbers);
 console.log(average);
+// 6
 
+//--------------------------
 // Array of Strings
-function averageWordLength (array) {
-
-}
 
 var words = [
   "seat",
@@ -58,12 +74,31 @@ var words = [
   "fuel",
   "palace"
 ];
-var averageLength = averageWordLength(words);
+
+var a = 0;
+
+words.forEach(function counting(word) {
+  a += word.length;
+  return (a);
+});
+
+function averageNumbers(array){
+  for ( var i = 0; i < array.length; i++ ){
+    suma += array[i];
+  } return a/words.length;
+}
+
+var averageLength = averageNumbers(a);
 console.log(averageLength);
 
+// 5.3
+
+//--------------------------
 // Unique Arrays
 function uniquifyArray (array) {
 
+  array.splice();
+return (words);
 }
 
 var words = [
