@@ -1,6 +1,6 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  return Math.max(first, second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +8,8 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+   words.sort(function(a,b){return b.length - a.length;});
+   return words[0];
 }
 
 var words = [
@@ -21,29 +22,54 @@ var words = [
   "crackpot"
 ];
 var longest = findLongestWord(words);
-console.log(longest);
+console.log(longest + " is the longest word.");
 
 // Calculating a Sum
 function sumArray (array) {
-
+var suma = 0;
+  for (i=0; i<=array.length-1;i++){
+  suma += array[i];
+  }
+return suma;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
-console.log(total);
+console.log("The sum of all the numbers of the array is " + total);
+
+// Calculating a Sum -_> no  me funciona con reduce, el valor final es siempre undefined y no se porqué
+function sumArray2 (array) {
+  array.reduce(function(total, currentValue) {
+      //console.log(total);
+      //console.log(currentValue);
+      return total + currentValue;
+    },0);
+}
+
+var numbers2 = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var total2 = sumArray2(numbers2);
+console.log( "The sum of all the numbers of the array is " + total2);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var suma = 0;
+  for (i=0; i<=array.length-1;i++){
+    suma += array[i];
+    }
+  return suma/array.length;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
-console.log(average);
+console.log("The average number in this array is " + average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var totalLength = 0;
+  for (i=0; i<=array.length-1;i++) {
+    totalLength += array[i].length;
+  }
+  return Math.floor(totalLength/array.length);
 }
 
 var words = [
@@ -56,15 +82,23 @@ var words = [
   "smart",
   "chaos",
   "fuel",
-  "palace"
+  "palace",
 ];
 var averageLength = averageWordLength(words);
-console.log(averageLength);
+console.log("The average length of words in this array is " + averageLength);
+
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+var newArray = [];
+  for (i=0;i<=array.length-1; i++) {
+    if (newArray.indexOf(array[i])==-1) {
+      newArray.push(array[i]);
+    }
+  }
+return newArray;
 }
+
 
 var words = [
   "crab",
@@ -73,18 +107,26 @@ var words = [
   "simple",
   "bring",
   "sharp",
+  "sharp",
   "playground",
   "poison",
   "communion",
   "simple",
-  "bring"
+  "bring",
+  "crab"
 ];
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
+  var elementFound = false;
+  for (i=0;i<=wordsArray.length-1;i++) {
+    if (wordsArray[i]===word) {
+      elementFound = true;
+    }
+  }
+  return elementFound;
 }
 
 var words = [
@@ -104,9 +146,15 @@ console.log(hasMatter);
 var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
 
+
 // Counting Repetion
 function howManyTimes (words, word) {
-
+var counter = 0;
+  for (i=0; i<=words.length-1; i++)
+    if (words[i] === word) {
+      counter += 1;
+    }
+  return counter;
 }
 
 var words = [
@@ -120,19 +168,49 @@ var words = [
   "matter",
   "truth",
   "disobedience",
-  "matter"
+  "matter",
+  "eating"
 ];
 
 var howManyMatter = howManyTimes(words, "matter");
-console.log(howManyMatter);
+console.log( "'Matter' appears " + howManyMatter + " times.");
 
 var howManyDog = howManyTimes(words, "dog");
-console.log(howManyDog);
+console.log("'Dog' appears " + howManyDog + " times." );
+
 
 // Bonus Quest
 function greatestProduct (matrix) {
+var maxProduct = 0;
 
+   for (i=0; i<= matrix.length-1; i++) {
+   for(j=0; j<= matrix[i].length-1; j++) {
+      var multiplesNSRIL = [];
+      if ([i-1]>=0) {
+        multiplesNSRIL.push(matrix[i-1][j]);
+      }
+      if ([j+1]<=19) {
+        multiplesNSRIL.push(matrix[i][j+1]);
+      }
+      if ([i+1]<=19) {
+        multiplesNSRIL.push(matrix[i+1][j]);
+      }
+      if ([j-1]>=0) {
+        multiplesNSRIL.push(matrix[i][j-1]);
+      }
+      var product = 1;
+      for (k=0; k<=multiplesNSRIL.length-1; k++) {
+        product = product*multiplesNSRIL[k];
+      }
+      if (maxProduct<product) {
+      maxProduct = product;
+      }
+    }
+
+  }
+  return maxProduct;
 }
+
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
@@ -156,6 +234,13 @@ var matrix = [
   [20,73,35,29,78,31,90,01,74,31,49,71,48,86,81,16,23,57,05,54],
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
+
+
+
+
+
+greatestProduct(matrix);
+
 
 var maxProduct = greatestProduct(matrix);
 console.log(maxProduct);
