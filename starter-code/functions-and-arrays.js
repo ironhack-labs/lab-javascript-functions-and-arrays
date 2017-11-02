@@ -93,8 +93,9 @@ console.log(averageLength);
 
 // 5.3
 
+//--------------------------
 // Unique Arrays
-/*function uniquifyArray (array) {
+function uniquifyArray (array) {
 
   array.splice();
 return (words);
@@ -114,7 +115,7 @@ var words = [
   "bring"
 ];
 var uniqued = uniquifyArray(words);
-console.log(uniqued);*/
+console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
