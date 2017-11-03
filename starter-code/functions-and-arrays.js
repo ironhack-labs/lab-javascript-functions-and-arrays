@@ -103,8 +103,14 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist (wordsArray, word) {
-
-}
+  var result = false;
+  for (var i = 0; i < wordsArray.length; i++) {
+    if (word === wordsArray[i]) {
+      result = true;
+    }
+  }
+  return result;
+ }
 
 var words = [
   "machine",
@@ -122,6 +128,8 @@ console.log(hasMatter);
 
 var hasDog = doesWordExist(words, "dog");
 console.log(hasDog);
+
+// Return true if it exists, otherwise return false.
 
 // Counting Repetion
 function howManyTimes (words, word) {
