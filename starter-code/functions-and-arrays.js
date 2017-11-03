@@ -133,7 +133,13 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes (words, word) {
-
+  count = 0;
+index = words.indexOf(word);
+    while ( index != -1 ) {
+       count++;
+       index = words.indexOf(word,index+1);
+    }
+  return count ;
 }
 
 var words = [
@@ -155,6 +161,8 @@ console.log(howManyMatter);
 
 var howManyDog = howManyTimes(words, "dog");
 console.log(howManyDog);
+
+// Return the number of times that word appears in the array
 
 // Bonus Quest
 function greatestProduct (matrix) {
