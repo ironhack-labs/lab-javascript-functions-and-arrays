@@ -1,6 +1,6 @@
 // Find the maximum
 function maxOfTwoNumbers (first, second) {
-
+  return Math.max(first,second);
 }
 
 var largest = maxOfTwoNumbers(2, 6);
@@ -8,7 +8,13 @@ console.log(largest);
 
 // Finding Longest Word
 function findLongestWord (words) {
-
+  var longestWord = "";
+  for(i = 0 ; i < words.length ; i++ ){
+    if(longestWord.length < words[i].length){
+        longestWord = words[i];
+    }
+  }
+  return longestWord;
 }
 
 var words = [
@@ -25,7 +31,10 @@ console.log(longest);
 
 // Calculating a Sum
 function sumArray (array) {
-
+  var total = 0;
+  for(i = 0 ; i < array.length ; i++ ){
+    total += array[i];
+  }
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,7 +43,11 @@ console.log(total);
 
 // Calculate the Average
 function averageNumbers (array) {
-
+  var total = 0;
+  for(i = 0 ; i < array.length ; i++ ){
+    total += array[i];
+  }
+  return Math.floor(total / (array.length));
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -43,7 +56,12 @@ console.log(average);
 
 // Array of Strings
 function averageWordLength (array) {
-
+  var sumLength = 0;
+  for(i = 0 ; i < array.length ; i++ ){
+    sumLength += array[i].length;
+  }
+  console.log(sumLength);
+  return Math.floor(sumLength / (array.length));
 }
 
 var words = [
@@ -63,8 +81,24 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray (array) {
-
+  var newArray = [];
+  var indexNewArray;
+  for(var i=0 ; i < array.length ; i++){
+    indexNewArray = array.indexOf(array[i]);
+    newArray[indexNewArray] = array[i];
+  }
+  newArray = newArray.filter(Boolean);
+  return newArray;
 }
+
+/*
+for(var i=0 ; i < array.length ; i++){
+    for(var j=0 ; j < array.length ; j++){
+
+    }
+  }
+*/
+
 
 var words = [
   "crab",
@@ -77,14 +111,24 @@ var words = [
   "poison",
   "communion",
   "simple",
-  "bring"
+  "bring",
+  "lion"
 ];
 var uniqued = uniquifyArray(words);
 console.log(uniqued);
 
 // Finding Elements
-function doesWordExist (wordsArray, word) {
-
+function doesWordExist (array, word){
+  var truefalse;
+  array.forEach(function(element){
+    if(word === element){
+      truefalse = true;
+    }
+  });
+  if(truefalse === undefined){
+    truefalse = false
+  }
+  return truefalse;
 }
 
 var words = [
@@ -131,8 +175,37 @@ console.log(howManyDog);
 
 // Bonus Quest
 function greatestProduct (matrix) {
-
+  var arrayProduct = [];
+  for(var i=1 ; i < matrix.length-1 ; i++){
+    for(var j=1 ; j < matrix[i].length-1 ; j++){
+      arrayProduct.push(matrix[i-1][j] * matrix[i][j+1] * matrix[i+1][j] * matrix[i][j-1]);
+    }
+  }
+  console.log(arrayProduct);
+  var maxProd = Math.max(...arrayProduct);
+  return maxProd;
 }
+
+/*
+Dificilillo... he probado muchas cosas...
+function greatestProduct (matrix) {
+  var arrayProduct = [];
+  for(var i=0 ; i < matrix.length-1 ; i++){
+    for(var j=0 ; j < matrix[i].length-1 ; j++){
+      if(i-1 < 0 || j-1 < 0){
+        arrayProduct.push(0);
+      }else if(i+1 > matrix.length || j+11 > matrix.length){
+        arrayProduct.push(0);
+      }else{
+        arrayProduct.push(matrix[i-1][j] * matrix[i][j+1] * matrix[i+1][j] * matrix[i][j-1]);
+      }
+    }
+  }
+  return arrayProduct;
+}
+*/
+
+
 
 var matrix = [
   [08,02,22,97,38,15,0,40,0,75,04,05,07,78,52,12,50,77,91,08],
@@ -158,4 +231,4 @@ var matrix = [
 ];
 
 var maxProduct = greatestProduct(matrix);
-console.log(maxProduct);
+console.log("The buggest number is : " + maxProduct);
