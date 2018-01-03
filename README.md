@@ -2,13 +2,13 @@
 
 # JS | Clue - Mixing objects and arrays
 
-Do you remember this classic detective game?
+Do you remember de classic detective game?
 
-Clue was a very popular game in the 90's. The plot starts with Mr. Boddy being killed by one of his guests. He was the very rich owner of Tudor Close, who takes the stock character of a generic victim. After his death, Clue players have to to discover who murdered him, with what implement, and where the crime scene took place in his mansion.
+Clue was a very popular game in the 90's. The plot starts with Mr. Boddy being killed by one of his guests. He was the very rich owner of Tudor Close, who takes the stock character of a generic victim. After his dead, Clue players have to discover who murdered him, with what implement, and where the crime scene took place in his mansion.
 
-Hasbro, the toy maker company and owner of Clue, [recently changed](http://www.independent.co.uk/arts-entertainment/cluedo-first-new-character-dr-orchid-mrs-white-dead-1949-hasbro-a7118351.html) some of the characters bio. Use the bio to gather information from the characters.
+Hasbro, the toy maker company and owner of Cluedo, [recently changed](http://www.independent.co.uk/arts-entertainment/cluedo-first-new-character-dr-orchid-mrs-white-dead-1949-hasbro-a7118351.html) some of the characters bio. Use the bio to gather information from the characters.
 
-![Clue Picture](https://i.imgur.com/AZWieq9.jpg)
+![Clue Picture](https://i.imgur.com/AZWieq9.jpg =300)
 
 ## Requirements
 
@@ -29,7 +29,7 @@ In the Pull request name, add your name and last names separated by a dash "-"
 
 ## Deliverables
 
-Write your JavaScript in the provided file. Submitting this file will be enough.
+Write your JavaScript in the provided `src/clue.js` file. Submitting this file will be enough.
 
 ## Iteration 1 - <small>Creating the cards</small>
 
@@ -39,59 +39,23 @@ In order to do this, you will need to know the game's characters (possible kille
 
 ### Game Characters
 
-This Clue board game has a new roster of playable characters. All of them  have first names, last names, occupations, age, and descriptions. Here you will find a list of some of their attributes. :satisfied:
-
-- **Jacob Green:** his color is *green*. He has a lot of connections and is always willing to help people out -- for a price.
-
-- **Doctor Orchid:** her color is *white*. She is the adopted daugther of Mr. Boddy, a biologist with a PhD in plant toxicology. She was privately educated in Switzerland until her expulsion after an incident involving daffodils resulted in a near-fatal poisoning *[(Wonder what happened with Mrs. White?)](http://www.telegraph.co.uk/news/2016/07/05/cluedo-kills-off-mrs-white-and-replaces-her-with-new-female-char/)*.
-
-- **Victor Plum:** his color is *purple*. He is a billionaire video game designer who is embracing his new popularity.
-
-
-- **Kasandra Scarlet:** her color is *red*. She is an A-list movie star whose past haunts her.
-
-
-- **Eleanor Peacock:** her color is *blue*. She is from a wealthy family and uses her status and money to earn popularity.
-
-
-- **Jack Mustard:** his color is *yellow*. He is a former football player who tries to get by on his former glory.
-
+This Clue board game has a new roster of playable characters. All of them have first names, last names, occupations, age, description, and images. On the `clue.js` file you will find all the info about them. 
 
 ### Available Weapons
 
-There are nine weapons. Keep in mind you can add new attributes like weight, color, or even how much each of these weapons hurts!
-
-- Rope
-- Knife
-- Candlestick
-- Dumbbell
-- Poison
-- Axe
-- Bat
-- Trophy
-- Pistol
+There are nine weapons. Each of them has different weight, same as the characters, you will find all the info needed on the `clue.js` file.
 
 ### House Rooms
 
-The game board represents the blueprints of a mansion and features fifteen different rooms:
+The game board represents the blueprints of a mansion and features fifteen different rooms. Yes, you guess, on the `clue.js` file you have all the info.
 
-- Dining room
-- Conservatory
-- Kitchen
-- Study
-- Library
-- Billiard room
-- Lounge
-- Ballroom
-- Hall
-- A spa
-- Living room
-- Observatory
-- Theater
-- Guest house
-- A patio
+### Data Structuring
 
-Create one data structure for each of the people, weapons and rooms described above. For example:
+Create one data structure for each of the people, weapons, and rooms described above. Each document must have all the info.
+
+After creating the data structure, create an array for each type of data and push every document into their corresponding array.
+
+For example:
 
 ```javascript
 var mrGreen = {
@@ -105,14 +69,28 @@ var rope = {
 // etc
 ```
 
-## Iteration 2 - <small>Creating and revealing the mystery</small>
+After creating the data structure, push every document into their corresponding array. `charactersArray`, `weaponsArray`, `roomsArray`.
 
- At the beginning of the game, players shuffle each one of the card stacks to create a combination of *suspect*, *weapon* and *room*. This will be the mystery to solve.
+## Iteration 2 - <small>Creating the mistery</small>
 
-1. Create a method to randomly select one element from a card stack.
-2. Create another function that calls the method above once for each card stack.
-3. Place the “Case File Confidential” in a virtual envelope. :wink:
-4. Create a method to reveal the mystery.
+At the beginning of the game, players shuffle each one of the card stacks to create a combination of *suspect*, *weapon* and *room*. This will be the mystery to solve.
+
+### Remember our tests!
+
+We will be working with test again! You need to open the `SpecRunner.html` file in order to see them. The following instructions will guide you through all the methods and functionality your code should have to pass all the tests.
+
+### Random Selector 
+Create a method `randomSelector` to randomly select one element from a card stack. The method should receive an `array` as an argument, and return randomly one of the elements of the `array`.
+
+### Create the mystery
+
+We need to create a `pickMistery` method that will call `randomSelector` for each card stack, and return an array with the 3 picked cards, a character, a weapon and a room. Our mystery should be stored on a `misteryEnvelope` variable.
+
+## Iteration 3 - <small>Revealing the mistery</small>
+
+Finally, we need to reveal the mystery. Create a `revealMistery` method, that will receive our `misteryEnvelope` array as an argument and return the revealed mystery like this: 
+
+**\<FIRST NAME\> \<LAST NAME\> killed Mr.Boddy using the \<WEAPON\> in the \<PLACE\>!!!!**
 
 ## Extra Resources
 
