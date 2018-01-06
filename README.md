@@ -8,7 +8,7 @@ Clue was a very popular game in the 90's. The plot starts with Mr. Boddy being k
 
 Hasbro, the toy maker company and owner of Cluedo, [recently changed](http://www.independent.co.uk/arts-entertainment/cluedo-first-new-character-dr-orchid-mrs-white-dead-1949-hasbro-a7118351.html) some of the characters bio. Use the bio to gather information from the characters.
 
-![Clue Picture](https://i.imgur.com/AZWieq9.jpg =300)
+![Clue Picture](https://i.imgur.com/AZWieq9.jpg=300)
 
 ## Requirements
 
