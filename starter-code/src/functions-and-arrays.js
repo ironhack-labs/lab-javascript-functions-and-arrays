@@ -1,4 +1,3 @@
-// Find the maximum
 
 // Finding Longest Word
 var words = [
