@@ -13,11 +13,34 @@ var words = [
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(numbers) {
+
+  var total =0;
+
+  for (var i=0; i < numbers.length; i++) {
+    total = total+numbers[i]
+  }
+
+  return total;
+}
+
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbers) {
+
+  var total =0;
+
+  for (var i=0; i < averageNumbers.length; i++) {
+    total = total+numbers[i]
+  }
+
+  return total/averageNumbers.length;
+}
 
 // Array of Strings
 var wordsArr = [
