@@ -2,10 +2,10 @@
 
 function maxOfTwoNumbers (item1, item2) {
   if (item1>item2) {
-    console.log("The highest number is " + item1);
+    return item1;
   }
   else {
-    console.log("The highest number is " + item2);
+    return item2;
   }
 }
 
@@ -20,6 +20,22 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+function findLongestWord (box){
+  var longest = "";
+
+  for (var i=0; i < box.length; i++) {
+    if (box[i].length > longest.length) {
+      var longest = box[i];
+    } else {
+
+    }
+  }
+  return longest;
+}
+
+
+
 
 // Calculating a Sum
 
