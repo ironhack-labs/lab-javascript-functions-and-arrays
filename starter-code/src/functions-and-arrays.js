@@ -1,15 +1,34 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b){
+  return Math.max(a, b);
+}
+maxOfTwoNumbers(15,1);
 
 // Finding Longest Word
 var words = [
   'mystery',
-  'broteeeher',
+  'broteher',
   'aviator',
   'crocodile',
   'pearl',
   'orchard',
   'crackpot'
 ];
+
+function findLongestWord(){
+  var longest = "";
+  for (i = 0; i < words.length; i++){
+  if (words[i].length > longest.length){
+  longest = words[i];
+  }else{
+    return;
+    }
+  }
+  return longest;
+  }
+  findLongestWord();
+
+
 
 // Calculating a Sum
 
