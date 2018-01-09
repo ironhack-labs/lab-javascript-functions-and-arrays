@@ -78,7 +78,18 @@ var wordsArr = [
   'palace'
 ];
 
-
+function averageWordLength (array){
+  if (array.length < 1) {
+    return
+  }else {
+    //total
+    var total = array.join("").length;
+    console.log(total);
+    var numWords = array.length;
+    var average = total/numWords;
+    return average
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
