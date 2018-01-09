@@ -1,6 +1,15 @@
 // Find the maximum
-
+function maxOfTwoNumbers (a,b) {
+  if(a>b){
+    return a;
+  }else{
+    return b;
+}
+}
 // Finding Longest Word
+findLongestWord();
+function findLongestWord(){
+var currentLargest = "";
 var words = [
   'mystery',
   'brother',
@@ -11,15 +20,49 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+for(i=0;i<words.length;i++){
+  if(words[i].length>currentLargest.length){
+    currentLargest=words[i];
+  }
+}
+console.log (currentLargest);  
+}
 
+
+  
+
+// Calculating a Sum
+sumArray();
+function sumArray(){
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum = 0;
+  for(i=0;i<numbers.length;i++){
+  sum += numbers[i];
+ }
+ console.log(sum);
+ return sum;
+}
+
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+averageNumbers();
+function averageNumbers(){
+
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+var sum = 0;
+
+  for(i=0;i<numbers.length;i++){
+    sum += numbers[i];
+ }
+    var average = sum/numbers.length;
+    return average;
+}
+
 
 // Array of Strings
+averageWordLength();
+function averageWordLength(){
 var wordsArr = [
   'seat',
   'correspond',
@@ -32,6 +75,11 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+  var dividendo = wordsArr.join("").length;
+  var divisor = wordsArr.length;
+  var media = dividendo/divisor;
+  return media;
+ }
 
 // Unique Arrays
 var wordsUnique = [
