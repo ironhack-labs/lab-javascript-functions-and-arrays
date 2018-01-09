@@ -42,17 +42,27 @@ function sumArray (array){
     return sum;
   } else {
     array.forEach(function (num) {
-      sum += num
+      sum += num;
     });
     return sum;
   }
 }
 
-
-
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (arrayAvg){
+  if (arrayAvg.length < 1){
+    return;
+  }else {
+    var numSum = sumArray(arrayAvg);
+    var arrLength = arrayAvg.length;
+    var average = numSum / arrLength;
+    return average;
+  }
+}
+ averageNumbers(numbersAvg)
 
 // Array of Strings
 var wordsArr = [
@@ -67,6 +77,8 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
 
 // Unique Arrays
 var wordsUnique = [
