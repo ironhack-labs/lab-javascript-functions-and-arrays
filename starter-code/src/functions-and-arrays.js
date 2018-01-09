@@ -15,28 +15,52 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(){
-  var longest = "";
-  for (i = 0; i < words.length; i++){
-  if (words[i].length > longest.length){
-  longest = words[i];
-  }else{
-    return;
-    }
+function findLongestWord(a){
+  var longest="";
+  if (a.length === 0){
+  return undefined;
+  }
+  for (var i = 0; i < a.length; i++){
+  if (a[i].length > longest.length){
+  longest = a[i];
+  }
   }
   return longest;
   }
-  findLongestWord();
-
+  
+  findLongestWord(words);
 
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(a){
+  var sum = 0;
+  for (var i= 0; i < a.length; i++){
+    sum = sum + a[i];
+  }
+  return sum;
+}
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function sumArray(a){
+  var sum = 0;
+  for (var i= 0; i < a.length; i++){
+    sum = sum + a[i];
+   var cant=a.length;
+   var media= sum/cantdd;
+   
+  }
+  return media;
+}
+sumArray(numbersAvg);
+
+
 
 // Array of Strings
 var wordsArr = [
