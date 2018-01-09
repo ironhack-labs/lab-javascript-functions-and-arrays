@@ -1,6 +1,27 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2){
+    return num1;
+  } else if (num1 < num2){
+      return num2;
+  } else if (num1 === num2) {
+      return num1;
+  }
+}
 
 // Finding Longest Word
+function findLongestWord(words){
+ var maxLength = 0;
+ var maxWordIndex = 0;
+  for (var i = 0; i < words.length; i++){
+    if (words[i].length > maxLength) {
+      maxLength = words[i].length;
+      maxWordIndex = i;
+    }
+ }
+ return words[maxWordIndex];
+}
+
 var words = [
   'mystery',
   'brother',
@@ -12,14 +33,44 @@ var words = [
 ];
 
 // Calculating a Sum
+function sumArray (numbers){
+  var total = 0;
+    
+    for (var i = 0; i < numbers.length; i++){
+      total += numbers[i];
+    }
+
+  return total;
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+function averageNumbers (numbersAvg){
+  if (numbersAvg.length !== 0){
+  return sumArray(numbersAvg)/numbersAvg.length;
+  } 
+  // Returns undefined by default!!
+  // else {
+  //   return undefined;
+  // }
+}
+
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+function averageWordLength(wordsArr){  
+ var totalCharSum = 0;
+  for (i = 0; i < wordsArr.length; i++){
+    totalCharSum += wordsArr[i].length;
+  }
+  
+  if(wordsArr.length !== 0){
+  return totalCharSum/wordsArr.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +85,15 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(wordsUnique){
+  var returnArray=[]
+//LOOP THIS:
+  //
+
+
+
+}
+
 var wordsUnique = [
   'crab',
   'poison',
