@@ -91,6 +91,17 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  return arr.reduce(function(acc,val){
+    if(acc.indexOf(val)===-1){
+      acc.push(val);
+    }
+    return acc;
+  },[])
+}
+
+console.log('uniquified array is: ',uniquifyArray(wordsUnique));
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -103,6 +114,16 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr,word){
+  return arr.reduce(function(acc,val){
+    if(val===word){
+      acc=true;
+    }
+    return acc;
+  },false)
+}
+
+console.log('check word exists: ', doesWordExist(wordsFind,"mathinondjsh"));
 // Counting Repetion
 var wordsCount = [
   'machine',
