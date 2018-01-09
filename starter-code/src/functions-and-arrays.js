@@ -30,9 +30,9 @@ function findLongestWord(){
      
    }
 
-   return longestWord;
-
+   
   }  
+  return longestWord;
 
 }
 findLongestWord();
@@ -101,6 +101,12 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(value, index, self) { 
+  return self.indexOf(value) === index;
+}
+
+var unique = wordsUnique.filter(uniquifyArray); 
+console.log(unique);
 
 // Finding Elements
 var wordsFind = [
@@ -113,6 +119,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function  doesWordExist(){
+
+  var exist= wordsFind.includes('matter')
+return exist;
+}
+doesWordExist('matter');
+
 
 // Counting Repetion
 var wordsCount = [
@@ -128,6 +141,9 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(){
+  
+}
 // Bonus Quest
 
 var matrix = [
