@@ -1,5 +1,11 @@
 // Find the maximum
 
+function maxOfTwoNumbers(x,y){
+  return Math.max(x,y);
+}
+
+console.log(maxOfTwoNumbers(1,2));
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +17,39 @@ var words = [
   'crackpot'
 ];
 
+
+function findLongestWord(arr){
+  return arr.reduce(function(acc,val){
+    if(val.length>acc.length){
+      acc=val;
+    }
+    return acc;
+  })
+}
+
+console.log(findLongestWord(words));
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  return arr.reduce(function(acc,val){
+    acc=acc+val;
+    return acc;
+  })
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  var sum = sumArray(arr);
+  return sum/arr.length;
+}
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +64,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  var lengthSum= arr.reduce(function(acc,val,index,a){
+    acc=acc+val.length;   
+    console.log('accymulator is: ',acc); 
+    return acc;
+  },0)
+  
+  return lengthSum/arr.length;
+}
+
+var avg=averageWordLength(wordsArr);
+console.log(avg);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +93,17 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  return arr.reduce(function(acc,val){
+    if(acc.indexOf(val)===-1){
+      acc.push(val);
+    }
+    return acc;
+  },[])
+}
+
+console.log('uniquified array is: ',uniquifyArray(wordsUnique));
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,6 +116,16 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr,word){
+  return arr.reduce(function(acc,val){
+    if(val===word){
+      acc=true;
+    }
+    return acc;
+  },false)
+}
+
+console.log('check word exists: ', doesWordExist(wordsFind,"mathinondjsh"));
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +140,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,word){
+  return arr.reduce(function(acc,val){
+    if(val===word){
+      acc++;
+    }
+    return acc;
+  },0)
+}
+
+console.log('word count of matter is: ', howManyTimes(wordsCount, 'matter'));
+
 // Bonus Quest
 
 var matrix = [
