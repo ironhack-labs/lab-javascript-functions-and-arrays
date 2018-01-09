@@ -138,7 +138,11 @@ var wordsFind = [
 
 function doesWordExist(arrayWords, wordSearch) {
   function searchWord(element) {
-    return element === wordSearch;
+    if (element === wordSearch) {
+      return true;
+    } else {
+      return false;
+    }
   }
   arrayWords.find(searchWord);
 }
