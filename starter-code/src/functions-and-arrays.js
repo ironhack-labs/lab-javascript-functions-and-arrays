@@ -1,7 +1,7 @@
-// Find the maximum
+  // Find the maximum
 
 // Finding Longest Word
-var words = [
+var words =[
   'mystery',
   'brother',
   'aviator',
