@@ -1,6 +1,29 @@
 // Find the maximum
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 >= num2) {
+    return num1;
+  } else {
+    return num2;
+    }
+ }
+ // Finding Longest Word
 
-// Finding Longest Word
+function findLongestWord (arr) {
+  if (arr.length == 0) {
+    return;
+  } else {
+    var longestWord ="";
+    arr.forEach(function(elemArr){
+      if(elemArr.length > longestWord.length) {
+        longestWord = elemArr;
+      } else {
+        return;
+      }  
+    });
+  return longestWord;
+  }
+}
+
 var words = [
   'mystery',
   'brother',
@@ -12,14 +35,46 @@ var words = [
 ];
 
 // Calculating a Sum
+function sumArray(arr) {
+  var suma = 0;
+  if (arr.length === 0){
+    return 0;
+  } else if (arr.length === 1) {
+    return arr[0];
+    } else {
+      for (var i = 0; i<arr.length; i++) {
+        suma += arr[i];
+      }
+      return suma;
+    }
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return;
+  } else {
+    return sumArray(arr)/arr.length;
+  }
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return;
+  } else {
+    var sumWordLength = 0;
+    for (var i=0; i<arr.length; i++) {
+      sumWordLength += arr[i].length;
+    }
+    return sumWordLength/arr.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +89,20 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+
+function uniquifyArray (arr) {
+  if (arr.length === 0) {
+  return;
+  } else {
+    var noRepeat = [arr[0]];
+    for (var i=1; i<arr.length; i++) {
+    if (noRepeat.indexOf(arr[i]) == -1)
+    noRepeat.push(arr[i]);
+    }
+    return noRepeat;
+  }
+}
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +118,22 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+function doesWordExist (arr, elem) {
+  var check = '';
+  for (var i=0; i<arr.length; i++) {
+    //console.log(arr[i]);
+    //console.log(elem);
+    if (arr[i] === elem){
+     check = true;
+    } 
+  }
+  if (check) {
+      return true;
+  } else {
+      return false;
+  }
+}
+
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +146,24 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+function howManyTimes (arr, elem) {
+  if (arr.length === 0) {
+    return false;
+  } else {
+    var check = '';
+    var count = 0;
+    for (var i=0; i<arr.length; i++) {
+      //console.log(arr[i]);
+      //console.log(elem);
+      if (arr[i] === elem){
+      //check = true;
+      count++;
+      } 
+    }
+    return count;
+  }
+}
+
 var wordsCount = [
   'machine',
   'matter',
