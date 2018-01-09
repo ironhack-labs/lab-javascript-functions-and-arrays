@@ -1,23 +1,73 @@
+
 // Find the maximum
 
+function maxOfTwoNumbers (var1, var2) {
+  if (var1 > var2){
+    return var1;
+  } else {
+    return var2;
+  }
+}
+
+var max = maxOfTwoNumbers(10, 6);
+console.log(max);
+
 // Finding Longest Word
+
+function findLongestWord (words) {
+  var longestWord="";
+  if (words.length === 0){
+    return;
+  }
+
+  for(var i=0; i < words.length; i++){
+    if (longestWord.length < words[i].length){
+        longestWord = words[i];
+    }else if(longestWord.length === words[i].length){
+        var morelongestWords = [];
+        morelongestWords.push(words[i] , longestWord);
+    }
+  }
+  return longestWord;
+}
+
 var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "holidaysarefine",
+  "pearl",
+  "orchard",
+  "crackpot"
 ];
+
+var longestWord = findLongestWord (words);
+console.log(longestWord);
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (array) {
+  var x = 0;
+  for(var i=0; i < array.length; i++){
+    x += array[i];
+  }
+  return x;
+}
+
+var allNumbers = sumArray(numbers);
+console.log(allNumbers);
+
+
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers) {
+  var average = sumArray(numbers)/numbers.length;
+  return average;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -59,6 +109,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(words, searchWord){
+  for (var i = 0; i< words.length; i++){
+    if (searchWord === words[i]){
+    return true;
+    } else {
+    return false;
+    }
+    break;
+  }
+} 
+
+console.log(doesWordExist(wordsFind, "machine"));
+
 
 // Counting Repetion
 var wordsCount = [
