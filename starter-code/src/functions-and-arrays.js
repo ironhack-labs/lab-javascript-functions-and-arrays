@@ -19,28 +19,45 @@ var words =[
   'orchard',
   'crackpot'
 ];
-var a = words[0].length, b = 0, counter = 0;
 function findLongestWord (words) {
+  var larga = "";
   for (var i = 0; i < words.length; i++){
-    a = words[i];
-    if (b === a) {
-      continue;
-    } else if (b < a){
-      b = a;
-      counter++;
+    if (larga.length < words[i].length){
+      larga = words[i];
     }
+  } if(words.length === 0) {
+    return undefined;
+  } else {
+  return larga;
   }
-  return words[counter];
 }
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray(numbers){
+  var sum = 0;
+  if (numbers.length === 0) {
+    return 0;
+  } else {
+  for(i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
+}
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return undefined;
+  } else {
+  sum = sumArray(numbersAvg);
+  return sum/numbersAvg.length;
+  }
+}
 
 // Array of Strings
+
 var wordsArr = [
   'seat',
   'correspond',
