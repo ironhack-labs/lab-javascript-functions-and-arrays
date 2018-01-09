@@ -1,6 +1,15 @@
 // Find the maximum
-
+function maxOfTwoNumbers (){
+}
 // Finding Longest Word
+
+
+//
+
+
+function findLongestWord(){
+
+
 var words = [
   'mystery',
   'brother',
@@ -11,16 +20,36 @@ var words = [
   'crackpot'
 ];
 
+
+var palabraMasLarga="";
+  for(i=0;i<words.length;i++){
+  if(words[i].length>palabraMasLarga.length){
+    palabraMasLarga=words[i]
+  }
+  }
+
+console.log(palabraMasLarga);
+}
 // Calculating a Sum
+function sumArray(){
+var array1 = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+console.log(array1.reduce(reducer));
+}
 // Calculate the Average
+function averageNumbers(){
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+var reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbersArray = numbers.length;
+
+console.log(numbers.reduce(reducer)/numbersArray);
+}
 
 // Array of Strings
-var wordsArr = [
+function averageWordLength(){
+var palabros = [
   'seat',
   'correspond',
   'linen',
@@ -33,23 +62,46 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+var sumaNumeros = 0;
+for (k = 0; k < palabros.length; k++){
+console.log(palabros[k]);
+sumaNumeros+=palabros[k].length  ; 
+}
 
+var numbersArray = palabros.length;
+console.log(sumaNumeros/numbersArray);
+}
+
+// Unique Arrays
+function uniquifyArray(){
+
+  var words = [
+    'crab',
+    'poison',
+    'contagious',
+    'simple',
+    'bring',
+    'sharp',
+    'playground',
+    'poison',
+    'communion',
+    'simple',
+    'bring'
+   ];
+   
+   var a = [];
+   
+   for (i = 0; i < words.length; i++){
+    if (a.indexOf(words[i]) === -1){
+    a.push(words[i]);
+   } 
+   }
+   console.log(a);
+  }
 // Finding Elements
-var wordsFind = [
+function doesWordExist(){
+
+var words = [
   'machine',
   'subset',
   'trouble',
@@ -57,9 +109,22 @@ var wordsFind = [
   'matter',
   'eating',
   'truth',
+  'disobedience',
   'disobedience'
-];
-
+ ];
+ 
+ function eliminateRepeat(a){
+  var b = [];
+  for (i = 0; i < a.length; i++) {
+    if(b.indexOf(a[i]) === -1){
+      b.push(a[i]);
+    }
+  }
+  return b;
+ }
+ 
+ eliminateRepeat(words);
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
