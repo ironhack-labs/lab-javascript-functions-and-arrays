@@ -6,7 +6,6 @@ function maxOfTwoNumbers(number1, number2){
     return number2;
   }
 }
-maxOfTwoNumbers(3, 6);
 
 // Finding Longest Word
 var words = [
@@ -18,6 +17,21 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+function findLongestWord(a) {
+  
+  var longest ='';
+    if (a.length ===0) {
+      return undefined;
+    }
+    for (var i=0; i < a.length; i++) {
+      if (a[i].length > longest.length) {
+        longest = a[i];
+      }
+    }
+  return longest;
+}
+
 
 // Calculating a Sum
 
