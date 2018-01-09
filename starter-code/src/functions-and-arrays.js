@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers (item1, item2) {
+  if (item1>item2) {
+    console.log("The highest number is " + item1);
+  }
+  else {
+    console.log("The highest number is " + item2);
+  }
+}
+
+
 // Finding Longest Word
 var words = [
   'mystery',
