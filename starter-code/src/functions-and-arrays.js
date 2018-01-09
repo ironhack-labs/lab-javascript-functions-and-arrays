@@ -5,6 +5,8 @@ function maxOfTwoNumbers(value1, value2) {
     return value1;
   } else if (value2 > value1){
     return value2;
+  } else {
+    return value1;
   }
 }
 
@@ -22,15 +24,16 @@ var words = [
   'crackpot'
 ];
 
-var maxLength = 0;
 
 function findLongestWord(words) {
+  var longestWord = '';
+
   for (i=0; i<words.length; i++) {
-    if (words[i].length > maxLength) {
-      maxLength = words[i].length;
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
     }
-    return words[i];    
   }
+  return longestWord;    
 }
 
 words.find(findLongestWord);
