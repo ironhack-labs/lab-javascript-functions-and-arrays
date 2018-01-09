@@ -138,6 +138,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,word){
+  return arr.reduce(function(acc,val){
+    if(val===word){
+      acc++;
+    }
+    return acc;
+  },0)
+}
+
+console.log('word count of matter is: ', howManyTimes(wordsCount, 'matter'));
+
 // Bonus Quest
 
 var matrix = [
