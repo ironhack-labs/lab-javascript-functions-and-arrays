@@ -57,21 +57,6 @@ function averageNumbers (numbersAvg) {
 }
 
 // Array of Strings
-
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
-
-// Unique Arrays
 var wordsUnique = [
   'crab',
   'poison',
@@ -85,6 +70,44 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function averageWordLength(words) {
+  var sum = 0;
+  if (words.length === 0) {
+    return undefined;
+  } else {
+    for(i = 0; i < words.length; i++){
+      sum += words[i].length;
+    }
+    return sum/words.length;
+  }
+}
+ // Unique Arrays
+ var words = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+function uniquifyArray(arr) {
+  var newArray = []
+  if (arr.length === 0) {
+    return undefined;
+  } else {
+    for(var i = 0; i < arr.length; i++){
+      if(newArray.indexOf(arr[i]) === -1) {
+        newArray.push(arr[i]);
+      }
+    }
+  }
+  return newArray;
+}
 
 // Finding Elements
 var wordsFind = [
@@ -97,7 +120,9 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist (arr, search) {
+  return (arr.includes(search)); //voilà!
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
