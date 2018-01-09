@@ -1,5 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a,b){
+  if(a>b){
+    return a;
+  }else{
+    return b;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,64 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  var longest = 0;
+  var tmp = 0;
+  var count = 0;
+
+
+  if(words.length===0){
+    return undefined;
+  }
+  
+  tmp = words[count].split('').length;
+
+ while(count<words.length){
+    
+    if(tmp<words[count].split('').length){
+      longest = count;
+      tmp=words[count].split('').length;
+    }count++;
+  }
+
+return words[longest];
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  var sum=0;
+  for(i=0;i<numbers.length;i++){
+    sum += numbers[i];
+  }
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  var count = 0;
+  var sum=0;
+  var Average = 0;
+
+  if(numbersAvg.length===0){
+    return undefined;
+  }
+
+  while(count<numbersAvg.length){
+    sum += numbersAvg[count];
+    count++;
+  }
+
+  Average = sum/numbersAvg.length;
+  return Average;
+
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +91,21 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr){
+   var count=0;
+   var sum = 0;
+
+  if(wordsArr.length===0){
+    return undefined;
+  }
+
+   while(count<wordsArr.length){
+     sum += wordsArr[count].split('').length;
+     count++;
+   }
+   return sum/wordsArr.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +122,40 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  var temp = "";
+  var arr = [];
+  var count = 0;
+  var i = 0;
+  var position=1;
+  var iter=0;
+  
+
+  if(wordsUnique.length===0){
+    return undefined;
+  }
+
+  while(count<wordsUnique.length){
+    var found=false;
+    temp=wordsUnique[count];
+    for(i=0;i<wordsUnique.length;i++){
+      if(temp==wordsUnique[i+position]){
+        found=true;
+        wordsUnique.splice(i+position,2);
+        arr[iter] = temp;
+        iter++;
+      }
+    }
+    if(found===false){
+      arr[iter] = temp;
+      iter++;
+    }
+    count++;
+    position++;
+  }
+  return arr;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +167,26 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(words,word){
+
+  var found=false;
+
+  if(words.length===0){
+    return false;
+  }
+  
+  for(i=0;i<words.length;i++){
+    if(words[i]== word){
+      found=true;
+    }
+  }
+  if(found==true){
+    return true;
+  }else{
+    return false;
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +202,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words,word){
+  var count = 0;
+
+  if(words.length===0){
+    return false;
+  }
+
+  for(i=0;i<words.length;i++){
+    if(words[i]==word){
+      count++;
+    }
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +242,30 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  var NUM = 4;
+  var product = 0;
+for(var i = NUM - 1; i < (matrix.length - NUM); i++) {
+    for(var k = NUM - 1; k < (matrix.length - NUM); k++) {
+        product = Math.max(
+            product,
+          
+            
+            (matrix[i - 3][k - 3] * matrix[i - 2][k - 2] * matrix[i - 1][k - 1] * matrix[i][k]), 
+            (matrix[i - 3][k] * matrix[i - 2][k] * matrix[i - 1][k] * matrix[i][k]), 
+            (matrix[i - 3][k + 3] * matrix[i - 2][k + 2] * matrix[i - 1][k + 1] * matrix[i][k]), 
+            
+            
+            (matrix[i][k - 3] * matrix[i][k - 2] * matrix[i][k - 1] * matrix[i][k]), 
+            (matrix[i][k + 3] * matrix[i][k + 2] * matrix[i][k + 1] * matrix[i][k]), 
+            
+            
+            (matrix[i + 3][k - 3] * matrix[i + 2][k - 2] * matrix[i + 1][k + 1] * matrix[i][k]), 
+            (matrix[i + 3][k] * matrix[i + 2][k] * matrix[i + 1][k] * matrix[i][k]), 
+            (matrix[i + 3][k + 3] * matrix[i + 2][k + 2] * matrix[i + 1][k + 1] * matrix[i][k]) 
+        );
+    }
+}
+  return product;
+}
