@@ -1,6 +1,15 @@
 // Find the maximum
-console.log("HOLA")
+function maxOfTwoNumbers (a,b) {
+  if(a>b){
+    return a;
+  }else{
+    return b;
+}
+}
 // Finding Longest Word
+findLongestWord();
+function findLongestWord(){
+var currentLargest = "";
 var words = [
   'mystery',
   'brother',
@@ -11,9 +20,21 @@ var words = [
   'crackpot'
 ];
 
+for(i=0;i<words.length;i++){
+  if(words[i].length>currentLargest.length){
+    currentLargest=words[i];
+  }
+}
+console.log (currentLargest);  
+}
+
+
+  
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
 
 // Calculate the Average
 
