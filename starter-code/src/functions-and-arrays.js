@@ -5,6 +5,8 @@ function maxOfTwoNumbers(num1, num2){
     return num1;
   }else if(num2>num1){
     return num2;
+  }else{
+    return num1;
   }
 
   // si son iguales devuelve indefinido (control futuro)
@@ -61,8 +63,15 @@ function sumArray(arrayNumbers){
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayNumbersAvg){
+ 
+  var average = 0; 
 
-  return sumArray(arrayNumbersAvg)/arrayNumbersAvg.length;
+  if(arrayNumbersAvg.length !== 0){
+
+    average = sumArray(arrayNumbersAvg)/arrayNumbersAvg.length;
+  }
+
+  return average;
 
 }
 
