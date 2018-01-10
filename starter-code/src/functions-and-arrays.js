@@ -1,9 +1,7 @@
 // Find the maximum
 
 function maxOfTwoNumbers(one, two) {
-  if(one > two) return one;
-  if(two > one) return two;
-  if(one == two) return one;
+  return one > two? one :two;
 }
 
 // Finding Longest Word
