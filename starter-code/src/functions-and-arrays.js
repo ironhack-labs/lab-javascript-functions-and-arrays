@@ -129,16 +129,21 @@ var wordsUnique = [
 
 function uniquifyArray(arrayWordsUnique){
 
-  var uniqueArray = [];
+  var uniqueArray;
 
-  arrayWordsUnique.forEach(function(word){
+  if(arrayWordsUnique.length > 0){
 
-    if(uniqueArray.indexOf(word) === -1){
-      uniqueArray.push(word)
-    }
+    uniqueArray = [];
+    arrayWordsUnique.forEach(function(word){
 
-  });
-
+      if(uniqueArray.indexOf(word) === -1){
+        uniqueArray.push(word)
+      }
+  
+    });
+  
+  }
+  
   return uniqueArray;
 }
 
@@ -203,13 +208,15 @@ function howManyTimes(wordsCountParam, wordToCount){
 
   var count = 0;
 
-  wordsCountParam.forEach(function(word){
+  if (wordsCountParam.length > 0){
+    wordsCountParam.forEach(function(word){
     
-    if(word === wordToCount){
-      count += 1;
-    }
-
-  });
+      if(word === wordToCount){
+        count += 1;
+      }
+  
+    });
+  }
 
   return count;
 }
