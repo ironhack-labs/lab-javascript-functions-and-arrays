@@ -160,6 +160,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array, word){
+  if (array.length < 1) {
+    return false;
+  }else {
+    var cont = 0;
+    array.forEach(function(a){
+      if (a == word){
+        cont++
+      }
+    });
+    return cont;
+  }
+}
+
+howManyTimes(wordsCount, "matter");
+
 // Bonus Quest
 
 var matrix = [
