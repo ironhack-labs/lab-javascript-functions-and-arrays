@@ -3,8 +3,6 @@ function maxOfTwoNumbers(number1,number2) {
   return Math.max(number1,number2);
 }
 
-
-
 // Finding Longest Word
 
 var words = [
@@ -36,18 +34,28 @@ function findLongestWord(array){
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumArray(array) {
- var number = 0;
-  for (var i = 0; i<array;i++){}
-
+  var number = 0;
+  if (array.length===0) {
+    return 0;
+  }
+  for (var i = 0; i < array.length ; i++) {
+    number += array[i];
+    console.log(number);
+  }
+  return number;
 }
-console.log(sumArray(numbers));
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if (array.length===0) {
+    return undefined;
+  }
+  return sumArray(array)/array.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -63,6 +71,18 @@ var wordsArr = [
   'palace'
 ];
 
+//array of lenghts -> average of array
+function averageWordLength(array){
+  if (array.length===0) {
+    return undefined;
+  }
+  var lengthArray = array.reduce(function(sum, element){
+    return sum + element.length;
+  },0);
+  return lengthArray / array.length;
+}
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -77,6 +97,20 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+//here
+function uniquifyArray(array){
+  if (array.length===0) {
+    return undefined;
+  }
+  var container = [];
+  for (var i=0; i < array.length; i++) {
+    if (array[i].indexOf() !== -1)
+    {
+      container.concat(array[i]);
+    }
+  }
+  return container;
+}
 
 // Finding Elements
 var wordsFind = [
@@ -89,6 +123,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(word, array) {
+  if (array.length===0) {
+    return undefined;
+  }
+  for (var i = 0 ; i < array.length ; i++) {
+    if (array[i] === word ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -104,6 +151,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(word, array) {
+  if (array.length===0) {
+    return undefined;
+  }
+  var counter = 0;
+  for (var i = 0; i < array.length ; i++) {
+    if (array[i] === word ) {
+      counter += 1;
+    } 
+  }
+  return counter;
+}
 // Bonus Quest
 
 var matrix = [
