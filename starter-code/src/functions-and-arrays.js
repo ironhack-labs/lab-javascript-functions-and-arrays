@@ -99,29 +99,25 @@ var wordsArr = [
 
 // Unique Arrays
 function uniquifyArray(array)
-{var n=0, l=array.length;
-  if (l==0)
-  {
-    return
-  }
-  else {
-  for(var i=0; i< l-1; i++)
-  { for ( var j=i+1; j< l-1; j++)
+{
+
+    if (array.length ==0)
     {
-      if ( array.indexOf(array[i])!== 0)
-      {
-        array.splice(j,1);
-        n+=1;
-        array.push(1);
-      }
+      return undefined
     }
-
+    else {
+  var newArray=[];
+  for (var i=0; i< array.length; i++)
+  {if (newArray.indexOf(array[i])=== -1)
+  {
+    newArray.push(array[i])
   }
 
-  array.splice(l-n+1, n);
-  return array;
+  }
+  return newArray
 }
 }
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -137,6 +133,22 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(array, word)
+{var test=false;
+  if (array.length !==0)
+  {
+  for(var i=0; i< array.length ; i++)
+  {
+    if (array[i]==word)
+    {
+      test=true;
+      break;
+    }
+  }
+}
+  return test
+}
 var wordsFind = [
   'machine',
   'subset',
@@ -149,6 +161,24 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+function howManyTimes(array, word)
+{if (array.length ==0)
+  {
+    return false
+  }
+  else
+  {
+  var times=0;
+  for (var i=0; i<array.length ; i++)
+  {
+    if (array[i]== word)
+    {
+      times+=1;
+    }
+  }
+  return times
+}
+}
 var wordsCount = [
   'machine',
   'matter',
@@ -163,6 +193,33 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+function greatestProduct(array)
+{var maxHorizontal, maxVertical; 
+  maxHorizontal=0;
+  maxVertical=0;
+  for ( var k=0; k< array.length; k++){
+  for (var i=0; i<array.length; i++)
+  {
+  maxHorizontal= maxOfTwoNumbers(productAdjacent(array[k],i), maxHorizontal);
+  var arrayVertical= [];
+  for(var j=0; j<array.length; j++){
+  arrayVertical[j]=array[j][k];
+  }
+  maxVertical= maxOfTwoNumbers(productAdjacent(arrayVertical,i), maxVertical);
+  
+}}
+
+return maxOfTwoNumbers(maxVertical, maxHorizontal);
+}
+function productAdjacent(array, index)
+{
+  var p=1;
+  for(var i=index; i<index+4; i++)
+  {
+    p*= array[i];
+  }
+  return p
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -186,3 +243,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+greatestProduct(matrix);
