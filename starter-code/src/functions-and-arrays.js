@@ -48,7 +48,6 @@ for (var i=0; i<array.length; i++){
 return total;
 }
 
-//invocar la funcion
 console.log(sumArray(numbers));
 
 // Calculate the Average
