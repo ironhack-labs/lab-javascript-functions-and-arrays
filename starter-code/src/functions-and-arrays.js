@@ -119,6 +119,7 @@ function uniquifyArray(array) {
        uniqueArr.push(array[i]);
     }
   }
+
   return uniqueArr;
 }
 
