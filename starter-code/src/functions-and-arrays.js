@@ -89,8 +89,18 @@ var wordsUnique = [
   'bring'
 ];
 
+var currentElement;
 function uniquifyArray(array){
-  for(var j=0; j<)
+  array.forEach(function(element, index){
+      currentElement = element;
+    for(var j=index+1; j<array.length-(index-1); j++){
+        if(currentElement===array[j]){
+           console.log(array[j]);
+           array.splice(j,1);
+        }
+    }
+  })
+  return array
 }
 
 
@@ -108,12 +118,12 @@ var wordsFind = [
 
 
 function doesWordExist(array, word){
-  array.forEach(function(element){
-    if(element === word){
+  for(var i = 0; i <array.length; i++){
+    if(array[i] === word){
       return true;
     }
-  })
-}
+  } return false;
+ }
 
 // Counting Repetion
 var wordsCount = [
@@ -129,6 +139,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(array, word){
+  var numTimes=0;
+  for(var i=0; i<array.length; i++){
+    if(word===array[i]){
+      numTimes++;
+    }
+  }
+  return numTimes;
+}
+
 // Bonus Quest
 
 var matrix = [
