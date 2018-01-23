@@ -1,25 +1,62 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
 
+  if(num1>num2){
+    return num1
+  }else if (num1<num2){
+    return num2;
+  }else if(num1===num2){
+    return 4;
+  }
+}
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function findLongestWord(){
+  var words = [
+    'mystery',
+    'brother',
+    'aviator',
+    'crocodile',
+    'pearl',
+    'orchard',
+    'crackpot'
+  ];
+  
+  var longest="";
+  for (var i=0; i<words.length; i++){
+    if (longest.length<words[i].length){
+      longest = words[i];
+    }
+  }
+  console.log(longest);
+}
 
+findLongestWord();
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+  if(array.length===0){
+    return;
+  }
+
+var total = 0;
+
+for (var i=0; i<array.length; i++){
+  total = total + array[i];
+}
+return total;
+}
+
+//invocar la funcion
+console.log(sumArray(numbers));
+
 // Calculate the Average
-
+function averageNumbers(){
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+}
 // Array of Strings
+function averageWordLength(){
 var wordsArr = [
   'seat',
   'correspond',
@@ -32,8 +69,10 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+}
 
 // Unique Arrays
+function uniquifyArray(){
 var wordsUnique = [
   'crab',
   'poison',
@@ -47,8 +86,10 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+}
 
 // Finding Elements
+function doesWordExist(){
 var wordsFind = [
   'machine',
   'subset',
@@ -59,8 +100,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+}
 
 // Counting Repetion
+function howManyTimes(){
 var wordsCount = [
   'machine',
   'matter',
@@ -74,8 +117,9 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+}
 // Bonus Quest
-
+function greatestProduct(){
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -98,3 +142,4 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+}
