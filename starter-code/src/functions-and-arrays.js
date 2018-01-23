@@ -24,13 +24,14 @@ function findLongestWord(array){
   //2. create variables  
   var longestWord;
   var longestCount = 0;
-  for(i=0; i < array.length; i++) {
-    if(array[i].length > longestCount)
-      longestCount = array[i];
-      longestCount = array[i.length];
+  for(var i=0; i < array.length; i++) {
+    if(array[i].length > longestCount){
+      longestWord = array[i];
+      longestCount = array[i].length;
+    }
   }
-  return longestWord;  
-  }
+  return longestWord;
+}
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -44,12 +45,12 @@ function sumArray(array){
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(){
+function averageNumbers(array){
   if(array.length === 0){
     return undefined;
   }
   sum = sumArray(array);
-  sum = sum/array.length;
+  result = sum/array.length;
   return result;
 }
 
@@ -67,12 +68,12 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength(){
+function averageWordLength(array){
   if(array.length === 0){
     return undefined;
   }
-  var sumLengths;
-  for(i = o; i < array.length; i++){
+  var sumLengths = 0;
+  for(i = 0; i < array.length; i++){
     sumLengths += array[i].length;
   }
   result = sumLengths / array.length;
@@ -150,8 +151,10 @@ var wordsCount = [
 
 function howManyTimes(array, array2){
   var sum = 0;
-
-  for(i = o; i < array.length; i++){
+  if(array.length === 0){
+    return false;
+  }
+  for(i = 0; i < array.length; i++){
     if(array[i].includes(array2)){
       sum +=1;
     }
@@ -182,3 +185,28 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  var numbers = 0;
+  var testing;
+    for (var i = 3; i < 20; i++){
+      for (var j = 0; j < 20; j++){
+        testing = array[i][j] * array[i-1][j] * array[i-2][j] * array[i-3][j]
+        if (numbers < testing)
+        {
+          numbers = testing
+        }
+      }
+    }
+    for (var i = 0; i < 20; i++){
+      for (var j = 3; j < 20; j++){
+        testing = array[j][i] * array[j-1][i] * array[j-2][i] * array[j-3][i]
+        if (numbers < testing)
+        {
+          numbers = testing
+        }
+      }
+    }
+    return numbers;
+  }
+ 
