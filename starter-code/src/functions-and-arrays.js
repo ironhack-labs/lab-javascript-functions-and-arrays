@@ -1,5 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +18,61 @@ var words = [
   'orchard',
   'crackpot'
 ];
+/*
+function findLongestWord(words){
+  if(words.length<1){
+    return undefined;  
+  }else if(words.length === 1) 
+  {return words[0];
+  }else{
+  var long2="";
+  for(var i=0;i<words.length -1;i++){
+    if(words[i].length>=long2.length){
+       long2=words[i];
+       words[i]=long2;
+    }
+
+  }
+  return long2;
+}
+}
+*/
+function findLongestWord(input){
+  var longest="";
+  if(input.length < 1) {
+    return undefined;
+  } else if (input.length === 1){
+    return input[0];
+  }
+  for (var i = 0; i < input.length; i++) {
+    if (input[i].length >= longest.length) {
+      longest = input[i];
+    }
+  }
+  return longest;
+}
+findLongestWord(words);
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+var sum = 0;
+for (var i = 0; i < numbers.length; i++){
+  sum+=arr[i];
+}
+return sum;
+}
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(total,length){
+  return total/length;}
+  average(sumArray(numbersAvg),numbersAvg.length);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +87,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(wordsArr){
+  var sum=0;
+  for(var i=0;i<wordsArr.length;i++)
+  {
+    sum+=wordsArr[i].length;
+  }
+  return sum/wordsArr.length;
+}
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
@@ -47,6 +111,18 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  var uniqueArray = [];
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < uniqueArray.length; j++) {
+      if (arr[i] === uniqueArray[j]) {
+        continue;
+      }
+    }
+  }
+  
+}
 
 // Finding Elements
 var wordsFind = [
