@@ -31,14 +31,11 @@ function findLongestWord(array) {
 }
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-var tweets = [1, 3, 7, 8];
+// var tweets = [1, 3, 7, 8];
 
 function sumArray(array) {
   var sum = 0;
-
   for (var i = 0; i < array.length; i++) {
     sum += array[i];
   }
@@ -56,9 +53,7 @@ function averageNumbers(array) {
   if (array.length === 0) {
     return;
   } 
-
   var sum = sumArray(array);
-
   var avg = sum / array.length;
 
   return avg;
@@ -77,7 +72,6 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
 
 function averageWordLength(array) {
   if (array.length === 0) {
@@ -107,19 +101,15 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(array) {
-
   if (array.length === 0) {
     return;
   }
-
   var uniqueArr = [];
-
   for (var i = 0; i < array.length; i++) {
-    if (array.indexOf(array[i]) !== array.indexOf(array[i + 1])) {
+    if (uniqueArr.indexOf(array[i]) === -1) {
        uniqueArr.push(array[i]);
     }
   }
-
   return uniqueArr;
 }
 
