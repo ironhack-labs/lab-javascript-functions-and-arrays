@@ -1,17 +1,24 @@
 // Find the maximum
-
+function maxOfTwoNumbers(x, y) {
+  if(x > y){
+    console.log("Larger number is " + x)
+  } else {
+    console.log("Larger number is " + y)
+  }
+} 
+maxOfTwoNumbers(3,4)
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function findLongestWord(str) {
+  const stringArray = str.split(" ");
+  const orderedArray = stringArray.sort((a, b) => {
+    return a.length < b.length;
+  });
+  return orderedArray[0].length;
+}
+findLongestWord("mystery brother aviator crocodile pearl orchard crackpot");
 
 // Calculating a Sum
+function sumArray()
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
