@@ -53,19 +53,39 @@ console.log(findLongestWord(words));
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(numbers){
-  If (numbers.length===0){
-    return 0;
-  } else if (numbers.length===1){
-    return numbers[0];
+  var sum = 0;
+  if (numbers.length===0){
+    return sum;
+  }else if(numbers.length===1){
+    return sum=numbers[0];
   } else {
-    return numbers.reduce();
+    for (i=0;i<numbers.length;i++){
+      sum += numbers[i];
+    }
+    return sum;
   }
 }
 
-console.log(sumArray);
+console.log(sumArray(numbers));
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  var sum=0;
+  if (numbersAvg.length === 0 ) {
+    return undefined;
+  } else if(numbersAvg.length===1){
+    return sum=numbersAvg[0];
+  } else {
+    for (i=0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+    }
+   return sum/numbersAvg.length;
+  }
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -80,6 +100,24 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr) {
+  var sum=0;
+  if (wordsArr.length === 0 ) {
+    return undefined;
+  } else if(wordsArr.length===1){
+    return sum=wordsArr[0].length;
+  } else {
+    for (i=0; i < wordsArr.length; i++) {
+    sum += wordsArr[i].length;
+    }
+   return sum/wordsArr.length;
+  }
+}
+
+console.log(averageWordLength(wordsArr));
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -96,6 +134,27 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0 ) {
+    return undefined;
+  } else if(wordsUnique.length===1){
+    return sum=wordsUnique[0];
+  } else {
+    var uniquify= wordsUnique;
+    for (i=0; i < wordsUnique.length; i++) {
+        for (j=1+i; j < wordsUnique.length; j++){
+         if (wordsUnique[i]===wordsUnique[j]){
+          uniquify.splice(j,1);
+         }
+        }
+    }
+   return uniquify;
+  }
+}
+
+console.log(uniquifyArray(wordsUnique));
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -107,6 +166,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+var word= prompt("Write a word to search");
+function doesWordExist(wordsFind, word){
+  var exist= false;
+  for (i=0; i < wordsFind.length; i++) {
+       if (wordsFind[i]===word){
+         exist = true;
+         return exist;
+       }
+  }
+  return exist;
+}
+
+console.log(doesWordExist(wordsFind,word));
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -122,6 +196,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+var word= prompt("Write a word to check repetition");
+function howManyTimes(wordsCount, word){
+  var count= 0;
+  for (i=0; i < wordsCount.length; i++) {
+       if (wordsCount[i]===word){
+         count +=1;
+       }
+  }
+  return count;
+}
+
+console.log(howManyTimes(wordsCount,word));
+
+
+
 // Bonus Quest
 
 var matrix = [
@@ -146,3 +236,43 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrix){
+  var product=0;
+  var max=0;
+  for (x=0; x < matrix.length; x++){
+    for (y=0; y < matrix.length; y++){
+      if (x>0 && y>0 && y<matrix.length-1 && x<matrix.length-1){
+      product= matrix[x+1][y]*matrix[x-1][y]*matrix[x][y+1]*matrix[x+1][y-1];
+        if (product> max){
+           max= product;
+        }
+     }else if (x===0 && y<matrix.length-1 && y>0){
+        product= matrix[x+1][y]*matrix[x][y+1]*matrix[x+1][y-1];
+        if (product> max){
+           max= product;
+        }
+       }else if (x<matrix.length-1 && y<matrix.length-1 && y===0){
+        product= matrix[x+1][y]*matrix[x][y+1]*matrix[x-1][y];
+           if (product> max){
+           max= product;
+           }
+       }else if (x>0 && y>0 && y===matrix.length-1 && x<matrix.length-1){
+           product= matrix[x+1][y]*matrix[x-1][y]*matrix[x+1][y-1];
+           if (product> max){
+           max= product;
+           } 
+       }else  if (x>0 && y>0 && y<matrix.length-1 && x===matrix.length-1){
+      product= matrix[x+1][y]*matrix[x-1][y]*matrix[x][y+1];
+        if (product> max){
+           max= product;
+        }
+      console.log ("fuera de rango");
+    }
+    }
+  }
+return max;
+}
+
+console.log(greatestProduct(matrix));
