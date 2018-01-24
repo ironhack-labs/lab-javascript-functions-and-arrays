@@ -72,7 +72,8 @@ function averageWordLength(array){
  array.forEach(function(element){
    stringLengths.push(element.length)
  });
-)}
+}
+//find average length
 
 // Unique Arrays
 var wordsUnique = [
@@ -175,3 +176,72 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//row column 
+// matrix[x][y]
+
+
+
+function greatestProduct(matrix){
+  var array=[];
+  
+  function upProduct(num){
+    if(num >2){
+      var productUp = matrix[x][y] * matrix[x-1][y] * matrix[x-2][y] * matrix[x-3][y];
+      array.push(productUp);
+      }
+    else{
+      return undefined;
+    }  
+  }
+
+  function downProduct(num){
+    if(num<17){
+      var productDown = matrix[x][y] * matrix[x+1][y] * matrix[x+2][y] * matrix[x+3][y];
+    array.push(productDown)
+    }
+    else{
+      return undefined;
+    }  
+  }
+
+  function leftProduct(num){
+    if (num > 2){
+      var productLeft = matrix[x][y] * matrix[x][y-1] * matrix[x][y-2] * matrix[x][y-3];
+      array.push(productLeft)
+    }
+    return undefined;
+  }
+
+  function rightProduct(num){
+    if(num <17 ){
+      var productRight = matrix[x][y] * matrix[x][y+1] * matrix[x][y+2] * matrix[x][y+3];
+      array.push(productRight)
+     }
+    else{
+      return undefined;
+    }  
+  }
+
+  for(x=0; x<20; x++){
+    for(y=0; y<20; y++){
+      
+      upProduct(x) 
+      downProduct(x);
+      leftProduct(y);
+      rightProduct(y);
+    }
+  }
+      //console.log(array);
+
+  var largestProduct=array[0];    
+  for(var j=0; j<array.length; j++){
+      if(array[j] > largestProduct){
+        largestProduct=array[j];
+      }
+  }
+      console.log(largestProduct);
+      return largestProduct;
+}
+
+greatestProduct(matrix);
