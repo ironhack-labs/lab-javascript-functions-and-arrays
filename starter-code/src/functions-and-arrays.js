@@ -1,5 +1,10 @@
 // Find the maximum
-
+function maxOfTwoNumbers(x,y){
+  if (x >= y){
+    return x
+  } else if(y>x) {
+    return y
+  }
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +15,38 @@ var words = [
   'orchard',
   'crackpot'
 ];
+findLongestWord(array){
+  var longestWordIndex = 0;
+  array.forEach(function(elem,index){if(elem.length >array[longestWordIndex].length)
+    longestWordIndex = index;
+  })
+  return array [longestWordIndex];
+
+}
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray(array){
+  var currentSum=0;
+  for(var i =0;i<array.length; i=i+1) {
+    currentSum = currentSum + array[i];
+   
+}
+  return currentSum
+}
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageArray(array){
+  var currentSum=0;
+  for(var i =0;i<array.length; i=i+1) {
+    currentSum = currentSum + array[i];
+}
+return currentSum/numbersAvg.length
+}
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +62,15 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  var totalLength = 0
+for(var i =0; i<array.length;i=i+1){
+  totalLength = totalLength + array[i].length
+}
+return totalLength/(array.length)
+}
+console.log(averageWordLength(wordsArr))
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,18 +85,25 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  var newArray = [];
+  for(var i = 0; i<array.length;i=i+1){
+  if(newArray.indexOf(array[i]) === -1){
+    newArray.push(array[i]) 
+  } else {}
+}
+return newArray
+
 
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+function doesWordExist(word, array){var status=false
+  for(var i =0;i<array.length; i = i+1){
+  if (word === array[i]){status=true} else {}
+  }
+  return status}
+  
+  console.log(doesWordExist('sharp',wordsUnique))  
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +119,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(word,array){
+  var currentTimes= 0
+  for (var i =0;i<array.length;i = i+1){
+    if(array[i]===word){
+    currentTimes = currentTimes + 1
+    } else {}
+  } return currentTimes
+} 
+console.log(howManyTimes("matter",wordsCount))
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +152,87 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix){
+  for(var x =0;x<matrix[x,0].length;x=x+1){
+    
+  }
+}
+
+var maxProduct = greatestProduct(matrix);
+console.log(maxProduct);
+
+    // For this Matrix, I am creating functions for each way we are asked to find a max product:by row, by column, and diagnol to right, and diagnol to left on a per row or column basis by using a for loop
+    
+    // From there, use those functions in another loop, to find the max of all rows or columns for example, findGreatestProductsInallRows uses the findGreatestProductInRow inside it's loop. 
+    
+    // Then, we create one last function, called compare, and return the largest of the largest. 
+    
+    // For time purposes, I've only created each function for finding max product for individual row and columns, diagnols too, and also created a function for finding greatest product of ALL ROWS --
+    
+    function findGreatestProductInRow(row){
+      var currentMaxProductInRow=0
+         
+      for (var i = 0;i<row.length-3; i=i+1){
+          if (currentMaxProductInRow< row[i]*row[i+1]*row[i+2]*row[i+3]){
+            currentMaxProductInRow = row[i]*row[i+1]*row[i+2]*row[i+3]
+              }
+        } 
+      return currentMaxProductInRow
+    
+    }
+    
+    // function findGreatestProductInAllRows(matrix){
+      var currentGreatestProductInAllRows=0;
+      for(var i =0;i<matrix.length;i=i+1){
+        if (findGreatestProductInRow<findGreatestProductInRow(matrix[i])){
+        currentGreatestProductInAllRows=findGreatestProductInRow(matrix[i])
+        }
+      }
+      return currentGreatestProductInAllRows
+    }
+    console.log(findGreatestProductInAllRows(numberMatrix))
+    
+    
+    function findGreatestProductInColumn(matrix,matrixColumnNumber){
+      
+      var currentMaxProductInColumn=0;
+      
+      for(var x=0; x<matrix.length-3;x=x+1){
+        
+        if (currentMaxProductInColumn<matrix[x][matrixColumnNumber]*matrix[x][matrixColumnNumber+1]*matrix[x][matrixColumnNumber+2]*matrix[x][matrixColumnNumber+3]){
+          
+            currentMaxProductInColumn = matrix[x][matrixColumnNumber]*matrix[x][matrixColumnNumber+1]*matrix[x][matrixColumnNumber+2]*matrix[x][matrixColumnNumber+3]
+      }
+      return currentMaxProductInColumn
+      
+    }}
+    
+    function findGreatestProductDiagnolRightInRow(matrix,y){
+      
+      var currentMaxDiagnolRightInRow=0;
+      
+      for(var i=0; i<matrix.length-3;i=i+1){
+        
+        if (currentMaxDiagnolRightInRow<matrix[y][i]*matrix[y+1][i+1]*matrix[y+2][i+2]*matrix[y+3][i+3]){
+          currentMaxDiagnolRightInRow=matrix[y][i]*matrix[y+1][i+1]*matrix[y+2][i+2]*matrix[y+3][i+3]
+        }
+      } return currentMaxDiagnolRightInRow
+    }
+    
+    
+    
+    function findGreatestProductDiagnolLeftInRow(matrix,y){
+      var currentMaxDiagnolLeftInRow=0;
+      
+      for(var i=matrix[0].length-1; i>2;i=i-1){
+        
+        if (currentMaxDiagnolLeftInRow<matrix[y][i]*matrix[y+1][i-1]*matrix[y+2][i-2]*matrix[y+3][i-3]){
+          currentMaxDiagnolLeftInRow=matrix[y][i]*matrix[y+1][i-1]*matrix[y+2][i-2]*matrix[y+3][i-3]
+        }
+      }
+      return currentMaxDiagnolLeftInRow
+    }
+      
+
+
+  }
