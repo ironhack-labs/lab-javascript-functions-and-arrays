@@ -20,7 +20,7 @@ var words = [
 ];
 
 function findLongestWord(list) {
-  if (list.length == 0) {
+  if (list.length === 0) {
     return;
   }
 
@@ -29,9 +29,12 @@ function findLongestWord(list) {
 
   list.forEach(function(e) {
     if (e.length > letters) {
+      letters = e.length;
       longest = e;
+    
     }
   })
+
   return longest;
 
 }
