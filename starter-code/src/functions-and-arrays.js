@@ -31,14 +31,44 @@ function findLongestWord(pepe) {
 // Calculating a Sum
 
 var numbers = [ 6, 12, 1, 18, 13, 16, 2, 1, 8, 10 ];
+function sumArray(pepe) {
+    if(pepe.length === 0){
+      return 0;
+    }else if(pepe.length === 1){
+      return pepe[0];
+    }
+    
+    return pepe.reduce(function (acc,elem) {
+      return acc + elem;
+      
+    })
+}
+
+
+
 
 // Calculate the Average
 
 var numbersAvg = [ 2, 6, 9, 10, 7, 4, 1, 9 ];
 
+function averageNumbers(pepe) {
+  if(pepe.length===0){
+    return;
+  }
+  return sumArray(pepe) / pepe.length;
+
+}
+
+
+  
 // Array of Strings
 var wordsArr = [ 'seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace' ];
 
+function averageWordLength(pepe) {
+  pepe.forEach(function (elem, index, a) {
+    return elem.length;
+  
+})}
 // Unique Arrays
 var wordsUnique = [
 	'crab',
