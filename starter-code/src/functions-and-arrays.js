@@ -1,4 +1,16 @@
 // Find the maximum
+function maxOfTwoNumbers (number1, number2) {
+  if (number1 > number2) {
+    console.log(number1);
+  }
+  else if (number1 < number2) {
+    console.log(number2);
+  }
+  else 
+    console.log ("The numbers are equal.");
+}
+
+console.log(maxOfTwoNumber(1,2));
 
 // Finding Longest Word
 var words = [
@@ -11,15 +23,50 @@ var words = [
   'crackpot'
 ];
 
+var longestWord = words[0];
+function findLongestWord (words) {
+  words.forEach(function (word) {
+    var length = (word.length);
+    if (length > longestWord.length) {
+      longestWord = word;
+      console.log("current longest word = "+ longestWord);
+    } 
+  }
+  );
+  return longestWord;
+}
+
+findLongestWord(words);
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum = numbers[0];
+function sumArray (numbers) {
+  numbers.forEach(function (number) {
+    sum = sum + number;
+  }
+  );
+  return sum;
+}
 
+  console.log(sumArray(numbers));
+  
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (number) {
+  var avg = (sumArray(numbersAvg))/numbersAvg.length;
+  console.log(avg);
+}
+
+ console.log(averageNumbers(numbersAvg));
+
+
 // Array of Strings
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -32,6 +79,27 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+var totalLength = wordsArr[0].length;
+function sumLettersOfWords (words) {
+  wordsArr.forEach(function (word) {
+    var length = (word.length);
+      totalLength = totalLength + length;
+      console.log("current total length = "+ totalLength);
+    } 
+  
+  );
+  return totalLength;
+}
+
+console.log(sumLettersOfWords(wordsArr));
+
+
+function averageWords (word) {
+  var avg = (sumLettersOfWords(wordsArr))/wordsArr.length;
+  console.log(avg);
+}
+
+ console.log(averageWords(wordsArr));
 
 // Unique Arrays
 var wordsUnique = [
@@ -47,6 +115,17 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+// In progress.
+
+function uniquifyArray (word) {
+  words.forEach(function (word) {
+    if word[0] === word[i]
+      word[i].split
+      
+}
+}
+
 
 // Finding Elements
 var wordsFind = [
