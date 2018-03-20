@@ -88,12 +88,15 @@ function uniquifyArray(array) {
     
     for (let x = 0; x <  array.length; x++) {
       if (array.indexOf(array[x],x+1) === -1){
-        uniqueArray.push(array[x]);
-        booleano = true;
+        if (uniqueArray.indexOf(array[x],0) === -1){
+          uniqueArray.push(array[x]);
+          booleano = true;
+        }
 
       }else{
         if (uniqueArray.indexOf(array[x],0) === -1){
           uniqueArray.push(array[x]);}
+          booleano = true;
       }
     
     
@@ -105,8 +108,7 @@ function uniquifyArray(array) {
     return uniqueArray;
   } else {
     return array;
-
-  }
+}
   
 }
 var wordsUnique = [
@@ -174,6 +176,24 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+function greatestProduct(matrix){
+  var product = 1;
+  var greatest = 0;
+  for (let i = 0; i < 20; i++) {
+    for (let j = 0; j < 20; j++) {
+      
+      if(i >= 0){
+        product *= matrix[j][i];
+      }
+      if(i < 20){
+        product *= matrix[j][i];
+      }
+      if(product > greatest){
+        greatest = product;
+      }
+    }
+  }
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
