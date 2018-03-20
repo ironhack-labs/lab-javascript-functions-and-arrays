@@ -44,6 +44,7 @@ function findLongestWord(list) {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(list) {
+
 var suma = 0;
 
 list.forEach(function(e) {
@@ -56,6 +57,23 @@ list.forEach(function(e) {
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers(list) {
+  if (list.length === 0) {
+    return;
+  }
+
+  var suma = 0;
+  
+  list.forEach(function(e) {
+    suma += e;
+  })
+   return suma/list.length;
+  
+  }
+
+  
 
 // Array of Strings
 var wordsArr = [
@@ -70,6 +88,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(list) {
+  if (list.length === 0) {
+    return;
+  }
+
+  var suma = 0;
+  
+  list.forEach(function(e) {
+    suma += e.length;
+  })
+   return suma/list.length;
+  
+  }
 
 // Unique Arrays
 var wordsUnique = [
@@ -86,6 +118,10 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray()
+ {
+
+ }
 // Finding Elements
 var wordsFind = [
   'machine',
