@@ -26,8 +26,8 @@ function findLongestWord(array){
     var longestWord = "";
     for(var i=0; i<array.length; i++) {
       if(array[i].length > longestWord.length) {
-      longestWord = array[i];
-      }       
+        longestWord = array[i];
+      }
     }
     return longestWord;
   }
@@ -186,8 +186,82 @@ function howManyTimes(array, word){
 
 // Bonus Quest
 
-function greatestProduct(){
+function greatestProduct(array){
+
+  var totalProduct = 0;
+  var product = 0;
   
+  var maxIndex = array.length;
+
+  for(var i = 0 ; i<maxIndex ; i++){
+    for(var j = 0 ; j<maxIndex ; j++){
+
+      //Position [0][0]
+      if(i==0 && j==0){
+        product = array[i+1][j] * array[i][j+1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+       //Position [0][19]
+      else if(i==0 && j==maxIndex-1){
+        product = array[i+1][j] * array[i][j-1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+       //Position [19][19]
+      else if(i==maxIndex-1 && j==maxIndex-1){
+        product = array[i-1][j] * array[i][j-1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+       //Position [19][0]
+      else if(i==maxIndex-1 && j==0){
+        product = array[i-1][j] * array[i][j+1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+      //Column on [i changing][0]
+      else if(j==0 && i!==0 && i!==maxIndex-1){
+        product = array[i+1][j] * array[i][j-1] * array[i][j+1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+       //Row on [0][j changing]
+      else if(i==0 && j!==0 && j!==maxIndex-1){
+        product = array[i+1][j] * array[i][j+1] * array[i][j-1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+      //Column on [i changing][19]
+      else if(j==maxIndex-1 && i!==0 && i!==maxIndex-1){
+        product = array[i+1][j] * array[i-1][j] * array[i][j-1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+      //Row on [19][j changing]
+      else if(i==maxIndex-1 && j!==0 && j!==maxIndex-1){
+        product = array[i-1][j] * array[i][j-1] * array[i][j+1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+      else{
+        product = array[i+1][j] * array[i-1][j] * array[i][j+1] * array[i][j-1];
+        if(totalProduct < product){
+          totalProduct = product;
+        }
+      }
+    }
+  }
+
+  return totalProduct;
 }
 
 var matrix = [
@@ -212,3 +286,13 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+//For testing
+var matrix2 = [
+  [1, 1, 1, 1, 1],
+  [1, 1, 8, 1, 1],
+  [1, 8, 8, 8, 1],
+  [1, 1, 8, 1, 1],
+  [1, 1, 1, 1, 1],
+]
