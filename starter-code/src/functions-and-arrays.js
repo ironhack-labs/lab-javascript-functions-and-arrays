@@ -90,10 +90,22 @@ var wordsUnique = [
   'playground',
   'poison',
   'communion',
-  'simple',
-  'bring'
+
 ];
 
+function uniquifyArray(wordList){
+  console.log(wordList)
+ var uniqueArray = [];
+  if (wordList.length > 0){
+    for ( var i = 0; i < wordList.length; i++){
+      if((wordList.indexOf(wordList[i],i+1)) == -1){
+        uniqueArray.push(wordList[i]);
+      }
+    }
+    console.log(uniqueArray)
+    return uniqueArray;
+  }
+}
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -106,6 +118,16 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordList, word){
+  for (var i = 0; i < wordList.length; i++){
+    
+    if (word == wordList[i]){
+      return true;
+    }
+  }
+  return false;
+  
+ }
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -120,6 +142,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordList, word){
+	var counter = 0;
+ if (wordList.length > 0){
+  for (var i = 0; i < wordList.length; i++){
+ 	
+ 	if (word == wordList[i]){
+ 		counter++;
+ 	}
+ }
+ return counter;
+}
+return false;
+}
 // Bonus Quest
 
 var matrix = [
