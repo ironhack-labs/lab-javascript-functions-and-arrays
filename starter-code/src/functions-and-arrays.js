@@ -1,6 +1,6 @@
 // Find the maximum
-function maxOfTwoNumbers(a,b) {
-  if(a>b) {
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
     return a;
   } else {
     return b;
@@ -20,17 +20,21 @@ var words = [
 ];
 
 function findLongestWord(list) {
-var letters = 0;
-var longest = "";
+  if (list.length == 0) {
+    return;
+  }
 
-  for (var i=0; i<=list.length; i++) {
-    if (list[i].length > longest)
-      longest = list[i];
+  var letters = 0;
+  var longest = list[0];
 
-  } 
+  list.forEach(function(e) {
+    if (e.length > letters) {
+      longest = e;
+    }
+  })
+  return longest;
+
 }
-
-findLongestWord(words);
 
 // Calculating a Sum
 
