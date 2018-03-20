@@ -18,17 +18,21 @@ var words = [
   'crackpot'
 ];
 
-/*function findLongestWord(words){
+function findLongestWord(words){
   var longest = ""
+  var count = 0
+  if (words.length == 0) {
+    return undefined
+  } else {
   words.forEach(function(word){
-    if (word.length > longest) {
+    if (word.length > count) {
+      count = word.length
       longest = word;
-      console.log(word)
     } else if (word.length == longest){
-      console.log(longest)
-    }
-  })
-}*/
+    }}
+  )}
+  return longest
+}
 
 // Calculating a Sum
 
