@@ -16,23 +16,29 @@ var words = [
   'orchard',
   'crackpot'
 ];
-function findLongestWord(words){
-  if(words.length === 1){
-    return words[0];
+function findLongestWord (arr) {
+  var longestWord = arr[0];
+  for(var i = 1; i < arr.length; i++){
+    if(arr[i].length > longestWord.length){
+      longestWord = arr[i];
+    }
   }
-  
-  
+  console.log(longestWord);
+  return longestWord;
 }
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(numbers){
-  if(numbers.length === 0){
+function sumArray(arr) {
+  if (arr.length === 0) {
     return 0;
   }
-
+  var sum = arr.reduce(function(a, b) {
+    return a + b;
+  });
+  return sum;
 }
 // Calculate the Average
 
@@ -64,9 +70,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-function averageWordLength (){
+function averageWordLength (arr){
+  var palabra = 0;
+if(arr.length === 0){
+  return undefined;
+}
 
-  return;
+for(let i = 0; i < arr.length; i++){
+  palabra += arr[i].length;
+}
+
+
+return palabra/arr.length;;
 }
 // Unique Arrays
 var wordsUnique = [
@@ -83,9 +98,18 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(){
-  return;
-}
+function uniquifyArray(arr) {
+    if (arr.length===0){
+      return undefined
+    }
+    var unique = [arr[0]];
+    arr.forEach(function (e) {
+      if (unique.indexOf(e) < 0) {
+        unique.push(e);
+      }
+    })
+    return unique;
+  }
 
 // Finding Elements
 var wordsFind = [
@@ -99,6 +123,23 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist (arr, palabra){
+  var resultado = [];
+  if(arr.length === 0){
+    return false;
+  }
+  arr.forEach(function(e){
+    if(e === palabra){
+      resultado.push(e);
+    }
+  });
+    if(resultado.length == 0){
+      return false
+    }else{
+      return true
+    }
+
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -113,6 +154,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr, word){
+  if(arr.length === 0){
+    return false;
+  }
+  var contador = 0;
+  arr.forEach(function(e){
+    if(e === word){
+      contador ++
+    }
+  });
+  return contador;
+}
 // Bonus Quest
 
 var matrix = [
