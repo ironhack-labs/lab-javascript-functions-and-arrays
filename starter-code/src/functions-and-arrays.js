@@ -113,16 +113,21 @@ var wordsUnique = [
 
 
 function uniquifyArray(arr){
-  var palabra = "";
-  var uniquifier = []; //Array que se será devuelto;
 
-  if(arr.length>0){
-    for(i=0;i<=arr.length;i++){
-      palabra = arr[i];
+  var result=[arr[0]];
   
+  if (arr.length===0){
+    return undefined;
+  } else {
+  arr.forEach(function(e){
+  
+    if(result.indexOf(e)===-1){
+      result.push(e);
     }
-  }
-
+  })
+}
+  
+  return result;
 }
 
 // Finding Elements
