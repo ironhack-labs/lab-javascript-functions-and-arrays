@@ -145,19 +145,19 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist(list){
+function doesWordExist(list,word){
+  var condition = false;
+  
   if (list.length === 0) {
     return false;
   }
 
-  var newArr =[];
+  for (i=0; i<list.length; i++) {
 
-  for (var i=0; i < list.length; i++) {
-    if (newArr.indexOf(list[i]) == -1) {
-      newArr.push(list[i]);
+    if(word == list[i]) {
+      condition = true;
     }
-  }
-  return newArr;
+  } return condition;
  }
 
 
