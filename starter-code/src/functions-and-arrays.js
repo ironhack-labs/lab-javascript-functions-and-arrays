@@ -31,6 +31,13 @@ function findLongestWord(wordList) {
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numberList){
+  var totalSum = 0;
+  numberList.forEach(function(e){
+    totalSum += e;
+  })
+  return totalSum;
+}
 
 // Calculate the Average
 
