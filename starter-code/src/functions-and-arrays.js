@@ -43,6 +43,17 @@ function sumArray(numberList){
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numberList){
+  
+
+  if (numberList.length > 0){
+    var totalSum = sumArray(numberList);
+    var average = totalSum / numberList.length;
+    return average;
+  }
+ 
+}
+
 // Array of Strings
 var wordsArr = [
   'seat',
