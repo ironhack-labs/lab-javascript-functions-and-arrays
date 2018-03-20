@@ -18,6 +18,16 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(wordList) {
+  var longestWord = wordList[0];
+  for (var i = 1; i <wordList.length; i++){
+    if (wordList[i].length > longestWord.length){
+      longestWord = wordList[i];
+    }
+  }
+  return longestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
