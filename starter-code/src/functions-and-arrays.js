@@ -1,6 +1,18 @@
 // Find the maximum
-
-// Finding Longest Word
+function maxOfTwoNumbers( num1 , num2 ){
+  if (num1 > num2) return num1;
+    else return num2;
+}
+// Finding Longest Wor
+function findLongestWord(aArray){
+  var theBiggest = aArray[0];
+  aArray.forEach(function(element){
+    if (theBiggest.length < element.length) {
+      theBiggest = element;
+    }
+  });
+  return theBiggest;
+}
 var words = [
   'mystery',
   'brother',
@@ -12,14 +24,34 @@ var words = [
 ];
 
 // Calculating a Sum
-
+function sumArray( anArray ){
+ return anArray.reduce(function (accumulator , currentValue) {
+  return accumulator + currentValue;
+}, 0);
+}
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+function averageNumbers(anArray){
+  if (anArray!=0) {
+  return anArray.reduce(function ( accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, 0)/anArray.length;
+}
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength(aArray){
+  var sumArray=0;
+ aArray.forEach(function(element){
+   sumArray+= element.length;
+  });
+  if(aArray.length!==0) return sumArray/aArray.length;
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +66,18 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+  function uniquifyArray(anArray){
+    if (anArray.length !== 0) {
+    var newUniqueArray = anArray.filter(function(word, possition) {
+      return anArray.indexOf(word) === possition;
+  });
+  return newUniqueArray;
+    }
+  }
+
+
+
+// [ 8, 11 ]
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +93,15 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(aArray,wordToSearch){
+  weFoundIt=false
+  aArray.forEach(function(element){
+    if (wordToSearch === element) weFoundIt=true; 
+  });
+  return weFoundIt;
+}
+
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +114,19 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+
+function howManyTimes(aArray,wordToFind){
+  if (aArray.length === 0) return false;
+    else {
+  var numberOfTimes=0;
+  aArray.forEach(function(element){
+    if (wordToFind === element) numberOfTimes+=1; 
+  });
+  return numberOfTimes;
+}
+}
+
+
 var wordsCount = [
   'machine',
   'matter',
