@@ -178,22 +178,38 @@ var wordsCount = [
 // Bonus Quest
 function greatestProduct(matrix){
   var product = 1;
-  var greatest = 0;
+  var greatest = 1;
+
   for (let i = 0; i < 20; i++) {
     for (let j = 0; j < 20; j++) {
       
-      if(i >= 0){
-        product *= matrix[j][i];
+      if(i > 0){
+        product *= matrix[j][i-1];
       }
-      if(i < 20){
-        product *= matrix[j][i];
+      if(i < 19){
+        product *= matrix[j][i+1];
+      }
+      if(j > 0){
+        product *= matrix[j-1][i];
+      }
+      if(j < 19){
+        product *= matrix[j+1][i];
       }
       if(product > greatest){
-        greatest = product;
+        greatest = product; 
       }
+      product = 1;
     }
-  }
+    
+
+     
+    }
+    console.log(product);
+    console.log(matrix);
+    console.log(greatest);
+    return greatest;
 }
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
