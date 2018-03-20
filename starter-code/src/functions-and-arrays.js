@@ -176,7 +176,30 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(list,word) {
+var suma = 0;
+  
+  if (list.length === 0) {
+    return false;
+  }
+
+  for (i=0; i<list.length; i++) {
+
+    if(word == list[i]) {
+      suma++;
+    }
+  } return suma;
+ }
+
+
+
 // Bonus Quest
+
+
+function greatestProduct() {
+
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
