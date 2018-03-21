@@ -2,7 +2,7 @@
 
 var num1;
 var num2;
-var maxOfTwoNumbers = function (num1, num2){
+function maxOfTwoNumbers (num1, num2){
   if(num1>num2){
     console.log(num1);
   } else if (num1<num2){
@@ -24,8 +24,12 @@ var words = [
 ];
 
 function findLongestWord (words){
-
+  for ( i = 0; i < words.length; i ++){
+    lengthNumber += words[i].length;
+    return Math.max(lengthNumber)
+  }
 }
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -88,8 +92,8 @@ var wordsUnique = [
 
 function uniquifyArray (wordsUnique){
   for ( i = 0; i < wordsUnique.length; i++){
-    for ( j = 0; j < wordsUnique.length; j++){
-      if (wordsUnique[i]==wordsUnique[j]){
+    for ( j = i+1 ; j < wordsUnique.length - 1; j++){
+      if (wordsUnique[i] == wordsUnique[j]){
         uniquifyArray.splice (j,j);
       }
     }
@@ -99,8 +103,8 @@ console.log(uniquifyArray)
 
 function uniquifyArray (wordsUnique){
   for ( i = 0; i < wordsUnique.length; i++){
-    for ( j = 0; j < wordsUnique.length; j++){
-      if (uniquifyArray.indexOf)
+    for ( j = i + 1 ; j < wordsUnique.length - 1; j++){
+      if (uniquifyArray.indexOf())
 
 // Finding Elements
 var wordsFind = [
@@ -117,13 +121,12 @@ var wordsFind = [
 function doesWordExist (wordsFind, wordsSearch) {
   for ( i = 0; i < wordsFind.length; i++){
     if (wordsUnique[i]=== wordsSearch){
-        console.log('true');
-      } else {
-        console.log('false')
-      }
-    }
+        return true;
+    } 
+     
+   return false;
+   }
   }
-}
 
 // Counting Repetion
 var wordsCount = [
