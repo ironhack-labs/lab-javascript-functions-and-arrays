@@ -123,9 +123,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-function doesWordExist(wordsFind,b) {
-  
+
+function doesWordExist(wordsFind, b) {
+  var z = false
+  if (wordsFind.length === 0) {
+    return false
+  } else {
+      wordsFind.forEach(function(word){
+        if (word === b) {
+          z = true
+        }
+      })
+}          return z
 }
+
 
 // Counting Repetion
 var wordsCount = [
@@ -141,6 +152,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, key) {
+  var counter = 0;
+  if (wordsCount.length == 0) {
+    return false
+  }
+  else {
+    wordsCount.forEach(function(wordinger){
+      if (wordinger === key){
+        counter ++
+        console.log(counter)
+      }
+      }
+    )
+  }
+  return counter
+}
+
 // Bonus Quest
 
 var matrix = [
