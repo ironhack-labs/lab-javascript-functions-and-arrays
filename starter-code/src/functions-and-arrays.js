@@ -1,23 +1,74 @@
-// Find the maximum
+// Find the maximum DONE
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
 
-// Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+// Finding Longest Word DONE BUT JASMINE DOESN'T LIKE IT
+  var words = [
+    'mystery',
+    'brother',
+    'aviator',
+    'crocodile',
+    'pearl',
+    'orchard',
+    'crackpot'
+  ];
 
-// Calculating a Sum
+  function findLongestWord(Array) {
+    var longestWord = ""
+    for (var i = 0; i < words.length; i++) {
+      if (Array[i].length > longestWord.length) {
+        longestWord = Array[i]
+      }
+    }
+      return longestWord
+}
+
+// Calculating a Sum DONE BUT COULDN'T USE .reduce()
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+
+
+function sumArray(Array) {
+  var sum= 0
+  for (var i= 0; i < Array.length; i++) {
+    sum += Array[i]
+  }
+  return sum;
+}
+
+/*
+Can't manage to understand/use .reduce()
+function sumArray(numbers) {
+  return numbers.reduce();
+}*/
+
+// Calculate the Average DONE
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+/*
+function sumAverage(Array) {
+  for (var i= 0; i < Array.length; i++) {
+    summedAverage += Array[i]
+  }
+  return summedAverage;
+}
+*/
+
+function averageNumbers(Array) {
+  var summedAverage = 0
+  for (var i= 0; i < Array.length; i++) {
+    summedAverage += Array[i]
+  }
+  return (summedAverage / Array.length)
+}
+averageNumbers(numbersAvg)
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +83,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(Array) {
+  summedWords = 0
+  Array.forEach(function(string){
+    summedWords += string.length
+  })
+  return summedWords / Array.length
+}
+
+averageWordLength(wordsArr)
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +109,31 @@ var wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(Array) {
+  var uniqueArray = []
+  for (var i =0; i < Array.length; i++) {
+    if (uniqueArray.indexOf(Array[i]) === -1) {
+      uniqueArray.push(Array[i])
+    }
+  }
+  return uniqueArray
+}
+
+uniquifyArray(wordsUnique)
+
+/*
+Got help from God Google with this simpler function below but I still have some doubts.
+function uniquifyArray(Array){
+  var uniqueArray = Array.filter(function(elem, index, self) {
+      return index == self.indexOf(elem);
+  });
+  return uniqueArray
+}
+*/
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +145,27 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+
+function doesItExist(Array, word) {
+  var exists = false;
+  for (var i= 0; i < Array.length; i++) {
+    if (word === Array[i]) {
+      exists = true
+    } 
+  }
+  return exists
+}
+
+/*
+Another time that I tried to use more "advanced" methods but failed to understand their syntax
+function doesWordExist(Array, string) {
+  words.find(function(string)) {
+    if ()
+    return 
+  }
+}
+*/
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +181,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(Array, word) {
+  var quantity = 0;
+  for (var i= 0; i < howManyTimes.length; i++) {
+    if (word === Array[i]) {
+      quantity += 1
+    }
+  }
+  return quantity
+}
 // Bonus Quest
 
 var matrix = [
