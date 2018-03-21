@@ -1,6 +1,35 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b) {
+  if(a > b){
+    //console.log(a + "is the larger number.");
+    return a;
+  }else if(a < b){
+    //console.log( b + "is the largest number")
+    return b;
+  }else{
+    //console.log("Numbers are equal.")
+  } return a,b; 
+}
 
-// Finding Longest Word
+
+//Finding Longest Word
+function findLongestWord(array) {
+  var longestWordLength = 0;
+  var longestWord;
+
+  if (array.length > 0) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].length > longestWordLength){
+        longestWordLength = array[i].length;
+        longestWord = array[i];
+      }    
+    } return longestWord;
+  }
+  else
+    return;
+}
+
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +40,42 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
 
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(array) {
+  var sum = 0;
+  if (array.length > 0) {
+    for (var i = 0; i < array.length; i++) {
+      sum = sum + array[i];
+    }
+    return sum;
+  }
+  else {
+    return 0;
+  }
+}
 
+
+// Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  var sum = 0;
+  var average = 0;
+  if (array.length > 0) {
+    for (var i = 0; i < array.length; i++) {
+      sum = sum + array[i];
+    } 
+    average = sum / array.length;
+    return average;
+  }
+  else {
+    return;
+  }
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -98,3 +156,4 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
