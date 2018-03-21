@@ -1,6 +1,26 @@
 // Find the maximum
 
-// Finding Longest Word
+
+
+/*
+function maxOfTwoNumbers(num1, num2) {
+       if (num1 > num2) {
+         alert("num1 is larger than num2");
+          } else if (num2 > num1) {
+            alert("num2 is larger than num1");
+              } else if (num1 === num2) {
+                 alert("num1 and num2 are equal");
+                  }
+                    }
+
+                        maxOfTwoNumbers(5,19);
+
+*/
+
+
+
+// i will work on this during the weekend i am aware of some of the issues
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +31,59 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
 
+// Finding Longest Word
+function findLongestWord(str)
+{
+  var array1 = str.match(/\w[a-z]{0,}/gi);
+  var result = array1[0];
+
+  for(var x = 1 ; x < array1.length ; x++)
+  {
+    if(result.length < array1[x].length)
+    {
+    result = array1[x];
+    } 
+  }
+  return result;
+}
+console.log(findLongestWord('mystery brother aviator crocodile pearl orchard crackpot'));
+
+
+
+
+
+
+
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum = 0;
+for (var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+
+console.log(sum);
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers(a) {
+  var sum1 = 0;
+  for (var j = 0; j < a.length; j++) {
+    sum1 += a[j];
+  var avg = sum1/a.length;
+
+}
+console.log(avg +" this value is returning multiple answers why?");
+
+
+}
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
