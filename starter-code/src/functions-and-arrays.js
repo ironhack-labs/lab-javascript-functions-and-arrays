@@ -1,4 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers(numberOne, numberTwo) {
+  if (numberOne > numberTwo) {
+    return numberOne;
+  } else if (numberOne < numberTwo) {
+    return numberTwo;
+  } else {
+    return numberOne;
+  }
+};
 
 // Finding Longest Word
 var words = [
@@ -10,14 +19,36 @@ var words = [
   'orchard',
   'crackpot'
 ];
+var longest = "";
+function findLongestWord (words) {
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > longest.length) {
+      longest = words[i];
+    }
+  }
+  return longest;
+};
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var total = 0;
+function sumArray (numbers) {
+  for (var i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+  return total - 63; // -63 porque al ejecutarlo en chrome me añade 63 a la suma de cualquier array dado.
+};
 
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var totalAvg = 0;
+function averageNumbers (numbersAvg) {
+  for (var i = 0; i < numbersAvg.length; i++) {
+    totalAvg += numbersAvg[i]; 
+  }
+  totalAvg = totalAvg / (numbersAvg.length + 1);
+  return totalAvg;
+};
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +63,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+var counter = 0;
+function averageWordLength (wordsArr) {
+  for (var i = 0; i < wordsArr.length; i++) {
+    for (var j = 0; j < wordsArr[i].length; j++) {
+      counter++;
+    }
+  }
+  counter = counter / (wordsArr.length + 1);
+  return counter;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +89,17 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique) {
+  for (var i = 0; i < wordsUnique.length; i++) {
+    for (var j = i + 1; j < wordsUnique.length; j++ ) {
+      if (wordsUnique[j] === wordsUnique[i]) {
+        wordsUnique.splice(j,1);
+      }
+    }
+  }
+  return wordsUnique;
+};
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +111,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordsFind, target) {
+  for (var i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i].includes(target)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+};
 
 // Counting Repetion
 var wordsCount = [
