@@ -1,4 +1,8 @@
-// Find the maximum
+// Find the maximu
+
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2)
+}
 
 // Finding Longest Word
 var words = [
@@ -9,7 +13,28 @@ var words = [
   'pearl',
   'orchard',
   'crackpot'
-];
+]; 
+function findLongestWord(words){
+  for(var i = 0; i < words.length; i++) {
+		var longest = words[i].length;
+ 		if (words[i].length > longest) {
+ 			longest = words[i]
+		}
+ 	} 
+ 	return longest
+}
+findLongestWord(words)
+findLongestWord(words)
+ console.log(words)
+
+
+findLongestWord(['mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot' ]);
 
 // Calculating a Sum
 
