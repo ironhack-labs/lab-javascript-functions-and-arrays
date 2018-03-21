@@ -84,6 +84,16 @@ var wordsUnique = [
 	'bring'
 ];
 
+function uniquifyArray(pepe) {
+	var uniqueArray = [];
+	for(var i= 0; i < pepe.length; i++){
+		if(uniqueArray.indexOf(pepe[i]) === -1){    // -1 significa que el elemnento en el array no existe
+			uniqueArray.push(pepe[i]);							// Cuando no encuenta el elemento en el Array lo va añadiendo a la nueva Array al final 
+		}
+	}
+	return uniqueArray;
+}
+
 // Finding Elements
 var wordsFind = [ 'machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience' ];
 
