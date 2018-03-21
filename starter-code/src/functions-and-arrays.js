@@ -1,5 +1,17 @@
 // Find the maximum
 
+var num1;
+var num2;
+var maxOfTwoNumbers = function (num1, num2){
+  if(num1>num2){
+    console.log(num1);
+  } else if (num1<num2){
+    console.log(num2);
+  } else{
+    console.log('The numbers are equal!');
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +23,32 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (words){
+
+}
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (numbers){
+  var total = 0;
+  for( ix = 1; i < numbers.length - 1; ix++ ) {
+  total += Number(numbers[ix])
+  }
+  return total;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (numbers){
+  var total = 0;
+  for( ix = 1; i < numbers.length - 1; ix++ ) {
+  total += Number(numbers[ix])
+  }
+  return (total/numbersAvg.length);
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +63,13 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (words){
+  for (i = 0; i < wordsArr.length; i++){
+    lettersTotal += wordsArr[i].length
+  }
+  return lettersTotal/wordsArr.length
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +86,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique){
+  for ( i = 0; i < wordsUnique.length; i++){
+    for ( j = 0; j < wordsUnique.length; j++){
+      if (wordsUnique[i]==wordsUnique[j]){
+        uniquifyArray.splice (j,j);
+      }
+    }
+  } return uniquifyArray
+}
+console.log(uniquifyArray)
+
+function uniquifyArray (wordsUnique){
+  for ( i = 0; i < wordsUnique.length; i++){
+    for ( j = 0; j < wordsUnique.length; j++){
+      if (uniquifyArray.indexOf)
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +113,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordsFind, wordsSearch) {
+  for ( i = 0; i < wordsFind.length; i++){
+    if (wordsUnique[i]=== wordsSearch){
+        console.log('true');
+      } else {
+        console.log('false')
+      }
+    }
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
