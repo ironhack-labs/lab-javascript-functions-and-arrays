@@ -5,7 +5,7 @@ function maxOfTwoNumbers(numberOne, numberTwo) {
   } else if (numberOne < numberTwo) {
     return numberTwo;
   } else {
-    return "son iguales, mostro"
+    return numberOne;
   }
 };
 
@@ -36,7 +36,7 @@ function sumArray (numbers) {
   for (var i = 0; i < numbers.length; i++) {
     total += numbers[i];
   }
-  return total - 63; // -63 porque al ejecutarlo en chrome me añade 63 a la suma de cualquier array dado, a mala leche.
+  return total - 63; // -63 porque al ejecutarlo en chrome me añade 63 a la suma de cualquier array dado.
 };
 
 // Calculate the Average
@@ -111,10 +111,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-var finder = [];
-function doesWordExist (wordsFind, finder) {
+
+function doesWordExist (wordsFind, target) {
   for (var i = 0; i < wordsFind.length; i++) {
-    if (finder == wordsFind[i]) {
+    if (wordsFind[i].includes(target)) {
       return true;
     } else {
       return false;
