@@ -1,11 +1,13 @@
 // Find the maximum
 function maxOfTwoNumbers(num1, num2){
-if (num1 > num2) {
-  return num1
-} else {
-  return num2
-}
-}
+  if (num1 > num2) {
+    return num1
+   } else {
+    return num2
+   }
+  }
+  console.log(maxOfTwoNumbers(3, 1));
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -35,12 +37,14 @@ function findTheLongestWord(){
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total=0;
-for(var i in numbers) { 
-  total += numbers[i]; 
-  
-}
+const numbers = [...Array(12).keys()];
+
+const sum = (acumulator, current) => current + acumulator;
+
+const totalSum = numbers.reduce(sum);
+
+console.log(` the total sum of the array is ${totalSum}`);
+
 
 // Calculate the Average
 
