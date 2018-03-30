@@ -1,4 +1,4 @@
-// Find the maximum
+// ==========Find the maximum
 const maxOfTwoNumbers = (num1, num2) =>{
   const max = num1 > num2 
   ? num1
@@ -8,7 +8,7 @@ const maxOfTwoNumbers = (num1, num2) =>{
 
   console.log(maxOfTwoNumbers(3, 1));
 
-// Finding Longest Word
+// ============Finding Longest Word
 const words = [
   'mystery',
   'brother',
@@ -35,7 +35,7 @@ const findTheLongestWord = (words) => {
 
 //condition ? onTrue : onFalse
 
-// Calculating a Sum
+//============= Calculating a Sum
 
 const numbers = [...Array(12).keys()];
 
@@ -46,17 +46,12 @@ const totalSum = numbers.reduce(sum);
 console.log(` the total sum of the array is ${totalSum}`);
 
 
-// Calculate the Average
+// ============== Calculate the Average
+const averageNumbers = (accumulator, currentValue) => accumulator + currentValue / numbers.length;
+ 
+const result = numbers.reduce(averageNumbers); 
 
-function dividir(){
-  var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-  var reducer = (accumulator, currentValue) => accumulator + currentValue;
-  var nums = (numbersAvg.reduce(reducer));  
-   console.log(nums/4)
-  }
-  
-  dividir();
-
+console.log(result)
 
 // Array of Strings
 var wordsArr = [
