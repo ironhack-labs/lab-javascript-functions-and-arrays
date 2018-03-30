@@ -1,15 +1,15 @@
 // Find the maximum
-function maxOfTwoNumbers(num1, num2){
-  if (num1 > num2) {
-    return num1
-   } else {
-    return num2
-   }
+const maxOfTwoNumbers = (num1, num2) =>{
+  const max = num1 > num2 
+  ? num1
+  : num2
+  return max;
   }
+
   console.log(maxOfTwoNumbers(3, 1));
 
 // Finding Longest Word
-var words = [
+const words = [
   'mystery',
   'brother',
   'aviator',
@@ -19,21 +19,21 @@ var words = [
   'crackpot'
 ];
 
-function findTheLongestWord(){
-  var words = ['mystery','brother','aviator','crocodile','pearl','orchard','crackpot'];
-  var largest = 0;
-  var largestName = "";
-  for (var i = 0; i < words.length; i++) {
+const findTheLongestWord = (words) => {
+  let largest = 0;
+  let largestName = '';
+  for (let i = 0; i < words.length; i++) {
      if (words[i].length > largest) {
          largest = words[i].length;
          largestName = words[i];
-       
      }
   }
+
   console.log(largestName);
   }
-  findTheLongestWord()
+  findTheLongestWord(words    )
 
+//condition ? onTrue : onFalse
 
 // Calculating a Sum
 
