@@ -31,7 +31,7 @@ const findTheLongestWord = (words) => {
 
   console.log(largestName);
   }
-  findTheLongestWord(words    )
+  findTheLongestWord(words)
 
 //condition ? onTrue : onFalse
 
@@ -39,7 +39,7 @@ const findTheLongestWord = (words) => {
 
 const numbers = [...Array(12).keys()];
 
-const sum = (acumulator, current) => current + acumulator;
+const sum = (acumulator, current) => acumulator + current;
 
 const totalSum = numbers.reduce(sum);
 
@@ -47,14 +47,14 @@ console.log(` the total sum of the array is ${totalSum}`);
 
 
 // ============== Calculate the Average
-const averageNumbers = (accumulator, currentValue) => accumulator + currentValue / numbers.length;
+const averageNumbers = (accumulator, currentValue) => accumulator + currentValue;
  
-const result = numbers.reduce(averageNumbers); 
+const result = numbers.reduce(averageNumbers) / numbers.length; 
 
-console.log(result)
+console.log(result);
 
-// Array of Strings
-var wordsArr = [
+//=============== Array of Strings
+const words2 = [
   'seat',
   'correspond',
   'linen',
@@ -67,8 +67,11 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
-var wordsUnique = [
+const averageWordLength;
+
+
+//================ Unique Arrays
+const wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -82,8 +85,8 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
-var wordsFind = [
+//=================== Finding Elements
+const wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -94,7 +97,7 @@ var wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetion
+//==================== Counting Repetion
 var wordsCount = [
   'machine',
   'matter',
@@ -108,7 +111,7 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
+//==================== Bonus Quest
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
