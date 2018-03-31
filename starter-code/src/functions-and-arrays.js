@@ -2,10 +2,10 @@
 
 // Finding Longest Word
 var words = [
-  'mystery',
+  'mystery', 
   'brother',
   'aviator',
-  'crocodile',
+  'crocodile', 
   'pearl',
   'orchard',
   'crackpot'
