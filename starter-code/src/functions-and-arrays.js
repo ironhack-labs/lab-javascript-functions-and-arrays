@@ -18,6 +18,18 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  let res = '';
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > res.length) {
+      res = arr[i];
+    }
+
+    return res;
+  }
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
