@@ -65,6 +65,11 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arrOfStrings) {
+  let arrOfLengths = arrOfStrings.map(s => s.length);
+  return averageNumbers(arrOfLengths);
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
