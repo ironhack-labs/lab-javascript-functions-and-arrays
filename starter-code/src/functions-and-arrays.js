@@ -1,5 +1,20 @@
 // Find the maximum
 
+maxOfTwoNumbers(2,1);
+
+maxOfTwoNumbers();
+  function maxOfTwoNumbers(x, y){
+ 
+    // console.log(Math.max(2, 1));
+    // console.log(Math.max(1, 3));
+    // console.log(Math.max(4, 4));
+    
+    return Math.max(x, y);
+    }
+
+
+
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,9 +26,68 @@ var words = [
   'crackpot'
 ];
 
+// function findLongestWord(words) {
+//   return words.length;
+// }
+// findLongestWord(words);
+
+
+// if (findLongestWord(words)=== 0) {
+//   console.log("undefined");
+// }
+// else if (findLongestWord === 1 ){
+  
+//   console.log("foo");
+// }
+// findLongestWord(words); 
+
+
+
+function findLongestWord(wordsArr) {
+  var length = 0;
+  var longestWord;
+  for(var i=0; i< wordsArr.length; i++){
+    if(wordsArr[i].length > length){
+      longestWord = wordsArr[i];
+      length = wordsArr[i].length;
+    }
+  }
+  return longestWord;
+}
+
+ console.log("longest word is: ", findLongestWord(words));
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
+function sumArray(){
+
+  var reducer = (accumulator, currentValue) => accumulator + currentValue;
+  
+  }
+  
+  console.log("the sum is ",sumArray(numbers));
+
+
+
+// sumArray();
+
+// function sumArray() {
+//   for (
+//     var
+//       index = 0,              // The iterator
+//       length = numbers.length,  // Cache the array length
+//       sum = 0;                // The total amount
+//       index < length;         // The "for"-loop condition
+//       sum += numbers[index++]   // Add number on each iteration
+//   );
+//   return sum;
+// }
+
 
 // Calculate the Average
 
