@@ -98,3 +98,139 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(numOne, numTwo){
+  if(numOne > numTwo){
+    return numOne;
+  }
+  else{
+    return numTwo;
+  }
+}
+function findLongestWord(wordsArray){
+  if(!Array.isArray(wordsArray) || !wordsArray.length){
+    return undefined;
+  }
+  // current longest word
+  var longestWord = wordsArray[0];
+  // if there are more than one word
+  if (wordsArray.length > 1){
+    // compare every word
+    for(var i = 1; i < wordsArray.length; i++){
+      // and if oe is longer than the previous longest
+      if(wordsArray[i].length > longestWord.length){
+        //define it as the current longest
+        longestWord = wordsArray[i];
+      }
+    }
+  }
+  return longestWord;
+}
+
+function sumArray(numbersArray){
+  if(!Array.isArray(numbersArray) || !numbersArray.length){
+    return 0;
+  }
+  // current sum is the first value
+  var sum = numbersArray[0];
+  // if there is more than one number
+  if (numbersArray.length > 1){
+    // add every number
+    for(var i = 1; i < numbersArray.length; i++){
+      sum += numbersArray[i];
+    }
+  }
+  return sum;
+}
+
+function averageNumbers(numbersArray){
+  if(!Array.isArray(numbersArray) || !numbersArray.length){
+    return undefined;
+  }
+  sum = sumArray(numbersArray);
+  return sum / numbersArray.length;
+}
+
+function averageWordLength(wordsArray){
+  if(!Array.isArray(wordsArray) || !wordsArray.length){
+    return undefined;
+  }
+
+  lengthOfWords = [];
+
+  for(var i = 0; i < wordsArray.length; i++){
+    lengthOfWords[i] = wordsArray[i].length;
+  }
+
+  return averageNumbers(lengthOfWords);
+}
+
+function uniquifyArray(wordsArray){
+  if(!Array.isArray(wordsArray) || !wordsArray.length){
+    return undefined;
+  }
+  // words checked
+  var checked = 0;
+  while(checked < wordsArray.length){
+    var indexOfRepeat = wordsArray.indexOf(wordsArray[checked], checked + 1);
+    while(indexOfRepeat != -1){
+      wordsArray.splice(indexOfRepeat, 1);
+      indexOfRepeat = wordsArray.indexOf(wordsArray[checked], checked + 1);
+    }
+    checked++;
+  }
+  return wordsArray;
+}
+
+function doesWordExist(wordsArray, wordToFind){
+  if(!Array.isArray(wordsArray) || !wordsArray.length){
+    return false;
+  }
+
+  if (typeof wordToFind != 'string'){
+    return false;
+  }
+
+  for(var i = 0; i < wordsArray.length; i++){
+    if(wordsArray[i] === wordToFind){
+      return true;
+    }
+  }
+  return false;
+}
+
+function howManyTimes(wordsArray, wordToFind){
+  if(!Array.isArray(wordsArray) || !wordsArray.length){
+    return false;
+  }
+
+  if (typeof wordToFind != 'string'){
+    return false;
+  }
+  repeats = 0;
+  for(var i = 0; i < wordsArray.length; i++){
+    if(wordsArray[i] === wordToFind){
+      repeats++;
+    }
+  }
+  return repeats;
+}
+
+function greatestProduct(numbersArray){
+  if(!Array.isArray(numbersArray) || !numbersArray.length){
+    return 0;
+  }
+
+  var currentGreatest = 0;
+  for(var i = 0; i < numbersArray.length ;i++){
+    if(i <= numbersArray.length - 3){
+      // horizontal product
+      var hProd = numbersArray[1]*numbersArray[i +1]*numbersArray[i+2]*numbersArray[i+3];
+
+    }
+
+    for(var j = 0; j < numbersArray[i].length; j++){
+
+    }
+  }
+}
