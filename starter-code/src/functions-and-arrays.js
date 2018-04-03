@@ -31,10 +31,6 @@ function findLongestWord(arr) {
     }, '');
   }
 }
-console.log(findLongestWord([]));
-
-
-
 
 // Calculating a Sum
 
@@ -181,3 +177,27 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Really poor test, so it's hard to know if the code is correct!
+function greatestProduct(matr) {
+  let greaterProduct = 0;
+  for (let i = 0; i < matr.length; i++) { // Itarating through all rows
+    for (let j = 0; j < matr.length - 3; j++) { // Itarating through length - 3 cols
+      let fourAdjacentHor = matr[i][j] * matr[i][j + 1] * matr[i][j + 2] * matr[i][j + 3];
+      if (fourAdjacentHor > greaterProduct) {
+        greaterProduct = fourAdjacentHor;
+      }
+    }
+  }
+  for (let k = 0; k < matr.length - 3; k++) { // Itarating through length -3 rows
+    for (let l = 0; l < matr.length; l++) { // Itarating through all cols
+      let fourAdjacentVer = matr[k][l] * matr[k + 1][l] * matr[k + 2][l] * matr[k + 3][l];
+      if (fourAdjacentVer > greaterProduct) {
+        greaterProduct = fourAdjacentVer;
+      }
+    }
+  }
+  return greaterProduct;
+}
+
+console.log(greatestProduct(matrix));
