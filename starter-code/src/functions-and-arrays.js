@@ -85,6 +85,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length > 0) {
+    let uniqueElemArr = [];
+    if (arr.length > 0) {
+      arr.forEach(word => {
+        if (uniqueElemArr.indexOf(word) === -1) {
+          uniqueElemArr.push(word);
+        }
+      });
+    }
+  
+    return uniqueElemArr;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
