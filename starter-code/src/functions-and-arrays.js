@@ -18,16 +18,22 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(arr) {
-  let res = '';
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length > res.length) {
-      res = arr[i];
-    }
+// try forEach
 
-    return res;
+function findLongestWord(arr) {
+  if (arr.length > 0) { // Ask Alan about this line 
+    return arr.reduce((longestWord, currentWord) => {
+      if (currentWord.length > longestWord.length) {
+        return currentWord;
+      } else {
+        return longestWord;
+      }
+    }, '');
   }
 }
+console.log(findLongestWord([]));
+
+
 
 
 // Calculating a Sum
@@ -35,7 +41,7 @@ function findLongestWord(arr) {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(arr) {
-  return arr.reduce(function(acc, elem) {
+  return arr.reduce((acc, elem) => {
     return acc + elem;
   }, 0);
 }
@@ -112,6 +118,15 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist (arr, word) {
+  arr.forEach(function(arrElem) {
+    if (!!arrElem === !!word) {
+      return true;
+    }
+  })
+  return false;
+}
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -126,6 +141,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr, word) {
+  let count = 0;
+  if (arr.length > 0) {
+    arr.forEach(function(arrElem) {
+      if (arrElem === word) {
+        count++;
+      }
+    })
+  } else {
+    return false;
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
