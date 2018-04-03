@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,40 @@ var words = [
   'crackpot'
 ];
 
+// try forEach
+
+function findLongestWord(arr) {
+  if (arr.length > 0) { // Ask Alan about this line 
+    return arr.reduce((longestWord, currentWord) => {
+      if (currentWord.length > longestWord.length) {
+        return currentWord;
+      } else {
+        return longestWord;
+      }
+    }, '');
+  }
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  return arr.reduce((acc, elem) => {
+    return acc + elem;
+  }, 0);
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  let sum = sumArray(arr);
+  if (arr.length > 0) {
+    return sum/arr.length;
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +66,11 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arrOfStrings) {
+  let arrOfLengths = arrOfStrings.map(s => s.length);
+  return averageNumbers(arrOfLengths);
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +87,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length > 0) {
+    let uniqueElemArr = [];
+    if (arr.length > 0) {
+      arr.forEach(word => {
+        if (uniqueElemArr.indexOf(word) === -1) {
+          uniqueElemArr.push(word);
+        }
+      });
+    }
+  
+    return uniqueElemArr;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +113,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arr, word) {
+  let res = false;
+  arr.forEach(elem => {
+    if (elem === word) {
+      res = true;
+    }
+  })
+  return res;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +138,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr, word) {
+  let count = 0;
+  if (arr.length > 0) {
+    arr.forEach(function(arrElem) {
+      if (arrElem === word) {
+        count++;
+      }
+    })
+  } else {
+    return false;
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +177,27 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Really poor test, so it's hard to know if the code is correct!
+function greatestProduct(matr) {
+  let greaterProduct = 0;
+  for (let i = 0; i < matr.length; i++) { // Itarating through all rows
+    for (let j = 0; j < matr.length - 3; j++) { // Itarating through length - 3 cols
+      let fourAdjacentHor = matr[i][j] * matr[i][j + 1] * matr[i][j + 2] * matr[i][j + 3];
+      if (fourAdjacentHor > greaterProduct) {
+        greaterProduct = fourAdjacentHor;
+      }
+    }
+  }
+  for (let k = 0; k < matr.length - 3; k++) { // Itarating through length -3 rows
+    for (let l = 0; l < matr.length; l++) { // Itarating through all cols
+      let fourAdjacentVer = matr[k][l] * matr[k + 1][l] * matr[k + 2][l] * matr[k + 3][l];
+      if (fourAdjacentVer > greaterProduct) {
+        greaterProduct = fourAdjacentVer;
+      }
+    }
+  }
+  return greaterProduct;
+}
+
+console.log(greatestProduct(matrix));
