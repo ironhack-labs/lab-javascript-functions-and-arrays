@@ -43,7 +43,6 @@ function sumArray(numbers) {
 	if (numbers[0] === undefined) { return 0 };
 
 	numbers.forEach(number => {
-		var numberOfNumbers = 0;
 		sigma += number;
 	}); 
 
