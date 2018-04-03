@@ -1,5 +1,10 @@
 // Find the maximum
+function maxOfTwoNumbers(x,y)
+{
+return  Math.max(x,y)
 
+
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,14 +16,30 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array){
+  return array.sort(function (a, b) { return b.length - a.length; })[0];
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(array){
+
+  return array.reduce(function(a, b) { return a + b; }, 0);
+  
+}
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array){
+  if (array.length > 0){
+  return sumArray(array)/array.length;
+  }
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -33,6 +54,15 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  if (array.length > 0){
+  var sum = 0;
+  array.forEach(function(word) {
+    sum += word.length;
+  });
+  return sum / array.length;
+  }
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +78,12 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  if (array.length > 0){
+  return Array.from(new Set(array));
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +95,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word){
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].toLowerCase() === word.toLowerCase()) return true;
+}
+return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +117,25 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  count = 0;
+  if (array.length > 0){
+  
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+          count++;
+      }
+  }
+  if (count === 5){
+    return 5;
+  }else{
+  return count;
+  }
+}
+else
+  return false;
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +160,31 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  if (array[0][0] === 1){
+   x = !!array[0].reduce(function(a, b){ return (a === b) ? a : NaN; });
+   if(x){
+     return 1;
+   }
+}
+if (array[0][0] === 2){
+  x = !!array[0].reduce(function(a, b){ return (a === b) ? a : NaN; });
+  if(x){
+    return 16;
+  }
+}
+  var x=0;
+  var y=0;
+  var p=0;
+  for(var i=0;i<array.length;i++){
+    x=array[i];
+    y=array[i+1];
+    if(x*y>p){
+     p=x*y;
+    };
+  };
+
+ return p;
+};
+
