@@ -1,6 +1,16 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){ 
+  if (num1 > num2){
+    return num1;
+  } if (num1 < num2) {
+    return num2;
+  } if (num1 === num2) {
+    return num1;
+  }
+}
 
 // Finding Longest Word
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +21,53 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array){
+  var longestWord;
+  var l = 0;
+  for (var i = 0; i < array.length; i++){
+    if (array[i].length > l){
+      l = array[i].length;
+      longestWord = array[i];
+    }
+  }  
+  return longestWord;
+}
+findLongestWord(words);
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+
+function sumArray(numbers){
+  var sum = 0;
+  for (var s = 0; s < numbers.length; s++){
+    sum += numbers[s];
+  }
+  return sum;
+}
+
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  var sum = 0;
+  var average;
+  for (var s = 0; s < numbersAvg.length; s++ ){
+      sum += numbersAvg[s];
+      average = sum / numbersAvg.length;
+  }
+  return average;
+}
+averageNumbers(numbersAvg);
+
+
 
 // Array of Strings
 var wordsArr = [
