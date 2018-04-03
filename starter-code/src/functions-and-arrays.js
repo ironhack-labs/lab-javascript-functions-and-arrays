@@ -19,15 +19,16 @@ function findLongestWord(words) {
 }
 
 // Calculating a Sum
-// Pending
+// Done
 //Example
 // numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(numbers) {
-  let number = numbers[0];
+  let total = 0;
 
-  // const reducer = function(acc, currentVal) {
-  //   acc + currentVal;
-  // };
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+  return total;
 }
 
 // Calculate the Average
