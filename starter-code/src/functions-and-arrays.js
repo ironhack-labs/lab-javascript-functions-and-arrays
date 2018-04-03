@@ -119,12 +119,13 @@ var wordsFind = [
 ];
 
 function doesWordExist (arr, word) {
-  arr.forEach(function(arrElem) {
-    if (!!arrElem === !!word) {
-      return true;
+  let res = false;
+  arr.forEach(elem => {
+    if (elem === word) {
+      res = true;
     }
   })
-  return false;
+  return res;
 }
 
 // Counting Repetion
