@@ -133,7 +133,7 @@ function uniquifyArray(wordsUnique){
 
     if(uniqueArr.indexOf(wordsUnique[i]) === -1){
       uniqueArr.push(wordsUnique[i]);
-    }
+    } 
 
   
   }
@@ -155,12 +155,19 @@ var wordsFind = [
 
 var check = "check";
 
-function doesWordExist (wordsFind, check){
+function doesWordExist (wordsFind, check){  
 
   if (wordsFind.length === 0 ) {
-    return;
+    return false;
   }
-
+  var look = false;
+  for (var i = 0; i < wordsFind.length && !look; i++) {
+  if (wordsFind[i] === check) {
+    look = true;
+    break;
+  }
+  }
+  return look;
 
 }
 
@@ -178,6 +185,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+//var wordcheck = "matter";
+
+function howManyTimes(wordsCount, wordcheck) {
+
+  if (wordsCount.length === 0 ) {
+    return false;
+  }
+
+  var howMany = 0;
+
+  for (var i = 0; i < wordsCount.length; i++) {
+      if (wordsCount[i] === wordcheck) {
+          howMany++;
+      }
+  }
+  return howMany;
+}
+
 // Bonus Quest
 
 var matrix = [
