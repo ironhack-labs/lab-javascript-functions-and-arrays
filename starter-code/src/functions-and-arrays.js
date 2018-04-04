@@ -20,8 +20,6 @@ function findLongestWord(words) {
 
 // Calculating a Sum
 // Done
-//Example
-// numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(numbers) {
   let total = 0;
 
@@ -40,7 +38,6 @@ function averageNumbers(numbersAvg) {}
 // Array of Strings
 // Pending
 //Example
-
 function averageWordLength(wordsArr) {
   wordsArr = [
     'seat',
