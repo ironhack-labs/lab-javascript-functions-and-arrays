@@ -54,7 +54,7 @@ function sumArray(numbers) {
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
-	var sigma, meanQuotient = 0;
+	var sigma = 0;
 	
 	if (numbers[0] === undefined) { return undefined };
 	return (sumArray(numbers) / numbers.length);
@@ -75,17 +75,18 @@ var wordsArr = [
 ];
 
 function averageWordLength(words) {
-	var sigma, meanQuotient = 0;
+	var sigma, quantityOfWords = 0;
+	var sigmaArray = [0];
 
 	if (words[0] === undefined) { return undefined };
 	if (words[1] === undefined) { return words[0].length };
 	
 	words.forEach(word => {
-		sigma += word.length;
-		meanQuotient++;
+		sigmaArray.push(word.length);
+		quantityOfWords++;
 	});	
 
-	return (sigma / meanQuotient);
+	return (sumArray(sigmaArray) / quantityOfWords);
 }
 
 // Unique Arrays
