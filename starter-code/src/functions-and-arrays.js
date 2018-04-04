@@ -1,4 +1,23 @@
 // Find the maximum
+function maxOfTwoNumbers(x, y)
+{
+  while (x !== y)
+  {
+    if (x > y)
+    {
+      return x;
+    }
+    else if (y > x)
+    {
+      return y;
+    }
+  }
+
+  return x;
+  
+}
+
+
 
 // Finding Longest Word
 var words = [
@@ -10,6 +29,47 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+// function to iterate through each wordin array
+function findLongestWord(words)
+{
+//loops through each word in array
+    //checks if current word is greater then next word on each loop
+        //switching places if next word is greater,
+            // ERROR, last loop wont work for a 1 word array
+
+            if (words.length = 1)
+            {
+              return console.log(words[0]);
+              break;
+            }
+
+  for (var i = 0; i < words.length; i++) 
+  {
+          if (words[i].length > words[i + 1]) 
+          {
+              var x = words[i + 1];
+              words[i + 1] = words[i];
+              words[i] = x;       
+          }
+
+          else if(words[i].length === words[i + 1])
+          {
+              continue;
+          }
+      
+      continue;
+    
+      
+  }
+  
+  return console.log(words[6]);
+
+}
+
+
+
+
 
 // Calculating a Sum
 
