@@ -121,16 +121,7 @@ var wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetion
-function howManyTimes(wordsCount, wordSearch) {
-  let counter = 0;
-  for (i = 0; i < wordsCount.length; i++) {
-    if (wordsCount[i] === wordSearch) {
-      counter++;
-    }
-  }
-  return counter;
-}
+//Counting Repetion
 
 function howManyTimes(wordsCount, wordSearch) {
   if (wordsCount.length === 0) {
