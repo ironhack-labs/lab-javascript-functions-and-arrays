@@ -70,6 +70,7 @@ averageNumbers(numbersAvg);
 
 
 // Array of Strings
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -83,7 +84,21 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(words){
+  var average;
+  var sum = 0;
+  for (var i = 0; i < words.length; i++){
+  sum += words[i].length;
+  average = sum / words.length;
+  }
+  return average;
+}
+
+averageWordLength(wordsArr)
+
+
 // Unique Arrays
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -97,6 +112,23 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+//.indexOf - Searches for index in array. 
+function uniquifyArray(array){
+  let result = [];
+  for (let i = 0; i < array.length; i++){
+    if (result.indexOf(array[i]) === -1){
+      result.push(array[i]);
+    }
+  } return result;
+}
+uniquifyArray(wordsUnique);
+
+//Alternative
+/*function uniquifyArray(array){
+  console.log([... new Set(array)])
+}
+uniquifyArray(wordsUnique);
+*/ 
 
 // Finding Elements
 var wordsFind = [
@@ -109,6 +141,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, element){
+let word = false;
+array.forEach(function(i){
+  if (i === element){
+    word = true;
+    }
+  }); return word;
+}
+doesWordExist(wordsFind, 'eating');
 
 // Counting Repetion
 var wordsCount = [
