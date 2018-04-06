@@ -45,7 +45,7 @@ return sum;
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbersAvg) {
-  if (numbersAvg.length === 0) {}
+  if (numbersAvg.length === 0) {console.log("No value");}
   else {
 const sumAve = numbersAvg.reduce((sum2,currentNum) => sum2 + currentNum, 0) /numbersAvg.length;
 return sumAve;}                  
@@ -67,6 +67,14 @@ var wordsArr = [
 
 function averageWordLength (wordsArr) {
   
+  let aveWordLength=0;
+  if (wordsArr.length === 0) {console.log("No value");}
+  else {
+  for (i = 0; i < wordsArr.length; i++)
+  {
+    aveWordLength += wordsArr[i].length;
+  }
+  return aveWordLength/wordsArr.length;}
 }
 
 // Unique Arrays
@@ -84,6 +92,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  var unique=[];
+  if (wordsUnique.length === 0) {
+    return undefined;
+  }
+  else {
+    for (i = 0; i < wordsUnique.length; i++) {
+      if (unique.indexOf(wordsUnique[i]) === -1) {
+        unique.push(wordsUnique[i]);
+      }
+    }
+  }
+  return unique;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -95,6 +118,28 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind,word2) 
+{
+      if (wordsFind.length === 0)
+          {
+              return false;
+          }
+      else 
+          {
+              for (i = 0; i < wordsFind.length; i++)
+                  {
+                    if (wordsFind[i] === word2)
+                        {
+                          return true;
+                        }
+                    else 
+                        {
+                          return false;
+                        }
+                  } 
+          }
+}
 
 // Counting Repetion
 var wordsCount = [
