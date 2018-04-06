@@ -121,23 +121,29 @@ var wordsFind = [
 
 function doesWordExist(wordsFind,word2) 
 {
+  let T;
       if (wordsFind.length === 0)
           {
               return false;
           }
       else 
           {
-              for (i = 0; i < wordsFind.length; i++)
-                  {
-                    if (wordsFind[i] === word2)
-                        {
-                          return true;
-                        }
-                    else 
-                        {
-                          return false;
-                        }
-                  } 
+            for (i=0; i < wordsFind.length; i++)
+              {
+                if (wordsFind[i] === word2)
+                    {
+                       T=true;
+                    }
+              }
+      if (T)
+        {
+         return true;  
+        }
+      else 
+        {
+         return false;      
+        }
+                  
           }
 }
 
