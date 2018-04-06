@@ -161,6 +161,26 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount,words2)
+{
+  counter=0;
+  if (wordsCount.length === 0)
+          {
+              return false;
+          }
+      else 
+          {
+            for (i=0; i < wordsCount.length; i++)
+              { 
+                if (wordsCount[i] === words2)
+                    {
+                       counter+=1;
+                    }
+              }
+              return counter;                  
+          }    
+}
 // Bonus Quest
 
 var matrix = [
