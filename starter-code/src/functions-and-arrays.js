@@ -1,5 +1,16 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1,num2) {
+  if (num1>num2) {
+    return num1
+  }
+  else {
+    return num2
+}
+  }
+  maxOfTwoNumbers()
+  console.log(maxOfTwoNumbers(1,5))
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +22,45 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array){  
+  for (i = 0;i<array.length; i++){
+    if (array[i].length >= array[i+1].length) {
+      return array[i]}
+    else {
+      return array[i+1]}
+  }
+}
+findLongestWord(words)
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){ 
+  var sum =0;
+  for (i = 0;i<array.length; i++){
+     sum += array[i];
+  }
+     return sum;
+  }
+
+sumArray(numbers)
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){ 
+    var sum =0;
+    for (i = 0;i<array.length; i++){
+       sum += array[i];
+    }
+       return sum/array.length;
+}
+averageNumbers(numbersAvg);
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +76,15 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  var sum = 0
+  for (i = 0;i<array.length; i++){
+  sum+=array[i].length;
+  }
+  return sum/array.length;
+}
+averageWordLength(wordsArr);
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +99,18 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+// indexOf checks returns -1 whenever something is not found.  new_array starts with nothing in it.  it iterates each word, and indexOf will return it's position if it's already in the new_array
+function uniquifyArray(array){
+  var new_array = []
+  for (i=0;i<array.length;i++){
+      if(new_array.indexOf(array[i]) == -1){
+        new_array.push(array[i])
+      }
+      }
+  return new_array  
+}
+
+uniquifyArray(wordsUnique);
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +123,29 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+var word = ""
+var garbage = []
+function doesWordExist(array, word){
+//   //if (array.length == 0){
+//     //return false
+// //
+//   }else{
+
+    for (i=0;i<array.length;i++){
+      if (word == array[i]){
+      garbage.push(array[i])}
+      if (garbage.length>0) {
+        return true}
+        else {
+          return false
+        }
+    }  
+  }
+
+
+doesWordExist(wordsFind, "machine");
+
+
 
 // Counting Repetion
 var wordsCount = [
