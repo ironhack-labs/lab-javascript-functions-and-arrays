@@ -1,5 +1,15 @@
 // Find the maximum
 
+var number1 = 8;
+var number2 = 15;
+function maxOfTwoNumbers(number1,number2){
+        if (number1>number2){
+      return number1;}
+      else{
+        return number2;
+      }
+    }
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +20,42 @@ var words = [
   'orchard',
   'crackpot'
 ];
+var findLongestWord = function(array){
+  var longest = array.reduce(function(a,b){
+  return (a.length > b.length) ? a : b;
+});
+  return longest;
+
+}
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+const reducer=(accumulator, currentValue) => accumulator + currentValue;
+function sumArray(numbers){
+  var sum = (numbers.reduce(reducer));
+    if (numbers.length===0){
+    return 0;
+  } else if (numbers===0){
+    return 0;
+  }else{
+    return sum;
+  }
+  }
+ 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const reducer=(accumulator, currentValue) => accumulator + currentValue;
+function averageNumbers (numbersAvg){
+  var sum = (numbersAvg.reduce(reducer));
+  if (numbersAvg.length===0){
+    return "undefined";
+  }else{
+    return sum / numbersAvg.length;
+  }
+
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +70,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordsArr){
+  var avrge = 0;
+  var Average;
+  
+  for (var i = 0; i<wordsArr.length;i++){
+    if (wordsArr[i].length > avrge){
+    var avrge = wordsArr[i].length;
+    avrge = wordsArr[i];
+    }
+  }
+  return avrge;
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +100,18 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique){
+var uniqueArray = [];
+
+for (i = 0; i < uniqueArray.length; i++){
+  if (uniqueArray.indexOf(wordsUnique[i])=== -1){ 
+    uniqueArray.push(wordsUnique[i]);
+    }
+  }
+  return uniqueArray;
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +123,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist{
+
+}
 
 // Counting Repetion
 var wordsCount = [
