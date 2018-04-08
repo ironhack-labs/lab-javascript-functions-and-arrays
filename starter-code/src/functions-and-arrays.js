@@ -1,34 +1,19 @@
 // Find the maximum
-function maxOfTwoNumbers(first, second) {
-  const equalNumbers = 4;
-
-  if (first > second) {
-    return first;
-  } else if (second > first) {
+function maxOfTwoNumbers(first, second){
+  if (first >= second) 
+  {
+  return first;
+  } 
+  else 
+   {
     return second;
-  } else {
-    return equalNumbers;
-  }
+  } 
 }
 
-var largest = maxOfTwoNumbers(2, 6);
+var largest = maxOfTwoNumbers(4, 6);
 console.log(largest);
 
 // Finding Longest Word
-function findLongestWord(words) {
-  let longestWord = '';
-  let output;
-
-  words.forEach(word => {
-    if (word.length > longestWord.length) {
-      longestWord = word;
-      output = longestWord;
-    }
-  });
-
-  return output;
-}
-
 var words = [
   "mystery",
   "brother",
@@ -38,48 +23,71 @@ var words = [
   "orchard",
   "crackpot"
 ];
-var longest = findLongestWord(words);
-console.log(longest);
+
+function findLongestWord(words){
+  
+  let longestWord = '';
+  
+  for(i=0;i < words.length; i++){
+    if ( words[i].length > longestWord.length ) {
+      longestWord = words[i];
+    }
+  }
+  console.log(longestWord);
+  if(longestWord.length === 0){
+    return undefined
+  }
+  else{
+  return longestWord;
+  }
+}
+findLongestWord(words);
 
 // Calculating a Sum
-function sumArray(array) {
-  return array.reduce((previous, current) => {
-    return previous + current;
-  }, 0);
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(numbers) {
+  let sumOfAllNum = 0;
+  for(i=0;i < numbers.length ;i++){
+    sumOfAllNum += numbers[i];
+    
+  }
+  return sumOfAllNum;
 }
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var total = sumArray(numbers);
-console.log(total);
 
 // Calculate the Average
 function averageNumbers(array) {
   const sum = sumArray(array);
 
   const average = sum / array.length;
-
-  return average;
+  if (array.length === 0){
+    return undefined;
+  }
+    return average;
 }
 
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbers);
 console.log(average);
 
+
+
 // Array of Strings
-function averageWordLength(array) {
-  let averageLength;
-  let output;
+function averageWordLength(words){
+  let numbersArray = [];
 
-  let totalWordLength = array.reduce((acc, current) => {
-    return acc += current.length;
-  }, 0);
+  for (i=0; i<words.length; i++) {
+    numbersArray.push(words[i].length);
+  }
 
-  averageLength = totalWordLength / array.length;
-  output = averageLength;
+  const average = averageNumbers(numbersArray);
 
-  return output;
+  if(words.length === 0){
+    return undefined;
+  }
+  return average;
 }
-
 var words = [
   "seat",
   "correspond",
@@ -97,17 +105,17 @@ console.log(averageLength);
 
 // Unique Arrays
 function uniquifyArray(array) {
-  const uniqueArray = [];
-
-  array.forEach(word => {
-    if (uniqueArray.indexOf(word) === -1 ) {
-      uniqueArray.push(word);
+  let newArray = [];
+  for(i=0;i<array.length ;i++) {
+    if(newArray.includes(array[i]) === false) {
+      newArray.push(array[i])
     }
-  });
-
-  return uniqueArray;
+  }
+  if(array.length === 0){
+    return undefined;
+  }
+  return newArray
 }
-
 var words = [
   "crab",
   "poison",
@@ -126,17 +134,13 @@ console.log(uniqued);
 
 // Finding Elements
 function doesWordExist(wordsArray, word) {
-  let searchResult = wordsArray.filter(wordToSearch => {
-    return wordToSearch === word;
-  });
-
-  if (searchResult.length > 0) {
-    return true;
-  } else {
-    return false;
+  for(i=0;i<wordsArray.length;i++){
+    if(word === wordsArray[i]){
+      return true
+    }
   }
+  return false
 }
-
 var words = [
   "machine",
   "subset",
@@ -156,23 +160,16 @@ console.log(hasDog);
 
 // Counting Repetion
 function howManyTimes(wordsArray, wordToSearch) {
-  let output;
-
-  let wordCounter = wordsArray.reduce((acc, word) => {
-    if (word === wordToSearch) {
-      acc++;
-    }
-
-    return acc;
-  }, 0);
-
-  if (wordCounter > 0) {
-    output = wordCounter;
-  } else {
-    output = "The word "+ wordToSearch+ " is not part of this list.";
-  }
-
-  return output;
+  let count = 0;
+ for(i=0;i<wordsArray.length;i++){
+   if (wordToSearch === wordsArray[i]){
+    count++
+   }
+ }
+ if(wordsArray.length === 0){
+   return false;
+ }
+ return count;
 }
 
 var words = [
