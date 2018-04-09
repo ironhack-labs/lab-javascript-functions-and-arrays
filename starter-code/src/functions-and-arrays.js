@@ -71,18 +71,11 @@ function sumArray(array){
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
 function averageNumbers(array){
-  var total = 0,
-      len = array.length;
-
-  for (var i = 0; i < len; i++){
-    total += array[i];
-  }
-
-  return total;
+  if (array.length === 0) return undefined;
+  return sumArray(array) / array.length;
 }
-
-console.log(numbersAvg.sum() / numbersAvg.length)
 
 
 // Array of Strings
@@ -99,6 +92,14 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  lengthArray = [];
+  array.forEach(function(word){
+    lengthArray.push(word.length);
+  });
+  return averageNumbers(lengthArray); 
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -114,6 +115,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  if (array.length === 0) return undefined;
+  
+  var newArray = [];
+  for (var i = 0; i < array.length; i++){
+    if (newArray.indexOf(array[i]) === -1) newArray.push(array[i]);
+  }
+  return newArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -125,6 +136,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, check){
+  for (var i = 0; i < array.length; i++){
+    if (array[i] === check) return true;
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -141,6 +159,15 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+
+function howManyTimes(array, word){
+  if (array.length === 0) return false;
+  
+  for (var count = 0, i = 0; i < array.length; i++){
+    if (array[i] === word) count++;
+  }
+  return count;
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -164,3 +191,23 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function mult(array){
+  if (array.length === 0) return 0;
+  return array.reduce((accumulator, currentValue) => accumulator * currentValue);
+}
+
+function greatestProduct(array2d){
+  for (var product = 0, i = 0; i < array2d.length - 4; i++){
+    var value = mult(array2d[i].slice(i, i + 4));
+    if (value > product)
+      product = value; 
+    for (var j = 0; j < 5; j++){
+      var value2 = mult(array2d[j].slice(j, j + 4));
+      if (value2 > product)
+      product = value2;
+    }
+  }
+  
+  return product;
+}
