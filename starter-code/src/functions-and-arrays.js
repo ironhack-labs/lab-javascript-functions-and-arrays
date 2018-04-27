@@ -1,5 +1,12 @@
 // Find the maximum
-
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2) {
+  return num1;
+  } else {
+    return number2;
+  }
+}
+maxOfTwoNumbers(1, 2);
 // Finding Longest Word
 var words = [
   'mystery',
@@ -9,12 +16,27 @@ var words = [
   'pearl',
   'orchard',
   'crackpot'
-];
+]
+function findLongestWord(){
+  var start= 0;
+  var largestWord;
+  for(var i =0; i < words.length; i++)
+    if(words[i].length > start) {
+      start = words[i].length
+      largestWord = words[i];
+    }
+      return largestWord;
+  
+}
 
+  findLongestWord(words);
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray(numbers){
+  for(var i = 0; i > numbers.length; i++)
+}
+sumArray();
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -32,6 +54,8 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -74,6 +98,8 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
 // Bonus Quest
 
 var matrix = [
