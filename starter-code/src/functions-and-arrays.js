@@ -1,24 +1,53 @@
 // Find the maximum
+function maxOfTwoNumbers(number1,number2){
+  if(number1>number2){
+    return number1;
+  }else{
+    return number2;
+  }
+}
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
 
+function findLongestWord(words){
+  let longest="";
+  for(let i=0;i<words.length; i++){
+   if(words[0].length<words[i].length){
+        words[0]=words[i];
+          
+      }
+  }
+  return words[0];
+}
+console.log(findLongestWord(words));
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  let sum=0;
+  for(let i=0;i<numbers.length;i++){
+    sum+=numbers[i];
+  }
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers){
+  let sum=0;
+  for(let i=0;i<numbers.length;i++){
+    sum+=numbers[i];
+  }
+  if(numbers.length==0){
+    return undefined;
 
+  }else{
+    return sum/numbers.length;
+  }
+  
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -32,6 +61,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(words){
+  let sum=0;
+  for(let i=0;i<words.length;i++){
+    sum+=words[i].length;
+  }
+  if(words.length==0){
+    return undefined;
+  }else{
+    return sum/words.length;
+  }  
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +89,28 @@ var wordsUnique = [
   'bring'
 ];
 
+
+
+function uniquifyArray(words){
+  var magic=[];
+  for(let i=0;i<words.length;i++){
+    if(words.indexOf(words[i],i+1)>=0){ 
+      console.log((words.indexOf(words[i],i+1)));
+      words.splice((words.indexOf(words[i],i+1)),1);
+      i--;
+    }else{
+      magic.push(words[i]);
+    }
+  }
+  
+  if(words.length==0){
+    return undefined;
+  }else{
+    return words;
+  }
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +122,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(array,word){
+  let exists=false;
+  for(let i=0;i<array.length;i++){
+    if(word===array[i]){
+      exists=true;
+      break;
+    }
+  }
+
+  return exists;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +148,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array,word){ 
+  let count=0;
+  if(array.length==0){
+    return false;
+  }else{
+    let indice=array.indexOf(word);
+    console.log(indice);
+    while(indice>=0){
+      count++;
+      indice=array.indexOf(word,indice+1);
+      console.log(indice);
+    }
+  return count;
+  }
+  
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +190,10 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matriz){
+  for(i=1;i<19;i++){
+    for(j=1;j<19;j++){
+      
+    }
+  }
+}
