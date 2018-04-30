@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(x, y) {
+  if (x > y) {
+    return x;
+  } else {
+    return y;
+  }
+}
+console.log(maxOfTwoNumbers(30, 25));
 
 // Finding Longest Word
 var words = [
@@ -10,6 +18,16 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+  function findLongestWord(word){
+    //str = str.split(" ")
+    word.sort(function(a, b){
+        return a.length - b.length;
+    });
+    return word[word.length -1].length;
+  }
+  return word;
+  console.log(findLongestWord(words));
 
 // Calculating a Sum
 
