@@ -78,7 +78,7 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength (words) {
+function averageWordLength(words) {
   if (words.length === 0) {
     return undefined;
   }
@@ -157,6 +157,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, wordToCount){
+  if (array.length === 0) {
+  return false;
+}
+
+var count = 0;
+for (i = 0; i < array.length; i++) {
+  if (array[i] === wordToCount){
+    count++;
+  }
+}
+return count;
+}
+
 // Bonus Quest
 
 var matrix = [
