@@ -1,4 +1,9 @@
 // Find the maximum
+function maxOfTwoNumbers(numero1, numero2){
+  if (numero1 > numero2 ) {
+    return numero1;
+  } else { return numero2 };  
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +16,40 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  if ( words.length == 0 ) return;
+  var maximo = "";
+  words.forEach(function(name){
+    if (name.length > maximo.length) { 
+      maximo = name;
+    };
+  });
+  return maximo;
+};
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  var resultado = 0;
+  numbers.forEach(function(number){
+    resultado = resultado + number;
+  });
+  return resultado;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbers){
+  if ( numbers.length == 0 ) return;
+  var resultado = 0;
+  numbers.forEach(function(number){
+    resultado = resultado + number;
+  });
+  return resultado / numbers.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +64,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(words){
+  if ( words.length == 0 ) return;
+  var resultado = 0;
+  words.forEach(function(word){
+    resultado = resultado + word.length;
+  });
+  return resultado / words.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +89,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words){
+  let nuevoArray;
+  words.forEach(function(word){
+    
+    if (nuevoArray.indexOf("palabra") == -1){
+      nuevoArray.push(word);
+    }
+    
+    console.log(words.indexOf("palabra"));
+    
+  });
+  return nuevoArray;
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +115,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function uniquifyArray(words){
+  let nuevoArray;
+  words.forEach(function(word){
+    
+    console.log(words.indexOf("palabra"));
+    
+    if (words.indexOf("palabra") == -1) {
+      nuevoArray = nuevoArray.push(word);
+    }
+  });
+  return nuevoArray;
+}
+
 
 // Counting Repetion
 var wordsCount = [
