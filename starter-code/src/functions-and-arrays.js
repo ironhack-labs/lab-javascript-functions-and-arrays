@@ -191,9 +191,16 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 function greatestProduct(matriz){
-  for(i=1;i<19;i++){
-    for(j=1;j<19;j++){
-      
+  var producto=0;
+  for(i=0;i<matriz.length-3;i++){
+    for(j=0;j<matriz.length-3;j++){
+      if((matriz[i][j]*matriz[i+1][j]*matriz[i+2][j]*matriz[i+3][j])<producto){
+        producto=matriz[i][j]*matriz[i+1][j]*matriz[i+2][j]*matriz[i+3][j];
+      }
+      if((matriz[i][j]*matriz[i][j+1]*matriz[i][j+2]*matriz[i][j+3])>producto){
+        producto=matriz[i][j]*matriz[i][j+1]*matriz[i][j+2]*matriz[i][j+3];
+      }
     }
   }
+  return producto;
 }
