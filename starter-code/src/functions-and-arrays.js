@@ -196,25 +196,24 @@ var matrix = [
 ];
 
 function greatestProduct(array){
-  var horizontal = 0;
-  var vertical = 0;
-  var largestProduct = 0;
+  let derechaHorizontal = 0;
+  let izquierdaHorizontal = 0;
+  let abajoVertical = 0;
+  let arribaVertical = 0;
+  let maximo = 0;
+  for (var y = 0; y < array.length; y++){
+    for (var x = 0; x < array.length; x ++){
+      
+      if (x <= 16) { derechaHorizontal = (array[y][x] * array[y][x + 1] * array[y][x + 2] * array[y][x + 3]) }
+      if (x >= 3) { izquierdaHorizontal = (array[y][x] * array[y][x - 1] * array[y][x - 2] * array[y][x - 3]) }
+      if (y <= 16) { abajoVertical = (array[y][x] * array[y + 1][x] * array[y + 2][x] * array[y + 3][x]) }
+      if (y >= 3) { arribaVertical = (array[y][x] * array[y - 1][x] * array[y - 2][x] * array[y - 3][x]) }
 
-     for(i = 0; i < array.length; i++){
-       for(j = 0; j < array[i].length - 3; j++){
-         horizontal = array[i][j] * (array[i][j + 1]) * (array[i][j + 2]) * (array[i][j + 3]);
-         if(horizontal > largestProduct){
-           largestProduct = horizontal;
-         }
-       }
-     }  
-     for(k = 0; k < array.length - 3; k++){
-       for(l = 0; l < array[k].length; l++){    
-         vertical = array[k][l] * array[k + 1][l] * array[k + 2][l] * array[k + 3][l];
-         if(vertical > largestProduct){
-           largestProduct = vertical;
-         }
-       }
-     }
-     return largestProduct;
-   }
+      maximo = derechaHorizontal;
+      if (izquierdaHorizontal > maximo) maximo = izquierdaHorizontal;
+      if (abajoVertical > maximo ) maximo = abajoVertical;
+      if (arribaVertical > maximo ) maximo = arribaVertical;
+    }
+  }
+  return maximo;
+}
