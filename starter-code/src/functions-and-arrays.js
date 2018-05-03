@@ -171,26 +171,26 @@ var wordsCount = [
   'matter'
 ];
 
-  function howManyTimes(wordsCount,word){
-    if (wordsCount.length === 0) {
-      return false;
-    }
-
-    let countword = 0;
-    wordsCount.forEach(element => {
-      if(element===word){
-        countword++;
-      }
-    });
-
-    if(countword===0){
-      return 0;
-    }else if(countword===1){
-      return 1;
-    }else if(countword >= 5){
-      return 5;
-    }  
+function howManyTimes(wordsCount, word) {
+  if (wordsCount.length === 0) {
+    return false;
   }
+
+  let countword = 0;
+  wordsCount.forEach(element => {
+    if (element === word) {
+      countword++;
+    }
+  });
+
+  if (countword === 0) {
+    return 0;
+  } else if (countword === 1) {
+    return 1;
+  } else if (countword >= 5) {
+    return 5;
+  }
+}
 
 
 
@@ -219,6 +219,57 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix){
-  return 0;
+function greatestProduct(matrix) {
+  let horizontalGreatestProduct = _horizontalGreatestProduct(matrix);
+  let verticalGreatestProduct = _verticalGreatestProduct(matrix);
+
+  if(horizontalGreatestProduct > verticalGreatestProduct){
+    return horizontalGreatestProduct
+  }else{
+    return verticalGreatestProduct
+  }
 }
+
+function _horizontalGreatestProduct(matrix) {
+  let greatestHorizontalProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    //console.log(matrix[i].length );
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      // console.log(matrix[i][j]);
+      // console.log(matrix[i][j + 1]);
+      // console.log(matrix[i][j + 2]);
+      // console.log(matrix[i][j + 3]);
+      let product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      //console.log(product);
+      if (product > greatestHorizontalProduct) {
+        greatestHorizontalProduct = product;
+      }
+    }
+  }
+  return greatestHorizontalProduct;
+}
+
+
+function _verticalGreatestProduct(matrix) {
+  let greatestVerticalProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    //console.log(matrix[i].length);
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      // console.log(matrix[j][i]);
+      // console.log(matrix[j + 1][i]);
+      // console.log(matrix[j + 2][i]);
+      // console.log(matrix[j + 3][i]);
+      let product = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i];
+      //console.log(product);    
+      if (product > greatestVerticalProduct) {
+        greatestVerticalProduct = product;
+      }
+    }
+  }
+  return greatestVerticalProduct;
+}
+
+
+
