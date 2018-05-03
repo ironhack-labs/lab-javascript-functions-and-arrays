@@ -117,13 +117,16 @@ var wordsFind = [
 ];
 
 function uniquifyArray(words){
-  let nuevoArray;
+  if ( words.length == 0 ) return;
+  let nuevoArray = [];
   words.forEach(function(word){
     
     console.log(words.indexOf("palabra"));
-    
-    if (words.indexOf("palabra") == -1) {
-      nuevoArray = nuevoArray.push(word);
+    console.log(word);
+    //console.log(nuevoArray.push(word));
+    if(nuevoArray.indexOf(word) == -1) {
+      console.log("." + word);
+      nuevoArray.push(word);
     }
   });
   return nuevoArray;
@@ -144,8 +147,31 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+function doesWordExist(array, palabra){
+  if(array === 0) return false;
+  else{
+    for(i=0; i < array.length; i++){
+      if(array[i] == palabra){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function howManyTimes(array, palabra){
+  let j = 0;
+  if(array == 0) return false;
+  else{
+    for(i=0; i< array.length; i++){
+      if(array[i] === palabra) j++;
+    }
+  }
+  return j;
+}
+
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -168,3 +194,27 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  var horizontal = 0;
+  var vertical = 0;
+  var largestProduct = 0;
+
+     for(i = 0; i < array.length; i++){
+       for(j = 0; j < array[i].length - 3; j++){
+         horizontal = array[i][j] * (array[i][j + 1]) * (array[i][j + 2]) * (array[i][j + 3]);
+         if(horizontal > largestProduct){
+           largestProduct = horizontal;
+         }
+       }
+     }  
+     for(k = 0; k < array.length - 3; k++){
+       for(l = 0; l < array[k].length; l++){    
+         vertical = array[k][l] * array[k + 1][l] * array[k + 2][l] * array[k + 3][l];
+         if(vertical > largestProduct){
+           largestProduct = vertical;
+         }
+       }
+     }
+     return largestProduct;
+   }
