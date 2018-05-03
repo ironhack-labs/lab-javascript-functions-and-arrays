@@ -1,4 +1,9 @@
 // Find the maximum
+function maxOfTwoNumbers(numero1, numero2){
+  if (numero1 > numero2 ) {
+    return numero1;
+  } else { return numero2 };  
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +16,40 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  if ( words.length == 0 ) return;
+  var maximo = "";
+  words.forEach(function(name){
+    if (name.length > maximo.length) { 
+      maximo = name;
+    };
+  });
+  return maximo;
+};
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  var resultado = 0;
+  numbers.forEach(function(number){
+    resultado = resultado + number;
+  });
+  return resultado;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbers){
+  if ( numbers.length == 0 ) return;
+  var resultado = 0;
+  numbers.forEach(function(number){
+    resultado = resultado + number;
+  });
+  return resultado / numbers.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +64,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(words){
+  if ( words.length == 0 ) return;
+  var resultado = 0;
+  words.forEach(function(word){
+    resultado = resultado + word.length;
+  });
+  return resultado / words.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +89,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words){
+  let nuevoArray;
+  words.forEach(function(word){
+    
+    if (nuevoArray.indexOf("palabra") == -1){
+      nuevoArray.push(word);
+    }
+    
+    console.log(words.indexOf("palabra"));
+    
+  });
+  return nuevoArray;
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +115,23 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function uniquifyArray(words){
+  if ( words.length == 0 ) return;
+  let nuevoArray = [];
+  words.forEach(function(word){
+    
+    console.log(words.indexOf("palabra"));
+    console.log(word);
+    //console.log(nuevoArray.push(word));
+    if(nuevoArray.indexOf(word) == -1) {
+      console.log("." + word);
+      nuevoArray.push(word);
+    }
+  });
+  return nuevoArray;
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,8 +147,31 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+function doesWordExist(array, palabra){
+  if(array === 0) return false;
+  else{
+    for(i=0; i < array.length; i++){
+      if(array[i] == palabra){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function howManyTimes(array, palabra){
+  let j = 0;
+  if(array == 0) return false;
+  else{
+    for(i=0; i< array.length; i++){
+      if(array[i] === palabra) j++;
+    }
+  }
+  return j;
+}
+
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -98,3 +194,26 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  let derechaHorizontal = 0;
+  let izquierdaHorizontal = 0;
+  let abajoVertical = 0;
+  let arribaVertical = 0;
+  let maximo = 0;
+  for (var y = 0; y < array.length; y++){
+    for (var x = 0; x < array.length; x ++){
+      
+      if (x <= 16) { derechaHorizontal = (array[y][x] * array[y][x + 1] * array[y][x + 2] * array[y][x + 3]) }
+      if (x >= 3) { izquierdaHorizontal = (array[y][x] * array[y][x - 1] * array[y][x - 2] * array[y][x - 3]) }
+      if (y <= 16) { abajoVertical = (array[y][x] * array[y + 1][x] * array[y + 2][x] * array[y + 3][x]) }
+      if (y >= 3) { arribaVertical = (array[y][x] * array[y - 1][x] * array[y - 2][x] * array[y - 3][x]) }
+
+      maximo = derechaHorizontal;
+      if (izquierdaHorizontal > maximo) maximo = izquierdaHorizontal;
+      if (abajoVertical > maximo ) maximo = abajoVertical;
+      if (arribaVertical > maximo ) maximo = arribaVertical;
+    }
+  }
+  return maximo;
+}
