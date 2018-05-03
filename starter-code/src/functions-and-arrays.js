@@ -6,11 +6,9 @@ function maxOfTwoNumbers (a,b) {
   } else if (a<b){
     return b;
   } else if (a==b){
-    return "Same value";
+    return a;
   }
 }
-
-console.log(maxOfTwoNumbers(55,5));
 
 
 // Finding Longest Word
@@ -27,6 +25,11 @@ var words = [
 
 function findLongestWord (words){ 
   
+  
+  if(typeof words == 'object' && words.length <= 0){
+    return undefined;
+  }
+  
   let initializer = '';
   
   words.forEach(function(word){
@@ -37,6 +40,8 @@ function findLongestWord (words){
   return initializer;
 }
 
+
+console.log(findLongestWord(words));
 
 
 // Calculating a Sum
@@ -60,7 +65,15 @@ sumArray(numbers);
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]; // 48
 
+
+
 function averageNumbers (arr){
+
+  if(typeof arr == 'object' && arr.length <= 0){
+    return undefined;
+  }
+  
+
 
   totalNumbers = sumArray(arr);
   if (typeof(totalNumbers) == 'number'){
@@ -88,6 +101,10 @@ var wordsArr = [
 
 function averageWordLength(wordsArr){
 
+  if(typeof wordsArr == 'object' && wordsArr.length <= 0){
+    return undefined;
+  }
+
   eachWordLength =[];
   wordsArr.forEach(function(word){
     eachWordLength.push(word.length);
@@ -101,10 +118,6 @@ function averageWordLength(wordsArr){
   averageWordLengthResult = totalEachWordLength / eachWordLength.length;
   return averageWordLengthResult;
 }
-
-console.log(averageWordLength(wordsArr));
-
-
 
 // Unique Arrays
 var wordsUnique = [
@@ -122,6 +135,27 @@ var wordsUnique = [
 ];
 
 
+function uniquifyArray(arr){
+
+  if(typeof arr == 'object' && arr.length <= 0){
+    return undefined;
+  }
+
+  let unique_array = []
+    for(let i = 0;i < arr.length; i++){
+        if(unique_array.indexOf(arr[i]) == -1){
+            unique_array.push(arr[i])
+        }
+    }
+    return unique_array 
+}
+
+uniquifyArray(wordsUnique);  
+
+
+// let unique = [ ...new Set(wordsUnique) ];
+
+
 
 // Finding Elements
 var wordsFind = [
@@ -134,6 +168,28 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, wordToFind) {
+  
+  if(typeof array == 'object' && array.length <= 0){
+    return false;
+  }
+
+  result = null;
+  
+  for (let i in array){
+    if (array[i]==wordToFind){
+      result = true;
+      break;  
+    } else {
+      result = false;
+    }
+  }
+  return result;
+}
+
+doesWordExist(wordsFind,"disobedience");
+
 
 // Counting Repetion
 var wordsCount = [
@@ -150,6 +206,26 @@ var wordsCount = [
   'matter'
 ];
 
+
+
+function howManyTimes (array, word){
+
+  if(typeof array == 'object' && array.length <= 0){
+    return false;
+  }
+
+  result = [];        
+  for (let i in array){
+    if (array[i] == word){
+      result.push(word);
+    } 
+    
+  }
+  
+  return result.length;
+}
+
+howManyTimes(wordsCount, "disobedience");
 
 
 // Bonus Quest
@@ -178,4 +254,7 @@ var matrix = [
 ];
 
 
+function greatestProduct (array) {
+  
+}
 
