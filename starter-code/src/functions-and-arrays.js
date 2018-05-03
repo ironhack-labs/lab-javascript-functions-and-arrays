@@ -1,23 +1,58 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2) {
+      return num1;
+    } 
+  else {
+    return num2;
+  }
+}
+
+console.log(maxOfTwoNumbers(1, 2));
+
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+
+var words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array){
+  longest = array.sort(function (a, b) {
+    return a.length < b.length;
+  });
+  return array[0];
+}
+
+findLongestWord(words);
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(n) {
+  let sum = n.reduce(function(a, b) {
+    return a + b;
+  });
+  return sum;
+}
+
+console.log(sumArray(numbers));
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(avgNum){
+  if(avgNum.length < 1){
+    return;
+  }
+  var longitud = avgNum.length;
+  var sum = 0;
+  avgNum.forEach(function(e){
+    sum += e;
+  });
+  return sum/longitud;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,8 +68,19 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength (wordsArr){
+  if (wordsArr === ""){
+    return undefined;
+  }
+  var average = "";   
+    for (var i = 0; i < wordsArr.length; i++){
+      average += wordsArr[i].length;
+      }
+    return average / wordsArr.length;
+}
+
 // Unique Arrays
-var wordsUnique = [
+let wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -48,6 +94,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (uniqueArr){
+  let blankArray = [];
+  let undefinedArray = {};
+if (uniqueArr === ""){
+  return blankArray;
+}
+for (var i=0; i<uniqueArr.length; i++){
+  while (uniqueArr.indexOf(uniqueArr[i],i+1) != -1){
+    uniqueArr.splice(uniqueArr.indexOf(uniqueArr[i], i+1),1);
+  }
+}
+return uniqueArr;
+}
+
+uniquifyArray(wordsUnique);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +121,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+var word = "";
+
+function doesWordExist(wordsFind){
+  for (var i = 0; i < wordsFind.length; i++){
+    if (word === wordsFind[i]){
+      return "true";
+    }
+    return "false";
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +147,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, wordsNumber){
+  counter = 0;
+  if (wordsCount.length === 0){
+    return "false";
+  }
+  else{
+    for (i = 0; i < wordsCount.length; i++)
+    {
+      if (wordsCount[i] === wordsNumber){
+        counter+=1;
+   }
+    }
+    return counter;
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +188,11 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  if (matrix.length === 0) return false;
+  var max = 0;
+  for (var j = 0; j < matrix[i].length - 3; j++){
+
+  }
+}
