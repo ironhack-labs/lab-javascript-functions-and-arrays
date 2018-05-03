@@ -82,6 +82,20 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+
+function doesWordExist(array, theWord) {
+  if(array.length === 0) {
+    return false;
+  }
+  else {
+    for(var i=0; i<array.length; i++) {
+      if(array[i] === theWord) {
+        return true;
+      }
+    }return false;
+  }
+}
+
 var wordsUnique = [
   "crab",
   "poison",
