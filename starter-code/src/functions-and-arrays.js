@@ -1,15 +1,15 @@
 // Find the maximum
 
-function maxOfTwoNumbers(num1, num2) {
-  if (num1 > num2) {
-    return num1;
-  } else if (num1 < num2) {
-    return num2;
-  } else {
-    return num1;
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+  } else if (b > a) {
+    return b;
+  }
+  else {
+    return a;
   }
 }
-
 
 // Finding Longest Word
 var words = [
@@ -28,7 +28,7 @@ function findLongestWord(words) {
     return undefined;
   }
 
-  let longestWords = words.reduce((preview, next) => {
+  var longestWords = words.reduce((preview, next) => {
     if (preview.length < next.length) {
       preview = next;
     }
@@ -41,15 +41,9 @@ function findLongestWord(words) {
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(arrayNumbers) {
-  if (arrayNumbers.length === 0) {
-    return 0;
-  }
-  var sum = arrayNumbers.reduce(
-    (preview, next) => {
-      return preview + next;
-    }, 0)
-  return sum;
+function sumArray(numbers) {
+  var numSum = numbers.reduce((prev, cur) => prev + cur, 0);
+  return numSum;
 }
 
 // Calculate the Average
@@ -70,7 +64,7 @@ function averageNumbers(arrayNumbers) {
     (preview, next) => {
       return preview + next;
     }, 0)
-  let avg = sumArrayNumbers / arrayNumbers.length;
+  var avg = sumArrayNumbers / arrayNumbers.length;
 
   return avg;
 };
@@ -91,25 +85,18 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength(wordsArr) {
 
-  if (wordsArr.length === 0) {
+function averageWordLength(arr) {
+  if(arr.length === 0) {
     return undefined;
   }
+  else {
+    arr = arr.map(words => words.length);
+  var average = arr.reduce((prev, next) => prev + next);
+  average = average / arr.length;
 
-  if (wordsArr.length === 1) {
-    return wordsArr[0].length;
+  return average;
   }
-
-  var sumArrayWords = wordsArr.reduce(
-    (preview, next) => {
-      return preview + next.length;
-    }, 0);
-
-  let avgWords = sumArrayWords / wordsArr.length;
-
-  return avgWords;
-
 }
 
 // Unique Arrays
@@ -132,7 +119,7 @@ function uniquifyArray(wordsUnique) {
     return undefined;
   }
 
-  let newUnuniquifyArray = wordsUnique.filter((item, i) => {
+  var newUnuniquifyArray = wordsUnique.filter((item, i) => {
     return wordsUnique.indexOf(item) === i;
   });
 
@@ -171,24 +158,21 @@ var wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsCount, word) {
-  if (wordsCount.length === 0) {
+
+
+function howManyTimes(arr, word) {
+  var count = 0;
+  if (arr.length === 0){
     return false;
   }
-
-  let countword = 0;
-  wordsCount.forEach(element => {
-    if (element === word) {
-      countword++;
-    }
-  });
-
-  if (countword === 0) {
-    return 0;
-  } else if (countword === 1) {
-    return 1;
-  } else if (countword >= 5) {
-    return 5;
+  else {
+    arr.forEach(function(item) {
+      if (word === item) {
+        count++;
+        //return count;
+      }
+    });
+    return count;
   }
 }
 
@@ -220,8 +204,8 @@ var matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let horizontalGreatestProduct = _horizontalGreatestProduct(matrix);
-  let verticalGreatestProduct = _verticalGreatestProduct(matrix);
+  var horizontalGreatestProduct = _horizontalGreatestProduct(matrix);
+  var verticalGreatestProduct = _verticalGreatestProduct(matrix);
 
   if(horizontalGreatestProduct > verticalGreatestProduct){
     return horizontalGreatestProduct
@@ -231,16 +215,16 @@ function greatestProduct(matrix) {
 }
 
 function _horizontalGreatestProduct(matrix) {
-  let greatestHorizontalProduct = 0;
+  var greatestHorizontalProduct = 0;
 
-  for (let i = 0; i < matrix.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {
     //console.log(matrix[i].length );
-    for (let j = 0; j < matrix[i].length - 3; j++) {
+    for (var j = 0; j < matrix[i].length - 3; j++) {
       // console.log(matrix[i][j]);
       // console.log(matrix[i][j + 1]);
       // console.log(matrix[i][j + 2]);
       // console.log(matrix[i][j + 3]);
-      let product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      var product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
       //console.log(product);
       if (product > greatestHorizontalProduct) {
         greatestHorizontalProduct = product;
@@ -252,16 +236,16 @@ function _horizontalGreatestProduct(matrix) {
 
 
 function _verticalGreatestProduct(matrix) {
-  let greatestVerticalProduct = 0;
+  var greatestVerticalProduct = 0;
 
-  for (let i = 0; i < matrix.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {
     //console.log(matrix[i].length);
-    for (let j = 0; j < matrix[i].length - 3; j++) {
+    for (var j = 0; j < matrix[i].length - 3; j++) {
       // console.log(matrix[j][i]);
       // console.log(matrix[j + 1][i]);
       // console.log(matrix[j + 2][i]);
       // console.log(matrix[j + 3][i]);
-      let product = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i];
+      var product = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i];
       //console.log(product);    
       if (product > greatestVerticalProduct) {
         greatestVerticalProduct = product;
