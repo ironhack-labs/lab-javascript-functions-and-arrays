@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b){
+  return Math.max(a, b)
+}
 
 // Finding Longest Word
 var words = [
@@ -10,14 +13,43 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord (array){
+  var aux = '';
+  for(i = 0; i < array.length; i++){
+    if(array[i].length > aux.length){
+      aux = array[i];
+    }
+  }
+  if(array.length === 0){
+    return undefined;
+  }
+  return aux;
+}
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (array){
+  var sum = 0;
+    for (i = 0; i < array.length; i++){
+    sum += array[i];
+    }
+      return sum;
+  }
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (array){
+  var sum = 0;
+    for (i = 0; i < array.length; i++){
+    sum += array[i];
+    }
+    if (array.length === 0){
+      return undefined;
+    }
+      return sum/array.length;
+  }
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +65,16 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength (array){
+  var sum = 0;
+  for (i = 0; i < array.length; i++){
+   sum += array[i].length;
+  }
+  if (array.length === 0){
+    return undefined;
+  }
+  return sum/array.length;
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +90,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (array){
+  var newArray = [];
+  for (i = 0 ; i < array.length ; i++){
+    var index = array.indexOf(array[i]);
+    if (index == i){
+      newArray.push(array[i]);
+    }
+  }
+  if (array.length === 0){
+    return undefined;
+  }
+  return newArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +115,34 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (array,comparison){
+  var result = false;
+  for (i = 0 ; i<array.length ; i++){
+    if(array[i] === comparison){
+      result = true;
+    }
+  }
+  return result;
+}
+doesWordExist(words, "truth");
+
+/* Si configuro la función así:
+
+function doesWordExist (array,comparison){
+  var result;
+  for (i = 0 ; i<array.length ; i++){
+    if(array[i] === comparison){
+      result = true;
+    }else{
+      result = false;
+    }
+  }
+  return result;
+}
+Siempre me da de resultado "false" y no se por qué
+
+*/
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +158,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array,search){
+  var count = 0;
+  for (i = 0 ; i < array.length ; i++){
+    if(array[i] === search){
+      count++;
+    }
+  }
+  if (array.length === 0){
+    return false;
+  }
+return count;
+}
+
+howManyTimes (words, "machine");
+
 // Bonus Quest
 
 var matrix = [
