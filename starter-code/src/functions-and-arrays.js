@@ -1,4 +1,5 @@
 // Find the maximum
+
 function maxOfTwoNumbers(a, b) {
 
   if (a >= b) {
@@ -6,8 +7,7 @@ function maxOfTwoNumbers(a, b) {
   } else {
     return b;
   }
-
-   
+ 
 }
 
 maxOfTwoNumbers(10,5);
@@ -169,8 +169,16 @@ var wordsCount = [
   'matter'
 ];
 
+
+//impfovements, return false if array is empty but using length and returning false for this at the beginning so we don't have to execute other code
 function howManyTimes(array, searchWord) {
+  
   var repetitionCounter = 0;
+  //add in empty array condition as this is one of the Jasmine tests!
+  if (array.length === 0){
+    return false;
+  }
+
   for (var i = 0; i < array.length; i++) {
     if (wordsCount[i] === searchWord) {
       repetitionCounter++;
@@ -178,14 +186,7 @@ function howManyTimes(array, searchWord) {
   }
 
   return repetitionCounter;
-  
-  //add in empty array condition as this is one of the Jasmine tests!
-  if (array = []){
-    return false;
-  }  else {
-      return repetitionCounter;
-  }
-  
+   
 }
 // works in replit but not in Jasmine
 howManyTimes(wordsCount, "matter");
