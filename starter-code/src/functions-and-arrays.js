@@ -248,9 +248,7 @@ greatestProduct(matrix);
 
 
 // Georgina's attempt :S 
-/*greatestProduct(matrix);
-
-function greatestProduct(matrix) {
+/*function greatestProduct(matrix) {
   
   var highestProduct = 0;
   for (var i = 0; i < matrix.length; i++) {
@@ -267,8 +265,6 @@ function greatestProduct(matrix) {
   return highestProduct;
   
 }
-
-greatestProduct(matrix);
 
 function calculateProduct(matrix, i, j){
 
@@ -290,9 +286,9 @@ function calculateProduct(matrix, i, j){
     //save values into array so we can pick the highest in function below (TODO could change this to a simple if statement, if we are only going to calculate down and right products )
     productArray = [productRight, productDown];
     
-    return productArray;
-
   }
+
+  return productArray;
 }
 
 function getHighestOfAll(productArray, highestProduct) {
@@ -302,4 +298,7 @@ function getHighestOfAll(productArray, highestProduct) {
     }
     return highestProduct;
   }
-}*/
+
+}
+
+greatestProduct(matrix);*/
