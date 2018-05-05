@@ -244,7 +244,7 @@ function greatestProduct(matrix) {
   }
 }
 
-console.log(newHours);
+greatestProduct(matrix);
 
 
 // Georgina's attempt :S 
