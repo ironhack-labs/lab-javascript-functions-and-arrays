@@ -1,7 +1,10 @@
 // Find the maximum
+const maxOfTwoNumbers = (a, b) => {
+return (a > b ? a : b); 
+}
 
 // Finding Longest Word
-var words = [
+const words = [
   'mystery',
   'brother',
   'aviator',
@@ -11,16 +14,34 @@ var words = [
   'crackpot'
 ];
 
+const findLongestWord = (arr) => {
+  if (arr.length===0) return undefined;
+  const longestReducer = (prev, curr) => {
+    return (prev.length < curr.length ? curr : prev);
+  }
+  return arr.reduce(longestReducer, '')
+}
+
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumArray = arr => {
+  const sumReducer = (prev, curr) =>  prev + curr;
+  return arr.reduce(sumReducer, 0)
+}
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = arr => {
+  if(arr.length===0) return undefined;
+  return (sumArray(arr)/arr.length);
+}
 
 // Array of Strings
-var wordsArr = [
+const wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -33,8 +54,13 @@ var wordsArr = [
   'palace'
 ];
 
+const averageWordLength = arr => {
+  const wordLengths = arr.map(word => word.length);
+  return averageNumbers(wordLengths);
+}
+
 // Unique Arrays
-var wordsUnique = [
+const wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -48,8 +74,17 @@ var wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = arr =>{
+ const uniqueArray = arr.filter();
+  return uniqueArray;
+}
+
+const IsFirstUnique = (value, index, arr) => {
+  const isFirstUnique = arr.indexOf(value,index); 
+  return isFirstUnique;
+}
 // Finding Elements
-var wordsFind = [
+const wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -61,7 +96,7 @@ var wordsFind = [
 ];
 
 // Counting Repetion
-var wordsCount = [
+const wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -76,7 +111,7 @@ var wordsCount = [
 ];
 // Bonus Quest
 
-var matrix = [
+const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
