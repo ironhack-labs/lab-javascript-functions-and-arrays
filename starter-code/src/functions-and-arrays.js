@@ -107,6 +107,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, element) => {
+  if(arr.length === 0) {return false };
+    const countReducer = (prev, curr) => { 
+      prev.count =  prev.element === curr ?  prev.count + 1 : prev.count
+      return prev 
+    }
+ return arr.reduce(countReducer, {count: 0, element: element}).count
+}
+
 // Bonus Quest
 
 const matrix = [
