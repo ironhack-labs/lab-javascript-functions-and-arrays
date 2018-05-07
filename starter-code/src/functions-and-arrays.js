@@ -16,9 +16,7 @@ const words = [
 
 const findLongestWord = (arr) => {
   if (arr.length===0) return undefined;
-  const longestReducer = (prev, curr) => {
-    return (prev.length < curr.length ? curr : prev);
-  }
+  const longestReducer = (prev, curr) => (prev.length < curr.length ? curr : prev);
   return arr.reduce(longestReducer, '')
 }
 
@@ -75,12 +73,10 @@ const wordsUnique = [
 ];
 
 const uniquifyArray = arr => {
+  const uniquifyReducer = (prev, curr) => (prev.includes(curr) ? prev : [...prev,curr]);
   return ( arr.length === 0 ? undefined : arr.reduce(uniquifyReducer, []));
 }
 
-const uniquifyReducer = (prev, curr) => {
-  return (prev.includes(curr) ? prev : [...prev,curr]);
-}
  
 // Finding Elements
 const wordsFind = [
