@@ -90,6 +90,9 @@ const wordsFind = [
   'disobedience'
 ];
 
+const doesWordExist = (arr,word) => {
+  return arr.includes(word);
+}
 // Counting Repetion
 const wordsCount = [
   'machine',
