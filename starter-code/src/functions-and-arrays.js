@@ -74,15 +74,14 @@ const wordsUnique = [
   'bring'
 ];
 
-const uniquifyArray = arr =>{
- const uniqueArray = arr.filter();
-  return uniqueArray;
+const uniquifyArray = arr => {
+  return ( arr.length === 0 ? undefined : arr.reduce(uniquifyReducer, []));
 }
 
-const IsFirstUnique = (value, index, arr) => {
-  const isFirstUnique = arr.indexOf(value,index); 
-  return isFirstUnique;
+const uniquifyReducer = (prev, curr) => {
+  return (prev.includes(curr) ? prev : [...prev,curr]);
 }
+ 
 // Finding Elements
 const wordsFind = [
   'machine',
