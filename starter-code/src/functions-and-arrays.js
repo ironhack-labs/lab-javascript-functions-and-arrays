@@ -109,7 +109,7 @@ const wordsCount = [
 ];
 
 const howManyTimes = (arr, element) => {
-  if(arr.length === 0) {return false };
+  if(arr.length === 0) { return false };
     const countReducer = (prev, curr) => { 
       prev.count =  prev.element === curr ?  prev.count + 1 : prev.count
       return prev 
