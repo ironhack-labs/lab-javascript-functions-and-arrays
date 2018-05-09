@@ -109,7 +109,7 @@ const wordsCount = [
 ];
 
 const howManyTimes = (arr, element) => {
-  if(arr.length === 0) { return false };
+  if(arr.length === 0) return(false); 
     const countReducer = (prev, curr) => { 
       prev.count =  prev.element === curr ?  prev.count + 1 : prev.count
       return prev 
@@ -142,11 +142,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-const greatestProduct = (matrix) => {
-  const indiciesProduct = (arr) => {
-    
-    return prod;
-  }
-  const answer = '';
-  return answer;  
+const product = (indicies) => { 
+  indicies.reduce((prev, location) => {
+    return (prev * matrix[location.i, location.j]);
+  }, 1)
 }
+
+const range = (start, end, step = 1) => {
+  const len = Math.floor((end - start) / step) + 1
+  return Array(len).fill().map((_, idx) => start + (idx * step))
+}
+
+const greatestProduct = (matrix) => {
+  const horizontalIndices = null;
+  const verticalIndicies = null;
+  const indiciesArray = [...horizontalIndices, ...verticalIndicies]; 
+  const maxProduct = indiciesArray.reduce((prevProduct, indicies) => {
+    const currProduct = product(indicies); 
+    const result = prev >= currProduct ? prev : currProduct
+    return result;
+  })
+  return maxProduct;
+};
+
+greatestProduct(matrix);
