@@ -1,4 +1,9 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b){
+  if(a>b) return a;
+  else return b;
+  //returns b when a=b
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +16,36 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord( array )
+{
+  var longest=array[0];
+  array.forEach(function(element){
+    if(element.length>longest.length) longest=element;
+  });
+  return longest;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(array)
+{
+  var sum=0;
+  array.forEach(function(element){
+    sum+=element;
+  });
+  return sum;
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array)
+{
+  if(array.length===0) return;
+  return sumArray(array)/array.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +60,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array)
+{
+  var arrayOfLengths=[];
+  array.forEach(function(element){
+    arrayOfLengths.push(element.length);
+  });
+  return averageNumbers(arrayOfLengths);
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +85,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array)
+{
+  if(array.length===0) return;
+  for(var i=0; i<array.length; i++)
+  {
+    while(array.indexOf(array[i],i+1)!=-1)
+    {
+      //there is a duplicate in position nextDup
+      array.splice(array.indexOf(array[i],i+1), 1);
+    }
+  }
+  return array;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +110,18 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word)
+{
+  if(array.length===0) return false;
+
+  var exists=false;
+  array.forEach(function(element){
+    if(element===word)  exists=true;
+  });
+  return exists;
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +137,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  if(array.length===0) return false;
+  var counter=0;
+  array.forEach(function(element){
+    if(element===word) counter++;
+  });
+  return counter;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +171,111 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+/*
+function greatestProduct(grid)
+{
+  var maxMult=0;
+  var currMult=0;
+  var up=1;
+  var down=1;
+  var left=1;
+  var right=1;
+
+  grid.forEach(function(element, row, rows){
+    element.forEach(function(valor, col, cols){
+      if(row==0 && col==0)
+      {
+        right=rows[row][col+1];
+        down=rows[row+1][col];
+      }
+      else if(row==0 && col==cols.length-1)
+      {
+        left=rows[row][col-1];
+        down=rows[row+1][col];
+      }
+      else if(row==rows.length-1 && col==0)
+      {
+        up=rows[row-1][col];
+        right=rows[row][col+1];
+      }
+      else if(row==rows.length-1 && col==cols.length-1)
+      {
+        up=rows[row-1][col];
+        left=rows[row][col-1];
+      }
+      else if(row==0)
+      {
+        right=rows[row][col+1];
+        down=rows[row+1][col];
+        left=rows[row][col-1];
+      }
+      else if(row==rows.length-1)
+      {
+        right=rows[row][col+1];
+        up=rows[row-1][col];
+        left=rows[row][col-1];
+      }
+      else if(col==0)
+      {
+        right=rows[row][col+1];
+        down=rows[row+1][col];
+        up=rows[row-1][col];
+      }
+      else if(col==cols.length-1)
+      {
+        down=rows[row+1][col];
+        up=rows[row-1][col];
+        left=rows[row][col-1];
+      }
+      else
+      {
+        right=rows[row][col+1];
+        down=rows[row+1][col];
+        up=rows[row-1][col];
+        left=rows[row][col-1];
+      }
+
+      currMult=up*down*left*right;
+      if(currMult>maxMult) maxMult=currMult;
+    });
+  });
+  return maxMult;
+}
+*/
+
+function maxOfArray(array)
+{
+  var maxElem=0;
+  for(var i=1; i<array.length; i++)
+  {
+    if(Math.max(array[i]) > maxElem)  maxElem=array[i];
+  }
+  return maxElem;
+}
+
+function greatestProduct(grid)
+{
+  var maxMult = 0;
+  var directionsMult = [1,1,1,1]; //[up, down, left, right]
+
+  for (var i=4; i<grid.length-1-4; i++)
+  {
+    for (var j=4; j<grid[i].length-1-4; j++)
+    {
+      directionsMult = [1,1,1,1];
+      for (var k=0; k<4; k++)
+      {
+        directionsMult[0] *= grid[i-k][j];
+        directionsMult[1] *= grid[i+k][j];
+        directionsMult[2] *= grid[i][j-k];
+        directionsMult[3] *= grid[i][j+k];        
+      }
+      if( maxOfArray( directionsMult ) > maxMult ) maxMult = maxOfArray( directionsMult );
+    }
+  }
+  console.log("maxMult: " + maxMult);
+  return maxMult;
+}
+greatestProduct(matrix);
