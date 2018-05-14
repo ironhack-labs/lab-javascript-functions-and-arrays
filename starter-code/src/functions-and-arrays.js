@@ -45,7 +45,8 @@ var wordsUnique = [
   'poison',
   'communion',
   'simple',
-  'bring'
+  'bring',
+  'poison'
 ];
 
 // Finding Elements
@@ -72,7 +73,7 @@ var wordsCount = [
   'matter',
   'truth',
   'disobedience',
-  'matter'
+  'matter',
 ];
 // Bonus Quest
 
@@ -98,3 +99,113 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+function findLongestWord(array) {
+  if (array.length > 0) {
+    for (var i = 0, itemMaxLength = ''; i < array.length; i++) {
+      if (array[i].length > itemMaxLength.length) {
+        itemMaxLength = array[i];
+      }
+    }
+    return itemMaxLength;
+  }
+}
+
+function sumArray(array) {
+  total = 0;
+
+  if (array.length > 0) {
+    array.forEach(function (element) {
+      total += element;
+    });
+  }
+  return total;
+}
+
+function average(array) {
+  if (array.length > 0) {
+    return sumArray(array) / array.length;
+  }
+}
+
+function averageNumbers(array) {
+  if (array.length > 0) {
+    return average(array);
+  }
+}
+
+function averageWordLength(array) {
+  var arrayToNum = [];
+
+  if (array.length > 0) {
+    
+    array.forEach(function(element){
+      arrayToNum.push(element.length);
+    });
+    return average(arrayToNum);
+  }
+}
+
+function uniquifyArray(array) {
+  var arrayUnified = [];
+  var pos = 0;
+
+  if (array.length > 0) {
+    for (var element of array) {
+      pos = array.indexOf(element);
+      if (pos != -1) {
+        arrayUnified.splice(pos, 1, element);
+      }
+    }
+    return arrayUnified;
+  }
+}
+
+function doesWordExist(array, searchString) {
+  if (array.length > 0 || searchString!=""  ) {
+    for (var element of array) {
+      if (element === searchString) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+function howManyTimes(array, searchString) {
+  var count = 0;
+
+  if (array.length > 0 && searchString != "") {
+    array.forEach(function (element) {
+      if (element === searchString) {
+        count += 1;
+      }
+    });
+    return count;
+  }
+  return false;
+}
+
+function greatestProduct(matrix){
+ var maxProduct=0, actualProduct=0;
+  row=0, col=0;
+
+  if (matrix.length > 0) {
+
+    for (var rows of matrix) {
+      row+=1;
+      for(var cols of rows){
+        col+=1;
+          console.log(row,col);
+      }
+    }
+  } 
+}
