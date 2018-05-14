@@ -194,7 +194,6 @@ function howManyTimes(array, searchString) {
   return false;
 }
 
-
 function greatestProduct(matrix) {
   var maxProduct = 0,actualProduct = 0;
   row = 0, col = 0;
