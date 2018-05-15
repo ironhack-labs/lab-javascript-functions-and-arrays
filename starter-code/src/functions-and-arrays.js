@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+  return Math.max(a, b);
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +14,37 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(words) {
+  var longestWord = '';
 
+  if (words.length === 0) {
+    return;
+  }
+  words.forEach(function(word) {
+    if (word.length > longestWord.length) { longestWord = word; }
+  });
+  return longestWord;
+}
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(numbers) {
+  if (numbers.length === 0) { return 0; }
+  var sum = 0;
+  numbers.forEach(function(numb) {
+    sum += numb;
+  });
+  return sum;
+}
 
+// Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) { return; }
+    return sumArray(numbersAvg) / numbersAvg.length;
+  }
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +59,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr) {
+  var lengthArr = [];
+
+  if (wordsArr.length === 0) { return; }
+  wordsArr.forEach(function(word) {
+    lengthArr
+  })
+    for (i = 0; i < wordsArr.length; i++) {
+      lengthArr[i] = wordsArr[i].length;
+    }
+  return averageNumbers(lengthArr);
+  }
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +88,17 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique) {
+  var returnArray = [];
+  if (wordsUnique.length === 0) { return; }
+    wordsUnique.forEach(function(word, index) {
+      if (returnArray.indexOf(word) === -1) {
+        returnArray.push(word);
+      }
+    });
+    return returnArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +110,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, wordToFind) {
+  var wordFound = false;
+  if (wordsFind.length === 0) { return false; }
+  wordsFind.forEach(function(word) {
+    if (word === wordToFind) { wordFound = true; }
+  })
+  return wordFound;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,8 +134,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+function howManyTimes(wordsCount, wordToCount) {
+  var wordCount = 0;
+
+  if (wordsCount.length === 0) { return false; }
+  wordsCount.forEach(function(word) {
+    if (word === wordToCount) { wordCount++}
+  });
+  return wordCount;
+}
+
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -98,3 +168,58 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// TODO: REFACTOR THIS PIECE OF SHIT
+
+function getFour(matrix, x, y, direction) {
+  var arrayOfFour = [];
+
+  if (direction === "vertical") {
+    for (k = 0; k < 4; k++) {
+      arrayOfFour.push(matrix[x][y + k]);
+    }
+  } else {
+    for (k = 0; k < 4; k++) {
+      arrayOfFour.push(matrix[x + k][y]);
+    }
+  }
+  return arrayOfFour;
+}
+
+function multiplyArray(arrayOfFour) {
+  return arrayOfFour.reduce(function(numb, result) {
+    return result *= numb;
+  });
+}
+
+
+function greatestProduct(arr) {
+
+  var horizontalMax = 0,
+      verticalMax = 0,
+      arrayOfFour = [],
+      temp = 0;
+
+  for (i = 0; i < (arr.length - 3); i++) {
+    for (j = 0; j < (arr.length - 3); j++) {
+      if (multiplyArray(getFour(arr, i, j, "vertical")) > verticalMax) {
+        verticalMax = multiplyArray(getFour(arr, i, j, "vertical"));
+      }
+      console.log(multiplyArray(getFour(arr, i, j, "vertical")), verticalMax);
+    }
+  }
+  for (i = 0; i < (arr.length - 3); i++) {
+    for (j = 0; j < (arr.length - 3); j++) {
+      if (multiplyArray(getFour(arr, j, i, "horizontal")) > horizontalMax) {
+        horizontalMax = multiplyArray(getFour(arr, j, i, "horizontal"));
+      }
+      console.log(multiplyArray(getFour(arr, j, i, "horizontal")), horizontalMax);
+    }
+  }
+
+  if (verticalMax > horizontalMax) {
+    return verticalMax;
+  } else { return horizontalMax; }
+}
+
+greatestProduct(matrix);
