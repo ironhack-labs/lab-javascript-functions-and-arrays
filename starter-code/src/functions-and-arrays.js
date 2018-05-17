@@ -10,10 +10,35 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words) {
+  var orderedArray = words.sort((a, b) => {
+    return a.length < b.length;
+  });
 
+  return orderedArray[0];
+}
+
+findLongestWord(words)
+
+// 6
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+if (numbers.length === 0){
+  return 0
+ };
+
+else if (numbers.length=== 0){
+  return [1]
+ };
+
+function sumArray (numbers){
+  for (var i = 0; i < numbers.length; i++)
+}; 
+
+
+
 
 // Calculate the Average
 
