@@ -2,11 +2,11 @@
 
 function maxOfTwoNumbers(num1, num2){
   if (num1>num2){
-    console.log(num1);
+    return num1;
   } else if (num1<num2){
-    console.log(num2);
+    return num2;
   } else{
-    console.log("Same");
+    return num1;
   }
 }
 console.log(maxOfTwoNumbers(2,1));
@@ -27,11 +27,10 @@ function findLongestWord(arr){
   for (var i = 0; i < arr.length; i++){
     if(arr[i].length > longest.length){
       longest = arr[i];
-    } else if(longest === arr[i]){
-      console.log("Same");
+      
+    } else if(longest === arr[i]){ 
     }
-  }
-  return longest;
+  }return longest;
 }
 console.log(findLongestWord(words))
 
@@ -59,7 +58,7 @@ function elements(arr){
 }
 
 function averageNumbers(arr){
-  var numAverage = sumArray(numbersAvg)/elements(numbersAvg);
+  var numAverage = sumArray(arr)/elements(arr);
   return numAverage;
 }
 console.log("The average of the new array is: " + averageNumbers(words));
@@ -101,7 +100,7 @@ function arrayWords(arr){
 console.log("The array has " + arrayWords(wordsArr) + " words");
 
 function averageWordLength(arr){
-  var averageCharactersWord = sumWordLength(wordsArr)/arrayWords(wordsArr);
+  var averageCharactersWord = sumWordLength(arr)/arrayWords(arr);
   return averageCharactersWord;
 }
 console.log("The average word lengh is: "+ averageWordLength(wordsArr)+ " characters");
