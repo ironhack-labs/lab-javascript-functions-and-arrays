@@ -1,6 +1,17 @@
-// Find the maximum
+// *Find the maximum*
 
-// Finding Longest Word
+function maxOfTwoNumbers(num1, num2){
+  if (num1>num2){
+    return num1;
+  } else if (num1<num2){
+    return num2;
+  } else{
+    return num1;
+  }
+}
+console.log(maxOfTwoNumbers(2,1));
+
+// *Finding Longest Word*
 var words = [
   'mystery',
   'brother',
@@ -11,15 +22,50 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(arr){
+  var longest='';
+  for (var i = 0; i < arr.length; i++){
+    if(arr[i].length > longest.length){
+      longest = arr[i];
+      
+    } else if(longest === arr[i]){ 
+    }
+  }return longest;
+}
+console.log(findLongestWord(words))
+
+
+// *Calculating a Sum*
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(arr){
+  var total = 0;
+  for (var i=0; i < arr.length ;i++){
+  total += + arr[i];
+  }
+  return total;
+}
+console.log("The total sum is " + sumArray(numbers));
+
+// *Calculate the Average & reusing the function used in the exercise above.*
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+function elements(arr){
+  var num = arr.length;
+  return num;
+}
+
+function averageNumbers(arr){
+  var numAverage = sumArray(arr)/elements(arr);
+  return numAverage;
+}
+console.log("The average of the new array is: " + averageNumbers(words));
+
+
+// *Array of Strings*
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +79,34 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+// to get the average number of characters in a word,... 
+// ...first sum all the characters of every ford
+function sumWordLength(arr){
+  var total= 0;
+  for (var i=0; i < arr.length;i++){
+    total += arr[i].length;
+  }
+  return total;
+}
+console.log("The sum of the words in the array is: " + sumWordLength(wordsArr));
+
+// next, find the number of words in the array
+function arrayWords(arr){
+  for(var i=0; i < arr.length; i++){
+    var words = arr.length;
+    return words;
+  }
+}
+console.log("The array has " + arrayWords(wordsArr) + " words");
+
+function averageWordLength(arr){
+  var averageCharactersWord = sumWordLength(arr)/arrayWords(arr);
+  return averageCharactersWord;
+}
+console.log("The average word lengh is: "+ averageWordLength(wordsArr)+ " characters");
+
+
+// *Unique Arrays*
 var wordsUnique = [
   'crab',
   'poison',
@@ -47,6 +120,23 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+// Sort the array and check if the next element in the array
+// is repeated. If not, add it to the results array
+function uniquifyArray(arr){
+  var sortedArr = arr.slice().sort();
+  var results =[];
+  
+  for (var i =0; i < sortedArr.length -1; i ++){
+    if (sortedArr [i + 1] != sortedArr[i]){
+      results.push(sortedArr[i]);
+    }
+  }
+  console.log(results);
+  }
+  
+  console.log(uniquifyArray(wordsUnique));
+
+
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +149,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word){
+  for(var i=0; i<arr.length;i++){
+    if (arr[i]=== word){
+      return true;
+    }
+  }
+  return false;
+}
+console.log(doesWordExist(wordsFind, "truth"));
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +174,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word){
+  var n = 0;
+  for (var i=0; i < arr.length ; i++ ){
+    if (arr[i] == word){
+      n++;
+    }
+  }
+  return n;
+}
+console.log(howManyTimes(wordsCount, machine));
 // Bonus Quest
 
 var matrix = [
