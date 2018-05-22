@@ -5,6 +5,8 @@ function maxOfTwoNumbers (a, b) {
   }
   return a;
 }
+
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -44,7 +46,7 @@ function sumArray(numbers)
   }
   return sum;
 }
-// Calculate the Averagec
+// Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -95,6 +97,25 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array) {
+	if (array.length === 0) {
+		return undefined;
+	}
+	var unique = [];
+	var dup = [];
+	var temp = 0;
+	for (var i = 0; i < array.length; i++) {
+		// check if array[i] is unique and isn't in dup, if true: push to unique
+		if (array.indexOf(array[i], i + 1) === -1 && dup.indexOf(array[i]) === -1) {
+			unique.push(array[i]);
+		} else if (dup.indexOf(array[i]) === -1) {
+			// else if it isn't in forbidden array
+			dup.push(array[i]);
+			unique.push(array[i]);
+		}
+	}
+	return unique;
+}
 
 // Finding Elements
 var wordsFind = [
