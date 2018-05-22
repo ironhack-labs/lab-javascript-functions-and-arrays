@@ -1,6 +1,22 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+  return Math.max(a, b);
+}
 
 // Finding Longest Word
+function findLongestWord(wordArray) {
+
+  var longestSoFar = wordArray[0];
+
+  wordArray.forEach(word => {
+    longestSoFar = word.length > longestSoFar.length ? word : longestSoFar;
+    console.log(longestSoFar);
+  });
+
+  return longestSoFar;
+
+}
+
 var words = [
   'mystery',
   'brother',
