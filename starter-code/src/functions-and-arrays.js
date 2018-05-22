@@ -23,7 +23,7 @@ findLongestWord(words)
 // 6
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]; 
 var sum = 0;
 
 function sumArray (numbers){
