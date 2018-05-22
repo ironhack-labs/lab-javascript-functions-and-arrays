@@ -1,5 +1,16 @@
 // Find the maximum
-
+function maxOfTwoNumbers(num1,num2){
+  if(num1>num2){
+    return num1;
+  }
+  else if(num1<num2){
+    return num2;
+  }
+  else{
+    console.log("Both numbers are equal");
+    return num1;
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,6 +21,29 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+function findLongestWord(words){
+  var longest=[];
+  if(words.length<=0){
+    return undefined;
+  }
+  if(words.length===1){
+    return words[0];
+  }
+  for(var i=0; i<words.length; i++){
+    if(words[i].length>longest.length){
+      longest[0]=words[i];
+      longest.length=words[i].length;
+    }
+    else if(words[i].length===longest.length){
+      continue;
+    }
+    else{
+      continue;
+    }
+  }
+    return longest;
+}
 
 // Calculating a Sum
 
