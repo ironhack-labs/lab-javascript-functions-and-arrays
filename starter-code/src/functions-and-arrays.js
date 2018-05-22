@@ -24,18 +24,21 @@ findLongestWord(words)
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-if (numbers.length === 0){
-  return 0
- };
-
-else if (numbers.length=== 0){
-  return [1]
- };
+var sum = 0;
 
 function sumArray (numbers){
+  if (numbers.length === 0){
+    return 0
+ };
+ else if (numbers.length === 1){
+  return numbers[0]
+ };
   for (var i = 0; i < numbers.length; i++)
-}; 
+  sum += numbers [i]
+  console.log(sum)
+};
+
+
 
 
 
