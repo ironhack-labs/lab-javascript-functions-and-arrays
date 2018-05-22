@@ -112,7 +112,7 @@ var wordsFind = [
 
 function doesWordExist(arrayOfWords, word) {
   for (var i = 0; i < arrayOfWords.length; i++) {
-    if (arrayOfWords[0].toUpperCase() === word.toUpperCase()) {
+    if (arrayOfWords[i].toUpperCase() === word.toUpperCase()) {
       return true;
     }
   }
@@ -133,7 +133,89 @@ var wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(arrayOfWords, word) {
+  var count = 0;
+  for (wordIndex in arrayOfWords) {
+    if (arrayOfWords[wordIndex].toUpperCase() === word.toUpperCase()) {
+      count++;
+    }
+  }
+  return arrayOfWords.length === 0 ? false : count;
+}
 // Bonus Quest
+
+function greatestProduct(matrix) {
+  var greatestProduct = getProductFromArray(matrix[0], 4);
+  var greatestProductVertical = getProductFromCol(matrix, 4);
+  for (var i = 0; i < matrix.length; i++) {
+    var greatesProductRow = getProductFromArray(matrix[i], 4);
+    var currentRow = matrix[i];
+    for (var j = 0; j < currentRow.length - 4; j++) {
+      if (currentRow[j] === 0) j += 5;
+      // continue;
+      if (currentRow[j] < currentRow[j + 4]) {
+        greatesProductRow = getProductFromArray(currentRow, 4, j + 1);
+      }
+    }
+    if (greatesProductRow > greatestProduct) {
+      greatestProduct = greatesProductRow;
+    }
+  }
+  for (var i = 0; i < matrix[0].length; i++) {
+    var greatesProductCol = getProductFromCol(matrix, 4, i, 0);
+    for (var j = 0; j < matrix.length - 4; j++) {
+      if (matrix[j][i] === 0) {
+        j += 4;
+      } else {
+        if (matrix[j][i] < matrix[j + 4][i]) {
+          greatesProductCol = getProductFromCol(matrix, 4, i, j + 1);
+        }
+      }
+    }
+    if (greatesProductCol > greatestProductVertical) {
+      greatestProductVertical = greatesProductCol;
+    }
+  }
+  return greatestProduct > greatestProductVertical
+    ? greatestProduct
+    : greatestProductVertical;
+}
+
+function getProductFromCol(
+  matrix,
+  noOfFactors,
+  colIndex = 0,
+  startRowIndex = 0
+) {
+  if (matrix.length === 0) return undefined;
+  if (noOfFactors === 0) return 0;
+  if (matrix.length - startRowIndex < noOfFactors) return undefined;
+  var product = matrix[startRowIndex][colIndex];
+  for (var i = startRowIndex + 1; i < noOfFactors + startRowIndex; i++) {
+    product *= matrix[i][colIndex];
+  }
+  return product;
+}
+
+function getProductFromArray(array, noOfFactors, startIndex = 0) {
+  if (array.length === 0) return undefined;
+  if (noOfFactors === 0) return 0;
+  if (array.length - startIndex < noOfFactors) return undefined;
+  var product = array[startIndex];
+  for (var i = startIndex + 1; i < noOfFactors + startIndex; i++) {
+    product *= array[i];
+    console.log("current Factor : " + array[i]);
+  }
+  return product;
+}
+var matrix = [
+  [0, 2, 4, 2, 1],
+  [3, 2, 1, 3, 2],
+  [0, 2, 4, 2, 1],
+  [0, 2, 4, 2, 1],
+  [0, 2, 4, 2, 1]
+];
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
