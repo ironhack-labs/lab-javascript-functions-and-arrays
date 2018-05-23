@@ -122,10 +122,15 @@ var wordsUnique = [
 
 function uniquifyArray(arr4) {
 
-  for (i = 0; i < arr.length; i++) {
-    
-  }
+  if (arr4.length > 0){
 
+  uniqueArray = arr4.filter(function(item, pos, self) {
+    return self.indexOf(item) == pos;
+  })
+
+  return uniqueArray;
+
+} else return undefined;
 }
 
 uniquifyArray(wordsUnique);
@@ -142,6 +147,24 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr5, e) {
+
+  if(arr5.length==0){
+    return false;
+  }
+
+  for (i=0; i<arr5.length; i++) {
+    if (arr5[i] === e) {
+      return true;
+    } 
+  }return false;
+  
+}
+    
+
+
+doesWordExist(wordsFind, "matter");
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -156,6 +179,25 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr6, e) {
+
+  if (arr6.length == 0){
+    return false;
+  }
+
+var count=0;
+
+  for (i=0; arr6.length > i; i++ ) {
+    if (arr6[i] === e) {
+      count++;
+    }  
+  } return count;
+
+}
+
+howManyTimes(wordsCount,"");
+
 // Bonus Quest
 
 var matrix = [
