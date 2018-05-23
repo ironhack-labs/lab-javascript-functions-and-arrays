@@ -67,6 +67,22 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(arrayToBeUniquified) {
+
+  if (arrayToBeUniquified.length) {
+
+    arrayToBeUniquified.forEach(function (word, index) {
+
+      while (arrayToBeUniquified.lastIndexOf(word) > index) {
+
+        arrayToBeUniquified.splice(arrayToBeUniquified.lastIndexOf(word), 1);
+      }
+    })
+
+    return arrayToBeUniquified;
+  }
+}
+
 var wordsUnique = [
   'crab',
   'poison',
