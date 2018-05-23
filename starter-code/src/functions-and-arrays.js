@@ -43,6 +43,15 @@ function averageNumbers(arrayToBeAveraged) {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageWordLength(arrayToBeAveraged) {
+
+  var sum = 0;
+
+  arrayToBeAveraged.forEach((word) => sum += word.length)
+
+  return arrayToBeAveraged.length ? sum / arrayToBeAveraged.length : undefined;
+}
+
 // Array of Strings
 var wordsArr = [
   'seat',
