@@ -28,6 +28,13 @@ var words = [
 ];
 
 // Calculating a Sum
+function sumArray(arrayToBeSummed) {
+
+  //so it returns 0 on an empty array
+  arrayToBeSummed.push(0);
+
+  return arrayToBeSummed.reduce((acc, cur) => acc + cur);
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
