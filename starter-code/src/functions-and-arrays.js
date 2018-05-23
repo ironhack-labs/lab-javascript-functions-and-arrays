@@ -100,8 +100,6 @@ var wordsUnique = [
 // Finding Elements
 function doesWordExist(arrayToBeSearched, wordToFind) {
 
-
-
   return arrayToBeSearched.find((wordInArray) => wordInArray === wordToFind) ? true : false;
 
 }
@@ -118,6 +116,20 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+function howManyTimes(arrayToBeSearched, wordToFind) {
+
+  var times = 0;
+
+  arrayToBeSearched.forEach(function (word) {
+    if (word === wordToFind) {
+      times++;
+    }
+  });
+
+  return arrayToBeSearched.length ? times : false;
+
+}
+
 var wordsCount = [
   'machine',
   'matter',
