@@ -30,15 +30,16 @@ var words = [
 // Calculating a Sum
 function sumArray(arrayToBeSummed) {
 
-  //so it returns 0 on an empty array
-  arrayToBeSummed.push(0);
-
-  return arrayToBeSummed.reduce((acc, cur) => acc + cur);
+  return arrayToBeSummed.length ? arrayToBeSummed.reduce((acc, cur) => acc + cur) : 0;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+function averageNumbers(arrayToBeAveraged) {
+
+  return arrayToBeAveraged.length ? sumArray(arrayToBeAveraged) / arrayToBeAveraged.length : undefined;
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
