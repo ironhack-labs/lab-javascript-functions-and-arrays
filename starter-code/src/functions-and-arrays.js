@@ -30,13 +30,11 @@ function findLongestWord(words){
   if(words.length===1){
     return words[0];
   }
+  
   for(var i=0; i<words.length; i++){
     if(words[i].length>longest.length){
       longest[0]=words[i];
       longest.length=words[i].length;
-    }
-    else if(words[i].length===longest.length){
-      continue;
     }
     else{
       continue;
@@ -44,14 +42,22 @@ function findLongestWord(words){
   }
     return longest;
 }
-
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum=0;
+for(var i=0; i<numbers.length; i++){
+  sum+=numbers[i];
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var average=0;
+for (var i=0; i<numbersAvg.length; i++){
+  average=average+numbersAvg[i];
+}
+average=(average/numbersAvg.length);
 
 // Array of Strings
 var wordsArr = [
