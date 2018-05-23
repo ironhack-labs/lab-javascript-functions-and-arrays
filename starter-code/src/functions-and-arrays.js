@@ -98,6 +98,14 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+function doesWordExist(arrayToBeSearched, wordToFind) {
+
+
+
+  return arrayToBeSearched.find((wordInArray) => wordInArray === wordToFind) ? true : false;
+
+}
+
 var wordsFind = [
   'machine',
   'subset',
