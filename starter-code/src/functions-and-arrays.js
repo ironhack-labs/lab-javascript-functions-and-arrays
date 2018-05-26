@@ -67,7 +67,7 @@ var wordsArr = [
 function averageWordLength(inputArray) {
   const map1 = inputArray.map(x => x.length);
   return averageNumbers(map1);
-
+}
   // Unique Arrays
   var wordsUnique = [
     "crab",
@@ -83,9 +83,17 @@ function averageWordLength(inputArray) {
     "bring"
   ];
 
+  Array.prototype.unique = function() {
+    return this.filter(function (value, index, self) { 
+      return self.indexOf(value) === index;
+    });
+  }
+
   function uniquifyArray(inputArray) {
     if (inputArray.length === 0) {
-      return undefined;
+      return undefined;}
+    else {
+      return inputArray.unique();
     }
   }
 
@@ -548,4 +556,4 @@ function averageWordLength(inputArray) {
       48
     ]
   ];
-}
+
