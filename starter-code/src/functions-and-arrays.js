@@ -120,6 +120,20 @@ function averageWordLength(inputArray) {
   }
 
   // Counting Repetion
+
+function howManyTimes(inputArray,word){
+  if (inputArray.length === 0) {
+    return false;}
+
+    else{  var numbertimes=0;
+      for (var i = 0; i < inputArray.length; i++) {
+        if (inputArray[i] === word) {
+          numbertimes+=1;
+        }
+      }
+    return numbertimes}
+}
+
   var wordsCount = [
     "machine",
     "matter",
@@ -557,3 +571,6 @@ function averageWordLength(inputArray) {
     ]
   ];
 
+  function greatestProduct(){
+    
+  }
