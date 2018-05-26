@@ -1,7 +1,18 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else if (a < b) {
+    return b;
+  } else {
+    return a;
+  }
+} 
+
 // Finding Longest Word
-var words = [
+
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -11,13 +22,65 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(a) {
+  let longestWord = "";
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i].length >= longestWord.length) {
+      longestWord = a[i];
+    }
+  }
+  if (longestWord === "") {
+    return;
+  } else {
+  return longestWord;
+}
+}
+
+findLongestWord(words);
+
+
+
 // Calculating a Sum
 
+//Calculating a sum is as simple as iterating over an array and adding each of the elements together.
+
+//Semantically reduce is the best method to use for this, but you can use any loop we've discussed so far.
+
+//Create a sumArray function that takes an array of numbers as a parameter, and calculate the sum of all its numbers:
+
+
+function sumArray(array) {
+  let finalNumber = 0;
+  for (let i = 0; i < array.length; i++) {
+    finalNumber += array[i];
+  }
+  return finalNumber;
+}
+
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+sumArray(numbers);
+
+console.log(sumArray(numbers));
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers() {
+ return finalNumber / i;
+}
+
+console.log(averageNumbers());
+
+function averageWordLength() {
+  
+}
+
+
+
 
 // Array of Strings
 var wordsArr = [
