@@ -21,38 +21,38 @@ var words = [
 ];
 
 function findLongestWord(words){
-  var maxcountletter = 0;
-  var myword = "";
-  for(i = 0; i<words.length; i++){
-    myword = words[i];
-    if(myword.length>maxcountletter) {
-      maxcountletter=myword.length;
-      maxwordindex=i;
-    } else if (myword.length==maxcountletter) {
-      maxwordindex=maxwordindex;
-    }
+  // var maxcountletter = 0;
+  // var myword = "";
+  // for(i = 0; i<words.length; i++){
+  //   myword = words[i];
+  //   if(myword.length>maxcountletter) {
+  //     maxcountletter=myword.length;
+  //     maxwordindex=i;
+  //   } else if (myword.length==maxcountletter) {
+  //     maxwordindex=maxwordindex;
+  //   }
     
-  }
-  return words[maxwordindex];
+  // }
+  // return words[maxwordindex];
 };
-findLongestWord(words);
+// findLongestWord(words);
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(arrayNumbers) {
-  var sumNumber=0;
-  for(i=0;i<arrayNumbers.length;i++) {
-    sumNumber+=arrayNumbers[i];
-  }
-  return sumNumber;
-}
+// function sumArray(arrayNumbers) {
+//   var sumNumber=0;
+//   for(i=0;i<arrayNumbers.length;i++) {
+//     sumNumber+=arrayNumbers[i];
+//   }
+//   return sumNumber;
+// }
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(numbersAvg, sumArray) {
+function averageNumbers(numbersAvg) {
   var avg=0;
   if(numbersAvg.length!=0) {
     avg= sumArray(numbersAvg)/numbersAvg.length
@@ -190,3 +190,43 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+    var row=matrix.length;
+    var col=matrix[0].length;
+    var myproduct=1;
+    var maxproduct=1;
+    var beforerow="", afterrow="", beforecol="", aftercol="";
+    for(l=0;l<row;l++) {
+      for(c=0;c<col;c++) {
+         beforerow=l-1;
+         afterrow=l+1;
+          beforecol=c-1;
+          aftercol=c+1;
+        if(l==0) {
+          beforerow=(row-1);
+        }else if(l==row-1) {
+          afterrow=0;
+        }
+        
+        if(c==0) {
+          beforecol=col-1;
+        }else if(c==col-1) {
+          aftercol=0;
+        }
+        
+        mynumber=matrix[l][c];
+        mynumberbeforerow=matrix[beforerow][c];
+        mynumberafterlrow=matrix[afterrow][c];
+        mynumberbeforecol=matrix[l][beforecol];
+        mynumberaftercol=matrix[l][aftercol];
+        myproduct=mynumberbeforerow*mynumberafterlrow*mynumberbeforecol*mynumberaftercol;
+        if(myproduct>maxproduct) {
+          maxproduct=myproduct;
+        }
+      }
+    }
+    return maxproduct;
+  
+
+}
