@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+  } else if (b > a) {
+    return b;
+  } else {
+    return a;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +21,63 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  longestWord = "";
+  if (arr.length === 0) {
+    longestWord = undefined;
+  } else if (arr.length === 1) {
+    longestWord = arr[0];
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      if (longestWord.length < arr[i].length) {
+        longestWord = arr[i];
+      }
+    }
+  }
+  return longestWord;
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  result = 0;
+  if (arr.length === 0) {
+    result = 0;
+  } else if (arr.length === 1) {
+    result = arr[0];
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      result += parseInt(arr[i]);
+    }
+  }
+  return result;
+}
+
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  average = 0;
+  numerator = 0;
+  if (arr.length === 0) {
+    average = undefined;
+  } else if (arr.length === 1) {
+    average = arr[0];
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      numerator += parseInt(arr[i]);
+    }
+    average = numerator / arr.length;
+  }
+  return average;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +93,22 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  averageLength = 0;
+  numerator = 0;
+  if (arr.length === 0) {
+    averageLength = undefined;
+  } else if (arr.length === 1) {
+    averageLength = arr[0].length;
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      numerator += parseInt(arr[i].length);
+    }
+    averageLength = numerator / arr.length;
+  }
+  return averageLength;
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +123,19 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (arr) {
+  occurrences = 0;
+  uniqueArr = [];
+  if (arr.length = 0) {
+    uniqueArr = undefined;
+  } else if (arr.length = 1) {
+    uniqueArray = arr;
+  } else {
+    
+
+  }
+}
 
 // Finding Elements
 var wordsFind = [
