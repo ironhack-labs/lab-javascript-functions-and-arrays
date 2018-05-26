@@ -11,13 +11,38 @@ var words = [
   'crackpot'
 ];
 
+var currentBiggest = "" ;
+
+for (i=0; i<words.length-1; i++) {
+ if (words[i].length > words[i+1].length){
+  currentBiggest = words[i]
+ }
+}
+console.log(currentBiggest);
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum = 0
+numbers.forEach(function(x){
+  sum+=x;
+})
+console.log(sum);
+  
+
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var sum = 0
+numbersAvg.forEach(function(x){
+  sum+=x;
+})
+console.log(sum/(numbersAvg.length));
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +57,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+var wordsLength
+
+var sum = 0
+wordsArr.forEach(function(x){
+  sum+=x;
+})
+console.log(sum/(numbersAvg.length));
+
+
 
 // Unique Arrays
 var wordsUnique = [
