@@ -1,13 +1,7 @@
 // Find the maximum
-function maxOfTwoNumbers(a, b) {
-  if (a > b){
-    return a;
-  } else {
-    return b;
-  }
+function maxOfTwoNumbers(a,b) {
+  return (a>b)?a:b
 }
-console.log(maxOfTwoNumbers(2,7));
-
 // Finding Longest Word
 var words = [
   'mystery',
@@ -18,49 +12,35 @@ var words = [
   'orchard',
   'crackpot'
 ];
-
 function findLongestWord(array) {
-  currentLongest = "";
-  array.forEach(function(e){
-     if (e.length > currentLongest.length) {
-       currentLongest = e;
-     }
+  var res = "";
+  array.forEach(function(e) {
+    if (e.length > res.length) {
+      res = e;
+    }
   });
-  return (currentLongest === "") ? undefined : currentLongest;
+  return (res ==="") ? undefined : res;
 }
-console.log(findLongestWord(words));
-
-
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-// const reducer = (accumulator, currentValue) => accumulator + currentValue;
-// function sumArray(array) {
-//   return array.reduce(reducer);
-// }
-// console.log(sumArray(numbers));
-
-function sumArray(array){
+function sumArray(array) {
   var res = 0;
   array.forEach(function(e) {
     res += e
   });
   return res;
 }
-console.log("The sum of the numbers of the array is equal to: " + sumArray(numbers));
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
-  if (array.length === 0){
+  if (array.length === 0) {
     return;
   }
-  return sumArray(array) / array.length;
+  return sumArray(array)/array.length;
 }
-console.log(averageNumbers(numbersAvg));
-
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -74,15 +54,9 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
 function averageWordLength(array) {
-  var wordsArrLength = array.map(function(e){
-    return e.length
-  });
-  return averageNumbers(wordsArrLength)
+  return averageNumbers(array.map(function(e){return e.length}))
 }
-console.log(averageWordLength(wordsArr));
-
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -97,19 +71,22 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray(array) {
+function uniquifyArray (array) {
   res = [];
   array.forEach(function(e) {
-    if (res.indexOf(e) === -1) {
+    if(res.indexOf(e) === -1)
       res.push(e)
-    }
-  });
-  return (res.length === 0) ? underfined : res;
+  })
+  return (res.length === 0) ? undefined : res;
 }
-console.log(uniquifyArray(wordsUnique));
-
-
+// function uniquifyArray (array) {
+//   res = [];
+//   for (var i = 0 ; i < array.length; i++) {
+//     if(res.indexOf(array[i]) === -1)
+//       res.push(array[i])
+//   }
+//   return res
+// }
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -121,22 +98,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
-function doesWordExist(array, word) {
-  return array.indexOf(word) !== -1;
-}
-// With filter
-function doesWordExist(array, word) {
-  return array.filter(function(e) {e === word}).length > 0;
-}
-//Other way
-function doesWordExist(array, word) {
-  for (var i = 0; i < array.length; i++) {
-    if (array[i] === word) {
+// function doesWordExist (array, word) {
+//   return array.indexOf(word) !== -1
+// }
+// function doesWordExist (array, word) {
+//   return array.filter(function(e){return e === word}).length > 0
+// }
+function doesWordExist (array, word) {
+  for (var i = 0 ; i < array.length; i++) {
+    if(array[i] === word ) {
       return true
     }
   }
-  return false
+  return false;
 }
 
 // Counting Repetion
@@ -153,8 +127,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes (array, word) {
+  if (array.length === 0)
+    return false;
 
+  count = 0
+  for (var i = 0 ; i < array.length; i++) {
+    if(array[i] === word ) {
+      count += 1
+    }
+  }
+  return count;
 
+}
 // Bonus Quest
 
 var matrix = [
@@ -179,9 +164,3 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct(){
-  for (var i = 0 ; i < array.length; i++) {
-    for (var j = 0; j < array)
-  }
-}
