@@ -1,4 +1,9 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2);
+};
+
+maxOfTwoNumbers(2,3);
 
 // Finding Longest Word
 var words = [
@@ -11,13 +16,44 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(target){
+  var sorted = target.sort(
+    function(a, b){
+      return b.length - a.length;}
+  );
+  return sorted[0]
+};
 
+findLongestWord(words);
+
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+var sum = 0;
+function sumArray(target){
+  var result = target.reduce(function(accumulator, currentValue, currentIndex, array) {
+    return accumulator + currentValue;
+  });
+  sum = result;
+  return sum;
+}
+
+sumArray(numbers)
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(target){
+  sumArray(target);  //get the sum
+  var len = target.length; //get the length
+  var average = sum / len; //get the average
+  return average;
+}
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +69,25 @@ var wordsArr = [
   'palace'
 ];
 
+//console.log("sum starts at: " + sum);
+
+function averageWordLength(target){
+  var numberArray = [];                               //create empty array
+  //console.log("numberArr starts at: "+ numberArray)
+
+  target.forEach(function (i){                      //loop every element, get len, push to the numberArr
+    numberArray.push(i.length);
+  });
+  //console.log("numberArr ends at:" + numberArray);
+  sumArray(numberArray);                              //Update the sum value using the sum function
+  //console.log("sum ends at: " + sum);
+
+  averageNumbers(numberArray);                        //get average of numberArr
+}
+
+averageWordLength(wordsArr);
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +102,8 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+
 
 // Finding Elements
 var wordsFind = [
