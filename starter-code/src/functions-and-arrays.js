@@ -1,6 +1,3 @@
-// Find the maximum
-
-// Finding Longest Word
 var words = [
   'mystery',
   'brother',
@@ -11,13 +8,102 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+// Method 1 with Function and Loop
+
+function findTheLongestWord (wordsArray) {
+  var longestWord ="";
+
+wordsArray.forEach (function (eachWord){
+if (eachWord.length > longestWord.length){
+  longestWord=eachWord;
+}});
+  return longestWord;
+}
+console.log (findTheLongestWord (words));
+
+// Method 2 with Loop
+
+var lgth = 0;
+var longest;
+
+for(var i=0; i < words.length; i++){
+
+if(words[i].length > lgth) {
+var lgth = words[i].length;
+longest = words[i];
+    }      
+} 
+alert(longest);
+
+
+//method 3 with Reduce
+
+var longest = words.reduce(function(a, b) { 
+  return a.length > b.length ? a : b
+}, '');
+
+console.log(longest);
+
+
+
+
+
+
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function calculateSum (arrayOfNumbers) {
+  var sum = 0;
+  arrayOfNumbers.forEach (function (OnePartNum) {
+    sum += OnePartNum
+  })
+  return sum;
+}
+
+console.log (calculateSum (numbers));
+
+function calculateAvgNumber (wordAvgArray) {
+
+}
+
+function getSum (numbers) {
+  return numbers.reduce(function (a, b) {
+    return a + b}, 0) ;
+}
+getSum (numbers)
+
+function sum1(numbers) {
+  for (var sum1=0, i=0; i < numbers.length; i++) {
+    sum1 += numbers[i];
+  }
+  return sum1;
+}
+sum1(numbers)
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function getAvg(numbersAvg) {
+  return numbersAvg.reduce(function (a, b) {
+    return a + b;
+  }) / numbersAvg.length;
+}
+
+getAvg(numbersAvg);
+
+function sum(numbersAvg) {
+  for (var sum=0, i=0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+  }
+  return sum;
+}
+function avg(numbersAvg) {
+  if (numbersAvg.length === 0) { return; }
+  return sum(numbersAvg) / numbersAvg.length;
+}
+
+avg(numbersAvg)
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -30,8 +116,35 @@ var wordsArr = [
   'smart',
   'chaos',
   'fuel',
-  'palace'
+  'palace',
+  'palace',
+  'fuel'
+
 ];
+
+
+function uniqeArray (theArray) {
+
+if (theArray.length <1) {
+    return undefined;
+  }
+var newArray=[];
+theArray.forEach (function (eachWord){
+if (!newArray.includes(eachWord)){
+newArray.push(eachWord)}
+})
+return newArray;
+}
+console.log (uniqeArray (wordsArr));
+
+  
+ 
+
+
+
+
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +161,11 @@ var wordsUnique = [
   'bring'
 ];
 
+
+
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +177,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesItExist (arrayOfWords, wordToSearchFor) {
+  var doesIt = false;
+  arrayOfWords.forEach(function (eachWord) {
+    if (eachWord === wordToSearchFor) {doesIt = true}
+  });
+  return doesIt;
+}h
+ console.log (doesItExist (arrayOfWords, 'kentucky'):;
+
+
 
 // Counting Repetion
 var wordsCount = [
