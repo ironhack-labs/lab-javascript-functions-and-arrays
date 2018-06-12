@@ -1,16 +1,44 @@
 // Find the maximum
 
-// Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function maxOfTwoNumbers (num1, num2) {
+  num1 = prompt("please enter a number");
+  num2 = prompt("please enter another number");
+  if (num1 > num2) {
+    console.log(num1);
+  }
+  else if (num1 < num2) {
+    console.log(num2);
+  }
+  else {
+    console.log("Woohoo, your numbers are equal!")
+  }
+}
 
+// Finding Longest Word
+function longestWord(words) {
+
+  var words = [
+    'mystery',
+    'brother',
+    'aviator',
+    'crocodile',
+    'pearl',
+    'orchard',
+    'crackpot'
+  ];
+  
+
+for (var i=1; i < words.length; i++) {
+  var longestWord = words[0];
+  if (longestWord.length > words[i].length) {
+    continue;
+  }
+  else longestWord = words[i]
+
+}
+}
+
+  
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
