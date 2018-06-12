@@ -1,4 +1,13 @@
+
+// PP MEX - Pablo Turati y Ricardo Campos
+
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if(num1>num2) return num1;
+  return num2;
+}
+
+console.log(maxOfTwoNumbers(5, 2));
 
 // Finding Longest Word
 var words = [
@@ -11,13 +20,70 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  var longestWord = words[0];
+  
+  for(i = 1; i<words.length; i++){
+    if (longestWord.length < words[i].length){
+        longestWord = words[i];
+    } 
+  }
+  return longestWord;
+  }
+  
+  console.log(findLongestWord(words));
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+  //Solution using simple For loop
+   /*
+  function sumArray(numbers){
+    var sum = 0; 
+    for (i = 0; i<numbers.length; i++){
+      sum += numbers[i];
+    }
+    return sum;
+  }
+
+  console.log(sumArray(numbers));*/
+
+  //Solution using forEach 
+  function sumArray(numbers){
+    var sum = 0
+    numbers.forEach(function(element){
+      sum += element;
+    });
+    return sum;
+  }
+  
+  console.log(sumArray(numbers));
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//Solution using simple For loop
+/*
+function averageNumbers(numbers){
+  var sum = 0; 
+  for (i = 0; i<numbers.length; i++){
+    sum += numbers[i];
+  }
+  return sum/(numbers.length);
+}
+console.log(averageNumbers(numbersAvg));*/
+
+//Solution using forEach 
+function averageNumbers(numbersAvg){
+  var sum = 0;
+  numbersAvg.forEach(function(element){
+    sum += element;
+  });
+  return sum/numbersAvg.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +98,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr, averageNumbers){
+  var temp;
+  var numericArr = [];
+
+  for (i=0; i<wordsArr.length; i++){
+    temp = wordsArr[i].length;
+    numericArr.push(temp);
+  }
+console.log(numericArr);
+console.log(averageNumbers(numericArr));
+}
+
+averageWordLength(wordsArr, averageNumbers);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +128,26 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+
+  var base = wordsUnique[0];
+  var newArray = [];
+  
+  for(j=0; j<wordsUnique.length; j++){
+    base = wordsUnique[j]
+    for(i=j+1; i<wordsUnique.length; i++){
+      if(base === wordsUnique[i]){
+      newArray.push(base)
+      wordsUnique.splice(i,1);
+     }
+    }
+  }
+  console.log(wordsUnique);
+  }
+  
+  uniquifyArray(wordsUnique);
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +159,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+var wordToFind = 'subset';
+
+function doesWordExist(wordsFind, wordToFind){
+  for(i = 0; i<wordsFind.length; i++){
+  if(wordsFind[i] === wordToFind) return true;
+  }
+  return false;
+}
+doesWordExist(wordsFind, wordToFind);
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +183,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+var wordToFind = 'matter';
+
+var counter = 0;
+function howManyTimes(wordsFind, wordToFind){
+  for(i = 0; i<wordsFind.length; i++){
+  if(wordsFind[i] === wordToFind) counter++;
+  }
+  return counter;
+}
+
+console.log(howManyTimes(wordsCount, wordToFind));
+
 // Bonus Quest
 
 var matrix = [
