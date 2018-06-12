@@ -1,5 +1,10 @@
 // Find the maximum
 
+function maxOfTwoNumbers(n1, n2){
+  if(n1>n2) return n1;
+  return n2;
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +16,38 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr){
+  var longest = '';
+  arr.forEach(function(word){
+    if(longest.length < word.length){
+      longest = word;
+    }
+  });
+  return longest;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  var resultado = 0;
+  arr.forEach(function(num){
+    resultado += num;
+  });
+  return resultado;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  var tamano = arr.length;
+  var suma = sumArray(arr);
+
+  return suma / tamano;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +62,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  var numArray = [];
+  arr.forEach(function(palabra){
+    var tamano = palabra.length;
+    numArray.push(tamano);
+  });
+  var pormedio = averageNumbers(numArray);
+  return pormedio;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +88,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  var uniqueArr = [];
+  arr.forEach(function(palabra){
+    if(uniqueArr.indexOf(palabra) === -1){
+      uniqueArr.push(palabra);
+    }
+  });
+  return uniqueArr;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +109,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, busqueda){
+  var existe = false;
+  arr.forEach(function(palabra){
+    if(palabra === busqueda){
+      existe = true;
+    }
+  });
+  return existe;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,8 +134,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+function howManyTimes(arr, busqueda){
+  var counter = 0;
+  arr.forEach(function(palabra){
+    if(palabra === busqueda){
+      counter += 1;
+    }
+  });
+  return counter;
+}
+
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -98,3 +168,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
