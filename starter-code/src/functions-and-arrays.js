@@ -1,5 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers(x,y) {
+  if(x > y)
+  {console.log("El número más grande es: " + x)
+  }else {
+    console.log("El núúmero más grande es: " + y);
+    }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,65 @@ var words = [
   'crackpot'
 ];
 
+
+var max=0;
+var pal="nadie";
+
+function findLongestWord(x) {
+  for(var i = 0; i < x.length;i++) {
+   if(x[i].length>max)
+   {
+   max = x[i].length;
+   pal=x[i];
+   }
+  }
+  //console.log(max) ;
+  console.log("La palabra máás larga en el array es: " +pal);
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(w) {
+  var sumaTotal=0;
+  for(var i = 0; i < w.length; i++) {
+    sumaTotal += w[i];
+    //console.log("La suma del arreglo es: " + sumaTotal);
+  }
+  console.log("La suma del arreglo es: " + sumaTotal);
+}
+
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+var sumaTotal=0;
+var promedio=0;
+function sumArray(w) {
+  
+  for(var i = 0; i < w.length; i++) {
+    sumaTotal += w[i];
+    //console.log("La suma del arreglo es: " + sumaTotal);
+  }
+  //console.log("La suma del arreglo es: " + sumaTotal);
+  averageNumbers(sumaTotal,numbers);
+}
+
+function averageNumbers(suma,longitud)
+{
+  promedio=suma/longitud.length;
+  console.log("El promedio del arreglo es: " +promedio);
+}
+
+
+
+sumArray(numbers);
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +93,41 @@ var wordsArr = [
   'palace'
 ];
 
+var sumaTotal=0;
+var promedio=0;
+var newArray= [];
+function nuevoArreglo(x) {
+  for(var i = 0;i < x.length; i++) {
+    newArray.push(x[i].length);
+  }
+  console.log(newArray);
+}
+function averageWordLength(w) {
+  //...
+ 
+
+  
+  for(var i = 0; i < w.length; i++) {
+    sumaTotal += w[i];
+    //console.log(sumaTotal);
+    //console.log("La suma del arreglo es: " + sumaTotal);
+  }
+  //console.log("La suma del arreglo es: " + sumaTotal);
+  averageNumbers(sumaTotal,newArray);
+}
+
+function averageNumbers(suma,longitud)
+{
+  promedio=suma/longitud.length;
+  console.log("El promedio del largo de las palabras del arreglo es de: " +promedio+ "caracteres");
+}
+  //...
+  
+
+
+nuevoArreglo(words);
+averageWordLength(newArray);
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +142,24 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+var nuevo;
+//Con éste tuvimos una situación, no pudimos eliminar el último elemento del array
+function uniquifyArray(x) {
+  for(var i = 0; i < x.length; i++) {
+    //console.log(words[i]);
+    //newArr= d;
+    nuevo = x.indexOf(x[i]);
+    //console.log(nuevo);
+    
+    if(nuevo !== i) {
+      x.splice(i,1);
+      }
+    
+        }
+            console.log(x);  
+  }
+ uniquifyArray(words);
 
 // Finding Elements
 var wordsFind = [
