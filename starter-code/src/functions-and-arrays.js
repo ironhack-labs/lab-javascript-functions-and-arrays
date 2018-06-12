@@ -154,6 +154,9 @@ var wordsCount = [
 
 function howManyTimes(arr, word) {
   var times = 0;
+    if(arr.length === 0) {
+      return false;
+    }
     for(var i = 0; i < arr.length; i++) {
       if (word == arr[i]) {
         times++;
@@ -161,7 +164,6 @@ function howManyTimes(arr, word) {
     }
   return times;
 }
-
 // Bonus Quest
 
 var matrix = [
@@ -186,3 +188,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {
+  
+}
