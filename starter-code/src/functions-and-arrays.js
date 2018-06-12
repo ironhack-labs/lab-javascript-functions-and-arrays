@@ -1,5 +1,55 @@
 // Find the maximum
 
+var maxOfTwoNumbers = function (num1, num2) {
+      if (num1 > num2) {
+        return num1;
+      }
+      else if (num1 < num2)
+      return num2;
+      else {
+        return num1;
+      }
+      
+}
+
+
+
+var findLongestWord = function (array) {
+  
+  if (array.length === 0) {
+    return undefined;
+  };
+  
+  var longestWord = "";
+
+  // for (var i=0; i< array.length; i++){
+  //   if (array[i].length > longestWord.length) {
+  //       longestWord = array[i];
+  //   }
+  // };
+
+  var callback = function (item) {
+     if (item.length > longestWord.length) {
+       longestWord = item;
+     }
+  }
+
+  array.forEach(callback);
+  
+
+  return longestWord;
+}
+
+  
+var sumArray = function(array) {
+    var suma = 0;
+    for (i=0; i<array.length; i++) {
+    suma = suma + array[i];  
+    }
+    return suma;
+}
+
+
 // Finding Longest Word
 var words = [
   'mystery',
