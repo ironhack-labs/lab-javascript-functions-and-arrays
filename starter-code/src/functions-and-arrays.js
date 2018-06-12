@@ -106,7 +106,6 @@ function uniquifyArray(words) {
     return wordsUnique;
   }
 }
-
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -118,6 +117,22 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(wordsArray, word){
+  var exist;
+  if(wordsArray.length > 0){
+    for(var i = 0; i < wordsArray.length; i++){
+      if(wordsArray[i] === word){
+        exist = true;
+        break;
+      } else { 
+        exist = false;
+      }
+    }
+  } else { 
+    exist = false;
+  }
+  return exist;
+}
 
 // Counting Repetion
 var wordsCount = [
