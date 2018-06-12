@@ -1,6 +1,27 @@
 // Find the maximum
+function maxOfTwoNumbers (number1, number2) {
+  return Math.max(number1,number2);
+}
 
 // Finding Longest Word
+
+
+function findLongestWord(words) {
+  var red ="";
+   words.forEach(function(word){
+     if (word.length > red.length){
+       red = word;
+     } 
+     
+   });
+  
+   if(red == ""){
+     return undefined;
+   }
+
+    return red;
+} 
+
 var words = [
   'mystery',
   'brother',
@@ -13,13 +34,44 @@ var words = [
 
 // Calculating a Sum
 
+function sumArray(numbers) {
+var ret = 0;
+
+numbers.forEach(function(element){
+  ret += element;
+})
+
+return ret;
+}
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
 
+function averageNumbers(numbersAvg){
+
+  if (numbersAvg.length > 0) {
+    return sumArray(numbersAvg) / numbersAvg.length;
+  }
+
+  return undefined;
+
+}
+
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+function averageWordLength(wordsArr) {
+  if (wordsArr.length > 0) {
+    var total = 0;
+    wordsArr.forEach(function(element){
+      total += element.length;
+    })
+
+    return total / wordsArr.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +86,23 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(wordsUnique) {
+  var ret = [];
+
+  for(var i = 0; i < wordsUnique.length; i++) {
+    if (ret.indexOf(wordsUnique[i]) == -1) {
+      ret.push(wordsUnique[i])
+    }
+  }
+
+  if (ret.length != 0) {
+    return ret;
+  }
+
+  return undefined;
+  
+}
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +118,10 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+function doesWordExist(wordsArr, word) {
+  return wordsArr.includes(word);
+    }
+
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +134,22 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+function howManyTimes(wordsCount, word){
+ var ret = 0;
+ wordsCount.forEach(function(element){
+   if (element == word){
+     ret++;
+   }
+
+ })
+ if(wordsCount.length == 0){
+   return false;
+ }
+return ret;
+}
+
+
+
 var wordsCount = [
   'machine',
   'matter',
