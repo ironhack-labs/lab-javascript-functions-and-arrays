@@ -9,7 +9,6 @@ function maxOfTwoNumbers(num1, num2){
 
 console.log(maxOfTwoNumbers(5, 2));
 
-
 // Finding Longest Word
 var words = [
   'mystery',
@@ -38,26 +37,50 @@ function findLongestWord(words){
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(numbers){
-  var sum = 0; 
-  for (i = 0; i<numbers.length; i++){
-    sum += numbers[i];
+  //Solution using simple For loop
+   /*
+  function sumArray(numbers){
+    var sum = 0; 
+    for (i = 0; i<numbers.length; i++){
+      sum += numbers[i];
+    }
+    return sum;
   }
-  return sum;
-}
 
-console.log(sumArray(numbers));
+  console.log(sumArray(numbers));*/
+
+  //Solution using forEach 
+  function sumArray(numbers){
+    var sum = 0
+    numbers.forEach(function(element){
+      sum += element;
+    });
+    return sum;
+  }
+  
+  console.log(sumArray(numbers));
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+//Solution using simple For loop
+/*
 function averageNumbers(numbers){
   var sum = 0; 
   for (i = 0; i<numbers.length; i++){
     sum += numbers[i];
   }
   return sum/(numbers.length);
+}
+console.log(averageNumbers(numbersAvg));*/
+
+//Solution using forEach 
+function averageNumbers(numbersAvg){
+  var sum = 0;
+  numbersAvg.forEach(function(element){
+    sum += element;
+  });
+  return sum/numbersAvg.length;
 }
 
 console.log(averageNumbers(numbersAvg));
