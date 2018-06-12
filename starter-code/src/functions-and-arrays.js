@@ -1,23 +1,79 @@
 // Find the maximum
 
-// Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function maxOfTwoNumbers (num1, num2) {
+  num1 = prompt("please enter a number");
+  num2 = prompt("please enter another number");
+  if (num1 > num2) {
+    console.log(num1);
+  }
+  else if (num1 < num2) {
+    console.log(num2);
+  }
+  else {
+    console.log("Woohoo, your numbers are equal!")
+  }
+}
 
+// Finding Longest Word
+function longestWord(words) {
+
+  var words = [
+    'mystery',
+    'brother',
+    'aviator',
+    'crocodile',
+    'pearl',
+    'orchard',
+    'crackpot'
+  ];
+
+var longestWord = "";  
+
+for (var i=0; i < words.length; i++) {
+  
+  if (longestWord.length > words[i].length) {
+    continue;
+  }
+  else longestWord = words[i]
+
+}
+console.log(longestWord)
+}
+
+  
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumOfArray(currentArray)
+{
+  var sum = 0;
+  currentArray.forEach(function(eachNum){ 
+  sum += eachNum
+  })
+  return sum; 
+}
+
+console.log(sumOfArray(numbers));
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function sumOfArray(currentArray)
+{
+  var sum = 0;
+  currentArray.forEach(function(eachNum){ 
+  sum += eachNum
+  })
+  return sum; 
+}
+
+console.log(sumOfArray(numbersAvg)/numbersAvg.length);
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +89,17 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(currentArray)
+{
+  var sumOfLetters = 0;
+  currentArray.forEach(function(eachNum){ 
+  sumOfLetters += eachNum.length
+  })
+  return sumOfLetters/wordsArr.length; 
+}
+
+console.log(averageWordLength(wordsArr));
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +114,23 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(theArray){
+ 
+  var newArray = [];
+  theArray.forEach(function(eachWord){
+    if(newArray.indexOf(eachWord) === -1) {
+      newArray.push(eachWord)
+    }
+  
+  })
+  return newArray;
+
+}
+
+console.log(uniquifyArray(wordsUnique));
+
+
 
 // Finding Elements
 var wordsFind = [
