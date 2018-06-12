@@ -175,3 +175,24 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr){
+  var aboveArray = [], belowArray = [];
+  var result = 0, control=0;
+  for(var i = 0; i<arr.length; i++){
+    arrValue = arr[i];
+    for(var j=0; j<arrValue.length ; j++){
+      if(i>=1 && i<arr.length-1){
+        if(j>=1 && j<arrValue.length-1){
+          aboveArray = arr[i-1];
+          belowArray = arr[i+1];
+          result=aboveArray[j]*belowArray[j]*arrValue[j-1]*arrValue[j+1];
+          if(result>control){
+            control = result;
+          }
+        }
+      }
+    }
+  }
+  return control;
+}
