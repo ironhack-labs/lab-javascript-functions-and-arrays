@@ -1,5 +1,15 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2;
+  } else {
+    console.log("Both these numbers the mf same");
+  }
+}
 
+maxOfTwoNumbers(3, 8);
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,14 +21,65 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord() {
+var length = 0;
+var longest;
+
+for (var i = 0; i < words.length; i++) {
+  if (words[i].length > length) {
+    length = words[i].length;
+    longest = words[i];
+  }
+}
+
+console.log(longest);
+}
+
+findLongestWord();
+// OOOORRRRR
+// function findLongestWord(wordsArray) {
+//  var longestWord = "";
+
+//  wordsArray.forEach(function(eachWord) {
+  // if (eachWord.length = longestWord.length) {
+    // longestWord = eachWord;
+  //}
+
+//});
+  //return longestWord;
+//}
+
+//console.log(findLongestWord(words));
+
+
 // Calculating a Sum
 
+
+function sumArray() {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum = 0;
+
+for (var i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+console.log(sum);
+}
+
+sumArray();
 
 // Calculate the Average
-
+function avgArray(){
+var sum = 0;
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+for (var i = 0; i < numbersAvg.length; i++) {
+sum += numbersAvg[i];
+}
+var average = (sum / (numbersAvg.length))
+console.log(average);
+}
+
+avgArray();
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -32,6 +93,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength() {
+  var sum = 0;
+  for (var i = 0; i < wordsArr.length; i++) {
+    sum += wordsArr[i].length
+  } 
+  var avg = (sum / wordsArr.length)
+  console.log(avg);
+}
+averageWordLength();
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +120,16 @@ var wordsUnique = [
   'bring'
 ];
 
+var emptyArray = [ ];
+
+for (var i = 0; i < wordsUnique.length; i++) {
+  if (wordsUnique.indexOf(wordsUnique[i], (i + 1)) === -1) {
+    emptyArray.push(wordsUnique[i]);
+  } else {
+  }
+}
+console.log(emptyArray);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +141,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array1, word1) {
+  if (array1[word1]) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+doesWordExist(wordsFind, "eating");
 
 // Counting Repetion
 var wordsCount = [
