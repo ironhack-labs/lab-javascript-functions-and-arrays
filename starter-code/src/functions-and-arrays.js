@@ -138,6 +138,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, search){
+  if(arr.length == 0 ){
+    return false;
+  }
+  var result = 0;
+  arr.forEach(function(word){
+    if(search === word){
+      result++;
+    }
+   });
+  return result;
+}
 // Bonus Quest
 
 var matrix = [
