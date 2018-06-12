@@ -37,10 +37,24 @@ function findLongestWord(wordsArray) {
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers){
+  var result = numbers.reduce(function (acumulator, itemActual){
+    return acumulator + itemActual
+   }, 0)
+   return result
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers) {
+  if (numbers.length > 0) {
+    var sum = sumArray(numbers);
+    var average = sum / numbers.length;
+
+    return average;
+  }
+}
 
 // Array of Strings
 var wordsArr = [
