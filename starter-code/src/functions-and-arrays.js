@@ -186,3 +186,22 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matriz, cordX, cordY){
+var arrValProd = []; 
+if (cordX >0 && cordX < 19 && cordY > 0 && cordY < 19){
+  arrValProd.push(matriz[cordX][cordY]*matriz[cordX-1][cordY]);
+  arrValProd.push(matriz[cordX][cordY]*matriz[cordX][cordY+1]);
+  arrValProd.push(matriz[cordX][cordY]*matriz[cordX+1][cordY]);
+  arrValProd.push(matriz[cordX][cordY]*matriz[cordX][cordY-1]);
+  maxValProd=arrValProd[0];
+  for (var i=0; i< arrValProd.length;i++){
+    if (arrValProd[i]>maxValProd){
+      maxValProd = arrValProd[i];
+   }
+  }
+  return maxValProd;
+  }
+else {
+  return undefined;
+}  
+}
