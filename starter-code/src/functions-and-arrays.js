@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(number1,number2){
+  if(number1 >= number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+};
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,47 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr1){
+  var longestWord="";
+  words.filter(function(e){
+    if(e.length>longestWord.length){
+      longestWord=e;
+    }
+  });
+  return longestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+/* function sumArray(nums){
+  var sumf = (acc, i) => acc + i;
+  return nums.reduce(sumf);
+}
+
+console.log(sumArray(numbers)); */ 
+
+function sumArray(nums) {
+  return nums.reduce(function(acc,i) {
+    return acc + i;
+  });
+}
+
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(nums){
+  return sumArray2(nums)/nums.length;
+}
+
+averageNumbers(numbers);
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +73,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  var sumWordsLengths = arr.reduce(function(acc,w){
+    return acc + w.length;
+  },0);
+  return sumWordsLengths/arr.length;
+}
+
+averageWordLength(words);
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -60,6 +111,16 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(w1,arr){
+  return !arr.every(function(thisWord){
+    (w1 != thisWord);
+    return w1 !=thisWord;
+  });
+};
+
+doesWordExist(word,words);
+
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +135,14 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,w){
+  return arr.reduce(function(appears,word2){
+    return appears + (word2 === w);},0);
+}
+
+howManyTimes(words,"matter");
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +167,22 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(mat) {
+  var max=0;
+  var maxI=0;
+  var maxJ=0;
+  for(var i=1; i < 19; i++) {
+    for(var j=1; i < 19; i++){
+      r=mat[i][j-1]*mat[i][j+1]*mat[i+1][j]*mat[i-1][j];
+      if(max<r){
+        max = r;
+        maxI=i;
+        maxJ=j;
+      }
+    }
+  } return [maxI,maxJ,max];
+  }
+  
+  greatestProduct(matrix);
