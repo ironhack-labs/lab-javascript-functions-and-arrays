@@ -1,6 +1,37 @@
 // Find the maximum
 
+  function findTheMaximum (num1, num2) {
+    if (num1 > num2) {
+      console.log ('The maximum number of this pair is' + ' ' + num1+'.');
+    } else if (num1 < num2) {
+    console.log ('The maximum number of this pair is' + ' ' + num2+'.');
+    } else console.log ("I can't believe they're both the same!");
+  }
+
+//Prompt Method
+  // function findTheMaximum (num1, num2) {
+  //   if (num1 > num2) {
+  //     console.log ('The maximum number of this pair is' + ' ' + num1+'.');
+  //   } else if (num1 < num2) {
+  //   console.log ('The maximum number of this pair is' + ' ' + num2+'.');
+  //   } else console.log ("I can't believe they're both the same!");
+  // }
+
+findTheMaximum (prompt('Type your first num'),(prompt('Type your second number')));
+
+
+
 // Finding Longest Word
+
+      /*
+        I'm going to: 
+          1. Determine way to find words by length. 
+          2. Set a variable to represent the largest word.
+          3. Conditional for console.log ('The longest word is ""  ')
+          4. For each loop will loop through the array to reset the variable. I can create a function and use the for each loop
+          for the function.
+      */
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +42,59 @@ var words = [
   'crackpot'
 ];
 
+
+let longestVar = 'word';
+
+
+
+function longestWord(words, longestVar) {
+words.forEach(function(placeHolder){
+  if (placeHolder.length > longestVar.length) {
+    longestVar = placeHolder}
+    ;})
+
+ console.log('The longest word in this array is' + ' ' + longestVar + '.')   
+}
+
+longestWord(words, longestVar);
+
+
+
+
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function calculateSum(arrayOfNumbers){
+    let sum = 0;
+
+    arrayOfNumbers.forEach(function(oneParticularNumber){
+      sum += oneParticularNumber
+    });
+  
+    return sum;
+}
+
+
+
+console.log( calculateSum(numbers)  );
+
+
+
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+
+
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -48,6 +125,27 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(theArray) {
+  if (theArray.length < 1) {
+  return undefined;
+}
+
+var newArray = [];
+
+wordsWithDuplicates.forEach(function(eachWord){
+ if(!newArray.includes(eachWord)) {
+ newArray.push(eachWord);
+ }
+});
+return newArray
+}
+
+console.log(uniquifyArray(wordsWithDuplicates));
+
+
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,7 +158,29 @@ var wordsFind = [
   'disobedience'
 ];
 
+//We're building our own includes functions.
+
+
+function doesItExist(arrayOfWords, wordToSearchFor) {
+  var doesIt = false;
+
+  arrayOfWords.forEach(function(eachWord){
+    if(eachWord === wordToSearchFor){doesIt = true}
+  });
+
+  return doesIt
+}
+
+console.log(doesItExist(wordsFind, 'eating'))
+
+
+
+
+
+
+
 // Counting Repetion
+
 var wordsCount = [
   'machine',
   'matter',
@@ -74,6 +194,138 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function numberOfTimes(theArray, theWord) {
+  var count = 0;
+
+theArray.forEach(function(eachWord){
+  if(eachWord === theWord) {
+    count++;
+  }
+});
+
+
+
+  return count;
+}
+
+console.log(numberOfTimes(wordsCount, 'machine'));
+
+/*
+  var words = [
+    'mystery',
+    'brother',
+    'aviator',
+    'crocodile',
+    'pearl',
+    'orchard',
+    'mysteriously',
+    'crackpot'
+  ];
+
+
+  function findLongestWord(wordsArray){
+      var longestWord = "";
+      wordsArray.forEach(function(eachWord){
+        if(eachWord.length > longestWord.length){
+            longestWord = eachWord;
+        }
+    });
+    return(longestWord);
+  }
+
+//   console.log(   findLongestWord(words)   );
+
+
+
+  var numbers = [5,5,5,5,5,7,7,7,7,7];
+
+
+  function calculateSum(arrayOfNumbers){
+      var sum = 0;
+      arrayOfNumbers.forEach(function(oneParticularNumber){
+        sum += oneParticularNumber
+      });
+        return sum;
+  }
+
+//   console.log(   calculateSum(numbers)    );
+
+function calculateAverage(numberArray){
+    return   (calculateSum(numberArray) / numberArray.length)
+}
+
+// console.log(  calculateAverage(numbers)          )
+
+
+
+var wordsWithDuplicates = [
+    'crab',
+    'crab', 
+    'crab',
+    'poison',
+    'contagious',
+    'simple',
+    'bring',
+    'sharp',
+    'simple',
+    'simple',
+    'playground',
+    'poison',
+    'communion',
+    'simple',
+    'simple',
+    'simple',
+    'bring'
+  ];
+
+  function uniquifyArray(theArray){
+
+    var newArray = [];
+
+    theArray.forEach(function(eachWord){
+
+        if(newArray.indexOf(eachWord) === -1){
+            newArray.push(eachWord)
+        }
+// .includes is newer method that accomplishes the same thing with cleaner syntax
+
+        // if(!newArray.includes(eachWord)){
+        //     newArray.push(eachWord)
+        // }
+    });
+    return newArray
+}
+
+// console.log(uniquifyArray(wordsWithDuplicates));
+
+
+ function doesItExist(arrayOfWords, wordToSearchFor){
+     var doesIt = false;
+     arrayOfWords.forEach(function(eachWord){
+        if(eachWord === wordToSearchFor){doesIt = true}
+     });
+    return doesIt
+ }
+//  console.log(  doesItExist(wordsWithDuplicates, 'kentucky')   )
+
+
+function numberOfTimes(theArray, theWord){
+    var count = 0;
+   theArray.forEach(function(eachWord){
+        if(eachWord === theWord){
+            count++;
+        }
+     });
+    return count;
+}
+
+console.log( numberOfTimes(wordsWithDuplicates, 'rain')  );
+
+
+*/
+
 // Bonus Quest
 
 var matrix = [
