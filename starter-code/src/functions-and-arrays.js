@@ -69,6 +69,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(words){
+  if(words.length > 0){
+    var sum = words.reduce(function (acumulator, itemActual){
+     return acumulator + itemActual.length
+    }, 0)
+    return sum/words.length
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -84,6 +92,20 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(words) {
+  if (words.length > 0) {
+    var wordsUnique = [];
+
+    for (var i = 0; i < words.length; i++) {
+      if (words.indexOf(words[i], i+1) == -1) {
+        wordsUnique.push(words[i]);
+      }
+    }
+
+    return wordsUnique;
+  }
+}
 
 // Finding Elements
 var wordsFind = [
