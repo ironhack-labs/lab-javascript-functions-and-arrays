@@ -68,6 +68,16 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr){
+  if(arr.length == 0){
+    return undefined;
+  }
+  var long = 0;
+  arr.forEach(function(word){
+    long += word.length;
+  });
+  return long/arr.length;
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -83,6 +93,18 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  if(arr.length == 0 ){
+    return undefined;
+  }
+  var arrResult = [];
+  arr.forEach(function(word){
+    if(arrResult.indexOf(word) === -1){
+      arrResult.push(word);
+    }
+   });
+  return arrResult;
+}
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -95,6 +117,13 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr, search){
+  if (arr.includes(search)){
+    return true;
+  } else {
+    return false;
+  }
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
