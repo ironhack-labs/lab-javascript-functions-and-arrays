@@ -26,16 +26,18 @@ function longestWord(words) {
     'orchard',
     'crackpot'
   ];
-  
+
+var longestWord = words[0];  
 
 for (var i=1; i < words.length; i++) {
-  var longestWord = words[0];
+  
   if (longestWord.length > words[i].length) {
     continue;
   }
   else longestWord = words[i]
 
 }
+console.log(longestWord)
 }
 
   
