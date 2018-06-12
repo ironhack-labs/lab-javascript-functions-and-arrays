@@ -1,4 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2) {
+    return num1;
+  } else {
+    return num2
+  }
+}
+
+maxOfTwoNumbers(25, 5);
 
 // Finding Longest Word
 var words = [
@@ -8,16 +17,50 @@ var words = [
   'crocodile',
   'pearl',
   'orchard',
-  'crackpot'
+  'crackpot',
 ];
+function findLongestWord(arr) {
+  var lengthOfWord = 0;
+  var longestWord;
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i].length > lengthOfWord) {
+      lengthOfWord = arr[i].length; 
+      longestWord = arr[i];
+    }   
+  } 
+  return longestWord;
+}
+findLongestWord(words);
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function getSum(accumulator, nextValue) {
+  return accumulator + nextValue;
+}
+
+  numbers.reduce(getSum);
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function getSum(accumulator, nextValue) {
+  return accumulator + nextValue;
+}
+
+var sumOfArray = numbersAvg.reduce(getSum);
+var lengthOfArray = numbersAvg.length;
+
+function averageNumbers(num1, num2) {
+  return num1 / num2;
+}
+
+averageNumbers(sumOfArray, lengthOfArray);
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +76,24 @@ var wordsArr = [
   'palace'
 ];
 
+var lengthOfArray = wordsArr.length;
+console.log(lengthOfArray)
+
+function getSumOfLength(accumulator, nextValue) {
+  return accumulator + nextValue;
+}
+
+function sumOfItemsLength(arr) {
+  for(var i = 0; i < arr.length; i++) {
+      var counter = 0;
+      counter += arr[i].length;
+  }
+  return counter;
+}
+
+sumOfItemsLength(wordsArr);
+*/
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +108,24 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    var newArray = [];
+    if(arr.indexOf(arr[i]) < 0) {
+      newArray.push(arr[i]);
+    } 
+  }
+ return newArray; 
+}
+
+uniquifyArray(wordsUnique);
+
+//if we find a word a word that is repeated, we have to remove
+//return a new array without the repeated words
+
+
+
 
 // Finding Elements
 var wordsFind = [
