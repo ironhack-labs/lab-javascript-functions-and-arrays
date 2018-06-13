@@ -1,41 +1,56 @@
-// Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2){
+    console.log(num1);
+  } else {
+    console.log(num2);
+  } 
+}
 
-// Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+maxOfTwoNumbers(2, 5);
+//////////
 
-// Calculating a Sum
+
+var words = ['mystery','brother','aviator','crocodile','pearl','orchard','crackpot'];
+
+
+function longestWord(words){
+
+var largestWord = words[0];
+
+for (var i=1; i < words.length; i++) {
+  if(longestWord.length > words[i].length) {
+   continue;
+  }
+
+  else longestWord = words[i]
+  
+}
+console.log(longestWord);
+}
+
+longestWord(words)
+
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function calculateSum(arrayOfNumbers){
+  var sum = 0;
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+  arrayOfNumbers.forEach(function(oneParticularNumber){
+  sum += oneParticularNumber
 
-// Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+});
 
-// Unique Arrays
-var wordsUnique = [
-  'crab',
+  return sum;
+}
+console.log(   calculateSum(numbers)   );
+
+function calculateAverage(numberArray){
+  return  (calculateSum(numberArray) / numberArray.length)
+}
+
+var wordsWithDuplicates= [
+'crab',
   'poison',
   'contagious',
   'simple',
@@ -48,32 +63,42 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+function uniquifyArray(theArray){
+ 
+  var newArray = [];
 
-// Counting Repetion
-var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+  theArray.forEach(function(eachWord) {
+  
+  
+    if(newArray.indexOf(eachWord) === -1){
+    newArray.push(eachWord)}
+  
+   });
+  return newArray
+  
+ }
+ console.log(uniquifyArray(wordsWithDuplicates));
+
+function doesItExist(arrayOfWords, wordToSearchFor){
+  var doesIt = false;
+  arrayOfWords.forEach(function(eachWord){
+      if(eachWord === wordToSearchFor){doesIt = true}
+  });
+  return doesIt
+}
+
+function numberOfTimes(theArray, theWord){
+  var count = 0;
+  theArray.forEach(function(eachword){
+    if(eachword === theWord){
+      count++;
+    }
+  });
+  return count;
+}
+console.log(  numberOfTimes(wordsWithDuplicates, 'rain'));
+
+
 // Bonus Quest
 
 var matrix = [
