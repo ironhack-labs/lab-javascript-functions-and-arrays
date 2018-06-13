@@ -1,6 +1,10 @@
 // Find the maximum
+function maxOfTwoNumbers(numberOne, numberTwo){
+  var largestNumber = Math.max(numberOne, numberTwo);
+  console.log(largestNumber);
+  }
 
-// Finding Longest Word
+// Finding Longest Word --- my answer
 var words = [
   'mystery',
   'brother',
@@ -11,13 +15,100 @@ var words = [
   'crackpot'
 ];
 
+function longest(words) {
+var longest;
+ for(i=1;i < words.length;i++) {
+   if(words[i-1].length > words[i].length) {
+     longest = words[i-1];
+     } else {
+       continue;
+     }
+   }
+ return(longest);
+ }
+console.log(longest(words));
+
+// CLASSROOM ANSWER--------------------------------
+var words = [
+  'mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot'
+];
+
+function findLongestWord(wordsArray){
+  var longestWord = "";
+  wordsArray.forEach(function(eachWord){
+    if(eachWord.length > longestWord.length){
+      longestWord = eachWord;
+    }
+  });
+  return longestWord;
+}
+
+console.log(findLongestWord(words));
+
+//remember that each iteration of theloop will take one word
+// and then replace that word, for second loop the new word
+// is the previous iteration of the loop. first time = mystery, second time
+// == brother, and so on, this way we can compare the two in the array
+// Nick refers to this as an anonymous function, it exists only within
+//the forEeach loop.
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sum(numbers){
+  var adding = 0;
+  for(x=0; x < numbers.length; x++){
+    adding += numbers[x];
+  }
+  return adding;
+}
+
+console.log(sum(numbers));
+
+// CLASSROOM ANSWERS---------------------------------------------
+
+function calculateSum(arrayOfNumbers){
+  var sum = 0;
+  arrayOfNumbers.forEach(function(oneParticularNumber){
+    sum += oneParticularNumber;
+  });
+  return sum;
+}
+
+console.log(calculateSum(numbers));
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function avg(numbersAvg){
+  var sum = 0;
+  for(x=0; x < numbersAvg.length; x++){
+    sum += numbersAvg[x];
+  }
+  var average = sum / numbersAvg.length;
+  return average;
+}
+
+console.log(avg(numbersAvg));
+
+//CLASSROOM ANSWER---------------------------------------
+
+function calculateAverage(numberArray){
+  return (calculateSum(numberArray) / numberArray.length);
+}
+
+console.log(calculateAverage(numbers));
+
+/* here we are using the calculateSum function that we created in order
+to call the sum and save us a step in the calculateAverage function*/
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +123,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function avgWordLength(wordsArr){
+  var sum = 0;
+  for(x=0; x < wordsArr.length; x++) {
+    sum += wordsArr[x].length;
+    }
+  var ave = sum/wordsArr.length;
+}
+
+console.log(avgWordLength);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +149,54 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  for(i=0; i < wordsUnique.length; i++){
+
+  }
+}
+
+/* Classroom Answer */
+
+var wordsWithDuplicates = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray(theArray){
+  if(theArray.length < 1){
+    return undefined;
+    }
+    var newArray = [];
+    wordsWithDuplicates.forEach(function(eachWord){
+
+      if(newArray.indexOf(eachWord) === -1){
+        newArray.push(eachWord);
+      }
+    });
+  return newArray;
+}
+console.log(uniquifyArray(wordsWithDuplicates));
+
+/* In this example, the professor took a function and checked the avgWordLength
+first to make sure we have no undefined elements. Then we created a new blank
+array that will be the place holder for creating a new array absent of duplicates
+the conditions now check each word in a For each loop and made sure the value
+is === to -1 (meaning that its not part of the new array), it places the words
+into the new Array and removes duplicates if a -1 is not returned
+
+We can also us if(!NewArray.includes(eachWord)) .icludes returned a T or F value.
+saves us from using === and comparison expressions
+*/
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +208,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesItExist(arrayOfWords, wordToSearchFor){
+  var doesIt = false;
+  arrayOfWords.forEach(function(eachWord){
+    if(eachWord === wordToSearchFor)
+    {doesIt = true;}
+  });
+  return doesIt;
+}
+console.log (doesItExist(wordsWithDuplicates, 'kentucky'));
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +233,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function numberOfTimes(theArray, theWord){
+  var count = 0;
+}
+
 // Bonus Quest
 
 var matrix = [
