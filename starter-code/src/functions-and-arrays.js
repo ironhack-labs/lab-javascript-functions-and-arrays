@@ -1,4 +1,9 @@
 // Find the maximum
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2) {console.log(num1)
+  } else console.log(num2)
+}
+maxOfTwoNumbers(3,4)
 
 // Finding Longest Word
 var words = [
@@ -11,13 +16,54 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (someArray){
+
+  var longest = someArray[0];
+
+  someArray.forEach(function(oneWord){
+    if (oneWord.length > longest.length){
+      longest = oneWord;
+    }
+  });
+    return longest;
+}
+
+findLongestWord(words)
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray() {
+  var sum = 0;
+
+  for (var i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }
+return sum;
+
+}
+
+sumArray(numbers)
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function calculateSum(arrayOfNumbers){
+  var sum = 0;
+  arrayOfNumbers.forEach(function(oneParticularNumber){
+    sum += oneParticularNumber
+  });
+    return sum;
+}
+
+function calculateAverage(numberArray){
+  return (calculateSum(numberArray / numberArray.length))
+}
+
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -48,6 +94,37 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(theArray){
+  if (theArray.length < 1){
+    return undefined;
+  }
+  var newArray = [];
+
+  wordsWithDuplicates.forEach(function(eachWord){
+
+    if(newArray.indexOf(EachWord) === -1){
+    newArray.push(eachWord)
+    }
+
+  });
+  return newArray
+
+}
+
+console.log(uniquifyArray(wordsWithDuplicates))
+
+
+function doesItExist(arrayOfWords, wordToSearchFor){
+  var doesIt = false;
+  arrayOfWords.forEach(function(eachWord){
+    if(eachWord === wordToSearchFor){doesIt = true}
+  });
+  return doesIt
+}
+
+console.log(  doesItExist(wordsWithDuplicates, 'crab'))
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -74,6 +151,28 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+ 
+function numberOfTimes(theArray, theWord){
+  var count = 0;
+
+  theArray.forEach(function(eachWord){
+    if(eachWord === theWord){
+      count++;
+    }
+
+
+  });
+
+  return count;
+}
+console.log( numberOfTimes(wordsWithDuplicates, "rain"));
+
+
+
+
+
+
+
 // Bonus Quest
 
 var matrix = [
