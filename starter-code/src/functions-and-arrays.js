@@ -224,6 +224,5 @@ function greatestProduct(matrix) {
       result = maxObject.maxValue;
     }
   });
-  console.log(result);
   return result;
 }
