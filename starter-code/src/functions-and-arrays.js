@@ -185,6 +185,45 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
-  
+function greatestProduct(matrix) {
+  var maxObjectsArray = [];
+  var result = 0;
+
+  var calculateRow = function(matrix, rowNum) {
+    var rowMax = 0, rowMaxIndex = 0, currentFour = 0;
+    var lastStartingIndex = matrix[rowNum].length - 4;
+    for(var i = 0; i <= lastStartingIndex; i++) {
+      currentFour = matrix[rowNum][i] * matrix[rowNum][i + 1] * matrix[rowNum][i + 2] * matrix[rowNum][i + 3];
+      if (currentFour > rowMax) {
+        rowMax = currentFour;
+        rowMaxIndex = i;
+      }
+    }
+    return {"type": "row", "number": rowNum, "maxValue": rowMax, "startingIndex": rowMaxIndex};
+  }
+
+  var calculateCol = function(matrix, colNum) {
+    var colMax = 0, colMaxIndex = 0, currentFour = 0;
+    for(var i = 0; i <= matrix[i].length - 4; i++){
+      currentFour = matrix[i][colNum] * matrix[i + 1][colNum] * matrix[i + 2][colNum] * matrix[i + 3][colNum];
+      if(currentFour > colMax) {
+        colMax = currentFour;
+        colMaxIndex = i;
+      }
+    }
+    return {"type": "col", "number": colNum, "maxValue": colMax, "startingIndex": colMaxIndex};
+  }
+
+  for(var i = 0; i < matrix.length; i++) {    
+    maxObjectsArray.push(calculateRow(matrix, i));
+    maxObjectsArray.push(calculateCol(matrix, i));
+  }
+
+  maxObjectsArray.forEach(function(maxObject){
+    if(maxObject.maxValue > result) {
+      result = maxObject.maxValue;
+    }
+  });
+  console.log(result);
+  return result;
 }
