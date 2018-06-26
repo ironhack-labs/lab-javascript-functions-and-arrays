@@ -98,3 +98,97 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(num1, num2){
+  var maxNum;
+
+  if(num1 > num2){
+    maxNum = num1;
+  }else if(num2 > num1){
+    maxNum = num2;
+  }else if(num1 === num2){
+    maxNum = num1;
+  }
+  return maxNum;
+}
+
+function findLongestWord(array){
+  var aux = array[0];
+
+  for(var i = 1; i < array.length; i++) {
+    
+    if (aux.length < array[i].length)
+   {
+        aux = array[i];
+   }
+}
+return aux;
+}
+
+function sumArray(array){
+  var num = 0;
+  for(var i=0; i < array.length; i++){
+    num = num + array[i];
+  }
+  return num;
+}
+
+
+function averageNumbers(array){
+  var num = sumArray(array);
+  var avg = num / array.length;
+
+  if(array.length === 0){
+    avg = undefined;
+  }
+  
+  return avg;
+}
+
+function averageWordLength(array){
+  var aux = [];
+  for (var i = 0; i < array.length; i++){
+    aux[i] = array[i].length;
+  }
+  return averageNumbers(aux);
+}
+
+function uniquifyArray(array){
+
+  for(var i = 0; i <= array.length; i++){
+    for(var j = i+1; j <= array.length; j++){
+       
+       if (array[i] === array[j]) {
+         array.splice(i,1);
+       }
+       
+    }
+  }
+  if(array.length === 0){
+    array = undefined;
+  }
+  return array;
+  }
+
+function doesWordExist(array, word){
+  var exists = false;
+
+  for(var i = 0; i < array.length && !exists; i++){
+    if(word === array[i]){
+      exists = true;    
+    }
+  }
+  return exists;
+}
+
+function howManyTimes(array, word){
+  var count = 0;
+  var exists = false;
+  for(var i = 0; i<array.length; i++){
+    if(word === array[i]){
+      exists = true;
+      count++;
+    }
+  }
+  return array.length === 0 ? false : count;
+}
