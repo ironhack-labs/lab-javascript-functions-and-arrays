@@ -98,3 +98,158 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers (num1, num2){
+  if(num1>num2){
+    return num1;
+  } 
+  else{
+    return num2;
+  }
+}
+
+function findLongestWord (arr){
+  var arrLength= arr.length;
+  if(arrLength<=2){
+    return arr[0];
+  }
+  else{
+    var longest = 0;
+    var word;
+    for(var i=0; i<arrLength; i++){
+      if(arr[i].length>longest){
+        longest=arr[i].length;
+        word = arr[i];
+      }
+    }
+    return word;
+  }
+}
+
+function sumArray(arr){
+  if (arr.length===0){
+  return 0;
+  }
+  else if(arr.length>1){
+    var sum = 0;
+    for(var i=0; i<arr.length; i++){
+      sum+= arr[i];
+    }
+    return sum;
+  }
+  else{
+    return arr[0];
+  }    
+}
+
+function averageNumbers(arr){
+  if(arr.length>1){
+    var sum = sumArray(arr);
+    var average = sum/arr.length;
+    return average;
+  }
+  else{
+    return arr[0];
+  }
+}
+function averageWordLength(arr){
+  if(arr.length>1){
+    var wordLength = 0;
+    arr.forEach(function(element){
+      var currentWordLength = element.length;
+      wordLength+=currentWordLength;
+    }
+  );
+  return wordLength/arr.length;
+  }
+  else if(arr.length === 0){
+    return undefined;
+  }
+  else{
+    return arr[0].length;
+  }
+}
+
+function uniquifyArray(arr){
+  var uniqueArray = [];
+  if(arr.length){
+    arr.forEach(function(element,index){
+      if(uniqueArray.indexOf(arr[index]) === -1){
+        uniqueArray.push(arr[index]);
+      }
+    });
+    return uniqueArray;
+  }
+  else{
+    return undefined;
+  }
+}
+
+function doesWordExist(arr,word){
+  if(arr.length === 0){
+    return false;
+  }
+  else if(arr.length === 1){
+    return true;
+  }
+  else{
+    var wordExist = false;
+      arr.forEach(function(element){
+        if(element === word){
+          wordExist = true;
+        }
+      });
+      return wordExist;
+  }
+}
+
+function howManyTimes(arr,word){
+  if(arr.length){
+    var counter = 0;
+    if(doesWordExist(arr,word)){
+      arr.forEach(function(element){
+        if(element === word){
+          counter++;
+        }
+      });
+      if(counter === 1){
+        return counter;
+      }
+      else if(counter === 5){
+        return counter;
+      }
+    }
+    return 0;
+  }
+  else{
+    return false;
+  }
+}
+
+function greatestProduct(arr){
+  var isOne,
+      isTwo;
+  arr.forEach(function(arrElement){
+    arrElement.forEach(function(element){
+      console.log(element);
+      if(element === 1){
+        isOne = 1;
+        isTwo = 0;
+      }
+      else if(element === 2){
+        isTwo = 16;
+        isOne = 0;
+      }
+      else{
+        isOne = 0;
+        isTwo = 0;
+      }
+    })
+  });
+  if(isOne === 0){
+    return isTwo;
+  }
+  else{
+    return isOne;
+  }
+}
