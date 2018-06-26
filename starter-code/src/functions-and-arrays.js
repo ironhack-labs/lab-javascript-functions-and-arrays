@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  var max = num2;
+  if (num1>num2){
+    max = num1;
+  }
+  return max;
+}
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +19,42 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array){
+  var index = 0;
+  for (var i = 1; i < array.length; i++){
+    if (array[i].length>array[index].length){
+      index = i;
+    }
+  }
+  return array[index];
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+  var result = 0;
+  for (var i = 0; i < array.length; i++){
+    result += array[i];
+  }
+  return result;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  var suma = 0;
+  var lengthArray = array.length;
+  var result;
+  for (var i = 0; i < lengthArray; i++){
+    suma += array[i];
+  }
+  return lengthArray === 0 ? undefined : suma/lengthArray;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +69,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array){
+  var result;
+  if (array.length > 0){
+    result = 0;
+    for (var i = 0; i < array.length; i++){
+      result += array[i].length
+    }
+    result = result/array.length
+  }
+  return result;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +97,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  var newArray;
+  if (array.length > 0){
+    newArray = [];
+    for (var i = 0; i < array.length; i++){
+      if (!newArray.includes(array[i])){
+        newArray.push(array[i]);
+      }
+    }
+  }
+  return newArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +121,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word){
+  return array.includes(word);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +140,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  var counter = 0;
+  array.forEach(function(currentValue){
+    if (currentValue === word){
+      counter++;
+    }
+  });
+  return array.length === 0 ? false : counter;
+}
+
 // Bonus Quest
 
 var matrix = [
