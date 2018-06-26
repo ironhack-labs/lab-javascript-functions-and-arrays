@@ -98,3 +98,72 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function maxOfTwoNumbers (num1, num2){
+  if(num1>num2){
+    return num1;
+  } 
+  else{
+    return num2;
+  }
+}
+
+function findLongestWord (arr){
+  var arrLength= arr.length;
+  if(arrLength<=2){
+    return arr[0];
+  }
+  else{
+    var longest = 0;
+    var word;
+    for(var i=0; i<arrLength; i++){
+      if(arr[i].length>longest){
+        longest=arr[i].length;
+        word = arr[i];
+      }
+    }
+    return word;
+  }
+}
+
+function sumArray(arr){
+  if (arr.length===0){
+  return 0;
+  }
+  else if(arr.length>1){
+    var sum = 0;
+    for(var i=0; i<arr.length; i++){
+      sum+= arr[i];
+    }
+    return sum;
+  }
+  else{
+    return arr[0];
+  }    
+}
+
+function averageNumbers(arr){
+  if(arr.length>1){
+    var sum = sumArray(arr);
+    var average = sum/arr.length;
+    return average;
+  }
+  else{
+    return arr[0];
+  }
+}
+function averageWordLength(arr){
+  if(arr.length>1){
+    var wordLength = 0;
+    arr.forEach(function(element){
+      var currentWordLength = element.length;
+      wordLength+=currentWordLength;
+    }
+  );
+  return wordLength/arr.length;
+  }
+  else{
+    return arr[0].length;
+  }
+}
