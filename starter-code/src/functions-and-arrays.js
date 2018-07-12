@@ -1,5 +1,16 @@
 // Find the maximum
 
+function maxOfTwoNumbers(number1, number2){
+  if (number1 > number2) {
+    return(number1);
+  } else if (number2 > number1){
+    return(number2);
+  } else {return(number1)
+  }
+}
+
+console.log(maxOfTwoNumbers(15,20))
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,15 +21,58 @@ var words = [
   'orchard',
   'crackpot'
 ];
+var empty =[]
+function findLongestWord(array){
+  var longestWord
+  //if statement to check if array is empty
+  if (array[0]!=undefined){
+    //longestWord must be defined to use .length 
+    longestWord="";
+    array.forEach(function(word){
+        console.log(word);
+        console.log(longestWord);
+        if(word.length>longestWord.length){
+          longestWord=word;
+          }
+    })
+
+  }
+return longestWord
+}
+
+findLongestWord(empty)
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(array){
+var runningSum=0;
+array.forEach(function(numb){
+  runningSum = runningSum + numb
+  });
+  return(runningSum)
+}
+sumArray(numbers)
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array){
+  var theAverage;
+  if(array.length!==0){
+    theAverage=sumArray(array)/array.length;
+    return theAverage;
+  }
+}
+
+//To calculate the average word length
+// Array of Strings
+//To calculate the average word length
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -33,7 +87,41 @@ var wordsArr = [
   'palace'
 ];
 
+//To calculate the average word length
+// Array of Strings
+var wordsArr = [
+  'seat',
+  'correspond',
+  'linen',
+  'motif',
+  'hole',
+  'smell',
+  'smart',
+  'chaos',
+  'fuel',
+  'palace'
+];
+
+function averageWordLength(array){
+  var runningSumWordLengths
+  if(array.length>0){
+  var runningSumWordLengths=0;
+  array.forEach(function(eachWord){
+    runningSumWordLengths+=eachWord.length
+  console.log(runningSumWordLengths)
+  })
+return runningSumWordLengths/array.length
+}
+//this else is to make it return undefined to pass a test that an empty
+//array will return undefined
+else {return runningSumWordLengths}
+}
+//to test it run this
+// averageWordLength(wordsArr)
+
 // Unique Arrays
+
+// uniquifyArray(wordsUnique)
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,6 +136,25 @@ var wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(array){
+  if(array.length>0){
+    var newArray=[]
+    array.forEach(function(word){
+      wordIndex=newArray.indexOf(word)
+      if (wordIndex<0){
+      console.log(word)
+      newArray.push(word);
+      }
+    })
+  }
+return newArray
+}
+
+
+
+
+// Finding Elements
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,7 +167,25 @@ var wordsFind = [
   'disobedience'
 ];
 
+
+// var empty=[]
+function doesWordExist(array, word){
+var foundit = false
+if (array.length>0){
+
+    array.forEach(function(eachWord){
+      console.log(eachWord)
+      if(eachWord===word){
+        console.log(eachWord)
+       foundit =true;
+      }
+    })
+  }  
+return foundit
+}
+// doesWordExist(wordsFind, "wow")
 // Counting Repetion
+// var empty=[]
 var wordsCount = [
   'machine',
   'matter',
@@ -74,6 +199,26 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word){
+if (array.length>0){
+var count = 0
+    array.forEach(function(eachWord){
+      console.log(eachWord)
+      if(eachWord===word){
+        count++
+      }
+    })
+    return count
+  }  
+else{
+  return false
+}
+}
+
+
+howManyTimes(wordsCount, "matter")
+// Counting Repetion
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +243,115 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+// notes from review var words = [
+//   'mystery',
+//   'brother',
+//   'aviator',
+//   'crocodile',
+//   'pearl',
+//   'orchard',
+//   'mysteriously',
+//   'crackpot'
+// ];
+
+
+// function findLongestWord(wordsArray){
+//     var longestWord = "";
+//     wordsArray.forEach(function(eachWord){
+//       if(eachWord.length > longestWord.length){
+//           longestWord = eachWord;
+//       }
+//   });
+//   return(longestWord);
+// }
+
+// //   console.log(   findLongestWord(words)   );
+
+
+
+// var numbers = [5,5,5,5,5,7,7,7,7,7];
+
+
+// function calculateSum(arrayOfNumbers){
+//     var sum = 0;
+//     arrayOfNumbers.forEach(function(oneParticularNumber){
+//       sum += oneParticularNumber
+//     });
+//       return sum;
+// }
+
+// //   console.log(   calculateSum(numbers)    );
+
+// function calculateAverage(numberArray){
+//   return   (calculateSum(numberArray) / numberArray.length)
+// }
+
+// // console.log(  calculateAverage(numbers)          )
+
+
+
+// var wordsWithDuplicates = [
+//   'crab',
+//   'crab', 
+//   'crab',
+//   'poison',
+//   'contagious',
+//   'simple',
+//   'bring',
+//   'sharp',
+//   'simple',
+//   'simple',
+//   'playground',
+//   'poison',
+//   'communion',
+//   'simple',
+//   'simple',
+//   'simple',
+//   'bring'
+// ];
+
+// function uniquifyArray(theArray){
+
+//   var newArray = [];
+
+//   theArray.forEach(function(eachWord){
+
+//       if(newArray.indexOf(eachWord) === -1){
+//           newArray.push(eachWord)
+//       }
+// // .includes is newer method that accomplishes the same thing with cleaner syntax
+
+//       // if(!newArray.includes(eachWord)){
+//       //     newArray.push(eachWord)
+//       // }
+//   });
+//   return newArray
+// }
+
+// // console.log(uniquifyArray(wordsWithDuplicates));
+
+
+// function doesItExist(arrayOfWords, wordToSearchFor){
+//    var doesIt = false;
+//    arrayOfWords.forEach(function(eachWord){
+//       if(eachWord === wordToSearchFor){doesIt = true}
+//    });
+//   return doesIt
+// }
+// //  console.log(  doesItExist(wordsWithDuplicates, 'kentucky')   )
+
+
+// function numberOfTimes(theArray, theWord){
+//   var count = 0;
+//  theArray.forEach(function(eachWord){
+//       if(eachWord === theWord){
+//           count++;
+//       }
+//    });
+//   return count;
+// }
+
+// console.log( numberOfTimes(wordsWithDuplicates, 'rain')  );
