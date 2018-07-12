@@ -185,6 +185,7 @@ return foundit
 }
 // doesWordExist(wordsFind, "wow")
 // Counting Repetion
+// var empty=[]
 var wordsCount = [
   'machine',
   'matter',
@@ -198,6 +199,26 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word){
+if (array.length>0){
+var count = 0
+    array.forEach(function(eachWord){
+      console.log(eachWord)
+      if(eachWord===word){
+        count++
+      }
+    })
+    return count
+  }  
+else{
+  return false
+}
+}
+
+
+howManyTimes(wordsCount, "matter")
+// Counting Repetion
+
 // Bonus Quest
 
 var matrix = [
