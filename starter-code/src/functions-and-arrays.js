@@ -217,16 +217,25 @@ var matrix = [
 
 function greatestProduct(matrix)
 {
+  var result = 0;
+  var max = 0;
+  var right = 0;
+  var left = 0;
+  var up = 0;
+  var down = 0;
+  
   for (var i=4; i<16; i++){
     for(var j=4; j<16; j++) {
-      derecha = matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j] * matrix[i+4][j];
-      izquierda = matrix[i-1][j] * matrix[i-2][j] * matrix[i-3][j] * matrix[i-4][j];
-      arriba = matrix[i][j-1] * matrix[i][j-2] * matrix[i][j-3] * matrix[i][j-4];
-      abajo = matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3] * matrix[i][j+4];
+      right = matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j] * matrix[i+4][j];
+      left = matrix[i-1][j] * matrix[i-2][j] * matrix[i-3][j] * matrix[i-4][j];
+      up = matrix[i][j-1] * matrix[i][j-2] * matrix[i][j-3] * matrix[i][j-4];
+      down = matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3] * matrix[i][j+4];
+
+      max = Math.max(right, left, up, down);
+
+      if(max > result) result = max;
     }
-    console.log(derecha);
-    console.log(izquierda);
-    console.log(arriba);
-    console.log(abajo);
   }
+
+  return result;
 }
