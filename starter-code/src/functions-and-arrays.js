@@ -1,37 +1,34 @@
 // Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-  if(num1 > num2) {
+  if (num1 > num2) {
     return num1;
   } else {
     return num2;
   }
-
 }
 // Finding Longest Word
 var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot"
 ];
-var longestWord = "";
+
 function findLongestWord(words) {
-  if(words.length <= 0) {
-    return "";
+  var longestWord = "";
+
+  if (words.length <= 0) {
+    return undefined;
   }
-  else {
-    
-  }
-  for(var i = 0; i < words.length; i++) {
-    if(longestWord.length < words[i].length){
+
+  for (var i = 0; i < words.length; i++) {
+    if (longestWord.length < words[i].length) {
       longestWord = words[i];
-      //console.log(longestWord);
     }
   }
-  
   return longestWord;
 }
 
@@ -41,8 +38,8 @@ var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 var suma;
 function sumArray(numbers) {
-  if(numbers.length > 0) {
-    console.log(numbers.reduce(reducer));
+  if (numbers.length > 0) {
+    //console.log(numbers.reduce(reducer));
     suma = numbers.reduce(reducer);
     return suma;
   } else {
@@ -56,8 +53,8 @@ var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 var suma2;
 var avg;
 function averageNumbers(numbersAvg) {
-  if(numbersAvg.length > 0) {
-    console.log(numbersAvg.reduce(reducer));
+  if (numbersAvg.length > 0) {
+    //console.log(numbersAvg.reduce(reducer));
     suma2 = numbersAvg.reduce(reducer);
     avg = suma2 / numbersAvg.length;
     return avg;
@@ -69,29 +66,28 @@ averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace"
 ];
 function averageWordLength(wordsArr) {
   var wordsLength = 0;
   var wordsAvg;
-  if(wordsArr.length > 0) {
-    for(var i = 0; i < wordsArr.length; i++) {
-      wordsLength += wordsArr[i].length; 
+  if (wordsArr.length > 0) {
+    for (var i = 0; i < wordsArr.length; i++) {
+      wordsLength += wordsArr[i].length;
     }
-    console.log(wordsLength);
+    //console.log(wordsLength);
     wordsAvg = wordsLength / wordsArr.length;
     return wordsAvg;
-  }
-  else {
+  } else {
     return undefined;
   }
 }
@@ -99,77 +95,91 @@ averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
 ];
-var newWordsUnique = [];
+
 function uniquifyArray(wordsUnique) {
-  if(wordsUnique.length > 0) {
-    for(var i = 0; i < wordsUnique.length; i++) {
-      if(newWordsUnique.indexOf(wordsUnique[i]) == -1) {
+  var newWordsUnique = [];
+  if (wordsUnique.length > 0) {
+    for (var i = 0; i < wordsUnique.length; i++) {
+      if (newWordsUnique.indexOf(wordsUnique[i]) == -1) {
         newWordsUnique.push(wordsUnique[i]);
-      } else {
-        newWordsUnique.push(undefined);
       }
     }
-    console.log(newWordsUnique);
+    //console.log(newWordsUnique);
     return newWordsUnique;
   } else {
     return undefined;
   }
-  
 }
+
 uniquifyArray(wordsUnique);
 // Finding Elements
 var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
-word = "ajhsjas";
-function doesWordExist(wordsFind, wordToSearch) {
-  if(wordsFind.length > 0) {
-    for(var i =0; i < wordsFind.length; i++) {
-      if(wordsFind[i] === word) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  } else {
+
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length <= 0) {
     return false;
   }
-  
+
+  var res = false;
+  wordsFind.forEach(function(wordFind) {
+    if (word === wordFind) {
+      res = true;
+    }
+  });
+  return res;
 }
-doesWordExist(wordsFind, word);
+
 // Counting Repetion
 var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
+
+function howManyTimes(wordsCount, word) {
+  if (wordsCount <= 0) {
+    return false;
+  }
+
+  var count = 0;
+
+  wordsCount.forEach(function(wordCount) {
+    if (wordCount === word) {
+      count += 1;
+    }
+  });
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
