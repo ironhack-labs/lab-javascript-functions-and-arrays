@@ -470,20 +470,39 @@ var matrix = [
 ];
 
 function greatestProduct(matrix) {
-  var currentProduct = 0;
-  var currentMaxProduct = 0;
-  var maxProduct = 0;
+	var currentProduct = 0;
+	var copyValue = 0;
+	var currentMaxProduct = 0;
+	var maxProduct = 0;
+	for (i = 0; i < 20; i++) {
+		for (j = 0; j < 20; j++) {
+			if (matrix[i - 1] === undefined) matrix[i - 1] = 1;
+			if (matrix[i - 2] === undefined) matrix[i - 2] = 1;
+			if (matrix[i - 3] === undefined) matrix[i - 3] = 1;
+			if (matrix[i + 1] === undefined) matrix[i + 1] = 1;
+			if (matrix[i + 2] === undefined) matrix[i + 2] = 1;
+			if (matrix[i + 3] === undefined) matrix[i + 3] = 1;
+			if (matrix[j - 1] === undefined) matrix[j - 1] = 1;
+			if (matrix[j - 2] === undefined) matrix[j - 2] = 1;
+			if (matrix[j - 3] === undefined) matrix[j - 3] = 1;
+			if (matrix[j + 1] === undefined) matrix[j + 1] = 1;
+			if (matrix[j + 2] === undefined) matrix[j + 2] = 1;
+			if (matrix[j + 3] === undefined) matrix[j + 3] = 1;
 
-  for (i = 3; i < 17; i++) {
-    for (j = 3; j < 17; j++) {
-      currentProduct = Math.max(
-        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j],
-        matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j],
-        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3],
-        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 4]
-      );
-      if (currentProduct > currentMaxProduct) maxProduct = currentProduct;
-    }
-  }
-  return maxProduct;
+			currentProduct = Math.max(
+				matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j],
+				matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j],
+				matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3],
+				matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 4]
+			);
+			if (currentProduct > currentMaxProduct) {
+				copyValue = currentProduct;
+				if (copyValue > maxProduct) {
+					currentMaxProduct = copyValue;
+					maxProduct = currentMaxProduct;
+				}
+			}
+		}
+	}
+	return maxProduct;
 }
