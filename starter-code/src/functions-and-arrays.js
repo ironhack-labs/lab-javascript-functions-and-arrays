@@ -1,6 +1,33 @@
 // Find the maximum
 
+function maxOfTwoNumbers (a,b) {
+ if (a > b) {
+   console.log(a);
+ } if (b > a) {
+   console.log(b);
+ } else {
+   console.log("A und B sind gleich gross");
+ }
+}
+
+
 // Finding Longest Word
+
+function findLongestWord (words) 
+{
+  var currentLongest = "";
+  for(var i = 0; i < words.length;i++)
+  {
+    if(words[i].length > currentLongest.length)
+    {
+      currentLongest = words[i];
+    }
+  }
+  return currentLongest;
+}
+
+console.log(currentLongest);
+
 var words = [
   'mystery',
   'brother',
@@ -11,15 +38,53 @@ var words = [
   'crackpot'
 ];
 
+function 
+
 // Calculating a Sum
+
+function sumArray (numbers) 
+{
+  var sumOfAll = 0;
+  for(var i = 0; i < numbers.length;i++)
+  {
+    sumOfAll += numbers[i];
+  }
+  return sumOfAll;
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+console.log(sumArray(numbers));
+
+
 // Calculate the Average
+
+function averageNumbers (numbersAvg) 
+{
+  var sumOfAll = 0;
+  for(var i = 0; i < numbersAvg.length;i++)
+  {
+    sumOfAll += numbersAvg[i];
+  }
+  return (sumOfAll / numbersAvg.length);
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+console.log(averageNumbers([6, 3, 1, 10]));
+
 // Array of Strings
+
+function averageWordLength (wordsArr) 
+{
+  var sumOfLengths = 0;
+  for(var i = 0; i < wordsArr.length;i++)
+  {
+    sumOfLengths += wordsArr[i].length;
+  }
+  return (sumOfLengths / wordsArr.length);
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -32,8 +97,10 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,32 +115,81 @@ var wordsUnique = [
   'bring'
 ];
 
+function duplicateWords (arr){
+var newArray = []
+  
+arr.forEach(function(word) {
+
+  if (newArray.indexOf(word) === -1 )
+    {
+     newArray.push(word);
+    }
+  
+   })
+console.log(newArray);
+return newArray;
+ };
+
+duplicateWords(wordsUnique);
+
 // Finding Elements
+
+function doesWordExist (wordsFind, word) 
+{
+  var result = false;
+  for(var i = 0; i < wordsFind.length;i++)
+  {
+    if (wordsFind[i] == word)
+    {
+      result = true;
+    }
+  }
+  return result;
+}
 var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
+console.log(doesWordExist(words, "hello"));
+console.log(doesWordExist(words, "truth"));
+
 
 // Counting Repetion
+
+function howManyTimes (wordsCount, word) 
+{
+  var count = 0;
+  for(var i = 0; i < wordsCount.length;i++)
+  {
+    if (words[i] == word)
+    {
+      count += 1;
+    }
+  }
+  return count;
+}
 var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
+console.log(howManyTimes(words, "matter"));
+console.log(howManyTimes(words, "dog"));
+
 // Bonus Quest
 
 var matrix = [
