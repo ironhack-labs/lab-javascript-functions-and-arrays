@@ -98,3 +98,134 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+
+
+
+
+
+
+
+// describe('Find the maximum - maxOfTwoNumbers', function () {
+//   it('Defines maxOfTwoNumbers', function () {
+//     expect(typeof maxOfTwoNumbers).toBe('function');
+//   });
+// Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+
+function maxOfTwoNumbers(a, b) {
+  if (a > b) return a;
+  else return b; 
+}
+
+var words = [
+  'mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot'
+];
+
+function findLongestWord(words) {
+  var currentMax = '';
+  for (var i = 0; i < words.length; i++) {
+    if (currentMax.length < words[i].length) {
+      currentMax = words[i];
+    }
+  }
+  return currentMax;
+}
+
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(arrOfNum) {
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  console.log(arrOfNum.reduce(reducer));
+}
+
+function averageNumbers(arrOfNum) {
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return arrOfNum.reduce(reducer) / arrOfNum.length;
+}
+
+function averageWordLength(arr) {
+  var currentMax;
+  for (var i = 0; i < arr.length; i++) {
+    currentMax = arr[i].length;
+    return arr[i].length;
+  }
+  const reducer = (currentMax, currentValue) => currentMax + currentValue;
+  console.log(arr.reduce(reducer) / arr.length);
+}
+
+var words2 = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray(arrOfStrings) {  
+
+  // for (var i = 0; i < arrOfStrings.length; i++) {
+  //   var prospect = arrOfStrings[i]
+
+  //   for(var j = i + 1; j < arrOfStrings.length; j++) {
+  //     var possibleDuplicate = arrOfStrings[j]
+
+  //     var isDuplicate = prospect === possibleDuplicate
+  //     if (isDuplicate) {
+  //       arrOfStrings.splice(j);
+  //       // console.log('test');
+  //     } 
+  //   }
+  //   console.log(arrOfStrings[i]);
+  // }
+  // }
+
+  var newArray = [];
+
+  arrOfStrings.forEach(function (word) {
+    if (newArray.indexOf(word) === -1) {
+      newArray.push(word);
+    }
+  })
+
+  console.log(newArray);
+}
+
+function doesWordExist(arrOfStrings, stringArg) {
+  for (var i = 0; i < arrOfStrings.length; i++) {
+    if (arrOfStrings[i] === stringArg) return true;
+    // else if (arrOfStrings[i] !== stringArg)return false;
+  }
+}
+
+function howManyTimes(arrOfStrings, stringArg) {
+  var noOfTimes = 0; 
+  for (var i = 0; i < arrOfStrings.length; i++) {
+    if (arrOfStrings[i] === stringArg) {
+      noOfTimes += 1;
+    }
+  }
+  console.log(noOfTimes);
+}
+
+console.log(maxOfTwoNumbers(1, 2));
+console.log(findLongestWord(words));
+console.log(sumArray(numbers));
+console.log(averageNumbers(numbers));
+averageWordLength(words);
+uniquifyArray(words2);       
+doesWordExist(words2, 'poison');
+howManyTimes(words2, 'poison');
