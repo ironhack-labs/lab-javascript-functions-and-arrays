@@ -1,14 +1,17 @@
 // Find the maximum
 
-function maxOfAnArray(array){
-  var currentMax = 0
-  for(var i = 0; i < array.length; i++){
-    if(array[i] > currentMax){
-      currentMax = array[i];
-    }
-  }
-  return currentMax
+function maxOfTwoNumbers(x, y){
+  if (x > y) return x;
+  return y;
+  // var currentMax = 0
+  // for(var i = 0; i < array.length; i++){
+  //   if(array[i] > currentMax){
+  //     currentMax = array[i];
+  //   }
+  // }
+  // return currentMax
 }
+
 
 // Finding Longest Word
 var words = [
@@ -21,24 +24,25 @@ var words = [
   'crackpot'
 ];
 
-function longestWord (array) {
-  for(var i = 0; i < array.length; i++){
-    var longest = "";
-    if (array[i].length > longest) {
-      longest = array[i];
+function findLongestWord (words) {
+  if (words.length === 0) return undefined;
+  var longest = "";
+  for(var i = 0; i < words.length; i++){
+    if (words[i].length > longest.length) {
+      longest = words[i];
     }
   }
   return longest;
 }
 
-longestWord(words);
+//longestWord(words);
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-var sum = 0
 function sumArray (array) {
+  var sum = 0
   for(var i = 0; i < array.length; i++){
     sum += array[i]
   }
@@ -100,15 +104,15 @@ var wordsUnique = [
   'bring'
 ];
 
-var newArray = [];
 
 function uniquifyArray (array) {
+  var newArray = [];
   for (var i=0; i< array.length; i++ ){
     if (newArray.indexOf(array[i]) === -1 ) {
         newArray.push(array[i])
     }
   }
-    return newArray;
+  return newArray;
 }
 
 uniquifyArray(wordsUnique);
@@ -125,7 +129,7 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExsist (array, word){
+function doesWordExist(array, word){
   for(var i = 0; i < array.length; i++){
     if(word === array[i]){
       return true;
@@ -188,9 +192,9 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-var matrix = [08,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,08],
-for (var i=0;i < matrix.length-3 ; i++) {
-  var sum = matrix[i]+  matrix[i+1]+  matrix[i+2]+ matrix[i+3];
-  var max=0;
+// var matrix = [08,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,08],
+// for (var i=0;i < matrix.length-3 ; i++) {
+//   var sum = matrix[i]+  matrix[i+1]+  matrix[i+2]+ matrix[i+3];
+//   var max=0;
   
-}
+// }
