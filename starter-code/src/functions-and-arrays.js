@@ -44,6 +44,16 @@ function getSum(accumulator, numbers) {
 	return accumulator + numbers;
 }
 
+function getSum2(numbers) {
+  var totalResult = 0;
+  numbers.forEach(function(number){
+    totalResult += number;
+  })
+	return totalResult;
+}
+
+
+console.log("total result is" + getSum2(numbers))
 console.log(numbers.reduce(getSum));
 
 //const reducer=(accumulator, currentValue);
