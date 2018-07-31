@@ -1,5 +1,18 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+  }
+  else if (b > a) {
+    return b;
+  }
+  else {return a;
+  }
+}
+
+console.log(maxOfTwoNumbers([0.3,3]));
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,11 +24,45 @@ var words = [
   'crackpot'
 ];
 
+var words2 = []
+
+function findLongestWord(array) {
+  var currentLongest = ""
+  if (array.length === 0) {
+    return undefined;
+  }
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length > currentLongest.length) {
+      currentLongest = array[i];
+    }
+  }
+  return currentLongest;
+}
+
+console.log(findLongestWord(words));
 // Calculating a Sum
 
+function sumArray(array) {
+  var currentSum = 0;
+  array.forEach((elem, ind) => {currentSum += array[ind]});
+  return currentSum
+}
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+
+function averageNumbers(array) {
+  if (array.length === 0) {return undefined};
+  return (sumArray(array) / array.length);
+}
+
+function averageWordLength(array) {
+  if (array.length === 0) {return undefined}
+  var currentSum = 0;
+   array.forEach((elem, ind) => {currentSum += array[ind].length});
+   return (currentSum / array.length);
+}
+
+console.log(averageWordLength(words));
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -33,6 +80,8 @@ var wordsArr = [
   'palace'
 ];
 
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +97,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  var newArray = [];
+  if (array.length === 0) {return undefined}
+    for (var i = 0; i < array.length; i++) {
+      if (!newArray.includes(array[i])) {
+        newArray.push(array[i]);
+      }
+    }
+  return newArray;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,7 +121,9 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(array, word) {
+  return array.includes(word);
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,7 +138,59 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  if (array.length === 0) {return false}
+  var count = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      count++
+    }
+  }
+  return count;
+}
 // Bonus Quest
+function greatestProduct(matrix) {
+  var currentGreatest = 1;
+   for (var i = 0; i < matrix.length; i++) {
+     for (var j = 0; j < matrix[0].length-3; j++) {
+      if ((matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]) > currentGreatest) {
+        currentGreatest = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      }}};
+    for (var a = 0; a < matrix[0].length; a++) {
+      for (var b = 0; b < matrix[0].length-3; b++) {
+       if ((matrix[b][a]*matrix[b+1][a]*matrix[b+2][a]*matrix[b+3][a]) > currentGreatest) {
+             currentGreatest = matrix[b][a]*matrix[b+1][a]*matrix[b+2][a]*matrix[b+3][a];
+       }
+   }
+  }
+   return currentGreatest;
+}
+
+var newMatrix = [];
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+newMatrix.push([2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]);
+
+console.log(newMatrix);
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -98,3 +214,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+console.log(greatestProduct(newMatr));
