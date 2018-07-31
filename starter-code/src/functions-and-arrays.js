@@ -1,5 +1,8 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a,b) {
+  if (a>b) return a;
+  return b;
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +13,33 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(x) {
+  var sortedWords=x.sort(function(c, d){
+      // ASC  -> a.length - b.length
+      // DESC -> b.length - a.length
+      return d.length - c.length;
+    });
+    return sortedWords[0];
+}
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(e){
+  var sum = 0;
+  for (var i=0; i<e.length; i++){
+    sum += e[i];
+  }
+  return sum;
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(f){
+  if (f.length >0){
+  return (sumArray(f)/f.length)};
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +55,13 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(g){
+  wordLengthArray = [];
+  for (var i=0; i<g.length; i++){
+    wordLengthArray.push(g[i].length);
+  }
+  return averageNumbers(wordLengthArray);
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +76,15 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(h) {
+  var uniqueArrays = [];
+  if (h.length >0){
+  for (var i=0; i<h.length; i++){
+    if (!uniqueArrays.includes(h[i])){
+      uniqueArrays.push(h[i]);}
+    }
+    return uniqueArrays;
+  }}
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +97,8 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(j,k){
+  return (j.includes(k))}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +114,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(l,m){
+  if (l.length >0){
+  var count =0;
+  for (var i = 0; i < l.length; i++) {
+    var num = l[i];
+    if (num == m){
+      count++;
+    }
+  }
+  return count;
+}else {
+  return false;}}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +151,29 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// function greatestProduct(n){
+
+//   function productArray(p){
+//     var prod = 0;
+//     for (var i=0; i<e.length; i++){
+//       prod *= e[i];
+//     }
+//     return sum;
+
+//     var matrix = [
+//       [1,2,3,10],
+//       [4,5,6,11],
+//       [7,8,9,12]]
+    
+//     function productArray(n){
+//         var prod = 0;
+//        for (var i=0; i<n.length; i++){
+//         prod = n[0][1]*n[1][0];
+//         prod = n[0][2]*n[1][1]*n[0][0];
+//         prod = n[1][2]*n[2][1]*n[1][0]*n[0][1];
+//         prod = 6*8*4*2;
+//         return prod;
+//     }
+    
+//     productArray(matrix);
