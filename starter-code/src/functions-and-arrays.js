@@ -1,6 +1,11 @@
 // Find the maximum
-
-// Finding Longest Word
+function maxOfTwoNumbers(n1,n2){
+  if (n1>n2) return(n1)
+ else if(n1<n2) return(n2)
+ else return(n1)
+}
+maxOfTwoNumbers(4,3);
+// inding Longest Word
 var words = [
   'mystery',
   'brother',
@@ -11,42 +16,111 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  /*for(var i = 0; i<words.length; i++){
+    var longest = "";
+    if (words[i].length>longest.length){
+      longest = words[i];
+    }
+    return(longest);
+
+  }*/
+  var longest = 0;
+  var theWord;
+  words.forEach(function(word){
+    if (word.length>longest){
+      longest = word.length;
+      theWord = word
+    }
+  })
+  return theWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers) {
+  var suma = 0;
+  for (var i=0; i<numbers.length; i++){
+    suma += numbers[i]
+  }
+  return(suma);
+}
+
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (numbersAvg){
+  if (numbersAvg.length < 1){
+    promedio=undefined}
+    else {  
+  var suma = 0;
+  for (var i=0; i<numbersAvg.length; i++){
+    suma += numbersAvg[i]
+  }
+  var promedio = suma/numbersAvg.length
+    }
+  return(promedio);
+ 
+}
 
-// Array of Strings
+/ Array of Strings
+
 var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+ ‘seat’,
+ ‘correspond’,
+ ‘linen’,
+ ‘motif’,
+ ‘hole’,
+ ‘smell’,
+ ‘smart’,
+ ‘chaos’,
+ ‘fuel’,
+ ‘palace’
 ];
+
+function averageWordLength(words) {
+ if (words.length === 0) {
+   return undefined;
+ }
+ var sum = 0;
+ words.forEach(function(word) {
+   sum += word.length;
+ });
+ return sum / words.length;
+}
 
 // Unique Arrays
+
 var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+ ‘crab’,
+ ‘poison’,
+ ‘contagious’,
+ ‘simple’,
+ ‘bring’,
+ ‘sharp’,
+ ‘playground’,
+ ‘poison’,
+ ‘communion’,
+ ‘simple’,
+ ‘bring’
 ];
+
+function uniquifyArray(words) {
+ if (words.length === 0) {
+   return undefined;
+ }
+var uniquifiedArray= [];
+for (i = 0; i < words.length; i++){
+  if (uniquifiedArray.indexOf(words[i]) === -1){
+    uniquifiedArray.push(words[i])
+  }
+}
+return uniquifiedArray;
+}
+
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +133,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+var bool=false;
+
+function doesWordExist (array,word){
+  array.forEach(function(compare){    
+     if(word==compare){
+       bool=true;
+     }
+  })
+  return bool;
+}
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +161,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+var cuantas=0
+
+function howManyTimes (array,word){
+  array.forEach(function(counted){
+    if(counted==word){
+      cuantas++;
+    }
+  })
+  if (array.length==0){
+    return false;
+  }
+  return cuantas;
+}
+ 
 // Bonus Quest
 
 var matrix = [
