@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(numberOne, numberTwo){
+  if(numberOne < numberTwo){
+    return numberTwo;
+  }
+  else{
+    return numberOne;
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +19,34 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(words){
+  var longestWord = words[0];
+  words.forEach(function(word){
+    if (longestWord.length < word.length){
+      longestWord = word;
+    }
+  })
+  return longestWord;
+}
 
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(numbers){
+  var sum = 0;
+  numbers.forEach(function(number){
+    sum += number;  
+  })
+  return sum;
+} 
 
+// Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  var sum = sumArray(numbersAvg);
+  return sum/numbersAvg.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +61,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr){
+  var sum = 0;
+  wordsArr.forEach(function(word){
+    sum += word.length;
+  })
+  return sum/wordsArr.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +85,13 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){  
+  var uniqueArr = wordsUnique.filter(function(el, index){
+		return wordsUnique.indexOf(el) === index;
+	})
+	return uniqueArr;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +103,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, compareWord){
+  var isrepeated = false;
+  wordsFind.forEach(function(word){
+    if (word === compareWord ){
+      isrepeated = true;
+    }
+  })
+  return isrepeated;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +128,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, searchedWord) {
+  var wordCount = 0;
+  wordsCount.forEach(function(word){
+    if(word === searchedWord) {
+      wordCount++;
+    };
+  })
+  return wordCount;
+}
+
 // Bonus Quest
 
 var matrix = [
