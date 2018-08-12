@@ -56,6 +56,9 @@ sumArray(numbers);
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (array){
+  if (array == 0) {
+    return
+  };
   var average = 0;
   for(var i = 0; i < array.length; i++){
     average += array[i];
@@ -80,6 +83,9 @@ var wordsArr = [
 ];
 
 function averageWordLength (array) {
+  if (array == 0) {
+    return
+  };
   var average = 0;
   for(var i = 0; i < array.length; i++){
     average += array[i].length;
@@ -106,6 +112,9 @@ var wordsUnique = [
 
 
 function uniquifyArray (array) {
+  if (array == 0) {
+    return
+  };
   var newArray = [];
   for (var i=0; i< array.length; i++ ){
     if (newArray.indexOf(array[i]) === -1 ) {
@@ -156,6 +165,9 @@ var wordsCount = [
 ];
 
 function howManyTimes (array, word){
+  if (array == 0) {
+    return false;
+  };
   var x = 0;
   for(var i = 0; i < array.length; i++){
     if(word === array[i]){
