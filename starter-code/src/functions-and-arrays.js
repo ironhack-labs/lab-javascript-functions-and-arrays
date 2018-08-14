@@ -1,6 +1,31 @@
 // Find the maximum
+function maxOfTwoNumbers(firstNum, secondNum) {
 
+  if(firstNum > secondNum){
+    return firstNum;
+   } else {
+      return secondNum;
+    }
+  }
 // Finding Longest Word
+
+function findLongestWord(words) {
+
+  let longestWord = words[0] ;
+
+  for (var i = 0; i < words.length; i++) {
+    if (longestWord.length < words[i].length){
+      longestWord = words[i];
+
+  }else{continue};
+
+  
+}
+return longestWord;
+}
+
+
+
 var words = [
   'mystery',
   'brother',
@@ -13,13 +38,56 @@ var words = [
 
 // Calculating a Sum
 
+function calculateSum(numbers) {
+  return numbers.sum;
+}
+
+function sumArray(numbers){
+  let total = 0;
+  if (numbers.length === 0 ){
+    return 0;
+  }
+  else if (numbers.length === 1) {
+    return numbers[0];
+  }
+  else {
+    for (var i = 0; i < numbers.length; i++){
+      total += numbers[i];
+
+    }
+  }
+  return total;
+}
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+  let total = 0;
+  if (numbersAvg.length === 0) {
+    return;
+  }
+  numbersAvg.forEach((oneNumber)=>{
+    total += oneNumber
+  })
+  return (total/numbersAvg.length);
+}
+
 // Array of Strings
+function averageWordLength(wordsArr) {
+  let convertedArray = [];
+
+  if (wordsArr.length === 0) {
+    return;
+  }
+  wordsArr.forEach((oneWord)=>{
+    convertedArray.push(oneWord.length);
+  })
+  return averageNumbers(convertedArray);
+}
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,19 +102,34 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+
 var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+ 'crab',
+ 'poison',
+ 'contagious',
+ 'simple',
+ 'bring',
+ 'sharp',
+ 'playground',
+ 'poison',
+ 'communion',
+ 'simple',
+ 'bring'
 ];
+
+function uniquifyArray(wordsUnique){
+  let uniqueArray = [];
+  if (wordsUnique.length === 0) {
+    return;
+  }
+  for (var i = 0; i< wordsUnique.length; i++){
+    if(uniqueArray.indexOf(wordsUnique[i]) === -1){
+      uniqueArray.push(wordsUnique[i])
+    }
+  }
+  return uniqueArray;
+    }
+
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +142,30 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, searchWord){
+  if (wordsFind.length === 0){
+    console.log('first false');
+  return false;
+  }
+    console.log('>>>>>>>>>>>>>>>>>. ', wordsFind);
+    console.log('================= ', searchWord);
+  wordsFind.forEach((oneWord)=>{
+    console.log('################### ', oneWord);
+    
+    if (oneWord === searchWord){
+      console.log("true");
+      return true 
+    }
+    else {
+      console.log('false');
+      return false
+    }
+  })
+
+}
+// The reason this loop doesn't work is because a forEach loop won't result in a return value. 
+// I kept it here for learning purposes.  A for loop with the same parameters will work perfectly. 
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +181,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, countWord){
+  if (wordsCount.length === 0){
+    return false;
+  }
+  for (var i = 0; i< wordsCount.length; i++){
+  let numTimes = (countWord.indexOf(wordsCount[i]))
+     
+  }
+  return (numTimes + 1);
+    }
 // Bonus Quest
 
 var matrix = [
