@@ -1,5 +1,9 @@
 // Find the maximum
 
+  function maxOfTwoNumbers(num1, num2) {
+    return Math.max(num1, num2);
+  }
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +15,59 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(wordsArr) {
+
+  let biggestWord;
+
+  for(let word of wordsArr) {
+    if(biggestWord) {
+        if(word.length > biggestWord.length) biggestWord = word;
+    } else {
+        biggestWord = word;
+    }
+  }
+  return biggestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numArr) {
+
+ let everyEqualZero = numArr.every((num) => { return num === 0});
+
+  if(!numArr.length) {
+    return 0;
+  } else if(numArr.length === 1) {
+    return numArr[0];
+  } else if(everyEqualZero) {
+    return 0;
+  } else {
+    let sum = numArr.reduce((sum, num) => { return sum += num}, 0);
+    return sum;
+  }
+}
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numArr) {
+    let everyEqualZero = numArr.every((num) => { return num === 0});
+
+    if(!numArr.length) {
+        return undefined;
+    } else if(numArr.length === 1) {
+        return numArr[0];
+    } else if(everyEqualZero) {
+        return 0;
+    } else {
+        let sum = numArr.reduce((sum, num) => { return sum += num}, 0);
+        return sum/numArr.length;
+    }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +82,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(stringArr) {
+    if(!stringArr.length) {
+        return undefined;
+    } else if(stringArr.length === 1) {
+        return stringArr[0].length;
+    } else {
+        let numArr = stringArr.map((element) => { return element.length});
+        let sum = numArr.reduce((sum, num) => { return sum += num}, 0);
+        return sum/numArr.length;
+    }
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +110,34 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+
+    if(!arr.length) {
+        return undefined;
+    }
+
+    let resultArr = arr.slice();
+
+    for(let i = 0; i < resultArr.length; i++) {
+
+        let element = resultArr[i];
+
+       for(let j = i + 1; j < resultArr.length; j ++) {
+
+           let nextIdx = resultArr.indexOf(element, j);
+
+           if(nextIdx !== -1) {
+             resultArr.splice(nextIdx, 1);
+             j--;
+           }
+       }
+
+    }
+
+    return resultArr;
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +149,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+
+  if(!arr.length) {
+    return false;
+  }
+  return arr.includes(word);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +172,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let counter = 0;
+
+    if(!arr.length) {
+        return false;
+    }
+
+  for(let key of arr) {
+    if(key === word) counter++;
+  }
+  return counter;
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +209,34 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+    let numArr = [];
+    let maxValue;
+
+    for(let j = 0; j < 20; j++) {
+      for(let i = 0; i < 20; i++) {
+        if((i - 3) >= 0) {
+          numArr.push(arr[j][i] * arr[j][i-1] * arr[j][i - 2] * arr[j][i - 3]);
+        }
+        if((i + 3) <= 19) {
+          numArr.push(arr[j][i] * arr[j][i + 1] * arr[j][i + 2] * arr[j][i + 3]);
+        }
+        if((j + 3) <= 19) {
+          numArr.push(arr[j][i] * arr[j + 1][i] * arr[j + 2][i] * arr[j + 3][i]);
+        }
+        if((j - 3) >= 0) {
+          numArr.push(arr[j][i] * arr[j-1][i] * arr[j - 2][i] * arr[j - 3][i]);
+        }
+        if(!maxValue) {
+          maxValue = Math.max(...numArr);
+        }
+        if(maxValue < Math.max(...numArr)) {
+            maxValue = Math.max(...numArr);
+        }
+      }
+    }
+
+    return maxValue;
+}
+
