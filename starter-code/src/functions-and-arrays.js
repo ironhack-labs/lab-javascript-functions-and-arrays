@@ -86,6 +86,10 @@ return newArray;
 
 }
 
+
+
+
+
 function doesWordExist(arr, word){
 
 
@@ -98,6 +102,7 @@ function doesWordExist(arr, word){
     function howManyTimes(arr, word){
 
 
+      if(arr.length === 0){return false;}
       var count = 0;
       for (var i = 0; i < arr.length; i++) {
           if (arr[i] === word) {
