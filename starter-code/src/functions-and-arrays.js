@@ -1,23 +1,130 @@
 // Find the maximum
 
-// Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function maxOfTwoNumbers(num1, num2) {
+
+if (num1 > num2){
+  return num1;
+}else if (num2 > num1){
+  return num2;
+}
+else
+return num2; 
+}
+
+function findLongestWord (arr){
+
+
+var lgth = 0;
+var longest;
+
+for(var i=0; i < arr.length; i++){
+    if(arr[i].length > lgth){
+        var lgth = arr[i].length;
+        longest = arr[i];
+    }      
+} 
+
+return longest
+}
+
+
 
 // Calculating a Sum
+function sumArray(arr){
+var sum = 0;
+for (var i = 0; i < arr.length; i++) {
+  sum += arr[i]
+}
+  return sum;
+}
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (arr){
+
+    var average;
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i]
+    
+    average = (sum / arr.length);
+    }
+return average;
+}
+
+
+
+
+function averageWordLength(arr){
+
+  var characters = 0;
+  var average;
+
+  for (var i = 0; i < arr.length; i++) {
+
+    characters = characters + arr[i].length;
+
+    average = (characters / arr.length);
+  }
+    return average;
+  }
+  
+
+function uniquifyArray(arr){
+
+if(arr.length === 0) {return}
+var newArray = [];
+
+for(var i = 0; i < arr.length; i++){
+
+if(newArray.indexOf(arr[i]) === -1){
+
+  newArray.push(arr[i])
+}
+}
+return newArray;
+
+}
+
+function doesWordExist(arr, word){
+
+
+
+    return arr.indexOf(word) > -1;
+    
+    }
+
+
+    function howManyTimes(arr, word){
+
+
+      var count = 0;
+      for (var i = 0; i < arr.length; i++) {
+          if (arr[i] === word) {
+              count++;
+          }
+      }
+      return count;
+  }
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -98,3 +205,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+console.log("hello");
