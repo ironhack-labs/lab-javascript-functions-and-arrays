@@ -77,9 +77,9 @@ Run the tests with Jasmine is super easy, you just have to open the `SpecRunner.
 
 **Pass the tests**
 
-You have to write your code on the `src/functions-and-arrays.js` file. Following the instructions, you should go step by step passing all the tests. 
+You have to write your code on the `src/functions-and-arrays.js` file. Following the instructions, you should go step by step passing all the tests.
 
-Do not rush to go through all of them at once, take your time to read carefully about what the iteration is asking you, and solve the errors one by one. 
+Do not rush to go through all of them at once, take your time to read carefully about what the iteration is asking you, and solve the errors one by one.
 
 When coding with tests, is super important to read and understand the errors we are having for each test, this way we will know what it expect from your code.
 
@@ -89,11 +89,11 @@ All our work will be located in the `functions-and-arrays.js` file, so that will
 
 ## Find the maximum
 
-Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest. 
+Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest.
 
 ## Finding Longest Word
 
-Write a function `findLongestWord` that takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence. 
+Write a function `findLongestWord` that takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
 
 **Starter Code**
 
@@ -185,6 +185,9 @@ var words = [
   'simple',
   'bring'
 ];
+
+
+
 
 ```
 
