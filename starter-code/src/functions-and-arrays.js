@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a, b){
+  if (a > b){
+    return a;
+  } else{
+    return b;
+  }
+}
+
+maxOfTwoNumbers(3,5);
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +21,55 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (array){
+  var word = array[0];
+
+  if (array.length === 0){
+    return ;
+  } else if (array.length === 1){
+    return word;
+  } else if (array.length > 1){
+    for(var i=0; i< array.length-1; i++){
+    if (word.length < array[i+1].length){
+      word = array[i+1];
+    }    
+  }
+  return word;
+}  
+}
+
+var word2 = findLongestWord(words);
+
+console.log("the longest word is: " + word2 );
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  var sum = 0;
+  for (var i=0; i<arr.length; i++){
+    sum+= arr[i];
+  }
+  return sum;
+} 
+
+sumArray();
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (arr){
+
+  if(arr.length==0){
+    return;
+  }
+  return sumArray(arr)/arr.length;
+  
+}
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +84,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength(arr){
+
+  var arr1 = [];
+
+  for (var i=0; i< arr.length;i++){
+    arr1[i] = arr[i].length;
+  }
+return  averageNumbers(arr1);
+}
+
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +113,14 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  //var arrUnique = arr;
+  //var a;
+    //for(var i = 0; i < arr.length; i++){
+     // arr.indexOf(arr[i], i+1)
+   // }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +132,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word1){
+  return (arr.includes(word1));
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +151,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word1){
+  if (arr.length === 0){
+    return false;
+  }
+  var nOfRep = [];
+  var idx = arr.indexOf(word1);
+  while(idx != -1){
+    nOfRep.push(idx);
+    idx = arr.indexOf(word1, idx + 1);
+  }
+  return nOfRep.length
+}
+
+console.log(howManyTimes(wordsCount, 'matter'));
 // Bonus Quest
 
 var matrix = [
