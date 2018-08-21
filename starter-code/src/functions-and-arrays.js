@@ -1,5 +1,8 @@
 // Find the maximum
 
+function maxOfTwoNumbers (num1, num2) {
+    return Math.max(num1, num2);
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,14 +14,46 @@ var words = [
   'crackpot'
 ];
 
+
+
+function findLongestWord (words) {
+  var longestWord = words[0];
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+        longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// numbers.reduce(acc, cur) => acc + cur;
+function sumArray (numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+  return numbers.reduce(function(acc, cur){
+    return acc + cur;
+  })
+}
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (numbersAvg) {
+  if(numbersAvg.length == 0) {
+    var avg = numbersAvg[0];
+  } else {
+    var sum = sumArray(numbersAvg);
+    avg = sum / numbersAvg.length;
+  }
+  return avg;
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -32,6 +67,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordsArr) {
+  var wordLengthSum = 0;
+  if (wordsArr.length == 0) {
+    wordLengthSum = 0;
+  } else {
+    for (var i = 0; i < wordsArr.length; i++) {
+      wordLengthSum += wordsArr[i].length;
+    }
+    return wordLengthSum/wordsArr.length;
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +95,28 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+
+ if (arr.length === 0) {
+   return undefined;
+ }
+
+ var result = [];
+
+ arr.forEach(function(item) {
+   if(result.indexOf(item) < 0) {
+     result.push(item);
+   }
+ })
+
+ if (result.length === arr.length) {
+   return arr;
+ } else {
+   return result;
+}}
+
+uniquifyArray(wordsUnique);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +128,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordToSearch, isSearched) {
+  var isFinded = false;
+  wordToSearch.forEach(function(word) {
+    if (word === isSearched) {
+      if (isFinded == false){
+        isFinded = true;
+      } else {
+        return false;
+      }
+    }
+  });
+  return isFinded;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +157,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, search) {
+
+  if (arr.length === 0) {
+    return false;
+  }
+
+  var count = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] == search) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +197,36 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+var compareArr = []
+for (var i = 0; i < matrix.length; i++) {
+  //horizontal combos
+  compareArr.push([matrix[i], matrix[i+1], matrix[i+2], matrix[i+3]]);
+  compareArr.push([matrix[i], matrix[i-1], matrix[i-2], matrix[i-3]]);
+  compareArr.push([matrix[i], matrix[i-1], matrix[i+1], matrix[i+2]]);
+  compareArr.push([matrix[i], matrix[i-2], matrix[i-1], matrix[i+1]]);
+  
+  //vertical combos
+  compareArr.push([matrix[i], matrix[i+20], matrix[i+40], matrix[i+60]]);
+  compareArr.push([matrix[i], matrix[i-20], matrix[i-40], matrix[i-60]]);
+  compareArr.push([matrix[i], matrix[i-20], matrix[i+20], matrix[i+40]]);
+  compareArr.push([matrix[i], matrix[i-40], matrix[i-20], matrix[i+20]]);
+ //diagonal combos
+  compareArr.push([matrix[i], matrix[i+21], matrix[i+42], matrix[i+63]]);
+  compareArr.push([matrix[i], matrix[i-21], matrix[i-42], matrix[i-63]]);
+  compareArr.push([matrix[i], matrix[i-21], matrix[i+21], matrix[i+42]]);
+  compareArr.push([matrix[i], matrix[i-42], matrix[i-21], matrix[i+21]]);
+compareArr.push([matrix[i], matrix[i+19], matrix[i+38], matrix[i+57]]);
+  compareArr.push([matrix[i], matrix[i-19], matrix[i-38], matrix[i-57]]);
+  compareArr.push([matrix[i], matrix[i-19], matrix[i+19], matrix[i+57]]);
+  compareArr.push([matrix[i], matrix[i-38], matrix[i-19], matrix[i+19]]);
+}
+
+var greatestSum = 0;
+for (var i = 0; i < compareArr.length; i++) {
+  let tempSum = compareArr[i].reduce(function(a,b){return a*b;});
+  if (tempSum > greatestSum){
+    greatestSum = tempSum;
+  }
+}
+console.log(greatestSum);
