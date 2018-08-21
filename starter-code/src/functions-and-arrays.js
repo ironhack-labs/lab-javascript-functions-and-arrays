@@ -10,9 +10,18 @@ if (a>b){
 }
 }
 
-function findLongestWord () {
-
-}
+function findLongestWord (arrayWords) {
+var theLongest = "";
+for (i=0; i < arrayWords.length; i++){
+  if (arrayWords.length == 0) {
+    return undefined;
+  } else if (arrayWords[i].length > theLongest.length){
+    theLongest = arrayWords[i];
+   return theLongest; 
+  }
+  } 
+} 
+ 
 // Finding Longest Word
 var words = [
   'mystery',
@@ -26,13 +35,46 @@ var words = [
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray (arrayNumbers) {
+  var sum = 0;
+  for (var i=0; i < arrayNumbers.length; i++){
+    sum += arrayNumbers[i];
+  } return sum;
+}
+
 
 // Calculate the Average
+
+function averageNumbers (arrayNumbers) {
+  var sum = 0;
+  if (arrayNumbers.length == 0) {
+    return undefined;}
+     else {
+    for (var i=0; i < arrayNumbers.length; i++) {
+  sum += arrayNumbers[i];
+  }
+  return sum/arrayNumbers.length;}
+    
+  } 
+  
+
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+function averageWordLength (arrayWords) {
+  var theLongest = 0;
+  if (arrayWords.length == 0) {
+      return undefined;
+  }else {
+    for (var i=0; i < arrayWords.length; i++) {
+      theLongest += arrayWords[i].length;
+    }
+    return theLongest/arrayWords.length;
+    
+  }
+}
+    
 var wordsArr = [
   'seat',
   'correspond',
@@ -45,6 +87,7 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
