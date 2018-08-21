@@ -50,6 +50,13 @@ function sumArray (arrayNums) {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (arrayAvg) {
+  if (arrayAvg.length == 0) {
+    return undefined;
+  }
+  return sumArray(arrayAvg) / arrayAvg.length;
+}
+
 // Array of Strings
 var wordsArr = [
   'seat',
