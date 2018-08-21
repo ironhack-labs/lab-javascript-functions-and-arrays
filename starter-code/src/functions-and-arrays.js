@@ -1,5 +1,8 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a, b){
+  if(a < b) { return b;}
+  else {return a;}
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,6 +14,17 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  var longestWord = "";
+  if (arr.length === 0) { return; }
+  arr.forEach(function (element) {
+    if (element.length > longestWord.length) { longestWord = element; }
+  });
+
+  return longestWord;
+}
+
+//findLongestWord(words);
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -18,6 +32,15 @@ var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  var sum = 0;
+  if(arr.length === 0) { return;}
+  arr.forEach(function(e){
+    sum += e;
+  })
+  return sum/arr.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +55,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function sumArray(arr) {
+  var sum = 0;
+  arr.forEach(function(e){
+    sum += e;
+  });
+  return sum;
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -98,3 +130,47 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function averageWordLength(arr) {
+  var sum = 0;
+  if (arr.length === 0) { return; }
+  arr.forEach(function (e) {
+    sum += e.length;
+  });
+  return sum / arr.length;
+}
+
+function uniquifyArray(arr) {
+  if(arr.length === 0) { return;}
+  
+  var uniqueArr = [];
+  for(let i = 0; i < arr.length; i++){
+    if(uniqueArr.indexOf(arr[i]) === -1){
+      uniqueArr.push(arr[i]);
+    }
+  }
+  return uniqueArr;
+}
+
+function doesWordExist(arr, word){
+  if(arr.length === 0) { return false;}
+
+  for(let i = 0; i < arr.length; i++){
+    if(word === arr[i]) { return true;}
+  }
+
+  return false;
+}
+
+
+function howManyTimes(arr, word){
+  if(arr.length === 0) { return false;}
+  
+  var add = 0;
+  arr.forEach(function(e){
+    if(e === word) { add += 1;}
+  });
+  
+  return add;
+}
