@@ -1,23 +1,72 @@
 // Find the maximum
+  function maxOfTwoNumbers (num1,num2){
+    if (num1 > num2 ){
+      console.log("The largest number is: " + num1 )
+    } else if (num2 > num1 ){
+      console.log("THe largest number is: " + num2)
+    } else {
+      console.log("The number are the same")
+    }
+  }
 
+  maxOfTwoNumbers(2,3)
 // Finding Longest Word
 var words = [
   'mystery',
   'brother',
   'aviator',
+  '123456789',
   'crocodile',
   'pearl',
   'orchard',
   'crackpot'
 ];
 
+function findLongestWord (words){
+  var long = 0;
+  var palabra = ""
+  for (i = 0; i < words.length ; i++ ){
+    if ((words[i].length) > long){
+      long = words[i].length 
+      palabra = words[i]
+    } 
+    else if (words[i].length === long) {
+      long = words[i].length
+    }
+  }
+  console.log(long + " La palabra es: " + palabra)
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+var result = 0;
+function sumArray (numbers){
+  for (i = 0 ; i < numbers.length ; i++) {
+    result += numbers[i]
+
+  }
+  console.log("La suma de los elementos es: " + result);
+}
+sumArray(numbers);
+
+// Calculating the average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+var result = 0;
+function averageNumbers (numbersAvg){
+  for (i = 0 ; i < numbersAvg.length ; i++) {
+    result += numbersAvg[i] 
+
+  }
+  
+  console.log("El promedio es: " + result / numbersAvg.length);
+}
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +81,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+var wordSum = 0; 
+
+function averageWordLength (wordsArr){
+  for (i = 0; i < wordsArr.length; i++){
+    wordSum += wordsArr[i].length 
+    
+  }
+return wordSum
+}
+console.log("The average word lenght is: " + averageWordLength(wordsArr) / wordsArr.length)
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,8 +108,26 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  if (wordsUnique.length === 0) {
+    return;
+  }
+
+  var nuevoArray = [];
+  for (i = 0; i < wordsUnique.length; i++ ){
+    if (nuevoArray.indexOf(wordsUnique[i]) == -1) {
+      nuevoArray.push(wordsUnique[i])
+    }
+  }
+
+  return nuevoArray;
+
+}
+
+uniquifyArray(wordsUnique);
+
 // Finding Elements
-var wordsFind = [
+var words = [
   'machine',
   'subset',
   'trouble',
@@ -58,10 +136,28 @@ var wordsFind = [
   'eating',
   'truth',
   'disobedience'
-];
+ ];
+ var c=0;
+ 
+ function doesWordExist(word,palabra){
+  for (var i=0; i<word.length; i++){
+    if(word[i]===palabra){
+      c +=1
+    }
+  }
+ 
+  if (c>0){
+    return true
+  }
+  else{
+    return false
+  }
+ }
+ 
+ doesWordExist(words, 'machine')
 
 // Counting Repetion
-var wordsCount = [
+var words = [
   'machine',
   'matter',
   'subset',
@@ -73,7 +169,26 @@ var wordsCount = [
   'truth',
   'disobedience',
   'matter'
-];
+ ];
+ 
+ var c=0;
+ 
+ function howManyTimes(word,palabra){
+  for (var i=0; i<word.length; i++){
+    if(word[i]===palabra){
+      c +=1
+    }
+  }
+ 
+  if (c>0){
+    console.log('La palabra '+ palabra + ' se encontró '+c + ' veces')
+  }
+  else{
+    return false
+  }
+ }
+ 
+ howManyTimes(words, 'matter')
 // Bonus Quest
 
 var matrix = [
