@@ -111,7 +111,6 @@ function uniquifyArray (wordsUnique) {
 			}
 		} return newArray;
 	}
-	
 }
 
 
@@ -128,7 +127,7 @@ var wordsFind = [
 ];
 
 function doesWordExist(wordsFind, wordToSearch) {
-	if(wordsFind.includes(wordToSearch)){
+	if (wordsFind.includes(wordToSearch)) {
 		return true;
 	}
 	return false;
@@ -148,6 +147,20 @@ var wordsCount = [
 	'disobedience',
 	'matter'
 ];
+
+function howManyTimes(wordsCount, searchedWord) {
+	var count = 0;
+	if (wordsCount && wordsCount.length) {
+		for (var i = 0; i < wordsCount.length; i++) {
+			if (wordsCount[i] === searchedWord){
+				count++;
+			}
+		}
+		return count;
+	}else{
+		return false;
+	}
+}
 // Bonus Quest
 
 var matrix = [
