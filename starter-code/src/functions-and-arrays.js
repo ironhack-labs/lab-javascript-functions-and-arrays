@@ -53,17 +53,18 @@ sumArray(numbers)
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-if(numbersAvg.length!= 0){
-  averageNumbers(numbersAvg)
-}
-
  var total = sumArray(numbersAvg);
 
 
-function averageNumbers(numbersAvg){
-  return total / numbersAvg.length
+function averageNumbers(arr){
+  if(arr.length === 0) {
+    return 
+  }
+  return sumArray(arr) / arr.length
 }
+
 averageNumbers(numbersAvg)
+
 
 
 // Array of Strings
