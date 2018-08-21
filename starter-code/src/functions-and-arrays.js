@@ -1,52 +1,47 @@
 // Find the maximum
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  };
+};
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function findLongestWord (words) {
+  var result = '';
+  for (var ix = 0; ix < words.length; ix++){
+    if (words[ix].length > result.length){
+       result = words[ix];
+    }
+  }
+  return result;
+}
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray (array) {
+  var sum = 0;
+  for (var ix = 0; ix < numbers.length; ix++){
+    sum += numbers[ix];  
+  }
+  return sum;
+}
+    
 
 // Calculate the Average
+function averageNumbers (numbers) {
+  const numbers = [2, 6, 9, 10, 7, 4, 1, 9].reduce((a, b) => a + b, 0);
+  var avg = averageNumbers/numbers.length;
+};
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+
+  
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+
 
 // Finding Elements
 var wordsFind = [
