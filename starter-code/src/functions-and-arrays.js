@@ -125,7 +125,7 @@ var wordsFind = [
 function doesWordExist (arrayWordsSearch, wordSearched) {
   var finded = false;
   arrayWordsSearch.forEach(function(word) {
-    if (word === wordSearched ) {
+    if (word === wordSearched) {
       if (finded == false){
         finded = true;
       }else {
@@ -150,6 +150,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arrayWordsRepeated, wordSearched) {
+  var count = 0;
+  if (arrayWordsRepeated.length == 0) {
+    return false;
+  }
+  arrayWordsRepeated.forEach(function(word) {
+    if (word === wordSearched) {
+      count++;
+    }
+  });
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
