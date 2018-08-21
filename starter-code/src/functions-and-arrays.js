@@ -1,4 +1,7 @@
 // Find the maximum
+ function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2)
+ }
 
 // Finding Longest Word
 var words = [
@@ -10,14 +13,55 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words) {
+  var longest;
+  var currentMax = 0;
+  for (var i =0; i < words.length; i++) {
+    if (words[i].length > currentMax) {
+      currentMax = words[i].length;
+      longest = words[i];
+    }
+  }
+  return longest;
+ }
+ 
+ findLongestWord(words)
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(number){
+  var suma= 0
+for (var i =0; i < number.length; i++){
+
+suma += number[i]
+}
+return suma
+}
+sumArray(numbers)
+
+
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  if (numbersAvg.length === 0) {
+    return 
+  }
+  var suma1= 0
+for (var i =0; i < numbersAvg.length; i++){
+
+suma1 += numbersAvg[i]
+}
+promedio = suma1/numbersAvg.length
+return promedio
+}
+
+averageNumbers(numbersAvg)
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +76,26 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array){
+  if (wordsArr.length === 0) {
+    return 
+  }
+  var matriz = []
+for (var i =0; i < array.length; i++){
+  matriz.push(array[i].length) 
+}
+var suma= 0
+for (var i =0; i < matriz.length; i++){
+
+suma += matriz[i]
+}
+promedio = suma/matriz.length
+return promedio
+
+}
+
+averageWordLength(wordsArr)
 
 // Unique Arrays
 var wordsUnique = [
