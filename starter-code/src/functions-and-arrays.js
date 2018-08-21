@@ -97,6 +97,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arrayNoUnique) {
+  //crea un array con los elementos de wordUnique, sólo si no existen en el nuevo array
+  var arrayUnique = [];
+  if (arrayNoUnique == 0) {
+    return undefined;
+  }
+  arrayNoUnique.forEach(function(word){
+    if (arrayUnique.indexOf(word) < 0) {
+      arrayUnique.push(word)
+    }
+  });
+  return arrayUnique;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
