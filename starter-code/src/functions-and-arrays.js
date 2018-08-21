@@ -127,6 +127,13 @@ var wordsFind = [
 	'disobedience'
 ];
 
+function doesWordExist(wordsFind, wordToSearch) {
+	if(wordsFind.includes(wordToSearch)){
+		return true;
+	}
+	return false;
+}
+
 // Counting Repetion
 var wordsCount = [
 	'machine',
