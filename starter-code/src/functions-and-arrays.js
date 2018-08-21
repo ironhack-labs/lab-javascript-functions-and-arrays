@@ -1,5 +1,14 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +20,43 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arrayW) {
+  var longest;
+  var currentMax = 0;
+  for (var i =0; i < arrayW.length; i++) {
+    if (arrayW[i].length > currentMax) {
+      currentMax = arrayW[i].length;
+      longest = arrayW[i];
+    }
+  }
+  return longest;
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+
+  for (sum = 0, i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+
+  if (array.length === 0) {
+    return;
+  }
+  return sumArray(array)/array.length;
+
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +71,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array) {
+  sumLength = 0;
+  if (array.length === 0) {
+    return;
+  } else {
+      for (var i = 0; i < array.length; i++){
+        sumLength += array[i].length;
+      }
+      return sumLength/array.length;
+  }
+  
+
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +101,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+
+  if (array.length === 0) {
+    return;
+  }
+
+  var newArray = [];
+  for (i = 0; i< array.length; i++){
+     if (newArray.indexOf(array[i]) == -1) {
+       newArray.push(array[i]);
+     }
+  }
+  return newArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +127,23 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word) {
+  for (i = 0; i < array.length; i++){
+    if (array[i] == word){
+      return true;
+    }
+  }
+  return false;
+/*
+  array.forEach( function(e){
+    if (e === word){
+      return true;
+    }
+  });
+  return false;
+*/
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +159,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  if (array.length === 0){
+    return false;
+  }
+  var times = 0;
+  for (i = 0; i < array.length; i++) {
+    if (array[i] == word){
+      times++;
+    }
+  }
+  return times;
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +196,73 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  var maxProduct = 0;
+  var product = 0;
+
+  // esquina arriba izq
+  product = matrix[0][1] * matrix[1][0];
+  if (product >= maxProduct) {
+    maxProduct = product;
+  }
+
+  //primera fila
+  for (var j = 0; j < matrix[0].length -1; j++){
+    product = matrix[0][j+1] * matrix[1][j] * matrix[0][j-1];
+    if (product >= maxProduct) {
+    maxProduct = product;
+  }
+}
+  // esquina arriba derecha
+  product = matrix[0][matrix[0].length-2] * matrix[1][matrix[0].length-1];
+  if (product >= maxProduct) {
+    maxProduct = product;
+  }
+
+  //1er elemento de cada fila
+  for (i = 1; i < matrix.length - 1; i++){
+  product = matrix[i][1] * matrix[i-1][0] * matrix[i+1][0];
+  if (product >= maxProduct) {
+    maxProduct = product;
+  }
+}
+  //Ultimo elemento de cada fila
+  for (i = 1; i < matrix.length - 1; i++){
+  product = matrix[i][matrix[i].length - 1] * matrix[i-1][matrix[i].length - 1] * matrix[i+1][matrix[i].length - 1];
+  if (product >= maxProduct) {
+    maxProduct = product;
+  }
+}
+
+  for(var i = 1; i < matrix.length - 1; i++){
+
+
+    for (var j = 1 ; j < matrix[i].length - 1; j++) {
+      product = matrix[i-1][j] * matrix[i+1][j] * matrix [i][j-1] * matrix [i][j+1];
+      if (product >= maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // esquina abajo izq
+  product = matrix[matrix.length - 2][0] * matrix[matrix.length - 1][1];
+  if (product >= maxProduct) {
+    maxProduct = product;
+  }
+
+  //última fila
+  for (var j = 1; j < matrix[0].length -1; j++){
+    product = matrix[matrix.length-1][j-1] * matrix[matrix.length - 1][j - 1] * matrix[matrix.length - 1][j+1];
+    if (product >= maxProduct) {
+    maxProduct = product;
+  }
+}
+  // esquina abajo derecha
+  product = matrix[matrix.length -1][matrix.length-2] * matrix[matrix.length-2][matrix.length-1];
+  if (product >= maxProduct) {
+    maxProduct = product;
+  }
+  return maxProduct;
+}
