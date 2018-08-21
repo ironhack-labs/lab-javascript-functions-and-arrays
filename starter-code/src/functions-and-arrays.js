@@ -7,7 +7,6 @@ function maxOfTwoNumbers(num1, num2) {
 	} else {
 		return num1;
 	}
-
 }
 
 // Finding Longest Word
@@ -54,8 +53,14 @@ function sumArray(numbers) {
 
 
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+	if(numbersAvg && numbersAvg.length) {
+		return sumArray(numbersAvg) / numbersAvg.length;
+	}
+}
+
 
 // Array of Strings
 var wordsArr = [
