@@ -181,7 +181,30 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
-
+function greatestProduct(array){
+  var MEJOR = 1
+  var multiplicacionD = 0
+  var multiplicacionI = 0
+  var multiplicacionAr = 0
+  var multiplicacionAb = 0
+for (var j = 0; j<array.length; j++){
+  for (var i=0; i<array[j].length; i++){
+    if(i+3<array[i].length) {
+      multiplicacionD = array[j][i]*array[j][i+1]*array[j][i+2]*array[j][i+3]
+      if(MEJOR<multiplicacionD){
+        MEJOR=multiplicacionD
+      }
+    }
+    if ( i-3>=0){
+      multiplicacionI = array[j][i]*array[j][i-1]*array[j][i-2]*array[j][i-3]
+    if(MEJOR<multiplicacionI){
+      MEJOR=multiplicacionI
+    }
+    }
+  }
+ }
+ return MEJOR
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
