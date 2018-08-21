@@ -115,7 +115,7 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(){
-  
+
 }
 // Finding Elements
 var wordsFind = [
@@ -129,6 +129,9 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(){
+  
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
