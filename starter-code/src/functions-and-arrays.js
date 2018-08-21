@@ -26,7 +26,7 @@ function findLongestWord(words) {
 		return longestWord;
 	} else {
 		return;
-	} 
+	}
 }
 
 var words = [
@@ -40,8 +40,18 @@ var words = [
 ];
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(numbers) {
+	var total = 0;
+	numbers.forEach(function(val) {
+		if (val) {
+			total += val;
+		}
+	});
+	return total;
+}
+
 
 // Calculate the Average
 
