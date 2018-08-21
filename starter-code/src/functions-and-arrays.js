@@ -98,7 +98,6 @@ var wordsUnique = [
 ];
 
 function uniquifyArray (arrayNoUnique) {
-  //crea un array con los elementos de wordUnique, sólo si no existen en el nuevo array
   var arrayUnique = [];
   if (arrayNoUnique == 0) {
     return undefined;
@@ -122,6 +121,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arrayWordsSearch, wordSearched) {
+  var finded = false;
+  arrayWordsSearch.forEach(function(word) {
+    if (word === wordSearched ) {
+      if (finded == false){
+        finded = true;
+      }else {
+        return false;
+      }
+    }
+  });
+  return finded;
+}
 
 // Counting Repetion
 var wordsCount = [
