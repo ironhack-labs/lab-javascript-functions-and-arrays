@@ -11,6 +11,24 @@ function maxOfTwoNumbers(num1, num2) {
 }
 
 // Finding Longest Word
+function findLongestWord(words) {
+	var longestWord = "";
+	if (words && words.length) {
+		for (word of words) {
+			if (word && word !== "") {
+				if (word.length > longestWord.length) {
+					longestWord = word;
+				}
+			} else {
+				continue;
+			}
+		}
+		return longestWord;
+	} else {
+		return;
+	} 
+}
+
 var words = [
 	'mystery',
 	'brother',
