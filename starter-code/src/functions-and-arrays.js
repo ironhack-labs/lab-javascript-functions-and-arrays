@@ -76,6 +76,17 @@ var wordsArr = [
 	'palace'
 ];
 
+function averageWordLength(wordsArr) {
+	var totalLength = 0;
+	if (wordsArr && wordsArr.length) {
+		for (var i = 0; i < wordsArr.length; i++) {
+			totalLength += wordsArr[i].length;
+		}
+		return totalLength / wordsArr.length
+	}
+	
+}
+
 // Unique Arrays
 var wordsUnique = [
 	'crab',
