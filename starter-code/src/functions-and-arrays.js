@@ -81,6 +81,20 @@ var wordsArr = [
   'palace'
 ];
 
+var res;
+
+function averageWordLength(arr){
+  if(arr.length === 0) {
+    return 
+  }
+  var newArray = []
+  for(elem of arr){
+    newArray.push(elem.length)
+  }
+  return res = sumArray(newArray) / arr.length
+}
+
+averageWordLength(wordsArr)
 
 
 
@@ -100,6 +114,9 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(){
+  
+}
 // Finding Elements
 var wordsFind = [
   'machine',
