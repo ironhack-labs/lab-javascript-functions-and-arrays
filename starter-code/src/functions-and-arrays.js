@@ -38,15 +38,10 @@ console.log(findLongestWord(words))
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(x){
-  if(x.length==0){
-    return 0;
-  }
-  var arraySum=[];
   var sum=0;
-  for(var i=0;i<numbers.length;i++){
-    sum += numbers[i];
+  for(var i=0;i<x.length;i++){
+    sum += x[i];
   }
-  arraySum.push(sum);
   return sum;
 }
 
