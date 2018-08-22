@@ -17,7 +17,7 @@ describe('Find the maximum - maxOfTwoNumbers', function () {
   it('Defines maxOfTwoNumbers', function () {
     expect(typeof maxOfTwoNumbers).toBe('function');
   });
-
+   
   it('First parameter larger', function () {
     expect(maxOfTwoNumbers(2, 1)).toBe(2);
   });
@@ -30,6 +30,17 @@ describe('Find the maximum - maxOfTwoNumbers', function () {
     expect(maxOfTwoNumbers(4, 4)).toBe(4);
   });
 });
+function maxOfTwoNumbers(x,y){
+ if(x>y){
+   return x
+ } else if(y>x){
+   return y
+ }else{
+  return y
+ }
+
+}
+
 
 describe('Finding Longest Word - findLongestWord', function () {
   it('Defines findLongestWord', function () {
@@ -57,6 +68,20 @@ describe('Finding Longest Word - findLongestWord', function () {
     }
   });
 });
+function findLongestWord(array){
+  if(array.length>0){
+  var mayor=array[0].length;
+  var nombre=array[0];
+  
+    for(element of array){
+   if(element.length>mayor){
+     mayor=element.length;
+     nombre=element;
+   }
+    }
+   return nombre
+  }
+  }
 
 describe('Calculating a Sum - sumArray', function () {
   it('Defines sumArray', function () {
@@ -79,6 +104,17 @@ describe('Calculating a Sum - sumArray', function () {
     expect(sumArray([10, 5, 4, 32, 8])).toBe(59);
   });
 });
+function sumArray(array){
+  if(array.length > 0){
+  var total=0;
+  for(element of array){
+    total=total+element;
+  }
+  return total
+  }else{
+    return 0
+  }
+}
 
 describe('Calculating the Average - averageNumbers', function () {
   it('Defines averageNumbers', function () {
@@ -101,6 +137,15 @@ describe('Calculating the Average - averageNumbers', function () {
     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
   });
 });
+function averageNumbers(array){
+  if(array.length > 0){
+  var total=0;
+  for(element of array){
+    total=total+element;
+  }
+  return total/array.length
+  }
+}
 
 describe('Calculating the Average - averageWordLength', function () {
   it('Defines averageWordLength', function () {
@@ -119,6 +164,16 @@ describe('Calculating the Average - averageWordLength', function () {
     expect(averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])).toBe(7);
   });
 });
+function averageWordLength(array){
+  if(array.length > 0){
+  var total=0;
+  for(element of array){
+    total=total+element.length;
+  }
+  return total/array.length
+  }
+}
+
 
 describe('Unique Arrays - uniquifyArray', function () {
   it('Defines uniquifyArray', function () {
@@ -141,7 +196,20 @@ describe('Unique Arrays - uniquifyArray', function () {
     expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
   });
 });
-
+function uniquifyArray(array){
+  if(array.length > 0){
+  for(element of array){
+     var palabra=element;
+     var index= array.indexOf(element)
+     for(var i=index+1;i<array.length;i++){
+       if(palabra===array[i]){
+         array.splice(i,1)
+       }
+     }
+  }
+    return array
+  }
+  }
 describe('Finding Elements - doesWordExist', function () {
   it('Defines doesWordExist', function () {
     expect(typeof doesWordExist).toBe('function');
@@ -164,6 +232,19 @@ describe('Finding Elements - doesWordExist', function () {
   });
 });
 
+function doesWordExist(array,word){
+  if (array.length===0){return false}
+  else{
+    var real=false;
+    for(element of array){
+      if(element===word){
+        real=true;
+      }
+    }
+    return real;
+  }
+}
+
 describe('Counting Repetion - howManyTimes', function () {
   it('Defines howManyTimes', function () {
     expect(typeof howManyTimes).toBe('function');
@@ -185,6 +266,19 @@ describe('Counting Repetion - howManyTimes', function () {
     expect(howManyTimes(['basketball', 'football', 'tennis', 'rugby', 'rugby', 'ping pong', 'rugby', 'basketball', 'rugby', 'handball', 'rugby'], 'rugby')).toBe(5);
   });
 });
+
+function howManyTimes(array,word){
+  if (array.length===0){return false}
+  else{
+    var total =0;
+    for(element of array){
+      if(element===word){
+        total=total+1;
+      }
+    }
+    return total;
+  }
+}
 
 describe('Counting Repetion - greatestProduct', function () {
   it('Defines greatestProduct', function () {
