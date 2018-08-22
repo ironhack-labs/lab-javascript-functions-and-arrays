@@ -1,5 +1,5 @@
 // Find the maximum
-function maxNumber(a,b){
+function maxOfTwoNumbers(a,b){
   if(a>b){
     return a;
   }
@@ -20,6 +20,9 @@ var words = [
 
 function findLongestWord(a){
   var largestWord="";
+  if(a.length==0){
+    return;
+  }
   for(var i=0;i<a.length;i++){
     if(largestWord.length<a[i].length){
       largestWord=a[i];
@@ -35,10 +38,15 @@ console.log(findLongestWord(words))
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(x){
-  sum=0;
+  if(x.length==0){
+    return 0;
+  }
+  var arraySum=[];
+  var sum=0;
   for(var i=0;i<numbers.length;i++){
     sum += numbers[i];
   }
+  arraySum.push(sum);
   return sum;
 }
 
@@ -47,6 +55,9 @@ function sumArray(x){
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(x){
+  if(x.length==0){
+    return;
+  }
   sum=0;
   for(var i=0;i<x.length;i++){
     sum += x[i];
@@ -69,6 +80,9 @@ var wordsArr = [
 ];
 
 function averageWordLength(x){
+  if(x.length==0){
+    return;
+  }
   sum=0;
   for(var i=0;i<x.length;i++){
     sum+=x[i].length;
@@ -91,6 +105,9 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(x){
+  if(x.length==0){
+    return;
+  }
   for (var i=0;i<x.length;i++){
     if(x.indexOf(x[i],i+1)!=-1){
       x.splice(i,1);
@@ -138,6 +155,9 @@ var wordsCount = [
 ];
 
 function howManyTimes(arr,b){
+  if(arr.length==0){
+    return false;
+  }
   sum=0;
   for(var i=0;i<arr.length;i++){
     if(arr[i]===b){
@@ -170,7 +190,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-function greatersProduct(x){
+function greatestProduct(x){
   
   var greatest=0;
   for(var i=0;i<x.length;i++){
