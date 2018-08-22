@@ -1,79 +1,68 @@
 // Find the maximum
 
+function maxOfTwoNumbers(numberOne,numberTwo) {
+  if (numberOne > numberTwo) {
+    return numberOne;
+  } else {
+    return numberTwo;
+  }
+}
+
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+
+function findLongestWord (words) {
+  var longestWord = '';
+  if (words.length === 0) { return; };
+  words.forEach(index) ;
+    if (words[index].length>longestWord.length){
+    longestWord = words[index]
+    return longestWord
+  }
+  }
+
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers) {
+  var sum = '';
+  for (var ix = 0; ix < numbers.length; ix++) {
+  return sum += numbers[ix];
+  };
+}
+// try to use numbers.reduce()
+
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (){
+
+}
 
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+function averageWordLength(){
+
+}
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+function uniquifyArray (words){
+ words.indexOf();
+}
+
 
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+
+function doesWordExist (){
+
+}
+
 
 // Counting Repetion
-var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+
+function howManyTimes(wordsCount) {
+  
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -97,4 +86,4 @@ var matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+]
