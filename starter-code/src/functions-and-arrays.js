@@ -114,12 +114,14 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(arr){
-  //var arrUnique = arr;
-  //var a;
-    //for(var i = 0; i < arr.length; i++){
-     // arr.indexOf(arr[i], i+1)
-   // }
-}
+  var uniqs = wordsUnique.filter(function(item,index, arr){
+      return arr.indexOf(item)=== index;
+  })
+  console.log(uniqs)
+ }
+ uniquifyArray(wordsUnique);
+
+console.log(uniquifyArray(wordsUnique));
 
 // Finding Elements
 var wordsFind = [
@@ -190,3 +192,14 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrixIn){
+  var productTemp = matrixIn[0, 0]*matrixIn[0, 1]*matrixIn[0, 2]*matrixIn[0, 3];
+  for (var i = 0; i < matrixIn[i].length; i++){
+    for( var j = 1; j < matrixIn.length-4, j++){
+      if (productTemp < (matrixIn[i, 0]*matrixIn[i, j+1]*matrixIn[i, j+2]*matrixIn[i, j+3]) )
+
+
+    }
+  }
+}
