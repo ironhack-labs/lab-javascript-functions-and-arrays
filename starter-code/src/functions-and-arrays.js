@@ -64,30 +64,22 @@ function averageWordLength(arrayOfWords){
 function uniquifyArray(arrayOfWords){
   if (arrayOfWords.length === 0){
     return undefined;
-  }else{
-    for (i = 0; i < arrayOfWords.length; i++){
-      var indices = [];
-      var element = arrayOfWords[i];
-      var idx = arrayOfWords.indexOf(element);
-      while (idx != -1){
-        indices.push(idx);
-        idx = arrayOfWords.indexOf(element, idx + 1);
-      }
-      if (indices.length > 1){
-        arrayOfWords.splice(i, 1);
-        i -= 1;
-      };
-    };
-    return arrayOfWords;
   };
+  var uniArray = [];
+  for (var i = 0; i < arrayOfWords.length; i++){
+    if ( uniArray.indexOf(arrayOfWords[i]) < 0){
+      uniArray.push(arrayOfWords[i]);
+    };
+  };
+  return uniArray;
 };
 
 
 function doesWordExist(arrayOfWords, singleWord){
   if (arrayOfWords.length === 0){
     return false;
-  }else if ( arrayOfWords.indexOf(singleWord) >= 0){
-          return true;
+  }else if (arrayOfWords.indexOf(singleWord) >= 0){
+    return true;
   } else {
     return false;
   };
@@ -112,10 +104,10 @@ function howManyTimes(arrayOfWords, singleWord){
 
 function areTheyAllOne(currentValue) {
   return currentValue === 1;
-}
+};
 function areTheyAllTwo(currentValue) {
   return currentValue === 2;
-  }
+};
 
 function greatestProduct(matrix){
   if (matrix.every(areTheyAllOne) === true){
