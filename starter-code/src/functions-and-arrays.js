@@ -1,23 +1,173 @@
+
 // Find the maximum
 
 // Finding Longest Word
-var words = [
+let i=0;
+let words = [
   'mystery',
   'brother',
   'aviator',
   'crocodile',
   'pearl',
   'orchard',
-  'crackpot'
+  'crackpot',
+  'java'
 ];
 
+function findLongestWord(str) {
+  return str.sort(function(a, b) {return b.length - a.length;})[0].length;
+}
+
+
+
+// // Find the maximum
+
+// // Finding Longest Word
+// let i=0;
+// let words = [
+//   'mystery',
+//   'brother',
+//   'aviator',
+//   'crocodile',
+//   'pearl',
+//   'orchard',
+//   'crackpot',
+//   'java'
+// ];
+
+//  var longest = " ";
+// alert("The word with the longest length is :"); 
+// alert(findLongestWord(words));
+
+// function findLongestWord(str){
+  
+//   for (var word2 of words) {
+//     if (word2.length > longest.length) longest = word2;
+//   }
+ 
+//   return longest.length;
+//   }
+
+// // Find the maximum
+
+// // Finding Longest Word
+// let words = [
+//   'mystery',
+//   'brother',
+//   'aviator',
+//   'crocodile',
+//   'pearl',
+//   'orchard',
+//   'crackpot'
+//  ];
+ 
+ 
+//  let longestWord = "";
+ 
+//  for (let i=0;i<words.length; i++){
+//    console.log(words[i].length, longestWord.length)
+//   if (words[i].length > longestWord.length){
+//   longestWord = words[i];
+ 
+//   }
+//  }
+//  console.log(longestWord);
+
+
+
+
+// let store = [];
+
+// for (i=0;i<words.length; i++){
+  
+//   if(words[i].length >= store[0].length){
+//     words[0].pop(); 
+//     store[0].push(); words[i].length;
+//   } else {
+   
+//     continue;
+   
+//   }
+// }
+
+
+// var len = words.map(function(words) {
+//   var stor = [];
+//     return words.length
+    
+// })
+
+// console.log(len);
+
+// var len = words.map(function(word) {
+    // return word.length
+// })
+
+
+/*function findLongestWord() {
+  var len1 = words.length[0];
+    console.log(len1)
+  var len2 = words.length[1];
+    console.log(len2)
+  var len3 = words.length[2];
+    console.log(len3)
+  var len4 = words.length[3];
+    console.log(len4) 
+  var len5 = words.length[4];
+    console.log(len5)
+  var len6 = words.length[5];
+    console.log(len6)
+  var len7 = words.length[6];
+    console.log(len7)*/
+  
+  
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray() {
+  total = 0;
+  for(var i in numbers) {
+    total +=numbers[i];
+  }
+console.log(total);
+
+}
+// let total = numbers.reduce(function(a, b) {
+//   return a + b;
+// });
+
+
+ 
+
+
+
 // Calculate the Average
 
+
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+var total = 0;
+
+numbersAvg.forEach(function averageNumbers(numbersAvg){
+  total += numbersAvg;
+});
+
+
+console.log(total / numbersAvg.length);
+
+
+
+
+// var total = 0;
+
+// for(var y = 0; y < numbersAvg.length; y++) {
+//   total += numbersAvg[y];
+// }
+
+// var avg = total / numbersAvg.length;
+
+// console.log(avg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +182,32 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+// not a function!
+
+// let a = wordsArr[0].length / wordsArr.length;
+// let b = wordsArr[1].length / wordsArr.length;
+// let c = wordsArr[2].length / wordsArr.length;
+// let d = wordsArr[3].length / wordsArr.length;
+// let e = wordsArr[4].length / wordsArr.length;
+// let f = wordsArr[5].length / wordsArr.length;
+// let g = wordsArr[6].length / wordsArr.length;
+// let h = wordsArr[7].length / wordsArr.length;
+// let i = wordsArr[8].length / wordsArr.length;
+// let j = wordsArr[9].length / wordsArr.length;
+
+
+// let aver = (a+b+c+d+e+f+g+h+i+j / wordsArr.length);
+
+// console.log(aver);
+
+// const qLength = wordsArr.reduce(function (sum, quote) {
+//   return sum + wordsArr.length;
+  
+// }, 0);
+
+// const avgL = (qLength / wordsArr.length);
 
 // Unique Arrays
 var wordsUnique = [
