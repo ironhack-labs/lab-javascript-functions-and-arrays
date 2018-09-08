@@ -13,6 +13,8 @@ var words = [
 
 // Calculating a Sum
 
+
+var demo
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
