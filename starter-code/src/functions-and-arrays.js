@@ -240,5 +240,40 @@ var greatestProduct = function (numArr){
   return product;
 }
 
+console.log("The first try for the greatest product is: " + greatestProduct(matrix));
 
-console.log("The greatest product is: " + greatestProduct(matrix));
+
+
+
+function greatestProduct2(x){
+  var greatest=0;
+  for(var i=0;i<x.length;i++){
+    var product=0;
+    for(var j=0;j<x[i].length;j++){
+      if(i>0 && i<x.length-1){
+       product=x[i-1][j]*x[i+1][j];
+    }
+      if(i===0){
+        product=x[i+1][j];
+      }
+      if(i===x.length-1){
+        product=x[i-1][j];
+      }
+      if(j>0 && j<x[i].length-1){
+       product=product*x[i][j+1]*x[i][j-1];
+    }
+      if(j===0){
+       product=product*x[i][j+1];
+    }
+      if(j===x[i].length-1){
+       product=product*x[i][j-1];
+    }
+      if(product>greatest){
+        greatest=product;
+    }
+    }
+  }
+  return greatest;
+}
+
+console.log("The second try for the greatest product is: " + greatestProduct2(matrix));
