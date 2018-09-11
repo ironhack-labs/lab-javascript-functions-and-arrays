@@ -60,7 +60,7 @@ var sumArray = function (numArr) {
   }
 }
 
-console.log(sumArray(numbers));
+console.log("The sum of the array numbers is " + sumArray(numbers));
 
 
 
@@ -97,10 +97,11 @@ var wordsArr = [
 
 var averageWordLength = function (wordArr) {
   var NOL = numberOfLetters(wordArr);
-  return averageNumbers(NOL);
+  var averageLength = averageNumbers(NOL);
+  return averageLength;
 }
 
-console.log("The average is " + averageWordLength(wordsArr));
+console.log("The average word length is " + averageWordLength(wordsArr));
 
 
 // Unique Arrays
@@ -220,3 +221,24 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+var greatestProduct = function (numArr){
+  var product = - Number.MAX_VALUE;
+  for (var x = 0; x <= numArr.length - 4; x++){
+    for (var y = 0; y <= numArr[x].length - 1; y++){
+      var mult = numArr[x][y] * numArr[x+1][y] * numArr[x+2][y] * numArr[x+3][y];
+      //console.log(mult);
+      product = Math.max(product, mult);
+    }
+  }
+  for (var x = 0; x <= numArr.length - 1; x++){
+    for (var y = 0; y <= numArr[x].length - 4; y++){
+      var mult = numArr[x][y] * numArr[x][y+1] * numArr[x][y+2] * numArr[x][y+3];
+      product = Math.max(product, mult);
+    }
+  }
+  return product;
+}
+
+
+console.log("The greatest product is: " + greatestProduct(matrix));
