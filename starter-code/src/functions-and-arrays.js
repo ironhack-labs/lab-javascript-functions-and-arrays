@@ -1,5 +1,11 @@
 // Find the maximum
-
+function maxOfTwoNumbers (a,b) {
+  if (a > b) {
+    return a;   
+  } else {
+    return b;
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +16,51 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord (array) {
+  if (array.length == 0) {
+    return undefined;
+  }
+  else {
+    var largestLength = 0;
+    var largestElement;
+    array.forEach(element => {
+      if (element.length>largestLength) {
+        largestLength = element.length;
+        largestElement = element;
+      }
+    });
+    return largestElement;
+  }
+}
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+  if (array.length>0) {
+  const reducer = (acumulator,currentValue) => acumulator + currentValue;
+  return array.reduce(reducer);
+  } else {
+    return 0;
+  }
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (array){
+  if (array.length>0){
+    const reducer = (acumulator,currentValue) => acumulator + currentValue;
+    var avg = array.reduce(reducer) / array.length;
+    return avg;
+  }
+  else {
+    return undefined;
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +76,19 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength (array) {
+  if (array.length>0){
+    var arrayNumbers = [];
+    array.forEach(function(element){ 
+      arrayNumbers.push(element.length);
+    })
+    var avg = averageNumbers(arrayNumbers);
+    return avg;
+  }
+  else {
+    return undefined;
+  }
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +104,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (array) {
+  if (array.length<1){
+    return undefined;
+  }
+  var unifiedArray = [];
+  array.forEach(function(element){
+    if (unifiedArray.indexOf(element) === -1){
+      unifiedArray.push(element);
+    }
+  });
+  return unifiedArray;
+  
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +129,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(array,word){
+  var exists = false;
+  array.forEach(function(element){
+    if (element === word) {
+      exists = true;
+    }
+  })
+  return exists;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +153,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array,word){
+  var howMany = 0;
+  if (array.length<1){
+    return false;
+  } 
+  else {
+    array.forEach(function(element){
+      if (element === word){
+        howMany += 1;
+      }
+    })
+  }
+  return howMany;
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +192,49 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arrayOfArrays) {
+  var product = 0;
+  var highestProduct = 1;
+  var adjancentNumbers = 3;
+
+  for (var i = 0; i < arrayOfArrays.length; i++){
+    for (var j = 0; j < arrayOfArrays.length; j++){
+
+      if (i < arrayOfArrays.length - adjancentNumbers) {
+        product = arrayOfArrays[i][j] * arrayOfArrays[i+1][j] * arrayOfArrays[i+2][j] * arrayOfArrays[i+3][j];
+        if (product>highestProduct){
+          highestProduct = product;
+        }
+      }
+      
+      if (j < arrayOfArrays.length -adjancentNumbers) {
+        product = arrayOfArrays[i][j] * arrayOfArrays[i][j+1] * arrayOfArrays[i][j+2] * arrayOfArrays[i][j+3];
+        if (product>highestProduct){
+          highestProduct = product;
+        }
+      }
+      
+      if ((i < arrayOfArrays.length - adjancentNumbers) && (j< arrayOfArrays.length - adjancentNumbers)){
+        product = arrayOfArrays[i][j] * arrayOfArrays[i+1][j+1] * arrayOfArrays[i+2][j+2] * arrayOfArrays [i+3][j+3];
+        if (product>highestProduct) {
+          highestProduct = product;
+        }
+      }
+      
+      if ((j < arrayOfArrays.length-adjancentNumbers) && (i <arrayOfArrays.length-adjancentNumbers)){
+        product = arrayOfArrays[i][j] * arrayOfArrays[i+1][j-1] * arrayOfArrays[i+2][j-2] * arrayOfArrays[i+3][j-3];
+        if (product>highestProduct) {
+          highestProduct = product;
+        }
+      }
+     
+    }
+    
+
+  }
+  
+  return highestProduct;
+}
+
+greatestProduct(matrix);
