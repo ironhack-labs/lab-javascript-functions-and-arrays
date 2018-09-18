@@ -1,23 +1,48 @@
 // Find the maximum
+function maxOfTwoNumbers (num1, num2){
+  if(num1 < num2){
+    return num2;
+  }else{
+    return num1;
+  }
+}
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function findLongestWord (words){
+  if(!words.length){
+    return;
+  }
+  var longestWord = '';
+  words.forEach(function(word){ 
+    if (word.length > longestWord.length){
+      longestWord = word;
+    }
+  });
+  return longestWord;
+  }
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers){
+  var sum = 0;
+  for(i=0 ; i<numbers.length; i++){
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 // Calculate the Average
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var wordsArr = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (wordsArr){
+  if(!wordsArr.length){
+    return;
+  }
+  var sum = 0;
+  for(i=0 ; i<wordsArr.length ; i++){
+    sum += wordsArr[i];
+  }
+  return sum/wordsArr.length
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +57,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength (wordsArr){
+  if(!wordsArr.length){
+    return;
+  }
+  var sum = 0;
+  for(i=0 ; i<wordsArr.length ; i++){
+    sum += wordsArr[i].length;
+  }
+  return sum/wordsArr.length
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -59,6 +94,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist (wordsFind, word){
+    if(wordsFind.includes(word)){
+      return true;
+    }else{
+      return false;
+    }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,8 +116,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(wordsCount, word){
+  if(!wordsCount.length){
+    return false;
+  }
+  var counter = 0;
+  for (var i=0; i<wordsCount.length;i++){
+    if(word === wordsCount[i]){
+      counter +=1;
+    }
+  }
+  return counter;
+}
 // Bonus Quest
-
+//MÁTAME CAMIÓN 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
