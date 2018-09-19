@@ -20,7 +20,6 @@ var words = [
 ];
 
 function findLongestWord(arrayWords) {
-  var newArray = arrayWords;
   if (arrayWords.length == 0) {
     return undefined;
   } else if (arrayWords.length == 1) {
@@ -39,7 +38,7 @@ function findLongestWord(arrayWords) {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(num) {
-  var length = num.length;
+
   var sum = 0;
   if (num.length == 0) {
     return 0;
@@ -58,7 +57,6 @@ function sumArray(num) {
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numArray) {
-  var averNumber = 0;
   var sum = 0;
   if (numArray.length == 0) {
     return undefined;
@@ -112,7 +110,6 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(arrayWords) {
-  var validation = 0;
   var newArray = [];
   if (arrayWords.length == 0) {
     return undefined;
