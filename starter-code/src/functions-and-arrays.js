@@ -7,7 +7,7 @@ function maxOfTwoNumbers(num1,num2){
   } else if(num1===num2){
     return num1;
   }
-  }
+}
 
 // Finding Longest Word
 var words = [
@@ -21,11 +21,19 @@ var words = [
 ];
 
 function findLongestWord(){
-  
+
 }
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers){
+  var total = 0;
+
+  for (var i = 0; i < numbers.length; i++){
+    total += numbers[i];
+  }
+  return total;
+}
 
 // Calculate the Average
 
