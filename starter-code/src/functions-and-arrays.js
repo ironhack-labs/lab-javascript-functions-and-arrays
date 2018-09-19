@@ -33,6 +33,7 @@ function findLongestWord(arrayWords) {
   }
 }
 
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -110,19 +111,15 @@ var wordsUnique = [
 
 function uniquifyArray(arrayWords) {
   var newArray = [];
-  if (arrayWords.length == 0) {
+  if(arrayWords.length === 0){
     return undefined;
-  } else {
-    arrayWords.forEach(function(element) {
-      for (var i = 0; i < arrayWords.length; i++) {
-        if (arrayWords[i] != element) {
-          break;
-        }
-      }
-      newArray[0] = arrayWords[0];
-    });
-    return newArray;
   }
+  arrayWords.forEach(function(element){
+    if(newArray.indexOf(element) === -1){
+      newArray.push(element);
+    }
+  });
+  return newArray;
 }
 
 // Finding Elements
