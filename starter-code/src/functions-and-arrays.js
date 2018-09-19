@@ -43,12 +43,7 @@ function sumArray(numbers) {
   return result;
 }
 
-/*var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function sumArray (numbers) {
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  return numbers.reduce(reducer);
-}
-sumArray(numbers);*/
+
 
 // Calculate the Average
 
@@ -103,18 +98,19 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(words){
+function uniquifyArray(array){
   if (words.length === 0){
     return undefined;
   }
-  var uniquifiedArray = []
-  for (i=0; i< words.length; i++){
-    if (uniquifiedArray.indexOf(words[i]) === -1){
-      uniquifiedArray.push(words[i])
+  var uniqueArray = []
+  array.forEach(function(item){
+    if(uniqueArray.indexOf(item) === -1) {
+      uniqueArray.push(item);
     }
-  }
-  return uniquifiedArray;
-  }
+  })
+return uniqueArray;
+}
+  
 
 // Finding Elements
 var wordsFind = [
