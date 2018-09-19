@@ -15,11 +15,11 @@ var words = [
 ];
 
 function findLongestWord(words) {
-  var longestWord = words.sort(function (a, b) { 
+  var longWord = words.sort(function (a, b) { 
     return b.length - a.length; 
   });
-  return words[0];
-}
+  return longWord[0];
+};
 
 // Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -27,8 +27,9 @@ var sum = 0;
 function sumArray(numbers){
   for(var i = 0; i < numbers.length; i++){
    sum += numbers[i]
-  }
-}
+   return sum;
+  };
+};
 
 
 // Log the sum
@@ -51,6 +52,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+/*function averageWordLenght(wordsArr){
+  wordsArr.forEach(word){
+    console.log(word.lenght);
+  };
+};*/
+function averageWordLenght(wordsArr){
+  for(var i =0; i < wordsArr.lenght; i++){
+    return wordsArr[i].lenght;
+  }
+};
+
 
 // Unique Arrays
 var wordsUnique = [
