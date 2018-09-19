@@ -34,21 +34,31 @@ function findLongestWord(words){
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var totalSum=0
 function sumArray(numbers){
   if(!numbers.length){
     return 0;
   }
-  var total=0
   numbers.forEach(function(numero){
-    total+=numero;
+    totalSum += numero;
   });
-  total.join();
-  return total;
+  return totalSum;
   }
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(numbersAvg){
+  if(!numbersAvg.length){
+    return;
+  } else if( numbersAvg.length === 1){
+    return numbersAvg[0];
+  }
+  var resultado= 0;
+  for(i = 0; i <= numbersAvg.length; i++){
+    resultado += numbersAvg[i];
+  }
+  return resultado/numbersAvg.length;
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -62,7 +72,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
+function averageWordLength (wordsArr){
+  if( !wordsArr.length){
+    return;
+  } else if(wordsArr.length === 1){
+    return wordsArr[0].length;
+  }
+ var largopalabra = 0;
+ for(i = 0; i <= wordsArr.length; i++) {
+   largopalabra += wordsArr[i];
+ }
+ return largopalabra / wordsArr.length;
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
