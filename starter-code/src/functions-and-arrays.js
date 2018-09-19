@@ -34,8 +34,8 @@ function findLongestWord(words){
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-var totalSum=0
 function sumArray(numbers){
+  var totalSum=0
   if(!numbers.length){
     return 0;
   }
@@ -43,7 +43,7 @@ function sumArray(numbers){
     totalSum += numero;
   });
   return totalSum;
-  }
+}
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -54,7 +54,7 @@ function averageNumbers(numbersAvg){
     return numbersAvg[0];
   }
   var resultado= 0;
-  for(i = 0; i <= numbersAvg.length; i++){
+  for(var i = 0; i < numbersAvg.length; i++){
     resultado += numbersAvg[i];
   }
   return resultado/numbersAvg.length;
@@ -78,11 +78,11 @@ function averageWordLength (wordsArr){
   } else if(wordsArr.length === 1){
     return wordsArr[0].length;
   }
- var largopalabra = 0;
- for(i = 0; i <= wordsArr.length; i++) {
-   largopalabra += wordsArr[i];
+ var largoPalabra = 0;
+ for(i = 0; i < wordsArr.length; i++) {
+   largoPalabra += wordsArr[i].length;
  }
- return largopalabra / wordsArr.length;
+ return largoPalabra / wordsArr.length;
 }
 // Unique Arrays
 var wordsUnique = [
@@ -98,6 +98,18 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(wordsUnique){
+  var uniqueArray = [];
+  if(!wordsUnique.length){
+    return;
+  }
+  wordsUnique.forEach(function(item){
+    if(uniqueArray.indexOf(item) === -1){
+      uniqueArray.push(item);
+    }
+  })
+  return uniqueArray;
+}
 
 // Finding Elements
 var wordsFind = [
@@ -110,7 +122,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(wordsFind,search){
+  for (var i=0; i< wordsFind.length; i++){
+    if(wordsFind[i] === search){
+      return true;
+    }
+   
+  }
+  return false;
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -125,6 +145,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(wordsCount,search){
+  if(!wordsCount.length){
+    return false;
+  }
+  var count= 0;
+  for (var i=0; i< wordsCount.length; i++){
+    if(wordsCount[i] === search){
+      count++;
+    }  
+}
+return count;
+}
 // Bonus Quest
 
 var matrix = [
