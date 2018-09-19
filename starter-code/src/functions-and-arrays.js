@@ -38,7 +38,6 @@ function findLongestWord(arrayWords) {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(num) {
-
   var sum = 0;
   if (num.length == 0) {
     return 0;
