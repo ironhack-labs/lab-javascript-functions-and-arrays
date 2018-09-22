@@ -7,6 +7,7 @@ function maxOfTwoNumbers(num1,num2){
   return Math.max(num1,num2);
 }
 
+maxOfTwoNumbers(6,9);
 
 // Finding Longest Word
 var words = [
@@ -25,7 +26,7 @@ findLongestWord(words);
 Argument wordArr is the array being tested */
 
 function findLongestWord(wordArr){
-  var longestWordSoFar ='';
+  var longestWordSoFar = 'none';
   var longestLenghtSoFar = 0;
   for(var i= 0; i < wordArr.length; i++){
     if(wordArr[i].length >longestLenghtSoFar){
@@ -46,10 +47,12 @@ sumArray(numbers);
 /* takes an array of numbers and calculate the sum
 Argument numArr is the array being tested */
 
+
 function sumArray(numArr){
-  var sum= 0;
+  var sum = 0;
+  
   for(var i= 0; i<numArr.length; i++){
-    sum =+ numArr[i];
+    sum += numArr[i];
   }
 return sum;
 }
@@ -64,7 +67,7 @@ averageNumbers(numbersAvg);
 Argument numArr is the array being calculated */
 
 function averageNumbers(numArray){
-  var average = sumArray(numArray)/numArray.length) ;
+  var average = sumArray(numArray/numArray.length) ;
   return average;
 }
 
@@ -90,7 +93,7 @@ Argument wordArr is the array being calculated */
 
 function averageWordLength(wordArr){
   var lengthOfWordsArray;
-  wordArr.forEach(element => {
+  wordArr.forEach( element => {
     lengthOfWordsArray[i] = element.length;
   });
   return averageNumbers(lengthOfWordsArray);
@@ -119,14 +122,14 @@ Argument wordArr is the array being cleaned */
 
 function uniquifyArray(wordArr){
   var uniquesArr = [];
-  for ( var i= 0, i < wordArr.length, i++){
+  for ( var i= 0; i < wordArr.length; i++){
     var idi = wordArr.indexOf(wordArr[i]);
     while(idi !=-1){
       uniquesArr.push(idi);
       idi = wordArr.indexOf(wordArr[i], idi +1);
     }
   }
-  return(uniquesArr);
+  return uniquesArr;
   }
 
 // Finding Elements
@@ -140,6 +143,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+/* takes 2 arguments : an array of words and a word to search.
+returns true if it exists, otherwise, return false.
+Arguments = wordArr is the array being searched, and word is what we are looking for*/
+
+function doesWordExist(wordArr,word){
+  var result = false;
+  var i=0
+  while(result=false && i < wordArr.length){
+   result = wordArr[i] == word;
+   i++; 
+  }
+  return result;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -155,6 +172,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+/* function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. 
+The function will return the number of times that word appears in the array.
+*/
+
+function wordsCount(wordArr,word){
+  var count =0;
+  for (var i=0; i<wordArr.length; i++){
+    if (word == wordArr[i]){ 
+    count += 1;
+    }
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
