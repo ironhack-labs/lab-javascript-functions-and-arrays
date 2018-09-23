@@ -147,6 +147,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  if (array == 0) return false;
+  var count = 0;
+  for (var i=0; i < array.length; i++) {
+    if (array[i] == word) {
+      count = count + 1;
+    }  
+  }
+  return count;
+} 
+
 // Bonus Quest
 
 var matrix = [
