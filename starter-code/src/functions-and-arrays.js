@@ -1,14 +1,16 @@
 // Find the maximum
 
-function maxOfTwoNumbers(numbersAvg) {
-  var max = numbersAvg[0];
-  for (var i= 0; i < (numbersAvg.length); i++) {
-    if (max < numbersAvg[i]){
-      max= numbersAvg[i];
-    } 
-    else 
-      continue
+function maxOfTwoNumbers(number1, number2) {
+  var max;
+  if (number1 > number2) {
+    max = number1;
+  } 
+  else if (number2 > number1) {
+    max = number2;
   }
+  else 
+    max = number1;
+
   return max;
 }
 
@@ -53,18 +55,10 @@ function sumArray(myArray) {
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  var sum = 0;
-  for (var i=0; i < numbersAvg.length; i++) {
-    sum= sum + numbersAvg[i];
-  }
-  var average = sum / numbersAvg.length;
-
-  if (numbersAvg == []) {
-    return 0;
-  } else 
-  {
-    return average;
-  }
+  if (numbersAvg.length == 0) 
+    return undefined;
+  var average = sumArray(numbersAvg) / numbersAvg.length;
+  return average;
 }
 
 // Array of Strings
@@ -80,6 +74,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr) {
+  if (wordsArr.length == 0) 
+  return undefined;
+  var sum = 0;
+  for (var i= 0; i < wordsArr.length; i++) {
+    sum = sum + wordsArr[i].length;
+  } 
+  var average = sum / wordsArr.length;
+  return average;
+}
 
 // Unique Arrays
 var wordsUnique = [
