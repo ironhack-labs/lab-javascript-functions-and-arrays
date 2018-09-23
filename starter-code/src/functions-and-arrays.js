@@ -101,6 +101,18 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(Array) {
+  var newArray= [];
+  if (Array == 0) return undefined
+  Array.forEach(function (element) {
+    if (newArray.indexOf(element) == -1) {
+      newArray.push(element);
+    }
+  });
+  return newArray;
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -112,6 +124,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word) {
+  for (var i=0; i < array.length; i++) {
+    if (array[i] === word) 
+      return true
+  } 
+  return false 
+}
 
 // Counting Repetion
 var wordsCount = [
