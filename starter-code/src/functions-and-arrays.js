@@ -1,5 +1,11 @@
 // Find the maximum
-
+function maxOfTwoNumbers (num1, num2) {
+  if(num1 > num2){
+    return num1;
+  } else{
+    return num2;
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +17,45 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (tab) {
+  if(!tab || !tab.length > 0)
+    return;
+  var prev = tab[0];
+  for(var i =0; i< tab.length; i++){
+    if(tab[i].length > prev.length){
+      prev= tab[i];
+    }
+  }
+  console.log("longest = ", prev);
+  return prev;
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(tab) {
+  var sum=0;
+  tab.forEach(function(num) {
+    sum += num;
+  });
+  return sum;
+}
+
+
+console.log("sum = ", sumArray);
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (tab) {
+  if(tab.length > 0) {
+    var sum = sumArray(tab);
+    return (sum/tab.length);
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +70,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordTab) {
+  var wordLength=[];
+  wordTab.forEach(function(word) {
+    wordLength.push(word.length);
+  });
+
+  return averageNumbers(wordLength);
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +95,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordTab) {
+  if(!wordTab || !wordTab.length > 0)
+    return;
+  var uniqueTab = [];
+  wordTab.forEach(function(word) {
+    if(uniqueTab.indexOf(word) === -1){
+      uniqueTab.push(word);
+    }
+  });
+
+  return uniqueTab;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +119,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordTab, word) {
+  return wordTab.includes(word);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +138,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordTab, wordToCount) {
+  var count= 0;
+  if(!wordTab || !wordTab.length > 0){
+    return false;
+  }
+  wordTab.forEach(function(word) {
+    if(word === wordToCount) {
+      count +=1
+    }
+  });
+
+  return count;
+}
 // Bonus Quest
 
 var matrix = [
