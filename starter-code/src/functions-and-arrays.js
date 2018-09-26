@@ -116,7 +116,7 @@ function uniquifyArray(wordsUnique){
   if (wordsUnique.length == 0) {return undefined;}
   var newWordsArray =[];
   for (var i = 0; i < wordsUnique.length; i++) {
-      if ( wordsUnique.indexOf(wordsUnique[i]) == (-1) ) {
+      if ( newWordsArray.indexOf(wordsUnique[i]) == (-1) ) {
       newWordsArray.push(wordsUnique[i]);
     }
   }
@@ -163,8 +163,8 @@ var wordFound = 'starting';
 function howManyTimes(wordsCount, wordFound) {
   if (wordsCount.length == 0) {return false;};
   var count = 0; 
-  for (var i = 0; i < wordsFind.length; i++) {
-    if (wordFound == wordsFind[i] ) {
+  for (var i = 0; i < wordsCount.length; i++) {
+    if (wordFound == wordsCount[i] ) {
     count++ ; 
     }
   }
