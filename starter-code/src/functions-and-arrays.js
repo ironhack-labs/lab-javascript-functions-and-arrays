@@ -1,5 +1,14 @@
 // Find the maximum
 
+/* two numbers as arguments and returns the largest
+Arguments num1 and num2 are the two numbers being compared */
+
+function maxOfTwoNumbers(num1,num2){
+  return Math.max(num1,num2);
+}
+
+maxOfTwoNumbers(6,9);
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +20,65 @@ var words = [
   'crackpot'
 ];
 
+findLongestWord(words);
+
+/* takes an array of words and returns the longest one
+Argument wordArr is the array being tested */
+
+function findLongestWord(wordArr){
+  if(wordArr.length == 0){
+    return undefined;
+  }
+  else {
+  var longestWordSoFar = '';
+  var longestLenghtSoFar = 0;
+  for(var i = 0; i < wordArr.length; i++){
+    if(wordArr[i].length >longestLenghtSoFar){
+      longestLenghtSoFar = wordArr[i].length;
+      longestWordSoFar = wordArr[i];
+    }
+  }
+  return longestWordSoFar;
+}
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+sumArray(numbers);
+
+/* takes an array of numbers and calculate the sum
+Argument numArr is the array being tested */
+
+
+function sumArray(numArr){
+  var sum = 0;
+  
+  for(var i= 0; i<numArr.length; i++){
+    sum += numArr[i];
+  }
+return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+averageNumbers(numbersAvg);
+
+/* takes an array of numbers and calculate the average
+Argument numArr is the array being calculated */
+
+function averageNumbers(numArray){
+  if(numArray.length == 0){
+    return undefined;
+  }
+  else {
+  var average = sumArray(numArray)/numArray.length ;
+  return average;
+}
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +93,25 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+averageWordLength(wordArr);
+
+/* takes an array of words and calculate the average of lenghts
+Argument wordArr is the array being calculated */
+
+function averageWordLength(wordArr){
+  if(wordArr.length == 0){
+    return undefined;
+  }
+  else {
+  var lengthOfWordsArray = [];
+
+for (var i=0; i<wordArr.length; i++){
+  lengthOfWordsArray.push(wordArr[i].length);
+}
+  return averageNumbers(lengthOfWordsArray);
+}
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +128,28 @@ var wordsUnique = [
   'bring'
 ];
 
+
+uniquifyArray(wordsUnique);
+
+/* takes an array of words remove the duplicates, and return a new array
+Argument wordArr is the array being cleaned */
+
+function uniquifyArray(wordArr){
+  if(wordArr.length == 0){
+    return undefined;
+  }
+  else {
+  var uniquesArr = [];
+  wordArr.forEach(function(oneWord){
+    if (uniquesArr.indexOf(oneWord) == -1){
+      uniquesArr.push(oneWord);
+    }
+    }
+    );
+  return uniquesArr;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +161,23 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+/* takes 2 arguments : an array of words and a word to search.
+returns true if it exists, otherwise, return false.
+Arguments = wordArr is the array being searched, and word is what we are looking for 
+*/
+
+function doesWordExist(wordArr,word) {
+  var i = 0 ;
+  while(i < wordArr.length ) {
+    if (wordArr[i] == word){
+      return true;  
+    }
+    i++;
+  }
+  return false;
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +193,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+/* function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. 
+The function will return the number of times that word appears in the array.
+*/
+
+function howManyTimes(wordArr,word) {
+  if (wordArr.length == 0) {return false; }
+  var i = 0 ;
+  var count = 0;
+  while(i < wordArr.length ) {
+    if (wordArr[i] == word){
+      count ++;
+    }
+    i++;
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +235,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
