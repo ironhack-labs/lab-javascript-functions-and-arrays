@@ -1,10 +1,9 @@
 // Find the maximum
-
 function maxOfTwoNumbers(a,b) {
-  if (a>=b) return a
-  else if (a<b) return b
+  // if (a>=b) return a
+  // else if (a<b) return b
+  return a > b ? a : b
 }
-
 // Finding Longest Word
 var words = [
   'mystery',
@@ -15,7 +14,6 @@ var words = [
   'orchard',
   'crackpot'
 ];
-
 function findLongestWord (wordArray) {
   if (wordArray.length === 0) return
   var max = "";
@@ -27,38 +25,23 @@ function findLongestWord (wordArray) {
   //   }
   // }
   // return wordArray[index]
-
   wordArray.forEach(function(element){
     if (element.length > max.length) max = element
   })
   return max
-
-
 }
-
-
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumArray (arraySum) {
   return arraySum.reduce(function(total, num){return total + num},0)
 }
-
-
-
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-
 function averageNumbers (array) {
   if (array.length === 0) return
   return sumArray(array) / array.length;
 }
-
 console.log(typeof averageNumbers)
-
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -72,17 +55,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
-
 function averageWordLength (arrayStrings) {
   if (arrayStrings.length === 0) return
 var arraySum = 0;
-  for (let i=0; i < arrayStrings.length; i++) {
-    arraySum += arrayStrings[i].length;
-  }
+  // for (let i=0; i < arrayStrings.length; i++) {
+  //   arraySum += arrayStrings[i].length;
+  // }
+  // return arraySum / arrayStrings.length;
+  arrayStrings.forEach(function(element){
+    arraySum += element.length;
+  })
   return arraySum / arrayStrings.length;
 }
-
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -97,10 +81,7 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-
-
 function uniquifyArray (arrayString) {
-
   // for (let i=0; i < arrayStrings.length; i++) {
   //   for (let j=arrayString.toI; j< arraystrings.length;)
   //   if (arrayString[i] === stringStored) {
@@ -109,12 +90,14 @@ function uniquifyArray (arrayString) {
   // }
   if (arrayString.length === 0) return
   var  temp = [];
-  for (let i=0; i < arrayString.length; i++) {
-    if (temp.indexOf(arrayString[i]) == -1) temp.push(arrayString[i])
-  }
+  // for (let i=0; i < arrayString.length; i++) {
+  //   if (temp.indexOf(arrayString[i]) == -1) temp.push(arrayString[i])
+  // }
+  arrayString.forEach(function(element){
+    if(temp.indexOf(element) == -1) temp.push(element)
+  })
   return temp;
   }
-
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -126,11 +109,9 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
-
 function doesWordExist (arrayOfWords, word) {
   let isWord = false;
-  if (arrayOfWords.length === 0) return false
+  if (arrayOfWords.length === 0) return false;
   // for (let i=0; i<arrayOfWords.length; i++) {
   //   if (word == arrayOfWords[i]) return true
   // }
@@ -141,7 +122,6 @@ function doesWordExist (arrayOfWords, word) {
   if (isWord) return true;
   return false;
 }
-
 function howManyTimes (arrayOfWords, word) {
   var tracker = 0;
   if (arrayOfWords.length === 0) return false
@@ -150,7 +130,6 @@ function howManyTimes (arrayOfWords, word) {
   }
   return tracker;
 }
-
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -166,31 +145,27 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
-
 function product(a,b,c,d) {
   return a*b*c*d;
 }
-
 function greatestProduct(arrayMatrix) {
   var maxresult = 0;
   var temp = 0;
+
   for (let i=0; i<arrayMatrix.length; i++) {
     for (let j=0; j<arrayMatrix[0].length-4; j++) {
       temp = product(arrayMatrix[i][j], arrayMatrix[i][j+1], arrayMatrix[i][j+2], arrayMatrix[i][j+3])
       if(temp > maxresult) maxresult = temp;
     }
   }
-
   for (let k=0; k<arrayMatrix[0].length; k++) {
     for (let l=0; l<arrayMatrix.length-4; l++) {
       temp = product(arrayMatrix[l][k], arrayMatrix[l][k+1], arrayMatrix[l][k+2], arrayMatrix[l][k+3])
       if(temp > maxresult) maxresult = temp;
     }
   }
-
   return maxresult;
 }
-
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
