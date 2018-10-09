@@ -294,5 +294,18 @@ describe('Counting Repetion - greatestProduct', function () {
     ];
     expect(greatestProduct(matrix)).toBe(10000);
   });
+
+  it('Return 800 as answer when one 100 and one 1 in a row otherwise 2', function () {
+    var matrix = [
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 20, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 100, 1],
+    ];
+    expect(greatestProduct(matrix)).toBe(800);
+  });
+
 });
 

@@ -1,10 +1,6 @@
 // Find the maximum
 function maxOfTwoNumbers(a,b) {
-  if (a>b) {
-    return a;
-  } else {
-    return b;
-  }
+  return a>b ? a : b
 }
 
 maxOfTwoNumbers(5,10);
@@ -21,17 +17,13 @@ var words = [
 ];
 
 function findLongestWord(words) {
-  var res = "";
+  var res = words[0];
   for (var i = 0; i<words.length;i++) {
     if (words[i].length > res.length) {
       res = words[i];
     } 
   }
-  if (res == "") {
-    return undefined
-  } else {
-    return res;
-  }
+  return res;
 }
 
 longestWord(words);
@@ -55,7 +47,6 @@ var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(n) {
   if (n.length == 0)
     return undefined;
-  else 
   return (sumArray(n)/n.length);
 }
 
@@ -76,11 +67,13 @@ var wordsArr = [
 ];
 
 function averageWordLength(arr) {
+  if (arr.length == 0)
+    return undefined;
   var sum = 0;
   for (var i = 0; i<arr.length;i++) {
     sum += arr[i].length;
   }
-  return arr.length===0 ? undefined : sum/arr.length;
+  return sum/arr.length;
 }
 
 // Unique Arrays
@@ -189,7 +182,7 @@ var matrix = [
 
 function productHorizontal(row,col,matrix) {
   var product = 1;
-  for (i=0;i<4;i++) {
+  for (var i=0;i<4;i++) {
     product = product*matrix[row][col+i];
   }
   return product;
@@ -197,7 +190,7 @@ function productHorizontal(row,col,matrix) {
 
 function productVertical(row,col,matrix) {
   var product = 1;
-  for (i=0;i<4;i++) {
+  for (var i=0;i<4;i++) {
     product = product*matrix[row+i][col];
   }
   return product;
@@ -207,7 +200,7 @@ function greatestProduct(matrix) {
   var largestProduct = 0;
   //iterates through Matrix up to the 4th to last ROW , checks 4 BELOW
   for (var row=0;row<matrix.length-3;row++) {
-    for (var col=0;col<matrix.length;col++) {
+    for (var col=0;col<matrix[0].length;col++) {
       if (productVertical(row,col,matrix)>largestProduct) {
         largestProduct = productVertical(row,col,matrix);
       }
@@ -215,7 +208,7 @@ function greatestProduct(matrix) {
   }
   //iterates through Matrix, up to the 4th to last COL checks 4 to the RIGHT
   for (var row=0;row<matrix.length;row++) {
-    for (var col=0;col<matrix.length-3;col++) {
+    for (var col=0;col<matrix[0].length-3;col++) {
       if (productHorizontal(row,col,matrix)>largestProduct) {
         largestProduct = productHorizontal(row,col,matrix);
       }
