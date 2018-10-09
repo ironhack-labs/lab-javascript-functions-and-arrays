@@ -1,11 +1,7 @@
 // Find the maximum
 
 function maxOfTwoNumbers(a, b) {
-  if (a > b) {
-    return a;
-  } else {
-    return b;
-  }
+  return a > b ? a : b;
 }
 
 // Finding Longest Word
@@ -24,7 +20,7 @@ function findLongestWord(words) {
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > longestWord.length) {
       longestWord = words[i];
-    }
+
   }
   return longestWord;
 }
