@@ -1,6 +1,6 @@
 // Find the maximum
 
-function maxOfTwoNumbers(a,b) {
+function maxOfTwoNumbers(a, b) {
   if (a > b) {
     return a;
   } else {
@@ -24,7 +24,7 @@ function findLongestWord(words) {
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > longestWord.length) {
       longestWord = words[i];
-    } 
+    }
   }
   return longestWord;
 }
@@ -36,7 +36,7 @@ var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(numbers) {
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
-    sum+= numbers[i];
+    sum += numbers[i];
   }
   return sum;
 }
@@ -134,7 +134,7 @@ function doesWordExist(arr, word) {
       return true;
     }
   }
-return false;
+  return false;
 }
 
 
@@ -182,8 +182,8 @@ function greatestProduct(matrix) {
   // ROW
   for (let i = 0; i < matrix.length; i++) {
     // COL
-    for (let j = 0; j < matrix[i].length-3; j++) {
-      const thisProduct = matrix [i][j] * matrix [i][j+1] *  matrix [i][j+2] * matrix[i][j+3]; 
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      const thisProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
       // console.log(thisProduct);
       if (thisProduct > greatest) {
         greatest = thisProduct;
@@ -191,10 +191,10 @@ function greatestProduct(matrix) {
     }
   }
   // ROW
-  for (let i = 0; i < matrix.length-3; i++) {
+  for (let i = 0; i < matrix.length - 3; i++) {
     // COL
-    for (let j = 0; j < matrix.length; j++) {
-      const thisProduct = matrix [i][j] * matrix [i+1][j] * matrix [i+2][j] * matrix [i+3][j];
+    for (let j = 0; j < matrix[i].length; j++) {
+      const thisProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
       if (thisProduct > greatest) {
         greatest = thisProduct;
       }
