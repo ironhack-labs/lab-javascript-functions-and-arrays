@@ -1,5 +1,12 @@
 // Find the maximum
 
+
+function maxOfTwoNumbers(a,b) {
+  var numbers = Math.max(a,b)
+  return numbers
+  }
+  console.log(maxOfTwoNumbers(2,5))
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,9 +18,87 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(words){
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  var res = words.sort(function (a, b){
+    return  b.length - a.length;
+ 
+  })
+  return res[0];
+ }
+ console.log(findLongestWord(words));
+
+//  function findLongestWord(arr) {
+//   var length = 0;
+//   for (var i = 0; i < arr.length; i++) {
+//     if (arr[i].length > length) {
+//       length = arr[i].length;
+//       var longestWord = arr[i];
+//     } 
+//   };
+//  return longestWord;
+// }
+
+// function findLongestWord(words) {
+//   var vocab = "";
+//   for (var i = 0; i < words.length -1; i++) {
+//     if (words[i].length < words[i].length) {
+//       vocab += words[i];
+//     }
+//     return vocab;
+//   }
+//   console.log("vocab",vocab)
+// }
+
+// words.sort(function(a, b) {
+// return b.length - a.length;
+// })
+// console.log(words.sort())
+
+// function words(str) {
+//   return str.reduce((a, b) => a.length < b.length ? b : a);
+// }
+
+// Calculating a Sum
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10].reduce(sumArray, 0);
+ 
+  // function sumArray(total, num) {
+  //   return total + num;
+  //  }
+  //  console.log(numbers.reduce(sumArray))
+  
+  function sumArray(a,b) {
+    return a + b;
+  }
+
+  // function sumArray(numbers) {
+  //   var goal = numbers.reduce(
+  //     (total, num) => total + num, 
+  //     );
+  //     return goal;
+  // }
+  // console.log(sumArray(numbers))
+
+  // function sumArray(numbers) {
+  //   var total = numbers.reduce(
+  //     (sum, num) => sum + num,
+  //     0
+  //   )
+  //   return total;
+  // }  console.log(sumArray(numbers))
+
+
+
+//console.log(numbers.reduce(sumArray))
+
+//this part works
+
+// function sumArray(total, num) {
+//   return total + num;
+//  }
+//  console.log(numbers.reduce(sumArray))
+
+
 
 // Calculate the Average
 
