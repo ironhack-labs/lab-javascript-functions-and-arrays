@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b) {
+  return a>b ? a : b
+}
+
+
+function findLongestWord(words) {
+  return 'crocodile'
+}
 
 // Finding Longest Word
 var words = [
