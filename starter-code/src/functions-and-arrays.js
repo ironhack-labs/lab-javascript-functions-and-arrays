@@ -193,3 +193,18 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr){
+  var product = 0;
+  arr.forEach(function(item){
+    for(var i =0; i < item.length-3; i++){
+      var currentProduct = item[i]*item[i+1]*item[i+2]*item[i+3];
+      if(product < currentProduct) {
+        product = currentProduct;
+      }
+    }
+  })
+  return product;
+}
+
+greatestProduct(matrix);
