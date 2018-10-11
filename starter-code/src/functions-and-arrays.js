@@ -111,7 +111,7 @@ function uniquifyArray(wordsUnique){
 }
 
 // Finding Elements
-var wordsFind = [
+var arrayOfWords = [
   'machine',
   'subset',
   'trouble',
@@ -121,6 +121,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+var wordToSearch = "machines";
+function doesWordExist(arrayOfWords,wordToSearch){
+  for(i=0; i < arrayOfWords.length; i++){
+     if(arrayOfWords[i] == wordToSearch){
+       return 'true';
+     }
+  }
+  return 'false';
+}
+console.log(doesWordExist(arrayOfWords,'machine'));
+
 
 // Counting Repetion
 var wordsCount = [
@@ -136,6 +147,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+var count = 0;
+var wor = "matter"
+function howManyTimes(arrOfWords,worToSearch){
+  for(i=0; i < arrOfWords.length; i++){
+     if(arrOfWords[i] == worToSearch){
+       count += 1;
+     }
+  }
+  return count;
+}
+console.log(howManyTimes(wordsCount,wor));
+
 // Bonus Quest
 
 var matrix = [
