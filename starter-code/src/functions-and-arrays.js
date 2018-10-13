@@ -121,6 +121,20 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordArray,wordsearch){
+  var isFound = false;
+  if (wordArray.length===0) {
+    return isFound;
+  } else {
+    for (i=0; i<wordArray.length; i++) {
+      if (wordArray[i].toLowerCase()===wordsearch.toLowerCase()){
+      isFound = true;
+      }   
+    }
+    return isFound;
+  }
+}
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -135,6 +149,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArray,wordsearch){
+  var isFound = 0;
+  if (wordArray.length===0) {
+    return false;
+  } else {
+    for (i=0; i<wordArray.length; i++) {
+      if (wordArray[i].toLowerCase()===wordsearch.toLowerCase()){
+      isFound+=1;
+      }   
+    }
+    return isFound;
+  }
+}
+
+
 // Bonus Quest
 
 var matrix = [
