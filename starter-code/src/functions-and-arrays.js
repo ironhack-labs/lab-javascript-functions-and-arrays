@@ -94,14 +94,17 @@ var wordsUnique = [
   "bring"
 ];
 
-// function uniquifyArray(wordsUnique) {
-//   for (var i = 0, newArray = ""; i < wordsUnique.length; i++) {
-//     if ((wordsUnique.indexOf(wordsUnique[i]) === wordsUnique[i]) {
-//       newArray += wordsUnique[i]
-//     }
-//   }
-//   return newArray
-// }
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return;
+  }
+  for (var i = 0, newArray = []; i < wordsUnique.length; i++) {
+    if (wordsUnique.indexOf(wordsUnique[i]) === i) {
+      newArray.push(wordsUnique[i]);
+    }
+  }
+  return newArray;
+}
 
 // Finding Elements
 var wordsFind = [
