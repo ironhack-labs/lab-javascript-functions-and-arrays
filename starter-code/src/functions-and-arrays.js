@@ -1,4 +1,4 @@
-/ Find the maximum
+//Find the maximum
 function maxOfTwoNumbers(num1, num2) {
 if(num1 > num2) {
  return num1;
@@ -87,12 +87,15 @@ var wordsArr = [
 ];
 
 function averageWordLength() {
- var oneLongWord = ""
- for(var i=0;i<wordsArr.length;i++) {
-     oneLongWord = wordsArr[i] + oneLongWord;
+  var oneLongWord = ""
+  for(var i=0;i<wordsArr.length;i++) {
+      oneLongWord = wordsArr[i] + oneLongWord;
+  }
+  oneLongWordAverage = oneLongWord.length / wordsArr.length
+ console.log(oneLongWordAverage)
  }
-console.log(oneLongWord)
-}
+ 
+ averageWordLength()
 
 // Unique Arrays
 var wordsUnique = [
