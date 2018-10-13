@@ -51,6 +51,7 @@ function sumArray(arr){
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
+  if (arr.length > 0) {
   let sum = 0;
   let av;
   for(var i = 0;i < arr.length;i++){
@@ -58,6 +59,8 @@ function averageNumbers(arr) {
   }
   return av = sum / arr.length;
 }
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -73,6 +76,16 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  if (arr.length > 0) {
+  let sum = 0;
+  let av;
+  for (var i = 0; i< arr.length; i++) {
+    sum += arr[i].length;
+  }
+  return av = sum / arr.length;
+}
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -89,6 +102,13 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arr){
+  if(arr.length > 0) {
+    let unique = [...new Set(arr)]
+    return unique;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -100,6 +120,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arr,word){
+  if (arr.indexOf(word) > -1) {
+   return true;
+} else {
+  return false;
+}
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -115,6 +144,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr,word) {
+  if (arr.length > 0){
+let count = 0;
+    for(var i = 0; i <= arr.length; i++) {
+      if(word === arr[i]) {
+          count++;
+        }
+      }
+      return count;
+    } else {
+      return false;
+    }
+    } 
+    
+          
 // Bonus Quest
 
 var matrix = [
