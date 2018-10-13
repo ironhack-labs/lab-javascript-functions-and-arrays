@@ -27,14 +27,28 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(words){
-var currentLargest = "";
-var longestWord = "";
-for (i=0; i<words.length; i++) {
-  if (words[i].length + 1 > )
-}
+ var words = ["longest", "short"]
 
-};
+function findLongestWord(words){
+
+if (words < 0) return undefined
+
+var longestWord =  '';
+
+for (i = 0; i < words.length; i++) {
+  if (words[i].length > longestWord.length) {
+    longestWord = words[i];
+  } else if (words[i].length === longestWord.length) {continue;}; 
+  // } console.log(longestWord)
+  return longestWord
+}
+console.log(longestWord)
+//  if (words[i].length > longestWord){
+// words[i] = longestWord } 
+//    else if (words[i].length === longestWord) {continue;}; 
+// } console.log(longestWord)
+
+
 
 // Calculating a Sum
 
