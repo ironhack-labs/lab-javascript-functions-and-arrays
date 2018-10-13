@@ -20,8 +20,10 @@ var words = [
   'crackpot'
 ];
 function findLongestWord(words){
-
   var longWord = "";
+  if (words.length===0){
+    return longWord;
+  };
   for (var i=0; i<words.length; i++){
     console.log(words[i])
     if ( longWord.length < words[i].length){
@@ -34,10 +36,10 @@ function findLongestWord(words){
 findLongestWord(words)
 
 // Calculating a Sum
-
+var sumNumbers = 0;
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray (numbers){
-  var sumNumbers = 0;
+  
   for (var i=0; i < numbers.length; i++){
     sumNumbers = sumNumbers + numbers[i];
   }
@@ -46,7 +48,14 @@ function sumArray (numbers){
 sumArray(numbers);
 // Calculate the Average
 
+var sumNumbers = 0;
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg){
+  sumArray(numbersAvg);
+  var resultAverage = sumNumbers/numbersAvg.length;
+  return resultAverage;
+}
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -61,6 +70,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+var sumString = 0;
+function stringLength(sumString){
+  for (var i=0; i < wordsArr.length; i++){
+    sumString = sumString + wordsArr.length[i];
+  }
+  return sumString
+}
+
+function averageWordLength(wordsArr){
+  stringLength(sumString);
+  var stringAverage = sumString/wordsArr.length;
+  return stringAverage;
+}
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
