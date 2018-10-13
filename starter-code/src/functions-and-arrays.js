@@ -118,6 +118,19 @@ var wordsFind = [
   "disobedience"
 ];
 
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return false;
+  }
+  for (var i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === word) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
 // Counting Repetion
 var wordsCount = [
   "machine",
