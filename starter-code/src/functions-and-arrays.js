@@ -1,78 +1,136 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a, b) {
+  if (a === b) {
+    return a;
+  } else if (a > b) {
+    return a;
+  } else if (b > a) {
+    return b;
+  }
+}
 // Finding Longest Word
 var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot"
 ];
-
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return;
+  }
+  for (var i = 0, longestWord = ""; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray(numbers) {
+  for (var i = 0, currentSum = 0; i < numbers.length; i++) {
+    currentSum += numbers[i];
+  }
+  return currentSum;
+}
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return;
+  }
+  for (var i = 0, sum = 0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+  }
+  return sum / numbersAvg.length;
+}
 // Array of Strings
 var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace"
 ];
-
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return;
+  }
+  for (var i = 0, sum = 0; i < wordsArr.length; i++) {
+    sum += wordsArr[i].length;
+  }
+  return sum / wordsArr.length;
+}
 // Unique Arrays
 var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
 ];
-
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return;
+  }
+  for (var i = 0, newArray = []; i < wordsUnique.length; i++) {
+    if (wordsUnique.indexOf(wordsUnique[i]) === i) {
+      newArray.push(wordsUnique[i]);
+    }
+  }
+  return newArray;
+}
 // Finding Elements
 var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
-
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return false;
+  }
+  for (var i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === word) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 // Counting Repetion
 var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
 // Bonus Quest
 
