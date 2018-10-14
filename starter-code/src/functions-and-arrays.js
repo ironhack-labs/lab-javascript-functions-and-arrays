@@ -142,7 +142,7 @@ var wordsFind = [
  ];
  
  function doesWordExist(wordsFind, searchWord){
-  if(wordsFind.length === 0 || searchWord === ""){
+  if(wordsFind === 0 || searchWord === ""){
    return undefined;
   }
   for(var i = 0; i<wordsFind.length; i++){
@@ -158,18 +158,32 @@ var wordsFind = [
  
 // Counting Repetion
 var wordsCount = [
- 'machine',
- 'matter',
- 'subset',
- 'trouble',
- 'starting',
- 'matter',
- 'eating',
- 'matter',
- 'truth',
- 'disobedience',
- 'matter'
-];
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+ ];
+ function howManyTimes(wordsCount, word){
+   if(wordsCount.length === 0){
+     return undefined
+   }
+   var counter = 0
+   for(var i = 0; i<wordsCount.length;i++){
+     if(wordsCount[i] === word){
+       counter = counter + 1;
+     }
+ 
+   }
+   return counter
+ }
+ 
 // Bonus Quest
 
 var matrix = [
