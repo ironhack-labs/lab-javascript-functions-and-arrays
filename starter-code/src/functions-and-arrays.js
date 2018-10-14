@@ -111,13 +111,13 @@ var wordsUnique = [
 
 function uniquifyArray(wordsUnique) {
    var uniqueArr = [];
-    
+  /*  
     for (i = 0; i < wordsUnique.length; i++) {
-     return uniqueArr.push(wordsUnique.indexOf(i)) {
-      return uniqueArr;
+      wordsUnique.indexOf(i))uniqueArr = {
+      return uniqueArr.push(i);
     }
     }
-   
+*/   
   }
  
 
