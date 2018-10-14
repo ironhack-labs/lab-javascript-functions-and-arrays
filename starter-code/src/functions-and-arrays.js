@@ -109,10 +109,11 @@ var wordsUnique = [
 function uniquifyArray(array) {
   if (array.length === 0) {return;}
 for (var i = 0; i < array.length; i++) {
-
-  for (var j = 0; j < array.length; j++) {
-
-    if (i != j && array[i] === array[j]) {array.splice(array[i],1)}
+  for (var j = 0; j < i; j++) {
+    if (array[i] === array[j]) {
+      array.splice(i,1);
+      i=i-1;
+    }
   }
 }
 return array;
@@ -130,6 +131,16 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(words, singleWord) {
+  for (i = 0; i < words.length; i++) {
+    if (words[i] === singleWord) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -144,6 +155,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words, singleWord) {
+  var numbersAmount = 0;
+  if (words.length === 0) {
+    return false;
+  }
+  for (i = 0; i < words.length; i++) {
+    if (words[i] === singleWord) {
+      numbersAmount = numbersAmount + 1
+    }
+  }
+  return numbersAmount
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -168,3 +193,21 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// function does not work, but I cannot spot the error?
+
+
+function greatestProduct (matrix){
+var gP = 0;
+for (i=0; i<matrix.length-3; i++){
+  for (j=0; j<matrix[i].length-3; j++){
+    if (matrix[i,j] * matrix[i+1,j] * matrix[i+2,j] * matrix[i+3,j] > gP) {
+      gP = matrix[i,j] * matrix[i+1,j] * matrix[i+2,j] * matrix[i+3,j] ;
+    }
+    if (matrix[i,j] * matrix[i,j+1] * matrix[i,j+2] * matrix[i,j+3] > gP) {
+      gP = matrix[i,j] * matrix[i,j+1] * matrix[i,j+2] * matrix[i,j+3] ;
+  }
+}
+}
+  return gP;
+}
