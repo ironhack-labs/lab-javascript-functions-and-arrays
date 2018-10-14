@@ -43,19 +43,17 @@ sumArray()
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
- var sum = 0;
- var average = 0;
+ 
  if(numbersAvg.length === 0) {
    return undefined;
  }
-
- for(var i = 0; i < numbersAvg.length; i++){
-   sum += numbersAvg[i]
-   average = sum/numbersAvg.length
+var averageNumber = sumArray(numbersAvg)
+result = averageNumber / numbersAvg.length
+return result;
  }
 
- return average;
-}
+ 
+
 
 
 //way 2
@@ -86,16 +84,21 @@ var wordsArr = [
  'palace'
 ];
 
-function averageWordLength() {
-  var oneLongWord = ""
+function averageWordLength(wordsArr) {
+  
+  if(wordsArr.length === 0){
+    return undefined;
+  }
+  var oneLongWord = "";
   for(var i=0;i<wordsArr.length;i++) {
       oneLongWord = wordsArr[i] + oneLongWord;
   }
   oneLongWordAverage = oneLongWord.length / wordsArr.length
- console.log(oneLongWordAverage)
+  
+  return oneLongWord.length / wordsArr.length
  }
  
- averageWordLength()
+ 
 
 // Unique Arrays
 var wordsUnique = [
@@ -112,18 +115,47 @@ var wordsUnique = [
  'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  var newArray = [];
+  if(wordsUnique.length === 0){
+    return undefined;
+  }
+  for(var i = 0; i<wordsUnique.length; i++){
+    if(newArray.indexOf(wordsUnique[i])===-1){
+      newArray.push(wordsUnique[i])
+    };
+  }
+  return newArray;
+}
+
+
 // Finding Elements
 var wordsFind = [
- 'machine',
- 'subset',
- 'trouble',
- 'starting',
- 'matter',
- 'eating',
- 'truth',
- 'disobedience'
-];
-
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+ ];
+ 
+ function doesWordExist(wordsFind, searchWord){
+  if(wordsFind.length === 0 || searchWord === ""){
+   return undefined;
+  }
+  for(var i = 0; i<wordsFind.length; i++){
+    if(searchWord === wordsFind[i]){
+      return true;
+    }else{
+     
+    }
+  }
+  return false;
+  
+}
+ 
 // Counting Repetion
 var wordsCount = [
  'machine',
