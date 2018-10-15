@@ -29,14 +29,15 @@ function findLongestWord(words){
   var longestWord = " ";
 if (words.length === 0) {
   return undefined;
-} 
-for (i = 0; i < words.length; i++) {
-  if (words[i].length > longestWord.length) {
-    longestWord = words[i] } {
-      return longestWord;
-    }
+} else {
+  for (i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i] }
   }
+  return longestWord;
 }
+}
+
 
 
 // Calculating a Sum
@@ -110,16 +111,18 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-   var uniqueArr = [];
-  /*  
+   var uniqueArr = []; 
+   if (wordsUnique.length === 0) {
+     return undefined;
+   } else {
     for (i = 0; i < wordsUnique.length; i++) {
-      wordsUnique.indexOf(i))uniqueArr = {
-      return uniqueArr.push(i);
+       if (uniqueArr.indexOf(wordsUnique[i]) === -1) {
+         uniqueArr.push(wordsUnique[i]);
+       }
     }
-    }
-*/   
+    return uniqueArr;
   }
- 
+}
 
 
 // Finding Elements
@@ -133,6 +136,25 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, wordToSearch){
+
+  if (wordsFind.length === 0) {
+    return false;
+  } 
+/* else {
+
+    for (i = 0; i < wordsFind.length; i++) {
+      if () {
+        return true;
+      } else if () {
+        return false;
+      }
+    }
+    return;
+*/
+  }
+
 
 // Counting Repetion
 var wordsCount = [
@@ -148,6 +170,14 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount,  ){ 
+ if (wordsCount.length === 0) {
+   return false;
+ }
+
+}
+
 // Bonus Quest
 
 var matrix = [
