@@ -17,20 +17,26 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(words) {
+function wordsArrayLength(words){
   let temp = [];
   words.forEach((str,i) => {
     temp[i] = str.length
-    console.log(temp[i]);
   });
+  return temp
+}
+
+function findLongestWord(words) {
+  if(words.length === 1) return words[0]
+  
+  temp = wordsArrayLength(words);
 
   let n = temp[1];
   for(let i=0; i < temp.length; i++){
-    if(n>=temp[i+1]){
+    if(n<=temp[i]){
       n = temp[i];
     }
   }
-  return words[temp.indexOf(n)];
+  return (words[temp.indexOf(n)]);
 }
 // Calculating a Sum
 
@@ -63,6 +69,11 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(wordsArr){
+  temp = wordsArrayLength(wordsArr)
+  return averageNumbers(temp)
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -78,6 +89,11 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  if(wordsUnique.length ===0) return undefined;
+  return wordsUnique.filter((word, i, arr) => arr.indexOf(word) === i);
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -89,6 +105,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, word){
+  return wordsFind.includes(word);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -104,6 +124,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, search) {
+  if(wordsCount.length === 0) return false
+  let counter = 0;
+  wordsCount.forEach((word, i) => {
+    if(search===word){
+      counter += 1;
+    }
+  })
+  return counter;
+}
 // Bonus Quest
 
 var matrix = [
@@ -128,3 +159,48 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let prod = 0,
+      m = [1,1,1,1];
+  let multMatrix = [];
+
+  for(let i=0; i < matrix.length; i++){
+    for(let j=0; j < matrix[i].length; j++){
+      //UP BLOCK
+      if(matrix[i-1]) {
+        m[0] = matrix[i-1][j] }
+
+      //DOWN BLOCK
+      if(matrix[i+1]) {
+        m[1] = matrix[i+1][j];
+      } 
+
+      //RIGHT BLOCK
+      if(matrix[i][j+1]) {
+        m[2] = matrix[i][j+1];
+      } 
+
+      //LEFT BLOCK
+      if(matrix[i][j-1]) {
+        m[3] = matrix[i][j-1];
+      } 
+
+      console.log(m)
+
+      //MULTIPLY BLOCK
+      prod = m[0]*m[1]*m[2]*m[3];
+      multMatrix.push(prod);
+      m = [1,1,1,1];
+    }
+  }
+  console.log(multMatrix);
+  console.log(Math.max(...multMatrix));
+  return Math.max(...multMatrix)
+}
+
+greatestProduct([
+[2,2,2,2,2],
+[2,2,2,2,2],
+[2,2,2,2,2],
+[2,2,2,2,2]]);
