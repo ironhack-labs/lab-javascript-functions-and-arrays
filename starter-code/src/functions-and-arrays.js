@@ -20,7 +20,7 @@ var words = [
 ];
 
 function findLongestWord(array){
-  if(array == ""){
+  if(array === ""){
     return undefined;
   } else {
     let longestWord = "";
@@ -104,17 +104,29 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(array){
-  if(array.length == 0){
-    return undefined;
-  } else {
-    return array.filter(function(item, index){
-      return array.indexOf(item) == index;
-    });
-  };
-};
+// function uniquifyArray(array){
+//   if(array.length === 0){
+//     return undefined;
+//   } else {
+//     return array.filter(function(item, index){
+//       return array.indexOf(item) === index;
+//     });
+//   };
+// };
+// uniquifyArray(wordsUnique);
 
+
+function uniquifyArray(array){
+  let arr2 = [];
+  array.forEach(function(item){
+    if(!arr2.includes(item)){
+      arr2.push(item);
+    }
+  });
+  return arr2;
+}
 uniquifyArray(wordsUnique);
+
 
 // Finding Elements
 var wordsFind = [
@@ -151,11 +163,11 @@ var wordsCount = [
 
 function howManyTimes(array, word){
   let count = 0;
-  if(array.length == 0){
+  if(array.length === 0){
     return false;
   } else {
     array.forEach(function(item){
-      if(item == word){
+      if(item === word){
         count++;
       }
     });
