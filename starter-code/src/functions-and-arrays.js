@@ -4,8 +4,6 @@ function maxOfTwoNumbers (nb1, nb2) {
   if (nb1 > nb2) {return nb1;} else if (nb1 < nb2) {return nb2;} else {return nb1}
 }
 
-
-
 // Finding Longest Word
 var words = [
   'mystery',
@@ -28,6 +26,9 @@ function findLongestWord(array) {
 
 findLongestWord(words);
 
+// alternative solution witch forEach.function()
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -43,6 +44,7 @@ return sum;
 }
 
 // Calculate the Average
+// re-use sum function
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -78,7 +80,7 @@ return sumWords/array.length
 
 averageWordLength(wordsArr)
 
-// Unique Arrays
+// Unique Arrays - please don't tell me the solution yet - will work on it tomorrow :) 
 var wordsUnique = [
   'crab',
   'poison',
@@ -104,7 +106,7 @@ for (var i = 0; i < array.length; i++) {
     if (array[i] === array[j]) {array.splice(array[i],1)}
      else {continue;}
 
-  }
+  } 
  
 }
 
@@ -122,6 +124,12 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(array, word) {
+  for(var i = 0; i < array.length; i++) {
+  if(array[i] === word) {return true;}
+} return false;
+}
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -136,7 +144,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
+
+function howManyTimes(array, word) {
+  var counter = 0;
+  if(array.length === 0) {return false};
+
+  for(var i = 0; i < array.length; i++) {
+  if(array[i] === word) {counter += 1} 
+} return counter;}
+
+
+
+// Bonus Quest - will as well do tomorrow
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
