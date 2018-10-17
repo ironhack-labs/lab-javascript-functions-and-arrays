@@ -1,4 +1,14 @@
 // Find the maximum
+function maxOfTwoNumbers (a, b) {
+  if (a>b){
+    return a;
+  }
+  else {
+    return b;
+  };
+};
+
+console.log("The biggest number is " + maxOfTwoNumbers(10, 2)); 
 
 // Finding Longest Word
 var words = [
@@ -8,18 +18,45 @@ var words = [
   'crocodile',
   'pearl',
   'orchard',
-  'crackpot'
+  'crackpot',
+  'zizouisthegreatestofalltime'
 ];
+var bigWord = "";
 
-// Calculating a Sum
+words.forEach (test => {
+  //let test= "";
+  if (test.length > bigWord.length){
+    bigWord = test;
+  }
+});
+
+console.log(bigWord);
+
+//// Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let newSum = 0;
+numbers.forEach (sum => {
+  newSum += sum;
+})
 
+console.log(newSum);
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (a){
+  var newSum = a.reduce(function (acc, curr){
+    return (acc + curr);
+  });
+  return newSum / a.length;
+  };
+
+console.log(averageNumbers (numbers));
 
 // Array of Strings
+v// NORMAL REDUCE METHOD
+console.log("// NORMAL REDUCE METHOD")
 var wordsArr = [
   'seat',
   'correspond',
@@ -32,6 +69,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (a){
+  var newSum = a.reduce(function (acc, curr){
+    return (acc + curr.length);
+  },0);
+  return newSum / a.length;
+  };
+
+console.log(averageWordLength (wordsArr));
 
 // Unique Arrays
 var wordsUnique = [
