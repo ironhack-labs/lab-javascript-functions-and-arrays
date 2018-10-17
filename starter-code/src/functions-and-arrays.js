@@ -186,6 +186,8 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+greatestProduct(matrix);
+
 function greatestProduct(matrix){
   var product = 0;
   size = matrix.length;
@@ -197,11 +199,11 @@ function greatestProduct(matrix){
         product = newProd;
       }
     }
-  }
+  } return product;
 }
 
 function prodArray(array) {
-  var prod = array.reduce(multiply, 0);
+  var prod = array.reduce(multiply, 1);
    function multiply(a, b) {
       return a * b;
   }
