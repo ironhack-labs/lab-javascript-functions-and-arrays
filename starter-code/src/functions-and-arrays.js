@@ -202,14 +202,60 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+// var matrix = [
+//   [1,2,3],
+// [1,2,3],
+//  [1,2,3],   
+//];
 
-function greatestProduct(array){
-  array.forEach(function(subArray, index, array){
-    //console.log(subArray[index] * subArray[index + 1]);
-    subArray.forEach(function(item, index, array){
-      console.log(subArray[index + 1 ]);
-    })
-  });
+function arrayItemMultiplier(a, b, c, d){
+  let product;
+  product = a * b *c * d;
+  return product;
+}
+
+function matrixIndexCorrector(matrix, firstLevel, secondLevel){
+let top;
+let bottom;
+let right;
+let left;
+    if(matrix[firstLevel-1]){
+      top = matrix[firstLevel-1][secondLevel];
+    } else {
+      top = 1;
+    };
+    if(matrix[firstLevel+1]){
+      bottom = matrix[firstLevel+1][secondLevel];
+    } else {
+      bottom = 1;
+    }; 
+    if(matrix[firstLevel][secondLevel+1]){
+      right = matrix[firstLevel][secondLevel+1]
+    } else {
+      right = 1;
+    }
+    if(matrix[firstLevel][secondLevel-1]){
+      left = matrix[firstLevel][secondLevel-1]
+    } else {
+      left = 1;
+    };
+return arrayItemMultiplier(top, bottom, right, left);
+};
+
+function greatestProduct(matrix){
+//  let productsArray = [];
+    let biggestProduct = 0;
+  for(let i = 0; i < matrix.length; i += 1){
+    for(let j = 0; j < matrix.length; j += 1){
+//    productsArray.push(matrixIndexCorrector(matrix, i, j));
+      if((matrixIndexCorrector(matrix, i, j)) > biggestProduct){
+        biggestProduct = matrixIndexCorrector(matrix, i, j);
+      };
+  };
+};
+//the spread operator makes copies and iterates on each so it can get too slow for big arrays
+//return(Math.max(...productsArray));
+  return(biggestProduct); 
 };
 
 greatestProduct(matrix);
