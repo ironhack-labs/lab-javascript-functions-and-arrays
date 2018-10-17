@@ -1,4 +1,29 @@
 // Find the maximum
+/**
+ * Returns the largest of two numbers
+ * @param x first number to compare
+ * @param y second number to compare
+ */
+function maxOfTwoNumbers(x, y){
+
+  return (x < y)? y: x;
+
+
+  // other potential methods :
+
+  //return Math.max(x, y)
+
+  // OR
+
+  // if (x < y){
+  //   return y;
+  // }
+  // else {
+  //   return x;
+  // }
+
+
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +36,70 @@ var words = [
   'crackpot'
 ];
 
+/**
+ * takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+ * @param arrayOfWords
+ */
+function findLongestWord(arrayOfWords){
+
+  var currentWord;
+  var longestWord = arrayOfWords[0];
+
+  for(var i=0; i<arrayOfWords.length; i++){
+    currentWord = arrayOfWords[i];
+    if (currentWord.length > longestWord.length){
+      longestWord = currentWord;
+    }
+  }
+
+  // other potential solution
+  // wordLengths   = arrayOfWords.map(function(x){return x.length});
+  // maximalLength = wordLengths.reduce(maxOfTwoNumbers);
+  // ixLongestWord = wordLengths.indexOf(maximalLength);
+  // longestWord   = arrayOfWords[ixLongestWord];
+  // return longestWord;
+
+
+  return longestWord;
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+/**
+ * takes an array of numbers as a parameter, and calculate the sum of all its numbers
+ * @param arrayOfNumbers
+ */
+function sumArray(arrayOfNumbers){
+  // var total = 0;
+  // for(var i=0; i< arrayOfNumbers.length; i++){
+  //   total += arrayOfNumbers[i];
+  // }
+  // return total
+
+  // other potential solution
+  return arrayOfNumbers.reduce(function (x,y){return x+y;}, 0);
+}
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+/**
+ * eceives an array of numbers and calculate the average of the numbers
+ * @param arrayOfNumbers
+ */
+function averageNumbers(arrayOfNumbers){
+  if (arrayOfNumbers === undefined || arrayOfNumbers.length === 0) {
+    return undefined
+  }
+
+  return sumArray(arrayOfNumbers) / arrayOfNumbers.length;
+
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +114,25 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+/**
+ * receives an array of words and calculate the average length of the words
+ * @param arrayOfWords
+ */
+function averageWordLength(arrayOfWords){
+
+  // var lengthInArray = [];
+  // for (var i=0; i < arrayOfWords.length; i++){
+  //   lengthInArray.push(
+  //       arrayOfWords[i].length
+  //   );
+  // }
+  // return averageNumbers(lengthInArray)
+
+  // other potential solution
+  return averageNumbers(arrayOfWords.map(function(x){return x.length}))
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +149,35 @@ var wordsUnique = [
   'bring'
 ];
 
+/**
+ * Take the array on input, remove the duplicates, and return a new array
+ * Idea of the implementation is that when we do not have a duplicate, the list of indexes is always increasing.
+ * As soon as, we lose the monotonicity of the indexes, it means we are facing a duplicate.
+ * @param arrayOfWords
+ */
+function uniquifyArray(arrayOfWords){
+
+  // handle case where input list is empty
+   if (arrayOfWords === undefined || arrayOfWords.length === 0) {
+    return undefined
+  }
+
+  // normal case
+  var maxIndex = -1;
+  var elementsToKeep = [];
+
+  arrayOfWords.forEach(function(x){
+    var currentIndex = arrayOfWords.indexOf(x);
+    if(currentIndex > maxIndex){
+      // all going well
+      elementsToKeep.push(x);
+      maxIndex = currentIndex;
+    }
+  });
+
+  return elementsToKeep
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +189,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+/***
+ * ake in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false
+ * @param arrayOfWords: array to search on
+ * @param word: word to look for
+ */
+function doesWordExist(arrayOfWords, word){
+  return arrayOfWords.some(function(x){return x === word});
+}
+
+doesWordExist(arrayOfWords=wordsFind, word='machine');
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +215,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+/**
+ *  take in an array of words as one argument, and a word to search for as the other.
+ *  The function will return the number of times that word appears in the array.
+ * @param arrayOfWords
+ * @param word
+ */
+function howManyTimes(arrayOfWords, word){
+
+  return arrayOfWords.map((x)=>{ return (x === word) * 1}
+      ).reduce((x, y)=>{return x+y}, false)
+
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +252,51 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/**
+ * calculates he greatest product of four adjacent numbers in the same direction (up, down, left, right)
+ * @param matrix
+ */
+
+function greatestProduct(matrix){
+
+  var maxProduct = 0;
+  var product;
+
+  for(var i=0; i<matrix.length; i++){
+    var row = matrix[i];
+    for(var j=0; j<row.length; j++){
+
+      // up
+      product = 1;
+      for(var k=0; k<= Math.min(3, i); k++){
+        product *= matrix[i-k][j];
+      }
+      maxProduct = (maxProduct<product)?product:maxProduct;
+
+      // down
+      product = 1;
+      for(var k=0; k<= Math.min(3, matrix.length - i - 1); k++){
+        console.log(i + " " +j + " " + k);
+        product *= matrix[i+k][j];
+      }
+      maxProduct = (maxProduct<product)?product:maxProduct;
+
+      // right
+      product = 1;
+      for(var k=0; k<= Math.min(3, row.length - j - 1); k++){
+        product *= matrix[i][j+k];
+      }
+      maxProduct = (maxProduct<product)?product:maxProduct;
+
+      // left
+      product = 1;
+      for(var k=0; k<= Math.min(3, j); k++){
+        product *= matrix[i][j-k];
+      }
+      maxProduct = (maxProduct<product)?product:maxProduct;
+    }
+  }
+
+  return maxProduct
+}
