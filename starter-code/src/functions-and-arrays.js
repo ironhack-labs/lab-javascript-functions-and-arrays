@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  else {
+    return num2;
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -10,14 +18,56 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words) {
+  var currentWord = words[0];
+  for (var i = 0; i < words.length; i++) {
+    if (currentWord.length < words[i].length) {
+      currentWord = words[i];
+    }
+  }
+  return currentWord;
+}
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(numbers) {
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++) {
+      sum += numbers[i];      
+  }
+  if (sum == 0) {
+    return 0;
+  }
+  
+  else {
+    return sum;
+  }
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  var sum = 0;
+  for (var i = 0; i < numbersAvg.length; i++) {
+      sum += numbersAvg[i];      
+  }
+
+  if (numbersAvg.length == 0) {
+    return undefined;
+  }
+
+  else {
+    return sum / i;
+  }
+}
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +83,18 @@ var wordsArr = [
   'palace'
 ];
 
+function convertWord(wordsArr) {
+  var wordLength = [];
+  for (var i = 0; i < wordsArr.length; i++) {
+    wordLength.push(wordsArr[i].length);
+  }
+  return wordLength;
+}
+
+function averageWordLength(wordsArr) {
+  return averageNumbers(convertWord(wordsArr));
+};
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +109,32 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+// function uniquifyArray(wordsUnique) {
+//   var sortWords = wordsUnique.sort();
+//   for (var i = 0; i < sortWords.length; i++) {
+//     var temp = sortWords[i];
+//     if (temp == sortWords[i - 1]) {
+//       sortWords.splice(i, 1);
+//     }
+//   }
+//   return sortWords;
+// }
+
+function uniquifyArray(wordsUnique) {
+  var sortWords = wordsUnique.sort();
+  var newArray = [];
+  for (var i = 0; i < sortWords.length; i++) {
+    if (sortWords[i + 1] !== sortWords[i]) {
+      newArray.push(sortWords[i]);
+    }
+  }
+  if (sortWords == 0) {
+    return undefined;
+  }
+  return newArray;
+}
+
 
 // Finding Elements
 var wordsFind = [
