@@ -188,21 +188,18 @@ var wordsCount = [
   'matter'
 ];
 
-function howManyTimes (wordsCount, wordSearch){
-
+function howManyTimes (wordsCount, wordTried){
   var counter = 0;
-
   if (wordsCount.length === 0){
     return false;
   }
-  else{
-    for (i=0; i<wordsCount.length; i++){
-      if (wordSearch === wordsCount[i]){
-        counter += 1;
-      }
+  for (i=0; i<wordsCount.length; i++){
+    if (wordsCount[i] === wordTried  ){ // returns true if the word we are looking is the only one on the array
+      counter ++ ;
     }
-    return counter;
-  } 
+  }
+  return counter;
+
 }
 
 
