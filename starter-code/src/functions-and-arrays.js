@@ -18,6 +18,9 @@ var words = [
   'crackpot'
 ];
  function findLongestWord(array) {
+  if(array.length===0){
+    return undefined
+  }
   var word = [];
   for (var i = 0; i < array.length; i++) {
     if (word.length < array[i].length) {
@@ -25,9 +28,7 @@ var words = [
     }
     
   }
-  if(array.length===0){
-    return undefined
-  }
+  
   return word;
  }
  findLongestWord(words);
@@ -115,6 +116,33 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique) {
+  if(wordsUnique.length===0){
+    return undefined;
+  }
+  var uniqueArray=[];
+  for (var i=0; i<wordsUnique.length;i++){
+
+  
+if (i ===0) {
+  uniqueArray.push(wordsUnique[i]);
+} 
+else{
+  if(uniqueArray.indexOf(wordsUnique[i])===-1){
+    uniqueArray.push(wordsUnique[i]);
+
+  }
+}  
+}
+
+ return uniqueArray;
+  
+}
+
+
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -126,6 +154,23 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist (value,array){
+  if (array=[]){ 
+    return false;
+  }
+  if (array.length===1){
+    if(value===array[0])
+    return true;
+  }
+
+  for (var i =0; i<array.length;i++){
+    if(array[i]===value){
+      return true;
+    }
+    
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -141,6 +186,25 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array,stringToFind){
+  if (array.length===0){
+    return false;
+  }
+  var count=0;
+  for (var i =0;i<array.length;i++){
+    if(stringToFind==array[i]){
+      count=count+1;
+    }
+  }
+ if(count===1){
+   return count;
+ }
+ if(count===5){
+   return count;
+ }
+return count;
+  
+}
 // Bonus Quest
 
 var matrix = [
