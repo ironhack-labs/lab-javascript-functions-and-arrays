@@ -113,8 +113,19 @@ function uniquifyArray (array) {
   }
   return newArray
 }
-
 console.log(uniquifyArray(wordsUnique))
+
+// Using filter
+
+function uniquifyExtra(array) {
+  let newArray = array.filter(function(value, i, arr) {
+    if (arr.indexOf(arr[i]) >= i) {
+      return value
+    } 
+  })
+  return newArray
+}
+console.log(uniquifyExtra(wordsUnique))
 
 // Finding Elements
 var wordsFind = [
