@@ -1,6 +1,21 @@
-// Find the maximum
+function maxOfTwoNumbers(numOne, numTwo) {
+  if(numOne > numTwo) {
+    console.log(numOne);
+  }else if(numOne < numTwo){
+    console.log(numTwo);
+  }else{
+    console.log("the numbers are equal");
+  }
+}
 
-// Finding Longest Word
+let largestWord = '';
+for(let i=0; i < words.length; i++){
+  
+  if(words[i].length > largestWord.length) {
+  largestWord = words[i];
+  }
+}
+
 var words = [
   'mystery',
   'brother',
@@ -11,15 +26,34 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function sumArray(arr){
+  var sum = 0;
+  for (var i = 0; i<arr.length; i++){
+    sum = sum + arr[i];
+  }
+  return sum;
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
-
+function averageNumbers(arr) {
+  var avg = 0;
+  for(var i = 0; i < numbersAvg.length; i++) {
+    avg = avg + arr[i];
+  }
+  return avg/arr.length
+}
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+function averageWordLength(arr) {
+  var wordLength = 0;
+  for(let i = 0; i < arr.length; i++) {
+    wordLength = arr[i].length + wordLength; 
+  }
+   return wordLength/ arr.length;
+  }
+  averageWordLength(wordsArr);
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +67,19 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+var wordCheck = []
+function uniquifyArray(arr){
+  for(let i = 0; i < arr.length; i++){
+    
+      if(!wordCheck.includes(arr[i])){
+        wordCheck.push(arr[i]);
+      }
+    
+  }
+        console.log(wordCheck);
+}
+uniquifyArray(wordsUnique);
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +94,15 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+function doesWordExist(arr, word){
+  for(i = 0; i < arr.length; i++){
+  if(word == arr[i]){
+    return true;
+  }
+}
+return false;
+}
+
 var wordsFind = [
   'machine',
   'subset',
@@ -60,7 +114,16 @@ var wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetion
+function howManyTimes(arr, checkArr) {
+  let answer = 0;
+  for(i = 0; i < arr.length; i++) {
+    if(arr[i] == checkArr){
+      answer++;
+    }
+   }
+    return answer;
+}
+
 var wordsCount = [
   'machine',
   'matter',
