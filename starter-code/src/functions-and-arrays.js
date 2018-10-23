@@ -1,4 +1,6 @@
 // Find the maximum
+var number1 = 1;
+var number2 = 2;
 
 // Finding Longest Word
 var words = [
@@ -12,11 +14,9 @@ var words = [
 ];
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
@@ -74,8 +74,8 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -98,3 +98,148 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+//callback function used in assignment 2 [Finding Longest Word] and assignment 5 [Calculating the avarage wordlength of an array of words (level2)].
+function calcWordlength(words){
+  let arr = [];
+  for (i = 0; i < words.length; i++){
+      arr.push(words[i].length);
+  }
+  return arr;
+}
+
+//callback function used in assignment 6 [remove duplicates from array]. 
+function includes(checkWord, array){
+  var checker
+  var arr = wordsUnique
+  for (i = 0; i < arr.length; i++){
+      if (array[i] == checkWord) {
+          return true;
+      } else {
+        checker = false;
+      }
+  }
+  return checker;
+}
+
+//assignment 1 [Find the maximum] function.
+function maxOfTwoNumbers(number1, number2){
+  if (number1 > number2){
+      return number1; 
+  } else { 
+      return number2;
+  }
+}
+
+//assignment 2 [Finding Longest Word] function.
+function findLongestWord(words){
+  let arr = [];
+  for (i = 0; i < words.length; i++){
+      arr.push(words[i].length);
+  }
+  return(words[calcWordlength(words).indexOf(Math.max(...calcWordlength(words)))])
+}
+
+//assignment 3 [Calculating a Sum] function. 
+function sumArray(numbers){
+  result = 0;
+  for (i = 0; i < numbers.length; i++) {
+    result = result + numbers[i];
+  }
+  return result;
+}
+
+//assignment 4 [Calculating the avarage of a sting of numbers (level1)] function. 
+function avarageNumArray(numbers){
+  return(sumArray(numbers)/numbers.length);
+}
+
+//assignment 5 [Calculating the avarage wordlength of an array of words (level2)] function. 
+function avarageWordsArray(words){
+  return(sumArray(calcWordlength(words))/calcWordlength(words).length);
+}
+
+//assignment 6 [remove duplicates from array] function. 
+function uniquifyArray(words){
+  var cleanArray = [];
+  for (j = 0; j < words.length; j++){
+      if (includes(words[j], cleanArray)){
+          //
+      } else {
+          cleanArray.push(words[j]);
+      }
+  }   
+  return cleanArray;
+}
+
+//assignment 7 [doesWordExist] function.
+function doesWordExist(checkWord, array){
+  var checker
+  for (i = 0; i < array.length; i++){
+      if (array[i] == checkWord) {
+          return true;
+      } else {
+        checker = false;
+      }
+  }
+  return checker;
+}
+
+//assignment 8 [counting repetition] function. 
+function howManyTimes(checkWord, array){
+  counter = 0;
+  for (i = 0; i < array.length; i++){ 
+      if (checkWord === array[i]){
+          counter++;
+      } else; 
+  }
+  return counter;
+}
+
+//bonus Quest [greatesProduct] function.
+function greatestProduct(input){ 
+  var product =[]
+  for (j = 0; j < input.length; j++){
+    for (i = 0; i < input[j].length -3; i++){
+      product.push(input[j][i] * input[j][i+1] * input[j][i+2] * input[j][i+3]);
+    } 
+  }
+  for (x = 0; x < input.length; x++){
+    for (z = 0; z < input[x].length -3; z++){
+      product.push(input[z][x] * input[z+1][x] * input[z+2][x] * input[z+3][x]);
+    } 
+  }  
+  return Math.max(...product);
+}
+
+
+//function calls for all assignments >>>
+
+//assignment 1 [Finding Longest Word] function call:
+console.log(maxOfTwoNumbers(number1, number2));
+
+//assignment 2 [Find the maximum] function call: 
+console.log(findLongestWord(words));
+
+//assignment 3 [calculating a sum] function call:
+console.log(sumArray(numbers));
+
+//assignment 4 [Calculating the avarage] function call. 
+console.log(avarageNumArray(numbersAvg));
+
+//assignment 5 [Calculating the avarage wordlength of an array of words (level2)] function call. 
+console.log(avarageWordsArray(wordsArr));
+
+//assignment 6 [remove duplicates from array] function call.
+console.log(uniquifyArray(wordsUnique));
+
+//assignment 7 [doesWordExist] function call. 
+console.log(doesWordExist("machine", wordsFind));
+
+//assignment 8 [howManyTimes] function call.
+console.log(howManyTimes("matter", wordsCount));
+
+//bonus Quest [greatestProduct] 
+console.log(greatestProduct(matrix));
