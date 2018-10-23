@@ -43,8 +43,13 @@ function sumArray(array) {
   }
   return sum
 }
-
 console.log(sumArray(numbers))
+
+// Sum using reduce
+var sum = numbers.reduce(function(accumulator, currentValue){
+  return accumulator + currentValue
+},0)
+console.log(sum)
 
 // Calculate the Average
 
@@ -133,7 +138,6 @@ function doesWordExist (array, word) {
 }
 console.log(doesWordExist(wordsFind,"disobedienc"))
 
-
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -183,16 +187,31 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
 function greatestProduct (array) {
-  var y = 0
-  var multDown = 0
-  var higherPro = 0
-  for (var x = 0; x<array.length; x+4) {
-    multDown = array[x][y]*array[x+1][y]*array[x+2][y]*array[x+3][y]
-    if (multDown>higherPro) {
-      higherPro = multDown
+  var mult = 0
+  var higherVertical = 0
+  var higherHorizontal = 0
+  for (var x = 0; x<array.length - 3; x++) {
+    for (var y = 0; y<array.length; y++) {
+    mult = array[x][y]*array[x+1][y]*array[x+2][y]*array[x+3][y]
+    if (mult>higherVertical) {
+      higherVertical = mult
     }
-    return higherPro
   }
-}
-console.log(greatestProduct(matrix))
+  }
+  for (var y = 0; y<array.length - 3; y++) {
+    for (var x = 0; x<array.length; x++) {
+    mult = array[x][y]*array[x][y+1]*array[x][y+2]*array[x][y+3]
+    if (mult>higherHorizontal) {
+      higherHorizontal = mult
+    }
+  }
+  }
+  if (higherHorizontal>higherVertical) {
+    return higherHorizontal
+  } else {
+    return higherVertical
+  }
+  }
+  console.log(greatestProduct(matrix))
