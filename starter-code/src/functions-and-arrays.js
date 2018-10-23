@@ -1,5 +1,9 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +15,52 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  } else {
+  var longest = "";
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }  
+  }  
+  return longest;
+  }
+}
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numArr){
+  var counter=0;
+  for(var i=0; i<numArr.length; i++){
+    counter+=numArr[i];
+  }
+  return counter;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numArr){
+  var counter=0;
+  if(numArr.length>0){
+  for(var i=0; i<numArr.length; i++){
+    counter+=numArr[i];
+  }
+  var result=counter/numArr.length;
+
+  return result;
+  } else {
+    return undefined;
+  }
+  
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +75,23 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength(wordArr){
+  var counter=0;
+  if(wordArr.length>0){
+  for(var i=0; i<wordArr.length; i++){
+    counter+=wordArr[i].length;
+  }
+  var result=counter/wordArr.length;
+
+  return result;
+  } else {
+    return undefined;
+  }
+  
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +108,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  if (arr.length === 0) {
+    return undefined;
+  } else {
+  var counter=[];
+for(var i=0; i<arr.length; i++){
+  if(counter.indexOf(arr[i])== -1){
+    counter.push(arr[i]);
+  }
+}
+return counter;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +133,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, str) {
+  if (arr.length === 0) {
+    console.log("a");
+    return false;
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      if (str === arr[i]) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
