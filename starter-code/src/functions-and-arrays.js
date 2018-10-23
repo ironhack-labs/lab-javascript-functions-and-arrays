@@ -95,6 +95,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words) {
+  if (words.length === 0) return undefined;
+
+  words.forEach(function(word1, index1) {
+    words.forEach(function(word2, index2) {
+      if (word1 === word2 && index1 !== index2) {
+        words.splice(index2, 1);
+      }
+    });
+  });
+
+  return words;
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -106,6 +121,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(words, wordToSearch){
+  var exists = false;
+
+  words.forEach(function(word){
+    if (wordToSearch === word) {
+      exists = true;
+    }
+  });
+  return exists;
+}
 
 // Counting Repetion
 var wordsCount = [
