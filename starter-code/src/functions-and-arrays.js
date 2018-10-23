@@ -1,4 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers (num1, num2) {
+  return num1>num2 ? num1:num2; 
+  /*if (num1>num2) 
+  return num1;
+  else 
+  return num2;
+  */
+} 
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +20,41 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (arrayWord) {
+
+  var maxLength = 0; 
+  var longest;
+  arrayWord.forEach (function(word){
+    if (word.length > maxLength){
+      longest= word;
+      maxLength= word.length;
+    }
+  })
+  return longest;
+}
+
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (nums){
+  var sum=0;
+  nums.forEach(function (num){
+    sum += num;
+  })
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (nums){
+  return  nums.length==0 ? undefined:avg=sumArray(nums)/nums.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +70,13 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength (arrayWord){
+  var sumWordLenght=0;
+  arrayWord.forEach(function(word){
+    sumWordLenght += word.length;
+  })
+  return arrayWord.length==0? undefined : sumWordLenght/arrayWord.length;
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +92,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrayWord){
+  var uniqueArray=[];
+  arrayWord.forEach(function(word){
+    if (uniqueArray.indexOf(word)===-1){
+      uniqueArray.push(word);
+    }
+  })
+
+  return arrayWord.length ===0 ? undefined : uniqueArray;
+}
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +113,18 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arrayWord, word){
+
+  var exists=false;  
+  arrayWord.forEach(function(palabra){
+    if (word===palabra){
+      exists= true;
+    }
+  })
+  return exists;
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +140,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayWord,word){
+  var count=0;
+  arrayWord.forEach(function(palabra){
+    if (word===palabra){
+      count++;
+    }
+  })
+  return count;
+}
 // Bonus Quest
 
 var matrix = [
