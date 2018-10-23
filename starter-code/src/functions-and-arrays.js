@@ -1,4 +1,15 @@
 // Find the maximum
+function maxOfTwoNumbers(number1, number2){
+  if(number1 > number2)
+  {
+    return number1;
+  }
+  else{
+    return number2;
+  }
+
+}
+console.log(maxOfTwoNumbers(1,2));
 
 // Finding Longest Word
 var words = [
@@ -11,13 +22,44 @@ var words = [
   'crackpot'
 ];
 
+
+function findLongestWord(matrix){
+  var longest = "";
+  for(var i = 0; i < matrix.length; i++){
+    if(matrix[i].length > matrix[i+1].length){
+      longest = matrix[i];
+      console.log(longest);
+    }
+    else if(i == matrix.length -1){
+      (matrix[i].length > longest.length) ? longest = matrix[i] : longest = longest; 
+    }
+     
+  }
+  console.log(longest);
+}
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+var sum = 0;
+function sum(number){
+  sum += number;
+}
+numbers.forEach(sum);
+console.log(sum);
+
 // Calculate the Average
 
+var sum_avg = 0;
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function sum_avg_fun(number){
+  sum_avg += number;
+}
+numbers.forEach(sum_avg_num);
+sum_av /= numbersAvg.length;
+console.log(sum_avg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +74,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+var avg_letters;
+
+function averageWordLength(matrix){
+  for(var i = 0; i < matrix.length; i++){
+    avg_letters += matrix[i].length;
+  }
+
+  avg_letters /= wordsArr.length;
+
+  console.log(avg_letters);
+}
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +103,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function unifiquyArray(matrix){
+  for(var i = 0; i < matrix.length; i++){
+    for(var j = i+1; j < matrix.length; j++ ){
+      if(matrix[i] === matrix[j]){
+        wordsUnique[j].splice();
+      }
+    }
+  }
+  function print(element){
+    console.log(element);
+  }
+  matrix.forEach(print);
+}
+unifiquyArray(wordsUnique);
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +130,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(matrix){
+  var to_search = prompt("Which word do you want to check.");
+
+  for(var i = 0; i < matrix.length; i++){
+    if(wordsFind[i] === to_search){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+}
+doesWordExist(wordsFind); 
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +160,30 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(matrix){
+//I don't know if the continues here are really necessary but it's 23:20 PM 
+//and after reading all from day 1 and day 2 my brain is kinda dead
+//cya later i'm going to play diablo 3 and do de bonus excercice on weekend
+
+  var to_search = prompt("What word do you want to check.");
+  var repeated = 0;
+  for(var i = 0; i < matrix.length; i++){
+    if(matrix[i] === to_search){
+       repeated++;
+       continue;
+    }
+    else{
+      continue;
+    }
+    
+  }
+  //If..else statement in a cool way
+  (repeated > 0) ? console.log("It's repeated "+ repeated+" times."): console.log("Its not repeated.");
+  
+}
+howManyTimes(wordsCount);
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +208,23 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//NOT FINISHED, NOT STARTED, NOT ANYTHING
+//Right
+var results_rigth = [];
+var results_position = 0;
+
+function multiplyMatrix(matrix){
+ 
+
+  for(var j = 0; j < matrix.length; j++){
+    for(var i = 0; i < 4; i++){
+      matrix.forEach(multiplyElements);
+      results_position++;
+    }
+  }
+}
+
+
+
+//Down
