@@ -1,5 +1,7 @@
 // Find the maximum
-
+function maxOfTwoNumbers(arg1, arg2) {
+return (arg1>arg2) ? arg1 : ((arg1<arg2) ? arg2 : arg1);
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,14 +13,42 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (wordsArray) {
+  var longestWord = wordsArray[0];
+  wordsArray.forEach( function (val, i) {
+    if (i>0) {
+      if(val.length > longestWord.length) {
+        longestWord = val;
+      }
+    }
+  });
+  return longestWord;
+}
+
+
 // Calculating a Sum
 
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(numbers){
+  var cont=0;
+  numbers.forEach(function(value){
+    cont+=value;
+  });
+  return cont;
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersArr){
+  if(numbersArr.length===0){
+    return;
+  }
+  return sumArray(numbersArr)/numbersArr.length;
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -32,7 +62,11 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
+function averageWordLength(wordsArr){
+  return averageNumbers(wordsArr.map(function(val){
+    return val.length;
+  }));
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +81,20 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(inputArr){
+  if (inputArr.length === 0){
+    return
+  }
+
+  var outputArr=[];
+  for (i=0; i<inputArr.length; i++){
+    if (outputArr.indexOf(inputArr[i])===-1) {
+      outputArr.push(inputArr[i]);
+    }
+  }
+
+  return outputArr;
+}
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +107,26 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(inputArr, strWord){
+  
+  if (inputArr.length === 0){
+    return false
+  }
+  return inputArr.includes(strWord)
+}
+
+function howManyTimes(inputArr, strWord) {
+  if (inputArr.length === 0){
+    return false
+  }
+  var times=0;
+  inputArr.forEach(function(val){
+    if (val === strWord) times++;
+  })
+
+  return times;
+}
 
 // Counting Repetion
 var wordsCount = [
