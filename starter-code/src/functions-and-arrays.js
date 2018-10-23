@@ -1,4 +1,14 @@
 // Find the maximum
+function maxOfTwoNumbers(number1, number2) {
+  if (number1>number2) {
+    return number1;
+  } else if (number1<number2) {
+    return number2;
+  } else {
+    return false;
+  }
+}
+console.log("Max of 2 numbers is:", maxOfTwoNumbers(1,3));
 
 // Finding Longest Word
 var words = [
@@ -11,13 +21,44 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array) {
+  var longest ="";
+  for (let i=0; i<array.length; i++) {
+    if (array[i].length>longest.length) {
+      longest = array[i];
+    }
+  }
+  return longest;
+}
+
+console.log("The longest word is:", findLongestWord(words));
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+  var sum = 0;
+  for (let i=0; i<array.length; i++) {
+    sum+=array[i];
+  }
+  return sum;
+}
+
+console.log("The sum of the numbers in array is:", sumArray(numbers));
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  var sum = 0;
+  for (let i=0; i<array.length; i++) {
+    sum+=array[i];
+  }
+  return sum/array.length;
+}
+
+console.log("The average of the numbers in array is:", averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +74,14 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array) {
+  var sum = 0;
+  for (let i=0; i<array.length; i++) {
+    sum+=array[i].length;
+  }
+  return sum/array.length;
+}
+console.log("The average length of the words in array is:", averageWordLength(wordsArr));
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +97,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  for (let i=0; i<array.length; i++) {
+    for (let j=1; j<array.length; j++) {
+      if (i!==j && array[i].localeCompare(array[j])===0) {
+        array.splice(j,1);
+      }
+    }
+  }
+  return array;
+}
+
+console.log("Uniquified array is:", uniquifyArray(wordsUnique));
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,6 +122,16 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(array, word) {
+  for (let i=0; i<array.length; i++) {
+    if (word.localeCompare(array[i])===0) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(doesWordExist(wordsFind, "eating"));
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +146,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  var number = 0;
+  for (let i=0; i<array.length; i++) {
+    if (word.localeCompare(array[i])===0) {
+      number+=1;
+    }
+  }
+  return number;
+}
+
+console.log("The number of times this word appears in the array:", howManyTimes(wordsCount, "matter"));
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +182,28 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array) {
+  var greatest=0;
+//compare horisontal
+  for (let i=0; i<array.length; i++) {
+    for (let j=0; j<array[i].length-3; j++) {
+      var sum=array[i][j]+array[i][j+1]+array[i][j+2]+array[i][j+3];
+      if (sum>greatest) {
+        greatest=sum;
+      }
+    }
+  }
+//compare vertical
+  for (let i=0; i<array.length-3; i++) {
+    for (let j=0; j<array[i].length; j++) {
+      var sum=array[i][j]+array[i+1][j]+array[i+2][j]+array[i+3][j];
+      if (sum>greatest) {
+        greatest=sum;
+      }
+    }
+  }
+  return greatest;
+}
+
+console.log("The greatest product of four adjacent numbers in this grid is:", greatestProduct(matrix));
