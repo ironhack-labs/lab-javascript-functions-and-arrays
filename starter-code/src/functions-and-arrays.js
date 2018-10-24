@@ -1,64 +1,127 @@
-// Find the maximum
-
+//Find the maximum
+function maxOfTwoNumbers(numOne, numTwo){
+ if(numOne>numTwo){
+   return numOne;
+ } else {
+   return numTwo;
+ }
+}
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+let words = [
+ 'mystery',
+ 'brother',
+ 'aviator',
+ 'crocodile',
+ 'pearl',
+ 'orchard',
+ 'crackpot'
+
 ];
+
+function findLongestWord(array) {
+ let result = "";
+ if (array.length === 0) {
+   return undefined
+ }
+ for (let i = 0; i < array.length; i++) {
+   if (result.length < array[i].length) {
+     result = array[i];
+   }
+ } return result;
+};
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(arr) {
+ sum=0;
+ for (let i = 0; i < arr.length; i++) {
+   sum = sum + arr[i]
+ }
+ if(arr.length === 0){
+   return 0
+ }
+ if(arr.length === 1){
+   return arr[0];
+ }
+ return sum
+}
+// sumArray(numbers)
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+ sum = 0;
+ for (let i = 0; i < arr.length; i++) {
+   sum = sum + arr[i];
+   avg = sum / arr.length
+ }
+ // console.log(avg);
+ if (arr.length === 0) {
+   return undefined;
+ }
+ if (arr.length === 1) {
+   return arr[0];
+ }
+ return avg;
+
+};
 // Array of Strings
 var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+ 'seat',
+ 'correspond',
+ 'linen',
+ 'motif',
+ 'hole',
+ 'smell',
+ 'smart',
+ 'chaos',
+ 'fuel',
+ 'palace'
 ];
+// wordsArr[i].length/wordsArr.length
+function averageWordLength(arr) {
+ let sum = 0
+ for (let i = 0; i < arr.length; i++) {
+   arr[i] = arr[i].length;
+   // console.log(arr[i]);
+ };
+ for (let i = 0; i < arr.length; i++) {
+   sum = sum + arr[i];
+
+ }
+ if(arr.length ===0){
+   return undefined;
+ }
+ return (sum / arr.length);
+
+}
 
 // Unique Arrays
 var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+ 'crab',
+ 'poison',
+ 'contagious',
+ 'simple',
+ 'bring',
+ 'sharp',
+ 'playground',
+ 'poison',
+ 'communion',
+ 'simple',
+ 'bring'
 ];
 
+function uniquifyArray(arrArg) {
+ return arrArg.filter(function (x, y, arr) {
+   return arr.indexOf(x) == y;
+ });
+};
+uniquifyArray(wordsUnique);
+
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
 
 // Counting Repetion
 var wordsCount = [
