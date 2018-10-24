@@ -76,12 +76,12 @@ console.log(sumArray([1,5,4,3,7,6]))
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(){
-
+  
 }
 
-function sumArray2(answer){
+function sumArray2(numbersAvg){
   let sum = 0;
-answer.forEach((numbersAvg)=>{
+  numbersAvg.forEach((numbersAvg)=>{
   sum = sum + numbersAvg
 })
 return sum
