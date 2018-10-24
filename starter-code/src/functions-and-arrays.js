@@ -91,6 +91,7 @@ function uniquifyArray(array){
     }
   } return newArray;
 }
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -165,10 +166,6 @@ function greatestProduct(grid) {
           result1 = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3];
         }       
       }
-    }
-  }
-  for(let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
       if (i < (grid.length -3)) {
         if((grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]) > result2) {
           result2 = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j];
