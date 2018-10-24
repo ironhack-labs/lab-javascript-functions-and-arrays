@@ -46,6 +46,14 @@ function sumArray(arr) {
   }
   return sum
 }
+
+/* function sumArray(arrayOfNums){
+  let total = 0; 
+  arrayofNums.forEach((oneNumber)=>{
+    total += oneNumber
+  })
+  return total
+}*/
 // sumArray(numbers)
 
 // Calculate the Average
@@ -68,6 +76,14 @@ function averageNumbers(arr) {
   return avg;
 
 };
+/*
+function averageNumber(arrayOfNums){
+  if(arraOfNums.length ===0){
+    return;
+  }
+  return sumArray(arrayofNums) / arrayOfNums.length;
+}
+*/
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -98,7 +114,31 @@ function averageWordLength(arr) {
   return (sum / arr.length);
 
 }
+/*
+ function sumArray(arrayOfNums){
+  let total = 0;
+  arrayofNums.forEach((oneNumber)=>{
+    total += oneNumber
+  })
+  return total}
 
+function averageNumber(arrayOfNums){
+  if(arrayOfNums.length ===0){
+    return;
+  }
+  return sumArray(arrayofNums) / arrayOfNums.length;
+}
+function averageWordLength(arrayOfWords){
+  let arrayOfLength = [];
+
+ arrayOfWords.forEach((eachWord)=>{
+  arrayOfLengths.push(eachWord.length)
+
+  
+}); 
+return averageNumbers(arrayOfLengths)
+}
+*/
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -122,6 +162,27 @@ function uniquifyArray(arrArg) {
     return arr.indexOf(x) == y;
   });
 };
+/*
+function uniquifyArray(arrayOfWords){
+  if(ArrayOfWords.length ===0){
+    return
+  }
+let resultArray=[];
+  
+  arrayOfWords.forEach((eachSingleWord)=>{
+  
+    if(!resultArray.includes(eachSingleWord)){
+  
+      resultArray.push(eachSingleWord)
+      
+      }
+
+  })
+return resultArray;
+}
+*/
+
+
 // uniquifyArray(wordsUnique);
 
 // Finding Elements
@@ -151,6 +212,19 @@ function doesWordExist(arr, x) {
 }
 
 doesWordExist(wordsFind, "hello")
+
+/*
+function doesWordExist(array, word){
+  let doesExist = false;
+  array.forEach((eachWord)=>{
+    if(eachWOrd === word){
+      doesExist = true
+    }
+  })
+  return doesExist
+}
+*/
+
 
 // doesWordExist(wordsFind, "")
 
@@ -184,6 +258,22 @@ function howManyTimes(arr, x) {
 
   return count
 }
+
+/*
+function howManyTimes(array, word){
+    if(array.length===0){
+  return false;
+  }
+
+  let howMany = 0;
+  array.forEach((eachWord)=>{
+    if(eachWOrd === word){
+      howMany++
+    }
+  })
+  return howMany;
+}
+*/
 // Bonus Quest
 
 var matrix = [
