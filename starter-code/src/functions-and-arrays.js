@@ -74,28 +74,24 @@ console.log(sumArray([1,5,4,3,7,6]))
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(){
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers(x) {
+  if (x.length === 0) {
+    return undefined;
+  }
   
-}
-
-function sumArray2(numbersAvg){
-  let sum = 0;
-  numbersAvg.forEach((numbersAvg)=>{
-  sum = sum + numbersAvg
-})
-return sum
-}
-
-function avgArray(){
-  let newAvg;
-  newAvg = sumArray2() / numbersAvg.length
-  return newAvg;
+  let y = 0;
+  for(let i = 0; i < x.length; i++) {
+    y = y + x[i];
+  }
+  return (y/x.length);
 }
 
 
 // Array of Strings
-var wordsArr = [
+var words = [
   'seat',
   'correspond',
   'linen',
@@ -107,6 +103,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+
+function averageWordLength(x) {
+if (x.length === 0) {
+  return undefined;
+}
+
+let y = 0;
+for(let i = 0; i < x.length; i++) {
+  y = y + x[i].length;
+}
+return (y/x.length);
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -123,8 +133,27 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(x) {
+if (x.length === 0) {
+  return undefined;
+}
+
+let finalArray = [];
+
+for(let i = 0; i < x.length; i++) {
+  
+  if (!finalArray.includes(x[i])) {
+    finalArray.push((x[i]));
+    
+  }
+  
+} 
+return finalArray;
+}
+
+
 // Finding Elements
-var wordsFind = [
+var words = [
   'machine',
   'subset',
   'trouble',
@@ -135,8 +164,24 @@ var wordsFind = [
   'disobedience'
 ];
 
+doesWordExist = function(array, word) {
+
+let newWords;
+if(array.length === 0) {
+  return false;
+}
+for (let i = 0; i < array.length; i++) {
+  if (word === array[i]) {
+ return newWords = true;
+  } else {
+     newWords = false;
+  }
+}
+return newWords;
+}
+
 // Counting Repetion
-var wordsCount = [
+var words = [
   'machine',
   'matter',
   'subset',
@@ -149,6 +194,27 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+howManyTimes = function(array, word){ 
+
+  if (array.length === 0) {
+    return false;
+  }
+  let count = 0;
+  
+
+  for(let i = 0; i < array.length; i++) {
+
+
+    if (word === array[i]) {
+      count = count + 1;
+    }
+
+  }
+  return count;
+}
+
+
 // Bonus Quest
 
 var matrix = [
