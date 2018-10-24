@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(n1,n2){
+  if(n1>n2){
+    return n1+" es mas grande que "+n2;
+  }else{
+    return n2+"es mas grande que "+n1;
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,41 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(wordsArray){
+  var longestWord =wordsArray[0];
+  words.forEach(function(word){
+    if(word.length > longestWord.length){
+      longestWord = word;
+    }
+  });
+  return longestWord;
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  var sum=0;
+  numbers.forEach(function(num){
+    sum+=num;
+  });
+    return sum;
+  }
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  var sum=0;
+  numbers.forEach(function(num){
+    sum+=num;
+  });
+    return sum/numbersAvg.length;
+  }
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +67,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageLongestWord(wordsArr){
+  var sum = 0;
+  wordsArr.forEach(function(word){
+    sum += word.length;
+  });
+  return sum/wordsArr.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +91,15 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  var unicArray =[];
+  wordsUnique.forEach(function(word){
+    if(!unicArray.includes(word)) //No lo encuentra luego lo mete 
+      unicArray.push(word);
+  });
+  return unicArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +111,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordsFind, wordToCheck){
+  return wordsFind.includes(wordToCheck);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +130,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordsCount , wordToCheck){
+  var count = 0;
+  wordsCount.forEach(function(word){
+    if(word === wordToCheck) 
+      count++;
+  });
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
