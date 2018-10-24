@@ -25,18 +25,25 @@ var words = [
 
 function findLongestWord(matrix){
   var longest = "";
-  for(var i = 0; i < matrix.length; i++){
-    if(matrix[i].length > matrix[i+1].length){
-      longest = matrix[i];
-      console.log(longest);
-    }
-    else if(i == matrix.length -1){
-      (matrix[i].length > longest.length) ? longest = matrix[i] : longest = longest; 
-    }
-     
-  }
-  console.log(longest);
+  var aux;
+  var aux_1;
+  
+  aux = matrix[0];
+  matrix.forEach(checking);
+
+  
 }
+
+function checking(number){
+  aux_1 = number;
+  if(aux.length > aux_1.length){
+    continue;
+  }
+  else{
+    aux = aux_1;
+  }
+};
+
 findLongestWord(words);
 
 // Calculating a Sum
@@ -54,11 +61,12 @@ console.log(sum);
 
 var sum_avg = 0;
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 function sum_avg_fun(number){
   sum_avg += number;
 }
-numbers.forEach(sum_avg_num);
-sum_av /= numbersAvg.length;
+numbers.forEach(sum_avg_fun);
+sum_avg /= numbersAvg.length;
 console.log(sum_avg);
 
 // Array of Strings
@@ -133,16 +141,20 @@ var wordsFind = [
 
 function doesWordExist(matrix){
   var to_search = prompt("Which word do you want to check.");
-
+  var returnn;
   for(var i = 0; i < matrix.length; i++){
     if(wordsFind[i] === to_search){
-      return true;
+      returnn = true;
     }
     else{
-      return false;
+      returnn = false;
     }
   }
-
+  if(returnn = false){
+    matrix[matrix.length] = to_search;
+  }
+  console.log("Since the value wasn't in the function I included it in the matrix");
+  return returnn;
 }
 doesWordExist(wordsFind); 
 
