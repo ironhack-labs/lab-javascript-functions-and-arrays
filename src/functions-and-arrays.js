@@ -36,6 +36,14 @@ function sumArray(numbers) {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+  let avg = undefined; // would of 0 been a better initialized value
+  if (numbersAvg.length) {
+    avg = sumArray(numbersAvg) / numbersAvg.length;
+  }
+  return avg;
+}
+
 // Array of Strings
 var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
