@@ -22,6 +22,16 @@ function findLongestWord(arr) {
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers) {
+  let sum = 0;
+  if (numbers.length) {
+    sum = numbers.reduce((acc, value) => {
+      return value + acc;
+    });
+  }
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
