@@ -1,15 +1,22 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  return num1 > num2 ? num1 : num2;
+}
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+var words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr) {
+  let str = '';
+  for (let val of arr) {
+    if (val.length > str.length) {
+      str = val;
+    }
+  }
+  if (str) {
+    return str;
+  }
+}
 
 // Calculating a Sum
 
@@ -20,18 +27,7 @@ var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 // Unique Arrays
 var wordsUnique = [
@@ -49,16 +45,7 @@ var wordsUnique = [
 ];
 
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 // Counting Repetion
 var wordsCount = [
