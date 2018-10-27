@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers(numberOne, numberTwo){
+    if (numberOne > numberTwo) {
+      return numberOne
+    } else if( numberTwo > numberOne){
+      return numberTwo
+    } else if( numberOne === numberTwo){
+      return numberOne
+    }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,6 +20,21 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+
+
+function findLongestWord(words){
+  for(let i = 0; i < words.length; i++){
+    if (words[i].length > number.length){
+      var number= words[i];
+    }
+  }
+
+  return number;
+}
+
+
+
 
 // Calculating a Sum
 
