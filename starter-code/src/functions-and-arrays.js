@@ -40,9 +40,31 @@ console.log(findLongestWords(words));
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (arr) {
+  var sum = 0;
+  if (arr.length<=0) {
+    return 0;
+  } else {
+  for (var i=0; i<arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (arr) {
+  var average = 0;
+  if (arr.length<=0) {
+    return undefined;
+  } else {
+    average = (sumArray(arr)/arr.length);
+  }
+  return average;
+}
 
 // Array of Strings
 var wordsArr = [
