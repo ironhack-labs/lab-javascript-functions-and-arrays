@@ -1,7 +1,17 @@
 // Find the maximum
-
-// Finding Longest Word
-var words = [
+function maxOfTwoNumbers(numero1,numero2){
+  var mayor;
+  if(numero1>numero2)
+  mayor = numero1;
+  if(numero1<numero2)
+  mayor = numero2;
+  if(numero1===numero2)
+  mayor = numero1;
+  return mayor;
+  }
+  
+  // Finding Longest Word
+  var words = [
   'mystery',
   'brother',
   'aviator',
@@ -9,18 +19,41 @@ var words = [
   'pearl',
   'orchard',
   'crackpot'
-];
-
-// Calculating a Sum
-
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-// Calculate the Average
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-// Array of Strings
-var wordsArr = [
+  ];
+  
+  var masLarga="";
+  
+  function findLongestWord(words){
+  if(words.length<=0)
+  return undefined;
+  if(words.length===1)
+  return words[0];
+  if(words.length>0){
+  masLarga= words[0];
+  for(var i=0;i<words.length;i++){
+  if(masLarga.length<words[i].length){
+  masLarga=words[i];
+  console.log(masLarga);
+  }
+  }
+  return masLarga;
+  }
+  }
+  
+  // Calculating a Sum
+  
+  var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  function sumArray(numbers){
+  if(numbers.length<=0)
+  return 0;
+  }
+  
+  // Calculate the Average
+  
+  var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+  
+  // Array of Strings
+  var wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -31,10 +64,10 @@ var wordsArr = [
   'chaos',
   'fuel',
   'palace'
-];
-
-// Unique Arrays
-var wordsUnique = [
+  ];
+  
+  // Unique Arrays
+  var wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -46,10 +79,10 @@ var wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
-
-// Finding Elements
-var wordsFind = [
+  ];
+  
+  // Finding Elements
+  var wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -58,10 +91,10 @@ var wordsFind = [
   'eating',
   'truth',
   'disobedience'
-];
-
-// Counting Repetion
-var wordsCount = [
+  ];
+  
+  // Counting Repetion
+  var wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -73,10 +106,10 @@ var wordsCount = [
   'truth',
   'disobedience',
   'matter'
-];
-// Bonus Quest
-
-var matrix = [
+  ];
+  // Bonus Quest
+  
+  var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -97,4 +130,6 @@ var matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+  ];
+  
+  
