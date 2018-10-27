@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers(number1, number2)
+{
+  if (number1 > number2) {
+      return number1;
+  }else
+  {
+    return number2;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +20,62 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words)
+{
+    var mayor = 0;
+    var palabraMayor = "";
+
+    if (words.length == 0) {
+      return undefined;
+    }
+
+    for (var index = 0; index < words.length; index++) {
+      
+      if (words[index].length > mayor) {
+          mayor = words[index].length;
+          palabraMayor = words[index];
+      }
+    }
+  
+    return palabraMayor;
+}
+
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers)
+{
+  var sum = 0;
+  if (numbers.length === 0) {
+    return sum;
+  }
+
+  for (var index = 0; index < numbers.length; index++) {
+    sum += numbers[index];
+  }    
+  return sum;
+}
+
+
+
 
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg)
+{
+  var sum = 0;
+  if (numbersAvg.length === 0) {
+    
+    return undefined;
+  }
+  
+  for (var index = 0; index < numbersAvg.length; index++) {
+    sum += numbersAvg[index];
+  }    
+  return sum / numbersAvg.length;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +91,19 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(wordsArr)
+{
+  if (wordsArr.length === 0) {
+    return undefined;
+  }
+
+  var sum = 0;
+  for (var index = 0; index < wordsArr.length; index++) {
+    sum += wordsArr[index].length;
+  }    
+  return sum / wordsArr.length;
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +118,28 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(wordsUnique)
+{
+  if (wordsUnique.length === 0) {
+    return undefined;
+  }
+
+  for (var index = 0; index < wordsUnique.length; index++) {
+      var indice = wordsUnique.indexOf(wordsUnique[index],index + 1);
+      console.log(indice);
+      if ( indice > 0 )
+      {
+        wordsUnique.splice(wordsUnique[indice],1);
+      }
+  }
+  return wordsUnique;
+}
+
+
+
+
+
 
 // Finding Elements
 var wordsFind = [
