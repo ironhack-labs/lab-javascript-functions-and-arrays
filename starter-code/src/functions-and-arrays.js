@@ -80,6 +80,18 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength (arr) {
+  var average = 0;
+  if (arr.length<=0) {
+    return undefined;
+  } else {
+    for (var i=0; i<arr.length-1; i++) {
+      average += arr[i].length / arr[i].length;
+    }
+  }
+  return average;
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -94,6 +106,13 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (arr) {
+  var newArray = [];
+  for (var i=0; i < arr.length-1; i++) {
+    
+  }
+}
 
 // Finding Elements
 var wordsFind = [
