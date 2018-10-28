@@ -122,8 +122,14 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist(wordsFind, str) {
-}
+function doesWordExist(wordsArr, word) {
+  if (wordsArr.includes(word) === true) {
+    return true;
+  } else {
+    return false;
+  }
+  
+  }
 
 // Counting Repetion
 var wordsCount = [
@@ -139,6 +145,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArr, word) {
+	var repeat = 0;
+	for(var i = 0; i < wordArr.length; i++) {
+		if(wordArr[i] === word) {
+			repeat++;    
+		}
+	}
+	return repeat;
+}
+console.log("This word was found " + howManyTimes(wordsCount, "matter") + " times.");
+
+
 // Bonus Quest
 
 var matrix = [
