@@ -38,7 +38,7 @@ function sumArray (arrayNumbers) {
   var sum = 0;
   for (var i = 0; i < numbers.length; i++) {
     sum += numbers[i];
-    if (arrayNumbers.length === 0) {
+    if (arrayNumbers.length === 0 && numbers[i] === 0) {
       return 0;
     }
   }
