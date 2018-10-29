@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(n1, n2) {
+  return Math.max(n1, n2);
+}
 
 // Finding Longest Word
 var words = [
@@ -10,14 +13,40 @@ var words = [
   'orchard',
   'crackpot'
 ];
-
+function findLongestWord(words) {
+  return words.sort(function(a,b) {return b.length - a.length}) [0];
+}
+/* No entiendo porque este codigo no me ha funcionado, solo me reconoce la primera palabra del array
+function findLongestWord (words) {
+  var longestWord;
+  var long = 0;
+  for (var i = 0; i < words.lenght; i++) {
+    if (words[i].lenght > long) {
+      var long = words[i].lenght;
+      longestWord = words[i];
+      
+    }
+  }
+  return longestWord;
+} 
+*/
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  return numbers.reduce(function(a,b){return a + b}, 0); //con reduce va sumando el anterior, a uno y al siguiete. El cero indica desde donde empieza a contar, si ponemos 20 empezará desde 20 la suma
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  sum = numbersAvg.reduce(function(a,b){return (a + b)}, 0);
+    return sum / numbersAvg.length;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +61,7 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+//tendria que hacer una funcion que me diga la longitud de cada palabra, otra que me sume los valores de la longitud y otra que la divida entre la longitud del array
 
 // Unique Arrays
 var wordsUnique = [
@@ -59,7 +89,18 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+var wordFindCon = 'subset';
+function doesWordExist (wordsFind) {
+  for (var i = 0; i < wordsFind.length; i++) {
+    if (wordFindCon === wordsFind[i]) {
+      return true;
+    }
+    else  {
+      return false;
+    }
+  }
+  
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +115,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+var exampleWord = "matter";
+
+function howManyTimes(wordsCount) {
+  for (var i = 0; i < wordsCount.length; i++) {
+    if (exampleWord === wordsCount[i]){
+    }
+  }
+  return 
+}
 // Bonus Quest
 
 var matrix = [
