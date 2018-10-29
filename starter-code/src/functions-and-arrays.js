@@ -35,12 +35,17 @@ function findLongestWord (words) {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray (arrayNumbers) {
-  var sum = 0;
-  for (var i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-    if (arrayNumbers.length === 0 && numbers[i] === 0) {
-      return 0;
+  if (arrayNumbers.length) {
+    var sum = 0;
+    for (var i = 0; i < arrayNumbers.length; i++) {
+      if (arrayNumbers[i] === 0) {
+        return 0;
+      } else {
+        sum += arrayNumbers[i];
+      }
     }
+  } else {
+    return 0;
   }
 }
 
