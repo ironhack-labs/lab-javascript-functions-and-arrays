@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2){
+    return n1
+  } else {
+    return n2
+  }
+}
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +19,51 @@ var words = [
   'crackpot'
 ];
 
+
+function findLongestWord(wordsArray){
+  if (wordsArray.length){
+    var largest = wordsArray[0];
+    for ( i = 0; i < wordsArray.length; i++){
+      if (wordsArray[i].length > largest.length) {
+        largest = wordsArray[i];
+      }
+  }
+  return largest
+  } else {
+    return undefined;
+  }
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbersArray) {
+  var result = 0;
+  for (var i = 0; i < numbersArray.length; i++) {
+    result += numbersArray[i];
+  }
+  return result;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersArray) {
+  if (numbersArray.length === 0){
+    return undefined;
+  } else {
+    var sum = 0;
+    var result = 0;
+    for (var i = 0; i < numbersArray.length; i++) {
+      sum += numbersArray[i];
+    }
+    result = sum / numbersArray.length;
+    return result;
+  }
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +78,30 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArray) {
+  if (wordsArray.length){
+
+    var wordsLength = [];
+
+    for (i = 0; i < wordsArray.length;i++) {
+      var wordLength = wordsArray[i].length;
+      wordsLength.push(wordLength);
+    }
+
+    var sum = 0;
+    var result = 0;
+    for (var i = 0; i < wordsLength.length; i++) {
+      sum += wordsLength[i];
+    }
+    result = sum / wordsLength.length;
+    
+    return result;
+
+  } else {
+    return undefined;
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +118,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArray) {
+  if (wordsArray.length){
+    for (i = 0; i < wordsArray.length; i++){
+      if (wordsArray.indexOf(wordsArray[i],i+1) != -1){
+        wordsArray.splice(wordsArray.indexOf(wordsArray[i],i+1),1);
+      }
+    }
+    return wordsArray;
+  } else {
+    return undefined;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +142,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsCollection, wordSearch) {
+  if (wordsCollection.length) {
+    return wordsCollection.includes(wordSearch);
+  } else {
+    return false;
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +165,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCollection, wordSearch) {
+  if (wordsCollection.length) {
+    var counter = 0;
+    for (i = 0; i < wordsCollection.length; i++) {
+      if (wordsCollection[i] === wordSearch) {
+        counter += 1;
+      }
+    }
+    return counter;
+  } else {
+    return false;
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
