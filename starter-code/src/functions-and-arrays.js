@@ -35,7 +35,6 @@ function findLongestWord(words) {
   return longestName;
   
 }
-// findLongestWord(words);
 
 // Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -100,24 +99,19 @@ var words = [
   'simple',
   'bring'
   ];
-  function uniquifyArray(words){
-    count=words.length;
-  // let wordsNew = "";
-    let repeatWord="";
-    j=0;
-    while (j<count){
-      repeatWord=words[j];
-      for (let i=0; i<count; i++){
-        if (repeatWord === words[i+1]){
-          words.splice([i+1],1);
-          count=count-1;
-        } 
+  function uniquifyArray(array){
+    if(array.length === 0){
+      return undefined
+    }  
+    let newArray = [];
+      for (let i=0; i<array.length; i++){
+        if(newArray.indexOf(array[i])=== -1){
+          newArray.push(array[i])
+        }
       }
-      j=j+1; 
-    }
-    return(words);
+    return newArray;
   }
-  uniquifyArray(words);
+
 
 // Finding Elements
 var wordsFind = [
@@ -156,15 +150,21 @@ var wordsCount = [
   'matter',
 ];
 
-function howManyTimes (array, word) {
+function howManyTimes(array, word){
   let count = 0;
-  for (let i = 0 ; i < array.length; i++) {
-    if(word === array[i] ) {
-      count = (count +1);
+  if (array.length === 0){
+    return false;
+  }
+  
+  for (let i=0; i < wordsCount.length; i++){
+    if (word === wordsCount[i]) {
+      count += 1;
+      
     }
   }
   return count;
 }
+
 
 // Bonus Quest
 
