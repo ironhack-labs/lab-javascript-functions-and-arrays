@@ -13,6 +13,9 @@ var words = [
   'crackpot'
 ];
 
+// this is my solution too
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
