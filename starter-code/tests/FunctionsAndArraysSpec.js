@@ -121,17 +121,17 @@ describe('Calculating the Average - averageWordLength', function () {
 });
 
 describe('Unique Arrays - uniquifyArray', function () {
-  // it('Defines uniquifyArray', function () {
-  //   expect(typeof uniquifyArray).toBe('function');
-  // });
+  it('Defines uniquifyArray', function () {
+    expect(typeof uniquifyArray).toBe('function');
+  });
 
-  // it('returns undefined with an empty array', function () {
-  //   expect(uniquifyArray([])).toBe(undefined);
-  // });
+  it('returns undefined with an empty array', function () {
+    expect(uniquifyArray([])).toBe(undefined);
+  });
 
-  // it('returns the correct array when having an array of the same element', function () {
-  //   expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
-  // });
+  it('returns the correct array when having an array of the same element', function () {
+    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+  });
 
   // it('returns the same array when no element is repeted', function () {
   //   expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);

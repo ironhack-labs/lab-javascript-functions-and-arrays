@@ -138,6 +138,14 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return undefined;
+  }
+  
+  
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
