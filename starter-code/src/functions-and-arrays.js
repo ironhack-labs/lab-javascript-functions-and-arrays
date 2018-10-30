@@ -53,6 +53,10 @@ function sumArray (arrayNumbers) {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers() {
+
+}
+
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -66,6 +70,10 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength() {
+
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -82,6 +90,10 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray() {
+
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -93,6 +105,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist() {
+
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -108,6 +124,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes() {
+
+}
+
 // Bonus Quest
 
 var matrix = [
