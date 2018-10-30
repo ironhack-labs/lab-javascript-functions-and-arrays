@@ -86,7 +86,8 @@ function avgWordLength (avglength){
 avgWordLength(words);
 
 // Unique Arrays
-var wordsUnique = [
+var noDuplicates = [];
+var words = [
   'crab',
   'poison',
   'contagious',
@@ -99,6 +100,15 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(uniqueChar){
+  for (var i = 0; i < uniqueChar.length ; i++){
+    if (noDuplicates.indexOf(uniqueChar[i]) === -1)
+    noDuplicates.push(uniqueChar[i]);
+  }
+  console.log(noDuplicates)
+}
+uniquifyArray(words);
 
 // Finding Elements
 var wordsFind = [
