@@ -47,6 +47,11 @@ function averageNumbers(numbersAvg) {
 // Array of Strings
 var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(wordsArr) {
+  let arrMembersLength = averageNumbers(wordsArr.map(element => element.length));
+  return arrMembersLength;
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -62,8 +67,36 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let uniqueArr = undefined;
+  if (arr.length) {
+    uniqueArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (uniqueArr.indexOf(arr[i]) == -1) {
+        uniqueArr.push(arr[i]);
+      }
+    }
+  }
+  return uniqueArr;
+}
+
 // Finding Elements
 var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(list, word) {
+  let wordFound = undefined;
+  if (list) {
+    if (word) {
+      wordFound = list.find(element => element.toLowerCase() === word.toLowerCase());
+    }
+    if (wordFound) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  return wordFound;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -79,6 +112,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(list, word) {
+  wordCounter = 0;
+  if (list.length && word) {
+    for (let i = 0; i < list.length; i++) {
+      if (list[i] === word) {
+        wordCounter++;
+      }
+    }
+    return wordCounter
+  } else {
+    return false
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
