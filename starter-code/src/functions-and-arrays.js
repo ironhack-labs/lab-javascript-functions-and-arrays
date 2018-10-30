@@ -138,13 +138,27 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
-  if (wordsUnique.length === 0) {
-    return undefined;
-  }
+
+   
+    function uniquifyArray(wordsUnique) {
+      if (wordsUnique.length === 0) {
+        return undefined;
+      }
+      let unique = {};
+      wordsUnique.forEach(function(i) {
+        if(!unique[i]) {
+          unique[i] = true;
+        }
+      });
+      return Object.keys(unique);
+    }
   
+     
+     
+
+
   
-}
+
 
 // Finding Elements
 var wordsFind = [
@@ -157,6 +171,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+
+
+
 
 // Counting Repetion
 var wordsCount = [

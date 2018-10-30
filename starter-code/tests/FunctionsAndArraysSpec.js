@@ -133,19 +133,19 @@ describe('Unique Arrays - uniquifyArray', function () {
     expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
   });
 
-  // it('returns the same array when no element is repeted', function () {
-  //   expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
-  // });
+  it('returns the same array when no element is repeted', function () {
+    expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
+  });
 
-  // it('returns the uniquified array', function () {
-  //   expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
-  // });
+  it('returns the uniquified array', function () {
+    expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
+  });
 });
 
 describe('Finding Elements - doesWordExist', function () {
-  // it('Defines doesWordExist', function () {
-  //   expect(typeof doesWordExist).toBe('function');
-  // });
+  it('Defines doesWordExist', function () {
+    expect(typeof doesWordExist).toBe('function');
+  });
 
   // it('returns false with an empty array', function () {
   //   expect(doesWordExist([])).toBe(false);
