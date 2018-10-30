@@ -1,6 +1,21 @@
 // Find the maximum
-
+function maxOfTwoNumbers(v1,v2){
+  if(v1>v2)return v1;
+  else return v2;
+}
 // Finding Longest Word
+function findLongestWord(words){
+  let mayor=0;
+  let index=0;
+  console.log("VALOR:",words.length);
+  for (let v1=0;v1<words.length;v1++){
+    if(words[v1].length > mayor){
+      index=v1;
+      mayor=words[v1].length ;
+    }
+  }
+  return words[index];
+}
 var words = [
   'mystery',
   'brother',
@@ -12,14 +27,36 @@ var words = [
 ];
 
 // Calculating a Sum
+function sumArray(numbers){
+  let total=0;
+  for (let v1=0;v1<numbers.length;v1++){
+        total= total+numbers[v1];
+      }
+  return total;
+ }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
 
+function averageNumbers(numbersAvg){
+  let total=0;
+  let suma=0;
+  if(numbersAvg.length>0){
+  for (let v1=0;v1<numbersAvg.length;v1++){
+        suma= suma+numbersAvg[v1];
+  }
+  return (suma/numbersAvg.length);
+  }else return undefined;
+ }
+
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+function averageWordLength(wordsArr){
+  return wordsArr[0].length/1;
+ }
+
 var wordsArr = [
   'seat',
   'correspond',
