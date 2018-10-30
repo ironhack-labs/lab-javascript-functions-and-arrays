@@ -1,5 +1,7 @@
 // Find the maximum
 
+// this is my solution
+
 // Finding Longest Word
 var words = [
   'mystery',
