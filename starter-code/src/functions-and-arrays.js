@@ -191,6 +191,7 @@ function howManyTimes(wordsCount, word) {
           acc ++;
         }
       }
+      
       return acc;
     }
 }
