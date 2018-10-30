@@ -8,6 +8,7 @@ function maxOfTwoNumbers(num1, num2) {
 }
 
 maxOfTwoNumbers(25,22);
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -53,7 +54,7 @@ var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr){
   let sumLength= sumArray(arr);
-  let sumAverage= sumLength/arr.length;
+  let sumAverage= (sumLength/arr.length);
   return sumAverage;  
 }
 
@@ -84,8 +85,9 @@ function averageNumbers(wordsArr){
   return Math.ceil(averageWordsArr);
 }
 
+
 // Unique Arrays
-var wordsUnique = [
+var words = [
   'crab',
   'poison',
   'contagious',
@@ -97,23 +99,26 @@ var wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
-function uniquifyArray(myArray){
-//Step 1 Iterate throught the array
-//Step 2 Create an empty array
-//Step 3 Compare the array with the empty array
-
-let i=0;
-while (i < (wordsUnique.length-1)){
-  let j=0
- for (let i=j; i<wordsUnique.length; i++){
-  if (wordsUnique[i]===wordsUnique[i+1]){
-    var removedItem = wordsUnique.splice((i+1), 1);
+  ];
+  function uniquifyArray(words){
+    count=words.length;
+  // let wordsNew = "";
+    let repeatWord="";
+    j=0;
+    while (j<count){
+      repeatWord=words[j];
+      for (let i=0; i<count; i++){
+        if (repeatWord === words[i+1]){
+          words.splice([i+1],1);
+          count=count-1;
+        } 
+      }
+      j=j+1; 
+    }
+    return(words);
   }
- }
- j=j+1;
-}
-}
+  uniquifyArray(words);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -125,6 +130,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+let search = ""
+function doesWordExist (array, word) {
+  for (var i = 0 ; i < array.length; i++) {
+    if(word === array[i]) {
+      return true
+    }
+  }
+  return false;
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -138,8 +153,19 @@ var wordsCount = [
   'matter',
   'truth',
   'disobedience',
-  'matter'
+  'matter',
 ];
+
+function howManyTimes (array, word) {
+  let count = 0;
+  for (let i = 0 ; i < array.length; i++) {
+    if(word === array[i] ) {
+      count = (count +1);
+    }
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
