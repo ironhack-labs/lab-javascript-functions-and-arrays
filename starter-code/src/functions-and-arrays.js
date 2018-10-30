@@ -126,7 +126,22 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist (arr, word) {
+  var exists = false;
+  if (arr.length<=0) {
+    return exists;
+  } else {
+      for (var i=0; i< arr.length; i++) {
+        if (word === arr[i]) {
+          exists = true;
+        }
+      }
+    }
+      return exists;
+}
+
 // Counting Repetion
+
 var wordsCount = [
   'machine',
   'matter',
