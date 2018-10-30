@@ -12,7 +12,6 @@ function maxOfTwoNumbers(x,y) {
 }
 
 //Finding Longest Word
-
 let words = [
   'mystery',
   'brother',
@@ -22,68 +21,108 @@ let words = [
   'orchard',
   'crackpot'
 ];
-  
-let wordsCount = [];
 
-function findLongestWord() {
-  words.forEach(function(element){
-    wordsCount.push(element.length);
-  })
-  
-  console.log(wordsCount);
+function findLongestWord(words) {
+  console.log("Arguments: ", arguments);
+  console.log("Passed parameters: ", words);
 
-  let compNumber;
-
-  for(x = 0; x < wordsCount.length; x++) {
-    if(wordsCount[x] > wordsCount[x+1]) {
-      compNumber = wordsCount[x];
-    }
-    else {
-      continue;
-    }
+  if(words.length == 0) {
+    return undefined;
   }
-  console.log(words[wordsCount.indexOf(compNumber)]);
+
+  let length = 0;
+  let longest = [];
+
+  for(let i=0; i < words.length; i++){
+    if(words[i].length > length){
+        length = words[i].length;
+        longest = words[i];
+    }     
+  }
+  return longest;
 }
 
 findLongestWord();
     
-    // // Calculating a Sum
+// Calculating a Sum
+function sumArray(numbers) {
+  let sumAddition = 0;
+
+  for(i = 0; i < numbers.length; i++) {
+    sumAddition = sumAddition + numbers[i];
+  }
+
+  return sumAddition;
+}
+
+sumArray(numbers);
+
+// Calculate the Average
+var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  let average = 0;
+
+  if(numbersAvg.length == 0) {
+    return undefined;
+  }
+
+  average = sumArray(numbersAvg) / numbersAvg.length;
+
+  return average;
+}
+
+averageNumbers(numbersAvg);
+
+// Array of Strings
+var wordsArr = [
+  'seat',
+  'correspond',
+  'linen',
+  'motif',
+  'hole',
+  'smell',
+  'smart',
+  'chaos',
+  'fuel',
+  'palace'
+];
+
+function averageWordLength(wordsArr) {
+  if(wordsArr.length == 0) {
+    return undefined;
+  }
+
+  let avgWordLength = 0;
+
+  for(i = 0; i < wordsArr.length; i++) {
+    avgWordLength = avgWordLength + wordsArr[i].length;
+  }
+
+  avgWordLength = avgWordLength / wordsArr.length;
+
+  return avgWordLength;
+}
+
+averageWordLength(wordsArr);
+
     
-    // var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-    
-    // // Calculate the Average
-    
-    // var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-    
-    // // Array of Strings
-    // var wordsArr = [
-    //   'seat',
-    //   'correspond',
-    //   'linen',
-    //   'motif',
-    //   'hole',
-    //   'smell',
-    //   'smart',
-    //   'chaos',
-    //   'fuel',
-    //   'palace'
-    // ];
-    
-    // // Unique Arrays
-    // var wordsUnique = [
-    //   'crab',
-    //   'poison',
-    //   'contagious',
-    //   'simple',
-    //   'bring',
-    //   'sharp',
-    //   'playground',
-    //   'poison',
-    //   'communion',
-    //   'simple',
-    //   'bring'
-    // ];
-    
+// Unique Arrays
+var wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+
     // // Finding Elements
     // var wordsFind = [
     //   'machine',
