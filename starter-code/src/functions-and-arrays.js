@@ -1,4 +1,11 @@
 // Find the maximum
+ function maxOfTwoNumbers(a,b){
+  if (a>b)
+    return a
+  else 
+    return b
+ }
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,49 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr){
+
+  var longest=arr[0]
+
+    for(var i=1;i< arr.length; i++)
+      if(arr[i].length>longest.length)
+          longest=arr[i]
+
+    return longest
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  var sum=0
+  for(var i in arr)
+      sum+=arr[i]
+  
+  return sum
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+
+function averageNumbers(arr){
+
+  var sum=0
+  for(var i in arr)
+      sum+=arr[i]
+
+  if (arr.length === 0)
+      return undefined
+  else
+      return sum/arr.length
+  
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +75,21 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength(arr){
+  var sum=elem=0
+  for(var i in arr){
+     sum+=arr[i].length
+     elem++
+  }
+
+  if (elem === 0)
+    return undefined
+  else
+    return sum/elem
+  
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +106,18 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  for(var i=arr.length-1;i>=0;i--){
+    if( arr.indexOf(arr[i]) != i)
+        arr.splice(i,1)
+  }
+
+  if(arr.length === 0)
+    return undefined
+  else
+    return arr
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +129,18 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr,word){
+  var exist = false
+  if(arr.length === 0) return false
+    arr.forEach(function(w){
+      if (w === word) return exist = true
+      return 
+    })
+    return exist
+}
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +156,27 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,word){
+
+  if(arr.length === 0)
+    return false
+  else{
+
+    var count = 0 
+    
+    for(var i in arr){
+      if(word === arr[i])
+          count ++
+      
+    } 
+    
+    return count
+  }
+
+}
+
+
 // Bonus Quest
 
 var matrix = [
