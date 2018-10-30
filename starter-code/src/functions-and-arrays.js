@@ -1,5 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2)
+    return num1;
+  else
+    return num2;
+}
+
+maxOfTwoNumbers(25,22);
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +18,44 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words) {
+  if(words.length === 0){
+    return undefined
+  }
+  let longestWord = 0;
+  let longestName = "";
+  for(let i = 0; i < words.length; i++){
+    if(words[i].length > longestWord){
+  longestWord = words[i].length;
+  longestName = words[i];
+     }
+  }
+  
+  return longestName;
+  
+}
+// findLongestWord(words);
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(arr){
+  let sumNumbers=0;
+  for (i=0; i<arr.length; i++){
+    sumNumbers += arr[i];
+  }
+  
+  return sumNumbers;
+}
 
+// Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  let sumLength= sumArray(arr);
+  let sumAverage= sumLength/arr.length;
+  return sumAverage;  
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +70,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageNumbers(wordsArr){
+  if(wordsArr.length === 0){
+    return undefined
+  }
+  let lengthAverage=0;
+  let averageWordsArr=0;
+  for (i=0; i<wordsArr.length; i++){
+    lengthAverage += wordsArr[i].length; 
+  }
+  averageWordsArr=(lengthAverage/(wordsArr.length));
+
+  return Math.ceil(averageWordsArr);
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -47,7 +98,22 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(myArray){
+//Step 1 Iterate throught the array
+//Step 2 Create an empty array
+//Step 3 Compare the array with the empty array
 
+let i=0;
+while (i < (wordsUnique.length-1)){
+  let j=0
+ for (let i=j; i<wordsUnique.length; i++){
+  if (wordsUnique[i]===wordsUnique[i+1]){
+    var removedItem = wordsUnique.splice((i+1), 1);
+  }
+ }
+ j=j+1;
+}
+}
 // Finding Elements
 var wordsFind = [
   'machine',
