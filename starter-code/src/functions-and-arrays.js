@@ -1,5 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1
+  } else {
+    return n2      
+  }
 
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,19 +18,63 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  var lg = 0;
+  var longest;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].length > lg) {
+      lg = arr[i].length;
+      longest = arr[i];
+    }
+ }
+ return longest;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
 function sumArray(numbers) {
   if(!numbers.length) {
     return 0;
+  } 
+  
+  for(var i = 0; i < numbers.length; i++) {
+    if(numbers[i] === 0) {
+    return 0;
+  } else if (numbers.length === 1) {
+    return numbers[0] 
+  } else if (numbers.length > 1) {
+    return numbers.reduce((a, b) => a + b, 0)
+  }   
   }
 }
+
+
+
+
+
+
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+    if(numbersAvg.length === 1) {
+      return numbersAvg[0]
+    }
+    
+    for(var i = 0; i < numbersAvg.length; i++) {
+      if (numbersAvg.length > 1) {
+        return numbersAvg.reduce((a, b) => a + b, 0) / numbersAvg.length;
+      }
+
+    }
+    
+}
 
 // Array of Strings
 var wordsArr = [
@@ -38,6 +89,39 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return undefined;
+  }
+  
+  
+  
+  var sum = wordsArr.reduce(function(a, b){
+    return a + b;
+  });
+  var averageLength = parseInt(sum.length) / wordsArr.length;
+  return averageLength;
+}
+  
+  // if (wordsArr.length === 0) {
+  //   return undefined;
+  // }
+  // for (var i = 0; i < numbersArr.length; i++) {
+  //   if (wordsArr.length === 1) {
+  //     return numbersArr.reduce((a, b) => a + b, 0) / numbersArr.length;
+  
+  
+  
+
+
+
+
+
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -103,39 +187,5 @@ var matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
-
-function maxOfTwoNumbers(n1, n2) {
-  if (n1 > n2) {
-    return n1
-  } else {
-    return n2      
-  }
-
-}
-
-
-  
-  function findLongestWord(array) {
-    var longestWord = "";
-  
-   array.forEach(function(wordsArr) {
-      if(wordsArr.length === longestWord.length) {
-        longestWord = wordsArr;
-      }
-    });
-  
-    return wordsArr;
-  }
-
-  var wordsArr = findLongestWord [
-    'mystery',
-    'brother',
-    'aviator',
-    'crocodile',
-    'pearl',
-    'orchard',
-    'crackpot'];
-    
-    
+];  
     

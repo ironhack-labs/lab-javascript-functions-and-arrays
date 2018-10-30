@@ -81,43 +81,43 @@ describe('Calculating a Sum - sumArray', function () {
 });
 
 describe('Calculating the Average - averageNumbers', function () {
-  // it('Defines averageNumbers', function () {
-  //   expect(typeof averageNumbers).toBe('function');
-  // });
+   it('Defines averageNumbers', function () {
+     expect(typeof averageNumbers).toBe('function');
+   });
 
-  // it('returns undefined with an empty array', function () {
-  //   expect(averageNumbers([])).toBe(undefined);
-  // });
+   it('returns undefined with an empty array', function () {
+     expect(averageNumbers([])).toBe(undefined);
+   });
 
-  // it('returns the average of a unique element array', function () {
-  //   expect(averageNumbers([9])).toBe(9);
-  // });
+   it('returns the average of a unique element array', function () {
+     expect(averageNumbers([9])).toBe(9);
+   });
 
-  // it('returns the average even with negative values', function () {
-  //   expect(averageNumbers([9, -3, -4, 6])).toBe(2);
-  // });
+   it('returns the average even with negative values', function () {
+     expect(averageNumbers([9, -3, -4, 6])).toBe(2);
+   });
 
-  // it('returns the average of the array', function () {
-  //   expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
-  // });
+  it('returns the average of the array', function () {
+    expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
+  });
 });
 
 describe('Calculating the Average - averageWordLength', function () {
-  // it('Defines averageWordLength', function () {
-  //   expect(typeof averageWordLength).toBe('function');
-  // });
+  it('Defines averageWordLength', function () {
+    expect(typeof averageWordLength).toBe('function');
+  });
 
-  // it('returns undefined with an empty array', function () {
-  //   expect(averageWordLength([])).toBe(undefined);
-  // });
+  it('returns undefined with an empty array', function () {
+    expect(averageWordLength([])).toBe(undefined);
+  });
 
-  // it('returns the average of a unique element array', function () {
-  //   expect(averageWordLength(['ironhack'])).toBe(8);
-  // });
+  it('returns the average of a unique element array', function () {
+    expect(averageWordLength(['ironhack'])).toBe(8);
+  });
 
-  // it('returns the average of a the array', function () {
-  //   expect(averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])).toBe(7);
-  // });
+  it('returns the average of a the array', function () {
+    expect(averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])).toBe(7);
+  });
 });
 
 describe('Unique Arrays - uniquifyArray', function () {
