@@ -34,27 +34,28 @@ function findLongestWord (words) {
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray (arrayNumbers) {
-  if (arrayNumbers.length) {
-    var sum = 0;
-    for (var i = 0; i < arrayNumbers.length; i++) {
-      if (arrayNumbers[i] === 0) {
-        return 0;
-      } else {
-        sum += arrayNumbers[i];
-      }
-    }
-  } else {
-    return 0;
+function sumArray (numbers) {
+  var suma = 0;
+  for (var i = 0; i < numbers.length; i++){
+    suma += numbers[i];
   }
-}
+    return suma;
+  }
+
+var sumatotal =  sumArray(numbers);
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-
+function averageNumbers(arrayNumber) {
+  var suma = 0;
+  for (var i = 0; i < arrayNumber.length; i++) {
+    suma += arrayNumber[i];
+  }
+  var avg = suma / numbersAvg.length;
+    console.log(avg);
 }
 
 // Array of Strings
