@@ -195,22 +195,31 @@ var matrix = [
 ];
 function greatestProduct(matrix){
   var max = 0;
-  for(let i = 0; i<matrix.length-3;i++){
+  for(let i = 0; i<matrix.length;i++){
     for(let j=0; j<matrix[i].length-3;j++){
       var mult = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
-      var mult2 =matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
-      if(mult>mult2){
-        var ma = mult;
+      
+      
+      if(mult >max){
+        max = mult;
       }else{
-        var ma = mult2;
-      }
-      if(ma >max){
-        max = ma;
-      }else{
-        ma = ma;
+        max = max;
       }
 
     }
   }
-  return ma;
+  for(let i = 0; i<matrix.length-3;i++){
+    for(let j=0; j<matrix[i].length;j++){
+      var mult1 = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      
+      
+      if(mult1 >max){
+        max = mult1;
+      }else{
+        max = max;
+      }
+
+    }
+  }
+  return max;
 }
