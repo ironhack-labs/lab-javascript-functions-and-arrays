@@ -98,3 +98,104 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers (n1, n2){
+  if (n1 > n2){
+    return n1;
+  } else {
+    return n2;
+  }
+}
+
+function findLongestWord(words){
+  var wordLongest = "";
+  if (words == 0){
+  } else {
+  for (var i = 0; i < words.length; i++){
+    if (words[i].length > wordLongest.length){
+      wordLongest = words[i];
+    }
+  }
+  return wordLongest;
+}
+}
+
+function sumArray(numbers){
+  var sumNumbers = numbers.reduce(function(a, b){ return a + b; },0);
+  return sumNumbers;
+  }
+
+function averageNumbers(numbersAvg){
+  if (numbersAvg == 0){
+  } else {
+  var sumNumbers = numbersAvg.reduce(function(a, b){ return a + b; },0);
+  var average = sumNumbers / numbersAvg.length;
+  return average;
+  }
+}
+
+function averageWordLength(wordsArr){
+  if (wordsArr == 0){
+  } else {
+    var sumWord = wordsArr.reduce(function(a, b){ return a + b; },0);
+    var average = sumWord / wordsArr.length;
+    return average;
+  }
+}
+
+function averageWordLength(wordsArr){
+  var sumWord = [];
+  if (wordsArr == 0){
+  } else {
+    for (var i = 0; i < wordsArr.length; i++){ sumWord += wordsArr[i]}
+    var average = sumWord.length / wordsArr.length;  
+    return average;
+  }
+}
+
+function uniquifyArray(wordsUnique){
+  if (wordsUnique == 0){
+  } else {
+  var filteredArr = wordsUnique.filter(function(item, index) {
+    if (wordsUnique.indexOf(item) == index)
+    return item;
+  });
+ wordsUnique = filteredArr;
+ return wordsUnique;
+  }
+}
+
+function doesWordExist(wordsFind, word){
+  var isWord = false;
+  if (wordsFind == 0){
+    return false;
+  } else {
+for (var i = 0; i < wordsFind.length; i++){
+  if (wordsFind[i] === word){
+    isWord = true;
+      }
+    }
+  }
+  return isWord;
+}
+
+function howManyTimes(wordsCount, word) {
+  var wordRepeat = [];
+  if (wordsCount == 0){
+    return false;
+  } else {
+    for (var i = 0; i < wordsCount.length; i++){
+      if (wordsCount[i] === word){
+        wordRepeat.push(word);
+      }
+    }
+  }
+  return wordRepeat.length;
+}
+
+function greatestProduct(matrix){
+ for (var i = 0; i < matrix.length; i++){
+   for (var j = 0; j < matrix[i].length; i++)
+
+ }
+}
