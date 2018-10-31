@@ -123,7 +123,7 @@ var wordsFind = [
 ];
 
 function doesWordExist(wordsFind, word) {
-  //var word = prompt('Palabra:');
+  //var word = prompt('Escribe un palabra:');
   for (var i = 0; i < wordsFind.length; i++)
   if (wordsFind[i] === word){
     return true;
