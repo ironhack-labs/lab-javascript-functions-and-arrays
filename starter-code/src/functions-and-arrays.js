@@ -122,9 +122,10 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist() {
+function doesWordExist(wordsFind, word) {
+  //var word = prompt('Palabra:');
   for (var i = 0; i < wordsFind.length; i++)
-  if (wordsFind[i] != 0){
+  if (wordsFind[i] === word){
     return true;
   } 
     return false;
