@@ -101,7 +101,13 @@ var wordsUnique = [
 ];
 
 function uniquifyArray() {
-
+  var uniqueArray = []
+    for(var i = 0; i < arr.length; i++){
+      if(uniqueArray.indexOf(arr[i]) == -1){
+          uniqueArray.push(arr[i])
+      }
+    }
+    return uniqueArray
 }
 
 // Finding Elements
