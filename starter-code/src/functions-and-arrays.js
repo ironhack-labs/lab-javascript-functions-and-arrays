@@ -39,8 +39,8 @@ function sumArray (numbers) {
   for (var i = 0; i < numbers.length; i++){
     suma += numbers[i];
   }
-    return suma;
-  }
+  return suma;
+}
 
 var sumatotal =  sumArray(numbers);
 
@@ -49,14 +49,16 @@ var sumatotal =  sumArray(numbers);
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arrayNumber) {
+function averageNumbers (numbersAvg) {
   var suma = 0;
-  for (var i = 0; i < arrayNumber.length; i++) {
-    suma += arrayNumber[i];
+  for (var i = 0; i < numbersAvg.length; i++){
+    suma += numbersAvg[i];
   }
-  var avg = suma / numbersAvg.length;
-    console.log(avg);
+  return suma;
 }
+
+var sumaAvg =  averageNumbers(numbersAvg);
+var promedio = sumaAvg / numbersAvg.length;
 
 // Array of Strings
 var wordsArr = [
@@ -72,9 +74,15 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength() {
-
+function averageWords (wordsArr) {
+  var suma = 0;
+  for (var i = 0; i < wordsArr.length; i++){
+    suma += wordsArr[i].length;
+  }
+  return suma;
 }
+console.log(averageWords(wordsArr));
+
 
 // Unique Arrays
 var wordsUnique = [
