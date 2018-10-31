@@ -156,7 +156,7 @@ function howManyTimes(words, word) {
   } return count;
 }
 
-// var resultado = howManyTimes(words,matter);
+// var resultado = howManyTimes(words,'matter');
 // console.log(resultado);
 
 // Bonus Quest
