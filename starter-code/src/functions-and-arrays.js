@@ -111,7 +111,8 @@ function uniquifyArray(uniqueChar){
 uniquifyArray(words);
 
 // Finding Elements
-var wordsFind = [
+let word = 'machine';
+var words = [
   'machine',
   'subset',
   'trouble',
@@ -121,6 +122,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(searchWord){
+  for ( var i = 0 ; i < searchWord.length ; i++){
+    if (searchWord[i].includes(word))
+    console.log("The following word does exists: ", word);
+  } 
+ }
+doesWordExist(words);
 
 // Counting Repetion
 var wordsCount = [
