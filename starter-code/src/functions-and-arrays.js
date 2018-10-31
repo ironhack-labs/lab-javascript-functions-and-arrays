@@ -74,7 +74,7 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWords (wordsArr) {
+function averageWordLength(wordsArr) {
   var suma = 0;
   for (var i = 0; i < wordsArr.length; i++){
     suma += wordsArr[i].length;
@@ -82,7 +82,7 @@ function averageWords (wordsArr) {
   return suma;
 }
 
-var avgWords = averageWords(wordsArr) / wordsArr.length;
+var avgWords = averageWordLength(wordsArr) / wordsArr.length;
 
 
 // Unique Arrays
