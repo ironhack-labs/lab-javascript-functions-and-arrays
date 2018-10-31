@@ -58,7 +58,7 @@ function averageNumbers (numbersAvg) {
 }
 
 var sumaAvg =  averageNumbers(numbersAvg);
-var promedio = sumaAvg / numbersAvg.length;
+var avgNumbers = sumaAvg / numbersAvg.length;
 
 // Array of Strings
 var wordsArr = [
@@ -81,7 +81,8 @@ function averageWords (wordsArr) {
   }
   return suma;
 }
-console.log(averageWords(wordsArr));
+
+var avgWords = averageWords(wordsArr) / wordsArr.length;
 
 
 // Unique Arrays
