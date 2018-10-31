@@ -123,8 +123,13 @@ var wordsFind = [
 ];
 
 function doesWordExist() {
-
+  for (var i = 0; i < wordsFind.length; i++)
+  if (wordsFind[i] != 0){
+    return true;
+  } 
+    return false;
 }
+
 
 // Counting Repetion
 var wordsCount = [
