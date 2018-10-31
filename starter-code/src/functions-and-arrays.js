@@ -102,9 +102,9 @@ var wordsUnique = [
 
 function uniquifyArray() {
   var uniqueArray = []
-    for(var i = 0; i < arr.length; i++){
-      if(uniqueArray.indexOf(arr[i]) == -1){
-          uniqueArray.push(arr[i])
+    for(var i = 0; i < wordsUnique.length; i++){
+      if(uniqueArray.indexOf(wordsUnique[i]) == -1){
+          uniqueArray.push(wordsUnique[i])
       }
     }
     return uniqueArray
