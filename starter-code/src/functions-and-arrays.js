@@ -90,7 +90,7 @@ function averageWordLength(words){
 averageWordLength(lengthWords);
 
 // Unique Arrays
-var wordsUnique = [
+let uniqueWords = [
   'crab',
   'poison',
   'contagious',
@@ -104,6 +104,21 @@ var wordsUnique = [
   'bring'
 ];
 
+let emptyArray = [];
+
+function uniquifyArray(words){
+  for(i = 0; i < words.length; i++){
+    if(emptyArray.indexOf(uniqueWords[i])=== -1){
+      emptyArray.push(uniqueWords[i]);
+    }
+
+    
+}
+console.log(emptyArray);
+}
+
+uniquifyArray(uniqueWords);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -116,6 +131,22 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(array,word){
+  var find=false;
+  if (array.length < 1){
+      find = false;
+      return find;
+  }
+  else {
+      array.forEach(function(a){
+        if (a === word){
+          find = true;
+          return find;
+        }
+      })
+  }
+  return find;
+ }
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -130,6 +161,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array,word){
+  var counter = 0;
+  if (array.length < 1){
+    var find = false;
+    return find;
+  }
+  else {
+    array.forEach(function(a){
+      if (a === word){
+        counter +=1
+      }
+    })
+  }
+  return counter;
+ }
 // Bonus Quest
 
 var matrix = [
