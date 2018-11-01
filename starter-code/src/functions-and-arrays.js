@@ -81,13 +81,15 @@ var wordsArr = [
 ];
 
 function averageWordLength (arr) {
+  var arrayLength = [];
   var average = 0;
   if (arr.length<=0) {
     return undefined;
   } else {
-    for (var i=0; i<arr.length-1; i++) {
-      average += arr[i].length / arr[i].length;
-    }
+      for (var i=0; i<arr.length; i++) {
+        arrayLength.push(arr[i].length);
+      }
+      average = averageNumbers(arrayLength);
   }
   return average;
 }
@@ -197,5 +199,5 @@ var matrix = [
 ];
 
 function greatestProduct (arr) {
-
+  
 }
