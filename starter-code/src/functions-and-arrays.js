@@ -62,6 +62,25 @@ var wordsArr = [
   'palace'
 ];
 //tendria que hacer una funcion que me diga la longitud de cada palabra, otra que me sume los valores de la longitud y otra que la divida entre la longitud del array
+function averageWordLength(wordsArray) {
+  if (wordsArray.length){
+     var wordsLength = [];
+     for (i = 0; i < wordsArray.length;i++) {
+      var wordLength = wordsArray[i].length;
+      wordsLength.push(wordLength);
+    }
+     var sum = 0;
+    var result = 0;
+    for (var i = 0; i < wordsLength.length; i++) {
+      sum += wordsLength[i];
+    }
+    result = sum / wordsLength.length;
+    
+    return result;
+   } else {
+    return undefined;
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -78,6 +97,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArray) {
+  if (wordsArray.length){
+    for (i = 0; i < wordsArray.length; i++){
+      if (wordsArray.indexOf(wordsArray[i],i+1) != -1){
+        wordsArray.splice(wordsArray.indexOf(wordsArray[i],i+1),1);
+      }
+    }
+    return wordsArray;
+  } else {
+    return undefined;
+  }
+} // de aqui algo no funciona
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -89,18 +121,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-var wordFindCon = 'subset';
-function doesWordExist (wordsFind) {
-  for (var i = 0; i < wordsFind.length; i++) {
-    if (wordFindCon === wordsFind[i]) {
-      return true;
-    }
-    else  {
-      return false;
-    }
+function doesWordExist(wordsCollection, wordSearch) {
+  if (wordsCollection.length) {
+    return wordsCollection.includes(wordSearch);
+  } else {
+    return false;
   }
-  
 }
+
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -115,15 +144,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-var exampleWord = "matter";
-
-function howManyTimes(wordsCount) {
-  for (var i = 0; i < wordsCount.length; i++) {
-    if (exampleWord === wordsCount[i]){
+function howManyTimes(wordsCollection, wordSearch) {
+  if (wordsCollection.length) {
+    var counter = 0;
+    for (i = 0; i < wordsCollection.length; i++) {
+      if (wordsCollection[i] === wordSearch) {
+        counter += 1;
+      }
     }
+    return counter;
+  } else {
+    return false;
   }
-  return 
 }
+
+
+
 // Bonus Quest
 
 var matrix = [
@@ -148,3 +184,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// pff en este ejercicio no se ni por donde empezar
