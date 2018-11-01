@@ -42,8 +42,6 @@ function findLongestWord(words) {
   return longest;
 }
 
-findLongestWord();
-    
 // Calculating a Sum
 function sumArray(numbers) {
   let sumAddition = 0;
@@ -105,7 +103,6 @@ function averageWordLength(wordsArr) {
 }
 
 averageWordLength(wordsArr);
-
     
 // Unique Arrays
 var wordsUnique = [
@@ -122,18 +119,57 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length == 0) {
+    return undefined;
+  }
 
-    // // Finding Elements
-    // var wordsFind = [
-    //   'machine',
-    //   'subset',
-    //   'trouble',
-    //   'starting',
-    //   'matter',
-    //   'eating',
-    //   'truth',
-    //   'disobedience'
-    // ];
+  let uniqueArray = [];
+
+  for(i = 0; i < wordsUnique.length; i++) {
+    if(uniqueArray.indexOf(wordsUnique[i]) === -1) {
+      uniqueArray.push(wordsUnique[i]);
+    }
+    else {
+      continue;
+    }
+  }
+
+  return uniqueArray;
+}
+
+uniquifyArray(wordsUnique);
+
+// Finding Elements
+var wordsFind = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+];
+// Finding Elements
+var wordsFind = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+];
+
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.length == 0) {
+    return false;
+  }
+
+  
+}
     
     // // Counting Repetion
     // var wordsCount = [
