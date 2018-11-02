@@ -172,7 +172,39 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist (wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return false
+  } 
+  
+    var count = wordsFind.length;
+    for(var i = 0; i < count; i++) {
+    if(word === wordsFind[i]) {
+      return true;
+    }  else {
+      return false;
+  }
+}
+}
+    
+  
 
+
+
+
+
+
+
+
+
+  //   var count = wordsFind.length;
+//   for(var i = 0; i < count; i++) {
+//     if(wordsFind[i] === word) {
+//       return true;
+//     } return false
+
+//   }
+// }
 
 
 
@@ -190,6 +222,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, word2) {
+  if (wordsCount.length === 0) {
+    return false
+  } 
+  var count = wordsCount.length;
+  for(var i = 0; i < count; i++) {
+  if(word2== wordsCount[i]) {
+    return true;
+  }
+}
+}
+
+  
+
 // Bonus Quest
 
 var matrix = [

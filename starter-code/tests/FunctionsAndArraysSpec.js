@@ -147,35 +147,35 @@ describe('Finding Elements - doesWordExist', function () {
     expect(typeof doesWordExist).toBe('function');
   });
 
-  // it('returns false with an empty array', function () {
-  //   expect(doesWordExist([])).toBe(false);
-  // });
+  it('returns false with an empty array', function () {
+    expect(doesWordExist([])).toBe(false);
+  });
 
-  // it('returns true if the word we are looking is the only one on the array', function () {
-  //   expect(doesWordExist(['machine'], 'machine')).toBe(true);
-  // });
+  it('returns true if the word we are looking is the only one on the array', function () {
+    expect(doesWordExist(['machine'], 'machine')).toBe(true);
+  });
 
-  // it('returns false if the word we are looking is not in the array', function () {
-  //   expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
-  // });
+  it('returns false if the word we are looking is not in the array', function () {
+    expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
+  });
 
-  // it('returns true if the word we are looking is in the array', function () {
-  //   expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
-  // });
+  it('returns true if the word we are looking is in the array', function () {
+    expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
+  });
 });
 
 describe('Counting Repetion - howManyTimes', function () {
-  // it('Defines howManyTimes', function () {
-  //   expect(typeof howManyTimes).toBe('function');
-  // });
+  it('Defines howManyTimes', function () {
+    expect(typeof howManyTimes).toBe('function');
+  });
 
-  // it('returns false with an empty array', function () {
-  //   expect(howManyTimes([])).toBe(false);
-  // });
+  it('returns false with an empty array', function () {
+    expect(howManyTimes([])).toBe(false);
+  });
 
-  // it('returns one when the word appears only one time on the array', function () {
-  //   expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
-  // });
+  it('returns one when the word appears only one time on the array', function () {
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
+  });
 
   // it('returns zero when the word does not appears on the array', function () {
   //   expect(howManyTimes(['basketball', 'football', 'tennis'], 'rugby')).toBe(0);
