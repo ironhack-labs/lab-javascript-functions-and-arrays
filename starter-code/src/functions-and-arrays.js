@@ -1,4 +1,4 @@
-// Find the maximum
+// Find the maximum (DONE)
 function maxOfTwoNumbers(n1, n2) {
   if (n1 > n2) {
     return n1;
@@ -6,7 +6,7 @@ function maxOfTwoNumbers(n1, n2) {
   return n2;
 }
 
-// Finding Longest Word
+// Finding Longest Word  ** Revisar **
 var words = [
   'mystery',
   'brother',
@@ -18,24 +18,46 @@ var words = [
 ];
 
 function findLongestWord(words) {
+  if (words.length === 0) {
+    return undefined;
+  }
   var largest = '';
   for(var i = 0; i < words.length; i++) {
     if (largest = words[i].length > largest.length) {
       largest = words[i];
-    }
+    } 
   }
+  
   return largest;
 }
 
-// Calculating a Sum
-
+// Calculating a Sum (DONE)
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(numbers) {
+  var sum = 0;
+  for(var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
+
+// Calculate the Average (DONE)
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return undefined;
+  }
+  var sum = 0;
+  for(var i = 0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+  }
+  var avg = sum / numbersAvg.length;
+  return avg;
+}
 
-// Array of Strings
+// Array of Strings (DONE)
 var wordsArr = [
   'seat',
   'correspond',
@@ -49,7 +71,21 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return undefined;
+  }
+  var sum = 0;
+  for(var i = 0; i < wordsArr.length; i++) {
+    sum += wordsArr[i].length;
+  }
+  
+  var avg = sum / wordsArr.length;
+  return avg;
+}
+
+
+// Unique Arrays (DONE)
 var wordsUnique = [
   'crab',
   'poison',
@@ -64,17 +100,51 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return undefined;
+  } 
+  var newArray = [];
+  for (var i = 0; i < wordsUnique.length; i++) {
+    if(newArray.indexOf(wordsUnique[i]) === -1) {
+      newArray.push(wordsUnique[i]);
+    }
+  }
+  return newArray;
+}
+
+
+// Finding Elements (No encuentro el error)
 var wordsFind = [
   'machine',
   'subset',
   'trouble',
   'starting',
   'matter',
+  'machine',
   'eating',
   'truth',
   'disobedience'
 ];
+var word = 'machine';
+function doesWordExist(word) {
+  var wordAppear = [];
+  for (i = 0; i < wordsFind.length; i++) {
+    if (word === wordsFind[i]) {
+      wordAppear.push(wordsFind[i]);
+    } 
+  }
+  if (wordAppear.length > 0 && wordAppear.length < 2) {
+    console.log ('es la única')
+    return true;
+  } else if (wordAppear[0] === word) {
+    console.log ('está pero hay más')
+    return true;
+  } 
+  else {
+    return false;
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -90,6 +160,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount) {
+  if (wordsCount.length === 0) {
+    return false;
+  } 
+  var wordAppear = [];
+  for (i = 0; i < wordsCount.length; i++) {
+    if (wordRepetition === wordsCount[i]) {
+      wordAppear.push(wordsCount[i]);
+    } 
+  }
+  return wordAppear.length
+}
+
 // Bonus Quest
 
 var matrix = [
