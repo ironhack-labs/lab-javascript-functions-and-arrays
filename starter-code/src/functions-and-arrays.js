@@ -20,28 +20,51 @@ var words = [
 function findLongestWord (words){
 var longest = '';
   words.forEach (function (element) {
+    if (longest.length <= element.length){
+      longest = element;
+    };
+    
+  });
+  
+  return longest;
+}
+/*function findLongestWord (words){
+  var longest = '';
+  for( i = 0; i< words.length; i++){
     if (longest.length < element.length){
       longest = element;
     };
-  });
+  }
   return longest;
-}
-
+}*/
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-for( i = 0; i< numbers.length; i++){
-   var sum =+  numbers[i];
-  return sum;
+
+function sum (numbers){
+var result = 0;
+for( i = 0; i < numbers.length; i++){
+   result +=  numbers[i];
+  }
+  return result;
 }
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function calculAvg() {
+
+/*function calculAvg(numbersAvg) {
   numbersAvg.sort(function(a, b){return a - b});
   return ((numbersAvg[0] + numbersAvg.pop())/2);
+}*/
+
+function calculAverage (numbersAvg){
+  for( i = 0; i < numbersAvg.length; i++){
+    resultSum +=  numbersAvg[i];
+   }
+   return (resultSum/numbersAvg.length);
 }
+
 
 // Array of Strings
 var wordsArr = [
@@ -57,10 +80,16 @@ var wordsArr = [
   'palace'
 ];
 
-for( i = 0; i< numbers.length; i++){
-
+function arrOfStrings (wordsArr){
+var arrSum = 0;
+for( i = 0; i < wordsCount.length; i++){
+  arrSum += arrOfStrings[i].length;
+  }
+return(arrSum/arrOfStrings.length);
 
 }
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -76,6 +105,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniqueArr (wordsUnique){
+  for( i = 0; i < wordsUnique.length; i++){
+    var word = wordsUnique[i];
+    if(wordsUnique.indexOf(word)=== 0){
+      wordsUnique.pop(word);
+    }
+  }
+  return wordsUnique;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -87,6 +126,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+var otherWord = prompt('Write a word to search');
+function findElements (wordsFind, otherWord){
+  for( i = 0; i< wordsFind.length; i++){
+    if(wordsFind[i] === otherWord){
+      return true;
+    }else{
+      return false;
+    } 
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -102,6 +151,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+var wordToSearch = prompt('Write a word to search');
+function countingRepet (wwordsCount , wordToSearch){
+  wordToSearch = wordToSearch.toLowerCase();
+  var count = 0;
+  for( i = 0; i< wordsCount.length; i++){
+    if (wordsCount.indexOf(wordToSearch, i) != -1){
+      count += 1;
+    }else{
+      count = count;
+    }
+
+  }
+  return count;
+
+}
+
+
+
 // Bonus Quest
 
 var matrix = [
@@ -126,3 +193,53 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix){
+  var maxProduct = 0;
+  for(i = 0;  i === 19; i++){
+    for(j = 0; j === 19; j++){
+      var productLeft = matrix[i][j];
+      var productRight = matrix[i][j];
+      var productUp = matrix[i][j];
+      var productDown = matrix[i][j];
+      var maxProductIJ = 0;
+      for (k = 1; k === 3; k++){
+        if (i-k < 0){
+          productUp = productUp * 1;
+        }else{
+          productUp *= matrix[i-k][j];
+        }
+      }
+      for(k = 1; k === 3; k++){
+        if (i + k > 19){
+          productDown = productDown * 1;
+        }else{
+          productDown *= matrix[i+k][j];
+        }
+      }
+      for (k = 1; k === 3; k++){
+        if (j-k < 0){
+          productLeft = productLeft * 1;
+        }else{
+          productLeft *= matrix[i][j-k];
+        }
+      }
+      for(k = 1; k === 3; k++){
+        if (j + k > 19){
+          productRight = productRight * 1;
+        }else{
+          productRight *= matrix[i][j+k];
+        }
+      }
+      maxProductIJ = Math.max(productDown,productLeft,productRight,productUp);
+
+      maxProduct = Math.max(maxProduct, maxProductIJ);
+
+    }
+    
+
+  }
+
+return maxProduct;
+
+}
