@@ -107,13 +107,19 @@ var wordsUnique = [
 ];
 
 function uniquifyArray (words){
-   for (var i=0; i < words.lenght; i++){
-     if (words.indexOf(words[i])>1){
-        words.splice(words[i],1);
+  if (words.length === 0){
+    return undefined;
+  } else {
+    var uniqueArray = [];
+    for (var i=0; i < words.length; i++){
+    if (uniqueArray.indexOf(words[i]) === -1){
+    //si indexOf es -1 es que la palabra no está en el array que devolvemos por lo que la metemos
+      uniqueArray.push(words[i]);
+      }
      }
-   }
- }
-
+    return uniqueArray;   
+  }
+}
 
 
 // Finding Elements
@@ -129,13 +135,13 @@ var wordsFind = [
 ];
 
 function doesWordExist (words, word){
-  var result = false;
-  for (var i=0; i<words.lenght; i++){
-    if (words[i]===word){
-      result = true;
+  var exist = false;
+  for (var i=0; i<words.length; i++){
+    if (words[i] === word){
+      exist = true;
       }
     }
-  return result;
+  return exist;
 }
 
 // Counting Repetion
@@ -154,14 +160,17 @@ var wordsCount = [
 ];
 
 function howManyTimes (words, word){
-  var count=0;
-  for (var i=0; i<words.lenght; i++){
-    if (words[i]===word){
-      count++;
+  if (words.length === 0){
+    return false;
+  } else {
+    var count=0;
+    for (var i=0; i<words.length; i++){
+      if (words[i] === word){
+        count++;
+      }
     }
   return count;
-  }
-
+}
 }
 
 // Bonus Quest
@@ -189,9 +198,31 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+// function greatestProduct (matrix){
+//   var product=0;
+//   var prodHor=0;
+//   var prodVer=0;
+//   for var i=0; i<matrix.length; i++){
+//     for(var j=0; j<matrix[i].length; j++){
+//       if (matrix.length>4){
+//         prodHor = productHor(matrix[i],j);
+//       }
+//       if (matrix[i].length>4){
+//         prodVer = productVert(matrix)
+//       }
+//        }
+//       }
+//     }
 
 
 
+// function productHor (line, index){
+//   return line[index]*line[index+1]*line[index+2]*line[index+3];
+// }
+
+// function productVert (column, index){
+//   return column[index]*column[index+1]*column[index+2]*column[index+3];
+// }
 
 
 
