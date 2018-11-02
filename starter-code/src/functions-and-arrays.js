@@ -110,9 +110,18 @@ var wordsUnique = [
 ];
 
 function uniquifyArray (arr) {
-  var newArray = [];
-
-}
+  var uniqueArray = [];
+  if (arr.length<=0) {
+    return undefined;
+  } else {
+   arr.forEach(function (name) {
+     if (uniqueArray.indexOf(name) === -1) {      
+       uniqueArray.unshift(name); //push
+     }		
+ 	})
+   return uniqueArray;
+  } 
+} 
 
 // Finding Elements
 var wordsFind = [
@@ -199,5 +208,5 @@ var matrix = [
 ];
 
 function greatestProduct (arr) {
-  
+
 }
