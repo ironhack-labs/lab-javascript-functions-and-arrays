@@ -101,14 +101,14 @@ var words = [
   'bring'
 ];
 
-function uniquifyArray(uniqueChar){
+function uniqueArray(uniqueChar){
   for (var i = 0; i < uniqueChar.length ; i++){
     if (noDuplicates.indexOf(uniqueChar[i]) === -1)
     noDuplicates.push(uniqueChar[i]);
   }
   console.log(noDuplicates)
 }
-uniquifyArray(words);
+uniqueArray(words);
 
 // Finding Elements
 let word = 'machine';
@@ -122,13 +122,17 @@ var words = [
   'truth',
   'disobedience'
 ];
-function doesWordExist(searchWord){
-  for ( var i = 0 ; i < searchWord.length ; i++){
-    if (searchWord[i].includes(word))
-    console.log("The following word does exists: ", word);
-  } 
- }
-doesWordExist(words);
+const doesWordExist = (someArr, someWord) => {
+  let doesExist = false;
+  for (let i=0; i<someArr.length; i++){
+    if (someArr[i] === someWord){
+      doesExist = true
+    }
+  }
+  return doesExist;
+}
+
+doesWordExist(words, 'machine');
 
 // Counting Repetion
 var wordsCount = [
@@ -144,6 +148,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (anyArray, theWord) => {
+  let count = 0;
+  for(let i=0; i < anyArray.length; i++){
+    if(anyArray[i] === theWord){
+      count++
+    }
+  }
+  return theWord + " appears " + count + " times"
+  
+  }
+  howManyTimes(wordsCount, "matter");
 // Bonus Quest
 
 var matrix = [
