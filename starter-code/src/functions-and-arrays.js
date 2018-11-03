@@ -151,40 +151,53 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-// Finding Elements
-var wordsFind = [
+
+function doesWordExist(someArr, someWord) {
+  let doesExist = false;
+
+  for(let i = 0; i < someArr.length; i++) {
+    if(someArr[i] === someWord) {
+      doesExist = true;
+    } 
+  }
+
+  return doesExist;
+}
+
+doesWordExist(words, "poop");
+    
+// Counting Repetion
+var wordsCount = [
   'machine',
+  'matter',
   'subset',
   'trouble',
   'starting',
   'matter',
   'eating',
+  'matter',
   'truth',
-  'disobedience'
+  'disobedience',
+  'matter'
 ];
 
-function doesWordExist(wordsFind, word) {
-  if(wordsFind.length == 0) {
+function howManyTimes(array, word) {
+  if(array.length == 0) {
     return false;
   }
 
-  
+  let count = 0;
+
+  for(i = 0; i < array.length; i++) {
+    if(array[i] === word) {
+      count++;
+    }
+  }
+
+  return count;
 }
-    
-    // // Counting Repetion
-    // var wordsCount = [
-    //   'machine',
-    //   'matter',
-    //   'subset',
-    //   'trouble',
-    //   'starting',
-    //   'matter',
-    //   'eating',
-    //   'matter',
-    //   'truth',
-    //   'disobedience',
-    //   'matter'
-    // ];
+
+howManyTimes(wordsCount);
     // // Bonus Quest
     
     // var matrix = [
