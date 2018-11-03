@@ -1,5 +1,13 @@
 // Find the maximum
-
+function maxOfTwoNumbers (n1, n2) {
+  if (n1 > n2) {
+    return n1;
+  } else if (n1 < n2) {
+    return n2;
+  } else {
+    return n1;
+  }
+};
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,68 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (array1) {
+  var word = "";
+  if (array1[0] === undefined) {
+    return undefined;
+  } else {
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].length === word.length) {
+        word = word;
+      } else if (words[i].length > word.length) {
+        word = words[i];
+      }
+    }
+  }
+  return word;
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function isZero (number) {
+  if (number === 0) {
+    return number;
+  }
+};
+
+function sumArray (array2) {
+  var sumNumbers = 0;
+  if (array2[0] === undefined) {
+    return 0;
+  } else if (array2.every(isZero)) {
+    return 0;
+  } else {
+    for (var i = 0; i < numbers.length; i++) {
+      sumNumbers += numbers[i];
+    }
+    return sumNumbers;
+  }
+};
+
+sumArray(numbers);
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  var sum = 0;
+  if (numbersAvg[0] === undefined) {
+    return undefined;
+  } else {
+    for (var i= 0; i < numbersAvg.length; i++) {
+      sum += numbersAvg[i];
+    }
+  }
+  var avg = sum / numbersAvg.length;
+  return avg;
+}
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +95,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (array) {
+  var wordsLength = [];  
+  for (var i = 0; i < wordsArr.length; i++) {
+    wordsLength.push(wordsArr[i].length);
+  }
+  if (wordsArr.length === 0) {
+    return undefined;
+  } else {
+    return averageNumbers(wordsLength);
+  }
+};
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +124,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (array) {
+  var uniqueArray = [];
+  for (var i = 0; i < array.length; i++) {
+    if (uniqueArray.indexOf(array[i]) === -1) {
+      uniqueArray.push(array[i]);
+    }
+  }
+  return uniqueArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +145,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (word , array) {
+  if (array.length === 0) {
+    return false;
+  } else {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  
+};
 
 // Counting Repetion
 var wordsCount = [
