@@ -31,32 +31,32 @@ describe('Find the maximum - maxOfTwoNumbers', function () {
   });
 });
 
-// describe('Finding Longest Word - findLongestWord', function () {
-//   it('Defines findLongestWord', function () {
-//     expect(typeof findLongestWord).toBe('function');
-//   });
+describe('Finding Longest Word - findLongestWord', function () {
+  it('Defines findLongestWord', function () {
+    expect(typeof findLongestWord).toBe('function');
+  });
 
-//   it('returns undefined with an empty array', function () {
-//     expect(findLongestWord([])).toBe(undefined);
-//   });
+  it('returns undefined with an empty array', function () {
+    expect(findLongestWord([])).toBe(undefined);
+  });
 
-//   it('returns the word with an 1-word array', function () {
-//     expect(findLongestWord(['foo'])).toBe('foo');
-//   });
+  it('returns the word with an 1-word array', function () {
+    expect(findLongestWord(['foo'])).toBe('foo');
+  });
 
-//   it('returns the first occurrence word when longest have multiple occurrences ', function () {
-//     expect(findLongestWord(['foo', 'bar'])).toBe('foo');
-//     expect(findLongestWord(['bar', 'foo'])).toBe('bar');
-//   });
+  it('returns the first occurrence word when longest have multiple occurrences ', function () {
+    expect(findLongestWord(['foo', 'bar'])).toBe('foo');
+    expect(findLongestWord(['bar', 'foo'])).toBe('bar');
+  });
 
-//   it('returns the longest occurrence when it has multiple words', function () {
-//     var words = ['a', 'zab', '12abc', '$$abcd', 'abcde', 'ironhack'];
-//     for (var i = 0; i < 10; i++) {
-//       words = shuffle(words);
-//       expect(findLongestWord(words)).toBe('ironhack');
-//     }
-//   });
-// });
+  it('returns the longest occurrence when it has multiple words', function () {
+    var words = ['a', 'zab', '12abc', '$$abcd', 'abcde', 'ironhack'];
+    for (var i = 0; i < 10; i++) {
+      words = shuffle(words);
+      expect(findLongestWord(words)).toBe('ironhack');
+    }
+  });
+});
 
 // describe('Calculating a Sum - sumArray', function () {
 //   it('Defines sumArray', function () {
