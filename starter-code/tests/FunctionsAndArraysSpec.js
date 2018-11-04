@@ -58,49 +58,49 @@ describe('Finding Longest Word - findLongestWord', function () {
   });
 });
 
-// describe('Calculating a Sum - sumArray', function () {
-//   it('Defines sumArray', function () {
-//     expect(typeof sumArray).toBe('function');
-//   });
+describe('Calculating a Sum - sumArray', function () {
+  it('Defines sumArray', function () {
+    expect(typeof sumArray).toBe('function');
+  });
 
-//   it('returns zero with an empty array', function () {
-//     expect(sumArray([])).toBe(0);
-//   });
+  it('returns zero with an empty array', function () {
+    expect(sumArray([])).toBe(0);
+  });
 
-//   it('returns the sum with one number array', function () {
-//     expect(sumArray([4])).toBe(4);
-//   });
+  it('returns the sum with one number array', function () {
+    expect(sumArray([4])).toBe(4);
+  });
 
-//   it('returns zero if all elements are zero', function () {
-//     expect(sumArray([0, 0, 0, 0, 0])).toBe(0);
-//   });
+  it('returns zero if all elements are zero', function () {
+    expect(sumArray([0, 0, 0, 0, 0])).toBe(0);
+  });
 
-//   it('returns the sum', function () {
-//     expect(sumArray([10, 5, 4, 32, 8])).toBe(59);
-//   });
-// });
+  it('returns the sum', function () {
+    expect(sumArray([10, 5, 4, 32, 8])).toBe(59);
+  });
+});
 
-// describe('Calculating the Average - averageNumbers', function () {
-//   it('Defines averageNumbers', function () {
-//     expect(typeof averageNumbers).toBe('function');
-//   });
+describe('Calculating the Average - averageNumbers', function () {
+  it('Defines averageNumbers', function () {
+    expect(typeof averageNumbers).toBe('function');
+  });
 
-//   it('returns undefined with an empty array', function () {
-//     expect(averageNumbers([])).toBe(undefined);
-//   });
+  it('returns undefined with an empty array', function () {
+    expect(averageNumbers([])).toBe(undefined);
+  });
 
-//   it('returns the average of a unique element array', function () {
-//     expect(averageNumbers([9])).toBe(9);
-//   });
+  it('returns the average of a unique element array', function () {
+    expect(averageNumbers([9])).toBe(9);
+  });
 
-//   it('returns the average even with negative values', function () {
-//     expect(averageNumbers([9, -3, -4, 6])).toBe(2);
-//   });
+  it('returns the average even with negative values', function () {
+    expect(averageNumbers([9, -3, -4, 6])).toBe(2);
+  });
 
-//   it('returns the average of the array', function () {
-//     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
-//   });
-// });
+  it('returns the average of the array', function () {
+    expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
+  });
+});
 
 // describe('Calculating the Average - averageWordLength', function () {
 //   it('Defines averageWordLength', function () {
