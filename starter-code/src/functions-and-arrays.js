@@ -1,5 +1,19 @@
 // Find the maximum
 
+function maxOfTwoNumbers (num1, num2){
+  if(num1>num2){
+    console.log( "First parameter larger" );
+    return num1;
+  } else if (num1<num2){
+    console.log( "Second  parameter larger" );
+    return num2;
+  } else{
+    console.log( "First and Second parameter equal" );
+    return num1;
+  }
+
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -100,25 +114,3 @@ var matrix = [
 ];
 
 
-function maxOfTwoNumbers (n1, n2) {
-  if (n1 > n2) {
-    return n1;
-  } else if (n1 < n2) {
-    return n2;
-  } else {
-    return n1;
-  }
-}
-
-function findLongestWord (chain){
-
-  for (var i=0; i<chain.lenth; i++){
-
-  if( ){
-    return chain[i];
-    break;
-  }
- 
-
-  }
-}
