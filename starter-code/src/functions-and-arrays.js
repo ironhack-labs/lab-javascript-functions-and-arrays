@@ -1,13 +1,16 @@
 // Find the maximum
-function maxOfTwoNumbers(oneNum, twoNum){
-  if(oneNum > twoNum){
-    return oneNum;
-  } else if (twoNum > oneNum){
-    return twoNum;
-  } else {
-    return oneNum;
-  }
-}
+function maxOfTwoNumbers(x, y){
+  if(x > y){
+
+    return x;
+
+  } else if (y > x){
+
+    return y;
+
+  } else return x;
+};
+maxOfTwoNumbers();
 
 // Finding Longest Word
 var arr = [
@@ -19,88 +22,54 @@ var arr = [
   'orchard',
   'crackpot'
 ];
-function findLongestWord(arr) {
-  
-   let longest = 0;
-   let biggest = '';
-  
-  function findLongestWord(arr){
-  
-  
-  
-    if (arr.length === 0) {
-      return undefined
-    }
-  
-  
-    arr.forEach((findLongestWord)=>{
-  console.log(word.length);
-   
-    if(word.length > longest){
-      longest = word.length;
-      biggest = word;
-      
-    }
-    
-  })
-  return biggest;
+function findLongestWord(array){
+  let result = "";
+  if (array.length === 0) {
+    return undefined
   }
-  
-
-
-
-}  
-
+  for(let i=0; i < array.length; i++) {
+    if(result.length < array[i].length) {
+      result = array[i];
+    }
+  }   return result;
+}
+findLongestWord(arr);
 
 
 
 // Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-  function sumArray(numbers){
-    for (let i=0; i < numbers.length; i++)
-    return 
+  function sumArray(array) {
+    if (array.length === 0) {
+      return 0
+    }
+      else return array.reduce((x,y) => (x + y));
   }
-
-function sumArray(x){
-  let total = 0;
-  if (numbers.length === 0){
-    return 0
-  }
-
- x.forEach((numbers)=>{
-    total = total + numbers;
-  })
-  return total
-}
-
-console.log(sumArray([1,5,4,3,7,6]))
-
+sumArray(numbers);
 
 // Calculate the Average
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(){
-  
-}
-
-function sumArray2(numbersAvg){
+let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function avgNumbers(array){
   let sum = 0;
-  numbersAvg.forEach((numbersAvg)=>{
-  sum = sum + numbersAvg
-})
-return sum
+  if (array.length === 0) {
+    return undefined
+  }
+  else sum = array.reduce((x,y) => (x + y);
+  return sum/array.length;
 }
+avgNumbers(numbersAvg);
 
-function avgArray(){
-  let newAvg;
-  newAvg = sumArray2() / numbersAvg.length
-  return newAvg;
+// Array of Numbers
+let sum = 0;
+let  
+function averageNumbers(numsArr) {
+  for.Each(averageNumbers(numsArr){
+    sum = sum + numsArr
+  }
 }
-
 
 // Array of Strings
-var wordsArr = [
-  'seat',
+  let wordsArr = ['seat',
   'correspond',
   'linen',
   'motif',
@@ -111,9 +80,20 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function avgWordLength(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return undefined
+  }
+  for(let i = 0; i < array.length; i++) {
+    sum += array[i].length
+  }
+  return sum/array.length;
+}
+avgWordLength(wordsArr);
 
 // Unique Arrays
-var wordsUnique = [
+let wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -126,9 +106,22 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  let newArray = [];
+  if (array.length === 0) {
+    return undefined
+  }
+  for(let i = 0; i < array.length; i++) {
+    if (newArray.indexOf(array[i]) === -1) {
+      newArray.push(array[i]);
+    }
+  } return newArray;
+}
+uniquifyArray(wordsUnique);
+
 
 // Finding Elements
-var wordsFind = [
+let wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -138,6 +131,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(array, word) {
+  for(let i = 0; i < array.length; i++) {
+    if (word === array[i]) {
+      return true;
+    }
+  }   return false;
+}
+doesWordExist(wordsFind, 'machine');
 
 // Counting Repetion
 var wordsCount = [
@@ -153,9 +154,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  let counter = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (word === array[i]) {
+      counter++;
+    }
+  }   return counter;
+}
+howManyTimes(wordsCount);
+
+
+
 // Bonus Quest
 
-var matrix = [
+let matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -177,3 +193,25 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(grid) {
+  let result1 = 0;
+  let result2 = 0;
+  for(let i = 0; i < grid.length; i++) {
+    for(let j = 0; j < grid.length; j++) {
+      if (j < (grid[i].length - 3)) {
+        if((grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]) > result1) {
+          result1 = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3];
+        }
+      }
+      if (i < (grid.length - 3)) {
+        if((grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]) > result2) {
+        result2 = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j];
+        }
+      }
+    }
+  } if (result1 > result2) {
+    return result1;
+  } return result2;
+}
+greatestProduct(matrix);
