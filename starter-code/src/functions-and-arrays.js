@@ -51,7 +51,18 @@ function sumArray (array){
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (array) {
+  if (array === undefined || array.length === 0) {
+    return undefined;
+  }
+
+  var result = 0;
+  for (var i = 0; i < array.length; i++) {
+    result += array[i];
+  }
+  result /= array.length;
+  return result;
+} 
 
 // Array of Strings
 var wordsArr = [
