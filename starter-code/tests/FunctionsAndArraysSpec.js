@@ -102,23 +102,23 @@ describe('Calculating the Average - averageNumbers', function () {
   });
 });
 
-// describe('Calculating the Average - averageWordLength', function () {
-//   it('Defines averageWordLength', function () {
-//     expect(typeof averageWordLength).toBe('function');
-//   });
+ describe('Calculating the Average - averageWordLength', function () {
+   it('Defines averageWordLength', function () {
+     expect(typeof averageWordLength).toBe('function');
+   });
 
-//   it('returns undefined with an empty array', function () {
-//     expect(averageWordLength([])).toBe(undefined);
-//   });
+   it('returns undefined with an empty array', function () {
+     expect(averageWordLength([])).toBe(undefined);
+   });
 
-//   it('returns the average of a unique element array', function () {
-//     expect(averageWordLength(['ironhack'])).toBe(8);
-//   });
+   it('returns the average of a unique element array', function () {
+     expect(averageWordLength(['ironhack'])).toBe(8);
+   });
 
-//   it('returns the average of a the array', function () {
-//     expect(averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])).toBe(7);
-//   });
-// });
+   it('returns the average of a the array', function () {
+     expect(averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])).toBe(7);
+   });
+ });
 
 // describe('Unique Arrays - uniquifyArray', function () {
 //   it('Defines uniquifyArray', function () {
@@ -243,4 +243,4 @@ describe('Calculating the Average - averageNumbers', function () {
 //     expect(greatestProduct(matrix)).toBe(16);
 //   });
 // });
-
+  
