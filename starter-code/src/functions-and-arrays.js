@@ -1,138 +1,191 @@
+// Find the maximum
 
-// challenge 1 (SUM OF ARRAYS) in order to get the sum of array 
-// we start by creating a function sumofNumbers and we use a foeloop to loop through the lenght of the arrys 
-// ad addtion of the array is asigned to var x and return x gets the final value
+// Finding Longest Word
+var words = [
+  'mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot'
+];
 
-function sumofArray(array) {
-    var x = 0;
-    
-    for (var i=0; i < array.length; i++) {
-     x = x + array[i];
-     
-    }
-     return(x);
+var words = [
+  'mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot'
+];
+
+var longest = "";
+
+var length = 0;
+
+for (var i = 0; i < words.length; i++) {
+  if (words[i].length > longest.length) {
+    longest = words[i]
   }
-  
-  sumofArray([6, 12, 1, 18, 13, 16, 2, 1, 8, 10])
 
-  // Challange 2 To find the Average we just do the same as above and return the value x/array.length
+ console.log(longest);
+}
 
-  function sumofArray(array) {
-    var x = 0 
-    
-    for (let i = 0; i < array.length; i++) {
-      x = x + array[i]
-  
-  
-      
-    }
-  return(x/array.length)
-    
-  }
-  sumofArray([2, 6, 9, 10, 7, 4, 1, 9]);  // 6
 
-  // question why does it get a value of 0.25 if the return is placed after the x +array[i]?
+//=========================== Calculating a Sum
 
-// Chllange 3 
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-var arr = [
-    'mystery',
-    'brother',
-    'aviator',
-    'crocodile',
-    'pearl',
-    'orchard',
-    'crackpot'
-  ];
-  
-  var lgth = 0;
-  var longest = "";
-  
-  for(var i=0; i < arr.length; i++){
-      if(arr[i].length > longest.length){
-        longest = arr[i];
-          
-      }      
+var s = 0;
+
+for (var i = 0; i < numbers.length;i++) {
+  s = s + numbers[i]
+}
+
+console.log(s)
+
+// Calculate the Average
+
+var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+var s = 0;
+
+for (var i = 0; i < numbersAvg.length;i++) {
+  s = s + numbersAvg[i]
+}
+
+console.log(s/numbersAvg.length)
+
+// Array of Strings
+var wordsArr = [
+  'seat',
+  'correspond',
+  'linen',
+  'motif',
+  'hole',
+  'smell',
+  'smart',
+  'chaos',
+  'fuel',
+  'palace'
+];
+
+//  ==========================================
+
+// Unique Arrays
+var wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+
+var w = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+var newArr = [];
+
+for (var i = 0; i  < w.length; i++) {
+  if (newArr.indexOf(w[i]) === -1) {
+   newArr.push(w[i])
   } 
-   
-  console.log(longest);
+}
+  console.log(newArr)
 
-  // Challange 4
+  // ======================================
 
-  var w = [
-    'crab',
-    'poison',
-    'contagious',
-    'simple',
-    'bring',
-    'sharp',
-    'playground',
-    'poison',
-    'communion',
-    'simple',
-    'bring'
-  ];
-    
-  let b =[] 
-  for ( let i = 0; i < w.length; i++ ) {
-    if (b.indexOf(w[i])=== -1) {
-      b.push(w[i]);
-    }
+// Finding Elements
+var wordsFind = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+];
+
+var words = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+];
+
+
+for (var i = 0; i < words.length; i++) {
+  if(words.includes("truth") === true) {
+    console.log("yes we lucky")
+  } else{
+    console.log("no keep looking")
   }
-  
-  console.log(b)
+}
 
-  // Challange 5
+//  ===========================================================
+// Counting Repetion
+var wordsCount = [
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+];
 
-  var words = [
-    'machine',
-    'subset',
-    'trouble',
-    'starting',
-    'matter',
-    'eating',
-    'truth',
-    'disobedience'
-  ];
-  
-  function doesWordExist(checkWord, array){
-     var check
-     for (i = 0; i < words.length; i++){
-         if (array[i] == checkWord) {
-           return true;
-         } else {
-           checke = false;
-         }
-     }
-     return check;
+
+var words = [
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+];
+
+function numRepet(words ,array) {
+  var numOccurance = 0
+
+  for (var i = 0; i< array.length; i++) {
+    if (array[i] === words){numOccurance += 1;}
   }
-  
-  console.log("eating")
-
-  // challange 6
-
-  var words = [
-    'machine',
-    'matter',
-    'subset',
-    'trouble',
-    'starting',
-    'matter',
-    'eating',
-    'matter',
-    'truth',
-    'disobedience',
-    'matter'
-  ];
-  
-  function numRepet(words ,array) {
-    var numOccurance = 0
-  
-    for (let i = 0; i< arr.length; i++) {
-      if (array[i] === words){numOccurance += 1;}
-    }
-    return numOccurance
-  }
-  
-        
-      
+  return numOccurance
+}
+ 
+// i changed array.length to words.length and result is still same is there a difference in any of the 
+// codes? how can i write the exact number of occurance ?ß
