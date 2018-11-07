@@ -120,49 +120,49 @@ describe('Calculating the Average - averageNumbers', function () {
    });
  });
 
-// describe('Unique Arrays - uniquifyArray', function () {
-//   it('Defines uniquifyArray', function () {
-//     expect(typeof uniquifyArray).toBe('function');
-//   });
+//  describe('Unique Arrays - uniquifyArray', function () {
+//    it('Defines uniquifyArray', function () {
+//      expect(typeof uniquifyArray).toBe('function');
+//    });
 
-//   it('returns undefined with an empty array', function () {
-//     expect(uniquifyArray([])).toBe(undefined);
-//   });
+//    it('returns undefined with an empty array', function () {
+//      expect(uniquifyArray([])).toBe(undefined);
+//    });
 
-//   it('returns the correct array when having an array of the same element', function () {
-//     expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
-//   });
+//    it('returns the correct array when having an array of the same element', function () {
+//      expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+//    });
 
-//   it('returns the same array when no element is repeted', function () {
-//     expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
-//   });
+//    it('returns the same array when no element is repeted', function () {
+//      expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
+//    });
 
-//   it('returns the uniquified array', function () {
-//     expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
+//    it('returns the uniquified array', function () {
+//      expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
 //   });
-// });
+//  });
 
-// describe('Finding Elements - doesWordExist', function () {
-//   it('Defines doesWordExist', function () {
-//     expect(typeof doesWordExist).toBe('function');
-//   });
+describe('Finding Elements - doesWordExist', function () {
+  it('Defines doesWordExist', function () {
+    expect(typeof doesWordExist).toBe('function');
+  });
 
-//   it('returns false with an empty array', function () {
-//     expect(doesWordExist([])).toBe(false);
-//   });
+  it('returns false with an empty array', function () {
+    expect(doesWordExist([])).toBe(false);
+  });
 
-//   it('returns true if the word we are looking is the only one on the array', function () {
-//     expect(doesWordExist(['machine'], 'machine')).toBe(true);
-//   });
+  it('returns true if the word we are looking is the only one on the array', function () {
+    expect(doesWordExist(['machine'], 'machine')).toBe(true);
+  });
 
-//   it('returns false if the word we are looking is not in the array', function () {
-//     expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
-//   });
+  it('returns false if the word we are looking is not in the array', function () {
+    expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
+  });
 
-//   it('returns true if the word we are looking is in the array', function () {
-//     expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
-//   });
-// });
+  it('returns true if the word we are looking is in the array', function () {
+    expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
+  });
+});
 
 // describe('Counting Repetion - howManyTimes', function () {
 //   it('Defines howManyTimes', function () {

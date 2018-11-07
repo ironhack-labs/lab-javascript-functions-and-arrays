@@ -107,6 +107,51 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (array){
+  if (array === undefined || array.length === 0) {
+    return undefined;
+  } 
+
+// comprobar si todo el array es igual (No se por que no funciona pero en 
+// el repl.it si funciona)
+  for (var i = 1; i < array.length; i++){
+    var check = array.includes(array[0]);
+    if(check){
+      return array[0];
+    }  
+  }
+     
+  //chequea si hay un elemento igual. NO SALE 
+  var count = 2;
+  for (var i = 1; i < array.length; i++){
+  
+  if (array[0] === array[i]) {
+     count++;
+    if (count === array.length){
+      return array[i];
+      }
+    }
+  }
+
+  // REVISAR PORQ NO SALE
+    var newArray = array;
+    
+    do {
+      
+      for (var i = 0; i < array.length; i++){
+        for (var j = 1; j < array.length; j++) {
+            //console.log (newArray[i] + " + " + array[j]);
+          if (newArray[i] === array [j]){
+            newArray.splice(0, newArray.indexOf(array[i]));
+          }
+        }
+     }
+    }while (i === array.length-1);
+     return newArray;
+   }
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -118,6 +163,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (array){
+
+  if (array === undefined || array.length === 0) {
+    return false;
+  } 
+
+  for ( var i = 1; i < array.length; i++){
+
+    if ( (array.includes("PALABRA A BUSCAR") === array[0] && array.length === 1) || array.includes("PALABRA A BUSCAR") === array[i] ){
+      return true;
+  } else 
+    return false;
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
