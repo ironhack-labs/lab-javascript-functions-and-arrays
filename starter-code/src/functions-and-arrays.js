@@ -193,6 +193,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array){
+  if (array === undefined || array.length === 0) {
+    return false;
+  } 
+
+  for ( var i = 1; i < array.length; i++) {
+    var cont = 0;
+   if (array.includes("PALABRA A BUSCAR") === array[0]){
+     cont++;
+   }
+  return cont; 
+  
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
