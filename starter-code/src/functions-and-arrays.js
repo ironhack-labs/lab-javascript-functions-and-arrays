@@ -68,7 +68,6 @@ function averageNumbers(numbers){
 averageNumbers(numbersAvg);
 averageNumbers([]);
 // Array of Strings
-//calculate the average length of the words
 var wordsArr = [
   'seat',
   'correspond',
