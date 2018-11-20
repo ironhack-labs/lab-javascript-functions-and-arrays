@@ -1,4 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers(num1,num2){
+  if(num1>num2){
+    console.log(num1 + ' is bigger than ' + num2+'.');
+  }else{
+    console.log(num2 + ' is bigger than ' + num1+'.');
+  }
+}
+
+
 
 // Finding Longest Word
 var words = [
@@ -10,14 +19,41 @@ var words = [
   'orchard',
   'crackpot'
 ];
-
+function findLongestWord(){
+  for(i=0; i < words.length; i++){
+    var longestWord = words[i];
+    if(longestWord.length === words[i++].length){
+      console.log('the longest word and the first occurency is: ' + longestWord);
+      }else if(longestWord.length > words[i]){
+        console.log('the longest word is: ' + longestWord );
+      } else{
+        console.log('the longest word is: ' + word[i] );
+      }
+    } 
+  } 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var sum = 0;
+function sumArray(){
+for(i = 0;  i < numbers.length; i++){
+    sum = sum + numbers[i];
+}
+return sum;
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(){
+  var sum = 0;
+  for(i = 0; i < numbersAvg.length; i++){
+    sum = sum + numbersAvg[i];
+  }
+var avg = sum / numbersAvg.length;
+return avg;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +68,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+var sum = 0;
+var avgWords = 0;
+function averageWordLength(){
+  for (i=0; i < wordsArr.length; i++){
+  sum = sum + wordsArr[i].length;
+  }
+avgWords = sum / wordsArr.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -47,6 +91,15 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(){
+  let newArr = [];
+  for(i = 0; i < wordsUnique.length; i++){
+      if(newArr.indexOf(wordsUnique[i]) == -1){
+      newArr.push(wordsUnique[i]);
+    }
+}
+return newArr;
+}
 
 // Finding Elements
 var wordsFind = [
@@ -74,6 +127,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+var newArr = [];
+var times = 1;
+
+newArr = wordsCount.sort();
+function howManyTimes(){
+for (var i = 0; i < newArr.length; i = i + times) {
+times = 1;
+for (var j = i + 1; j < newArr.length; j++) {
+  if (newArr[i] === newArr[j])
+    times++;
+}
+console.log(newArr[i] + " = " + times );
+}
+}
 // Bonus Quest
 
 var matrix = [
