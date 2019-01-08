@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(arg1, arg2){
+  if (arg1 > arg2){
+    return arg1
+  } else {
+  return arg2
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,41 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  var largest = words[0]
+
+  for (var i=0; i < words.length; i++){
+    if (words[i].length > largest.length) {
+        largest = words[i];
+    } 
+    
+  }
+  return largest
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(numbers){
+  var sum = 0;
+  numbers.forEach(function (number){
+    sum += number
+  })
+  return sum; 
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  if(numbersAvg.length===0){
+    return undefined;
+  }
+  return sumArray(numbersAvg)/numbersAvg.length
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,7 +68,38 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  var totalLength = 0
+  array.forEach(function(word){
+    totalLength += word.length
+  })
+  if (array.length===0){
+    return undefined;
+  }
+  return totalLength/array.length
+}
+
 // Unique Arrays
+
+function uniquifyArray(array){
+  var unicArray = []
+  array.forEach(function(element, index){
+    var isIncluded = false
+    unicArray.forEach(function(elementUnic, indexUnic){
+      if(element === elementUnic){
+        isIncluded=true;
+      }
+    })
+    if(isIncluded===false){
+      unicArray.push(element)
+    }
+  })
+  if(array.length===0){
+    return undefined
+  }
+  return unicArray
+}
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +115,16 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(array, word){
+  var check = false
+array.forEach(function(element){
+  if(word === element){
+    check = true
+  }    
+})
+return check
+}
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +137,19 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+
+function howManyTimes(array, word){
+  var repeat = 0
+  if (array.length === 0){
+    return false
+  }
+  array.forEach(function(element){
+    if (word === element){
+      repeat ++
+    } 
+  }) 
+  return repeat
+}
 var wordsCount = [
   'machine',
   'matter',
@@ -75,6 +164,10 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+
+function greatestProduct(matrix){
+  
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
