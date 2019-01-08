@@ -47,7 +47,7 @@ var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = sumArray(numbers);
 console.log(total);
 
-// Calculate the Average
+//Calculate the Average
 function averageNumbers(array) {
   if (array.length === 0) {
     return undefined;
@@ -59,6 +59,8 @@ function averageNumbers(array) {
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 var average = averageNumbers(numbersAvg);
 console.log(average);
+ 
+
 
 // Array of Strings
 function averageWordLength(array) {
