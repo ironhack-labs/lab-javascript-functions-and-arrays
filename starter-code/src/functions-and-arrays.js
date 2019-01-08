@@ -5,7 +5,7 @@ function maxOfTwoNumbers(a,b) {
 
 
 function findLongestWord(words) {
-  return 'crocodile'
+  return words[0]
 }
 
 // Finding Longest Word
