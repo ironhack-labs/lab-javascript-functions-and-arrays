@@ -10,7 +10,7 @@ var words = [
   'orchard',
   'crackpot'
 ];
-
+// testing purposes
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
