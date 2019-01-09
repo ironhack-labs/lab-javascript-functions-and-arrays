@@ -1,4 +1,10 @@
 // Find the maximum
+var nb1 = 2;
+var nb2 = 3;
+
+function maxOfTwoNumbers(nb1, nb2){
+  return Math.max(nb1, nb2);
+}
 
 // Finding Longest Word
 var words = [
@@ -11,15 +17,44 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words) {
+  var longest=[];
+  for (i = 0; i < words.length; i++) {
+    if (longest.length < words[i].length) {
+      return longest = words[i];
+    } else if (longest.length == words[i].length){
+      return longest = words[i];
+    }
+  }
+}
+
 // Calculating a Sum
+
+function sumArray(numbers){
+  return numbers.reduce((a,b) => a+b,0);
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
 
+function averageNumbers(numbersAvg){
+  if(numbersAvg.length>0){
+    var sum = numbersAvg.reduce((a,b) => (a+b),0);
+    return sum/numbersAvg.length;
+  }
+}
+
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength(wordsArr) {
+  for (i = 0; i < wordsArr.length; i++) {
+    return concat = wordsArr.join('').length / wordsArr.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +69,14 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length === 0){
+    return undefined
+  } else{
+    return unique = [...new Set(wordsUnique)];
+  }
+}
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +92,15 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(wordsFind, searchWord) {
+  if (wordsFind.indexOf(searchWord) != -1){
+    return true;
+  } else {
+    return false;
+  }
+}
+
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +113,17 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+
+function howManyTimes(wordsCount, searchWord){
+  var res = [];
+  var idx = wordsCount.indexOf(searchWord);
+  while (idx != -1){
+    res.push(idx);
+    idx = wordsCount.indexOf(searchWord, idx + 1);
+  }
+  return res.length;
+}
+
 var wordsCount = [
   'machine',
   'matter',
@@ -75,6 +138,10 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+
+function greatestProduct(){
+
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
