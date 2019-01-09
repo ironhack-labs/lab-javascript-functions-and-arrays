@@ -466,3 +466,33 @@ var matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(grid){
+  var uniArr = []
+
+  grid.forEach(function(row){
+    uniArr.push(row)
+  })
+
+  for(var i = 0; i < grid[0].length; i++){
+    var col = []
+    grid.forEach(function(row){
+      col.push(row[i])
+    })
+
+    uniArr.push(col)
+  }
+
+  var max = 0
+  
+  uniArr.forEach(function(row){
+    for(var i = 0; i <= row.length - 4; i++){
+      var mul = row[i] * row[i+1] * row[i+2] * row[i+3]
+      if(mul > max){
+        max = mul
+      }
+    }
+  })
+
+  return max
+}
