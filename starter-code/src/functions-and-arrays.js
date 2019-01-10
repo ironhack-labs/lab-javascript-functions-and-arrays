@@ -1,5 +1,10 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a, b)
+{
+  return  Math.max(a, b);
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +16,38 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord () {
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(arr) {
+  
+  if(arr.length === 0) {
+    return 0;
+  }
+  
+  for(var sum=0, i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum;
+}
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbersAvg = [];
+function averageNumbers(array) {
+  if (array.length === 0 ) {
+    return;
+  }
+
+  for (var sum=0, i=0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum/array.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +62,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if(arr.length === 0) {
+    return;
+  }
+
+  for(var sum=0, i=0; i < arr.length; i++) {
+    sum += arr[i].length;
+  }
+  return sum/arr.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +89,17 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if(arr.length === 0) {
+    return;
+  }
+
+    for(var pos=0, i=0; i<arr.length; i++) {
+      
+    }
+
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,7 +112,17 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return false;
+  }
+
+  return arr.includes(word);
+}
+
 // Counting Repetion
+// <------------------------ FUNCIONANDO COMPLETO ---------------------->
+// pode testar a vontade, o programa que não reconheceu os meus talentos
 var wordsCount = [
   'machine',
   'matter',
@@ -74,6 +136,32 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr, word) {
+
+  if(arr.length === 0) {
+          return false;
+      }
+      if (wordsCount.indexOf(word) === -1) {
+          return 0;
+      } 
+
+  var itera = 0;
+  var indice = 0;
+  do {
+      var value = arr.indexOf(word, indice)
+      if (value !== -1) {
+          indice = value + 1;
+          itera = itera + 1;
+      } else {
+          indice = -1;
+      }
+
+  } while(indice !== -1);
+  
+  return itera.toString();
+}
+
 // Bonus Quest
 
 var matrix = [
