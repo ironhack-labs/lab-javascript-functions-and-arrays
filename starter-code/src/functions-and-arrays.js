@@ -1,7 +1,16 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2) {
+    result = num1;
+  } else{
+    result = num2;
+  }
+  return result;
+}
 
 // Finding Longest Word
-var words = [
+//COULDN'T FIND SOLUTION FOR "returns undefined with an empty array"
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -11,16 +20,48 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array){
+  let longestWord = array[0];
+  for(let i = 0; i < array.length; i += 1){
+    if (array[i].length > longestWord.length){
+      longestWord = array[i];
+    }
+  } 
+  return longestWord;
+}
+
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(array){
+  let sum = 0;
+  if (array.length === 0){
+    sum = 0;
+    return sum;
+  }
+  for(let i = 0; i < array.length; i += 1){
+    sum += array[i];
+  }
+  return sum;
+}
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  let avg = array[0];
+  let sum = 0;
+  for(i = 0; i < array.length; i += 1){
+    sum += array[i];
+    avg = sum/array.length;
+  }
+  return avg;
+}
 
 // Array of Strings
-var wordsArr = [
+let wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -33,8 +74,18 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  let avg = array[0];
+  let sum = 0;
+  for(i = 0; i < array.length; i += 1){
+    sum += array[i].length;
+    avg=sum/array.length;
+  }
+  return avg;
+}
+
 // Unique Arrays
-var wordsUnique = [
+let wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -48,8 +99,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  let newArr = [];
+     if (array.length === 0){
+      return array[0];
+    } 
+    for(i = 0; i < array.length; i += 1){
+      if(newArr.indexOf(array[i]) === -1){
+        newArr.push(array[i]);
+      }
+    }
+  return newArr;
+}
+
 // Finding Elements
-var wordsFind = [
+let wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -61,7 +125,7 @@ var wordsFind = [
 ];
 
 // Counting Repetion
-var wordsCount = [
+let wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -76,7 +140,7 @@ var wordsCount = [
 ];
 // Bonus Quest
 
-var matrix = [
+let matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
