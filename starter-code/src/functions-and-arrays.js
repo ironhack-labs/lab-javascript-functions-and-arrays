@@ -49,8 +49,8 @@ function averageNumbers(arr) {
     return undefined;
   } else {
     let sum = sumArray(arr);
-    let numbElements = arr.length;
-    let averageNumbers = sum / numbElements;
+    let numberOfElements = arr.length;
+    let averageNumbers = sum / numberOfElements;
     return averageNumbers;
   }
 }
@@ -59,13 +59,16 @@ function averageWordLength (arr) {
   if (arr.length === 0) {
     return undefined;
   } else {
-    
+    let total = 0;
+    for (let i = 0; i < arr.length; i += 1) {
+      total += arr[i].length;
+    }
+    let average = total / arr.length;
+    return average;
   }
 }
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-
 
 // Array of Strings
 var wordsArr = [
