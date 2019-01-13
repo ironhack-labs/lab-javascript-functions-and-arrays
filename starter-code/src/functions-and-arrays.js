@@ -1,7 +1,13 @@
 // Find the maximum
 
-function maxOfTwoNumbers(a, b){
-  return Math.max(a, b);
+var maxOfTwoNumbers = function(var a, var b){
+  if (a > b){
+    return a;
+    }; if (a < b) {
+    return b;
+    } else {
+    return a;
+  }
 }
 
 // Finding Longest Word
@@ -89,7 +95,7 @@ var wordsUnique = [
 
 function uniquifyArray(wordsUnique){
   var uniqueArray = [];
-  for(var i = 0; i < wordsUnique.length, i++){
+  for(var i = 0; i < wordsUnique.length; i++){
     if(uniqueArray.indexOf(wordsUnique[i]) == -1){
       uniqueArray.push(wordsUnique[i]);
     }
@@ -110,6 +116,17 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(words, word){
+  for (i = 0; i < words.length; i ++){
+    if( words[i] === word){
+      return true
+    } else {
+    }
+  }
+  return false
+}
+console.log(wordsFind, machine)
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -124,6 +141,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, word){
+  sum = 0;
+  for (var i = 0; i < wordsCount.length; i++){
+    if(wordsCount[i] === word){
+      sum += 1
+    }
+  }
+  return sum
+}
+console.log(howManyTimes(wordsCount, "matter"))
 // Bonus Quest
 
 var matrix = [
@@ -148,3 +176,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+
+}
