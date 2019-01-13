@@ -1,12 +1,12 @@
 // Find the maximum
 
-var maxOfTwoNumbers = function(var a, var b){
+var maxOfTwoNumbers = function(a, b){
   if (a > b){
     return a;
-    }; if (a < b) {
-    return b;
+    } if (a < b){
+      return b;
     } else {
-    return a;
+      return a;
   }
 }
 
@@ -120,7 +120,6 @@ function doesWordExist(words, word){
   for (i = 0; i < words.length; i ++){
     if( words[i] === word){
       return true
-    } else {
     }
   }
   return false
