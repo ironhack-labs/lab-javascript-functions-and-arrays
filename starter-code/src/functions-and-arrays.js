@@ -21,6 +21,9 @@ var words = [
   'crackpot'
 ];
 function findLongestWord(words){
+  if (words.length === 0){
+    return undefined
+  }
   var longestWord = "";
   for(var i = 0; i < words.length; i++){
     if(words[i].length > longestWord.length){
@@ -48,6 +51,9 @@ function sumArray(numbers){
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg){
+  if (numbersAvg.length === 0){
+    return undefined
+  }
   var result = 0;
   for (var j = 0; j < numbersAvg.length; j++){
     result += numbersAvg[j];
@@ -70,6 +76,9 @@ var wordsArr = [
 ];
 
 function averageWordLength(wordsArr){
+  if (wordsArr.length === 0){
+    return undefined
+  }
   var result = 0;
   for(var i = 0; i < wordsArr.length; i++){
     result += wordsArr[i].length
@@ -94,6 +103,9 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique){
+  if (wordsUnique.length === 0){
+    return undefined
+  }
   var uniqueArray = [];
   for(var i = 0; i < wordsUnique.length; i++){
     if(uniqueArray.indexOf(wordsUnique[i]) == -1){
@@ -142,6 +154,9 @@ var wordsCount = [
 ];
 
 function howManyTimes(wordsCount, word){
+  if (wordsCount.length === 0){
+    return false
+  }
   sum = 0;
   for (var i = 0; i < wordsCount.length; i++){
     if(wordsCount[i] === word){
