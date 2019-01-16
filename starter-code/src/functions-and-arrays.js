@@ -102,7 +102,7 @@ var wordsFind = [
 ];
 function doesWordExist (array, wordpar) {
   for (x in array) {
-    //console.log(array[x] + " - " + wordpar)
+    console.log(array[x] + " - " + wordpar)
     if(array[x] === wordpar) {
       return true
     }
@@ -170,5 +170,45 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+function getCellProduct(array,row,col) {
+  let derecha = 0
+  let abajo = 0
+  let izquierda = 0
+  let arriba = 0
+  if (col<=16) {
+    derecha = array[row][col] * array[row][col+1] * array[row][col+2] * array[row][col+3]
+  } else {derecha = 0}
+  if (row<=16) {
+    abajo = array[row][col] * array[row+1][col] * array[row+2][col] * array[row+3][col]
+  } else {abajo = 0}
+  if (col>=3) {
+    izquierda = array[row][col] * array[row][col-1] * array[row][col-2] * array[row][col-3]
+  } else {izquierda = 0}
+  if (row>=3) {
+    arriba = array[row][col] * array[row-1][col] * array[row-1][col] * array[row-1][col]
+  } else {arriba = 0}
+return Math.max(derecha,abajo,izquierda,arriba)
+}
+
+function getLineMax (array,row) {
+  let tempArray = []
+  let max = array[row].length
+  for (i=0;i<max;i++) {
+    //console.log(getCellProduct(array,row,i))
+    tempArray.push(getCellProduct(array,row,i))
+  }
+  //console.log("------")
+  //console.log(Math.max(...tempArray))
+  return Math.max(...tempArray)
+}
+
 function greatestProduct (array) {
+  let max = 0
+  let lineMax = 0
+  for (j=0;j<array.length;j++) {
+    lineMax = getLineMax(array,j)
+    if (lineMax > max) {max=lineMax}
+    //console.log("Line Max - " + lineMax + "   Max - " + max)
+  }
+  return max
 }
