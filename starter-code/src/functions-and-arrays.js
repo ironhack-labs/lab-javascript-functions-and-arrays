@@ -21,7 +21,8 @@ function maxOfTwoNumbers(num1, num2) {
     var longest = ''
     words.forEach((elem) => {
       if (elem.length > longest.length) longest = elem 
-    })
+    )
+  }
     return longest
   }
   
@@ -33,11 +34,11 @@ function maxOfTwoNumbers(num1, num2) {
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(){
-  numbers.forEach((numero) => {
-    
-  }
-
-
+  let total =0
+  numbers.forEach((number)=>{
+    total= total+number
+  })
+  console.log(total)
 }
 
 
@@ -45,6 +46,14 @@ function sumArray(){
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function average(){
+  let total=0
+  numbersAvg.forEach((num)=>{
+    total=num+total
+  })
+  let average = total/numbersAvg.length
+  console.log(average)
+}
 
 // Array of Strings
 var wordsArr = [
@@ -59,6 +68,21 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+let total=0
+function averageWordLength(array){
+  for(let i=0;i<array.length;i++){
+
+    let largo=array[i].length
+    total+=largo
+  }
+  console.log(total)
+  promedio=total/(array.length)
+  console.log(promedio)
+}
+
+averageWordLength(wordsArr)
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -75,6 +99,20 @@ var wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(array){
+  let nuevoArray=[]
+  
+  for(let i=0;i<array.length;i++){
+    if(nuevoArray.indexOf(array[i])==-1){
+      nuevoArray.push(array[i])
+    } 
+  }
+  console.log(nuevoArray)
+}
+
+uniquifyArray(words)
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -86,6 +124,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (words,busqueda){
+  words.forEach(word =>{
+    if(word===busqueda){
+      console.log(busqueda)
+      return true
+    }else{
+      return false
+    }
+  })
+}
+
+doesWordExist(wordsFind,"trouble")
+
 
 // Counting Repetion
 var wordsCount = [
@@ -101,6 +153,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function doesWordExist (words,busqueda){
+  let total=0
+  words.forEach(word =>{
+    if(word===busqueda){
+      total++
+    }else{
+      return false
+    } 
+console.log(total)
+  })
+}
+
+doesWordExist(wordsCount,"matter")
 // Bonus Quest
 
 var matrix = [
