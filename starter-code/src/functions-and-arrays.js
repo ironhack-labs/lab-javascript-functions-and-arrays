@@ -92,11 +92,6 @@ function averageWordLength(wordsArr){
     }
   }
 
-
-    
-
-  
-
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -111,6 +106,20 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(wordsUnique){
+  if(wordsUnique == 0){
+    return undefined;
+  }else{
+    final =[];
+    for(i=0; i<wordsUnique.length;i++){
+      if(final.indexOf(wordsUnique[i])<0){
+        final.push(wordsUnique[i]);
+      }
+   }
+   return final
+  }
+}
+
 
 // Finding Elements
 var wordsFind = [
