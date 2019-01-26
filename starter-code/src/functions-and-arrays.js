@@ -201,7 +201,9 @@ var copia=[];
     
        
       for(i=0;i<wordsUnique.length;i++){
+
         copia.push(wordsUnique[i]);
+
         if(wordsUnique[i]!=copia[copia.length-1]){
 
 
@@ -222,7 +224,8 @@ var copia=[];
 
    function doesWordExist(wordsFind,word){
    
-  var existe;
+  var existe = false;
+  if(wordsFind!=''){
     for(i=0;i<wordsFind.length;i++){
 
     if(wordsFind[i]==word){
@@ -231,9 +234,15 @@ var copia=[];
           
     }
 
+
     }
     
+
+
 return existe;
+}
+
+return false;
 
    }
 
@@ -242,6 +251,8 @@ return existe;
 
 
     var cuenta=0;
+if(wordsCount!=''){
+
     for(i=0;i<wordsCount.length;i++){
 
     if(wordsCount[i]==word){
@@ -252,7 +263,8 @@ return existe;
 
     }
     
-return cuenta;
-
+   
+return cuenta;}
+return false;
 
    }
