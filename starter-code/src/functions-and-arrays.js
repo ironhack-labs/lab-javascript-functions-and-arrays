@@ -202,15 +202,9 @@ var copia=[];
        
       for(i=0;i<wordsUnique.length;i++){
 
-        copia.push(wordsUnique[i]);
-
-        if(wordsUnique[i]!=copia[copia.length-1]){
-
-
-           copia.pop();
-
+        if(copia.includes(wordsUnique[i]) == false){
+          copia.push(wordsUnique[i])
         }
-
 
       }
 
