@@ -1,5 +1,6 @@
 // Find the maximum
-
+var a=10;
+var b=100;
 // Finding Longest Word
 var words = [
   'mystery',
@@ -98,3 +99,160 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(a, b){
+
+if(a>b){
+
+return a;
+
+}else{
+
+  return b;
+}
+
+
+};
+
+function findLongestWord(words){
+
+var longitudes=[];
+var maximo;
+var resultado;
+var longit;
+
+  for(i=0;i<words.length; i++){
+ longitudes.push( words[i].length );
+
+  }
+
+  console.log(longitudes);
+    
+  maximo=Math.max.apply(null, longitudes) // 4
+
+console.log('HHHHHH'+maximo);
+
+ for(i=words.length-1;i>=0;i--){
+  console.log('FOOORR'+words[i]);
+
+  if(words[i].length==maximo){
+
+   resultado= words[i];
+
+  }
+
+  
+}
+console.log(resultado);
+return resultado;
+
+
+
+};
+
+function sumArray(numbers){
+var suma=0;
+for(i=0;i<numbers.length;i++){
+
+suma+=numbers[i];
+
+}
+return suma;
+
+}
+
+function averageNumbers(numbersAvg) {
+  if(numbersAvg !=''){
+  var sum=0;
+  for ( i=0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+  }
+
+  return sum/numbersAvg.length;
+}
+
+  return undefined;
+}
+
+
+function averageWordLength(wordsArr){
+
+  var longitudes=[];
+  var maximo;
+  var resultado;
+  var longit;
+  
+    for(i=0;i<wordsArr.length; i++){
+   longitudes.push( wordsArr[i].length );
+  
+    }
+  
+    return averageNumbers(longitudes);
+   
+  
+   }
+
+
+   function uniquifyArray(wordsUnique){
+    console.log(wordsUnique);
+var copia=[];
+
+    if(wordsUnique!=''){
+    
+       
+      for(i=0;i<wordsUnique.length;i++){
+        copia.push(wordsUnique[i]);
+        if(wordsUnique[i]!=copia[copia.length-1]){
+
+
+           copia.pop();
+
+        }
+
+
+      }
+
+
+     console.log(wordsUnique);
+ return copia;}
+
+ return undefined;
+   }
+
+
+   function doesWordExist(wordsFind,word){
+   
+  var existe;
+    for(i=0;i<wordsFind.length;i++){
+
+    if(wordsFind[i]==word){
+
+     existe=true;
+          
+    }
+
+    }
+    
+return existe;
+
+   }
+
+
+   function howManyTimes(wordsCount,word){
+
+
+    var cuenta=0;
+    for(i=0;i<wordsCount.length;i++){
+
+    if(wordsCount[i]==word){
+
+     cuenta++;
+          
+    }
+
+    }
+    
+return cuenta;
+
+
+   }
