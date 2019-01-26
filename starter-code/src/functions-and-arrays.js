@@ -139,6 +139,20 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist (array,str) {
+  if (!array.length) {
+    return false;
+  } else {  
+    var unido = array.join();
+    if (unido.includes(str)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+}
+
 // Counting Repetion
 var wordsCount = [
   'machine',
