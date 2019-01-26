@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2);
+}
+maxOfTwoNumbers(5, 9);
+
+
+
 
 // Finding Longest Word
 var words = [
@@ -11,42 +18,78 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (arr){
+  var palabra = "";
+  if(arr.length == 0){
+    return undefined;
+  }
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i].length > palabra.length){
+      palabra = arr[i];
+      if(palabra.length == palabra.length){
+        console.log(palabra);
+      }
+    } 
+    //console.log(palabra.length);
+    
+    
+  }
+  return palabra;
+}
+
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray(array){
+  var count = 0;
+  for(var i = 0; i < array.length; i++){    
+    count += array[i];
+  }
+  console.log(count);
+  return count;
+}
 // Calculate the Average
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(array){
+  if(array.length == 0){
+    return undefined;
+  }
+  var suma = 0;
+  for(var i = 0; i < array.length; i++){    
+    suma += array[i];
+  }
+  suma /= array.length;
+  console.log(suma);
+  return suma;
+}
 
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+function averageWordLength(array){
+  if(array.length == 0){
+    return undefined;
+  }
+  var word = '';
+  for(var i = 0; i < array.length; i++){
+    word += array[i];
+  }
+  average = word.length
+  console.log(average / array.length);
+  return average / array.length;
+}
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+function uniquifyArray(array){
+  var arr = [];
+  if(array.length == 0){
+    return undefined;
+  } else {
+    for(var i = 0; i < array.length; i++){    
+      if(arr.indexOf(array[i]) == -1){
+        arr.push(array[i]);
+      }
+    }
+  }
+  console.log(arr);
+  return arr;
+}
 
 // Finding Elements
 var wordsFind = [
