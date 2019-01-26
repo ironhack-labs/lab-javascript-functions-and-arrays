@@ -1,7 +1,34 @@
 // Find the maximum
-
-// Finding Longest Word
-var words = [
+function maxOfTwoNumbers(a,b){
+  if (a>b){return a}
+  else if (b==a){
+    return 4
+  }
+  else {return b}
+ 
+ }
+ function findLongestWord(arr){
+  console.log(arr)
+  old = '';
+  longest = '';
+  if (arr.length > 1) {
+    arr.forEach(e => {
+      if (e.length > old.length && longest.length < e.length) {
+        longest = e;
+      }
+      old = e;
+    });
+  } else if(arr.length == 1){
+    longest = arr[0];
+  } else {
+    return undefined;
+  }
+  console.log(longest);
+  return longest;
+  
+}
+ // Finding Longest Word
+ var words = [
   'mystery',
   'brother',
   'aviator',
@@ -9,18 +36,42 @@ var words = [
   'pearl',
   'orchard',
   'crackpot'
-];
+ ];
 
-// Calculating a Sum
+ // Calculating a Sum
+ 
+ var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  
+function sumArray(suma){
+  // console.log(suma)
+  var result = 0;
+  for(i = 0; i < suma.length; i++){
+    result += suma[i];
+  }
+  if (suma.length == 0){ //Si el array está vacio
+    result = 0;
+  }
+  return result;
+}
+ // Calculate the Average
+ 
+ var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+ 
+ function averageNumbers (arr) {
+  var total = arr.length;
+  var sum = 0;
+  for(i = 0; i < arr.length; i++){
+    sum += arr[i];
+  }
+  result = sum/total;
+  if (total == 0){
+    result = undefined;
+  }
+  return result;
+ }
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-// Calculate the Average
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-// Array of Strings
-var wordsArr = [
+ // Array of Strings
+ var wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -31,10 +82,22 @@ var wordsArr = [
   'chaos',
   'fuel',
   'palace'
-];
-
-// Unique Arrays
-var wordsUnique = [
+ ];
+ function averageWordLength (arr){
+  var totalElemnts = arr.length;
+  var suma = 0;
+  arr.forEach(function(e){
+    suma += e.length
+  });
+  result = suma / totalElemnts;
+  if (totalElemnts == 0){
+    result = undefined;
+  }
+  return result;
+ }
+ 
+ // Unique Arrays
+ var wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -46,10 +109,23 @@ var wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
-
-// Finding Elements
-var wordsFind = [
+ ];
+ function uniquifyArray (arr){  
+  newArr = []
+  old = ' ';
+  arr.forEach(function(e){
+    if (newArr.find(function (ne) { return ne == e }) == undefined) {
+      // undefined significa q no lo encuentra. 
+      newArr.push(e);
+    }
+  })
+  if (arr.length == 0){
+    newArr = undefined;
+  }
+  return newArr;
+ }
+ // Finding Elements
+ var wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -58,10 +134,20 @@ var wordsFind = [
   'eating',
   'truth',
   'disobedience'
-];
-
-// Counting Repetion
-var wordsCount = [
+ ];
+ function doesWordExist (arr, word){
+  if (arr.length > 0){
+    if (arr.find(function (e) {return e == word})==undefined){
+      return false;
+    } else {
+      return true;
+    }
+  } else {
+    return false;
+  }
+ }
+ // Counting Repetion
+ var wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -73,10 +159,27 @@ var wordsCount = [
   'truth',
   'disobedience',
   'matter'
-];
-// Bonus Quest
+ ];
+ function howManyTimes (arr, word){  
+  //  console.log(arr);
+  var sum = -1;
+  if (arr.length > 0){
 
-var matrix = [
+    arr.forEach(function (e, i){
+      if (arr.find(function (eF){return eF == word}) != undefined){
+        sum += 1;
+        arr.splice(i ,1)
+      } 
+    });
+  } else {
+    return false;
+  }
+  // console.log(arr);
+  return sum;
+ }
+ // Bonus Quest
+ 
+ var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -97,4 +200,4 @@ var matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+ ];
