@@ -1,5 +1,11 @@
 // Find the maximum
-
+function maxOfTwoNumbers (a, b) {
+if (a>b) {
+  return a;
+} else {
+  return b;
+}
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +16,44 @@ var words = [
   'orchard',
   'crackpot'
 ];
-
+function findLongestWord (words) {
+  var longestWord = "";
+  if (words.length === 0) {
+    return undefined
+  }
+  for (var i=0; i<words.length; i++) {
+    if (words[i].length>longestWord.length) {
+      longestWord = words[i]
+    }
+  }return longestWord;
+}
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-// Calculate the Average
+function sumArray (numbers) {
+  var result = 0;
+ if (numbers.length === 0) {
+   return 0
+ }
+ for (var i = 0; i<numbers.length; i++) {
+   result +=numbers[i];
+ }
+ return result 
+}
+//Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg) {
+  var result = 0;
+  if (numbersAvg.length === 0) {
+    return;
+  }
+  for (var i = 0; i<numbersAvg.length; i++) {
+    result +=numbersAvg[i];
+  }
+  return result/numbersAvg.length 
+ }
+console.log(averageNumbers([]));
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +68,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(wordsArr){
+var results = 0
+if (wordsArr.length === 0) {
+  return undefined
+}
+for (var i=0; i<wordsArr.length; i++) {
+  results += wordsArr[i].length
+  }
+  return results/wordsArr.length
+} 
+console.log(averageWordLength([]));
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +96,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique) {
+  var resultWords = [];
+  if (wordsUnique.length === 0) {
+    return undefined
+  }
+for (var i=0; i<wordsUnique.length; i++){
+  if (resultWords.includes(wordsUnique[i]) == false){
+    resultWords.push(wordsUnique[i])
+  }
+}
+return resultWords
+}
+uniquifyArray(wordsUnique)
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +122,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (){
+  
+}
 
 // Counting Repetion
 var wordsCount = [
