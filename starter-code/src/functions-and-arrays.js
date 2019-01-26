@@ -108,14 +108,23 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  var aux, newArray = [];
+  var aux;
+  var newArray = [];
 
-  for (var i = 0; i < wordsUnique.length; i++){
-    aux = wordsUnique.indexOf(wordsUnique[i],i);
-    if (aux !== -1){
-      newArray.splice(i, 1);
+  //aux = wordsUnique.indexOf(wordsUnique[1],2);
+  //newArray=wordsUnique[aux];
+
+  if (wordsUnique.length === 0) {
+    newArray = undefined;
+  } else {
+  for (var i = 0; i < wordsUnique.length; i++) {
+    aux = newArray.indexOf(wordsUnique[i]);
+    if (aux === -1) {
+      newArray.push(wordsUnique[i]);
     }
   }
+  return newArray;
+}
 }
 
 // Finding Elements
