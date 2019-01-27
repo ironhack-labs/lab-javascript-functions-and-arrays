@@ -11,27 +11,20 @@ function maxOfTwoNumbers(number1, number2){
 }
 // Finding Longest Word
 
-function findLongestWord(words){
-  var myArray=[];
-  var j=0;
-  var x=1;
-  for(i=0;i<words.length;i++){
-    myArray.push(words[i].length);
-  }
-  if(myArray.length===1){
-    return words[0];
-  }else{
-  for(z=0;z<myArray.length;z++){
-    if(myArray[j]===myArray[x] || myArray[j]>myArray[x]){
-      x++;
-    }else{
-      j=x;
-      x++;
+function findLongestWord(myArray){
+  if (myArray.length === 0) {return myArray[0];}
+  var indice = 0;
+  var longitud = myArray[0].length;
+
+  for(var i=1; i<myArray.length; i++) {
+    if(myArray[i].length>longitud) {
+      indice = i;
+      longitud = myArray[i].length;
     }
   }
-  return words[j];
+  return myArray[indice];
 }
-}
+
 var words = [
   'mystery',
   'brother',
@@ -120,9 +113,20 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-function uniquifyArray(Array){
-  
+function uniquifyArray(array){
+  if (array.length === 0) {return array[0];}
+  var myArray = array;
+  for (i = 0; i < array.length; i++){
+  var word = array[i]
+    
+  while  (myArray.indexOf(word) != myArray.lastIndexOf(word)){
+    myArray.splice(myArray.lastIndexOf(word), 1)
+  }
 }
+  return myArray;
+}
+  
+
 
 // Finding Elements
 var wordsFind = [
@@ -135,6 +139,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+
+function doesWordExist(array, word){
+  if (array.length === 0) {return false;}
+  else if (array.includes(word)){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -150,6 +165,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(myArray, word1){
+  if (myArray.length === 0) {return false;}
+  var counter = 0;
+  for (var i = 0; i < myArray.length; i++){
+    if(myArray[i] === word1){
+      counter++;
+    }
+  }
+  
+  return counter;
+}
 // Bonus Quest
 
 var matrix = [
@@ -174,3 +202,26 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  var product = 0;
+  for (j = 0; j < (array.length); j++){ 
+    for (i = 0; i < (array.length - 3); i++){
+      var multrow = (array[j][i] * array[j][i+1] * array[j][i+2] * array[j][i+3]);
+      if (multrow > product){
+        product = multrow;
+      } 
+    }
+  }
+
+  for (x = 0; x < (array.length); x++) {
+    for (z = 0; z < (array.length - 3); z++) {
+      var multcol = (array[z][x] * array[z+1][x] * array[z+2][x] * array[z+3][x]);
+      if (multcol > product){
+        product = multcol;
+      } 
+    }
+  }
+  
+  return product;
+}
