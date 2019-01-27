@@ -1,6 +1,26 @@
-// Find the maximum
+// Sat 26-01-2019 - Functions and Arrays
+// Fedde & Merle
 
+// -------------------------------------- //
+// Find the maximum
+// -------------------------------------- //
+function maxOfTwoNumbers(arg1, arg2) {
+  if (arg1 > arg2) {
+    return arg1;
+  } else if (arg1 < arg2) {
+    return arg2;
+  } else if (arg1 === arg2) {
+    return arg1;
+  } else {
+    return "error"
+  }
+};
+
+console.log(maxOfTwoNumbers(77,24));
+
+// -------------------------------------- //
 // Finding Longest Word
+// -------------------------------------- //
 var words = [
   'mystery',
   'brother',
@@ -11,15 +31,52 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+//console.log(words[0].length);
 
+function longestWordFunction(words) {
+  var longestWord = "";
+  if(words.length === 0){
+    return "Empty array"
+  }
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    } 
+  }
+  return longestWord;
+};
+
+console.log(longestWordFunction(words));
+
+// -------------------------------------- //
+// Calculating a Sum
+// -------------------------------------- //
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(numberInput) {
+  var total = 0;
+  numberInput.forEach(function(i) {
+    total += i;
+  })
+  return total;
+};
 
+console.log(sumArray(numbers));
+
+// -------------------------------------- //
+// Calculate the Average
+// -------------------------------------- //
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function avgArray(numberInput) {
+  return (sumArray(numberInput) / numberInput.length)
+};
+
+console.log(avgArray(numbersAvg));
+
+// -------------------------------------- //
 // Array of Strings
+// -------------------------------------- //
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,8 +90,28 @@ var wordsArr = [
   'palace'
 ];
 
+// Total word length
+function totalWordLength(input) {
+  var total = 0;
+  input.forEach(function(i) {
+    total += i.length;
+  })
+  return total;
+};
+
+console.log(totalWordLength(wordsArr));
+
+// Average word length
+function averageWordLength(input) {
+  return (totalWordLength(input) / input.length)
+};
+
+console.log(averageWordLength(wordsArr));
+
+// -------------------------------------- //
 // Unique Arrays
-var wordsUnique = [
+// -------------------------------------- //
+var wordsU = [
   'crab',
   'poison',
   'contagious',
@@ -45,10 +122,28 @@ var wordsUnique = [
   'poison',
   'communion',
   'simple',
-  'bring'
+  'bring',
+  'simple'
 ];
 
+function uniquifyArray(input) {
+  // copy of the array (since we will delete stuff)
+  var wordUnique = input;
+  wordUnique.forEach(function(word) {
+    if (wordUnique.indexOf(word, (wordUnique.indexOf(word)+1)) >= 0) {
+      // we find another occurence, delete first found input
+      // console.log(wordUnique.indexOf(word));
+      wordUnique.splice(wordUnique.indexOf(word),1);
+    }
+  })
+  return wordUnique;
+};
+
+console.log(uniquifyArray(wordsU));
+
+// -------------------------------------- //
 // Finding Elements
+// -------------------------------------- //
 var wordsFind = [
   'machine',
   'subset',
@@ -60,7 +155,25 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(array1, searchWord){
+  var containSearchWord = false;
+
+  array1.forEach(function(word){
+    //console.log(word);
+    //console.log(searchWord);
+    if(word == searchWord){
+      //console.log("word is " + searchWord )
+      containSearchWord = true;
+    } 
+  }); 
+  return containSearchWord;
+};
+
+console.log(doesWordExist(wordsFind, 'trouble'));
+
+// -------------------------------------- //
 // Counting Repetion
+// -------------------------------------- //
 var wordsCount = [
   'machine',
   'matter',
@@ -74,7 +187,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array1, searchWord){
+  var counter = 0;
+  array1.forEach(function(word){
+    if(word === searchWord){
+      counter += 1;
+    }
+  })
+  return counter;
+};
+
+console.log(howManyTimes(wordsCount, "merle"));
+
+// -------------------------------------- //
 // Bonus Quest
+// -------------------------------------- //
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
