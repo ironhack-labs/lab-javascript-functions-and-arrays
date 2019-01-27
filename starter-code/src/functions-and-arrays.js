@@ -1,7 +1,40 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1>num2){
+    return num1;
+    }else {
+      return num2;
+    }
+  }
 
+  console.log(maxOfTwoNumbers(2,4));
 // Finding Longest Word
-var words = [
+//---------------------------------------------
+
+
+function findLongestWord(wordsArray){
+
+  var arrLength=[];
+  for (var i=0; i<wordsArray.length; i++){
+      arrLength.push(wordsArray[i].length);
+  }
+
+  var maxNum=Math.max(...arrLength);
+  var longestWordIndex=arrLength.indexOf(maxNum);
+
+  return wordsArray[longestWordIndex];
+
+}
+// var words = [
+//   'mystery',
+//   'brother',
+//   'aviator',
+//   'crocodile',
+//   'pearl',
+//   'orchard',
+//   'crackpot'
+// ];
+console.log("Largest word index is  "+findLongestWord([
   'mystery',
   'brother',
   'aviator',
@@ -9,17 +42,63 @@ var words = [
   'pearl',
   'orchard',
   'crackpot'
-];
+]));
+
+//----------------------------
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(numbers){
+
+  if (numbers.length==0){   //It will return 0 i case that array is empty. (test specification)!
+    return 0;
+  } 
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  
+  
+
+  return (numbers.reduce(reducer));
+}
+
+
+console.log("Sum of numbers in array is: " +sumArray(numbers));
+
+//----------------------------------------------------
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//var numbersAvg = [];   We can also test it for empty area, and then it shoud return undefined. (based on test specification.)
+function averageNumbers(numbers){
+  var sumAvg;
+
+  if (numbers.length==0){
+
+    sumAvg=undefined;
+    
+  } else{
+
+    sumAvg=sumArray(numbers)/numbers.length;
+  }
+
+  
+
+  return sumAvg;
+}
+
+console.log(averageNumbers(numbersAvg));
+
+//-------------------------------------
 
 // Array of Strings
+
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -32,6 +111,21 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordArray){
+
+  if (wordArray.length==0){
+
+    return undefined;
+    
+  }
+
+  const map1 = wordArray.map(item => item.length);
+  return averageNumbers(map1);
+}
+
+console.log(averageWordLength(wordsArr));
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,7 +142,34 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArr){
+
+  if (wordsArr.length==0){
+    return undefined;
+  }
+  var test=[];
+  
+  for (var i=0; i<wordsArr.length; i++){
+       
+
+    if (test.every(item=> item!=wordsArr[i])){
+      test.push(wordsArr[i]);
+     
+    }
+     
+      
+      
+  }
+
+  return test;
+
+}
+
+console.log(uniquifyArray(wordsUnique));
+
+
 // Finding Elements
+
 var wordsFind = [
   'machine',
   'subset',
@@ -60,6 +181,15 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist (wordsUnique, word){
+
+  var answer= wordsUnique.some(item=>item==word);
+  return answer;
+}
+
+console.log(doesWordExist(wordsFind, "subset"));
+
+//--------------------------
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +204,28 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(wordsArr, word) {
+
+  if (wordsArr.length==0){
+    return false;
+  }
+  
+  var counter=0;
+  var i=0;
+  while (i<wordsArr.length){
+    if (wordsArr[i]==word){
+      counter++;
+    }
+    i++;
+  }
+return counter;
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +250,58 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrixArg){
+  prod=[];
+  number=4; //it takes 4 adjacent numbers
+
+  // right - horizontal (left will give the same result)
+  for (var i=0; i<matrixArg.length; i++){   // first take a row (row=array of elements) and with var j iterate through it.
+    for (var j=0; j<=matrixArg[i].length-number; j++){ 
+      prod.push(matrixArg[i][j]*matrixArg[i][j+1]*matrixArg[i][j+2]*matrixArg[i][j+3]);//j can not be > (matrixArg[i].length-number). If it is we will be out of a grid when it comes to this formula for multiplication of 4 adjacent numbers 
+    }
+  }
+
+
+  
+
+  //for down - vertical (up will give the sam result)
+  for (var j=0; j<matrixArg.length; j++){
+    for (var i=0; i<=matrixArg[i].length-number; i++){
+      prod.push(matrixArg[i][j]*matrixArg[i+1][j]*matrixArg[i+2][j]*matrixArg[i+3][j]);
+    }
+  }
+
+//---------------------i was not sure if diagonal has also to be included as one of directions.-----//
+  //for diagonal left to right 
+
+//   var z=0;
+//   while (z<=matrixArg.length-number){
+//   for (var i=z; i<=matrixArg.length-number; i++){
+//     for (var j=0; (j<i+3 && j<=16); j++){
+//       prod.push(matrixArg[i][j]*matrixArg[i+1][j+1]*matrixArg[i+2][j+2]*matrixArg[i+3][j+3]);
+//     }
+//   }
+//   z++;
+// }
+
+//for diagonal right to left
+// var t=19;
+// while (t>=0){
+//   for (var i=t; i>=3; i--){
+//     for (var j=16; j>=0; j--){
+//       prod.push(matrixArg[i][j]*matrixArg[i-1][j+1]*matrixArg[i-2][j+2]*matrixArg[i-3][j+3]);
+//     }
+//   }
+//   t--;
+// }
+
+return Math.max(...prod);
+
+  //return prod;
+
+  
+}
+
+console.log(greatestProduct(matrix));
