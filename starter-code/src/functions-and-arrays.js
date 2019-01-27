@@ -8,7 +8,7 @@ function maxOfTwoNumbers(a,b){
  
  }
  function findLongestWord(arr){
-  console.log(arr)
+  // console.log(arr)
   old = '';
   longest = '';
   if (arr.length > 1) {
@@ -23,7 +23,7 @@ function maxOfTwoNumbers(a,b){
   } else {
     return undefined;
   }
-  console.log(longest);
+  // console.log(longest);
   return longest;
   
 }
@@ -160,21 +160,17 @@ function sumArray(suma){
   'disobedience',
   'matter'
  ];
- function howManyTimes (arr, word){  
-  //  console.log(arr);
-  var sum = -1;
+ function howManyTimes (arr, word){ 
+  var sum = 0;
   if (arr.length > 0){
-
-    arr.forEach(function (e, i){
-      if (arr.find(function (eF){return eF == word}) != undefined){
-        sum += 1;
-        arr.splice(i ,1)
-      } 
+    arr.forEach(e => {
+      if (e == word){
+        sum += 1
+      }
     });
   } else {
     return false;
   }
-  // console.log(arr);
   return sum;
  }
  // Bonus Quest
