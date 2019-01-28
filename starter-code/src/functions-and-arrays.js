@@ -40,36 +40,34 @@ findLongestWord(words);
 
 // 3. Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var whatWantSum = []
+var reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-var sum = numbers.reduce(sumArray);
-
-function sumArray(a,b){
-  return a + b;
+function sumArray(whatWantSum){
+  var sum = whatWantSum.reduce(reducer);
+  return sum;
 }
 
-console.log(sum);
-return sum;
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+console.log(sumArray(numbers))
 
 
 // 4. Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+var whatsAvg = [];
 var sum = 0;
 var avg = 0;
 
-if (numbersAvg.length)
-{
-    sum = numbersAvg.reduce(function(a, b) { 
-      return a + b; 
-    }
-    );
-   avg = sum / numbersAvg.length;
+
+function averageNumbers(whatsAvg){
+  var sum = whatsAvg.reduce(reducer);
+  var avg = sum/whatsAvg.length
+  return avg
 }
 
-console.log(avg);
-return avg;
+
+var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+console.log(averageNumbers(numbersAvg))
 
 
 // 5. Array of Strings
