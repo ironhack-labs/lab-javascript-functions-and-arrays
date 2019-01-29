@@ -1,5 +1,7 @@
 // Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +13,30 @@ var words = [
   'crackpot'
 ];
 
+const findLongestWord = function(array) {
+  let max = 0;
+  let longestWord;
+  array.forEach(element => {
+    if (element.length > max) {
+    max = element.length; 
+    longestWord = element;  
+    }
+  }); return longestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = function(array){
+  return array.reduce((accumulator, value)=> accumulator + value);
+  };
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = array => sumArray(array) / array.length;
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +51,11 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = array => {
+  let arrayLengths = array.map(x => x.length);
+  return (averageNumbers(arrayLengths));
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +72,8 @@ var wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = array => array.filter((element, index, array) => array.indexOf(element) == index);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +85,8 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (array, word) => array.find(element => element === word) === word;
 
 // Counting Repetion
 var wordsCount = [
@@ -74,7 +102,32 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (array,word) => {
+  let count = 0;
+  array.forEach(element => element === word ? count++ : "") ;
+  return count;
+}
+
 // Bonus Quest
+
+const greatestProduct = matrix => {
+  let fourNumMax = 0;
+  let fourNum = 0;
+  for (i = 0; i < matrix.length; i++){    
+    for (j = 0; j < matrix[i].length - 3; j++) {
+      fourNum = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      fourNum > fourNumMax ? fourNumMax = fourNum : "";
+    }
+  } 
+  for (k = 0; k < matrix[0].length; k++){    
+    for (l = 0; l < matrix.length - 3; l++) {
+      fourNum = matrix[l][k] * matrix[l+1][k] * matrix[l+2][k] * matrix[l+3][k];
+      fourNum > fourNumMax ? fourNumMax = fourNum : "";
+    }
+  } return fourNumMax;
+}
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
