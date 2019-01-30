@@ -167,7 +167,7 @@ function howManyTimes(words, word){
         }
       }
       return nbr; 
-      
+
     }else{return 0};
   } else{
     return false
@@ -198,3 +198,17 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+ var great= 0; 
+ for(var l=0 ; l<matrix.length; l++){
+    for(var i=0 ; i<matrix[l].length; i++){
+   var prd= matrix[l][i]*matrix[l][i+1]*matrix[l][i+2]*matrix[l][i+3]
+   if(prd > great){
+     great= prd; 
+   }
+ }
+
+ }
+ return great; 
+}
