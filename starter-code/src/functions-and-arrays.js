@@ -153,8 +153,7 @@ var howManyTimes = function(array, word) {
 
 // Bonus Quest
 
-var matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+ var grid = [
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
   [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
@@ -174,4 +173,24 @@ var matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-]; 
+];
+
+var result = 0;
+
+for (let i = 0; i < grid.length; i++) {
+  for (let j = 0; j < grid[i].length-3; j++) {
+    if (result < (grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3])) {
+      result = (grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]);
+    }
+  }
+}
+
+for (let i = 0; i < grid.length-3; i++) {
+  for (let j = 0; j < grid.length; j++) {
+    if (result < (grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j])) {
+    result = (grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]);
+    } 
+  }
+}
+
+console.log(result)
