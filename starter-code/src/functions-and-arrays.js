@@ -1,6 +1,17 @@
 // Find the maximum
+function maxOfTwoNumbers(arg1, arg2){
+  var largest
+  if (arg1 > arg2) {
+    largest = arg1
+  } else {
+    largest = arg2
+  }
+  return largest
+}
+
 
 // Finding Longest Word
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +22,48 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  var longest
+  var maxLength = 0
+
+  words.forEach(function(word){
+    if (word.length > maxLength) {
+        maxLength = word.length
+        longest = word
+    } 
+  });
+  return longest
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+
+    var sumTotal = 0
+
+    numbers.forEach(function(elm){
+      sumTotal += elm
+    })
+    return sumTotal
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(values){
+    if (values.length === 0){
+      return undefined
+    } else {
+      return sumArray(values) / values.length
+    }
+  
+}
+
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +78,25 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(words){
+    var sumLengths = 0
+
+    words.forEach(function(elm){
+      sumLengths += elm.length
+    })
+    if (words.length === 0){
+      return undefined
+    } else {
+      return sumLengths / words.length
+    }
+}
+
+
+
+
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +113,28 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words){
+  //console.log(words)
+
+ if (words.length === 0){
+   return 
+ } else {
+   var uniqueNames = []
+
+  words.forEach(function(elm){
+    if (uniqueNames.indexOf(elm) === -1) {
+      uniqueNames.push(elm)
+    }
+    
+  })
+  return uniqueNames
+}
+
+}
+
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +146,29 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(words, searchWord){
+  if (words.length === 0){
+    return false
+  } else if (words.length === 1){
+    return true
+  } else {
+    console.log(words)
+    console.log(searchWord)
+  words.forEach(function(elm){
+    console.log(typeof elm)
+    console.log(typeof searchWord)
+    if (elm === searchWord){
+      return true
+    } else {
+      return false 
+    }
+  })
+}
+}
+
+
+
 
 // Counting Repetion
 var wordsCount = [
