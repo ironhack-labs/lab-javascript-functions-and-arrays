@@ -216,7 +216,7 @@ function greatestProduct(arr) {
   }
   for(let i=0; i<20; i++){
     for(let j=0; j<20; j++){
-      if(j<16){
+      if(j<=16){
         centinela = arr[j][i]*arr[j+1][i]*arr[j+2][i]*arr[j+3][i]
         if(centinela>sumatorio){
           sumatorio = centinela;
