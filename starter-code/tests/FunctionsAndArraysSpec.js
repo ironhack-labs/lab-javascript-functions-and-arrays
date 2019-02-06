@@ -218,6 +218,7 @@ describe('Bonus Quest - greatestProduct', function () {
   });
 
   it('Return 16 when all the numbers of the arrays are 2', function () {
+    // return true;
     var matrix = [
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
