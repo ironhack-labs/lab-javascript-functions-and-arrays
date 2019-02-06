@@ -23,16 +23,17 @@ var words = [
 ];
 function findLongestWord(words1){
   let longestWord='';
-  let actualWord='';
-  let nextWord='';
   
+  
+  if(words1.length===0){
+    return undefined;
+  }
   for(let i=0;i<words1.length;i++){
-   actualWord=words1[i];
-    nextWord=words1[i+1];
-    if(actualWord.length>nextWord.length){
-        longestWord=actualWord;
+  
+    if(longestWord.length<words1[i].length){
+        longestWord=words1[i];
     }
-    }
+  }
   return longestWord;
 }
 
@@ -81,6 +82,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(arr){
+  var suma=0;
+  var average=0;
+  if (arr.length===0) {
+    return undefined;
+  }
+
+  for(let i=0;i<arr.length;i++){
+   suma=suma+arr[i].length;
+  }
+  average=suma/arr.length;
+  return average;
+}
 
 // Unique Arrays
 var wordsUnique = [
