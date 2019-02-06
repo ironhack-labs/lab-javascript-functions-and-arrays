@@ -195,5 +195,23 @@ var matrix = [
 ];
 
 function greatestProduct (matrix){
-
-}
+  const productOfFourAdj = (line, index) => line[index] * line[index + 1] * line[index + 2] * line[index + 3];
+  let x = array
+    .map(line =>
+      line.reduce((acc, curr, index) => (productOfFourAdj(line, index) > acc ? productOfFourAdj(line, index) : acc), 0)
+    )
+    .reduce((acc, curr) => (acc > curr ? acc : curr), 0);
+ 
+  const concatArray = array.reduce((acc, curr) => acc.concat(curr));
+  const concatProductFour = (number, index) =>
+    number *
+    concatArray[index + array[0].length] *
+    concatArray[index + array[0].length * 2] *
+    concatArray[index + array[0].length * 3];
+  let y = concatArray.reduce(
+    (acc, curr, index) => (concatProductFour(curr, index) > acc ? concatProductFour(curr, index) : acc),
+    0
+  );
+ 
+  return x >= y ? x : y;
+ }
