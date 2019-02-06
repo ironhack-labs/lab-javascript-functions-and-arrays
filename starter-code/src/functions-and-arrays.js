@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers (num1, num2){
+  return Math.max(num1,num2);
+}
 
 // Finding Longest Word
 var words = [
@@ -10,14 +13,50 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(arr) {
+    if (arr.length === 0) {
+      return undefined;
+    }
+    let longWord = "";
+    arr.forEach(function(val) {
+      if(val.length > longWord.length){
+      longWord = val;
+    }
+  });
+  return longWord;
+}
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  var sum = 0;
+  arr.forEach(function(val){
+    sum += val;
+  });
+
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  if ( arr.length === 0) {
+    return undefined;
+  }else {
+    var sum = 0;
+
+    arr.forEach(function(val){
+      sum += val;
+    });
+   
+    return sum / arr.length;
+  }
+  
+ }
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +71,22 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  if (arr.length === 0) {
+    return undefined;
+  }else {
+
+  var sum = 0;
+  
+
+  arr.forEach(function(val){
+    sum += val.length;
+  });
+ 
+    return sum / arr.length;
+  }
+ }
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +103,18 @@ var wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arr){
+  if (arr.length === 0) {
+    return undefined;
+  }else {
+    return arr.filter(function(elem, index, self) {
+      return index === self.indexOf(elem);
+    });
+  }
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +126,22 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr,word){
+  let exist = false;
+  if (arr.length === 0) {
+    return false;
+  }else{
+    arr.forEach(function(val){
+
+      if(val === word){
+        exist = true;
+      }
+    });
+    return exist;
+  }
+ 
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +157,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,word){
+  let cont = 0;
+  if (arr.length === 0) {
+    return false;
+  }else{
+    arr.forEach(function(val){
+
+      if(val === word){
+        cont++;
+      }
+    });
+    return cont;
+  }
+ 
+}
+
 // Bonus Quest
 
 var matrix = [
