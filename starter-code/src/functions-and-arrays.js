@@ -198,3 +198,34 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(arr) {
+  let centinela = 0;
+  let sumatorio = 0;
+
+  for(let i=0; i<20; i++){
+    for(let j=0; j<20; j++){
+      if(j<=16){
+        centinela = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3]
+        if(centinela>sumatorio){
+          sumatorio = centinela;
+        }
+      }
+    }
+  }
+  for(let i=0; i<20; i++){
+    for(let j=0; j<20; j++){
+      if(j<16){
+        centinela = arr[j][i]*arr[j+1][i]*arr[j+2][i]*arr[j+3][i]
+        if(centinela>sumatorio){
+          sumatorio = centinela;
+        }
+      }
+    }
+  }
+  return sumatorio;
+}
+
+
+
