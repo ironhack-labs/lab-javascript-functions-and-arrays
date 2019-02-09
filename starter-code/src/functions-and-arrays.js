@@ -98,3 +98,146 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(num1, num2) {
+  if (num1>num2){
+    return num1;
+  }
+  else {
+    return num2;
+  }
+}
+var words = [
+  'mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot'
+];
+
+function findLongestWord(arr){
+  var valor = arr[0];
+  
+  for (var i=0;i < arr.length;i++){
+    
+      if (valor.length < arr[i].length) {
+        valor = arr[i];
+        }
+    }
+    return valor;
+  }
+
+console.log(findLongestWord(words));
+
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers){
+  var sum = 0;
+  for (var i=0;i<numbers.length;i++){
+    sum += numbers[i];
+  }
+  return sum;
+}
+console.log(sumArray(numbers));
+var numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageArray(numbers){
+  var numb = numbers.length;
+  return (sumArray(numbers)/numb);
+}
+console.log(averageArray(numbers2));
+
+
+var words2 = [
+  'seat',
+  'correspond',
+  'linen',
+  'motif',
+  'hole',
+  'smell',
+  'smart',
+  'chaos',
+  'fuel',
+  'palace'
+];
+function averageWordLength(words){
+  var total = 0;
+
+  for (var i=0;i<words.length;i++){
+    total += words[i].length;
+  }
+  return (total/words.length);
+}
+  console.log(averageWordLength(words2));
+
+  var words3 = [
+    'crab',
+    'poison',
+    'contagious',
+    'simple',
+    'bring',
+    'sharp',
+    'playground',
+    'poison',
+    'communion',
+    'simple',
+    'bring'
+  ];
+
+  function uniquifyArray(words){
+    
+    for (var i=0;i<words.length;i++){
+        for (var j=i+1;j<words.length;j++){
+        if (words[i] == words[j]){
+          words.splice(j);
+        }
+      }
+    } return words;
+  }
+  console.log(uniquifyArray(words3));
+
+  var words4 = [
+    'machine',
+    'subset',
+    'trouble',
+    'starting',
+    'matter',
+    'eating',
+    'truth',
+    'disobedience'
+  ];
+  
+  function doesWordExist(words, one){
+    for (var i=0;i<words.length;i++){
+      if (one === words[i]){
+        return true;
+      }       
+    } return false;
+  }
+  console.log(doesWordExist(words4, 'machine'));
+
+  var words5 = [
+    'machine',
+    'matter',
+    'subset',
+    'trouble',
+    'starting',
+    'matter',
+    'eating',
+    'matter',
+    'truth',
+    'disobedience',
+    'matter'
+  ];
+
+  function howManyTimes(words, one){
+    var cont = 0;
+    for (var i=0;i<words.length;i++){
+        if (one === words[i]){
+          cont++;
+        }
+        } return cont;
+      }
+    
+  
+  console.log(howManyTimes(words5, 'matter'));
