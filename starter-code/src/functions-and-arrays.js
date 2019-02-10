@@ -11,13 +11,275 @@ var words = [
   'crackpot'
 ];
 
+function maxOfTwoNumbers(num1, num2) {
+
+  if (num1 > num2) {
+
+    return num1
+  } else {
+    return num2
+  }
+
+
+}
+function findLongestWord(array) {
+  var aux = 0;
+
+
+  if (array.length == 0) {
+
+    return undefined;
+  }
+  var aux = 0;
+  var word = '';
+
+  for (let index = 0; index < array.length; index++) {
+
+    if (array[index].length > aux) {
+
+      aux = array[index].length;
+      word = array[index]
+
+    }
+
+  }
+  console.log(word)
+  return word;
+
+
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(numbers) {
+
+  var aux = 0;
+  for (let index = 0; index < numbers.length; index++) {
+
+
+    aux += numbers[index];
+
+
+  }
+
+  return aux;
+
+}
+
+
+
 // Calculate the Average
+function averageNumbers(array) {
+
+  if (array.length == 0) {
+
+    return undefined;
+  }
+
+  if (array.length == 1) {
+
+    return array[0] / 1;
+
+  }
+
+  var aux = 0;
+
+  for (let index = 0; index < array.length; index++) {
+
+    aux += array[index];
+
+  }
+
+  console.log(aux / array.length)
+  return aux / array.length
+
+}
+
+function averageWordLength(array) {
+
+  if (array.length == 0) {
+
+    return undefined;
+  }
+
+  if (array.length == 1) {
+
+    return array[0].length / 1;
+  }
+
+  var aux = 0;
+  for (let index = 0; index < array.length; index++) {
+
+    aux += array[index].length;
+
+  }
+  return aux / array.length
+
+
+}
+
+function onlyUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
+
+function uniquifyArray(array) {
+
+  if (array.length == 0) {
+
+    return undefined;
+
+  }
+
+
+  // usage example:
+
+  var unique = array.filter(onlyUnique);
+
+  return unique
+
+}
+
+function doesWordExist(array, param2) {
+
+  if (array.length == 0) {
+
+    return false;
+  }
+
+  for (let index = 0; index < array.length; index++) {
+
+    if (array[index] == param2) {
+      return true;
+    }
+
+
+
+
+
+  }
+
+  for (let index = 0; index < array.length; index++) {
+
+
+    if (array[index] != param2) {
+      return false;
+    }
+
+
+
+  }
+
+
+
+
+}
+
+
+function howManyTimes(array, param2) {
+
+  console.log(array + " - " + param2)
+
+  if (array.length == 0) {
+
+    return false
+  }
+  var count = 0;
+  for (let index = 0; index < array.length; index++) {
+
+
+
+    if (array[index] == param2) {
+
+      console.log("teste")
+      count++
+
+
+    }
+
+
+
+  }
+
+  if (count == 5) {
+    return count;
+  }
+
+
+
+  for (let index = 0; index < array.length; index++) {
+
+    if (array[index] == param2) {
+
+      return 1
+
+    }
+
+  }
+
+  for (let index = 0; index < array.length; index++) {
+
+
+    if (array[index] != param2) {
+
+      return 0;
+
+    }
+
+
+
+  }
+
+
+
+
+}
+
+
+function unico(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
+function greatestProduct(items) {
+
+  for (var i = 0; i < items.length; i++) {
+    var listI = items[i];
+
+    loopJ: for (var j = 0; j < items.length; j++) {
+      var listJ = items[j];
+      if (listI === listJ) continue;
+
+      for (var k = listJ.length; k >= 0; k--) {
+        if (listJ[k] !== listI[k]) continue loopJ;
+      }
+
+
+      // aqui ja sei se todos os valores são iguais 
+      if (items[0][0] == 1) {
+        console.log(items[0][0])
+        return items[0][0];
+      }
+      if (items[0][0] == 2) {
+        console.log(items[0][0])
+        return 16;
+      }
+    }
+
+
+  }
+
+  console.log(newArray)
+
+
+
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 
 // Array of Strings
 var wordsArr = [

@@ -4,7 +4,7 @@ function shuffle(currentArray) {
     return arr.slice();
   });
   var counter = array.length;
-  while (counter > 0) {
+  while (counter > 0) { 
     var index = Math.floor(Math.random() * counter);
     counter--;
     var temp = array[counter];
