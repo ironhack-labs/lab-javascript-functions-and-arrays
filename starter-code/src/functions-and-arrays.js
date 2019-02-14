@@ -1,4 +1,7 @@
 // Find the maximum
+const maxOfTwoNumbers = (first, second) => {
+  return first > second ? first : second;
+};
 
 // Finding Longest Word
 var words = [
@@ -11,13 +14,35 @@ var words = [
   'crackpot'
 ];
 
+const findLongestWord = (words) => {
+  if(words.length == 0) return undefined;
+
+  let indexOfLongest = 0;
+
+  for(let i = 0; i < words.length; i++){
+    if(words[i].length > words[indexOfLongest].length)  indexOfLongest = i;
+  }
+  return words[indexOfLongest];
+};
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = (numbers) => {
+  return numbers.reduce((acc, num) => acc + num, 0);
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = (numbers) => {
+  if(numbers.length == 0) return undefined;
+  return sumArray(numbers) / numbers.length;
+};
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +57,11 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = (words) => {
+  if(words.length == 0) return undefined;
+  return words.join('').length / words.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +78,12 @@ var wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = (words) => {
+  if(words.length == 0) return undefined;
+  return [...(new Set(words))];
+};
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +95,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (words, word) => {
+  return words.indexOf(word) >= 0;   
+}; 
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +114,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (words, word) => {
+  if(words.length == 0) return false;  
+  let filtered = words.filter((words) => {
+     return words === word;
+    });
+  return filtered.length;
+};
+
 // Bonus Quest
 
 var matrix = [
