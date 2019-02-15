@@ -56,7 +56,6 @@ We have already included Jasmine in the project you just forked, so let's see ho
 Before start coding, we will explain the project structure we have provided you:
 
 ```
-starter-code/
 ├── jasmine
 │   ├── jasmine-2.8.0/
 │   |   └── ...
@@ -87,11 +86,13 @@ When coding with tests, is super important to read and understand the errors we 
 
 All our work will be located in the `functions-and-arrays.js` file, so that will be enough. Anyway, you have to `push` the whole repo to Github.
 
-## Find the maximum
+You don't need to call the functions, the test will do that for you!
+
+## Iteration 1: Find the maximum
 
 Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest. 
 
-## Finding Longest Word
+## Iteration 2: Finding Longest Word
 
 Write a function `findLongestWord` that takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence. 
 
@@ -109,11 +110,9 @@ var words = [
 ];
 ```
 
-## Calculating a Sum
+## Iteration 3: Calculating a Sum
 
 Calculating a sum is as simple as iterating over an array and adding each of the elements together.
-
-Semantically [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) is the best method to use for this, but you can use any loop we've discussed so far.
 
 Create a `sumArray` function that takes an array of numbers as a parameter, and calculate the sum of all its numbers:
 
@@ -123,7 +122,7 @@ Create a `sumArray` function that takes an array of numbers as a parameter, and 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 ```
 
-## Calculate the Average
+## Iteration 4: Calculate the Average
 
 Calculating an average is an extremely common task.  Let's practice it a bit.
 
@@ -132,7 +131,7 @@ Calculating an average is an extremely common task.  Let's practice it a bit.
 1. Find the sum as we did in the first exercise
 2. Take the sum from step 1, and divide it by the number of elements in the list.
 
-### Level 1: Array of Numbers
+### Iteration 5: Level 1: Array of Numbers
 
 Write a function `averageNumbers` that receives an array of numbers and calculate the average of the numbers:
 
@@ -142,7 +141,7 @@ Write a function `averageNumbers` that receives an array of numbers and calculat
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 ```
 
-### Level 2: Array of Strings
+### Iteration 6: Level 2: Array of Strings
 
 Write a function `averageWordLength` that receives an array of words and calculate the average length of the words:
 
@@ -163,7 +162,7 @@ var words = [
 ];
 ```
 
-## Unique Arrays
+## Iteration 7: Unique Arrays
 
 Take the following array, remove the duplicates, and return a new array. You're more than likely going to want to check out the [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) function.
 
@@ -188,7 +187,7 @@ var words = [
 
 ```
 
-## Finding Elements
+## Iteration 8: Finding Elements
 
 Let's create a simple array search.
 
@@ -208,7 +207,7 @@ var words = [
 ];
 ```
 
-## Counting Repetion
+## Iteration 9: Counting Repetion
 
 Write a function `howManyTimes` that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
@@ -231,6 +230,8 @@ var words = [
 ```
 
 ## Bonus Quest
+
+Don't focuse on the test for this exercise. It's just to help you beggin.
 
 In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 
