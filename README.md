@@ -131,7 +131,7 @@ Calculating an average is an extremely common task.  Let's practice it a bit.
 1. Find the sum as we did in the first exercise
 2. Take the sum from step 1, and divide it by the number of elements in the list.
 
-### Iteration 5: Level 1: Array of Numbers
+### Level 1: Array of Numbers
 
 Write a function `averageNumbers` that receives an array of numbers and calculate the average of the numbers:
 
@@ -141,7 +141,7 @@ Write a function `averageNumbers` that receives an array of numbers and calculat
 var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 ```
 
-### Iteration 6: Level 2: Array of Strings
+### Level 2: Array of Strings
 
 Write a function `averageWordLength` that receives an array of words and calculate the average length of the words:
 
@@ -162,7 +162,7 @@ var words = [
 ];
 ```
 
-## Iteration 7: Unique Arrays
+## Iteration 5: Unique Arrays
 
 Take the following array, remove the duplicates, and return a new array. You're more than likely going to want to check out the [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) function.
 
@@ -187,7 +187,7 @@ var words = [
 
 ```
 
-## Iteration 8: Finding Elements
+## Iteration 6: Finding Elements
 
 Let's create a simple array search.
 
@@ -207,7 +207,7 @@ var words = [
 ];
 ```
 
-## Iteration 9: Counting Repetion
+## Iteration 7: Counting Repetion
 
 Write a function `howManyTimes` that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
