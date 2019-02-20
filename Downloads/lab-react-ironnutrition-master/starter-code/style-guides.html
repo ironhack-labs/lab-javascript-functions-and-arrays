@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <title>React App</title>
+  <style type="text/css">
+    .container {
+      max-width: 900px;
+      margin-top: 30px;
+    }
+    
+    .search-bar {
+      margin-bottom: 30px;
+    }
+    
+    .box {
+      padding: 0;
+      max-width: 400px;
+    }
+    
+    .box .media {
+      -ms-flex-align: center;
+      align-items: center;
+    }
+    
+    .box img {
+      height: 100%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    
+    .box input {
+      width: 100px;
+      text-align: center;
+      border: 0px white;
+      -webkit-box-shadow: inset 0 1px 2px white;
+      box-shadow: inset 0 1px 2px white
+    }
+    
+    .box .button {
+      width: 64px;
+      font-size: 1.3em;
+    }
+    
+    .box input, .box .button {
+      height: 64px;
+    }
+    
+    ul {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="container">
+      <h1 class="title">IronNutrition</h1>
+      <div>
+        <input type="text" class="input search-bar" name="search" placeholder="Search" value="">
+      </div>
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img src="https://i.imgur.com/eTmWoAN.png">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Pizza</strong> <br>
+                    <small>400 cal</small>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input type="number" class="input" value="1">
+                  </div>
+                  <div class="control">
+                    <button class="button is-info">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img src="https://i.imgur.com/DupGBz5.jpg">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Salad</strong> <br>
+                    <small>150 cal</small>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input type="number" class="input" value="1">
+                  </div>
+                  <div class="control">
+                    <button class="button is-info">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img src="https://i.imgur.com/hGraGyR.jpg">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Sweet Potato</strong> <br>
+                    <small>120 cal</small>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input type="number" class="input" value="1">
+                  </div>
+                  <div class="control">
+                    <button class="button is-info">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="box">
+            <article class="media">
+              <div class="media-left">
+                <figure class="image is-64x64">
+                  <img src="https://i.imgur.com/93ekwW0.jpg">
+                </figure>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Gnocchi</strong> <br>
+                    <small>500 cal</small>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input type="number" class="input" value="1">
+                  </div>
+                  <div class="control">
+                    <button class="button is-info">+</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="column content">
+          <h2 class="subtitle">Today's foods</h2>
+          <ul>
+            <li>1 Pizza = 400 cal</li>
+            <li>2 Salad = 300 cal</li>
+          </ul>
+          <strong>Total: 700 cal</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+Terms
