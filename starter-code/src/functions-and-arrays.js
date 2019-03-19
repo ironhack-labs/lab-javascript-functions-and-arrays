@@ -1,5 +1,8 @@
 // Find the maximum
-
+function maxOfTwoNumbers(num1,num2){
+  if (num1>num2) return num1
+  return num2
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +14,48 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  var max = 0
+  
+  if (words.length  === 0) {
+    return undefined
+  } else if (words.length === 1) {
+    return words[0];
+  } else {
+  words.forEach((element, i) => {
+
+    if (element.length > words[max].length)  max = i
+  });
+  
+  return words[max];
+  }
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+  var sum = 0
+  if (array.length===0) return 0
+  else {
+    array.forEach(element => {
+      sum += element
+    });
+  }
+  return sum
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (array){
+  if (array.length === 0) return undefined
+  else {
+    return sumArray(array)/array.length 
+  } 
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +70,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array){
+  var sum=0
+  if (array.length === 0) return undefined
+  else {
+     array.forEach(element => {
+      sum+= element.length
+     });
+     return sum/array.length
+  } 
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +97,14 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  if (array.length === 0) return undefined
+  else {
+    return array.filter((element, i) => array.indexOf(element) == i)
+  };
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +116,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (array, word){
+  if (array.length === 0) return false
+  else {
+    if (array.indexOf(word)==-1) return false
+  };
+  return true
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +139,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array, word) {
+  var resultWord = doesWordExist (array, word);
+  if (!resultWord && array.length == 0) return false
+  else if (!resultWord && array.length != 0) return 0
+  else {
+    return array.filter(element => element == word).length
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
