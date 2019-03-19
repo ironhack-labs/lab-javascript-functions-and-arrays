@@ -52,7 +52,7 @@ var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arrnums){
   var ave = 0;
   if (arrnums.length == 0) {
-    return ave 
+    return undefined 
   } 
   else { 
     ave = sumArray(arrnums)
