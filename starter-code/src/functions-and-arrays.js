@@ -26,18 +26,29 @@ var words = [
 
 
 function findLongestWord(words) {
+ if (words.length === 0) {return undefined}
+  var longWord = '';
+  for (i = 0 ; i < words.length; i++) {
+    if (words[i].length > longWord.length) {
+      longWord = words[i]
+    } 
 
+  }
+
+  return longWord;
 }
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray() {
-  for (i = 0; i > numbers.length; i++) {
-    var sumNumbers = 0;
-    n
+function sumArray(numbers) {
 
+   if (numbers.length === 0) {return 0}
+
+    var sumNumbers = 0;
+  for (i = 0; i < numbers.length; i++) {
+    sumNumbers = numbers[i] + sumNumbers
   }
 
   return sumNumbers
@@ -48,7 +59,13 @@ function sumArray() {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
+function averageNumbers(numbersAvg) {
+
+   if (numbersAvg.length === 0) {return undefined}
+    return sumArray(numbersAvg) / numbersAvg.length
+
+
+
 
 }
 
@@ -66,7 +83,16 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength() {
+function averageWordLength(wordsArr) {
+     if (wordsArr.length === 0) {return undefined}
+      var wordsTotalLenght = 0;
+      for (i = 0; i < wordsArr.length; i++) {
+    wordsTotalLenght = wordsArr[i].length + wordsTotalLenght
+  }
+
+  return wordsTotalLenght / wordsArr.length
+
+
 
 }
 
@@ -85,7 +111,18 @@ var wordsUnique = [
   'bring'
 ];
 
-function indexOf() {
+function uniquifyArray(wordsUnique) {
+
+     if (wordsUnique.length === 0) {return undefined}
+      var arrayUnique = [];
+
+      for (i = 0; i < wordsUnique.length; i++) {
+        if (arrayUnique.indexOf(wordsUnique[i]) === -1) {
+          arrayUnique.push(wordsUnique[i])
+        }
+
+      }
+      return arrayUnique
 
 }
 
@@ -101,8 +138,15 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist() {
+function doesWordExist(wordsFind, findWord) {
 
+     if (wordsFind.length === 0) {return false}
+
+      for (i = 0; i < wordsFind.length; i++) {
+        if (wordsFind[i] === findWord) return true
+      }
+
+return false
 }
 
 // Counting Repetion
@@ -120,7 +164,16 @@ var wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {
+function howManyTimes(wordsCount, findWord) {
+   
+     if (wordsCount.length === 0) {return false}
+      var totalVeces = 0;
+      for (i = 0; i < wordsCount.length; i++) {
+        if (wordsCount[i] === findWord) totalVeces++
+
+      }
+
+return totalVeces
 
 }
 
@@ -150,8 +203,26 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
+function greatestProduct(matrix) {
+  var totalMultiplicacion = 0;
+  var mayorMultiplicacion = 0;
 
+  for (var i = 0;i < matrix.length ; i >= 0; i++) {
+    for (var j = 0; j < matrix[i].length- 3; j++) {
+      totalMultiplicacion = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3] ;
+      if (totalMultiplicacion > mayorMultiplicacion) { mayorMultiplicacion = totalMultiplicacion}
+    }
+    
+  }
+
+  for (var j = 0; j < matrix[0].length; j++) {
+    for (var i = 0;i < matrix.length - 3; i >= 0; i++) {
+      totalMultiplicacion = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j] ;
+      if (totalMultiplicacion > mayorMultiplicacion) { mayorMultiplicacion = totalMultiplicacion}
+    }
+    
+  }
+return mayorMultiplicacion
 }
 
 
