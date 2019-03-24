@@ -114,16 +114,16 @@
 // console.log(uniquifyArray(wordsUnique));
 
 // Finding Elements
-var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+// var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr, word) {
-  if (arr.length === 0) {
-    return false;
-  } else {
-    return arr.includes(word);
-  }
-}
-console.log(doesWordExist(wordsFind, 'queso'));
+// function doesWordExist(arr, word) {
+//   if (arr.length === 0) {
+//     return false;
+//   } else {
+//     return arr.includes(word);
+//   }
+// }
+// console.log(doesWordExist(wordsFind, 'queso'));
 
 
 // Counting Repetion
@@ -140,6 +140,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return false;
+  } else {
+    var n = 0;
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i] == word) {
+        n++
+      }
+    }
+    return n;
+  }
+}
+
+console.log(howManyTimes(wordsCount, 'queso'));
+
+
 // Bonus Quest
 
 var matrix = [
