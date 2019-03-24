@@ -53,25 +53,39 @@
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arr) {
+// function averageNumbers(arr) {
+//   var sumator = 0;
+//   if (arr.length === 0) {
+//     return undefined;
+//   } else {
+//     for (let i = 0; i < arr.length; i++) {
+//       sumator += arr[i];
+//     }
+//   }
+//   return sumator / arr.length;
+// }
+
+// console.log(averageNumbers(numbersAvg));
+
+// Array of Strings
+var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arr) {
   var sumator = 0;
   if (arr.length === 0) {
     return undefined;
   } else {
     for (let i = 0; i < arr.length; i++) {
-      sumator += arr[i];
+      sumator += arr[i].length;
     }
   }
   return sumator / arr.length;
-}
 
-console.log(averageNumbers(numbersAvg));
+};
 
-// Array of Strings
-var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+console.log(averageWordLength(wordsArr));
 // Unique Arrays
 var wordsUnique = [
   'crab',
