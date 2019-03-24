@@ -89,32 +89,42 @@
 
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+// var wordsUnique = [
+//   'crab',
+//   'poison',
+//   'contagious',
+//   'simple',
+//   'bring',
+//   'sharp',
+//   'playground',
+//   'poison',
+//   'communion',
+//   'simple',
+//   'bring'
+// ];
 
-function uniquifyArray(arr) {
-  if (arr.length === 0) {
-    return undefined;
-  } else {
-    let unique = [...new Set(arr)];
-    return unique;
-  };
-};
-console.log(uniquifyArray(wordsUnique));
+// function uniquifyArray(arr) {
+//   if (arr.length === 0) {
+//     return undefined;
+//   } else {
+//     let unique = [...new Set(arr)];
+//     return unique;
+//   };
+// };
+// console.log(uniquifyArray(wordsUnique));
 
 // Finding Elements
 var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return false;
+  } else {
+    return arr.includes(word);
+  }
+}
+console.log(doesWordExist(wordsFind, 'queso'));
+
 
 // Counting Repetion
 var wordsCount = [
