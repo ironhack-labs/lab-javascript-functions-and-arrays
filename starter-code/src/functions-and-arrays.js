@@ -70,22 +70,24 @@
 // console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
-var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+// var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(arr) {
-  var sumator = 0;
-  if (arr.length === 0) {
-    return undefined;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      sumator += arr[i].length;
-    }
-  }
-  return sumator / arr.length;
+// function averageWordLength(arr) {
+//   var sumator = 0;
+//   if (arr.length === 0) {
+//     return undefined;
+//   } else {
+//     for (let i = 0; i < arr.length; i++) {
+//       sumator += arr[i].length;
+//     }
+//   }
+//   return sumator / arr.length;
 
-};
+// };
 
-console.log(averageWordLength(wordsArr));
+// console.log(averageWordLength(wordsArr));
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -100,6 +102,16 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  } else {
+    let unique = [...new Set(arr)];
+    return unique;
+  };
+};
+console.log(uniquifyArray(wordsUnique));
 
 // Finding Elements
 var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
