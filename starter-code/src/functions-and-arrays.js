@@ -11,27 +11,45 @@
 // console.log(maxOfTwoNumbers(3, 2));
 
 // Finding Longest Word
-var words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// var words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(arr) {
-  var word = ['0'];
-  if ((arr.length === 0)) {
-    return undefined;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].length > word[0].length) {
-        word.splice(0, 1, arr[i]);
-      }
-    }
-  }
-  return word[0];
-}
+// function findLongestWord(arr) {
+//   var word = ['0'];
+//   if ((arr.length === 0)) {
+//     return undefined;
+//   } else {
+//     for (let i = 0; i < arr.length; i++) {
+//       if (arr[i].length > word[0].length) {
+//         word.splice(0, 1, arr[i]);
+//       }
+//     }
+//   }
+//   return word[0];
+// }
 
-console.log(findLongestWord(words));
+// console.log(findLongestWord(words));
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(arr) {
+  var sumator = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      sumator += arr[i];
+    }
+  };
+  if (sumator === 0) {
+    return 0;
+  } else {
+    return sumator;
+  };
+};
+
+console.log(sumArray(numbers));
 
 // Calculate the Average
 
