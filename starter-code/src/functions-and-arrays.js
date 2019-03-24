@@ -31,29 +31,43 @@
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(arr) {
-  var sumator = 0;
-  if (arr.length === 0) {
-    return 0;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      sumator += arr[i];
-    }
-  };
-  if (sumator === 0) {
-    return 0;
-  } else {
-    return sumator;
-  };
-};
+// function sumArray(arr) {
+//   var sumator = 0;
+//   if (arr.length === 0) {
+//     return 0;
+//   } else {
+//     for (let i = 0; i < arr.length; i++) {
+//       sumator += arr[i];
+//     }
+//   };
+//   if (sumator === 0) {
+//     return 0;
+//   } else {
+//     return sumator;
+//   };
+// };
 
-console.log(sumArray(numbers));
+// console.log(sumArray(numbers));
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  var sumator = 0;
+  if (arr.length === 0) {
+    return undefined;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      sumator += arr[i];
+    }
+  }
+  return sumator / arr.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
