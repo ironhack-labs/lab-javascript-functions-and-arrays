@@ -1,6 +1,27 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return(num1)
+  }
+   else {
+    return(num2)
+  }
+}
+maxOfTwoNumbers(8,6)
+
+
 
 // Finding Longest Word
+function findLongestWord(words){
+  if (words == ''){
+    return (undefined)
+  }else if(words.length==1){
+    return(words[0])
+  }else {
+    
+  }
+}
+
 var words = [
   'mystery',
   'brother',
@@ -13,13 +34,39 @@ var words = [
 
 // Calculating a Sum
 
+function sumArray(arraySum){
+  if(arraySum.length == 0){
+    //Si la longitud es 0, es decir está vacío regresa 0
+    return(0)
+  } else if(arraySum.length>=1){
+    //Si el array contiene 1 o más ejecuta la variable sum (en caso de que el valor de la suma sea 0)
+    const sum = arraySum.reduce(add);
+    //No estoy seguro de entender al 100 lo del acumulador pero según yo es para acumular resultados parciales y a suma el siguiente elemento
+    function add(accumulator, a) {
+    return accumulator + a;
+  }
+    return sum
+  }
+}
+
+const arraySum =[0,5,6]
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+ 
+sumArray(arraySum)
 
 // Calculate the Average
+function averageNumbers(){
+
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength(){
+
+}
+
 var wordsArr = [
   'seat',
   'correspond',
