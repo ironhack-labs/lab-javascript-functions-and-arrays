@@ -97,12 +97,15 @@ let wordsArr = [
 ];
 
 // Unique Arrays
-function uniquifyArray(wordsUnique){
-  if (wordsUnique.length==0){
-    //Si  el array está vacío, devuelve undefined
-    return undefined
+ 
+ function uniquifyArray(words){
+  if(words.length === 0){
+    return
+  } else{
+    let unique = [...new Set(words)];
+  return unique
   }
-}
+  }
 var wordsUnique = [
   'crab',
   'poison',
