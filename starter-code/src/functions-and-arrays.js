@@ -1,6 +1,36 @@
 // Find the maximum
+// Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+
+function maxOfTwoNumbers(number1,number2){
+   
+    return Math.max(number1,number2);
+}
 
 // Finding Longest Word
+// Write a function findLongestWord that takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+
+
+function findLongestWord(x){
+  
+  //METHOD 1 //
+  // for(let i=0 ; i <= x.length-1 ; i++){
+    
+  //   if (x[i].length > longestWord.length){
+  //     longestWord = x[i] ;
+  //     }
+  // }
+
+  // return longestWord ;
+  // ALTERNATIVE METHOD //
+  // x.sort()
+  var arr = x.sort(function(a,b) {
+    return b.length - a.length
+  } )
+  return arr[0]
+}
+
+var longestWord="";
+
 var words = [
   'mystery',
   'brother',
@@ -11,15 +41,78 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+// console.log(findLongestWord());
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
+// Calculating a Sum
+// Create a sumArray function that takes an array of numbers as a parameter, and calculate the sum of all its numbers:
+
+var numbers = [0,8,12,10,2];
+var accNumber = 0;
+
+
+
+function sumArray(numbers){
+// for(let i=0 ; i <= numbers.length-1 ; i++){
+//   accNumber += numbers[i];
+// }
+
+const getSum = numbers.reduce((total,num) =>  total + num,0);
+
+if(getSum === 0){
+  accNumber = 0;
+}
+
+return getSum;
+}
+
+
+
+
+// console.log(sumArray(numbers));
+
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbersAvg = [2,3,4,5,6];
+var avgNumber = 0;
+var accNumber = 0;
 
-// Array of Strings
+function averageNumbers(numbersAvg){
+  // for(let i=0 ; i <= numbersAvg.length-1 ; i++){
+  //   accNumber += numbersAvg[i];
+  //   avgNumber = accNumber/(numbersAvg.length);
+  // }
+  // if (numbersAvg.length === 0){
+  //   avgNumber = undefined
+  // };
+
+  // if (numbersAvg.length === 1){
+  //   avgNumber = numbersAvg[0]
+  // };
+
+
+  // return avgNumber ;
+  const getSum = numbersAvg.reduce((total,num) =>  total + num,0);
+
+  if(numbersAvg.length === 0){
+    return undefined;
+  }
+
+  getAvg = getSum/numbersAvg.length ;
+  
+  return getAvg 
+
+  }
+  
+  // console.log(averageNumbers(numbersAvg));
+
+
+// Array of Strings - Write a function averageWordLength that receives an array of words and calculate the average length of the words
+
+
+var totalLength = 0; 
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +126,32 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+function averageWordLength (wordsArr){
+  let totalLength = 0;
+
+  for(let i=0 ; i <= wordsArr.length-1 ; i++){
+    totalLength += wordsArr[i].length;
+    
+    // console.log(totalLength);
+
+    avgWordLength = totalLength/(wordsArr.length); 
+  }
+
+  if (wordsArr.length === 0) {
+    return undefined
+  }
+
+  return avgWordLength;
+  }
+  
+  // console.log(averageWordLength(wordsArr));
+
+
+//
+
+
+// Unique Arrays - Take the following array, remove the duplicates, and return a new array. You're more than likely going to want to check out the indexOf function.
+// Do this in the form of a function uniquifyArray that receives an array of words as a parameter.
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +166,31 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique){
+  // console.log(wordsUnique)
+  let lol = [...new Set(wordsUnique)]
+  // console.log('hehhehehe ', lol);
+  if(wordsUnique.length === 0 ){
+    return undefined;
+  }
+  return lol;
+
+/*   for(let i=0 ; i <= wordsUnique.length-1 ; i++){
+    newArray = [];
+
+    
+    if (newArray.indexOf(wordsUnique[i]) >= 0){
+      newArray.push = wordsUnique[i];
+    }
+  }
+ */
+
+}
+
 // Finding Elements
+
+// Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one. :)
+
 var wordsFind = [
   'machine',
   'subset',
@@ -60,7 +202,47 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordsFind,wordSearch){
+  for(i=0 ; i < wordsFind.length-1 ; i++){
+    // console.log(doesWordExist(wordsFind,'machine'));
+    if(wordsFind[i] === wordSearch){
+      return true;
+    } 
+  }
+
+  if (wordsFind.length ===0){
+    result = false;
+  }
+
+  if (wordsFind.length ===1 && wordsFind[0]===wordSearch){
+    return true;
+  }
+  return false ;
+}
+
+
 // Counting Repetion
+//Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
+
+function howManyTimes(wordsCount,wordSearch){
+  let accCount = 0;
+
+  for(i=0 ; i < wordsCount.length ; i++){
+    // console.log(doesWordExist(wordsFind,'machine'));
+    if(wordsCount[i] === wordSearch){
+      accCount += 1;
+    } 
+  }
+
+  if (wordsCount.length ===0){
+    return false;
+  }
+
+  return accCount
+}
+
+
+
 var wordsCount = [
   'machine',
   'matter',
@@ -74,7 +256,13 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+
 // Bonus Quest
+// In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
+// Write a function greatestProduct to find the answer!
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
