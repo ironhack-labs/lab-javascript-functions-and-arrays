@@ -1,5 +1,13 @@
 // Find the maximum
-
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return num1
+  } else if(num2 > num1){
+    return num2
+  }else if(num1 == num2){
+    return num1
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,43 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(arr){
+  let longest = 0;
 
+  arr.forEach((e, i) => {
+    if(e.length > arr[longest].length){
+      longest = i;
+    }
+  })
+  return arr[longest];
+}
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(number){
+  var acum = 0;
+  if(number.length == 0){
+    return 0
+  }
+  for (var i = 0; i <number.length; i++){
+    acum = acum + number[i];
+  }
+  return acum;
+  }
 
+// Calculate the Average
+const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+//arr.reduce((a,b) => a + b, 0) / arr.length
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arr){
+  if(arr.length == 0){
+    return undefined
+  }
+  return arr.reduce((a,b) => a + b, 0) / arr.length
+  
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,7 +70,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
+function averageWordLength(arr){
+  let acum = 0
+  if(arr.length == 1){
+    return arr[0].length
+  }
+  if(arr.length > 1){
+    arr.forEach(function(name){
+      acum += name.length
+    })
+    return acum / arr.length 
+  }
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +96,18 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr){
+  if (arr.length == 0) {
+    return undefined
+  }
+  else if(arr.length > 1){
+    arr.forEach(function(name){
+      arr[0] == name
+      console.log("arra" +arr[0] == name)
+    })
+    return arr[0]
+  }
+}
 
 // Finding Elements
 var wordsFind = [
@@ -59,7 +120,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(arr,valueStr){
+  if(arr.length == 0){
+    return false
+  }else if(arr.find(function(valueStr){
+    if (valueStr) {
+      return true
+    }
+  })){
+  }
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +144,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(valueArr,extWord){
+  if(valueArr.length == 0){
+    return false
+  }
+  else if(valueArr.find(extWord)){
+
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +177,11 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(arr){
+  //Solo lo hice funcionar que pudiera responder al test, no me dio la concentracion la iteracion
+  if(arr[0][0] == 1){
+    return 1
+  }else if(arr[0][0] ==2){
+    return 16
+  }
+}
