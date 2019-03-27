@@ -1,79 +1,102 @@
 // Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  return num1 < num2 ? num2 : num1;
+};
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+var words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const _indexOfMax = array => {
+  let max = 0;
+
+  array.forEach(value => {
+    if (value > max) {
+      max = value;
+    }
+  });
+
+  const index = array.indexOf(max);
+
+  return index;
+};
+
+const findLongestWord = array => {
+  const wordsLength = array.map(value => value.length);
+  const index = _indexOfMax(wordsLength);
+
+  return array[index];
+};
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = array => {
+  let sum = array.reduce((acc, value) => acc + value, 0);
+
+  return sum;
+};
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let maxLength = 0;
+const averageNumbers = array => {
+  if (array.length === 0) return undefined;
+
+  return sumArray(array) / array.length;
+};
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+
+var wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = array => {
+  const wordsLength = array.map(value => value.length);
+
+  return averageNumbers(wordsLength);
+};
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+var wordsUnique = ['crab', 'poison', 'contagious', 'simple', 'bring', 'sharp', 'playground', 'poison', 'communion', 'simple', 'bring'];
+
+const uniquifyArray = array => {
+  if (array.length === 0) return undefined;
+
+  let newArray = [];
+  array.forEach(value => {
+    if (newArray.indexOf(value) === -1) {
+      newArray.push(value);
+    }
+  });
+
+  return newArray;
+};
 
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+var wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word) {
+  if (array.length === 0) return false;
+
+  return array.includes(word);
+}
 
 // Counting Repetion
-var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+var wordsCount = ['machine', 'matter', 'subset', 'trouble', 'starting', 'matter', 'eating', 'matter', 'truth', 'disobedience', 'matter'];
+
+const howManyTimes = (array, word) => {
+  if (array.length === 0) return false;
+
+  let times = array.reduce((acc, value) => {
+    const sum = value === word ? 1 : 0;
+
+    return acc + sum;
+  }, 0);
+
+  return times;
+};
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +121,50 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const _productEveryFour = array => {
+  let product = 0;
+
+  array.forEach((value, index, array) => {
+    if (index > array.length - 3) return;
+
+    const localProduct = value * array[index + 1] * array[index + 2] * array[index + 3];
+    if (localProduct > product) {
+      product = localProduct;
+    }
+  });
+
+  return product;
+};
+
+const greatestProduct = array => {
+  const products = [];
+
+  // horizontal
+  for (let i = 0; i < array.length; i++) {
+    // left
+    const arrayToFactor1 = array[i];
+    products.push(_productEveryFour(arrayToFactor1));
+
+    // right
+    const arrayToFactor2 = arrayToFactor1.reverse();
+    products.push(_productEveryFour(arrayToFactor2));
+  }
+
+  // vertical
+  for (let i = 0; i < array.length; i++) {
+    // down
+    const arrayToFactor1 = [];
+    for (let j = 0; j < array[i].length; j++) {
+      arrayToFactor1.push(array[j][i]);
+    }
+    products.push(_productEveryFour(arrayToFactor1));
+    // up
+    const arrayToFactor2 = arrayToFactor1.reverse();
+    products.push(_productEveryFour(arrayToFactor2));
+  }
+
+  const index = _indexOfMax(products);
+
+  return products[index];
+};
