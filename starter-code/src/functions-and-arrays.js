@@ -145,20 +145,13 @@ var wordsFind = [
 ];
 
 function doesWordExist (array, word) {
-  if (array == '') {
-    return false
-  } else { 
-   for(let i = 0; i < array.length; i++) {
-   if(array[i] === word) {
-     return true
-   } else {
-     return false
-   }
- }
-}
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === word) return true
+  }
+  return false
 }
 
-doesWordExist(wordsFind, 'machine');
+//doesWordExist(wordsFind, 'machine');
 
 
 // Counting Repetion
