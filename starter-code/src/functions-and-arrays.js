@@ -17,8 +17,10 @@ function findLongestWord(words){
     return (undefined)
   }else if(words.length==1){
     return(words[0])
-  }else {
-    
+  }else{
+    var longest = words.sort(function (a, b) { return b.length - a.length; })[0]
+    //La respuesta viene de https://stackoverflow.com/questions/6521245/finding-longest-string-in-array por lo que entendemos sort se encarga de devolver el resultado ordenado con respecto al index, aunque la documentación menciona que dicho orden no es estable
+    return longest
   }
 }
 
@@ -38,7 +40,7 @@ function sumArray(arraySum){
   if(arraySum.length == 0){
     //Si la longitud es 0, es decir está vacío regresa 0
     return(0)
-  } else if(arraySum.length>=1){
+  } else{
     //Si el array contiene 1 o más ejecuta la variable sum (en caso de que el valor de la suma sea 0)
     const sum = arraySum.reduce(add);
     //No estoy seguro de entender al 100 lo del acumulador pero según yo es para acumular resultados parciales y a suma el siguiente elemento
@@ -50,24 +52,38 @@ function sumArray(arraySum){
 }
 
 const arraySum =[0,5,6]
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
  
 sumArray(arraySum)
 
 // Calculate the Average
-function averageNumbers(){
+function averageNumbers(numbersAvg){
+  if(numbersAvg.length==0){
+    return undefined
+  } else{
+    return (sumArray(numbersAvg)/numbersAvg.length)
+    //Usando la suma se divide el resultado entre la longitud del array por lo que se obtiene el promedio
+  }
+ }
 
-}
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
 
-function averageWordLength(){
-
+function averageWordLength(wordsArr){
+  if (wordsArr.length==0){
+    //Si  el array está vacío, devuelve undefined
+    return undefined
+  }else {
+    function logArrayElements(element, index, wordsArr) {
+      console.log(accumulator + element.length)
+      return accumulator + element.length
+  }
+  wordsArr.forEach(logArrayElements);
+  }
 }
 
-var wordsArr = [
+let wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -81,6 +97,12 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(wordsUnique){
+  if (wordsUnique.length==0){
+    //Si  el array está vacío, devuelve undefined
+    return undefined
+  }
+}
 var wordsUnique = [
   'crab',
   'poison',
@@ -96,7 +118,14 @@ var wordsUnique = [
 ];
 
 // Finding Elements
-var wordsFind = [
+function doesWordExist(wordsFind){
+  if(wordsFind.length == 0){
+    //Si la longitud es 0, es decir está vacío regresa false
+    return false
+}
+}
+
+let wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -105,9 +134,15 @@ var wordsFind = [
   'eating',
   'truth',
   'disobedience'
-];
+]
 
 // Counting Repetion
+function howManyTimes(wordsCount){
+  if(wordsCount.length == 0){
+    //Si la longitud es 0, es decir está vacío regresa false
+    return false
+}
+}
 var wordsCount = [
   'machine',
   'matter',
@@ -122,7 +157,9 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+function greatestProduct(){
 
+}
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
