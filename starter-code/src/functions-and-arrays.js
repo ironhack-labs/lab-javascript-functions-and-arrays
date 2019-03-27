@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,39 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  let longest = 0
+  arr.forEach((el, i) => {
+    if(el.length > arr[longest].length) {
+      longest = i
+    }
+  })
+  return arr[longest]
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  let sum = 0
+  arr.forEach(el => {
+    sum += el
+  })
+  return sum
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  } else {
+    return sumArray(arr) / arr.length;
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +66,11 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  const wordLengths = arr.map(el => el.length);
+  return averageNumbers(wordLengths);
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +85,22 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  let newArray = []
+  let index = 0
+  if(arr.length === 0) {
+    return undefined
+  } else {
+    for(let i = 0; i < arr.length; i++) {
+      index = arr.indexOf(arr[i])
+      if(index !== -1 && newArray.indexOf(arr[i]) === -1) {
+        newArray.push(arr[i])
+      }
+    }
+  }
+  return newArray
+}
 
 // Finding Elements
 var wordsFind = [
@@ -74,6 +128,29 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function doesWordExist(arr, word) {
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === word) {
+      return true
+    }
+  }
+  return false
+}
+
+function howManyTimes(arr, word) {
+  let howMany = 0
+  if(arr.length === 0) {
+    return false
+  } else {
+    arr.forEach(el => {
+      if(el === word) {
+        howMany++
+      }
+    })
+  }
+  return howMany
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +175,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {
+
+}
