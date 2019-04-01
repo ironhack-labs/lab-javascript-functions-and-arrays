@@ -1,7 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers(max, min) {
+  if (max > min) {
+    return max;
+  } return min;
+};
+
 // Finding Longest Word
-var words = [
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -11,13 +17,57 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(argumento) {
+  let newWord = "";
+  if (argumento.length === 0){
+    return undefined;
+  }
+  argumento.forEach((elemento) => {
+    if (elemento.length > newWord.length) {
+      newWord = elemento;
+    }
+  })
+  return (newWord);
+}
+
+console.log(findLongestWord(words))
+
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+  // function sumArray (numbers){
+  //   let sumTotally = 0;
+  //   for (i=0; i<numbers.length; i +=1){
+  //     // sumTotally += numbers[i]
+  //     sumTotally = sumTotally + numbers[i]
+  //   } return sumTotally;
+  // }
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+  function sumArray (numbers){
+      let sumTotally = 0;
+      numbers.forEach (function(elementoDaArray, index, proprioArrayInteiro){
+        sumTotally += elementoDaArray;
+      }); return sumTotally;
+  }    
+
+// Calculate the Average ==> MEDIA DOS NUMEROS.
+
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+  function averageNumbers (numbersAvg){
+    if (numbersAvg.length === 0){
+      return undefined;
+    }  
+    let sumAvg = 0;
+    let avgNum = 0;
+    numbersAvg.forEach (function(elementoDaArray, index, proprioArrayInteiro){
+      sumAvg += elementoDaArray;
+    });
+    avgNum = sumAvg/numbersAvg.length;
+    return avgNum;
+  }
+ 
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +82,21 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength (wordsArr){
+  if (wordsArr.length === 0){
+    return undefined;
+  } else { 
+    let sumWord = 0;
+    wordsArr.forEach (function(elementoDaArray, index, proprioArray){
+      sumWord += elementoDaArray.length;
+    });
+      let avgWord = sumWordLength/wordsArr.length;
+      return avgWord;
+  };
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +113,14 @@ var wordsUnique = [
   'bring'
 ];
 
+    
+const uniquifyArray = arr => {
+  if(arr.length === 0) return undefined;
+  let newArr = arr.filter((e, i) => arr.indexOf(e) === i);
+  return newArr; 
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +132,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (arr, word) => {
+  if(arr.length === 0) return false;
+  if(arr.includes(word)) {
+    return true;
+  }else{
+    return false;
+  }
+   
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +157,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, word) => {
+  if(arr.length === 0) return false;
+  let count = 0;
+  arr.forEach((e, i) => {
+    if(e == word){
+      count += 1;
+    }
+  });
+  return count;
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +194,34 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+// // EXEMPLOS: ------------------------------------------------- MATHs
+// // PROGRESSAO ARITIMETICA
+//   function progressaoAritimeticaSum(valorInicial, limite, incremento){
+//     let sum = 0;
+//     for (let i = valorInicial; i <=limite; i += incremento){
+//       sum += i;
+//       return sum;
+//     }
+//   } 
+//   // const  r1 = paSum(1,3,2);// resultado esperado= 1+3+5=9
+//   // console.log(r1);
+
+//   // OUTRA FORMA DE RESOLUCAO: 
+//   // com EXEMPLO COM RECURSAO (funcao dentro da funcao)
+//   let sum = 0;
+//   let qtControl = 0;
+//   function paSum(iv,qtsVezesRepete, incr){
+//     if (qtControl <= qtsVezesRepete){
+//       sum += iv;
+//       qtControl += 1;
+//     } else {
+//       return sum;
+//     }
+//     iv += incr;
+//     return paSum(iv, qtsVezesRepete, incr);
+//   }
+//   // const  r1 = paSum(1,3,2);// resultado esperado= 1+3+5=9
+//   // console.log(r1);
