@@ -98,10 +98,15 @@ function uniquifyArray (arr) {
   if (arr.length === 0) return undefined;
 var newArr = [...arr];
   for (i = 0; i < arr.length; i++) {
-      
+    for (x = 0; x < arr.length; x++) {
+      if (arr[i] != arr[x]) {
+        newArr[i] = arr[i];
+      }
     }
-    return newArr;
+
   }
+    return newArr;
+}
 
 
 // Finding Elements
