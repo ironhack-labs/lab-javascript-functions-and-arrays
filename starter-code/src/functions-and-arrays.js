@@ -1,5 +1,11 @@
 // Find the maximum
-
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,14 +17,40 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (array) {
+  let word = array[0];
+  for (var i=0; i < array.length; i++) {
+    if (word.length < array[i].length) {
+      word = array[i];  
+    } 
+  }
+  return word;
+}
+
+//findLongestWord(words);
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sumArray = (array) => {
+  var sum = 0
+  for (i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let averageNumbers = (array) => {
+  var sum = 0;
+  for (i = 0; i < array.length; i++) {
+    sum += array[i]
+    var average = sum / array.length
+  }
+  return average
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -32,6 +64,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+let averageWordLength = (array) => {
+  sum = 0;
+  for (var i=0; i < array.length; i++) {
+    var l = array[i].length;
+    sum += l;
+    var average = sum / array.length;
+  }
+  return average;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +90,15 @@ var wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = (array) => {
+  // if (array.length = 0) {
+  //   return undefined;
+  // }
+  // let unique = [...new Set(array)];
+  // return unique
+   return array.length >  0 ? [...new Set(array)] : undefined //shorthand if/else statemnt ? is tertiary operator
+  
+}
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +110,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+let doesWordExist = (array, word) => {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == word) {
+      return true;
+    } 
+  }
+  return false
+}
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +135,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (array,word) => {
+  var appear = 0
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == word) {
+      appear += 1
+    } 
+  }
+  return appear
+}
 // Bonus Quest
 
 var matrix = [
