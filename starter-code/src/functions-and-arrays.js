@@ -1,11 +1,14 @@
 // Find the maximum
+
 function maxOfTwoNumbers(x, y) {
   if (x > y) return x;
   return y;
 }
 
-let x = maxOfTwoNumbers(2, 5);
+console.log(maxOfTwoNumbers(2, 5));
+
 // Finding Longest Word
+
 var words = [
   "mystery",
   "brother",
@@ -23,22 +26,31 @@ function findLongestWord(arr) {
   return words[0];
 }
 
-findLongestWord(words);
+console.log(findLongestWord(words));
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
 function sumArray(arr) {
   return arr.reduce(function(total, item) {
     return total + item;
   }, 0);
 }
 
-sumArray(numbers);
+console.log(sumArray(numbers));
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  if (arr.length > 0) return sumArray(arr) / arr.length;
+}
+console.log(averageNumbers(numbersAvg));
+
 // Array of Strings
+
 var wordsArr = [
   "seat",
   "correspond",
@@ -52,18 +64,17 @@ var wordsArr = [
   "palace"
 ];
 
-function averageNumbers(arr) {
-  if (arr.length > 0) return sumArray(arr) / arr.length;
-}
 function averageWordLength(arr) {
   let newArr = arr.map(a => {
     return a.length;
   });
   return averageNumbers(newArr);
 }
-averageNumbers(wordsArr);
+
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
+
 var wordsUnique = [
   "crab",
   "poison",
@@ -90,7 +101,8 @@ function uniquifyArray(arr) {
     return newArr;
   }
 }
-uniquifyArray(wordsUnique);
+
+console.log(uniquifyArray(wordsUnique));
 
 // Finding Elements
 var wordsFind = [
@@ -124,8 +136,10 @@ function doesWordExist(arr, word) {
     return false;
   }
 }
+console.log(doesWordExist(wordsFind, "machine"));
 
 // Counting Repetion
+
 var wordsCount = [
   "machine",
   "matter",
@@ -154,7 +168,8 @@ function howManyTimes(arr, word) {
   } else return 0;
 }
 
-howManyTimes(wordsCount, "matter");
+console.log(howManyTimes(wordsCount, "matter"));
+
 // Bonus Quest
 
 var matrix = [
@@ -494,4 +509,4 @@ function greatestProduct(arr) {
   return greatestNumber;
 }
 
-greatestProduct(matrix);
+console.log(greatestProduct(matrix));
