@@ -1,5 +1,18 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2)
+}
+  function findLongestWord(){
+
+
+  }
+ 
+
+
+
+
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +24,75 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(words){
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  // if(words.length === 0){
+  //   return undefined;
+  // }
+
+  let biggestWord = words[0]
+  
+  for(var i = 0; i < words.length; i++){
+    if (words[i].length > biggestWord.length){
+    biggestWord = words[i];
+  }
+}
+    return biggestWord;
+
+}
+
+// longestWord(words);
+
+// find sum
+
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10].reduce(add);
+
+// function sumArray(accumulator, a){
+//   return accumulator + a;
+// }
+
+// console.log(numbers);
+
+function sumArray(myArray){
+  var sum = 0;
+  
+  for(var i = 0; i < myArray.length; i++){
+    sum += myArray[i];
+  }
+    return sum;
+  }
+
+
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(averageWordsLength){
+  if(averageWordsLength.length === 0) return undefined;
+  var result = 0;
+  
+  for(var i = 0; i < averageWordsLength.length; i++){
+    result += averageWordsLength[i];
+  }
+    return result / averageWordsLength.length;
+  }
+
+  //averages word length
+
+function averageWordLength(wordAvg){
+  var wordLengthResult = 0;
+  
+  for(var i = 0; i < wordAvg.length; i++){
+    if(wordAvg.length === 0) return undefined;
+    wordLengthResult += wordAvg[i].length;
+  }
+  wordLengthResult /= wordAvg.length;
+    return wordLengthResult;
+  }
+
+  averageWordLength(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -47,6 +122,24 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(removeDupe){
+  if (removeDupe.length < 1){return undefined}
+  var uniqueArray = [];
+   removeDupe.forEach(function(eachWord) {
+   if (uniqueArray.indexOf(eachWord)=== -1){
+     uniqueArray.push(eachWord)
+   }
+ });
+ return uniqueArray;
+ }
+
+
+
+
+
+
+
 
 // Finding Elements
 var wordsFind = [
