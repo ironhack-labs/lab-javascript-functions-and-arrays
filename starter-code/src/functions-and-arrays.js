@@ -108,6 +108,11 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(myArray){
+  if (myArray.length < 1){return undefined}
+  return myArray.join('').length / myArray.length; 
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -153,6 +158,17 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordsFind, word){
+  for(var i = 0; i < wordsFind.length; i++){
+      if (wordsFind[i] === word){
+        return true
+      }
+    } return false
+  }
+  
+
+doesWordExist()
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -167,6 +183,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayOfWords,wordIAmLookingFor){
+  if(arrayOfWords.length < 1){return false}
+    var countOfTimesIFoundTheWord = 0
+    arrayOfWords.forEach(function(theWordIAmChecking) {
+     if (theWordIAmChecking === wordIAmLookingFor){
+       countOfTimesIFoundTheWord++;
+     }
+});
+    return countOfTimesIFoundTheWord;
+}
 // Bonus Quest
 
 var matrix = [
