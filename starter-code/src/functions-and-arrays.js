@@ -82,7 +82,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(wordsArr){
+if(wordsArr.length===0){return undefined}
 
+let = arr.map(a => {
+  return a.length;
+})
+return averageNumbers(wordsArr);
+
+}
+console.log(averageWordLength(wordsArr))
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -97,6 +106,18 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr){
+  if(arr.length>0);
+  let newArr = [];
+  for(i=0;i<arr.length;i++){
+    console.log(newArr.indexof(arr[i]));
+    if(newArr.indexofarr[i]===-1){
+      newArr.push(arr[i]);
+      return newArr
+    }
+  }
+}
+console.log(uniquifyArray(wordsUnique))
 
 // Finding Elements
 var wordsFind = [
@@ -110,6 +131,25 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr,word){
+  if(arr.length>0){
+    for(i=1;i<Array.length;i++){
+      if (arr[i]===word){
+        return true
+      }
+    }
+  } else return false
+}
+if(arr.length===0){
+  return false;
+} else{
+  for(i=0;i<arr.length;i++){
+    if(arr[i]===word){
+      return true;
+    }else return false;
+  }
+}
+console.log(doesWordExist(wordsFind, 'matter'))
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -124,6 +164,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(arr, word){
+  if(doesWordExist(arr, word)){
+    let wordCount=0;
+    for(i=0;i<arr.length;i++){
+      if(arr[i===word]){
+        wordCounter++;
+      }
+    }
+    return wordCounter;
+  } else if(arr.length===0){
+    return false;
+  }else return 0;
+}
+console.log(howManyTimes(wordsCount, 'matter'))
 // Bonus Quest
 
 var matrix = [
