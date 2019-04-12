@@ -1,4 +1,42 @@
-// Find the maximum
+// Find the maximum. Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+// function maxOfTwoNumbers(){
+    // }
+// 1. assign two the function arguments numbOne and numbTwo
+function maxOfTwoNumbers(numbOne, numbTwo){
+    }
+// 2. Then add instructionns - if numbOne is bigger than numbTwo, else numbOne is smaller than numbTwo
+function maxOfTwoNumbers(numbOne, numbTwo) {
+  if (numbOne > numbTwo) {
+    console.log(numbOne + " is bigger than " + numbTwo);
+  } else {
+    console.log(numbOne + " is smaller than " + numbTwo);
+
+  }
+}
+//3.  then we want to return the result
+
+function maxOfTwoNumbers(numbOne, numbTwo) {
+  if (numbOne > numbTwo) {
+    console.log(numbOne + " is bigger than " + numbTwo);
+  } else {
+    console.log(numbOne + " is smaller than " + numbTwo);
+  }
+  return 
+}
+// Let's compare two numbers - maxOfTwoNumbers(10,25)
+function maxOfTwoNumbers(numbOne, numbTwo) {
+  if (numbOne > numbTwo) {
+    console.log(numbOne + " is bigger than " + numbTwo);
+  } else {
+    console.log(numbOne + " is smaller than " + numbTwo);
+  }
+  return 
+}
+maxOfTwoNumbers(10,25)
+
+// it looks to work ;-)
+
+// ======================================
 
 // Finding Longest Word
 var words = [
@@ -10,16 +48,122 @@ var words = [
   'orchard',
   'crackpot'
 ];
+// 1. Creating a function findingLongestWord
+function findingLongestWord() {
+}
+// 2. creating variable var longestWord
 
+function findingLongestWord() {
+   var longestWord = "";
+}
+// 3. Creating the loop to find the longest word from the array words using .length
+function findingLongestWord() {
+   var longestWord = "";
+   for(i = 0; i < words.length; i++) 
+}
+
+// 4. If we find the longest word we want it to be saved in variable longestWord
+function findingLongestWord() {
+    var longestWord = "";
+    for(i = o; i < words.length; i++) {
+      if(words[i].length > longestWord.length) {
+        longestWord = word[i];
+      }
+    }
+}
+// 5. then we want to return the result
+function findingLongestWord() {
+    var longestWord = "";
+    for(i = 0; i < longestWord; i++) {
+      if(words[i].length > longestWord.length) {
+        longestWord = words[i]
+      }
+    }
+    return longestWord 
+}
+// 6. Finally we are calling the function findingLongestWord
+function findingLongestword() {
+    var longestWord = "";
+    for(i = 0; i < longestWord; i++) {
+      if(words[i].length > longestWord.length) {
+        longestWord = words[i]
+      }
+    }
+  return longestWord
+}
+
+findLongestWord();
+// ===================================
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// 1. We are creating the function sumOfArray 
+
+function sumOfArray() {
+}
+
+//2. Creating variable sum
+function sumOfArray() {
+    var sum = 0;
+}
+
+//3. creating a loop using array length
+function sumOfArray() {
+  var sum = 0;
+  for(i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+}
+
+//4. We want to return result 
+function sumOfArray() {
+  var sum = 0;
+  for(i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+  return sum;
+
+//5. And finally we will call the function
+
+function sumOfArray() {
+  var sum = 0;
+  for(i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+  return sum;
+}
+sumOfArray(numbers);
+
+// =============================================
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+//1. First I will create a function to calculate the sum of the array numbersAvg as in exercise above
+
+function sumOfArray() {
+  var sum = 0;
+  for(i = 0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i]
+  }
+  return sum;
+}
+sumOfArray(numbers);
+
+// Then we can create a function avergaeNumbers and divide the result od function sumOfArray by the length of the array and get an average
+  function averageNumbers () {
+  return sumOfArray(numbersAvg)/(numbersAvg.length)
+  }
+  
+  averageNumbers(numbersAvg);
+
+
+// =============================================
+
+// Array of Strings - Write a function averageWordLength that receives an array of words and calculate the average length of the words:
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,6 +177,58 @@ var wordsArr = [
   'palace'
 ];
 
+// 1. We are creating a function sumOfArray
+
+function sumOfArray() {
+
+}
+
+// 2. Loop over an array to calculate a sum of the words
+function sumOfArray(){
+  var sum = 0;
+  for(var i=0; i < words.length; i++)  {
+   sum += words[i].length;
+    }
+   
+  }
+  
+  // 3. return value 
+  function sumOfArray(){
+    var sum = 0;
+    for(var i=0; i < words.length; i++)  {
+     sum += words[i].length;
+      }
+      return sum;
+    }
+  
+    // 4. calling the function 
+    function sumOfArray(){
+      var sum = 0;
+      for(var i=0; i < words.length; i++)  {
+       sum += words[i].length;
+        }
+        return sum;
+      }
+
+  sum(words);
+
+  // 5. creating of function averageWordLength to calculate average word length by dividing sum of the words by the number of words in the array
+  function sumOfArray(){
+    var sum = 0;
+    for(var i=0; i < words.length; i++)  {
+     sum += words[i].length;
+      }
+      return sum;
+    }
+
+sum(words);
+  function averageWordLength (arr) {
+  return sum(words)/words.length
+  }
+  averageWordLength(words);
+
+
+// =============================================
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +244,55 @@ var wordsUnique = [
   'bring'
 ];
 
+// 1. Creating new empty variable newArray
+
+var newArray = []
+
+//2. creating function uniquifyArray 
+
+function uniquifyArray (array) {
+}
+
+//3. creating a loop around an array 
+
+var newArray = []
+function uniquifyArray (array) {
+	for(var i = 0; i < array.length; i++){
+  }
+
+// 4. using function if to check by indexOf every index in array we looped over
+
+var newArray = []
+function uniquifyArray (array) {
+	for(var i = 0; i < array.length; i++){
+    if(newArray.indexOf(array[i]) === -1) {
+    }
+
+    // 5. anything which isn't equal to -1 we are pushing to the newArray
+
+    var newArray = []
+    function uniquifyArray (array) {
+      for(var i = 0; i < array.length; i++){
+        if(newArray.indexOf(array[i]) === -1) {
+          newArray.push(array[i])
+            }
+      }
+    }
+
+//6. Finally we are calling the function 
+
+var newArray = []
+function uniquifyArray (array) {
+	for(var i = 0; i < array.length; i++){
+		if(newArray.indexOf(array[i]) === -1) {
+			newArray.push(array[i])
+        }
+	}
+}
+uniquifyArray(words)
+newArray;
+
+// =============================================
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,6 +305,40 @@ var wordsFind = [
   'disobedience'
 ];
 
+var newArray = []
+
+// function doesWordExist (array) {
+//   for(var i = 0; i < array.length; i++){
+//         if(newArray(array[i]) === -1) {
+//           newArray.push(array[i])
+//             }
+// }
+
+
+var words = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+];
+function doesWordExist(el, index, arr) {
+    for(var i = 0; i < words.length; i++){
+       if (index === 0){
+         return true;
+         } else {
+           return false;
+    }
+  }
+}
+
+doesWordExist()
+
+
+// =============================================
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +353,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, val) {
+  let x = 0;
+    for(let i = 0; i < arr.length; i++) {
+      if(val == arr[i]) {
+        x++;
+      } 
+    }
+  return x;
+}
+
+console.log(howManyTimes(wordsCount, 'matter'));
+
+//works!!! result - 4
+// =============================================
+
 // Bonus Quest
 
 var matrix = [
