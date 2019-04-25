@@ -1,6 +1,16 @@
 // Find the maximum
 
+function maxOfTwoNumbers (a, b){
+  if (a > b){ 
+    return a
+  } else  {
+    return b
+  } 
+}
+
 // Finding Longest Word
+
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +21,49 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words) {
+  if (words.length===0){
+    return }
+      let longest = ""
+      for (i = 0; i < words.length; i++) {
+        if (longest.length < words[i].length) {
+          longest = words[i]
+        } 
+      }
+      return longest
+  }
+
+  
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  return sum
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return
+  }
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+
+  sum /= array.length
+  return sum
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +78,23 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return
+  }
+
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+
+    sum += array[i].length
+  }
+
+  sum /= array.length
+  return sum
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +111,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return
+  }
+
+  let newArray = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if ( newArray.indexOf(arr[i]) === -1 ){
+      newArray.push(arr[i])
+    } 
+  }
+  return newArray
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +137,12 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, el){
+  return arr.includes(el)
+}
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +158,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, el) {
+  
+}
+
 // Bonus Quest
 
 var matrix = [
