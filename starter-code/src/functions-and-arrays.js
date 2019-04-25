@@ -1,6 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1
+  }
+    return num2
+}
+
+
 // Finding Longest Word
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +20,50 @@ var words = [
   'crackpot'
 ];
 
+
+function findLongestWord (listOfWords) {
+  let longestWord = ""
+  if (listOfWords[0] == undefined) {
+    return undefined
+  }
+
+  if (listOfWords.length==1) {
+    return listOfWords[0]
+  }
+  for (let i = 0; i<listOfWords.length; i++) {
+    if (listOfWords[i].length > longestWord.length) {
+      longestWord = listOfWords[i]
+    } 
+  }
+  console.log(longestWord)
+  return longestWord
+}
+
+findLongestWord(words)
+
 // Calculating a Sum
 
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(arr) {
+      return arr.reduce(function(sum, i){
+      return sum + i
+    }, 0)
+  }
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (arr) {
+  if (sumArray(arr) == 0) {
+    return undefined
+  } else {
+  return (sumArray(arr)/arr.length)
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +79,19 @@ var wordsArr = [
   'palace'
 ];
 
+let lenghtOfWords = 0
+function averageWordLength(wordsArr) {
+
+  if (wordsArr.length == 0) {
+    return undefined
+  }
+  
+  wordsArr.forEach(function(value) {
+    lenghtOfWords += value.length
+  });
+  return lenghtOfWords/wordsArr.length
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +106,39 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+let actualIndex = ""
+function uniquifyArray (pollutedArr) {
+  console.log(pollutedArr)
+  
+  if (pollutedArr.length == 0) {
+    return undefined
+  } else {
+
+  let indice = 0
+    for ( let i = 0; i<pollutedArr.length; i++) {
+      indice = pollutedArr.indexOf(pollutedArr[i])
+
+      if (indice != -1) {
+        pollutedArr.splice(indice)
+      }
+    }
+    console.log(pollutedArr)
+    return pollutedArr
+
+  }
+
+
+}
+
+/* pollutedArr.forEach(function(value, i){
+  actualIndex = pollutedArr.indexOf(value)
+  if (pollutedArr.indexOf(actualIndex) != -1) {
+    let newIndex = pollutedArr.indexOf(value, actualIndex+1)
+    pollutedArr.splice(value, 1)
+  }
+}) */
+
 
 // Finding Elements
 var wordsFind = [
