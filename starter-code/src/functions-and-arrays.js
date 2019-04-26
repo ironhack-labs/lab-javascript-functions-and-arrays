@@ -109,8 +109,8 @@ var wordsUnique = [
 
 function uniquifyArray(arr) {
 let indexRepeat = []
-  for (i = 0; i > arr.length; i++) {
-    indexRepeat = indexRepeat.indexOf(arr[i])
+  for (i = 0; i < arr.length; i++) {
+    indexRepeat = arr.indexOf(arr[i])
       if (indexRepeat === -1) {
         console.log("no repeat")
       } else {
@@ -131,6 +131,9 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(name) {
+
+}
 
 // Counting Repetion
 var wordsCount = [
