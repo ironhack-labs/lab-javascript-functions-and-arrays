@@ -107,28 +107,26 @@ var wordsUnique = [
   'bring'
 ];
 
-let actualIndex = ""
 function uniquifyArray (pollutedArr) {
   console.log(pollutedArr)
   
   if (pollutedArr.length == 0) {
     return undefined
-  } else {
+  }  else { 
 
   let indice = 0
+  console.log(pollutedArr)
     for ( let i = 0; i<pollutedArr.length; i++) {
-      indice = pollutedArr.indexOf(pollutedArr[i])
+      indice = pollutedArr.indexOf(pollutedArr[i], i+1)
 
       if (indice != -1) {
-        pollutedArr.splice(indice)
+        pollutedArr.splice(indice, 1)
+        indice = 0
       }
     }
     console.log(pollutedArr)
     return pollutedArr
-
   }
-
-
 }
 
 /* pollutedArr.forEach(function(value, i){
