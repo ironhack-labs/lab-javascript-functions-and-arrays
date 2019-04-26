@@ -1,6 +1,31 @@
 // Find the maximum
+function maxOfTwoNumbers(parametro1,parametro2){
+  return Math.max(parametro1, parametro2)
+}
 
+maxOfTwoNumbers(2,3)
 // Finding Longest Word
+function findLongestWord(words){
+  let winner= words[0]
+  if(words.length == 0 ){
+    return undefined
+  }else if (words.length == 1){
+    return words[0]
+  }else{
+    
+    for(let i=0; i<words.length; i++){
+      if(winner.length < words[i].length){
+        winner = words[i]
+      }else if(words[i].length < winner.length){
+        winner = winner
+      }else{
+        winner= winner
+      }
+    }
+  }
+  return winner
+}
+
 var words = [
   'mystery',
   'brother',
@@ -12,14 +37,48 @@ var words = [
 ];
 
 // Calculating a Sum
+function sumArray(numbers){
+  
+  if(numbers.length == 0 ){
+    return 0;
+  }
+  let sum = 0
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
-
+function averageNumbers(numbersAvg){
+  console.log(numbersAvg)
+  let avg = 0.0;
+  if(numbersAvg.length == 0){
+    return undefined
+  }
+  for (let i = 0; i < numbersAvg.length; i++) {
+    avg += numbersAvg[i] 
+    
+  }
+  return avg/= numbersAvg.length
+}
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+function averageWordLength(wordsArr) {
+  console.log(wordsArr)
+  let wAvg = 0
+  if(wordsArr.length == 0){
+    return undefined
+  }
+  for(let i = 0; i < wordsArr.length; i++ ){
+    wAvg += wordsArr[i].length
+  }
+  return wAvg /= wordsArr.length
+}
 var wordsArr = [
   'seat',
   'correspond',
