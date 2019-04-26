@@ -128,19 +128,26 @@ function uniquifyArray(wordsUnique) {
   if (wordsUnique.length == 0){
     return undefined;
   }
-let falsaArray = [];
-for(let i = 0; i < wordsUnique; i++){
-  falsaArray[i] = wordsUnique[i];
-}
-for (let i = 0; i < falsaArray.length.length; i++) {
-    if (wordsUnique[i] == falsaArray[i]) {
-      wordsUnique.splice(i, 1)
+  var contenedor = "";
+  let unicasNueva = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    contenedor = wordsUnique[i]
+    for (let u = 0; u < wordsUnique.length; u++) {
+      if (u != i) {
+        if (contenedor != wordsUnique[u]) {
+          unicasNueva.push(contenedor)
+        }
+      }
+     
+
     }
+    
+  }
 
 
 
-}
-return wordsUnique;
+
+return unicasNueva;
 }
 
 
