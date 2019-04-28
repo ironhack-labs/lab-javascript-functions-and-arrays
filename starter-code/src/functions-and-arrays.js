@@ -204,10 +204,9 @@ function howManyTimes(listaPalabras, palabra) {
 function greatestProduct(matriz) {
 
     let cuatriadaMaxima = {
-        producto:0
+        producto: 0
     };
 
-    
 
     function encontrarCuatriadas(listaNum, tipoCuatriada) {
 
@@ -229,8 +228,8 @@ function greatestProduct(matriz) {
                 tipo: tipoCuatriada
             };
 
-            if( model.producto >= cuatriadaMaxima.producto){
-                cuatriadaMaxima=model;
+            if (model.producto >= cuatriadaMaxima.producto) {
+                cuatriadaMaxima = model;
             }
 
         }
@@ -253,8 +252,5 @@ function greatestProduct(matriz) {
 
     }
 
-
     return cuatriadaMaxima.producto;
-
-
 }
