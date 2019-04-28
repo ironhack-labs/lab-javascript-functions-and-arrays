@@ -1,0 +1,28 @@
+{
+  "name": "lab-javascript-functions-and-arrays",
+  "version": "1.0.0",
+  "description": "![Ironhack logo](https://i.imgur.com/1QgrNNw.png)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqdavidh/lab-javascript-functions-and-arrays.git"
+  },
+  "keywords": [],
+  "author": "davidh <david@productividadti.com.mx> (productividadti.com.mx)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iqdavidh/lab-javascript-functions-and-arrays/issues"
+  },
+  "homepage": "https://github.com/iqdavidh/lab-javascript-functions-and-arrays#readme",
+  "dependencies": {
+    "st": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.1",
+    "gulp-livereload": "^4.0.1",
+    "gulp-load-plugins": "^1.5.0"
+  }
+}
