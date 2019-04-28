@@ -135,43 +135,42 @@ function sumArray(listaNumero) {
 }
 
 
-
-function averageNumbers(listaNumeros){
-    if(listaNumeros.length===0){
+function averageNumbers(listaNumeros) {
+    if (listaNumeros.length === 0) {
         return;
     }
 
 
-    let sumaTotal=sumArray(listaNumeros);
+    let sumaTotal = sumArray(listaNumeros);
 
-    return sumaTotal/listaNumeros.length;
+    return sumaTotal / listaNumeros.length;
 }
 
-function averageWordLength(listaPalabras){
-    if(listaPalabras.length===0){
-        return ;
+function averageWordLength(listaPalabras) {
+    if (listaPalabras.length === 0) {
+        return;
     }
 
-    let lenTotal=listaPalabras.reduce((total,p)=>{
-        return total+ p.length;
-    },0);
+    let lenTotal = listaPalabras.reduce((total, p) => {
+        return total + p.length;
+    }, 0);
 
-    let promedio= lenTotal/ (listaPalabras.length);
+    let promedio = lenTotal / (listaPalabras.length);
 
     return promedio;
 }
 
 function uniquifyArray(lista) {
 
-    if(lista.length===0){
-        return ;
+    if (lista.length === 0) {
+        return;
     }
 
-    let listaValoresUnicos=[];
+    let listaValoresUnicos = [];
 
-    lista.forEach(item=>{
-        let indexUnico=listaValoresUnicos.indexOf(item);
-        if(indexUnico===-1){
+    lista.forEach(item => {
+        let indexUnico = listaValoresUnicos.indexOf(item);
+        if (indexUnico === -1) {
             listaValoresUnicos.push(item);
         }
     });
@@ -180,24 +179,23 @@ function uniquifyArray(lista) {
 }
 
 
-
-function doesWordExist(listaPalabra, palabraBuscada){
-    if(listaPalabra.length===0){
-        return false ;
-    }
-
-    return listaPalabra.indexOf(palabraBuscada)>-1;
-}
-
-
-function howManyTimes(listaPalabras, palabra){
-
-    if(listaPalabras.length===0){
+function doesWordExist(listaPalabra, palabraBuscada) {
+    if (listaPalabra.length === 0) {
         return false;
     }
 
-    let listaCoincidencias=listaPalabras.filter(p=>{
-        return p===palabra;
+    return listaPalabra.indexOf(palabraBuscada) > -1;
+}
+
+
+function howManyTimes(listaPalabras, palabra) {
+
+    if (listaPalabras.length === 0) {
+        return false;
+    }
+
+    let listaCoincidencias = listaPalabras.filter(p => {
+        return p === palabra;
     });
 
     return listaCoincidencias.length;
@@ -205,20 +203,58 @@ function howManyTimes(listaPalabras, palabra){
 
 function greatestProduct(matriz) {
 
-    let valorMaximo=0;
+    let cuatriadaMaxima = {
+        producto:0
+    };
 
-    let listaTotalesPorRow=matriz.forEach((row)=>{
+    
 
-        let valor=row.reduce( (total,numero)=>{
-            return total*numero;
-        },1);
+    function encontrarCuatriadas(listaNum, tipoCuatriada) {
 
 
-        if(valor>valorMaximo){
-            valorMaximo=valor;
+        let posicionFinal = listaNum.length - 4;
+
+        for (let i = 0; i <= posicionFinal; i++) {
+
+            let cuatriada = [];
+            let producto = 1;
+            for (let j = 0; j < 4; j++) {
+                let valor = listaNum[i + j];
+                producto *= valor;
+                cuatriada.push(valor);
+            }
+            let model = {
+                valores: cuatriada,
+                producto: producto,
+                tipo: tipoCuatriada
+            };
+
+            if( model.producto >= cuatriadaMaxima.producto){
+                cuatriadaMaxima=model;
+            }
+
         }
+
+    }
+
+    matriz.forEach((row, indexRow) => {
+        encontrarCuatriadas(row, `Renglon ${indexRow}`)
     });
 
-    return valorMaximo;
+
+    //agregar las cuatriadas a partir de las columnas
+    for (let indexCol = 0; indexCol < matriz[0].length; indexCol++) {
+
+        let listaValoresCol = matriz.map((row) => {
+            return row[indexCol];
+        });
+
+        encontrarCuatriadas(listaValoresCol, `Columna ${indexCol}`);
+
+    }
+
+
+    return cuatriadaMaxima.producto;
+
 
 }
