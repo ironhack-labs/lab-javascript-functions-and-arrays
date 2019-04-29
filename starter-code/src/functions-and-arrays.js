@@ -263,6 +263,51 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-let greatestProduct = array => {
-  
+// console.log("Altura de la matriz",arr.length)
+// console.log("Ancho de la matriz",arr[1].length)
+function multiplyMatrix(matrixIn, direction){
+  let x = 0;
+  let y = 0;
+  if (direction === "h"){
+    x = matrixIn.length;
+    y = matrixIn[1].length;
+  } else if(direction === "v"){
+    y = matrixIn.length;
+    x = matrixIn[1].length;
+  }
+  let displayArray = [];
+  let productsArray = [];
+  for(let i=0 ; i<x; i++){
+    let producto = 1;
+    for(let j=0 ; j<y; j++){
+      // console.log(matrixIn[i][j]);
+      // console.log("Ciclo interno número", j);
+      if (direction === "h"){
+        displayArray.push(matrixIn[i][j]);
+        producto *= matrixIn[i][j];
+      } else{
+        displayArray.push(matrixIn[j][i]);
+        producto *= matrixIn[j][i];
+      }
+    }
+    // console.log("Ciclo EXTERNO número", i);
+    // console.log("-------Resultado:", producto);
+    productsArray.push(producto);
+  }
+  return productsArray;
 }
+
+// multiplyMatrix(arr, "v");
+let findGreatestElement = array => {
+
+}
+let greatestProduct = matrixIn => {
+  let verticalArray = multiplyMatrix(matrixIn,"v");
+  let horizontalArray = multiplyMatrix(matrixIn,"h");
+  let allProducts = verticalArray.concat(horizontalArray);
+  // return allProducts;
+  return allProducts.reduce((p, v) => {
+    return ( p > v ? p : v );
+  });
+ }
+greatestProduct(matrix);
