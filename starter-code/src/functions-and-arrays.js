@@ -1,3 +1,17 @@
+//Check valid arrays 
+
+let checkValidArray = array => {
+  if (array === undefined){
+    // console.log("El arreglo es incorrecto");
+    return false;
+  } else if(array.length === 0){
+      // console.log("El arreglo está vacío");
+      return false;
+    } else{  
+      // console.log("El arreglo es correcto");
+      return true;
+    }
+}
 // Find the maximum
 let maxOfTwoNumbers = (numberOne, numberTwo) =>{
   if(numberOne >= numberTwo){
@@ -23,18 +37,29 @@ var words = [
 let champion = 0;
 function findLongestWord(wordArray){
   let longestWorld = "";
-  wordArray.forEach(wordTournament)
-  function wordTournament(data, index){
-    // console.log(data.length,words[index].length);
-    if(wordArray[index].length > wordArray[champion].length){
-      //  console.log("New Champion is",words[champion]);
-      //  console.log("New Champion is",words[index]);
-      champion = index;
+  if(checkValidArray(wordArray) === true)
+  {  
+    if (wordArray.length > 1){
+      wordArray.forEach(wordTournament)
+      function wordTournament(data, index){
+        // console.log(data.length,words[index].length);
+        if(wordArray[index].length > wordArray[champion].length){
+          //  console.log("New Champion is",words[champion]);
+          //  console.log("New Champion is",words[index]);
+          champion = index;
+        }
+      }
+      console.log("Longest word is",wordArray[champion]);
+      longestWord = wordArray[champion];
+      return longestWord;
+    } else{
+      return wordArray[0];
     }
+
+  } else{
+    // console.log("El arreglo está cucho o algo");
+    return undefined;
   }
-console.log("Longest word is",wordArray[champion]);
-longestWord = wordArray[champion];
-return longestWord;
 }
 findLongestWord(words);
 
@@ -52,7 +77,8 @@ findLongestWord(words);
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let sumArray = arrNumbers =>{
-  if (arrNumbers.length > 0){
+  // if (arrNumbers.length > 0){
+  if (checkValidArray(arrNumbers) === true){
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     console.log(arrNumbers.reduce(reducer));
     return arrNumbers.reduce(reducer);
@@ -91,10 +117,14 @@ var wordsArr = [
 
 let lengthsArray = [];
 let averageWordLength = someArray => {
-  someArray.forEach(wordLengths);
-  // console.log(lengthsArray);
-  // console.log(averageNumbers(lengthsArray));
-  return averageNumbers(lengthsArray);
+  if (checkValidArray(someArray) === true){
+    someArray.forEach(wordLengths);
+    // console.log(lengthsArray);
+    // console.log(averageNumbers(lengthsArray));
+    return averageNumbers(lengthsArray);
+  } else {
+    return undefined;
+  }
 }
 function wordLengths(data){
     // console.log(data.length);
@@ -135,6 +165,7 @@ uniquifyArray(wordsUnique);
 
 // Counting Repetion
 
+
 var wordsCount = [
   'machine',
   'matter',
@@ -160,10 +191,7 @@ let numbersInWords = [
 
 let howManyTimes = (word, array) => {
   let count = 0;
-  if (array !== undefined){
-    if(array.length === 0){
-      return false;
-    } else{
+  if (checkValidArray(array) === true){
       array.forEach((item, index) => {
         // console.log("Item is", item);
         // console.log("Word is", word);
@@ -175,9 +203,7 @@ let howManyTimes = (word, array) => {
       });
       // return count;
       return numbersInWords[count]; 
-    }
-  }
-  else{
+    } else{
     return false;
   }
 }
@@ -199,10 +225,14 @@ var wordsFind = [
 ];
 
 let doesWordExist = (word, array) => {
-  if(howManyTimes(word,array) !== 'zero'){
-    return true;
-  }
-  else{
+  if (checkValidArray(array) === true){
+      if(howManyTimes(word,array) !== 'zero'){
+        return true;
+      }
+      else{
+        return false;
+      }
+    } else{
     return false;
   }
 }
@@ -232,3 +262,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = array => {
+  
+}
