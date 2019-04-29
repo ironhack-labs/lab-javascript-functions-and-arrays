@@ -263,6 +263,7 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+/************ENTENDÍ MAL LA PREGUNTA (LOL)************/
 // console.log("Altura de la matriz",arr.length)
 // console.log("Ancho de la matriz",arr[1].length)
 function multiplyMatrix(matrixIn, direction){
