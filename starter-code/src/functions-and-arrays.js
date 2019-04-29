@@ -122,7 +122,7 @@ var wordsUnique = [
 var uniquifyArray = arrayWithDuplicates => {
   if (arrayWithDuplicates.length > 0){
     return arrayWithDuplicates.filter((item, index, array) => {
-      // Preguntar qué es lo que hace esta línea!
+      // Duda: Preguntar qué es lo que hace esta línea!
       return array.indexOf(item) == index;
     });
   }
@@ -133,29 +133,8 @@ var uniquifyArray = arrayWithDuplicates => {
   
 uniquifyArray(wordsUnique);
 
-// Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
-
-// let doesWordExist = (word, array) => {
-//   array1.find(item => {
-//     if(item == word){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-// }
-
 // Counting Repetion
+
 var wordsCount = [
   'machine',
   'matter',
@@ -170,25 +149,64 @@ var wordsCount = [
   'matter'
 ];
 
+let numbersInWords = [
+  'zero',
+  'one',
+  'two',
+  'three',
+  'four',
+  'five'
+];
+
 let howManyTimes = (word, array) => {
   let count = 0;
-  if(array.length === 0){
-    return false;
-  } else{
-    array.forEach((item, index) => {
-      // // console.log("Item is", item);
-      // console.log("Word is", word);
-      // console.log("Match count",count);
-      if(item === word){
-        // console.log("Match!")
-        count++;
-      }
-    });
+  if (array !== undefined){
+    if(array.length === 0){
+      return false;
+    } else{
+      array.forEach((item, index) => {
+        // console.log("Item is", item);
+        // console.log("Word is", word);
+        // console.log("Match count",count);
+        if(item === word){
+          // console.log("Match!")
+          count++;
+        }
+      });
+      // return count;
+      return numbersInWords[count]; 
+    }
   }
-
-return count;
+  else{
+    return false;
+  }
 }
+//Duda: No sé por qué está dando este error en Jasmine: 
+//Counting Repetition - howManyTimes returns one when the word appears only one time on the array 
+//TypeError: array.forEach is not a function
 howManyTimes("subset",wordsCount);
+
+// Finding Elements
+var wordsFind = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience'
+];
+
+let doesWordExist = (word, array) => {
+  if(howManyTimes(word,array) !== 'zero'){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+doesWordExist("subset",wordsCount);
 
 // Bonus Quest
 
