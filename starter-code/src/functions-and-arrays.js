@@ -38,11 +38,21 @@ return longestWord;
 }
 findLongestWord(words);
 
+// // Checking for empty arrays
+// let arrayIsEmpty = (arrayToBeChecked, function) =>{
+//   if (arrayToBeChecked.length = 0){
+//     return 0;
+//   } 
+//   else{
+//     function();
+//   }
+// }
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let sumArray = arrNumbers =>{
-  if (numbers.length > 0){
+  if (arrNumbers.length > 0){
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     console.log(arrNumbers.reduce(reducer));
     return arrNumbers.reduce(reducer);
@@ -56,7 +66,12 @@ sumArray(numbers);
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 let averageNumbers = avgArray => {
-  return sumArray(avgArray)/avgArray.length;
+  if (avgArray.length > 0){
+    return sumArray(avgArray)/avgArray.length;
+  } else {
+    // return 0;
+    return undefined;
+  }
 }
 averageNumbers(numbersAvg);
 
@@ -74,6 +89,21 @@ var wordsArr = [
   'palace'
 ];
 
+let lengthsArray = [];
+let averageWordLength = someArray => {
+  someArray.forEach(wordLengths);
+  // console.log(lengthsArray);
+  // console.log(averageNumbers(lengthsArray));
+  return averageNumbers(lengthsArray);
+}
+function wordLengths(data){
+    // console.log(data.length);
+    lengthsArray.push(data.length)
+    // console.log(lengthsArray);
+    return lengthsArray;
+}
+averageWordLength(wordsArr);
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -89,6 +119,20 @@ var wordsUnique = [
   'bring'
 ];
 
+var uniquifyArray = arrayWithDuplicates => {
+  if (arrayWithDuplicates.length > 0){
+    return arrayWithDuplicates.filter((item, index, array) => {
+      // Preguntar qué es lo que hace esta línea!
+      return array.indexOf(item) == index;
+    });
+  }
+  else {
+    return undefined;
+  }
+}
+  
+uniquifyArray(wordsUnique);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -100,6 +144,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+// let doesWordExist = (word, array) => {
+//   array1.find(item => {
+//     if(item == word){
+//       return true;
+//     }
+//     else{
+//       return false;
+//     }
+// }
 
 // Counting Repetion
 var wordsCount = [
@@ -115,6 +169,27 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (word, array) => {
+  let count = 0;
+  if(array.length === 0){
+    return false;
+  } else{
+    array.forEach((item, index) => {
+      // // console.log("Item is", item);
+      // console.log("Word is", word);
+      // console.log("Match count",count);
+      if(item === word){
+        // console.log("Match!")
+        count++;
+      }
+    });
+  }
+
+return count;
+}
+howManyTimes("subset",wordsCount);
+
 // Bonus Quest
 
 var matrix = [
