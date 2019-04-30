@@ -19,14 +19,49 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words) {
+	var current_max = words[0];
+	var longest_word = words[0];
+
+
+	for (i = 0;i < words.length; i++) {
+		if (words[i].length >= current_max) {
+			current_max = words[i].length;
+			longest_word = words[i];
+		}
+	}
+	return longest_word;
+}
+console.log(longest_word);
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(arrayTotal){
+  let sum = 0;
+  for (let i = 0; i < arrayTotal.length; i++){
+    sum += arrayTotal[i];
+  }
+  return sum;
+}
+sumArray (numbers);
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (aveSum) {
+  let sumDos = 0;
+  let div = 0;
+  for (let j = 0;j < aveSum.length; j++){
+    sumDos += aveSum [j];
+    div = sumDos/aveSum.length;
+  }
+  return div;
+  }
+  averageNumbers(numbersAvg)
+
 
 // Array of Strings
 var wordsArr = [
@@ -41,6 +76,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(wordsOfArray){
+  let arrayString = 0;
+  for (let k = 0; k < wordsOfArray.length; k++){
+    arrayString =+ wordsOfArray[k];
+  } 
+if (wordsOfArray === 0){
+    return baverageWordLength
+  }
+
+}
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
