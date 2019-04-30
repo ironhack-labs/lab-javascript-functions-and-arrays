@@ -98,3 +98,97 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function maxOfTwoNumbers(firstNumber, secondNumber){
+   return Math.max(firstNumber, secondNumber);
+}
+
+function findLongestWord(array) {
+  let strlongestWord = array[0];
+
+  if (array.length == 1) {
+    return array[0];
+  }
+
+  for (let i = 0; i < array.length - 1; i++) {
+    const element = array[i];
+    
+    if (strlongestWord.length >= array[i + 1].length) {
+      continue;
+    } else {
+      strlongestWord = array[i + 1];
+    }
+    console.log("elemento A: ", strlongestWord.length, " elemento B: ", array[i + 1].length, " strlongestWord: ", strlongestWord)
+  }
+  return strlongestWord;
+}
+
+function sumArray(array) {
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  
+  if (array.length > 0) {
+    return array.reduce(reducer);
+  }
+  return 0;
+}
+
+function sumStrArray(array) {
+  var initialValue = 0;
+  var sum = array.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.length
+      ,initialValue
+  );
+
+  return sum;
+}
+
+function averageNumbers(array) {
+  if (array.length > 0) {
+    return sumArray(array) / array.length;
+  }
+  return undefined;
+}
+
+function averageWordLength(array) {
+  if (array.length > 0) {
+    return Math.floor(sumStrArray(array)/ array.length);
+  }
+  return undefined;
+}
+
+
+
+function uniquifyArray(array) {
+
+  if (array.length > 0) {
+    var myOrderedArray = array.reduce(function (accumulator, currentValue) {
+      if (accumulator.indexOf(currentValue) === -1) {
+          accumulator.push(currentValue);
+      }
+      return accumulator
+    }, [])
+    return myOrderedArray;
+  }
+  return undefined;
+}
+
+function doesWordExist(array, wordToFind) {
+  let value = false;
+
+  if (array.length == 0) {
+    return false;
+  } else {
+     for (let i = 0; i < array.length; i++) {
+       const element = array[i];
+       if (element == wordToFind) {
+         return true;
+       }
+     }
+    return false;
+  }
+}
+
+function howManyTimes(array, existingWord) {
+  
+}
