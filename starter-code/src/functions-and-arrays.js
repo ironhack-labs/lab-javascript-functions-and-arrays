@@ -176,19 +176,34 @@ function uniquifyArray(array) {
 function doesWordExist(array, wordToFind) {
   let value = false;
 
-  if (array.length == 0) {
+  if (array.length < 1) {
     return false;
-  } else {
-     for (let i = 0; i < array.length; i++) {
-       const element = array[i];
-       if (element == wordToFind) {
-         return true;
-       }
-     }
-    return false;
+  } 
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (element == wordToFind) {
+      return true;
+    }
   }
+  return false;
 }
 
 function howManyTimes(array, existingWord) {
-  
+
+  if (array.length < 1) {
+    return false;
+  }
+
+  let indices = [];
+  let idx = array.indexOf(existingWord);
+
+  if (idx < 0) {
+    return 0;
+  }
+
+  while (idx != -1) {
+    indices.push(idx);
+    idx = array.indexOf(existingWord, idx + 1);
+  }
+  return indices.length;
 }
