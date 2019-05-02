@@ -1,6 +1,20 @@
-// Find the maximum
+
+function maxOfTwoNumbers(parametro1, parametro2) {
+  if (parametro1 > parametro2) {
+    return parametro1
+  } else if (parametro2 > parametro1) {
+    return parametro2
+  } else {
+    return parametro1
+  }
+}
+maxOfTwoNumbers(6, 9)
+
+
 
 // Finding Longest Word
+
+
 var words = [
   'mystery',
   'brother',
@@ -11,15 +25,62 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array) {
+  var numbers = [];
+
+  array.forEach(function (name) {
+    return numbers.push(name.length);
+  })
+
+  var max = Math.max.apply(null, numbers);
+  var min = Math.min.apply(null, numbers);
+
+  console.log(max);
+  return max
+}
+
+findLongestWord(words)
+
+
+
 // Calculating a Sum
+
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+
+  var addition = 0;
+  for (var i = 0; i < array.length; i++) {
+
+    addition += array[i];
+  }
+  console.log(addition);
+  return addition;
+}
+
+sumArray(numbers)
+
+
+
 // Calculate the Average
+
+
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+
+  return sumArray(array) / array.length;
+
+}
+
+averageNumbers(numbersAvg)
+
+
 // Array of Strings
+
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +94,24 @@ var wordsArr = [
   'palace'
 ];
 
+
+function averageWordLength(array) {
+  var wordLenght = [];
+  array.forEach(function (name) {
+    return wordLenght.push(name.length);
+  })
+
+  return averageNumbers(wordLenght)
+
+}
+
+averageWordLength(wordsArr)
+
+
+
 // Unique Arrays
+
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +126,20 @@ var wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(array) {
+  var uniqs = array.filter(function (item, index, array) {
+    return array.indexOf(item) === index;
+  })
+  console.log(uniqs);
+
+}
+
+uniquifyArray(wordsUnique)
+
+
 // Finding Elements
+
 var wordsFind = [
   'machine',
   'subset',
@@ -60,7 +151,21 @@ var wordsFind = [
   'disobedience'
 ];
 
+
+function doesWordExist(array, name) {
+
+  var exist = array.includes(name);
+  console.log('This element Exist');
+  return exist
+}
+
+console.log('Finding Elements -Simple Array Search ' + doesWordExist(wordsFind, 'matter'));
+
+
 // Counting Repetion
+
+
+
 var wordsCount = [
   'machine',
   'matter',
@@ -74,7 +179,29 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(array) {
+
+  var cantidadNombres = array.reduce((contadorNombre, nombre) => {
+    contadorNombre[nombre] = (contadorNombre[nombre] || 0) + 1;
+    return contadorNombre
+  }, {});
+  console.log(cantidadNombres)
+}
+
+console.log(howManyTimes(wordsCount) + ' The number of the times that word appears in the array');
+
+
 // Bonus Quest
+
+
+function greatestProduct (){
+
+  var answer =0;
+  var product = 0;
+  var rows = 19;
+  var columns = 19;
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -98,3 +225,42 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+for (var i =0; i<= rows; i++){
+  for (var j =0; j<= columns; j++){
+    if (j< columns-3){
+      //horizontal
+      product=grid[i][j] * grid [i][j+1]*grid[i][j+2]*grid[i][j+3];
+      if (product > answer){
+        anwer = product;
+      }
+    }
+    if (i < rows -3 ){
+      // vertical
+      product = grid[i][j]*grid[i+1][j]*grid[i+2][j]*grid [i+3][j];
+      if (product > answer){
+        answer = product;
+      }
+         // Diagonal derecho
+
+         if (j < columns -3){
+           product = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
+           if(product > answer){
+             answer = product;
+           }
+         }
+         // Diagonal izquierdo
+
+         if(j>3){
+           product= grid [i][j]* grid[i + 1][j - 1]* grid[i+2][j-2]+ grid[i +3][j-3];
+         if (product > answer){
+           answer= product;
+         }
+         }
+         }
+    }
+  }
+  return answer;
+ }
+
+greatestProduct()
