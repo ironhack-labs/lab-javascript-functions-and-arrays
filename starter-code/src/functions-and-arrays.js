@@ -130,7 +130,9 @@ var wordsUnique = [
   'bring'
 ];
 
+
 function uniquifyArray(w){
+  
   for (i=0; i<w.length; i++ ){
     for (j=0; j<i; j++){
       if(w[i]===w[j])
