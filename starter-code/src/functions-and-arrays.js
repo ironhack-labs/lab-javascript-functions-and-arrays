@@ -155,7 +155,6 @@ var wordToSearch;
 
 function doesWordExist(wordsFind, wordToSearch) {
   if (wordsFind.includes(wordToSearch)) {
-    console.log("kiki");
     return true;
   } else if (wordsFind.length === 0) {
     console.log("ici");
@@ -193,8 +192,6 @@ function howManyTimes(words, lookFor) {
   }
   return counter;
 }
-
-// howManyTimes(wordsCount, lookFor);
 
 // Bonus Quest
 
