@@ -1,6 +1,11 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a, b) {
+  return a > b ? a : b;
+}
+
 // Finding Longest Word
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +16,25 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(wordArray) {
+  return wordArray.sort((a, b) => { return b.length - a.length })[0];
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numberArray) {
+  return numberArray.length > 0 ? numberArray.reduce((x, currentValue) => x + currentValue) : 0;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numberArray) {
+  return numberArray.length > 0 ? sumArray(numberArray) / numberArray.length : undefined;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,7 +50,14 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(wordArray) {
+
+  return (wordArray.length > 0) ? sumArray(wordArray.map(x => x.length)) / wordArray.length : undefined;
+
+}
+
 // Unique Arrays
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,6 +72,14 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+
+  let resultArray = [];
+  array.forEach(x => { if (!resultArray.includes(x)) { resultArray.push(x) } });
+  return (resultArray.length > 0) ? resultArray : undefined;
+
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +91,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordArray, word) {
+  return wordArray.includes(word);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +110,14 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArray, word) {
+
+  return wordArray.length > 0 ? wordArray.reduce(((x, currentValue) => x + (currentValue === word ? 1 : 0)), 0) : false;
+
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +142,77 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+
+  //Test each of the matrix rows from left to right and right to left and return highest product of 4 adjacent number
+
+  leftToRighResult = [];
+  matrix.forEach((lineArray, index) => { leftToRighResult[index] = greatestProductInArray(lineArray) });
+  leftToRighResultBiggest = findHighestNumber(leftToRighResult);
+
+  console.log("left to right " + leftToRighResultBiggest);
+
+  //Test each of the matrix rows from top to Bottom and Bottom to top and return highest product of 4 adjacent number
+
+  transposedMatrix = transpose(matrix);
+
+  topToBottom = [];
+  transposedMatrix.forEach((lineArray, index) => { topToBottom[index] = greatestProductInArray(lineArray) });
+  topToBottomBiggest = findHighestNumber(topToBottom);
+
+  console.log("top to bottom " + topToBottomBiggest);
+
+  //Return highest of the two
+
+  return leftToRighResultBiggest > topToBottomBiggest ? leftToRighResultBiggest : topToBottomBiggest;
+
+
+
+}
+
+//Check highest product of 4 adjacent number on one array
+
+function greatestProductInArray(array) {
+
+  let result = [];
+
+
+  for (let i = 0; i <= array.length - 4; i++) {
+    result[i] = array[i] * array[i + 1] * array[i + 2] * array[i + 3];
+  }
+
+  greaterNumberInArray = findHighestNumber(result);
+  return greaterNumberInArray;
+
+
+}
+
+function findHighestNumber(numberArray) { return numberArray.sort((a, b) => { return b - a })[0]; }
+
+
+function transpose(matrixToTranspose) {
+
+  newMatrix = [];
+
+  for (let i = 0; i < matrixToTranspose.length; i++) { newMatrix[i] = [] };
+
+  for (let j = 0; j < matrixToTranspose.length; j++) {
+    for (let i = 0; i < matrixToTranspose.length; i++) {
+      newMatrix[i][j] = matrixToTranspose[j][i];
+    }
+  }
+  return newMatrix;
+}
+
+matrix2 = [
+
+  [9, 3, 4, 5],
+  [9, 5, 6, 7],
+  [9, 7, 8, 9],
+  [9, 1, 1, 1]
+
+];
+
+console.log(greatestProduct(matrix2));
+
