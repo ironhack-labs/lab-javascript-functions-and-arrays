@@ -157,7 +157,6 @@ function doesWordExist(wordsFind, wordToSearch) {
   if (wordsFind.includes(wordToSearch)) {
     return true;
   } else if (wordsFind.length === 0) {
-    console.log("ici");
     return false;
   } else {
     return false;
