@@ -39,12 +39,16 @@ function sumArray(array) {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
+  let sumArray = 0;
+  let arrayAvg = 0;
   if (array.length == 0) {
     return array[0];
   }
-  if (array.length < 2) {
-    return array[0];
+  for (let i = 0; i < array.length; i++) {
+    sumArray += array[i];
   }
+  arrayAvg = sumArray / array.length;
+  return arrayAvg;
 }
 
 // Array of Strings
@@ -61,6 +65,19 @@ var wordsArr = [
   "palace"
 ];
 
+function averageWordLength(array) {
+  let wordLengthSum = 0;
+  let wordLengthAverage = 0;
+  if (array.length == 0) {
+    return array[0];
+  }
+  for (let i = 0; i < array.length; i++) {
+    wordLengthSum += array[i].length;
+  }
+  wordLengthAverage = wordLengthSum / array.length;
+  return wordLengthAverage;
+}
+
 // Unique Arrays
 var wordsUnique = [
   "crab",
@@ -76,6 +93,21 @@ var wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(array) {
+  let newArray = [];
+  if (array.length == 0) {
+    return array[0];
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (newArray.includes(array[i])) {
+      continue;
+    } else {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
+
 // Finding Elements
 var wordsFind = [
   "machine",
@@ -87,6 +119,10 @@ var wordsFind = [
   "truth",
   "disobedience"
 ];
+
+function doesWordExist(array, word) {
+  return array.includes(word);
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -102,6 +138,22 @@ var wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(array, word) {
+  let wordOccurence = 0;
+  if (array.length == 0) {
+    return false;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (word == array[i]) {
+      wordOccurence++;
+      //le mot se trouve dans le tableau
+      //a chaque fois qu'il est rencontré,
+      //le compteur est incrémenté)
+    }
+  }
+  return wordOccurence;
+}
 // Bonus Quest
 
 var matrix = [
@@ -399,3 +451,9 @@ var matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {}
+  }
+}
