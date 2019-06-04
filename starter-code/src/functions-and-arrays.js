@@ -441,3 +441,27 @@ var matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = arr => {
+  let result = 0;
+  let maxProduct = 0;
+  for (i = 0; i < arr.length; i++) {
+    for (j = 0; j < arr.length; j++) {
+      //resultado horizontalmente
+      if (j - 3 >= 0) {
+        result = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
+        if (maxProduct < result) {
+          maxProduct = result;
+        }
+      }
+      //resultado mayor de vertical
+      if (i - 3 >= 0) {
+        result = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+        if (maxProduct < result) {
+          maxProduct = result;
+        }
+      }
+    }
+  }
+  return maxProduct;
+};
