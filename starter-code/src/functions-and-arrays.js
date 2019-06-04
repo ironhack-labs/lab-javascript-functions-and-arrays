@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b){
+  if (a > b) {
+    return a
+  }
+  return b
+}
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +18,38 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words) {
+  if (words.length === 0)
+    return undefined
+  let longest = ""
+  for (let i = 0; i < words.length; i++) {
+    if (longest.length < words[i].length) 
+      longest = words[i]
+  }
+  return longest
+}
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(array) {
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  return sum
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers) {
+  if (numbers.length === 0)
+    return undefined
+  return sumArray(numbers) / numbers.length
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,10 +65,21 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(words) {
+  if (words.length === 0)
+    return undefined // If we return something, we stop the function
+  let sum = 0
+  for (let i = 0; i < words.length; i++) {
+    sum += words[i].length;
+  }
+  return sum / words.length
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
   'poison',
+  'crab',
   'contagious',
   'simple',
   'bring',
@@ -47,6 +90,17 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(words) {
+  if (words.length === 0)
+    return undefined
+  let uniques = []
+  for (let iWord = 0; iWord < words.length; iWord++) {
+    if (!uniques.includes(words[iWord])) {
+      uniques.push(words[iWord])
+    }
+  }
+  return uniques
+}
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +113,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(words, theWord) {
+  // Solution 1
+  // return words.includes(theWord)
+
+  // Solution 2
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === theWord)
+      return true
+  }
+  return false
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +139,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(words, theWord) {
+  if (words.length === 0)
+    return false
+  let count = 0
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === theWord)
+      count++
+  }
+  return count
+}
+console.log(howManyTimes(wordsCount, 'cat'))
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +175,34 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix) {
+  let max = 0
+  // From left to right
+  for (let row = 0; row < matrix.length; row++) {
+    for (let col = 0; col < matrix[row].length-3; col++) {
+      let cell1 = matrix[row][col]
+      let cell2 = matrix[row][col+1]
+      let cell3 = matrix[row][col+2]
+      let cell4 = matrix[row][col+3]
+      let product = cell1 * cell2 * cell3 * cell4
+      if (max < product) {
+        max = product
+      }
+    }
+  }
+  // From top to bottom
+  for (let row = 0; row < matrix.length-3; row++) {
+    for (let col = 0; col < matrix[row].length; col++) {
+      let cell1 = matrix[row][col]
+      let cell2 = matrix[row+1][col]
+      let cell3 = matrix[row+2][col]
+      let cell4 = matrix[row+3][col]
+      let product = cell1 * cell2 * cell3 * cell4
+      if (max < product) {
+        max = product
+      }
+    }
+  }
+  return max
+}
+console.log(greatestProduct(matrix))
