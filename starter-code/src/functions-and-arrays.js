@@ -191,14 +191,28 @@ var matrix = [
 
 
 function greatestProduct(container){
+  let lastFour = []
   let biggestProduct = 0
   for (let row = 0; row < container.length; row++) {
     for (let col = 0; col < container[row].length; col++) {
-      if (biggestProduct < container[row][col]) 
-        biggestProduct = container[row][col]
-    }
+      if (lastFour.length < 4) {
+        lastFour.push(container[row][col])
+      } else if (lastFour.length === 4) {
+        let multiple = 0
+        lastFour.forEach(function(element){
+          if(multiple == 0) {
+            multiple = element 
+          } else {
+            multiple = multiple * element
+          }
+        })
+        if (multiple > biggestProduct) {
+          biggestProduct = multiple
+        }
+        lastFour = []
+        lastFour.push(container[row][col])
+      }
   }
-
   return biggestProduct
 }
-
+}
