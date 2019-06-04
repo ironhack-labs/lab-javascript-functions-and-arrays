@@ -14,15 +14,16 @@ var words = [
   'orchard',
   'crackpot'
 ];
-let aux=""
-let numL=0
+
 
 function findLongestWord (arr){
+  let aux=""
+  let numL=0
   if(arr.length===0){
     return undefined
   }
     if (arr.length===1) {
-    return 'foo'
+    return arr[0]
   }
   arr.forEach(function (e){
     if(e.length>numL){
@@ -38,8 +39,9 @@ findLongestWord(words)
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let sumArray = (arr)=>{console.log(arr.reduce((ac,vA)=>ac+vA))}
-sumArray(numbers)
+let sumArray = (arr)=> arr.reduce((ac,vA)=>(ac+vA),0)
+ 
+//sumArray(numbers)
 // Calculate the Average
 
 
@@ -56,15 +58,21 @@ var words = [
     'fuel',
     'palace'
 ];
-const averageNumbers = (arr)=>{console.log(arr.reduce((ac,vA)=>(ac+vA)/arr.length))}
+const averageNumbers = (arr)=>{
+  if(arr.length===0) return undefined
+
+  return sumArray(arr)/arr.length
+  
+}
 averageNumbers(numbersAvg)
 
 const averageWordLength =(arr)=>{
+  if(arr.length===0) return undefined
   let aux2=0
   arr.forEach((e)=>{
       aux2+=e.length
   })
-  console.log(aux2/(arr.length))
+  return (aux2/(arr.length))
   }
   averageWordLength(words)
 
@@ -96,13 +104,15 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-
 function uniquifyArray(arr){
-  const set1 = new Set(arr)
-  console.log(set1) 
+  let arr2=[]
+  arr.forEach((e)=>{
+    if(arr2.indexOf(e)==-1)arr2.push(e)
+
+  })
+ return (arr2)
 }
 uniquifyArray(wordsUnique)
-
 // Finding Elements
 var wordsFind = [
   'machine',
