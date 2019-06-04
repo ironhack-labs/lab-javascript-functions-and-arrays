@@ -1,5 +1,14 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a,b){
+  if (a >= b){
+    return a;
+  }
+  else if (b > a){
+    return b;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +20,47 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  let word = ''
+  for (i = 0; i < words.length; i++){
+    if (word.length < words[i].length){
+      word = words[i];
+    }
+  }
+  if(word){
+    return word;
+  }
+  else{
+    return undefined;
+  }
+}
+console.log(findLongestWord(words));
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  let reduces = (accumulator, currentValue) => accumulator + currentValue;
+   return numbers.reduce(reduces);
+}
+
+
+
+//console.log(sumArray(numbers));
+
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg){
+  return sumArray(numbersAvg) / numbersAvg.length;
+}
+console.log(averageNumbers(sumArray, numbersAvg));
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +75,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr){
+  let totalWords = 0;
+  for (i = 0; i < wordsArr.length; i++){
+    totalWords += wordsArr[i].length;
+  }
+  return totalWords / wordsArr.length;
+}
+console.log(averageWordLength(wordsArr))
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +102,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  let simple = wordsUnique;
+  for(i= 0; i < simple.length; i++){
+    for(j = 0; j < simple.length; j++){
+        if((simple[i] === simple[j]) && (i != j)){
+          simple.splice(j,1);
+          }
+    }
+  }
+  return simple
+}
+console.log(uniquifyArray(wordsUnique));
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +127,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, word){
+  for (i=0; i < wordFind.length; i++){
+    for (j = 0; j < wordFind.length; j++){
+      if(wordFind[i] === wordFind[j] && i != j){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+
 
 // Counting Repetion
 var wordsCount = [
