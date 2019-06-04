@@ -68,7 +68,7 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength(array) {
+/* function averageWordLength(array) {
   let sum;
 
   if (array.length > 0) {
@@ -82,8 +82,25 @@ function averageWordLength(array) {
   } else {
     return sum;
   }
+}  */
 
-} 
+
+function averageWordLength(array) { 
+  let avg;
+  let sum;
+
+  let reducer = (a, b) => a + b;
+
+  if (array.length > 0) {
+    let sum = array.reduce(reducer, 0).length - 1;
+    avg = sum / array.length;
+    
+    return Math.round(avg);
+  }
+  
+  return sum;
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -107,8 +124,6 @@ function uniquifyArray(array) {
     uniquesArray = [];
 
     array.forEach(element => {
-
-      
       if (!uniquesArray.includes(element)) {
         uniquesArray.push(element);
       }
@@ -195,18 +210,30 @@ function greatestProduct(matrix) {
   let horizontalProduct;
   let verticalProduct;
 
-  for (let i=0; i<matrix.length-3; i++) { 
+  for (let i=0; i<matrix.length; i++) { 
     for (let j = 0; j<matrix.length-3; j++) {
       horizontalProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
-      verticalProduct = matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i];
       if (horizontalProduct > greatestProduct) {
         greatestProduct = horizontalProduct;
-      } else if (verticalProduct > greatestProduct) {
+      } 
+    }
+  }
+
+   for (let i=0; i<matrix.length; i++) { 
+    for (let j = 0; j<matrix.length-3; j++) {
+      console.log(matrix[j][i]);
+      console.log(matrix[j+1][i]);
+      console.log(matrix[j+2][i]);
+      console.log(matrix[j+3][i]);
+      verticalProduct = matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i];
+      if (verticalProduct > greatestProduct) {
         greatestProduct = verticalProduct;
       }
     }
-  }
+  } 
   return greatestProduct;
 }
+
+console.log(greatestProduct(matrix));
 
 
