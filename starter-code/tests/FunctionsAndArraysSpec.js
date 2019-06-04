@@ -55,8 +55,10 @@ describe('Finding Longest Word - findLongestWord', function () {
       words = shuffle(words);
       expect(findLongestWord(words)).toBe('ironhack');
     }
+    
   });
 });
+
 
 describe('Calculating a Sum - sumArray', function () {
   it('Defines sumArray', function () {
