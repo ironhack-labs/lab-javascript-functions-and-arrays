@@ -107,10 +107,13 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(array) {
-  array.forEach(function(word,i){
-
+  let newArray = []
+  array.forEach(function(word){
+    if(newArray.indexOf(word) === -1) {
+      newArray.push(word)
+    }
   })
-
+  return (array.length > 0) ? newArray : undefined
 }
 
 // Finding Elements
@@ -124,6 +127,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, toCheck) {
+  let doesExist = false  // it's a flag! 
+  array.forEach(function(word){
+    if(word === toCheck ){
+      doesExist = true
+    }
+  })
+return doesExist
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -139,6 +152,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, toCheck) {
+  let numberOfTimes = 0
+  array.forEach(function(word){
+    if (word === toCheck) {
+      numberOfTimes++
+    }
+  })
+  return (array.length > 0) ? numberOfTimes : false
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -163,3 +188,17 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(container){
+  let biggestProduct = 0
+  for (let row = 0; row < container.length; row++) {
+    for (let col = 0; col < container[row].length; col++) {
+      if (biggestProduct < container[row][col]) 
+        biggestProduct = container[row][col]
+    }
+  }
+
+  return biggestProduct
+}
+
