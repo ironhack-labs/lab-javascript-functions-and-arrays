@@ -1,6 +1,26 @@
 // Find the maximum
-
+const maxOfTwoNumbers=(a,b)=>{
+  if(a>b){
+    return a
+  }
+  else{
+    return b
+  }
+}
 // Finding Longest Word
+const findLongestWord=(arr)=>{
+  if (arr==""){
+    return undefined
+  }
+  let max=""
+  for(let i=0;i<arr.length;i++){
+    if(arr[i].length>max.length){
+      max=arr[i]
+    }
+  }
+  return max
+
+}
 var words = [
   'mystery',
   'brother',
@@ -12,14 +32,37 @@ var words = [
 ];
 
 // Calculating a Sum
+const sumArray=(arr)=>{
+  let sum=0
+  for(let i=0;i<arr.length;i++){
+    sum=sum+arr[i]
+  }
+  return sum
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+const averageNumbers=(arr)=>{
+  if (arr==""){
+    return undefined
+  }
+  return(sumArray(arr)/arr.length)
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+const averageWordLength=(arr)=>{
+  if (arr==""){
+    return undefined
+  }
+  let sum=0
+  for(let i=0;i<arr.length;i++){
+    sum=sum+arr[i].length
+  }
+  return (sum/arr.length)
+}
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +77,20 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+const uniquifyArray = (arr)=>{
+  if (arr==""){
+    return undefined
+  }
+  for (let i=0;i<arr.length;i++){
+    let palabra= arr[i]
+    for (let j=i+1;j<(arr.length);j++){
+      if(arr[j]===palabra){
+        arr.splice(j,1)
+      }
+    }
+  }
+  return arr
+}
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +106,17 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+const doesWordExist=(arr,palabra)=>{
+  let existe= false
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]==palabra){
+      existe=true
+    }
+  }
+
+  return existe
+
+}
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +129,18 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+const howManyTimes=(arr,palabra)=>{
+  if (arr==""){
+    return false
+  }
+  let contador=0
+  for (let i=0;i<arr.length;i++){
+    if(palabra==arr[i]){
+    contador++
+  }
+  }
+  return contador
+}
 var wordsCount = [
   'machine',
   'matter',
