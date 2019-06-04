@@ -1,4 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers (a,b){
+  if (a>b){
+    return a;
+  } else if (a<b){
+    return b;
+  } else if (a===b){
+    return a;
+  }
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +20,40 @@ var words = [
   'crackpot'
 ];
 
+
+function findLongestWord (words){
+  for (let i=0; i <= words.length; i++){ 
+    return words[i];
+    }
+  }
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) { 
+  let sum=0
+  for (let i = 0; i < array.length; i++){
+    sum += array[i] ;
+  }
+  return sum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if (array.length===0){
+    return undefined;
+  }
+  let sum=0
+  for (let i = 0; i < array.length; i++){
+    sum += array[i] 
+  }
+  return sum/array.length
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +69,17 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  if (array.length===0){
+    return undefined;
+  }
+  let sum=0
+  for (i=0;i<array.length;i++){
+  sum+= array[i].length;
+  }
+  return( sum/array.length)
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +94,8 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(){}
 
 // Finding Elements
 var wordsFind = [
