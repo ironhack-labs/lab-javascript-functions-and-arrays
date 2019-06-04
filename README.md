@@ -60,12 +60,14 @@ After creating the data structure, create an array for each type of data and pus
 For example:
 
 ```javascript
-var mrGreen = {
-  // Properties
+const mrGreen = {
+  first_name: "Jacob",
+  last_name: "Green",
+  // ...
 };
 
-var rope = {
-  // Properties
+const rope = {
+  // properties
 };
 
 // etc
