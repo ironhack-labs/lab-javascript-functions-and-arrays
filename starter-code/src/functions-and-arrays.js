@@ -1,6 +1,13 @@
 // Find the maximum
-
-// Finding Longest Word
+ function maxOfTwoNumbers (num1, num2) {
+   if (num1 > num2){return num1}
+   else if (num1 < num2){ return num2}
+   else if(num1 === num2){ return num2}
+ } 
+maxOfTwoNumbers(2,1)
+maxOfTwoNumbers(1,3)
+maxOfTwoNumbers(4,4)
+ // Finding Longest Word
 var words = [
   'mystery',
   'brother',
@@ -11,13 +18,48 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(myArr){
+if(myArr.length === 0){
+  return undefined
+}
+else{let aux = ''
+for (i=0; i < myArr.length; i++)
+ if (aux.length < myArr[i].length){
+   aux = myArr[i];
+ }
+return aux}
+};
+
+ findLongestWord(words);
+// Calculating a Su
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(sumArr){
+  let sum = 0
+  sumArr.forEach(function(e,i,a){
+    
+    sum +=e
+    
+  })
+  return sum
+}
 
-// Calculate the Average
+// Calculate the Avera
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(avgArr){
+  if(avgArr.length === 0){
+    return undefined
+  }
+  else{
+  let sum = 0
+  avgArr.forEach(function(e,i,a){
+    
+    sum +=e
+    
+  })
+  return sum/avgArr.length}
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +75,17 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(lengthArr){
+  if(lengthArr.length === 0){
+    return undefined
+  }
+  else{sum = 0
+  lengthArr.forEach(function(e,i,a){
+  sum +=e.length
+  })
+  return sum/lengthArr.length}
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,7 +100,33 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-
+var wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+function uniquifyArray(lengthArr){
+  if(lengthArr.length === 0){
+    return undefined
+  }
+  else{
+    const newArr =[]
+   lengthArr.forEach(function(e){
+     if (newArr.indexOf(e) === -1)
+     newArr.push(e)
+   
+   })
+ return newArr
+ }}
+ console.log (averageWordLength(wordsUnique))
 // Finding Elements
 var wordsFind = [
   'machine',
