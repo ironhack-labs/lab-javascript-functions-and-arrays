@@ -45,12 +45,41 @@ findLongestWord(words)
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function sumArray(numbers) {   numbers + valor;   if (numbers==""){     return 0;   }   }
-// Calculate the Average
+function sumArray(numbers) {   
+  let acum = 0;
+  if (numbers==0){    
+    return 0;   
+  }  
+  else{
+    for(i=numbers[0]; i<=(numbers.length);i++)
+    acum = acum+i
+    return acum
+  }
+}
+sumArray(numbers)
+  
+
+
+  // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg){
+  let acum = 0;
+  if(numbersAvg==0){
+    return undefined;
+  }
+  else{
+    for(i=numbersAvg[0]; i<=numbersAvg.length;i++)
+    acum = acum+i
+    return acum/numbersAvg.length
+  }
+}
+averageNumbers(numbersAvg)
+
+
 // Array of Strings
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -63,6 +92,7 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
 
 // Unique Arrays
 var wordsUnique = [
