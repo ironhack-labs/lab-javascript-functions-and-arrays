@@ -124,7 +124,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+let doesWordExist = (arr,word)=>{ arr.includes(word)
+}
 
+doesWordExist(wordsFind,"")
 // Counting Repetion
 var wordsCount = [
   'machine',
