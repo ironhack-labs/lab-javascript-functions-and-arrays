@@ -85,15 +85,15 @@ We will be working with test again! You need to open the `SpecRunner.html` file 
 
 ### Random Selector
 
-Create a method `randomSelector` to randomly select one element from a card stack. The method should receive an `array` as an argument, and return randomly one of the elements of the `array`.
+Create a function `randomSelector` to randomly select one element from a card stack. The method should receive an `array` as an argument, and return randomly one of the elements of the `array`.
 
 ### Create the mystery
 
-We need to create a `pickMistery` method that will call `randomSelector` for each card stack, and return an object with the 3 picked cards, a _suspect_, a _weapon_ and a _room_. Our mystery should be stored on a `misteryEnvelope` variable.
+We need to create a `pickMistery` function that will call `randomSelector` for each card stack, and return an object with the 3 picked cards, a _suspect_, a _weapon_ and a _room_. Our mystery should be stored on a `misteryEnvelope` variable.
 
 ## Iteration 3 - <small>Revealing the mistery</small>
 
-Finally, we need to reveal the mystery. Create a `revealMistery` method, that will receive our `misteryEnvelope` object as an argument and return the revealed mystery like this:
+Finally, we need to reveal the mystery. Create a `revealMistery` function, that will receive our `misteryEnvelope` object as an argument and return the revealed mystery like this:
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!!!!**
 
