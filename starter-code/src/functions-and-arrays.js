@@ -32,16 +32,34 @@ findLongestWord(words)
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray (numbers){
-
+  if (numbers == 0){
+ return 0
+  } 
+  else {
  return numbers.reduce((a, b) => {
   return a + b
-
+ 
 })
+  }
 }
+
 sumArray(numbers)
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbersAvg = [2, 6, 9, -3, 7, 4, 1, 9];
+
+function averageNumbers (numbersAvg){
+  if (numbersAvg == 0){
+    return undefined
+  }
+  else {
+    return numbersAvg.reduce((a , b) => {
+      return a + b
+    }) / numbersAvg.length
+  }
+}
+
+averageNumbers(numbersAvg)
 
 // Array of Strings
 var wordsArr = [
@@ -56,6 +74,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordsArr){
+  if (wordsArr == 0){
+    return undefined
+  }
+  else {
+    return wordsArr.reduce((a , b) => {
+      return a + b.length
+    }, 0) /wordsArr.length
+  }
+}
+
+averageWordLength(wordsArr)
 
 // Unique Arrays
 var wordsUnique = [
@@ -72,6 +103,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (words){
+  if (words == 0){
+    return undefined
+  }
+  else {
+    return words.reduce((a, b) => {
+      return a.includes(b) ? a : [...a, b]
+    },[]);
+    }
+  }
+
+
+uniquifyArray(words)
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -83,6 +128,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (words, word){
+  if (words == 0){
+    return false
+  }
+  else{
+        return words.includes(word);   
+       } 
+  }  
+
+doesWordExist(words, 'machine')
 
 // Counting Repetion
 var wordsCount = [
@@ -98,6 +154,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (wordsCount, word) => {
+  if (wordsCount.length === 0) {
+    return false;
+  }
+  return wordsCount.reduce((a, b) => {
+    if (b === word) {
+      a++;
+    }
+    return a;
+  }, 0);
+}
+
+howManyTimes(wordsCount, 'matter')
 // Bonus Quest
 
 var matrix = [
