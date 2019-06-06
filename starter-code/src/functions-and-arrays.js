@@ -1,6 +1,25 @@
 // Find the maximum
+function maxOfTwoNumbers(nun1, nun2) {
+  if (nun1 >= nun2) {
+    return nun1
+  } else {
+    return nun2
+  }
+}
 
 // Finding Longest Word
+function findLongestWord(arrayWords) {
+  var maxWord = arrayWords[0]
+ 
+  for(var i = 0; i < arrayWords.length-1; i++) {
+    if(arrayWords[i].length > maxWord.length) {
+      maxWord = arrayWords[i]
+    }
+  }
+
+  return maxWord 
+}
+
 var words = [
   'mystery',
   'brother',
@@ -12,14 +31,40 @@ var words = [
 ];
 
 // Calculating a Sum
+function sumArray(arr) {
+  var suma = 0;
+  for(i=0; i < arr.length; i++){
+    suma += arr[i]
+  }
+
+  return suma
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+sumArray(numbers)
 
+// Calculate the Average
+function averageNumbers(arr) {
+  if (arr.length == 0){
+    return undefined
+  }else{
+    return sumArray(arr) / arr.length
+  }
+}
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength (arr){
+  var numbers = []
+
+  for(i=0;i < arr.length; i++){
+    numbers.push(arr[i].length)
+  }
+
+  return averageNumbers(numbers)
+}
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +79,22 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+
+function uniquifyArray(arr){
+  if (arr.length == 0){
+    return undefined
+  }
+
+  var newArray =[]
+
+  for(i=0;i < arr.length; i++){
+   if (newArray.indexOf(arr[i]) == -1) {
+     newArray.push(arr[i])
+   } 
+  }
+
+  return newArray
+}
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +110,19 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(arr,word){
+  var result = false
+
+  for(i=0;i < arr.length; i++){
+    if (word == arr[i]){
+      result = true
+      break
+    }
+  }
+
+  return result
+}
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +135,22 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+
+function howManyTimes (arr,word){
+  if (arr.length == 0){
+    return false
+  }
+  
+  var count = 0
+
+  for(i=0;i < arr.length; i++){
+    if (word == arr[i]){
+      count++
+    }
+  }
+
+  return count
+}
 var wordsCount = [
   'machine',
   'matter',
