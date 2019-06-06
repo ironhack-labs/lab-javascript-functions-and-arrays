@@ -1,6 +1,29 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1,num2) {
+  if(num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
+
 // Finding Longest Word
+
+function findLongestWord (arr) {
+  let word = ""
+  if(arr.length === 0) {
+    return undefined
+  }
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+      word = arr[i]
+    }
+  }
+  return word
+}
+
 var words = [
   'mystery',
   'brother',
@@ -11,13 +34,33 @@ var words = [
   'crackpot'
 ];
 
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (arr) {
+  let sum = 0
+  for(var i=0;i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return sum
+}
+
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (arr) {
+  if(arr.length === 0) {
+    return undefined
+  }
+  let sum = sumArray(arr)/arr.length
+  return sum;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +75,23 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if(arr.length === 0) {
+    return undefined
+  }
+
+let result = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i].length
+    }
+    let avgWord = result / arr.length
+    return avgWord
+}
+
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +108,15 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arr) {
+  if(arr.length === 0) {
+    return undefined
+  }
+  
+  return [...new Set(arr)]
+
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,6 +129,20 @@ var wordsFind = [
   'disobedience'
 ];
 
+
+
+function doesWordExist (arr,elem) {
+  if(arr.length === 0) {
+    return false
+  } 
+  let find = false
+  for(var i = 0; i < arr.length;i++) {
+    if (arr[i] == elem) {
+      find = true
+  }
+}
+return find
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +157,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,elem) {
+  if(arr.length === 0) {
+    return false
+  } 
+  let result = 0
+  for(var i =0;i<arr.length;i++) {
+    if(arr[i] == elem) {
+      result++
+    }
+  }
+  return result
+}
+
+
+
+
 // Bonus Quest
 
 var matrix = [
