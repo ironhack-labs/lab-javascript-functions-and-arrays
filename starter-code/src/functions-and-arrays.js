@@ -1,5 +1,90 @@
 // Find the maximum
+function maxOfTwoNumbers(firstNumber, secondNumber){
+  if(firstNumber >= secondNumber){
+    return firstNumber;
+  }
+  else{
+    return secondNumber;
+  }
+}
+function findLongestWord(words){
+  if (words.length === 0){
+    return undefined;
+  }
+  let longest = "";
+  words.forEach(word => {
+    if (word.length > longest.length) {
+      longest = word;   
+    }
+    
+  });
+  return longest;
+} 
+function sumArray (numberArray){
+  return numberArray.reduce((accumulator, current)=>{
+    return accumulator + current;
+  },0)
+  
+}
 
+function averageNumbers (numberArray){
+  if (numberArray.length === 0){
+    return undefined;
+
+  }
+  return (sumArray(numberArray)/numberArray.length);
+}
+
+function averageWordLength(wordsArray){
+  if (wordsArray.length === 0){
+    return undefined;
+  }
+  wordSize = 0;
+  wordsArray.forEach(word => {
+    wordSize += word.length;
+    });
+    return wordSize/wordsArray.length;  
+  }
+
+  function uniquifyArray(array){
+    if(array.length === 0){
+      return undefined;
+    }
+    let newArray = [];
+    array.forEach((element)=> {
+      if(newArray.indexOf(element)=== -1){
+        newArray.push(element);
+      }
+    })
+    return newArray;
+  }
+
+  function doesWordExist (array, wordToFind)
+  {
+    var exist = false;
+    array.forEach((element) =>{
+      if(element === wordToFind){
+        exist = true;
+      }
+      })
+      return exist;
+  }
+
+  function howManyTimes(words, toFind){
+    if (words.length == 0){
+      return false;
+    }
+    else {
+      var repeats = 0;
+      for(let index = 0; index < words.length; index++){
+        if(toFind === words[index]){
+          repeats += 1;
+        }
+      }
+    }
+  
+return repeats;
+  }
 // Finding Longest Word
 var words = [
   'mystery',
