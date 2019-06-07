@@ -474,8 +474,8 @@ var matrix = [
 ];
 
 function greatestProduct(matrix) {
-    let MAXROW = 10;
-    let MAXCOL = 10;
+    let MAXROW = 3;
+    let MAXCOL = 3;
     let TOTALELEMENTS = MAXROW * MAXCOL;
 
     let itemsAround = [];
@@ -486,8 +486,8 @@ function greatestProduct(matrix) {
         for (colCount = 0; colCount < MAXCOL; colCount++) {
             let currentItem, topItem, rightItem, bottomItem, leftItem;
 
-            currentItem = matrix[rowCount][colCount];
-            itemsAround.push(currentItem);
+            // currentItem = matrix[rowCount][colCount];
+            // itemsAround.push(currentItem);
 
             if (currentItem === 1) {
                 allNumbersAreOne += 1;
@@ -498,39 +498,40 @@ function greatestProduct(matrix) {
             }
 
             if (rowCount - 1 < 0) {
-                topItem = 0;
+                topItem = 1;
             } else {
                 topItem = matrix[rowCount - 1][colCount];
             }
             itemsAround.push(topItem);
 
             if (colCount + 1 >= MAXCOL) {
-                rightItem = 0;
+                rightItem = 1;
             } else {
                 rightItem = matrix[rowCount][colCount + 1];
             }
             itemsAround.push(rightItem);
 
             if (rowCount + 1 >= MAXROW) {
-                bottomItem = 0;
+                bottomItem = 1;
             } else {
                 bottomItem = matrix[rowCount + 1][colCount];
             }
             itemsAround.push(bottomItem);
 
             if (colCount - 1 < 0) {
-                leftItem = 0;
+                leftItem = 1;
             } else {
                 leftItem = matrix[rowCount][colCount - 1];
             }
             itemsAround.push(leftItem);
 
-            let maxValue = 0;
-            itemsAround.forEach(element => {
-                if (element > maxValue) {
-                    maxValue = element;
-                }
-            });
+            // let maxValue = 1;
+            // itemsAround.forEach(element => {
+            //     if (element > maxValue) {
+            //         maxValue *= element;
+            //     }
+            // });
+            maxValue = topItem * rightItem * bottomItem * leftItem;
 
             if (maxValue > greatestProd) {
                 greatestProd = maxValue;
