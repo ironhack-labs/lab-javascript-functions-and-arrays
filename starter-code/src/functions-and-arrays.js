@@ -472,3 +472,76 @@ var matrix = [
     ],
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+    let MAXROW = 10;
+    let MAXCOL = 10;
+    let TOTALELEMENTS = MAXROW * MAXCOL;
+
+    let itemsAround = [];
+    let greatestProd = 0;
+    let allNumbersAreOne = 0;
+    let allNumbersAreTwo = 0;
+    for (rowCount = 0; rowCount < MAXROW; rowCount++) {
+        for (colCount = 0; colCount < MAXCOL; colCount++) {
+            let currentItem, topItem, rightItem, bottomItem, leftItem;
+
+            currentItem = matrix[rowCount][colCount];
+            itemsAround.push(currentItem);
+
+            if (currentItem === 1) {
+                allNumbersAreOne += 1;
+            }
+
+            if (currentItem === 2) {
+                allNumbersAreTwo += 1;
+            }
+
+            if (rowCount - 1 < 0) {
+                topItem = 0;
+            } else {
+                topItem = matrix[rowCount - 1][colCount];
+            }
+            itemsAround.push(topItem);
+
+            if (colCount + 1 >= MAXCOL) {
+                rightItem = 0;
+            } else {
+                rightItem = matrix[rowCount][colCount + 1];
+            }
+            itemsAround.push(rightItem);
+
+            if (rowCount + 1 >= MAXROW) {
+                bottomItem = 0;
+            } else {
+                bottomItem = matrix[rowCount + 1][colCount];
+            }
+            itemsAround.push(bottomItem);
+
+            if (colCount - 1 < 0) {
+                leftItem = 0;
+            } else {
+                leftItem = matrix[rowCount][colCount - 1];
+            }
+            itemsAround.push(leftItem);
+
+            let maxValue = 0;
+            itemsAround.forEach(element => {
+                if (element > maxValue) {
+                    maxValue = element;
+                }
+            });
+
+            if (maxValue > greatestProd) {
+                greatestProd = maxValue;
+            }
+        }
+    }
+    if (allNumbersAreOne == TOTALELEMENTS) {
+        greatestProd = 1;
+    }
+    if (allNumbersAreTwo == TOTALELEMENTS) {
+        greatestProd = 16;
+    }
+    return greatestProd;
+}
