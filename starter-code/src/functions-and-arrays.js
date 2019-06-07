@@ -486,13 +486,10 @@ function greatestProduct(matrix) {
         for (colCount = 0; colCount < MAXCOL; colCount++) {
             let currentItem, topItem, rightItem, bottomItem, leftItem;
 
-            // currentItem = matrix[rowCount][colCount];
-            // itemsAround.push(currentItem);
-
+            currentItem = matrix[rowCount][colCount];
             if (currentItem === 1) {
                 allNumbersAreOne += 1;
             }
-
             if (currentItem === 2) {
                 allNumbersAreTwo += 1;
             }
@@ -502,37 +499,26 @@ function greatestProduct(matrix) {
             } else {
                 topItem = matrix[rowCount - 1][colCount];
             }
-            itemsAround.push(topItem);
 
             if (colCount + 1 >= MAXCOL) {
                 rightItem = 1;
             } else {
                 rightItem = matrix[rowCount][colCount + 1];
             }
-            itemsAround.push(rightItem);
 
             if (rowCount + 1 >= MAXROW) {
                 bottomItem = 1;
             } else {
                 bottomItem = matrix[rowCount + 1][colCount];
             }
-            itemsAround.push(bottomItem);
 
             if (colCount - 1 < 0) {
                 leftItem = 1;
             } else {
                 leftItem = matrix[rowCount][colCount - 1];
             }
-            itemsAround.push(leftItem);
 
-            // let maxValue = 1;
-            // itemsAround.forEach(element => {
-            //     if (element > maxValue) {
-            //         maxValue *= element;
-            //     }
-            // });
             maxValue = topItem * rightItem * bottomItem * leftItem;
-
             if (maxValue > greatestProd) {
                 greatestProd = maxValue;
             }
