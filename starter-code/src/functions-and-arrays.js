@@ -167,6 +167,10 @@ var wordsCount = [
 /*Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.*/
 
 function howManyTimes(array, word) {
+
+  if (array.length === 0) {
+    return false;
+  }
   let counting = 0;
   array.forEach(elem => {
     if (elem === word) counting++;
@@ -199,3 +203,40 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(arr) {
+  var max = 0;
+  var result;
+   if (arr.length === 0) {
+     return undefined;
+   }
+  //horizontal
+
+  // iterate the rows.
+  for (var i = 0; i < arr.length; i++) {
+    // iterate the columns.
+    for (var j = 0; j < arr.length - 3; j++) {
+      // check the maximum product
+      // in horizontal row.
+
+      result = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+
+      if (max < result) max = result;
+    }
+  }
+  //vertical
+
+  for (var i = 0; i < arr.length - 3; i++) {
+    // iterate the columns.
+    for (var j = 0; j < arr.length; j++) {
+      // check the maximum product
+      // in horizontal row.
+
+      result = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+
+      if (max < result) max = result;
+    }
+  }
+  return result;
+}
+
+greatestProduct(matrix);
