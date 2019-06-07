@@ -1,5 +1,17 @@
 // Find the maximum
 
+
+function maxOfTwoNumbers(numFirst, numSecond) {
+  if (numSecond > numFirst) {
+    return numSecond;
+  }
+
+  else {
+    return numFirst;
+  }
+
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +23,47 @@ var words = [
   'crackpot'
 ];
 
+for (var j = 0; j < words.length; j++) {
+  words[j] = words[j].length;
+
+function findLongestWord(words) {
+  var totalWord = words[0];
+  for(i=0; i < words.length; i++) {
+    if(words[i] > totalWord) 
+    totalWord = list[i];
+  }
+  return totalWord;
+}
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  var totalSum = 0;
+  for (var i=0; i<arr.length; i++) {
+    totalSum += arr[i];
+  }
+  return totalSum;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  // var totalAv = 0;
+  if (arr.length === 0) {
+    return undefined;
+  }
+  totalAv = sumArray(arr)/arr.length;
+
+  return totalAv;
+  
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +78,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  }
+  else {
+  totalAvLe = (sumArray(arr).length-1)/(arr.length);
+  return totalAvLe;
+  }
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +105,14 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  }
+  let unique = [...new Set(arr)];
+  return unique;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +124,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, str) {
+  if (arr.includes(str)) {
+    return true;
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +146,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, str) {
+  if (arr.length === 0) {
+    return false;
+  }
+  let numTimes = arr.reduce((n,x) => n + (x === str), 0);
+    return numTimes;
+}
+
 // Bonus Quest
 
 var matrix = [
