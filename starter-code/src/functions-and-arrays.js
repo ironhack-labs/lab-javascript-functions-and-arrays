@@ -1,6 +1,36 @@
 // Find the maximum
 
+function maxOfTwoNumbers(first, second){
+  if(first > second){
+    return first;
+  }else if(second > first){
+    return second;
+  }else if(first === second){
+    return first;
+  }
+}
 // Finding Longest Word
+
+ 
+function findLongestWord(word){
+  let longestWord = "";
+  if(word.length === 0){
+    return undefined;
+  }
+  for(i = 0; i < word.length; i++){
+  if(word[i].length > longestWord.length){
+    longestWord = word[i];
+  }else if(word[i].length === longestWord.length){
+      continue;
+  }else if(word[i].length === 0){
+    return [];
+  }else{
+    continue;
+  }
+  }
+  return (longestWord);
+}
+
 var words = [
   'mystery',
   'brother',
@@ -13,13 +43,46 @@ var words = [
 
 // Calculating a Sum
 
+function sumArray(numbers){
+  let sum = 0;
+  for(let i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }
+  return sum;
+
+}
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+sumArray(numbers);
+
 // Calculate the Average
+
+
+function averageNumbers(numbers){
+  if(numbers.length === 0){
+    return undefined;
+  }
+  return average = sumArray(numbers)/numbers.length;
+  }
+
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength(words){
+  let wordSum = 0;
+  if(words.length === 0){
+    return undefined;
+  }
+  for(let i = 0; i < words.length; i++){
+    wordSum += words[i].length;
+  }
+  return averageWord = wordSum/words.length;
+}
+
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +97,21 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(words){
+  let newArray = [];
+  if(words.length === 0){
+    return undefined;
+  }
+  for(let i = 0; i < words.length; i++){
+    if(newArray.indexOf(words[i]) === -1){
+       newArray.push(words[i]);
+    }else{
+     continue;
+    }
+  }
+       return newArray;
+  }
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +127,22 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(wordArray, word){
+  if(wordArray.length === 0){
+    return false;
+  }
+  for(let i = 0; i < wordArray.length; i++){
+    if(word === wordArray[i]){
+      return true;
+    }else{
+      continue;
+    }
+  }
+  
+  return false;
+
+}
 var wordsFind = [
   'machine',
   'subset',
@@ -61,6 +155,23 @@ var wordsFind = [
 ];
 
 // Counting Repetion
+
+function howManyTimes(wordArray, word){
+  let sumWord = 0;
+  if(wordArray.length === 0){
+    return false;
+  }
+  for(let i = 0; i < wordArray.length; i++){
+    if(word === wordArray[i]){
+      sumWord++;
+    }else{
+      continue;
+    }
+  }
+  
+  return sumWord;
+
+}
 var wordsCount = [
   'machine',
   'matter',
