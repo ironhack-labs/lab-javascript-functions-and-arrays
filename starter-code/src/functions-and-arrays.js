@@ -1,6 +1,27 @@
 // Find the maximum
+function maxOfTwoNumbers(num1,num2){
+  if (num1 > num2){
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Finding Longest Word
+function findLongestWord(array){
+  let longestWord = "";
+  if (array.length === 0){
+    longestWord = undefined;
+  } else{
+      array.forEach(word => {
+        if (word.length > longestWord.length){
+          longestWord = word;
+        }
+      });    
+    }
+  return longestWord;
+}
+
 var words = [
   'mystery',
   'brother',
@@ -11,15 +32,50 @@ var words = [
   'crackpot'
 ];
 
+findLongestWord(words);
+
 // Calculating a Sum
+function sumArray(array){
+  let sum = 0;
+  array.forEach(number => {
+    sum += number;
+  });
+  return sum;
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+sumArray(numbers);
+
 // Calculate the Average
+function averageNumbers(array){
+  let sum = 0;
+  if (array.length === 0){
+    return undefined;
+  } else{
+    array.forEach(number => {
+      sum += number;
+    });
+    return sum/array.length;
+  }
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+averageNumbers(numbersAvg);
 
 // Array of Strings
+function averageWordLength(array){
+  let sum = 0;
+  if (array.length === 0){
+    return undefined;
+  } else{
+    array.forEach(word => {
+      sum += word.length;
+    });
+    return sum/array.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +90,21 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+function uniquifyArray(array){
+  let newArray = [];
+  if (array.length === 0){
+    return undefined;
+  } else {
+    array.forEach(word => {
+      if(newArray.indexOf(word) < 0){
+        newArray.push(word);
+      }
+    });
+    return newArray;
+  }  
+}
+
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +119,19 @@ var wordsUnique = [
   'bring'
 ];
 
+uniquifyArray(wordsUnique);
+
 // Finding Elements
+function doesWordExist(array,word){
+  let isWord = false;
+  array.forEach(arrayWord => {
+    if(arrayWord === word){
+      isWord = true;
+    }
+  });
+  return isWord;
+}
+
 var wordsFind = [
   'machine',
   'subset',
@@ -59,8 +142,23 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+doesWordExist(wordsFind,'matter');
 
 // Counting Repetion
+function howManyTimes(array,word){
+  let wordCount = 0;
+  array.forEach(arrayWord => {
+    if(arrayWord === word){
+      wordCount++;
+    }
+  });
+  if(array.length === 0){
+    return false;
+  } else {
+    return wordCount;
+  }
+}
+
 var wordsCount = [
   'machine',
   'matter',
@@ -74,7 +172,69 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+howManyTimes(wordsCount, 'matter');
+
 // Bonus Quest
+function greatestProduct(matrix,row,column,direction){
+  let newArray = [];
+  let isGreater = 0;
+  console.log(`Initial point: ${row},${column}`)
+  switch(direction){
+    case "up":
+    if(row < 3){
+      console.log("You need a minimum of four products.");
+    } else{
+      for(let i = 0;i < 4;i++){
+        newArray.push(matrix[row][column]);
+        row--;
+      }
+    }
+    break;
+    case "down":
+    if(row > 16){
+      console.log("You need a minimum of four products.");
+    } else{
+      for(let i = 0;i < 4;i++){
+        newArray.push(matrix[row][column]);
+        row++;
+      }
+    }
+    break;
+    case "right":
+    if(column > 16){
+      console.log("You need a minimum of four products.");
+    } else{
+      for(let i = 0;i < 4;i++){
+        newArray.push(matrix[row][column]);
+        column++;
+      }
+    }
+    break;
+    case "left":
+    if(column < 3){
+      console.log("You need a minimum of four products.");
+    } else{
+      for(let i = 0;i < 4;i++){
+        newArray.push(matrix[row][column]);
+        column--;
+      }
+    }
+    break;
+    default:
+    console.log("Please use a valid direction ('up', 'down', 'right', or 'left').");
+  }
+  newArray.forEach(product => {
+    if(product > isGreater){
+      isGreater = product;
+    }
+  });  
+  console.log(`Products: ${newArray}`);
+  console.log(isGreater + " is the greatest product");
+  return isGreater;  
+
+}
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -98,3 +258,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+greatestProduct(matrix,4,5,"right");
