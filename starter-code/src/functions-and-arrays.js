@@ -33,6 +33,7 @@ function findLongestWord(arr) {
   let longestwordLength = 0;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longestwordLength) {
+      longestwordLength = arr[i].length;
       longestWord = arr[i];
     }
   }
@@ -52,9 +53,13 @@ sumArray = arr =>
 
 // Calculate the Average
 function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return undefined;
+  }
   return (average = sumArray(numbers) / numbers.length);
 }
 
+averageNumbers(numbers);
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // numbersAvg.reduce((acc, cval) => {
@@ -86,10 +91,9 @@ var wordsArr = [
 function averageWordLength(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
-    let lengthofWords = arr[i].length;
-    sum += lengthofWords;
+    sum += arr[i].length;
   }
-  return sum / wordsArr.length;
+  return sum / arr.length;
 }
 
 // Unique Arrays
@@ -123,7 +127,7 @@ let len = wordsUnique.length;
 
 function uniquifyArray(arr) {
   let unique = [];
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i <= arr.length; i++) {
     if (unique.indexOf(arr[i]) === -1) {
       unique.push(arr[i]);
     }
