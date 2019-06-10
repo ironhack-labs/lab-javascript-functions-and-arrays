@@ -1,4 +1,20 @@
+// // Find the maximum
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+
+  if (num1 > num2) {
+    return num1;
+  }
+  else if (num1 < num2) {
+    return num2;
+  }
+  else {
+    console.log("Sorry! No max number both are equal");
+  }
+
+}
+console.log(maxOfTwoNumbers(3, 4));
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +27,76 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arrayOfWords) {
+
+  //Make initial longest word first word in array
+  let longestWord = arrayOfWords[0];
+  let currentWord;
+
+  // Loop to go through all elements in array
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    // Hold value of current word in array
+    currentWord = arrayOfWords[i];
+
+    // if current word is longer than the longest word so far
+    if (currentWord.length > longestWord.length) {
+      // then the new longest word is the current word that was longer
+      longestWord = currentWord;
+    }
+
+  }
+
+  return console.log(`Longest word is ${longestWord} with length of ${longestWord.length}`);
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(anArray)
+{
+  let sum = 0;
+
+  for(let i = 0; i < anArray.length;i++)
+    {
+
+      let num = anArray[i];
+      sum = sum + num;
+
+    }
+
+  return sum;
+}
+
+sumArray(numbers);
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (anArray)
+{
+
+  let sum = 0;
+
+  for(let i = 0; i < anArray.length;i++)
+  {
+
+
+    sum += anArray[i];
+
+
+  }
+
+  // divide by amount of values in array for average of Numbers
+  let avg = sum/anArray.length;
+
+  return avg;
+
+}
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +111,38 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (anArray)
+{
+  // create array that will hold length of each word 
+  let arrayWordsLengths = [];
+
+  //loop through word array, placing length of each word in new array
+  for(let i = 0; i < anArray.length ;i++)
+  {
+    //this was not working?Not returning as number type
+    let length = anArray[i].length;
+    arrayWordsLengths.push(length);
+
+  }
+
+  let sum = 0;
+  // find sum of the word lengths
+  for(let i = 0; i < arrayWordsLengths.length ;i++)
+  {
+    console.log(arrayWordsLengths[i]);
+    sum = sum + Number(arrayWordsLengths[i]);
+
+  } 
+
+  // divide by amount of values in array for average of lengths
+  let avg = sum/anArray.length;
+
+  return avg;
+
+}
+
+averageWordLength(wordsArr);
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +159,15 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(anArray)
+{
+
+  console.log([...new Set(anArray)])
+
+}
+
+uniquifyArray(wordsUnique);
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +179,33 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(anArray,userWord)
+{
+  //Assume word doesn't exsist
+  let wordExsist;
+
+  for(let i = 0; i < anArray.length; i++)
+  {
+    console.log(anArray[i]);
+
+    if ( anArray[i].toLowerCase() === userWord.toLowerCase())
+    {
+      wordExsist = true;
+    }
+
+  }
+
+  if(wordExsist)
+    {
+      
+      console.log(`Word exsists and is positioned at ${anArray.indexOf(userWord)}`)
+
+    }
+  return wordExsist;
+}
+
+doesWordExist(wordsFind,'machine');
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +221,28 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(anArray,myWord)
+{
+  let count = 0;
+
+  for( let i = 0 ; i < anArray.length; i++)
+  {
+
+    if (anArray[i].toLowerCase() === myWord.toLowerCase())
+    {
+      count++;
+    }
+
+  }
+
+  return count;
+
+}
+
+howManyTimes(wordsCount,'matter')
+
+
 // Bonus Quest
 
 var matrix = [
