@@ -162,7 +162,21 @@ var wordsUnique = [
 function uniquifyArray(anArray)
 {
 
-  console.log([...new Set(anArray)])
+  // new array that hold unique words
+  let newArray = []; 
+  
+  //Loop through array passed in
+  anArray.forEach((eachWord) =>
+  {
+    // if the word does not occur again, 
+    if(newArray.indexOf(eachWord) === -1)
+    {
+      // Push it to array that holds unique words
+      newArray.push(eachWord);
+    }
+  })
+
+  return newArray;
 
 }
 
