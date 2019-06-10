@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(number1, number2){
+if (number1 > number2){
+  return number1;
+} else {
+  return number2;
+}
+}
 
 // Finding Longest Word
 var words = [
@@ -11,15 +18,62 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (array){
+  let longest = ""; 
+  array.forEach(element =>{
+    if (element.length>longest.length){
+      longest = element;
+    }
+  });
+  if(longest === ""){
+    return undefined;
+  } else {
+    return longest;
+  }
+}
+ 
+findLongestWord(words);
+
 // Calculating a Sum
+function sumArray(array){
+  let sum = 0;
+  array.forEach(element =>{
+    sum += element;
+  });
+  return sum;
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+sumArray(numbers);
+
 // Calculate the Average
+function averageNumbers(array){
+  if (array.length === 0){
+    return undefined;
+  } else {
+  return sumArray(array)/array.length;
+  }
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+averageNumbers(numbersAvg);
+
+
 // Array of Strings
+function averageWordLength(array){
+  let sum = 0;
+  array.forEach(element =>{
+    sum += element.length;
+  });
+  if (array.length === 0){
+    return undefined;
+  } else {
+  return sum/array.length;
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +87,9 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+averageWordLength(wordsArr);
+
+// Unique 
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,6 +104,13 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  
+return arr.filter((e,i)=> arr.indexOf(e) >=i)
+}
+ uniquifyArray(wordsUnique);
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -60,8 +123,18 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arrayOfWords, wordToSearchFor){
+  let result = false;
+  arrayOfWords.forEach((eachWord)=>{
+    if(eachWord == wordToSearchFor){
+      result = true;
+      }
+  })
+  return result;
+}
+
 // Counting Repetion
-var wordsCount = [
+var words = [
   'machine',
   'matter',
   'subset',
@@ -74,6 +147,9 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+
 // Bonus Quest
 
 var matrix = [
