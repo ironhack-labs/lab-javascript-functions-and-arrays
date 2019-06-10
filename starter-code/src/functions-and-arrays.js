@@ -165,16 +165,29 @@ function uniquifyArray(anArray)
   // new array that hold unique words
   let newArray = []; 
   
-  //Loop through array passed in
-  anArray.forEach((eachWord) =>
+  // //Loop through array passed in
+  // anArray.forEach((eachWord) =>
+  // {
+  //   // if the word does not occur again in the array 
+  //   if(newArray.indexOf(eachWord) === -1)
+  //   {
+  //     // Push it to array that holds unique words
+  //     newArray.push(eachWord);
+  //   }
+  // })
+
+  for (let i = 0; i < anArray.length ; i++)
   {
-    // if the word does not occur again, 
+    
+    let eachWord = anArray[i];
+
+    //if the word does not occur again in the array 
     if(newArray.indexOf(eachWord) === -1)
     {
       // Push it to array that holds unique words
       newArray.push(eachWord);
     }
-  })
+  }
 
   return newArray;
 
