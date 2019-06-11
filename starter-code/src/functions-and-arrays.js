@@ -198,5 +198,5 @@ function doesWordExist(arr, word) {
 };
 
 function howManyTimes() {
-  
+   
 }
