@@ -1,7 +1,10 @@
 // Find the maximum
+function maxOfTwoNumbers(firstNum, secondNum) {
+  return (firstNum > secondNum) ? firstNum : secondNum
 
+}
 // Finding Longest Word
-var words = [
+var word = [
   'mystery',
   'brother',
   'aviator',
@@ -11,13 +14,62 @@ var words = [
   'crackpot'
 ];
 
+const testArr = [
+  'foo',
+  'bar'
+]
+
+
+function findLongestWord(words = []) {
+  if (words.length === 0) {
+    return
+  }
+  if (words.length == 1) {return words[0]}
+  
+  // Finding the longest word in the array
+  let longestWordLength = words[0].length;
+  let longestWord = words[0];
+  words.forEach(element => {
+    if(element.length > longestWordLength) {
+      longestWordLength = element.length;
+      longestWord = element;
+    }
+   
+  })
+
+  for(var i=0; i<words.length; i++) {
+    if(words[i].length == longestWordLength) {
+      return words[i]
+    }
+  }
+}
+  
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  if(arr.length == 0 ) {return 0}
+  const anabel = (accumulator, currentValue) => accumulator + currentValue;
+  return arr.reduce(anabel)
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length == 0) {
+    return
+  } else if(arr.length == 1) {
+    return arr[0]
+  } else {
+    const anabel = (accumulator, currentValue) => accumulator + currentValue;
+    return arr.reduce(anabel) / arr.length;
+    
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +85,14 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  if(arr.length == 0 ) {return }
+  else if(arr.length == 1) {return arr[0].length}
+  let sumOfLenght = 0;
+  arr.forEach(element => sumOfLenght += element.length);
+  return sumOfLenght / arr.length
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +107,13 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+var anotherTestArr = [
+  'ironHack',
+  'ironHack',
+  'ironHack',
+  'ironHack',
+]
 
 // Finding Elements
 var wordsFind = [
@@ -74,6 +141,30 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function uniquifyArray (arr) {
+  if(arr.length == 0) {return}
+  let flag = arr.every((val, i, arr) => val === arr[0]);
+  if(flag) {
+    let newArr = [arr[0]];
+    return newArr
+  }
+
+  //work on that approach later
+  // var jobsUnique = jobs.filter(function(item, index){
+  //   return jobs.indexOf(item) >= index;
+  // });
+
+  let uniqueArr = [];
+  arr.forEach(element => {
+    if(uniqueArr.indexOf(element) == -1) {
+      uniqueArr.push(element);
+    }
+
+  })
+  return uniqueArr
+  
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +189,14 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function doesWordExist(arr, word) {
+  if(arr.length === 0) {return false}
+  else if (arr.length === 1 && arr[0] === word) {return true}
+  else if (arr.indexOf(word) === -1 ) {return false }
+  else if (arr.indexOf(word) >= 0) {return true}
+};
+
+function howManyTimes() {
+  
+}
