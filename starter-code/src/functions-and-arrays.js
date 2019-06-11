@@ -17,29 +17,83 @@ var words = [
   'crackpot'
 ];
  
-let lgth = 0;
-let longest;
-function findLongestWord (){
-  for(let i = 0; i < words.length; i++){
-    if(words[i].length > lgth){
-        lgth = words[i].length;
-        longest = words[i];
-    } else if(lgth === longest){
-      return lgth[i];
-    }
+function findLongestWord(someArray){
+  if(someArray.length ===0){
+    return undefined;
   }
+  let longest = "";
+  someArray.forEach((eachSingleWord)=>{
+    if(eachSingleWord.length > longest.length){
+      longest = eachSingleWord;
+    }
+  })
+  return longest;
 }
-// Calculating a Sum
+// function findLongestWord (theArr){
+//   let lgth = 0;
+//   let longest;
+//   for(let i = 0; i < theArr.length; i++){
+//     if(theArr[i].length > lgth){
+//         lgth = theArr[i].length;
+//         longest = lgth[i];
+//         return longest;
+//     } else if(lgth == longest){
+//       return lgth[i];
+//     }
+//   }
+// }
+// function findLongestWord (theArr){
+//   let lgth = 0;
+//   let longest;
+//   for(let i = 0; i < theArr.length; i++){
+//     if(theArr[i].length > lgth){
+//         lgth = theArr[i].length;
+//         longest = theArr[i];
+//     } else if(lgth == longest){
+//       return lgth[i];
+//     }
+//   }
+// }
 
+// function findLongestWord (str){
+//   let arrString = str.split(" ");
+//   let longestString = "";
+//   for(let i=0; i<arrString.length; i++){
+//     if(longestString.length < arrString[i].length){
+//       longestString = arrString[i];
+//     }
+//   }
+//   str= longestString;
+//   return str.length;
+// }
+findLongestWord(words);
+
+
+// function findLongestWord (theArr){
+//   let lgth = 0;
+//   let longest;
+//   for(let i = 0; i < words.length; i++){
+//     if(words[i].length > lgth){
+//         lgth = words[i].length;
+//         longest = words[i];
+//     } else if(lgth == longest){
+//       return lgth[i];
+//     }
+//   }
+// }
+
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-let sum = 0;
-for(let i = 0; i < numbers.length; i++){ 
-  sum += numbers[i];  
+function sumArray(acc, val){
+ let summ = acc + val;
+ return summ;
 }
-// Calculate the Average
+console.log(numbers.reduce(sumArray));
 
-//var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// Calculate the Average
+var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg){
   let ave = 0;
@@ -65,6 +119,26 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength (arrWords){
+  arrWords.forEach((eachSingleWord)=>{
+    total += eachSingleWord.length;
+  })
+  return total/arrWords.length;
+}
+console.log(averageWordLength(wordsArr));
+// function averageWordLength (arrWords){
+//   let numLetters = 0;
+//   let aveWord = 0;
+//   for(let i=0; i<arrWords.length; i++){
+//     // console.log(arrWords[i].length)
+//     numLetters += arrWords[i].length; 
+//   }
+//   aveWord = numLetters/arrWords.length;
+//   // console.log(numLetters)
+//   // console.log(aveWord)
+// }
+// console.log(averageWordLength(wordsArr));
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -79,6 +153,19 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(wordsUnique){
+  let newArr = [];
+  arr.forEach((eachWord) => {
+
+  })
+
+  // for(let i=0; i<wordsUnique.length; i++){
+  //   if(){
+
+  //   }
+  // }
+  console.log(wordsUnique)
+}
 
 // Finding Elements
 var wordsFind = [
@@ -91,7 +178,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(arrayOfWords, wordToSearchFor){
+  let result = false;
+  arrayOfWords.forEach((eachWord)=>{
+    if(eachWord === wordToSearchFor){
+      result = true;
+    }
+  })
+      return result;
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -106,6 +201,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  if(array.length === 0){
+    return false;
+  }
+  let frequency = 0;
+  array.foreach((eachWord)=>{
+    if(eachWord === word){
+      frequency +=1;
+    }
+  })
+  return frequency;
+}
 // Bonus Quest
 
 var matrix = [
