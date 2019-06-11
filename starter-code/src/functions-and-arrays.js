@@ -98,3 +98,103 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+};
+const findLongestWord = (array) =>{
+  let longestWord = '';
+  if(array.length === 0){
+    return undefined;
+  }
+  array.forEach((word)=>{
+    if(longestWord.length < word.length){
+      longestWord = word;
+    }
+  });
+  return longestWord;
+};
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const sumArray = (array) => {
+  if (array.length === 0) {
+    return 0;
+  }
+  return array.reduce(reducer);
+};
+
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  let avg = sumArray(array) / array.length;
+  return avg;
+}
+
+const averageWordLength = (array) => {
+  if (array.length === 0) {
+    return undefined;
+  }
+  let averageSum = 0;
+  array.forEach((word) => {
+    averageSum += word.length
+  })
+  console.log(averageSum);
+  return averageSum / array.length;
+};
+
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  let result = [];
+  array.forEach((word) => {
+    if (result.indexOf(word) === -1) {
+      result.push(word);
+    }
+  });
+  return result;
+}
+
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  let result = false;
+  array.forEach((arrayWord) => {
+    if(arrayWord === word) {
+      result = true;
+    }
+  });
+  return result;
+}
+
+function howManyTimes(array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  let result = 0;
+  array.forEach((arrayWord) => {
+    if(arrayWord === word) {
+      result++;
+    }
+  });
+  return result;
+}
+
+const greatestProduct = (matrix) =>{
+  let product = 0;
+  for(let i = 0; i< matrix.length-4; i++ ) {
+    for(let j = 0; j<matrix[i].length-4; j++ ) {
+      if (product < (matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j+3])){
+        product = (matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]);
+      }
+      if (product < (matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j])) {
+        product = (matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]);
+      }
+    }
+  }
+  return product;
+}
