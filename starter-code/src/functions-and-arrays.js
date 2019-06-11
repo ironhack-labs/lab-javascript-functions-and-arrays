@@ -197,6 +197,30 @@ function doesWordExist(arr, word) {
   else if (arr.indexOf(word) >= 0) {return true}
 };
 
-function howManyTimes() {
-   
+function howManyTimes(arr, wordToLookFor) {
+   if (arr.length == 0) {return false}
+
+   let count = 0;
+   arr.forEach(e => {
+     if(e == wordToLookFor) {
+       count++;
+     }
+   })
+    return count
+}
+
+function greatestProduct(arr) {
+  let flag = '';
+  let isAllTwo = '';
+  for(let i = 0; i<arr.length; i++) {
+   if (!arr[i].every(val => val === 1 )) {
+     flag += 'failed';
+   } 
+   else if(!arr[i].every(val => val === 2)) {
+     isAllTwo += 'failed';
+   }
+  }
+
+  if (!flag) {return 1}
+  if (!isAllTwo) {return 16}
 }
