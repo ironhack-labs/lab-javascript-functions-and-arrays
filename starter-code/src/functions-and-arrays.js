@@ -170,7 +170,7 @@ var wordsCount = [
 
 function howManyTimes(array, wordToCompare) {
   if (array.length === 0) {
-    return undefined; 
+    return false; 
   }
   let wordCounter = 0
 
