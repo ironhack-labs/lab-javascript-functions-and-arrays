@@ -186,6 +186,34 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+let greatProduct = 0;
+function greatestProduct(array){
+  let greatProduct = 0;
+  //HORIZONTAL
+  for(let i = 0; i <= 15; i++){
+    for(let j = 0; j <= array.length - 1; j++){
+  product = array[j][i] * array[j][i+1] * array[j][i+2] * array[j][i+3];
+ if(product > greatProduct){
+    greatProduct = product;
+
+    return greatProduct;
+  } 
+    } 
+  //VERTICAL
+for(let i = 0; i <= 15; i++){
+    for(let j = 0; j <= 15; j++){
+      product = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
+      if(product > greatProduct){
+    greatProduct = product;
+
+    return greatProduct;
+}
+}
+  }
+}
+
+}
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
