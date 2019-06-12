@@ -195,8 +195,6 @@ function greatestProduct(array){
   product = array[j][i] * array[j][i+1] * array[j][i+2] * array[j][i+3];
  if(product > greatProduct){
     greatProduct = product;
-
-    return greatProduct;
   } 
     } 
   //VERTICAL
@@ -205,12 +203,12 @@ for(let i = 0; i <= 15; i++){
       product = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
       if(product > greatProduct){
     greatProduct = product;
-
-    return greatProduct;
 }
 }
   }
 }
+
+return greatProduct;
 
 }
 
