@@ -43,6 +43,9 @@ sumArray(numbers);
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
+  if( arr == false) {
+    return undefined;
+  }
   let total = 0;
     for (i=0; i<arr.length; i++) {
       total += arr[i];
@@ -66,6 +69,9 @@ var words = [
 ];
 
 function averageWordLength(arr) {
+  if( arr == false) {
+    return undefined;
+  }
   let arrayWordLength = [];
   for (i=0; i<arr.length; i++) {
     arrayWordLength.unshift(arr[i].length);
@@ -105,13 +111,17 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  if( arr == false) {
+    return undefined;
+  }
   let uniqueArr = [];
-  for (let i=0; i<arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
     if (uniqueArr.indexOf(arr[i]) === -1) {
       uniqueArr.push(arr[i]);
     }
   }
+  return uniqueArr;
 }
 uniquifyArray(wordsUnique);
 
@@ -127,6 +137,26 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist( arr, str){
+  //console.log(typeof(arr));
+  if( arr === false) {
+    return false;
+  }
+  let count = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(str === arr[i]){
+      count ++;
+    }
+  }
+  if(count > 0){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -141,6 +171,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes( arr, str){
+  if( arr == false) {
+    return false;
+  }
+  let count = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(str === arr[i]){
+      count ++;
+    }
+    console.log(count)
+  }
+  return count;
+}
+
 // Bonus Quest
 
 var matrix = [
