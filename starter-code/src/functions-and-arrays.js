@@ -190,12 +190,23 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function doesWordExist(arr, word) {
-  if(arr.length === 0) {return false}
-  else if (arr.length === 1 && arr[0] === word) {return true}
-  else if (arr.indexOf(word) === -1 ) {return false }
-  else if (arr.indexOf(word) >= 0) {return true}
-};
+// not supposed to use indexOf for this one
+// function doesWordExist(arr, word) {
+//   if(arr.length === 0) {return false}
+//   else if (arr.length === 1 && arr[0] === word) {return true}
+//   else if (arr.indexOf(word) === -1 ) {return false }
+//   else if (arr.indexOf(word) >= 0) {return true}
+// };
+
+function doesWordExist(theWords, searchTerm) {
+  let result = false;
+  theWords.forEach(singleWord => {
+    if(singleWord === searchTerm) {
+      result = true;
+    } 
+  })
+  return result;
+}
 
 function howManyTimes(arr, wordToLookFor) {
    if (arr.length == 0) {return false}
@@ -208,19 +219,44 @@ function howManyTimes(arr, wordToLookFor) {
    })
     return count
 }
+// Passes the tests but doesn't do the actual task, 
+// which I haven't read at the time
+// function greatestProduct(arr) {
+//   let flag = '';
+//   let isAllTwo = '';
+//   for(let i = 0; i<arr.length; i++) {
+//    if (!arr[i].every(val => val === 1 )) {
+//      flag += 'failed';
+//    } 
+//    else if(!arr[i].every(val => val === 2)) {
+//      isAllTwo += 'failed';
+//    }
+//   }
 
-function greatestProduct(arr) {
-  let flag = '';
-  let isAllTwo = '';
-  for(let i = 0; i<arr.length; i++) {
-   if (!arr[i].every(val => val === 1 )) {
-     flag += 'failed';
-   } 
-   else if(!arr[i].every(val => val === 2)) {
-     isAllTwo += 'failed';
-   }
+//   if (!flag) {return 1}
+//   if (!isAllTwo) {return 16}
+// }
+
+function greatestProduct(theMatrix){
+  let greatest = 0;
+
+  theMatrix.forEach((eachRow)=>{
+    for(let i=0; i < eachRow.length - 4; i++){
+      let product = eachRow[i]*eachRow[i+1]*eachRow[i+2]*eachRow[i+3];
+      if(product > greatest){
+        greatest = product;
+      }
+    }
+  })// end each row loop
+
+  for(let i=0; i< theMatrix.length - 4; i++){
+    theMatrix[i].forEach((eachNumber, index)=>{
+      let prod =  theMatrix[i][index] *  theMatrix[i+1][index] * theMatrix[i+2][index] * theMatrix[i+3][index];
+         if(prod > greatest){
+        greatest = prod;
+      }
+    })
   }
 
-  if (!flag) {return 1}
-  if (!isAllTwo) {return 16}
+  return greatest;
 }
