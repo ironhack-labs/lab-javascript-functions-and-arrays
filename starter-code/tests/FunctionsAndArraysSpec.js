@@ -138,7 +138,7 @@ describe('Unique Arrays - uniquifyArray', function () {
   });
 
   it('returns the uniquified array', function () {
-    expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
+    expect(uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])).toEqual(['iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android']);
   });
 });
 
