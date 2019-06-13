@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers (num1, num2) {
+  return Math.max(num1, num2);
+}
 
 // Finding Longest Word
 var words = [
@@ -8,16 +11,66 @@ var words = [
   'crocodile',
   'pearl',
   'orchard',
-  'crackpot'
+  'crackpot',
+  'crocodile',
 ];
+const findLongestWord = words => {
+  if (words.length === 0) 
+  return undefined;
+  
+  if (words.length === 1)
+  return words[0];
+  
+  let max = 0;
+  let multiple = [0, ''];
+  let longest = 0;
+  for (let x = 0; x < words.length; x += 1) {
+    if (words[x].length > max) {
+      max = words[x].length;
+      longest = words[x];
+      multiple = [0, words[x]];
+    }
+    else if (words[x].length === max) 
+    multiple[0] = 1;
+    
+    
+    // let lastIndex = words.indexOf(words[x], x + 1);
+    //   if (lastIndex !== -1) {
+    //     multiple = [1, words[x]];
+    //     do {
+    //       words.splice(lastIndex, 1);
+    //       lastIndex = words.indexOf(words[x], x + 1);
+    //     } while (lastIndex !== -1)         
+    //   }
+    //   else
+    //     multiple = [0, ''];
+    
+  }
+  
+  if(multiple[0] === 1) 
+  return multiple[1];
+  
+  return longest;
+}
+console.log(findLongestWord(words));
 
 // Calculating a Sum
-
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumArray = numbers => {
+  if (numbers.length === 0)
+  return 0;
+  return numbers.reduce((a, b) => a + b);
+}
+sumArray(numbers);
 
 // Calculate the Average
-
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = average => {
+  if (average.length === 0)
+  return;
+  return sumArray(average) / average.length;
+}
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +85,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = words => {
+  if (words.length === 0)
+  return;
+  let sum = 0;
+  for (let x = 0; x < words.length; x += 1) {
+    sum += words[x].length;
+  }
+  return sum / words.length;
+}
+averageWordLength(wordsArr);
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +113,19 @@ var wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = words => {
+  if (words.length === 0)
+  return;
+  words.forEach((value, index) => {
+    let lastIndex = 0;
+    do {
+      lastIndex = words.indexOf(value, index + 1);
+      lastIndex !== -1 ? words.splice(lastIndex, 1) : false;
+    } while (lastIndex !== -1);
+  });
+  return words;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +137,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+const doesWordExist = (list, word) => {
+  if (list.length === 0)
+  return false;
+  
+  let wordInList = false;
+  list.forEach(value => {
+    if (value === word)
+    wordInList = true;
+  });
+  return wordInList;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +163,19 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+const howManyTimes = (list, word) => {
+  if (list.length === 0)
+    return false;
+  
+  let wordCount = 0;
+  list.forEach(value => {
+    if (value === word)
+      wordCount += 1;
+  });
+
+  return wordCount;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +200,22 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+const greatestProduct = matrix => {
+  let max = 0;
+  for (let i = 0; i < 17; i += 1) {
+    for (let j = 0; j < 20; j += 1) {
+      let product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > max)
+        max = product;
+    }
+  }
+  for (let i = 0; i < 20; i += 1) {
+    for (let j = 0; j < 17; j += 1) {
+      let product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > max)
+        max = product;
+    }
+  }
+  return max;
+}
+greatestProduct(matrix);
