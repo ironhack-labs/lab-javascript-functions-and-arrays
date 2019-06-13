@@ -66,8 +66,6 @@ function findLongestWord(someArray){
 //   str= longestString;
 //   return str.length;
 // }
-findLongestWord(words);
-
 
 // function findLongestWord (theArr){
 //   let lgth = 0;
@@ -81,28 +79,42 @@ findLongestWord(words);
 //     }
 //   }
 // }
-
+findLongestWord(words);
 
 // Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(acc, val){
- let summ = acc + val;
- return summ;
+function sumArray(arrOfNums){
+  let total = 0;
+  arrOfNums.forEach((eachNumber)=>{
+    total += eachNumber;
+  })
+  return total;
 }
-console.log(numbers.reduce(sumArray));
+// function sumArray(acc, val){
+//  let summ = acc + val;
+//  return summ;
+// }
+// console.log(numbers.reduce(sumArray));
 
 // Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg){
-  let ave = 0;
-  for(let i = 0; i < numbersAvg.length; i++){ 
-    ave += numbersAvg[i];  
+function averageNumbers(arrOfNums){
+  if(arrOfNums.length ===0){
+    return undefined;
   }
-  let newAve = ave/numbersAvg.length; 
-  return newAve;
+  return sumArray(arrOfNums)/arrOfNums.length;
 }
+
+// function averageNumbers(numbersAvg){
+//   let ave = 0;
+//   for(let i = 0; i < numbersAvg.length; i++){ 
+//     ave += numbersAvg[i];  
+//   }
+//   let newAve = ave/numbersAvg.length; 
+//   return newAve;
+// }
 
 
 // Array of Strings
@@ -118,14 +130,17 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
-function averageWordLength (arrWords){
-  arrWords.forEach((eachSingleWord)=>{
+function averageWordLength(arrOfWords){
+  if(arrOfWords.length ===0){
+    return undefined;
+  }
+  let total = 0;
+  arrOfWords.forEach((eachSingleWord)=>{
     total += eachSingleWord.length;
   })
-  return total/arrWords.length;
+  return total / arrOfWords.length;
 }
-console.log(averageWordLength(wordsArr));
+
 // function averageWordLength (arrWords){
 //   let numLetters = 0;
 //   let aveWord = 0;
@@ -153,19 +168,27 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-function uniquifyArray(wordsUnique){
-  let newArr = [];
-  arr.forEach((eachWord) => {
 
+function uniquifyArray(arr){
+  if(arr.length ===0){return undefined}
+  let newArray = [];
+  arr.forEach((eachWord)=>{
+    if(newArray.indexOf(eachWord) === -1){
+      newArray.push(eachWord);
+    }
   })
-
-  // for(let i=0; i<wordsUnique.length; i++){
-  //   if(){
-
-  //   }
-  // }
-  console.log(wordsUnique)
+  return newArray;
 }
+// function uniquifyArray(wordsUnique){
+//   let newArr = [];
+//   arr.forEach((eachWord) => {
+//   })
+//   // for(let i=0; i<wordsUnique.length; i++){
+//   //   if(){
+//   //   }
+//   // }
+//   // console.log(wordsUnique)
+// }
 
 // Finding Elements
 var wordsFind = [
@@ -203,11 +226,9 @@ var wordsCount = [
 ];
 
 function howManyTimes(array, word){
-  if(array.length === 0){
-    return false;
-  }
+  if(array.length ===0){return false}
   let frequency = 0;
-  array.foreach((eachWord)=>{
+  array.forEach((eachWord)=>{
     if(eachWord === word){
       frequency +=1;
     }
@@ -215,7 +236,6 @@ function howManyTimes(array, word){
   return frequency;
 }
 // Bonus Quest
-
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
