@@ -79,6 +79,17 @@ var wordsArr = [
   "palace"
 ];
 
+function averageWordLength(wordsArr) {
+  let sum = 0;
+  if (wordsArr.length === 0) {
+    return undefined;
+  }
+  for (let index = 0; index < wordsArr.length; index++) {
+    sum += wordsArr[index].length;
+  }
+  return sum / wordsArr.length;
+}
+
 // Unique Arrays
 var wordsUnique = [
   "crab",
@@ -94,6 +105,19 @@ var wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(wordsUnique) {
+  let newWords = [];
+  if (wordsUnique.length === 0) {
+    return undefined;
+  }
+  for (let index = 0; index < wordsUnique.length; index++) {
+    if (newWords.indexOf(wordsUnique[index]) < 0) {
+      newWords.push(wordsUnique[index]);
+    }
+  }
+  return newWords;
+}
+
 // Finding Elements
 var wordsFind = [
   "machine",
@@ -105,6 +129,15 @@ var wordsFind = [
   "truth",
   "disobedience"
 ];
+
+function doesWordExist(wordsFind, word) {
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === word) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -120,6 +153,19 @@ var wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(wordsCount, word) {
+  if (wordsCount.length === 0) {
+    return false;
+  }
+  let counter = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === word) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
 // Bonus Quest
 
 var matrix = [
