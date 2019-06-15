@@ -1,4 +1,13 @@
+
 // Find the maximum
+function maxOfTwoNumbers(x,y) {
+  if (x > y) {
+    return x;
+  } else {
+    return y;
+  }
+}
+
 
 // Finding Longest Word
 var words = [
@@ -92,12 +101,14 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(x) {
+  if (x.length === 0) {
+    return undefined;
+  } 
   let result = [];
   for (let i = 0; i < x.length; i += 1) {
     if (x.indexOf(x[i],i+1) === -1) {
       result.push(x[i]);
     }
-    
   }
   return result;
 }
@@ -145,6 +156,9 @@ var wordsCount = [
 ];
 
 function howManyTimes(x, word) {
+  if (x.length === 0) {
+    return false;
+  }
   let count = 0;
   for ( let i = 0; i < x.length; i++){
     if(x[i] === word){
@@ -185,7 +199,7 @@ function greatestProduct(matrix) {
   let product = []
   for (let i = 1; i < matrix.length-1; i += 1) {
     for(let j = 1; j < matrix.length-1; j += 1) {
-       product.push(matrix[i][j] * matrix[i+1][j] * matrix[i-1][j] * matrix[i][j+1] * matrix[i][j-1]);
+       product.push(matrix[i+1][j] * matrix[i-1][j] * matrix[i][j+1] * matrix[i][j-1]);
     }
   }
   return Math.max(...product);
