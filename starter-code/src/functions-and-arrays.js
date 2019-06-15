@@ -1,7 +1,14 @@
 // Find the maximum
 
+const maxOfTwoNumbers = (n, m) => {
+  if (n > m) return n;
+  return m;
+}
+
+console.log(maxOfTwoNumbers(1, 2));
+
 // Finding Longest Word
-var words = [
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -11,13 +18,45 @@ var words = [
   'crackpot'
 ];
 
+const findLongestWord = words => {
+  
+  var length = 0;
+  var longest;
+  
+  for (let i = 0; i < words.length; i++) {
+    
+    if (words[i].length > length) {
+      var length = words[i].length;
+      longest = words[i];
+    }
+  }
+  return longest;
+}
+
+console.log(findLongestWord(words));
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = numbers => numbers.reduce(sum);
+
+console.log(sumArray(numbers));
+
+function sum (total, num) {
+  return total + num;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = numbers => {
+  let total = numbers.reduce(sum);
+  return total / numbers.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +71,13 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = words => {
+  let totalWords = words.join('');
+  return totalWords.length / words.length;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,7 +94,14 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+const uniquifyArray = words => {
+  
+  return words.filter((elem, index, self) => index === self.indexOf(elem));
+}
+
+console.log(uniquifyArray(wordsUnique));
+
+// Words to Find
 var wordsFind = [
   'machine',
   'subset',
@@ -59,6 +112,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (words, wordToLookFor) => {
+  if (words.some(word => word === wordToLookFor)) return true;
+  
+  return false;
+}
+console.log(doesWordExist(wordsFind, 'machine'));
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +134,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (words, wordToFind) => words.filter(word => word === wordToFind).length;
+
+console.log(howManyTimes(wordsCount, 'matter'));
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +163,16 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+  
+  let newMatrix = [];
+  let results = []
+
+  newMatrix.push(matrix[0].splice(0, 4));
+  results.push(newMatrix[0].reduce((a, b) => a * b));
+
+  return results;
+}
+
+console.log(greatestProduct(matrix));
