@@ -32,13 +32,32 @@ console.log("result: ", findLongestWord(words));
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(arrayOfNums) {
-  let total = 0;
-  arrayOfNums.forEach(eachSingleNumber => {
-    total += eachSingleNumber;
+// function sumArray(arrayOfNums) {
+//   let total = 0;
+//   arrayOfNums.forEach(eachSingleNumber => {
+//     total += eachSingleNumber;
+//   });
+//   return total;
+// }
+
+// OR
+
+function sumArray(arrNum) {
+  return arrNum.reduce((accumulator, currentValue) => {
+    // console.log(accumulator,"  " currentValue);
+    return accumulator + currentValue;
   });
-  return total;
 }
+console.log(sumArray(numbers));
+
+// OR
+
+// const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// function sumArray(arrNum) {
+//   return arrNum.reduce(reducer);
+// }
+// console.log(sumArray(numbers));
 
 // Calculate the Average
 
