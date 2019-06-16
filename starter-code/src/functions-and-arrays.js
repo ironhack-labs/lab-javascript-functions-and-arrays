@@ -18,14 +18,15 @@ var words = [
 ];
 
 function findLongestWord(arrayOfWords) {
-  let longest = arrayOfWords[0];
-  arrayOfWords.forEach(eachSingleWord => {
-    if (eachSingleWord.length > longest.length) {
-      longest = eachSingleWord;
+  let longestWord = "";
+  arrayOfWords.forEach(curentWord => {
+    if (curentWord.length > longestWord.length) {
+      longestWord = curentWord;
     }
   });
-  return longest;
+  return longestWord;
 }
+console.log("result: ", findLongestWord(words));
 
 // Calculating a Sum
 
