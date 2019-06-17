@@ -64,21 +64,27 @@ console.log(sumArray(numbers));
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNums) {
-  if (arrOfNums.length === 0) {
-    return undefined;
-  }
+  // if (arrOfNums.length === 0) {
+  //   return undefined;
+  // } error checking
   return sumArray(arrOfNums) / arrOfNums.length;
 }
 
+console.log(averageNumbers(numbers));
+
+// AVERAGE WORD LENGTH
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageWordLength(theArray) {
-  let newArray = [];
-  theArray.forEach(eachWord => {
-    newArray.push(eachWord.length);
+function averageWordLength(arrOfWords) {
+  // iterate through array
+  let wordSum = 0;
+  arrOfWords.forEach(eachWord => {
+    wordSum += eachWord.length;
   });
-  return averageNumbers(newArray);
+  return wordSum / arrOfWords.length;
 }
+
+console.log(averageWordLength(words));
 
 // Array of Strings
 var wordsArr = [
