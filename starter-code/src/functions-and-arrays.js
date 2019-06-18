@@ -1,81 +1,172 @@
 // Find the maximum
+function maxOfTwoNumbers(x, y) {
+  if (x > y) {
+    return x;
+  } else {
+    return y;
+  }
+}
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+let words = ["a"];
+
+let longestWord = [];
+
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return undefined;
+  } else if (words.length === 1) {
+    return words[0];
+  }
+
+  let longestWord = [];
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumArray = numbers => {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+};
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = numbersAvg => {
+  if (numbersAvg.length === 0) {
+    return undefined;
+  }
+  return sumArray(numbersAvg) / numbersAvg.length;
+};
 
 // Array of Strings
-var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+let wordsArr = [
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace"
 ];
+
+const averageWordLength = wordsArr => {
+  if (wordsArr.length === 0) {
+    return undefined;
+  }
+  let sumWordsArr = 0;
+  for (let r = 0; r < wordsArr.length; r++) {
+    sumWordsArr += wordsArr[r].length;
+  }
+  return sumWordsArr / wordsArr.length;
+};
 
 // Unique Arrays
-var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+let wordsUnique = [
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
 ];
+
+const uniquifyArray = wordsUnique => {
+  if (wordsUnique.length === 0) {
+    return undefined;
+  }
+
+  wordArray = [];
+  for (let q = 0; q < wordsUnique.length; q++) {
+    if (wordsUnique.indexOf(wordsUnique[q]) === q) {
+      wordArray.push(wordsUnique[q]);
+    }
+  }
+  return wordArray;
+};
 
 // Finding Elements
-var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+let wordsFind = [
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
+
+const doesWordExist = (wordsFind, word) => {
+  if (wordsFind.length === 0) {
+    return false;
+  }
+  let wordInArray;
+  for (let z = 0; z < wordsFind.length; z++) {
+    if (wordsFind[z] === word) {
+      wordInArray = word;
+    }
+  }
+
+  if (wordInArray) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 // Counting Repetion
-var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+let wordsCount = [
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
-// Bonus Quest
 
+const howManyTimes = (wordsCount, word) => {
+  if (wordsCount.length === 0) {
+    return false;
+  }
+
+  let countWords = 0;
+
+  for (let y = 0; y < wordsCount.length; y++) {
+    if (wordsCount[y] === word) {
+      countWords += 1;
+    }
+  }
+  return countWords;
+};
+
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -98,3 +189,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = () => {}
