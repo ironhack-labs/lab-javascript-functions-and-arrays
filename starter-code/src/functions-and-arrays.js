@@ -1,4 +1,11 @@
-// Find the maximum
+//Find the maximum
+
+function maxOfTwoNumbers (num1, num2){
+  if (num1 > num2) {
+    return num1;
+  }else return num2;
+}
+//console.log (maxOfTwoNumbers(5,20)) => 20
 
 // Finding Longest Word
 var words = [
@@ -11,18 +18,56 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(Lwords){
+  if(Lwords.length ===0){
+    return undefined;
+  }
+  let longest = "";
+  Lwords.forEach((eachSingleWord)=>{
+    if(eachSingleWord.length > longest.length){
+      longest = eachSingleWord;
+    }
+  })
+  return longest;
+}
+//console.log(findLongestWord()) => crocodile
+
+
+// Calculating a Sum 
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (sumNums){
+  let sum = 0;
+  sumNums.forEach((addNum)=>{
+    sum += addNum;
+  })
+  return sum;
+}
+//console.log(sumArray()) => 87
+
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(avgArray){
+  let sumNum = 0;
+  avgArray.forEach((addNum)=>{
+    sumNum += addNum;
+    return sumNum ;  //sum 48
+  })
+  let avgNum = sumNum / numbers.length;
+  return avgNum;
+}
+//console.log (averageNumbers())  //avg 6
+//console.log (numbers.length) // 8
+
+
+/*
 // Array of Strings
 var wordsArr = [
   'seat',
-  'correspond',
+  'correspond'
   'linen',
   'motif',
   'hole',
@@ -98,3 +143,28 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+
+
+
+
+
+// IN CLASS OVERVEIW
+//Submission Upon completion, run the following commands
+//$ git add .    $ git commit -m 'done'   $ git push origin master
+//Navigate to your repo and create a Pull Request -from your master branch to the original repository master branch.  In the Pull request name, add your name and last names separated by a dash '-'
+
+//Pass the tests
+
+//You have to write your code on the src/functions-and-arrays.js file. Following the instructions, you should go step by step passing all the tests.
+
+//Do not rush to go through all of them at once, take your time to read carefully about what the iteration is asking you, and solve the errors one by one.
+
+//When coding with tests, is super important to read and understand the errors we are having for each test, this way we will know what it expect from your code.
+
+//DeliverablesAll our work will be located in the functions-and-arrays.js file, so that will be enough. Anyway, you have to push the whole repo to Github.
+
+
+*/
