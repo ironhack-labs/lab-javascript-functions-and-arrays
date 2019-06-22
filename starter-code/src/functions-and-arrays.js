@@ -1,15 +1,15 @@
 // Find the maximum
+function maxOfTwoNumbers(number1, number2) {
+  return Math.max(number1, number2)
+}
 
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+function findLongestWord(listOfWords) {
+  // TODO !!!!!
+  return undefined; // TODO !!!!!
+}
+
+
 
 // Calculating a Sum
 
