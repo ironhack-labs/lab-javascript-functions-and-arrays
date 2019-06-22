@@ -72,8 +72,6 @@ function averageNumbers(array) {
   }
 }
 
-average(numbersAvg);
-
 // Array of Strings
 var wordsArr = [
   "seat",
@@ -87,6 +85,20 @@ var wordsArr = [
   "fuel",
   "palace"
 ];
+
+function averageWordLength(array) {
+  if (array.length == 0) {
+    return undefined;
+  }
+
+  let lengthCounter = 0;
+  array.forEach(function(str) {
+    lengthCounter += str.length;
+  });
+  let averageLength = lengthCounter / array.length;
+
+  return averageLength;
+}
 
 // Unique Arrays
 var wordsUnique = [
