@@ -1,6 +1,15 @@
 // Find the maximum
-
+function maxOfTwoNumbers(number1, number2){
+  return Math.max(number1, number2)
+}
 // Finding Longest Word
+function findLongestWord(array){
+  array.sort(function(a, b){
+    return b.length - a.length;
+  })
+  return array[0]
+}
+
 var words = [
   'mystery',
   'brother',
@@ -11,11 +20,19 @@ var words = [
   'crackpot'
 ];
 
+
 // Calculating a Sum
+function sumArray(array){
+  let reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return array.reduce(reducer, 0)
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+function averageNumber(array){
+    return sumArray(array)/array.length
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
