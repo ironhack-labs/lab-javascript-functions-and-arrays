@@ -15,20 +15,49 @@ var words = [
   "crackpot"
 ];
 
-function findLongestWord(array) {
-  array.sort(function(a, b) {
-    return b.length - a.length;
-  });
-  return array[0];
-}
+// function findLongestWord(array) {
+//   array.sort(function(a, b) {
+//     return b.length - a.length;
+//   });
+//   return array[0];
+//}
 
 // write solution in which we store the longest
 
+function findLongestWord(array) {
+  if (array.length == 0) {
+    return undefined;
+  }
+
+  let maxLength = 0;
+  let result = "";
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length > maxLength) {
+      maxLength = array[i].length;
+      result = array[i];
+    }
+  }
+
+  return result;
+}
+
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// function sumArray(array) {
+//   let reducer = (accumulator, currentValue) => accumulator + currentValue;
+//   return array.reduce(reducer, 0);
+// }
+
+// simpler way
+
 function sumArray(array) {
-  let reducer = (accumulator, currentValue) => accumulator + currentValue;
-  return array.reduce(reducer, 0);
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
 }
 
 // Calculate the Average
