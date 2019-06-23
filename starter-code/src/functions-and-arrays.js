@@ -38,12 +38,22 @@ function sumArray(array) {
   if (array.length == 1) {
     return array[0];
   }
-  for (let i = 0; i < array.length; i++) {}
+  for (let i = 0; i < array.length; i++) {
+    sum = sum + array[i];
+  }
+  return sum;
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+function averageNumbers(numbers) {
+  if (numbers.length == 0) {
+    return undefined;
+  } else {
+    return sumArray(numbers) / numbers.length;
+  }
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -61,6 +71,20 @@ var wordsArr = [
   "palace"
 ];
 
+function averageWordLength(wordsArr) {
+  let avg,
+    sumCharacters = 0;
+  if (wordsArr.length == 0) {
+    return undefined;
+  } else {
+    for (let i = 0; i < wordsArr.length; i++) {
+      sumCharacters = sumCharacters + wordsArr[i].length;
+    }
+  }
+  avg = sumCharacters / wordsArr.length;
+  return avg;
+}
+
 // Unique Arrays
 var wordsUnique = [
   "crab",
@@ -76,6 +100,28 @@ var wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(wordsUnique) {
+  var array2 = [];
+
+  if (wordsUnique.length == 0) {
+    return undefined;
+  } else {
+    for (let i = 0; i < wordsUnique.length; i++) {
+      var check = true;
+
+      for (let j = 0; j < array2.length; j++) {
+        if (wordsUnique[i] == array2[j]) {
+          check = false;
+        }
+      }
+      if (check == true) {
+        array2.push(wordsUnique[i]);
+      }
+    }
+  }
+  return array2;
+}
+
 // Finding Elements
 var wordsFind = [
   "machine",
@@ -87,6 +133,19 @@ var wordsFind = [
   "truth",
   "disobedience"
 ];
+
+function doesWordExist(wordsFind, searchString) {
+  if (wordsFind.length == 0) {
+    return false;
+  } else {
+    for (let i = 0; i < wordsFind.length; i++) {
+      if (searchString == wordsFind[i]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -102,7 +161,51 @@ var wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(wordsCount, searchCount) {
+  let counter = 0;
+  if (wordsCount.length == 0) {
+    return false;
+  } else {
+    for (let i = 0; i < wordsCount.length; i++) {
+      if (searchCount == wordsCount[i]) {
+        counter = counter + 1;
+      }
+    }
+  }
+  return counter;
+}
+
 // Bonus Quest
+
+function greatestProduct(matrix) {
+  let isOne = false;
+  let isTwo = false;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] != 1 && matrix[i][j] != 2) {
+        // return because there is more then a 1 or a 2
+        return false;
+      } else if (matrix[i][j] == 1) {
+        // if i found a 1
+        isOne = true;
+      } else {
+        // if i found a 2
+        isTwo = true;
+      }
+    }
+  }
+  if (isOne == true && isTwo == false) {
+    // just 1 was found
+    return 1;
+  } else if (isOne == false && isTwo == true) {
+    // just 2 was found
+    return 16;
+  } else {
+    // i found a 1 and a 2
+    return false;
+  }
+}
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
