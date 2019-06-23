@@ -115,6 +115,20 @@ var wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+
+  uniqueArray = [];
+  array.forEach(string => {
+    if (uniqueArray.indexOf(string) === -1) {
+      uniqueArray.push(string);
+    }
+  });
+  return uniqueArray;
+}
+
 // Finding Elements
 var wordsFind = [
   "machine",
@@ -126,6 +140,23 @@ var wordsFind = [
   "truth",
   "disobedience"
 ];
+
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  let wordFound;
+  array.forEach(string => {
+    if (string === word) {
+      wordFound = true;
+    }
+  });
+  if (wordFound === true) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -141,6 +172,22 @@ var wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(array, str) {
+  if (array.length === 0) {
+    return false;
+  }
+
+  let wordCount = 0;
+
+  array.forEach(word => {
+    if (str === word) {
+      wordCount += 1;
+    }
+  });
+  return wordCount;
+}
+
 // Bonus Quest
 
 var matrix = [
