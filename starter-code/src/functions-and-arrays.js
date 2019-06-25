@@ -94,9 +94,19 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength 
+function averageWordLength(wordsArr) {
+  let runningTotal = 0;
+  for(let i=0; i<wordsArr.length; i++) {
+    runningTotal += wordsArr[i].length;
+  }
 
+  let avg = runningTotal / wordsArr.length;
 
+  console.log(`Average is ${avg}`)
+  return avg; 
+}
+
+averageWordLength(wordsArr);
 
 
 // Unique Arrays
@@ -114,6 +124,37 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words) {
+
+  // For each word, check the subsequent words for a match...
+  // ... if a match is found, log the indexes of the subsequent words
+
+  let indexesOfWordsToRemove = [];
+
+  for(let i=0; i<words.length; i++) {
+    
+    for(let j=i+1; j<words.length; j++) {
+      if(words[i] === words[j]) {
+        indexesOfWordsToRemove.push(j);
+      }
+    }
+  }
+  
+  // Remove words at the logged indexes to remove
+
+  let wordsUniquified = words;
+
+  for(let i=0; i<indexesOfWordsToRemove.length; i++) {
+    wordsUniquified.splice(indexesOfWordsToRemove[i], 1);
+  }
+
+  console.log(`Uniquified array is ${wordsUniquified}`);
+  return wordsUniquified;
+}
+
+uniquifyArray(wordsUnique);
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -125,6 +166,22 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(words, wordToFind) {
+  for(let i=0; i<words.length; i++) {
+    if(words[i].toLowerCase() === wordToFind.toLowerCase()) {
+      console.log("Word found!");
+      return true; 
+    }
+  }
+  console.log("Word not found!");
+  return false;
+}
+
+doesWordExist(wordsFind, "machine");
+doesWordExist(wordsFind, "truth");
+doesWordExist(wordsFind, "goat");
+
 
 // Counting Repetion
 var wordsCount = [
@@ -140,6 +197,25 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words, wordToFind) {
+  let counter = 0;
+
+  for(let i=0; i<words.length; i++) {
+    if(words[i].toLowerCase() === wordToFind.toLowerCase()) {
+      counter++
+    }    
+  }
+
+  console.log(`Found word ${counter} times`);
+  return counter;
+}
+
+howManyTimes(wordsCount, "matter");
+howManyTimes(wordsCount, "sheep");
+howManyTimes(wordsCount, "Disobedience");
+
+
 // Bonus Quest
 
 var matrix = [
@@ -164,3 +240,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
