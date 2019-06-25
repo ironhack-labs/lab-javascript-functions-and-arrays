@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+  return a > b ? a : b;
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +14,26 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array) {
+  return array.length > 0 ? array.reduce((largest, word) => word.length > largest.length ? word : largest) : undefined;
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+  return array.length > 0 ? array.reduce((sum, element) => sum + element) : 0;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  return array.length > 0 ? array.reduce((sum, element) => sum + element) / array.length : undefined;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +48,10 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array) {
+  return array.length > 0 ? array.reduce((sum, element) => sum + element.length, 0) / array.length : undefined;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +68,10 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  return array.length > 0 ? array.filter((elem, i, array) => i < array.length - 1 ? array.indexOf(elem, i+1) === -1 : true) : undefined;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +83,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, searchFor) {
+  return array.filter(elem => elem === searchFor).length > 0;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +102,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, searchFor) {
+  return array.length > 0 ? array.filter(elem => elem === searchFor).length : false;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +131,17 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  const size = 20;
+  let max = 0;
+  for (let column = 0; column < 20; column ++) {
+    for (let row = 0; row < 16; row ++) {
+      let current1 = matrix[column][row] * matrix[column][row + 1] * matrix[column][row + 2] * matrix[column][row + 3];
+      if (current1 > max) max = current1;
+      current1 = matrix[row][column] * matrix[row + 1][column] * matrix[row + 2][column] * matrix[row + 3][column];
+      if (current1 > max) max = current1;
+    }
+  }
+  return max;
+}
