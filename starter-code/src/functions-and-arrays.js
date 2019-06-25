@@ -485,3 +485,54 @@ var matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let indexStart = 0;
+let indexYStart = 0;
+let maxProductHorizontal = 0;
+let maxProductVertical = 0;
+
+function largestHorizontalProduct(array) {
+  for (i = 0; i < array.length; i++) {
+    let currentSubArray = array[i];
+    for (j = 0; j < currentSubArray.length; j++) {
+      let product =
+        currentSubArray[indexStart] *
+        currentSubArray[indexStart + 1] *
+        currentSubArray[indexStart + 2] *
+        currentSubArray[indexStart + 3];
+      indexStart += 1;
+      if (product > maxProductHorizontal) {
+        maxProductHorizontal = product;
+      }
+    }
+  }
+  return maxProductHorizontal;
+}
+
+function largestVerticalProduct(array) {
+  for (i = 0; i < array.length; i++) {
+    let currentSubArray = array[i];
+    let verticalProduct =
+      currentSubArray[indexYStart] *
+      currentSubArray[indexYStart + 1] *
+      currentSubArray[indexYStart + 2] *
+      currentSubArray[indexYStart + 3];
+    indexYStart += 1;
+    if (verticalProduct > maxProductVertical) {
+      maxProductVertical = verticalProduct;
+    }
+  }
+  return maxProductVertical;
+}
+
+function greatestProduct(array) {
+  let largestProduct;
+  if (largestHorizontalProduct(array) > largestVerticalProduct(array)) {
+    largestProduct = largestHorizontalProduct(array);
+  } else {
+    largestProduct = largestVerticalProduct(array);
+  }
+  return largestProduct;
+}
+
+greatestProduct(array);
