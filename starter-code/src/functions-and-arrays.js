@@ -241,4 +241,59 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+function greatestProduct(matrix) {
 
+  let maxOutput = 0;
+  let maxStartingElementPos = [];
+  let outputDirection = "";
+
+  // Loop over rows
+  for(let i=0; i<matrix.length; i++) {
+
+    // Loop over elements within row, but don't go too far
+    for(let j=0; j<matrix[i].length - 4 + 1; j++) {
+
+      // Get array of n elements to multiply
+      let elementsToMultiply = matrix[i].slice(j, j + 4)  // Takes up to but not including
+      
+      let output = elementsToMultiply.reduce( (accum, currValue) => accum * currValue, 1 );
+
+      if(output > maxOutput) {
+        maxOutput = output;
+        maxStartingElementPos = [i,j];
+        outputDirection = "across";
+      } 
+    }
+  }
+
+  // Loop over columns
+  for(let i=0; i<matrix[0].length; i++) {
+
+    // Loop over elements within column, but don't go too far
+    for(let j=0; j<matrix.length - 4 + 1; j++) {
+
+      // Get array of n elements to multiply
+      let elementsToMultiply = []
+      elementsToMultiply.push(matrix[j][i])
+      elementsToMultiply.push(matrix[j+1][i])
+      elementsToMultiply.push(matrix[j+2][i])
+      elementsToMultiply.push(matrix[j+3][i])
+      
+      let output = elementsToMultiply.reduce( (accum, currValue) => accum * currValue, 1 );
+
+      if(output > maxOutput) {
+        maxOutput = output;
+        maxStartingElementPos = [i,j];
+        outputDirection = "down";
+      } 
+    }
+  }
+
+  console.log(`Greatest product is: ${maxOutput}`);
+  console.log(`Greatest product found at element: ${maxStartingElementPos}`);
+  console.log(`Direction is: ${outputDirection}`);
+  return maxOutput;
+
+}
+
+greatestProduct(matrix);
