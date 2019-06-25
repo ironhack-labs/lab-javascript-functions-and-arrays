@@ -1,10 +1,12 @@
-// Find the maximum
-function maxOfTwoNumbers(number1, number2){
+// [Ironhack] Find the maximum
+function maxOfTwoNumbers(number1, number2) {
   return Math.max(number1, number2)
 }
-// Finding Longest Word
-function findLongestWord(array){
-  array.sort(function(a, b){
+// [Ironhack] Finding Longest Word
+//[Bana]
+//sort words by word length in decending order with the sort method and a compare function. Then return the word on index 0
+function findLongestWord(array) {
+  array.sort(function (a, b) {
     return b.length - a.length;
   })
   return array[0]
@@ -21,22 +23,37 @@ var words = [
 ];
 
 
-// Calculating a Sum
-function sumArray(array){
+// [Ironhack] Calculating a Sum
+// [Bana] use the reduce method and start with an initial value of "0" since we don't know the initial value of the array
+function sumArray(array) {
   let reducer = (accumulator, currentValue) => accumulator + currentValue;
   return array.reduce(reducer, 0)
 }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
-function averageNumber(array){
-    return sumArray(array)/array.length
+// [Ironhack] Calculate the Average
+// [Bana] check if array only includes numbers, then divide sum by array length
+function averageNumbers(array) {
+  if (array.every(function (element) { return typeof element === "number" }) && array.length > 0) {
+    return sumArray(array) / array.length
+  }
 }
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+// [Ironhack] Array of Strings
+// [Bana]
+// join all elements of the array to one word with join() menthod
+// check the length of the word (sumLetters) and divide it by the length of the array (array.length)
+function averageWordLength(array) {
+  if (array.length > 0) {
+    let sumLetters = array.join('').length
+
+    return sumLetters / array.length
+  }
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -50,7 +67,22 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+// [Ironhack] Unique Arrays
+// [Bana] 
+// use the filter & indexOf method to create a new array of unique words
+// since array.indexOf(element) returns the index of the first appearnace of that element in that array, 
+// check if indexOf() the current element is equal to the current index
+// if the element appears for the first time, indexOf() should be equal to current index
+// if the element is repeated, then it's on a higher index than the first appearance of that element. 
+// Hence, indexOf() of that repeated element won't equal array.indexOf(element) 
+function uniquifyArray(array) {
+  if(array.length > 0){
+    let uniqueArray = array.filter((element, index) => array.indexOf(element) === index) 
+    return uniqueArray
+  }
+}
+
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -65,7 +97,16 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+// [Ironhack] Finding Elements
+// [Bana] use include method in order to check if the word exists in that array 
+function doesWordExist(array, word) {
+  if(array.length > 0) {
+    return array.includes(word)
+  }
+  else{
+    return false
+  }
+}
 var wordsFind = [
   'machine',
   'subset',
@@ -77,7 +118,21 @@ var wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetion
+// [Ironhack] Counting Repetion
+// [Bana] 
+// use filter method in oder to create a new array which filters each element of that array that's equal to that word
+// and then return the length of that filtered array in order to get the number of times that word appears
+
+function howManyTimes(array, word) {
+  if(array.length > 0){
+    let wordRepetition = array.filter(element => element === word)
+    return wordRepetition.length
+  }
+  else{
+    return false
+  }
+}
+
 var wordsCount = [
   'machine',
   'matter',
@@ -91,7 +146,86 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
+// [Ironhack] Bonus Quest 
+//[Bana] NOT WORKING YET
+// Those two functions not working: greatestProductUpToDown(grid) & greatestProductDownToUp(grid)
+function greatestProduct(grid){
+  let greatestProduct = Math.max(greatestProductLeftToRight(grid),greatestProductRightToLeft(grid),greatestProductUpToDown(grid),greatestProductDownToUp(grid))
+  return greatestProduct
+}
+
+// find the greatest product from left to right
+let greatestProductLeft = 0
+function greatestProductLeftToRight(grid){
+  for(i = 0; i < grid.length; i++){
+    for(j = 0; j < grid[i].length; j++){
+      //multiply grid[i][j] with the next 3 elements in that array if those elements exists
+      //assign the value of the product to the global variable greatestProductLeft if the product is greater than the current value of greatestProductLeft
+      if(doesWordExist(grid[i], grid[i][j+1]) && doesWordExist(grid[i], grid[i][j+2]) && doesWordExist(grid[i], grid[i][j+3])){ 
+        if(grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3] > greatestProductLeft) {
+          greatestProductLeft = grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3] 
+        }
+      }
+      }
+
+    }
+    return greatestProductLeft
+  }
+
+
+
+// find the greatest product from right to left
+let greatestProductRight = 0
+function greatestProductRightToLeft(grid){
+  for(i = 0; i < grid.length; i++){
+    for(j = grid[i].length - 1; j >= 0; j--){
+      //multiply grid[i][j] with the previous 3 elements in that array if those elements exists
+      //assign the value of the product to the global variable greatestProductRight if the product is greater than the current value of greatestProductRight
+      if(doesWordExist(grid[i], grid[i][j-1]) && doesWordExist(grid[i], grid[i][j-2]) && doesWordExist(grid[i], grid[i][j-3])){
+        if(grid[i][j]*grid[i][j-1]*grid[i][j-2]*grid[i][j-3] > greatestProductRight){
+          greatestProductRight = grid[i][j]*grid[i][j-1]*grid[i][j-2]*grid[i][j-3]
+        }
+      }
+
+    }
+    return greatestProductRight 
+  }
+}
+
+// find the greatest product from top to bottom
+let greatestProductUp = 0
+function greatestProductUpToDown(grid){
+  let i = 0
+  for(let j = 0; j < grid[i].length; j++){
+    for(i = 0; i < grid.length; i++){
+      if(doesWordExist(grid[i], grid[i+1][j]) && doesWordExist(grid[i], grid[i+2][j]) && doesWordExist(grid[i], grid[i+3][j])){
+        if(grid[i][j]*grid[i+1][j]*grid[i+2][j]*grid[i+3][j] > greatestProductUp) {
+          greatestProductUp = grid[i][j]*grid[i+1][j]*grid[i+2][j]*grid[i+3][j]
+        }
+      }
+
+    }
+    return greatestProductUp
+  }
+}
+
+// find the greatest product from bottom to top
+let greatestProductDown = 0
+function greatestProductDownToUp(grid){
+  let i = 0
+  for(let j = 0; j < grid[i].length; j++){
+    for(i = grid.length - 1; i >= 0; i--){
+      if(doesWordExist(grid[i], grid[i-1][j]) && doesWordExist(grid[i], grid[i-2][j]) && doesWordExist(grid[i], grid[i-3][j])){
+        if(grid[i][j]*grid[i-1][j]*grid[i-2][j]*grid[i-3][j] > greatestProductDown){
+          greatestProductDown = grid[i][j]*grid[i-1][j]*grid[i-2][j]*grid[i-3][j]
+        }
+      }
+
+    }
+    return greatestProductDown 
+  }
+}
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
