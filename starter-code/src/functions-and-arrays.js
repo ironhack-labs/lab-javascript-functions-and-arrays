@@ -136,7 +136,7 @@ function greatestProduct(matrix) {
   const size = 20;
   let max = 0;
   for (let column = 0; column < 20; column ++) {
-    for (let row = 0; row < 16; row ++) {
+    for (let row = 0; row < 17; row ++) {
       let current1 = matrix[column][row] * matrix[column][row + 1] * matrix[column][row + 2] * matrix[column][row + 3];
       if (current1 > max) max = current1;
       current1 = matrix[row][column] * matrix[row + 1][column] * matrix[row + 2][column] * matrix[row + 3][column];
