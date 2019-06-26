@@ -197,7 +197,7 @@ var matrix = [
 function greatestProduct(anyObj) {
     var horizontalMult = [];
     for (var i = 0; i < anyObj.length; i++) {
-        for (var j = 0; j < anyObj[i].length - 3; j++) {
+        for (var j = 0; j < anyObj[i].length - 4; j++) {
             var x = anyObj[i][j];
             var y = anyObj[i][j + 1];
             var z = anyObj[i][j + 2];
@@ -208,7 +208,7 @@ function greatestProduct(anyObj) {
     var horValue = Math.max.apply(null, horizontalMult);
 
     var verticalMult = [];
-    for (var n = 0; n < anyObj.length - 3; n++) {
+    for (var n = 0; n < anyObj.length - 4; n++) {
         for (var m = 0; m < anyObj[n].length; m++) {
             var a = anyObj[n][m];
             var b = anyObj[n + 1][m];
