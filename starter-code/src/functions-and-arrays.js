@@ -1,4 +1,14 @@
-// Find the maximum
+// // Find the maximum
+let number1 = prompt("Enter first number")
+let number2 = prompt("Enter second number")
+function maxOfTwoNumbers(number1,number2) {
+  if (number1 > number2){
+    console.log(`The largest number is ${number1}`)
+  } else {
+    console.log(`The largest number is ${number2}`)
+  }
+}
+maxOfTwoNumbers(number1,number2)
 
 // Finding Longest Word
 var words = [
@@ -11,13 +21,50 @@ var words = [
   'crackpot'
 ];
 
+let counter = 0 
+let longestWord = ""
+function findLongestWord(someArray) {
+  for (let i = 0; i < someArray.length; i++){
+    if (someArray[i].length >= counter){
+      counter = someArray[i].length
+      longestWord = someArray[i]
+    }
+  }
+  console.log(longestWord)
+}
+
+// findLongestWord(words)
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(accumulator,currentValue) {
+  return accumulator + currentValue
+}
+
+let sum = numbers.reduce(sumArray)
+
+console.log(`The sum of an array is ${sum}`)
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function sumArray(accumulator,currentValue) {
+  return accumulator + currentValue
+}
+
+let sum2 = numbersAvg.reduce(sumArray)
+console.log(sum2)
+console.log(numbersAvg.length)
+
+function averageNumbers() {
+  return sum2 / numbersAvg.length
+}
+
+console.log(`The average is ${averageNumbers()}`)
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +79,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+let lettersCount = 0
+function averageWordLength(someArr) {
+  for (let i = 0; i < someArr.length; i++){
+    for (let j = 0; j < someArr[i].length; j++){
+      lettersCount += someArr[j].length
+    }
+  }
+  return lettersCount / someArr.length
+} 
+
+console.log(`The average length of the words in the array is ${averageWordLength(wordsArr)}`)
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +107,28 @@ var wordsUnique = [
   'bring'
 ];
 
+let noDuplicatesArr = []
+// function uniquifyArray(someArr){
+//   for (let i = 0; i < someArr.length; i++){
+//     let nextIdx = someArr.indexOf(someArr[i]) + 1
+//     if (someArr.indexOf(someArr[i], nextIdx) === -1){
+//         noDuplicatesArr.push(someArr[i])
+//     }
+//   }
+//   return noDuplicatesArr
+// } 
+
+function uniquifyArray(someArr){
+  for (let i = 0; i < someArr.length; i++){
+    if (noDuplicatesArr.indexOf(someArr[i]) == -1){
+      noDuplicatesArr.push(someArr[i])
+    }
+  }
+  return noDuplicatesArr
+}
+
+console.log(`The new array withot duplicates is: ${uniquifyArray(wordsUnique)}`)
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +140,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(someArr,someWord) {
+  for (let i = 0; i < someArr.length; i++){
+    if (someWord === someArr[i]){
+      return true
+    }
+  }
+  for (let i = 0; i < someArr.length; i++){
+    if (someWord !== someArr[i]){
+      return false
+    }
+  }
+}
+
+doesWordExist(wordsFind,'truth')
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +170,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+let counter = 0
+
+function howManyTimes(someArr,someWord) {
+  for (let i = 0; i < someArr.length; i++){
+    if (someWord === someArr[i]){
+      counter += 1
+      
+    } 
+  }
+  console.log(`The word "${someWord}" appears ${counter} times`)
+}
+
+howManyTimes(wordsCount,"matter")
+
+
 // Bonus Quest
 
 var matrix = [
