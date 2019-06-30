@@ -1,13 +1,14 @@
 // Find the maximum
-function maxOfTwoNumbers (parametro1 , parametro2){
-  if (parametro1 > parametro2){
-    return parametro1
-  }else if(parametro1 < parametro2){
-  return parametro2
-} else {
-  return parametro1
-}
-}
+function maxOfTwoNumbers (number1, number2){
+  if (number1 > number2){
+    return number1 + ' es mayor que ' + number2;
+  }else if (number1 < number2){
+    return number2 + ' es mayor que ' + number1;
+  }else{
+    return number1 + ' es igual a ' + number2;
+  }
+}; 
+maxOfTwoNumbers(170,200)
 
 // Finding Longest Word
 var words = [
@@ -19,49 +20,60 @@ var words = [
   'orchard',
   'crackpot'
 ];
-function findLongestWord(words) {
-	var current_max = words[0];
-	var longest_word = words[0];
 
 
-	for (i = 0;i < words.length; i++) {
-		if (words[i].length >= current_max) {
-			current_max = words[i].length;
-			longest_word = words[i];
-		}
-	}
-	return longest_word;
+function findLongestWord(word){
+  var longWord = words[0];
+  //console.log(longWord);
+  
+  for(i=0 ; i<word.length; i++){
+    if(longWord.length < word[i].length){
+      longWord = words[i];
+      //console.log(longWord);
+
+    }
+  }
+  return longWord;
 }
-console.log(longest_word);
+
+
+var longestW = findLongestWord(words);
+console.log(longestW);
+
+
 
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function sumArray(arrayTotal){
-  let sum = 0;
-  for (let i = 0; i < arrayTotal.length; i++){
-    sum += arrayTotal[i];
-  }
-  return sum;
-}
-sumArray (numbers);
 
+sumArray = (numbersAr) => {
+  var sum = 0;
+
+  for (var j = 0; j < numbersAr.length; j++ ){
+    sum += numbersAr[j];
+  }
+  return sum
+}; 
+
+sumArray(numbers);
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers (aveSum) {
-  let sumDos = 0;
-  let div = 0;
-  for (let j = 0;j < aveSum.length; j++){
-    sumDos += aveSum [j];
-    div = sumDos/aveSum.length;
-  }
-  return div;
-  }
-  averageNumbers(numbersAvg)
 
+var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+averageNumbers = (avArray) => {
+  let div = 0;
+
+  for (let n = 0; n < avArray.length; n ++) {
+    div += avArray[n];
+  }
+  div = (div / avArray.length)
+  return div 
+};
+
+averageNumbers(numbers);
 
 // Array of Strings
 var wordsArr = [
@@ -76,16 +88,22 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-function averageWordLength(wordsOfArray){
-  let arrayString = 0;
-  for (let k = 0; k < wordsOfArray.length; k++){
-    arrayString =+ wordsOfArray[k];
-  } 
-if (wordsOfArray === 0){
-    return baverageWordLength
-  }
 
+averageWordLength = (wordsArr) => {
+  // Your code here
+  otherArr =[];
+  for(i = 0; i < wordsArr.length; i++){
+    otherArr.push(wordsArr[i].length);
+  }
+  
+  var reduce = otherArr.reduce (sum ,0);
+  function sum(a,b){
+    return a+b;
+  }
+  reduce = reduce/otherArr.length
+  return reduce;
 }
+
 averageWordLength(wordsArr);
 
 // Unique Arrays
@@ -103,6 +121,22 @@ var wordsUnique = [
   'bring'
 ];
 
+
+uniquifyArray = (wordsArray) => {
+  var indexArray = [];
+
+  for (var j = 0; j < wordsArray.length; j ++){
+    if (indexArray.indexOf(wordsArray[j]) === -1) {
+      indexArray.push(wordsArray[j]);
+    }
+  }
+  return indexArray;
+}
+
+uniquifyArray(wordsUnique);
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -114,6 +148,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+doesWordExist = (words, wordSearch) => {
+  
+  for (var n = 0; n < words.length; n++){
+    if (words[n] === wordSearch){
+      return true;
+      }
+    }
+    return false
+}
+doesWordExist(words, "disobedience")
 
 // Counting Repetion
 var wordsCount = [
@@ -129,6 +174,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+howManyTimes = (wordsCount, word) => {
+  let count = 0;
+
+  for (let i = 0; i < wordsCount.length; i++){
+    if (wordsCount[i] === word){
+      count === count++;
+    };
+  };
+  return count;
+};
+
+howManyTimes(wordsCount, 'matter');
+
 // Bonus Quest
 
 var matrix = [
