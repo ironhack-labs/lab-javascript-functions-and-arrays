@@ -162,8 +162,8 @@ var wordsCount = [
 function greatestProduct (matrix) {
   matrixRows = matrix.length;
   matrixCols = matrix[0].length;
+  
   let finalResult = 0;
-
   for (let r = 1; r < matrixRows - 1; r++) {
     for (let c = 1; c < matrixCols -1; c++) {
       if (matrix[r-1][c] * matrix[r+1][c] * matrix[r][c-1] * matrix[r][c+1] > finalResult) {
@@ -196,4 +196,3 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-console.log(greatestProduct(matrix));
