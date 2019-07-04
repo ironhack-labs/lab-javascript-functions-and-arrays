@@ -1,5 +1,9 @@
 // Find the maximum
-
+function maxOfTwoNumbers(param1,param2){
+  if(param1 > param2){
+    return param1
+  } else return param2
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,14 +15,115 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(param1){
+  
+    if(param1.length == 0){
+      return undefined
+    }
+   
+    let maxLength = ""
+    for(let i=0; i<param1.length; i++){
+      if (param1[i].length > maxLength.length){
+        maxLength = param1[i]
+      }
+    }
+  
+    return maxLength
+  
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(array1){
+let suma = 0
+for(let i=0; i<array1.length; i++){
+  suma+=array1[i]
+  }
+return suma
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array2){
+  if(array2.length == 0){
+    return undefined
+  }
+  
+  return sumArray(array2)/array2.length
+  //return average
+  
+}
+
+//Calculate Average Words Length
+
+function averageWordLength(array3){
+  
+  if(array3.length == 0){
+    return undefined
+  }
+  
+  let averages = []
+  for(let i=0; i < array3.length; i++){
+    averages.push(array3[i].length)
+    }
+  return sumArray(averages)/array3.length
+
+
+}
+
+//uniquifyArray
+
+function uniquifyArray(array4){
+
+  if (array4.length == 0)  {return undefined}
+  
+  array4.sort()
+  let unique = []
+  let howmany = 0
+  for (let i = 0; i<array4.length;i++){
+    howmany = howManyTimes(array4,array4[i])
+    if (howmany>1)
+      {array4.splice(i+1,howmany - 1)}
+  }
+  return array4
+}
+
+
+
+//doesWordExist
+
+function doesWordExist(array5,element){
+ 
+  return array5.includes(element)
+
+}
+
+//howManyTmes
+
+function howManyTimes(array5,palabra){
+  if (array5.length == 0)  {return false}
+  let unique = [], ocurrence = [],element
+
+    array5.sort();
+    for ( let i = 0; i < array5.length; i++ ) {
+        if ( array5[i] !== element ) {
+            unique.push(array5[i]);
+            ocurrence.push(1);
+        } else {
+            ocurrence[ocurrence.length-1]++;
+        }
+        
+        element = array5[i];
+    }
+
+    if(unique.indexOf(palabra)== -1) {return 0}
+
+    return ocurrence[unique.indexOf(palabra)]
+}
 // Array of Strings
 var wordsArr = [
   'seat',
@@ -98,3 +203,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
