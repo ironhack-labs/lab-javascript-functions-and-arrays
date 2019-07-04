@@ -1,4 +1,9 @@
 // Find the maximum
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1
+  } else return num2
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +16,51 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord (parameter) {
+  let answer
+  for (let i = 0; i < parameter[i].lengh; i++) {
+    if (parameter !== []) {
+      if (parameter[i + 1].lengh > parameter[i].lengh) {
+      continue
+      } else if (parameter[i + 1].lengh === parameter[i].lengh) {
+      answer= `There first two equal numbers has value ${parameter[i]}`
+      } else {
+      answer = `The longest number is ${parameter[i]}`
+      }
+      } else {
+        answer = undefined
+      }
+    }
+  return answer
+}
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (numArr) {
+let totalSum = 0
+  for (let i = 0; i < numArr.lengh; i++) {
+  totalSum += numArr[i]
+  }
+return totalSum
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers (averageArr) {
+  let sum = 0
+  let average = 0
+  for (let i = 0; i < averageArr.lengh; i++) {
+    sum += averageArr[i]
+  }
+  average = sum / averageArr.lengh
+  return average
+}
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -47,6 +90,22 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (arr) {
+  let amIRepeated
+  let pushMe
+  let newArr
+  for (let i = 0; i < arr.lengh; i++) {
+    amIRepeated = arr[i]
+    pushMe = arr.indexOf(amIRepeated)
+    if (pushMe.lengh > 1) {
+     newArr = arr.splice(0, i)
+    } else {
+      newArr = arr
+    }
+  }
+ return newArr
+}
 
 // Finding Elements
 var wordsFind = [
