@@ -46,11 +46,32 @@ function sumArray(numbers) {
 return sum
 }
 
-
-
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+
+function averageNumbers(array) {
+  if (array.length == 0 ){
+    return undefined;
+  }
+  let average = sumArray(array) / array.length;
+  return average;
+}
+
+averageNumbers(numbersAvg);
+
+/* 
+ALTERNATIVE SOLUTION???
+
+let count = numbersAvg.length;
+if (numbersAvg = 0) {
+  return undefined;
+}
+numbersAvg = numbersAvg.reduce((previous, current) => current += previous);
+numbersAvg /= count;
+*/
 
 // Array of Strings
 var wordsArr = [
@@ -65,6 +86,38 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(b) {
+  if (b.length == 0) {
+    return undefined
+  }
+  let result = 0;
+  let arrNum = [];
+  for (var i = 0; i < b.length; i++) {
+    arrNum.push(b[i].length);
+    result = sumArray(arrNum) / b.length
+  }
+  return result;
+}
+
+averageWordLength(wordsArr);
+
+/*
+
+sumWordsArray = wordsArr.reduce((a, b, i, wordsArr) => a + b.length/wordsArr.length, 0); 
+
+
+function averageWordLength(arr) {
+  if (arr.length == 0) {
+    return undefined
+  }
+  let avg = arr.join('').length / arr.length;
+  return result;
+}
+
+averageWordLength(wordsArr)
+
+*/
 
 // Unique Arrays
 var wordsUnique = [
@@ -81,6 +134,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(a) {
+  if (a.length == 0) {
+    return undefined
+  }
+  let resultArray = [];
+  for(let i = 0; i < a.length; i++) {
+    if (a.indexOf(a[i]) === i) {
+      resultArray.push(a[i])
+    }
+  }
+  return resultArray
+}
+
+uniquifyArray(wordsUnique)
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -92,6 +161,17 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word){
+  if (array.length == 0) {
+    return false
+  } else {
+return array.includes(word)
+  }
+
+}
+
+doesWordExist(wordsFind, 'trouble')
 
 // Counting Repetion
 var wordsCount = [
@@ -107,7 +187,26 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, str) {
+  if (array.length == 0) {
+    return false 
+  } 
+  let counter = 0 
+  array.forEach((el) => {
+    if (el == str) {
+      counter++
+    }
+  })
+  return counter;
+}
+howManyTimes(wordsCount, 'matter')
+
+
 // Bonus Quest
+
+
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -131,3 +230,9 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix.length; j++) {
+    console.log(matrix[i][j]) //if you reverse the j and i - access the columns 
+  }
+}
