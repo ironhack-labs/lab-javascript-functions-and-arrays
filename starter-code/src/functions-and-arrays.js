@@ -1,5 +1,14 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1,num2){
+  if (num1>=num2){
+    return num1
+  }
+  else {
+    return num2
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,6 +19,21 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+words = ["hola","lu","lucas","holass"]
+function findLongestWord(words){
+  let max = words[0]
+  console.log(max)
+  for (let i = 0; i < words.length; i++){
+    if (max.length < words[i].length){
+      max = words[i]
+    }
+    else {
+      max = max
+    }
+  }
+  return(max)
+}
 
 // Calculating a Sum
 
@@ -32,7 +56,26 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+function sumArray(numbers){
+  let sum = 0
+  for (let i = 0; i<numbers.length; i++){
+    sum += numbers[i]
+  }
+  return sum
+}
+function averageNumbers(numbers){
+  if (numbers.length == 0){
+    return undefined
+  }
+  else {
+    return sumArray(numbers)/numbers.length}}
 
+function averageWordLength(words){
+  for (let i = 0; i<words.length;i++){
+    words[i] = words[i].length
+  }
+  return averageNumbers(words)
+}
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -48,6 +91,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  if (wordsUnique.length==0){
+    return undefined
+  }
+  else{
+    for (let i = 0; i<wordsUnique.length;i++){
+      let j = i + 1
+      for (j; j < wordsUnique.length; j++){
+        if (wordsUnique[i]==wordsUnique[j]){
+          wordsUnique.splice(wordsUnique.indexOf(j),1)
+        }
+      }
+    }  
+  }
+  return wordsUnique
+}
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,7 +118,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(list,word){
+  for (let i = 0; i<list.length; i++){
+    if (word == list[i]){
+      return true
+    }
+  }
+  return false
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +140,20 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(list,word){
+  let count = 0
+  if (list.length==0){
+    return false
+  }
+  else {
+    for (let i = 0; i<list.length; i++){
+      if (word == list[i]){
+        count +=1
+      }
+    }
+  }
+  return count
+}
 // Bonus Quest
 
 var matrix = [
