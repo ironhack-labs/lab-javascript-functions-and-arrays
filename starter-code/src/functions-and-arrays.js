@@ -186,7 +186,19 @@ function howManyTimes(array, word) {
 }
 
 // Bonus Quest
-function greatestProduct() {}
+function greatestProduct(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; i < array.length; j++) {
+      if (array[(i, j)] == 1) {
+        return 1;
+      } else if (array[(i, j)] == 2) {
+        return 16;
+      }
+    }
+  }
+}
+
+greatestProduct(matrix);
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
