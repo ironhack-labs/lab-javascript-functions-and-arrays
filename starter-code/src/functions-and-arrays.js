@@ -17,8 +17,6 @@ var words = [
   'crackpot'
 ];
 
-
-
 function findLongestWord(words) {
   if (words.length == 0) {
     return undefined;
@@ -50,8 +48,6 @@ return sum
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-
-
 function averageNumbers(array) {
   if (array.length == 0 ){
     return undefined;
@@ -61,17 +57,6 @@ function averageNumbers(array) {
 }
 
 averageNumbers(numbersAvg);
-
-/* 
-ALTERNATIVE SOLUTION???
-
-let count = numbersAvg.length;
-if (numbersAvg = 0) {
-  return undefined;
-}
-numbersAvg = numbersAvg.reduce((previous, current) => current += previous);
-numbersAvg /= count;
-*/
 
 // Array of Strings
 var wordsArr = [
@@ -102,22 +87,6 @@ function averageWordLength(b) {
 
 averageWordLength(wordsArr);
 
-/*
-
-sumWordsArray = wordsArr.reduce((a, b, i, wordsArr) => a + b.length/wordsArr.length, 0); 
-
-
-function averageWordLength(arr) {
-  if (arr.length == 0) {
-    return undefined
-  }
-  let avg = arr.join('').length / arr.length;
-  return result;
-}
-
-averageWordLength(wordsArr)
-
-*/
 
 // Unique Arrays
 var wordsUnique = [
@@ -204,8 +173,6 @@ howManyTimes(wordsCount, 'matter')
 
 
 // Bonus Quest
-
-
 
 
 var matrix = [
