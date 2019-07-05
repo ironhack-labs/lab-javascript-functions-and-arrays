@@ -164,18 +164,3 @@ function doesWordExist(wordsFind, myWord) {
 }
 
 doesWordExist(wordsFind, "machine");
-
-// Counting Repetion //
-var wordsCount = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
