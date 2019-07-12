@@ -1,11 +1,15 @@
+// -------------------------------------- //
 // Find the maximum
+
 function maxOfTwoNumbers(num1, num2) {
   return (num1 > num2) ? num1 : num2;
 }
-maxOfTwoNumbers(5, 10)
+console.log("max number is: " + maxOfTwoNumbers(10, 10))
 
+// -------------------------------------- //
 // Finding Longest Word
-var words = [
+
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -15,50 +19,43 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(wordList) {
-  if (wordList.length == 0) {
-    return undefined;
+function longestWord(words) {
+  let longestWord = ""
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i]
+    }
   }
-  
-  var longestWord = "";
-   for ( var i = 0; i < wordList.length; i++) {
-      if(wordList[i].length > longestWord.length) {
-        longestWord = wordList[i];
-      }
-   }
-   return longestWord;
+  console.log("longest word is : " + longestWord)
 }
+longestWord(words)
 
-findLongestWord(words);
 
+// -------------------------------------- //
 // Calculating a Sum
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumArray(numList) {
-  var sum = 0;
-  for (var i = 0; i < numList.length; i++) {
-    sum += numList[i];
-  }
-  return sum;
+function sumArray(array) {
+  let sum = numbers.reduce((acc, value) => {
+    return acc + value
+  })
+  return sum
 }
+console.log("sum array: ", sumArray(numbers))
 
-sumArray(numbers);
 
+// -------------------------------------- //
 // Calculate the Average
+var numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-function averageNumbers(numList) {
-  if(numList.length == 0) {
-    return undefined
-  }
-    var sum = sumArray(numList);
-    return sum / numList.length;
+function averageNumbers(array) {
+  return sumArray(array) / array.length
 }
-averageNumbers(numbersAvg);
+console.log("avg numbers: " + averageNumbers(numbers2))
 
-// Array of Strings
+
+// -------------------------------------- //
+// Average words length 
 var wordsArr = [
   'seat',
   'correspond',
@@ -71,21 +68,24 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
-
-function averageWordLength(wordList) {
-  if(wordList.length == 0) {
-    return undefined
-  }
-  var totalLength = 0;
-  for (var i = 0; i < wordList.length; i++) {
-    totalLength += wordList[i].length;  
-  }
-  return totalLength / wordList.length;
+function totalWordLength(array) {
+  let total = 0
+  array.forEach((word) => {
+    total += word.length
+  })
+  return total
 }
-averageWordLength(wordsArr)
+console.log("total words length: ", totalWordLength(wordsArr))
 
+function avgWordLength(numbers) {
+  return totalWordLength(numbers) / numbers.length
+}
+console.log("avg word length is : " + avgWordLength(wordsArr))
+
+
+// -------------------------------------- //
 // Unique Arrays
-var wordsUnique = [
+var words2 = [
   'crab',
   'poison',
   'contagious',
@@ -100,22 +100,19 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(wordList) {
-  if(wordList.length == 0) {
-    return undefined;
-  }
-  var uniqueArray = [];
-  for (var i = 0; i < wordList.length; i++) {
-    if (uniqueArray.indexOf(wordList[i]) < 0 ) {
-      uniqueArray.push(wordList[i]);
+  let uniqueArray = []
+  wordList.forEach((word) => {
+    if (uniqueArray.indexOf(word) < 0) {
+      uniqueArray.push(word)
     }
-  }
-  return uniqueArray;
+  })
+  return uniqueArray
 }
-uniquifyArray(wordsUnique);
+console.log(uniquifyArray(words2));
 
-
-
+// -------------------------------------- //
 // Finding Elements
+// -------------------------------------- //
 var wordsFind = [
   'machine',
   'subset',
@@ -127,17 +124,19 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist(wordsList, searchWord) {
-   for(var i= 0; i < wordsList.length; i++) {
-     if (wordsList[i].toLowerCase() == searchWord.toLowerCase()) {
-       return true
-     } 
-   } 
-   return false;
-} 
-doesWordExist(wordsFind, "MACHINE");
+function doesWordExist(wordsArray, searchWord) {
+  var wordExist = false
+  wordsArray.forEach((word) => {
+    if (word === searchWord) {
+      wordExist = true
+    }
+  })
+  return wordExist
+}
+console.log(doesWordExist(wordsFind, "disobedience"))
 
 
+// -------------------------------------- //
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -153,80 +152,63 @@ var wordsCount = [
   'matter'
 ];
 
-function howManyTimes (wordsList, searchWord) {
-  if(wordsList.length == 0) {
-    return false;
-  }
-   var counter = 0;
-   wordsList.forEach(function(word){
+function howManyTimes(wordsArray, searchWord) {
+  let total = 0
+
+  wordsArray.forEach((word) => {
     if (word == searchWord) {
-      counter++
+      total++
     }
-   })
-   return counter
+  })
+  return total
 }
 
-howManyTimes(wordsCount, "matter");
+console.log("this word appears " + howManyTimes(wordsCount, "matter") + " times")
 
 
-
-
+// -------------------------------------- //
 // Bonus Quest
 
 var matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
-  [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
-  [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
-  [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
-  [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
-  [24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
-  [32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70],
-  [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21],
-  [24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72],
-  [21, 36, 23, 9, 75, 0, 76, 44, 20, 45, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95],
-  [78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 9, 53, 56, 92],
-  [16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 0, 17, 54, 24, 36, 29, 85, 57],
-  [86, 56, 0, 48, 35, 71, 89, 7, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58],
-  [19, 80, 81, 68, 5, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 4, 89, 55, 40],
-  [4, 52, 8, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66],
-  [88, 36, 68, 87, 57, 62, 20, 72, 3, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69],
-  [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
-  [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
-  [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
-  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
+  [08,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,08],
+  [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,04,56,62,00],
+  [81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,03,49,13,36,65],
+  [52,70,95,23,04,60,11,42,69,24,68,56,01,32,56,71,37,02,36,91],
+  [22,31,16,71,51,67,63,89,41,92,36,54,22,40,40,28,66,33,13,80],
+  [24,47,32,60,99,03,45,02,44,75,33,53,78,36,84,20,35,17,12,50],
+  [32,98,81,28,64,23,67,10,26,38,40,67,59,54,70,66,18,38,64,70],
+  [67,26,20,68,02,62,12,20,95,63,94,39,63,08,40,91,66,49,94,21],
+  [24,55,58,05,66,73,99,26,97,17,78,78,96,83,14,88,34,89,63,72],
+  [21,36,23,09,75,00,76,44,20,45,35,14,00,61,33,97,34,31,33,95],
+  [78,17,53,28,22,75,31,67,15,94,03,80,04,62,16,14,09,53,56,92],
+  [16,39,05,42,96,35,31,47,55,58,88,24,00,17,54,24,36,29,85,57],
+  [86,56,00,48,35,71,89,07,05,44,44,37,44,60,21,58,51,54,17,58],
+  [19,80,81,68,05,94,47,69,28,73,92,13,86,52,17,77,04,89,55,40],
+  [04,52,08,83,97,35,99,16,07,97,57,32,16,26,26,79,33,27,98,66],
+  [88,36,68,87,57,62,20,72,03,46,33,67,46,55,12,32,63,93,53,69],
+  [04,42,16,73,38,25,39,11,24,94,72,18,08,46,29,32,40,62,76,36],
+  [20,69,36,41,72,30,23,88,34,62,99,69,82,67,59,85,74,04,36,16],
+  [20,73,35,29,78,31,90,01,74,31,49,71,48,86,81,16,23,57,05,54],
+  [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
 
 
-function greatestProduct(grid) {
-  var greatestProduct = {
-    product: 0,
-    x: 0,
-    y: 0,
-    dimension: ""
-  }
-  for (var y = 0; y < grid.length; y++) {
-    for (var x = 0; x < grid[y].length; x++) {
-      // check there are 4 x elements available
-      if ((grid[y].length - x) >= 4) {
-        var xProduct = grid[y][x] * grid[y][x+1] * grid[y][x+2] * grid[y][x+3];
-        if (xProduct > greatestProduct.product) {
-          greatestProduct.product = xProduct;
-          greatestProduct.x = x;
-          greatestProduct.y = y;
-          greatestProduct.dimension = "x";
-        }
-      }
-      // check there are 4 y elements available
-      if ((grid.length - y) >= 4) {
-        var yProduct = grid[y][x] * grid[y+1][x] * grid[y+2][x] * grid[y+3][x];
-        if (yProduct > greatestProduct.product) {
-          greatestProduct.product = yProduct;
-          greatestProduct.x = x;
-          greatestProduct.y = y;
-          greatestProduct.dimension = "y";
-        }
+function greatestProduct(matrix) {
+  let res = 0;
+  for(i= 0; i < matrix.length; i++) {
+    for(ii = 0; ii < matrix[0].length - 4; ii++) {
+      if(matrix[i][ii]+matrix[i][ii+1]+matrix[i][ii+2]+matrix[i][ii+3] > res) {
+        res = matrix[i][ii]*matrix[i][ii+1]*matrix[i][ii+2]*matrix[i][ii+3];
       }
     }
   }
-  return greatestProduct.product;
- }
+  for(i= 0; i < matrix.length -4 ; i++) {
+    for(ii = 0; ii < matrix[0].length; ii++) {
+      if(matrix[i][ii]+matrix[i + 1][ii]+matrix[i + 2][ii]+matrix[i + 3][ii] > res) {
+        res = matrix[i][ii]*matrix[i + 1][ii]*matrix[i + 2][ii]*matrix[i + 3][ii];
+      }
+    }
+  }
+  return res;
+} 
+console.log(greatestProduct(matrix))
