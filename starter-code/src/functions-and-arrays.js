@@ -49,7 +49,6 @@ const averageWordLength = wordsArr => {
   if(wordsArr != '') {
     wordsArr.forEach(word => {
       total += word.length;
-      console.log(`word: ${word}. Length: ${word.length}, Total: ${total}`);
       
     });
     return total / total2;
@@ -76,7 +75,22 @@ var wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = wordsUnique => {
+  var uniqueArr = [];
+  if(wordsUnique != ''){
+      wordsUnique.forEach( word => {
+        if(uniqueArr.indexOf(word) === -1) {
+            uniqueArr.push(word);
+        }
+      })
+    return uniqueArr;
+  } else {
+    return undefined;
+  }   
+}
+
 // Finding Elements
+
 var wordsFind = [
   'machine',
   'subset',
@@ -87,6 +101,21 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+const doesWordExist = (wordsFind, word) =>{
+  if (wordsFind.length === 1) {
+    return true;
+  } else if(wordsFind == ''){
+    return false;     
+  } else {
+    wordsFind.forEach( words => {
+      console.log(`Words: ${words}. Word: ${word}. Result: ${(words === word) ? true : false}`);
+      return (words === word) ? true : false;
+    })    
+  }
+}
+
+// console.log(`Array: ${wordsFind}. Word: ${word}`);
+
 
 // Counting Repetion
 var wordsCount = [
