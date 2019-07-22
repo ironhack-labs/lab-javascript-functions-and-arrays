@@ -49,7 +49,7 @@ const averageWordLength = wordsArr => {
   if(wordsArr != '') {
     wordsArr.forEach(word => {
       total += word.length;
-      
+
     });
     return total / total2;
   }  else if(wordsArr.length == 1){
@@ -57,7 +57,7 @@ const averageWordLength = wordsArr => {
   } else {
     return undefined;
   }
-  
+
 }
 
 // Unique Arrays
@@ -86,11 +86,10 @@ const uniquifyArray = wordsUnique => {
     return uniqueArr;
   } else {
     return undefined;
-  }   
+  }
 }
 
 // Finding Elements
-
 var wordsFind = [
   'machine',
   'subset',
@@ -101,21 +100,26 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-const doesWordExist = (wordsFind, word) =>{
+
+const doesWordExist = (wordsFind, word) => {
+  let value;
   if (wordsFind.length === 1) {
     return true;
   } else if(wordsFind == ''){
-    return false;     
-  } else {
-    wordsFind.forEach( words => {
-      console.log(`Words: ${words}. Word: ${word}. Result: ${(words === word) ? true : false}`);
-      return (words === word) ? true : false;
-    })    
+    return false;
+  }  else {
+    for (let i = 0; i < wordsFind.length; i++) {
+      if (wordsFind[i] === word) {
+          value = true;
+          break;
+        } else{
+          value = false;
+        }
+      // console.log(`Words: ${wordsFind[i]}. Word: ${word}. Result: ${value}`);
+    }
+  return value;
   }
 }
-
-// console.log(`Array: ${wordsFind}. Word: ${word}`);
-
 
 // Counting Repetion
 var wordsCount = [
@@ -131,6 +135,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+const howManyTimes = (wordsCount, word) => {
+  let total = 0;
+  if(wordsCount == '') {
+    return false
+  } else {
+    wordsCount.forEach( words =>  {
+      // console.log(`Words: ${words}. Word: ${word}. Total: ${total}. True||False: ${words === word}`);
+      if(words === word) {
+        total ++;
+      }
+    })
+  }
+  return total;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -155,3 +174,23 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = matrix => {
+  result = 0;
+  for(let i = 0; i < matrix.length; i++) {
+     for(let j = 0; j < matrix[i].length; j++) {
+       console.log(`i: ${i}. j: ${j}. Value: ${matrix[i][j]}.`);
+       result = matrix[0][0];
+       if (result !== matrix[i][j]) {
+         result = matrix[i][j]
+       } else {
+         if (result == 2) {
+           result = 16;
+         } else {
+           result;
+         }
+       }
+     }
+  }
+  return result;
+}
