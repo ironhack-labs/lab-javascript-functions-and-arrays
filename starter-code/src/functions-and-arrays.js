@@ -1,5 +1,10 @@
 // Find the maximum
 
+function maxOfTwoNumbers(nb1,nb2){
+  return nb1 > nb2 ? nb1 : nb2;
+}
+
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +16,52 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr){
+  let longest = "";
+  if (typeof arr == 'undefined' || arr.length == 0 || arr[0] ==""){
+    return undefined;
+  }
+
+  for (let i = 0; i < arr.length ; i++){
+    if (arr.length==0 || typeof(arr)==undefined){
+      return undefined;
+    }
+    else if (arr[i].length > longest.length){
+      longest = arr[i];
+  }
+}
+return longest;
+}
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  let s = 0;
+  for (let i = 0; i < arr.length ; i++){
+    s += arr[i];
+  }
+  return s;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  if (typeof arr == 'undefined' || arr.length == 0 || arr[0] ==""){
+    return undefined;
+  }
+  let s = 0;
+  for (let i = 0; i < arr.length ; i++){
+    s += arr[i];
+  }
+  return s/(arr.length);
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +76,23 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  if (typeof arr == 'undefined' || arr.length == 0 ){
+    return undefined;
+  }
+
+  let s = 0;
+
+  
+  for (let i = 0; i < arr.length ; i++){
+    s += arr[i].length;
+  }
+
+  return s/arr.length;
+
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +109,33 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  
+  let same = false;
+  let c_same = 0;
+  if (typeof arr == 'undefined' || arr.length == 0 ){
+    return undefined;
+  }
+  for (let j = 0; j < arr.length ; j++){
+    if (arr[0]==arr[j+1]){
+      arr.pop();
+    }
+  }
+
+  for (let w = 0; w < arr.length ; w ++){
+  
+  }
+
+  for (let i = 0; i < arr.length ; i ++){
+      let check = arr.indexOf(arr[i],i+1);
+      if (check != -1){
+        arr.splice(check,1);
+      }
+    }
+    return arr;
+  }
+  
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +147,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+
+function doesWordExist(arr,query){
+  for (let i = 0 ; i < arr.length ; i++){
+    if (arr[i] == query){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +172,35 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+howManyTimes = (arr,query) => {
+  
+  let c = 0;
+  if (typeof arr == 'undefined' || arr.length == 0){
+    return false;
+  }
+
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] == query){
+      c ++;
+    }
+  }
+  return c;
+}
+
+// function howManyTimes(arr,query){
+//   let c = 0;
+//   for (let i = 0; i < arr.length; i++){
+//     if (arr[i] == query){
+//       c ++;
+//     }
+//   }
+//   return c;
+// }
+
+
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +225,75 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(arr){
+  let n = 0;
+  let max = 0;
+  
+  for (let y = 0; y < arr.length ; y ++){
+    for (let x = 0; x < arr[y].length ; x ++){
+      // cannot multiple towards up
+      console.log(arr[y][x]);
+      n = check(arr, y, x);
+      if (n > max) {
+        max = n;
+      }
+    }
+}
+return max;
+}
+
+function check(arr, y, x){
+  let top, down, right, left;
+
+  if (arr[y] > 3){
+  top =  multipleTop(arr,y,x)
+  }
+
+  else {
+  top = 1;
+  }
+
+  if (arr[y] < arr.length-4){
+  down = multipleDown(arr,y,x);
+  }
+
+  else {
+  down = 1;
+  }
+
+  if (arr[y][x] > 3){
+  left = multipleLeft(arr,y,x);
+  }
+  else {
+  left = 1;
+  }
+
+  if (arr[y][x] < arr.length-4){
+  right = multipleRight(arr,y,x);
+  }
+  else {
+  right = 1;
+  }
+  return top*down*left*right;
+}
+
+// prend y
+function multipleTop(arr,y,x){
+  return arr[y][x]*arr[y-1][x]*arr[y-2][x]*arr[y-3][x];
+}
+
+function multipleRight(arr,y,x){
+  return arr[y][x]*arr[y][x+1]*arr[y][x+2]*arr[y][x+3];
+}
+
+function multipleDown(arr,y,x){
+  return arr[y][x]*arr[y+1][x]*arr[y+2][x]*arr[y+3][x];
+}
+
+function multipleLeft(arr,y,x){
+  return arr[y][x]*arr[y][x-1]*arr[y][x-2]* arr[y][x-3];
+}
+
+console.log(greatestProduct(matrix));
