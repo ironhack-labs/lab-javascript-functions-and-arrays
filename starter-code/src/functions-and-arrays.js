@@ -1,5 +1,13 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a,b){
+  if (a>b){ 
+    return a;
+  } else if (a<b){
+    return b;
+  } else {
+    return a;
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,50 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arrayOfWords){
+  let longestWord ="";
+  if (arrayOfWords.length ==0){
+    return undefined;
+  } else if (arrayOfWords.length ==1){
+    return arrayOfWords[0];
+  } else {
+    for (let word of arrayOfWords){
+      if (word.length>longestWord.length){
+        longestWord = word;
+      }
+    }
+    return longestWord;
+  }
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arrayToSum){
+  let sumOfArrayElements = 0;
+  if (arrayToSum.length ==0){
+    return 0;
+} else if (arrayToSum.length == 1){
+    return arrayToSum[0];
+} else {
+  for (let num of arrayToSum){
+    sumOfArrayElements = sumOfArrayElements + num;
+  }
+  return sumOfArrayElements;
+}
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arrayToAverage){
+  if (arrayToAverage.length ==0){
+    return undefined;
+} else {
+  return sumArray(arrayToAverage)/(arrayToAverage.length)
+}
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +77,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arrayOfWords){
+  let sumOfWordsLength = 0;
+  if (arrayOfWords.length ==0){
+    return undefined;
+  } else{
+    for(word of arrayOfWords){
+      sumOfWordsLength = sumOfWordsLength + word.length ;
+    }
+    return sumOfWordsLength/arrayOfWords.length;
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +105,20 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arrayOfWords){
+  let unifiedArray=[];
+  if (arrayOfWords.length ==0){
+    return undefined;
+  } else {
+    for (let word of arrayOfWords){
+      if (unifiedArray.indexOf(word)==-1){
+        unifiedArray.push(word);
+      }
+    }
+    return unifiedArray;
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +130,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arrayOfWords, wordToSearch){
+  if (arrayOfWords.indexOf(wordToSearch)==-1){
+    return false;
+  } else {
+    return true; 
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +153,21 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayOfWords,wordToSearch){
+  let frequencyCounter = 0; 
+  if (arrayOfWords.length == 0){
+    return false; 
+  }else {
+  for(let word of arrayOfWords){
+    if (word == wordToSearch){
+      frequencyCounter+=1;
+    } 
+  }
+  return frequencyCounter;
+}
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +192,55 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrixOfNumbers){
+// i parcours les lignes 
+// j parcours les colonnes 
+  let nbColumns = matrixOfNumbers[1].length;
+  let nbLines = matrixOfNumbers.length;
+  let maxProductPerOccurence = 0 ;
+  let maxProduct = 0; 
+  let productUp = 0;
+  let productDown = 0;
+  let productLeft = 0; 
+  let productRight = 0; 
+
+  // check min col et min lines = 4 
+
+  if (nbColumns<4 || nbLines<4){
+    return undefined; 
+  }
+  
+  for (let i=0; i<nbLines; i++){
+    for (let j =0; j<nbColumns ; j++){
+      // reinitialisation des variables à 0 
+      productUp = 0;
+      productDown = 0;
+      productLeft = 0; 
+      productRight = 0; 
+      maxProductPerOccurence = 0;
+      if(i>2 && i<nbLines-3){
+        productUp = matrixOfNumbers[i][j]*matrixOfNumbers[i-1][j]*matrixOfNumbers[i-2][j]*matrixOfNumbers[i-3][j];
+        productDown = matrixOfNumbers[i][j]*matrixOfNumbers[i+1][j]*matrixOfNumbers[i+2][j]*matrixOfNumbers[i+3][j];
+      } else if (i>=nbLines-3){
+        productUp = matrixOfNumbers[i][j]*matrixOfNumbers[i-1][j]*matrixOfNumbers[i-2][j]*matrixOfNumbers[i-3][j];
+      } else if (i<=2){
+        productDown = matrixOfNumbers[i][j]*matrixOfNumbers[i+1][j]*matrixOfNumbers[i+2][j]*matrixOfNumbers[i+3][j];
+      }
+      if(j>2 && j<nbColumns-3){
+        productLeft = matrixOfNumbers[i][j]*matrixOfNumbers[i][j-1]*matrixOfNumbers[i][j-2]*matrixOfNumbers[i][j-3];
+        productRight = matrixOfNumbers[i][j]*matrixOfNumbers[i][j+1]*matrixOfNumbers[i][j+2]*matrixOfNumbers[i][j+3];
+      } else if (j>=nbColumns-3){
+        productLeft = matrixOfNumbers[i][j]*matrixOfNumbers[i][j-1]*matrixOfNumbers[i][j-2]*matrixOfNumbers[i][j-3];
+      } else if (j<=2) {
+        productRight = matrixOfNumbers[i][j]*matrixOfNumbers[i][j+1]*matrixOfNumbers[i][j+2]*matrixOfNumbers[i][j+3];
+      }
+      maxProductPerOccurence = maxOfTwoNumbers(maxOfTwoNumbers(maxOfTwoNumbers(productDown,productUp),productLeft),productRight);
+      if (maxProductPerOccurence>maxProduct){
+        maxProduct = maxProductPerOccurence;
+      }
+    }
+  }
+  return maxProduct;
+}
