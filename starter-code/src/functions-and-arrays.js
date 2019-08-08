@@ -50,7 +50,7 @@ sumArray = array => {
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 averageNumbers = array => {
-  if ((array = [])) {
+  if (array.length === 0) {
     return undefined;
   }
   var num_count = array.length;
@@ -76,6 +76,9 @@ var wordsArr = [
 ];
 
 averageWordLength = array => {
+  if (array.length == 0) {
+    return undefined;
+  }
   var word_count = array.length;
   var sum = 0;
   array.forEach(function(element) {
@@ -108,6 +111,9 @@ var wordsUnique = [
 }; */
 
 uniquifyArray = array => {
+  if (array.length == 0) {
+    return undefined;
+  }
   let new_array = [];
   array.forEach(function(element) {
     if (new_array.indexOf(element) == -1) {
@@ -130,12 +136,14 @@ var wordsFind = [
 ];
 
 doesWordExist = (array, word) => {
-  array.forEach(function(element) {
-    if (word === element) {
-      return true;
-    }
+  let checker = array.filter(function(element) {
+    return element === word;
   });
-  return false;
+  if (checker.length > 0) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // Counting Repetion
@@ -154,10 +162,13 @@ var wordsCount = [
 ];
 
 howManyTimes = (array, word) => {
+  if (array.length == 0) {
+    return false;
+  }
   let count = 0;
   array.forEach(function(element) {
     if (element === word) {
-      count += word;
+      count++;
     }
   });
   return count;
@@ -475,7 +486,7 @@ greatestProduct = array => {
   const number_of_arrays = array.length;
   for (let i = 0; i < number_of_arrays; i++) {
     for (let x = 0; x < length_of_array - 5; x++) {
-      let y = x + 5;
+      let y = x + 4;
       let new_array = array[i].slice(x, y);
       let product_new_array = product(new_array);
       if (product_new_array > largest_product) {
