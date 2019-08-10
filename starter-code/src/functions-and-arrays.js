@@ -1,3 +1,5 @@
+// I first made this file on the 3rd day of the first week of the bootcamp, 3 days later I upgraded it.
+
 // Find the maximum
 
 function maxOfTwoNumbers(nb1,nb2){
@@ -16,22 +18,29 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(arr){
-  let longest = "";
-  if (typeof arr == 'undefined' || arr.length == 0 || arr[0] ==""){
-    return undefined;
-  }
+// 4 lines against 15 : 
 
-  for (let i = 0; i < arr.length ; i++){
-    if (arr.length==0 || typeof(arr)==undefined){
-      return undefined;
-    }
-    else if (arr[i].length > longest.length){
-      longest = arr[i];
-  }
+function findLongestWord(arr){
+  if (arr.length == 0) return undefined;
+  return arr.reduce((a,b) => (b.length > a.length) ? a=b:a,"")
 }
-return longest;
-}
+
+// function findLongestWord(arr){
+//   let longest = "";
+//   if (typeof arr == 'undefined' || arr.length == 0 || arr[0] ==""){
+//     return undefined;
+//   }
+
+//   for (let i = 0; i < arr.length ; i++){
+//     if (arr.length==0 || typeof(arr)==undefined){
+//       return undefined;
+//     }
+//     else if (arr[i].length > longest.length){
+//       longest = arr[i];
+//   }
+// }
+// return longest;
+// }
 
 
 
@@ -39,28 +48,41 @@ return longest;
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// 3 lines instead of 7
+
 function sumArray(arr){
-  let s = 0;
-  for (let i = 0; i < arr.length ; i++){
-    s += arr[i];
-  }
-  return s;
+  return arr.reduce((a,b) => a+b,0);
 }
+
+// function sumArray(arr){
+//   let s = 0;
+//   for (let i = 0; i < arr.length ; i++){
+//     s += arr[i];
+//   }
+//   return s;
+// }
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+// 4 lines instead of 10
+
 function averageNumbers(arr){
-  if (typeof arr == 'undefined' || arr.length == 0 || arr[0] ==""){
-    return undefined;
-  }
-  let s = 0;
-  for (let i = 0; i < arr.length ; i++){
-    s += arr[i];
-  }
-  return s/(arr.length);
+  if (typeof arr == 'undefined' || arr.length == 0 || arr[0] =="") return undefined;
+  return (arr.reduce((a,b) => (a+b),0))/arr.length;
 }
+
+// function averageNumbers(arr){
+//   if (typeof arr == 'undefined' || arr.length == 0 || arr[0] ==""){
+//     return undefined;
+//   }
+//   let s = 0;
+//   for (let i = 0; i < arr.length ; i++){
+//     s += arr[i];
+//   }
+//   return s/(arr.length);
+// }
 
 
 // Array of Strings
@@ -77,21 +99,29 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength(arr){
-  if (typeof arr == 'undefined' || arr.length == 0 ){
-    return undefined;
-  }
+// 5 lines instead of 14
 
-  let s = 0;
+function averageWordLength(arr){
+  if (arr.length == 0) return undefined;
+  let t = arr.reduce((a,b) => a+b.length,0);
+  return t / arr.length;
+}
+
+// function averageWordLength(arr){
+//   if (typeof arr == 'undefined' || arr.length == 0 ){
+//     return undefined;
+//   }
+
+//   let s = 0;
 
   
-  for (let i = 0; i < arr.length ; i++){
-    s += arr[i].length;
-  }
+//   for (let i = 0; i < arr.length ; i++){
+//     s += arr[i].length;
+//   }
 
-  return s/arr.length;
+//   return s/arr.length;
 
-}
+// }
 
 
 // Unique Arrays
@@ -109,31 +139,35 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(arr){
-  
-  let same = false;
-  let c_same = 0;
-  if (typeof arr == 'undefined' || arr.length == 0 ){
-    return undefined;
-  }
-  for (let j = 0; j < arr.length ; j++){
-    if (arr[0]==arr[j+1]){
-      arr.pop();
-    }
-  }
+// 5 lines instead of 18 
 
-  for (let w = 0; w < arr.length ; w ++){
-  
-  }
+function uniquifyArray(arr,option=1){
+  if (arr.length==0) return undefined;
+  let newArr = [];
+  option === 1 ? (newArr = [...new Set(arr)],console.log("option 1 / default")): (newArr = words.filter((v,i) => words.indexOf(v) === i),console.log("option 2"));
+  return newArr; 
+}
 
-  for (let i = 0; i < arr.length ; i ++){
-      let check = arr.indexOf(arr[i],i+1);
-      if (check != -1){
-        arr.splice(check,1);
-      }
-    }
-    return arr;
-  }
+// function uniquifyArray(arr){
+  
+//   let same = false;
+//   if (typeof arr == 'undefined' || arr.length == 0 ){
+//     return undefined;
+//   }
+//   for (let j = 0; j < arr.length ; j++){
+//     if (arr[0]==arr[j+1]){
+//       arr.pop();
+//     }
+//   }
+
+//   for (let i = 0; i < arr.length ; i ++){
+//       let check_and_multiply = arr.indexOf(arr[i],i+1); 
+//       if (check_and_multiply != -1){
+//         arr.splice(check_and_multiply,1);
+//       }
+//     }
+//     return arr;
+//   }
   
 
 // Finding Elements
@@ -148,15 +182,20 @@ var wordsFind = [
   'disobedience'
 ];
 
+// 3 lines instead of 8 (but I'm not sure the new one is the best for performances)
 
 function doesWordExist(arr,query){
-  for (let i = 0 ; i < arr.length ; i++){
-    if (arr[i] == query){
-      return true;
-    }
-  }
-  return false;
+  return arr.includes(query);
 }
+
+// function doesWordExist(arr,query){
+//   for (let i = 0 ; i < arr.length ; i++){
+//     if (arr[i] == query){
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
 // Counting Repetion
 var wordsCount = [
@@ -173,20 +212,33 @@ var wordsCount = [
   'matter'
 ];
 
-howManyTimes = (arr,query) => {
-  
-  let c = 0;
-  if (typeof arr == 'undefined' || arr.length == 0){
-    return false;
-  }
+//8 for 23 !
 
-  for (let i = 0; i < arr.length; i++){
-    if (arr[i] == query){
-      c ++;
-    }
+function howManyTimes(arr,query){
+  if (arr.length ==0) return false
+  let c = 0;
+  for (element of arr){
+      element == query ? c++:c+=0;
   }
+  console.log(`Le nombre "${query}" apparaît ${c} fois.`)
   return c;
 }
+
+
+// howManyTimes = (arr,query) => {
+  
+//   let c = 0;
+//   if (typeof arr == 'undefined' || arr.length == 0){
+//     return false;
+//   }
+
+//   for (let i = 0; i < arr.length; i++){
+//     if (arr[i] == query){
+//       c ++;
+//     }
+//   }
+//   return c;
+// }
 
 // function howManyTimes(arr,query){
 //   let c = 0;
@@ -197,7 +249,6 @@ howManyTimes = (arr,query) => {
 //   }
 //   return c;
 // }
-
 
 
 
@@ -226,74 +277,115 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+// This one changed a bit: 34 lines against 70
 
 function greatestProduct(arr){
-  let n = 0;
-  let max = 0;
+   let n = 0;
+   let max = 0;
   
-  for (let y = 0; y < arr.length ; y ++){
-    for (let x = 0; x < arr[y].length ; x ++){
-      // cannot multiple towards up
-      console.log(arr[y][x]);
-      n = check(arr, y, x);
-      if (n > max) {
-        max = n;
-      }
-    }
-}
-return max;
-}
+   for (let y = 0; y < arr.length ; y ++){
+     for (let x = 0; x < arr[y].length ; x ++){
+       
+      n = check_and_multiply(arr, y, x);
+       if (n > max) max = n;
 
-function check(arr, y, x){
+     }
+    }
+    return max;
+  }
+
+function check_and_multiply(arr, y, x){
   let top, down, right, left;
 
-  if (arr[y] > 3){
-  top =  multipleTop(arr,y,x)
-  }
+  (arr[y] > 3) ? top =  multipleTop(arr,y,x):top =0;
+  (arr[y] < arr.length-3) ? down = multipleDown(arr,y,x):down=0;
+  (arr[y][x] > 3) ? left = multipleLeft(arr,y,x):left = 0;
+  (arr[y][x] < arr.length-4) ? right = multipleRight(arr,y,x):right = 0;
+  return Math.max(top,down,left,right);
 
-  else {
-  top = 1;
-  }
-
-  if (arr[y] < arr.length-4){
-  down = multipleDown(arr,y,x);
-  }
-
-  else {
-  down = 1;
-  }
-
-  if (arr[y][x] > 3){
-  left = multipleLeft(arr,y,x);
-  }
-  else {
-  left = 1;
-  }
-
-  if (arr[y][x] < arr.length-4){
-  right = multipleRight(arr,y,x);
-  }
-  else {
-  right = 1;
-  }
-  return top*down*left*right;
 }
 
-// prend y
-function multipleTop(arr,y,x){
-  return arr[y][x]*arr[y-1][x]*arr[y-2][x]*arr[y-3][x];
-}
+// multiplication par le haut, par la droite, par le bas, par la gauche
 
-function multipleRight(arr,y,x){
-  return arr[y][x]*arr[y][x+1]*arr[y][x+2]*arr[y][x+3];
-}
+multipleTop = (arr,y,x) => arr[y][x]*arr[y-1][x]*arr[y-2][x]*arr[y-3][x];
 
-function multipleDown(arr,y,x){
-  return arr[y][x]*arr[y+1][x]*arr[y+2][x]*arr[y+3][x];
-}
+multipleRight = (arr,y,x) => arr[y][x]*arr[y][x+1]*arr[y][x+2]*arr[y][x+3];
 
-function multipleLeft(arr,y,x){
-  return arr[y][x]*arr[y][x-1]*arr[y][x-2]* arr[y][x-3];
-}
+multipleDown = (arr,y,x) => arr[y][x]*arr[y+1][x]*arr[y+2][x]*arr[y+3][x];
 
-console.log(greatestProduct(matrix));
+multipleLeft = (arr,y,x) => arr[y][x]*arr[y][x-1]*arr[y][x-2]* arr[y][x-3];
+
+
+// function greatestProduct(arr){
+//   let n = 0;
+//   let max = 0;
+  
+//   for (let y = 0; y < arr.length ; y ++){
+//     for (let x = 0; x < arr[y].length ; x ++){
+//       // cannot multiple towards up
+//       console.log(arr[y][x]);
+//       n = check_and_multiply(arr, y, x);
+//       if (n > max) {
+//         max = n;
+//       }
+//     }
+// }
+// return max;
+// }
+
+// function check_and_multiply(arr, y, x){
+//   let top, down, right, left;
+
+//   if (arr[y] > 3){
+//   top =  multipleTop(arr,y,x)
+//   }
+
+//   else {
+//   top = 1;
+//   }
+
+//   if (arr[y] < arr.length-3){
+//   down = multipleDown(arr,y,x);
+//   }
+
+//   else {
+//   down = 1;
+//   }
+
+//   if (arr[y][x] > 3){
+//   left = multipleLeft(arr,y,x);
+//   }
+//   else {
+//   left = 1;
+//   }
+
+//   if (arr[y][x] < arr.length-4){
+//   right = multipleRight(arr,y,x);
+//   }
+//   else {
+//   right = 1;
+//   }
+
+//   return Math.max(top,down,left,right);
+//   // check_and_multiply laquelle est la plus grande
+  
+// }
+
+// // prend y
+// function multipleTop(arr,y,x){
+//   return arr[y][x]*arr[y-1][x]*arr[y-2][x]*arr[y-3][x];
+// }
+
+// function multipleRight(arr,y,x){
+//   return arr[y][x]*arr[y][x+1]*arr[y][x+2]*arr[y][x+3];
+// }
+
+// function multipleDown(arr,y,x){
+//   return arr[y][x]*arr[y+1][x]*arr[y+2][x]*arr[y+3][x];
+// }
+
+// function multipleLeft(arr,y,x){
+//   return arr[y][x]*arr[y][x-1]*arr[y][x-2]* arr[y][x-3];
+// }
+
+// console.log(greatestProduct(matrix));
