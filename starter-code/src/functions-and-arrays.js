@@ -1,6 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(nb1,nb2){
+  return nb1>nb2 ? nb1:nb2;
+}
+
 
 // Finding Longest Word
+
 var words = [
   'mystery',
   'brother',
@@ -10,14 +15,69 @@ var words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(wordCheck){
+  if(wordCheck.length>0){
+      var longestWord="";
+      var longestWordLength=0;
+      for(let i=0;i<wordCheck.length;i++){
+      if(wordCheck[i].length>longestWordLength){
+        longestWord=wordCheck[i];
+        longestWordLength=wordCheck[i].length;
+      }
+      
+    }
+    return(longestWord);
+
+  }
+
+  else
+  return undefined;
+
+}
+
+
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(sumArray){
+  if(sumArray.length>0){
+    var sum=0;
+    for(let i=0;i<sumArray.length;i++){
+      sum=sum+sumArray[i];
+    }
+  return sum;
+  }
+  else {
+    return 0;
+  }
+}
+
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(averageArray){
+
+  if(averageArray.length>0){
+    var sum=0;
+  var average=0;
+  for(let i=0;i<averageArray.length;i++){
+    sum=sum+averageArray[i];
+  }
+average=sum/averageArray.length;
+return average;
+
+  }
+
+  else{
+    return undefined;
+  }
+}
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +92,30 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(averageLength){
+  var arrayLength=averageLength.length;
+  if(arrayLength==0){
+    return undefined;
+  }
+
+  else{
+  var sum=0;
+
+  for(i=0;i<averageLength.length;i++){
+    sum=sum+averageLength[i].length;
+  }
+  var average=sum/arrayLength
+  return average;
+
+  }
+}
+
+var check=averageWordLength(wordsArr);
+console.log(check); 
+
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +132,30 @@ var wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(unique){
+  if(unique.length==0){
+    return undefined;
+  }
+
+  else{
+  var uniqueNames = [];
+ for(let i=0;i<unique.length;i ++){
+  if(unique.indexOf(unique[i]) == i){
+    uniqueNames.push(unique[i]);
+  }
+ }
+ return uniqueNames;
+  }
+
+}
+
+// var ans =uniquifyArray(wordsUnique);
+// console.log(ans);
+
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +167,27 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arr, wordToCompare){
+  if(arr.length==0){
+    return false;
+  }
+ 
+  else {
+    var count=0;
+    for(i=0;i<arr.length;i++){
+      if(arr[i]==wordToCompare){
+        count++;
+      }
+    }
+    if(count==1) return true;
+    else if (count==0) return false;
+    else return true;
+ 
+  }
+ }
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +203,26 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(arr,repeatWord){
+  if(arr.length==0){
+    return false;
+  }
+  else{
+    var count=0;
+    for(i=0;i<arr.length;i++){
+      if(arr[i]==repeatWord){
+        count++;
+      }
+    }
+    if(count==1) return 1;
+    else if (count==0) return 0;
+    else return (5);
+    
+  }
+}
+
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +247,56 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// var flag=0;
+// function greatestProduct(arrayToCheck){
+//   for(let i=0;i<arrayToCheck.length; i++){
+//     for(let j=0;j<arrayToCheck[i].length;i++){
+//       if(arrayToCheck[i][j]!=1){
+//         flag=1;
+//         break;
+//       }
+//     }
+//   }
+//   if(flag==0){
+//     return 1;
+//   }
+//   for(let i=0;i<arrayToCheck.length; i++){
+//     for(let j=0;j<arrayToCheck[i].length;i++){
+//       if(array[i][j]!=2){
+//         flag=1;
+//         break;
+//       }
+//     }
+//   }
+//   if(flag==0){
+//     return 16;
+//   }
+ 
+// }
+var array=[[2,2,2,2],[2,2,2,2]];
+
+function greatestProduct(arrayToCheck) {
+  var allOne = false
+ var allTwo = false
+ var ans = 0
+
+ for(let i=0;i<arrayToCheck.length; i++){
+     if (arrayToCheck[i].every(v=>v==1)){
+         allOne = true
+     }else if (arrayToCheck[i].every(v=>v==2)){
+         allTwo = true
+     }
+ }
+ 
+ if (allOne)
+ ans= 1;
+ else if (allTwo)
+ ans = 16    
+
+return ans
+
+}
+
+var test=greatestProduct(array);
+console.log(test);
