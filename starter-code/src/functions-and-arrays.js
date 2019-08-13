@@ -1,5 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return num1
+  }else{
+    return num2
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,58 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array) {
+
+  let biggestWord = array.reduce((accum, currentWord) =>{
+    if (accum > currentWord.length){
+      return accum
+    }else{
+      return currentWord.length
+    }
+  
+  },0)
+  return array.find((currentWord) => {
+    return biggestWord === currentWord.length
+  })
+
+}
+
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+  return array.reduce((accum, currentNumber) => {
+    return accum + currentNumber
+  }, 0)
+}
+
+/*function sumArray(array){
+  return array.reduce(function(accum, currentNumber){
+    return accum + currentNumber
+  }, 0)
+}*/
+
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if(array.length === 0){
+    return undefined
+  }
+  let sum = array.reduce((accum, currentNumber) => {
+    return accum + currentNumber
+  }, 0)
+  
+  return sum / array.length
+}
+
+
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +86,19 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  if(array.length === 0){
+    return undefined
+  }
+  let sum = array.reduce((accum, currentWord) => {
+    return accum + currentWord.length
+  }, 0)
+
+  return sum/array.length
+}
+
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +113,17 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  if(array.length === 0){
+    return undefined
+  }
+  return array.reduce((accum, currentWord) => {
+    if(accum.indexOf(currentWord) === -1){
+      accum.push(currentWord)
+    }
+    return accum
+  }, [])
+}
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +136,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word){
+  let foundWord = array.find((currentWord) => {
+    return currentWord === word
+  })
+
+  return !!foundWord
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +159,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  if(array.length === 0){
+    return false
+  }
+  let numberTimes = 0
+  
+  array.forEach((currentWord) =>{
+    if (currentWord === word){
+      numberTimes++
+    }
+  
+  })
+  return numberTimes
+}
+
 // Bonus Quest
 
 var matrix = [
