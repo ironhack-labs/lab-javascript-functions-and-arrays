@@ -131,6 +131,7 @@ describe('Unique Arrays - uniquifyArray', function () {
 
   it('returns the correct array when having an array of the same element', function () {
     expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+  
   });
 
   it('returns the same array when no element is repeated', function () {
