@@ -32,63 +32,56 @@ function sumArray(numbers) {
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(nbs) {
+  if (nbs.length === 0) return;
+  return sumArray(nbs) / nbs.length;
+}
+
+// numbers.reduce
+function averageWordLength(words) {
+  if (words.length === 0) return;
+  if (words.length === 1) return words[0].length;
+
+  var nbOfChars = 0;
+  words.forEach(word => (nbOfChars += word.length));
+  console.log("=>", nbOfChars);
+  return nbOfChars / words.length;
+}
 
 // Array of Strings
-var wordsArr = [
-  "seat",
-  "correspond",
-  "linen",
-  "motif",
-  "hole",
-  "smell",
-  "smart",
-  "chaos",
-  "fuel",
-  "palace"
-];
 
-// Unique Arrays
-var wordsUnique = [
-  "crab",
-  "poison",
-  "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
-  "poison",
-  "communion",
-  "simple",
-  "bring"
-];
+function uniquifyArray(array) {
+  let newarray = [];
+  if (array.length === 0) {
+    return undefined;
+  }
+  for (let index = 0; index < array.length; index++) {
+    if (newarray.indexOf(array[index]) === -1) {
+      newarray.push(array[index]);
+    }
+  }
+  return newarray;
+}
 
 // Finding Elements
-var wordsFind = [
-  "machine",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "truth",
-  "disobedience"
-];
+function doesWordExist(words, word){
+  let res = false;
+  words.forEach(w => {
+    if(w===word) res = true
+    
+  });
+  return res;
 
+}
 // Counting Repetion
-var wordsCount = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter"
-];
+
+function howManyTimes (countword){
+  
+}
+  
+
+
+
 // Bonus Quest
 
 var matrix = [
