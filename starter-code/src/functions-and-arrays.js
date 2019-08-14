@@ -168,6 +168,25 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+//How many times a give word occurs in an array. Så vi giver det et navn og denne bliver talt. Fx hvis man indsætter matter, skal den give 4 tilbage. 
+
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return false;
+  } else {
+  let sumUp = 0;
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] == word){
+       sumUp += 1;
+    } 
+  }
+      return sumUp;
+    }
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
+
+
 // Bonus Quest
 
 var matrix = [
@@ -192,3 +211,31 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+var matrix = [[
+  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]];
+
+function greatestProduct(arr) {
+  let flatArr = arr.flat();
+  let sumUp = 0;
+  let sumUpp = 0;
+  for (let i = 0; i < flatArr.length; i++){
+      if(flatArr[i] === 1){
+    sumUp +=1;
+} else if (flatArr[i] === 2){
+     sumUpp +=1;
+  } else {
+  return false
+}
+  }
+  if (sumUp === flatArr.length){
+      return 1;
+    } else if (sumUpp === flatArr.length){ 
+      return 16;
+} else {
+  return "not equal";
+}
+}
+
+
+greatestProduct(matrix);
