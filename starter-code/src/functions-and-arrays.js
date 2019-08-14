@@ -1,4 +1,6 @@
 // Find the maximum
+let maxOfTwoNumbers = (x, y) => Math.max(x, y);
+
 
 // Finding Longest Word
 var words = [
@@ -11,15 +13,64 @@ var words = [
   'crackpot'
 ];
 
+let findLongestWord = (arr) => {
+  var longestWord = '';
+  if(arr.length > 0){
+    for (let word of arr) {
+      if(word.length > longestWord.length){
+        longestWord = word;
+      }
+  }
+return longestWord
+  }
+  else {
+    return null;
+  }
+}
+
 // Calculating a Sum
+let sumArray = (arr) => {
+  let finalNum = 0;
+   
+  for (let num of arr) {
+    finalNum += num
+  }
+
+  return finalNum
+}
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+let averageNumbers = (arr) => {
+  let sum= 0;
+  if (arr.length > 0) {
+  for (let num of arr) {
+    sum += num
+  }
+  return sum/arr.length
+  }
+  else {
+    return null
+  } 
+}
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+let averageWordLength = (arr) => {
+  let lengthOfStrings= 0;
+  if (arr.length > 0) {
+    for (let num of arr) {
+      lengthOfStrings += num.length
+    }
+    return lengthOfStrings/arr.length
+    }
+  else {
+    return null
+  } 
+}
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -34,6 +85,30 @@ var wordsArr = [
 ];
 
 // Unique Arrays
+let uniquifyArray = (arr) => {
+  finalArr = []
+  for(let item of arr){
+    if(finalArr.indexOf(item) === -1){
+      finalArr.push(item)
+    }
+  }
+return finalArr
+}
+
+let doesWordExist = (arr, search) => {
+  if(arr.length > 0){
+    for(let word of arr){
+      if(word === search){
+        return true
+      }
+    }
+    return false    
+  }
+  else {
+    return false
+  }
+}
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -49,6 +124,16 @@ var wordsUnique = [
 ];
 
 // Finding Elements
+let  howManyTimes = (arr, search) => {
+  let counter = 0;
+  for (let word of arr){
+    if(word === search){  
+      counter += 1;
+    }  
+  }
+  return counter
+}
+
 var wordsFind = [
   'machine',
   'subset',
@@ -75,6 +160,8 @@ var wordsCount = [
   'matter'
 ];
 // Bonus Quest
+
+
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
