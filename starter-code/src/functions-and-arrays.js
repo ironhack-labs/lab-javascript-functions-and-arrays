@@ -141,7 +141,7 @@ function howManyTimes(entry, arr) {
 howManyTimes('matter',words)
 
 
-// Bonus Quest
+// Bonus Quest (code from Cesar & Otto's Repo)
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -165,3 +165,20 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+  let acc=0
+  for (i=1; i<matrix.length-2; i++) {
+    for (k=1; k<matrix[0].length-2; k++) {
+      let actProduct = matrix[i][k-1]*matrix[i-1][k]*matrix[i+1][k]*matrix[i][k+1]
+        if (actProduct > acc) {
+          acc = actProduct
+        }
+        else {
+        }
+    }
+  }
+  return acc
+}
+
+greatestProduct(matrix)
