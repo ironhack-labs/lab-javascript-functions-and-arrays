@@ -1,4 +1,4 @@
-![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)
+![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
 # JS | Clue - Mixing objects and arrays
 
@@ -12,22 +12,20 @@ Hasbro, the toy maker company and owner of Cluedo, [recently changed](http://www
 
 ## Requirements
 
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Clone this repo into your `~/code/labs`
+- Fork this repo
+- Clone this repo
 
-## Submission Instructions
+## Submission
 
-Upon completion, run the following commands
+- Upon completion, run the following commands
 
-```
-$ git add .
-$ git commit -m "done"
-$ git push origin master
-```
+  ```
+  git add .
+  git commit -m "done"
+  git push origin master
+  ```
 
-Navigate to your repo and create a Pull Request -from your master branch to the original repository master branch.
-
-In the Pull request name, add your name and last names separated by a dash "-"
+- Create Pull Request so your TAs can check up your work.
 
 ## Deliverables
 
