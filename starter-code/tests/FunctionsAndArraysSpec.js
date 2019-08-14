@@ -13,6 +13,7 @@ function shuffle(currentArray) {
   }
   return array;
 }
+
 describe('Find the maximum - maxOfTwoNumbers', function () {
   it('Defines maxOfTwoNumbers', function () {
     expect(typeof maxOfTwoNumbers).toBe('function');
