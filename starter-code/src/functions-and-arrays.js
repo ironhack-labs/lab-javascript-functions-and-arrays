@@ -1,7 +1,15 @@
 // Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1
+  }else {
+    return num2
+  }
+}
+
 // Finding Longest Word
-var words = [
+const words = [
   'mystery',
   'brother',
   'aviator',
@@ -11,13 +19,70 @@ var words = [
   'crackpot'
 ];
 
+const findLongestWord = (words) => {
+  let w1 = words[0]
+  let w2 = words[1]
+  let palabraARegresar;
+
+  if (words.length === 1){
+    return words[0]
+  }else {
+  //console.log(w1.length -1, w2.length -1)
+  for (i=0; i < words.length; i++) {
+    console.log(words[i])
+    if (w1[i].length < w2[i].length){
+      palabraARegresar = w2[i]
+      return palabraARegresar
+    } else if (w1[i].length === w2[i].length){
+      return w1
+    } else if (palabraARegresar) {
+      
+    }
+  } 
+}
+}
+
+///findLongestWord(words)
+/*
+let aux = "lal"
+const findLongestWord = (arr) => {
+  let aux = arr[0]
+  arr.forEach(function(elemento, indice, arr) {
+    console.log(arr[indice].length)
+    if (aux.length < arr[indice].length){
+      aux = arr[indice+1];}
+  })
+  console.log(aux)
+}
+findLongestWord(words)
+*/
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray=(numbers)=>{
+  if (numbers.length === 0){
+    return 0
+  }
+  const reducer=(accumulator,currentVaValue)=>accumulator+currentVaValue
+  return numbers.reduce(reducer)
+}
+
+
+sumArray(numbers)
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let arr = []
+
+const averageNumbers = (arr) => {
+  if (arr.length === 0) {
+    return undefined 
+  } else {
+   return sumArray(arr) / arr.length
+  }
+}
+console.log(averageNumbers(arr))
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +98,22 @@ var wordsArr = [
   'palace'
 ];
 
+const averageWordLength = (arr) => {
+  let arrLen = []
+  if (arr.length === 0) {
+    return undefined 
+  } else if (arr.length === 1) {
+    return arr[0].length
+  } else {
+    for (let i=0; i < arr.length; i++) {
+      arrLen.push(wordsArr[i].length)
+    } 
+    let promedio = sumArray(arrLen) / arrLen.length
+    console.log(promedio)
+    return promedio
+  } 
+}
+//averageWordLength(wordsArr)
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,7 +128,49 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+const uniquifyArray = (arr) => {
+  let w1 = arr[0]
+  let tam=arr.length
+  let  arrFinal=arr
 
+  if (arr.length === 0) {
+    return undefined 
+  } else  {
+    for (i=0; i <arr.length;i++) {
+      w1 = arr[i]
+      console.log(w1)
+      if (w1 === arr[i]){
+        arr.pop()
+      }
+    }
+  }console.log(arr)
+  return arr
+}
+
+/*const uniquifyArray = (arr) => {
+  let w1 = arr[0]
+  let tam=arr.length
+  let  arrFinal=arr
+
+  if (arr.length === 0) {
+    return undefined 
+  } else  {
+    for (i=0; i <arr.length;i++) {
+      //if ()
+      w1=arr[i]
+
+      for(j=0;j<arr.length;j++){
+        w2=arr[j]
+        if (w1 === w2){
+          arrFinal.pop()
+        }
+      }
+  }
+  return arrFinal
+}
+}*/
+
+//uniquifyArray(wordsUnique)
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +182,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (arr, word) => {
+  for (i=0;i< arr.length; i++) {
+    if (word === arr[i]){
+      return true
+    }
+  }
+  return false
+}
+//doesWordExist(wordsFind, 'trouble')
 
 // Counting Repetion
 var wordsCount = [
