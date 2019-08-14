@@ -29,7 +29,7 @@ Hasbro, the toy maker company and owner of Cluedo, [recently changed](http://www
 
 ## Deliverables
 
-Write your JavaScript in the provided `src/clue.js` file. Submitting this file will be enough.
+Write your JavaScript in the provided `src/clue.js` file.
 
 ## Iteration 1 - <small>Creating the cards</small>
 
