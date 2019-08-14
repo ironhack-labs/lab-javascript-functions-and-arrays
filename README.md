@@ -71,7 +71,7 @@ var rope = {
 
 After creating the data structure, push every document into their corresponding array. `charactersArray`, `weaponsArray`, `roomsArray`.
 
-## Iteration 2 - <small>Creating the mistery</small>
+## Iteration 2 - <small>Creating the mystery</small>
 
 At the beginning of the game, players shuffle each one of the card stacks to create a combination of *suspect*, *weapon* and *room*. This will be the mystery to solve.
 
@@ -84,11 +84,11 @@ Create a method `randomSelector` to randomly select one element from a card stac
 
 ### Create the mystery
 
-We need to create a `pickMistery` method that will call `randomSelector` for each card stack, and return an array with the 3 picked cards, a character, a weapon and a room. Our mystery should be stored on a `misteryEnvelope` variable.
+We need to create a `pickMystery` method that will call `randomSelector` for each card stack, and return an array with the 3 picked cards, a character, a weapon and a room. Our mystery should be stored on a `mysteryEnvelope` variable.
 
-## Iteration 3 - <small>Revealing the mistery</small>
+## Iteration 3 - <small>Revealing the mystery</small>
 
-Finally, we need to reveal the mystery. Create a `revealMistery` method, that will receive our `misteryEnvelope` array as an argument and return the revealed mystery like this: 
+Finally, we need to reveal the mystery. Create a function called `revealMystery`, that will receive our `mysteryEnvelope` array as an argument and return the revealed mystery like this: 
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr.Boddy using the \<WEAPON\> in the \<PLACE\>!!!!**
 
