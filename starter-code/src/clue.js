@@ -16,13 +16,13 @@ color:        white
 description:  PhD in plant toxicology. Adopted daughter of Mr. Boddy
 age:          26
 image:        http://www.radiotimes.com/uploads/images/Original/111967.jpg
-ocupation:    Scientist
+occupation:    Scientist
 
 profPlum
 first_name:   Victor
 last_name:    Plum
 color:        purple
-description:  Billionare video game designer
+description:  Billionaire video game designer
 age:          22
 image:        https://metrouk2.files.wordpress.com/2016/07/professor-plum.jpg
 occupation:   Designer
@@ -85,10 +85,10 @@ name: Patio
 */
 
 // Characters Collection
-var charactersArray = [];
+const charactersArray = [];
 
-// Rooms' Collection
-var roomsArray = [];
+// Rooms Collection
+const roomsArray = [];
 
 // Weapons Collection
-var weaponsArray = [];
+const weaponsArray = [];
