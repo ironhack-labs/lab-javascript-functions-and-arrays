@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(x, y) {
+  return Math.max(x,y);
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +14,34 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(wordArray) {
+  if (wordArray.length === 0) return null; // Jasmine expects null if array is empty
+  let currentLongestWord = '';
+  for (word of wordArray) {
+    if(word.length > currentLongestWord.length) {
+      currentLongestWord = word;
+    }
+  }
+  return currentLongestWord
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arrayToSum) {
+  if (arrayToSum.length === 0) return 0; // Jasmine expects 0 if array is empty
+  return arrayToSum.reduce((x, y) => x+y);
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arrayToAverage) {
+  if (arrayToAverage.length === 0) return null; // Jasmine expects null if array is empty
+  return sumArray(arrayToAverage)/arrayToAverage.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +56,12 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordArray) {
+  if (wordArray.length === 0) return null; // Jasmine expects null if array is empty
+  let lengths = wordArray.map(x => x.length);
+  return averageNumbers(lengths);
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +78,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordArray) {
+  let uniqueArray = [];
+  for (word of wordArray) {
+    if (uniqueArray.indexOf(word) === -1) {
+      uniqueArray.push(word);
+    }
+  }
+  return uniqueArray;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +99,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordArray, searchTerm) {
+  for (word of wordArray) {
+    if (word === searchTerm) return true;
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +121,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArray, searchTerm) {
+  let appearances = 0;
+  for (word of wordArray) {
+    if (word === searchTerm) appearances++;
+  }
+  return appearances;
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +155,29 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let rows = matrix.length; // Assume a non-empty 2D array
+  let cols = matrix[0].length;
+
+  let currentProduct = 0;
+  let greatestProductFound = 0;
+
+  // phase 1: look for products going left-right
+  for (row in matrix) {
+    for (let col=0; col<cols-3; col++) {
+      currentProduct = matrix[row][col] * matrix[row][col+1] * matrix[row][col+2] * matrix[row][col+3];
+      greatestProductFound = Math.max(currentProduct, greatestProductFound);
+      if (currentProduct === greatestProductFound) console.log(`Row: ${row}, Col: ${col}, left-right`);
+    }
+  }
+  // phase 2: look for products going up-down
+  for (let row=0; row<row-3; row++) {
+    for (col in matrix[0]) {
+      currentProduct = matrix[row][col] * matrix[row+1][col] * matrix[row+2][col] * matrix[row+3][col];
+      greatestProductFound = Math.max(currentProduct, greatestProductFound);
+      if (currentProduct === greatestProductFound) console.log(`Row: ${row}, Col: ${col}, up-down`);
+    }
+  }
+  return greatestProductFound;
+}
