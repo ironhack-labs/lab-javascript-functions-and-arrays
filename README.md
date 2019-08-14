@@ -81,7 +81,8 @@ At the beginning of the game, players shuffle each one of the card stacks to cre
 
 ### Remember our tests!
 
-We will be working with test again! You need to open the `SpecRunner.html` file in order to see them. The following instructions will guide you through all the methods and functionality your code should have to pass all the tests.
+We will be working with test again! You need to open the `SpecRunner.html` file in order to see them. The following instructions will guide you through all the functions and functionality your code should have to pass all the tests.
+
 
 ### Random Selector
 
