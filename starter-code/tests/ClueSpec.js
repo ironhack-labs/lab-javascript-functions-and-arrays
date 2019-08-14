@@ -43,51 +43,51 @@ describe("Find a random element of the array - randomSelector", function() {
   });
 });
 
-describe("Pick a random mistery - pickMistery", function() {
-  it("Defines pickMistery", function() {
-    expect(typeof pickMistery).toBe("function");
+describe("Pick a random mystery - pickMystery", function() {
+  it("Defines pickMystery", function() {
+    expect(typeof pickMystery).toBe("function");
   });
 
   it("Return an object", function() {
-    expect(Object.prototype.toString.call(pickMistery())).toEqual(
+    expect(Object.prototype.toString.call(pickMystery())).toEqual(
       "[object Object]"
     );
   });
 
   it("Return an object with 3 properties", function() {
-    expect(Object.keys(pickMistery()).length).toEqual(3);
+    expect(Object.keys(pickMystery()).length).toEqual(3);
   });
 
   it("Return a suspect in the suspect property of the object", function() {
-    let suspect = JSON.stringify(pickMistery().suspect);
+    let suspect = JSON.stringify(pickMystery().suspect);
     expect(
       charactersArray.findIndex(el => JSON.stringify(el) === suspect)
     ).toBeGreaterThan(-1);
   });
 
   it("Return a weapon in the weapon property of the object", function() {
-    let weapon = JSON.stringify(pickMistery().weapon);
+    let weapon = JSON.stringify(pickMystery().weapon);
     expect(
       weaponsArray.findIndex(el => JSON.stringify(el) === weapon)
     ).toBeGreaterThan(-1);
   });
 
   it("Return a room in the room property of the object", function() {
-    let room = JSON.stringify(pickMistery().room);
+    let room = JSON.stringify(pickMystery().room);
     expect(
       roomsArray.findIndex(el => JSON.stringify(el) === room)
     ).toBeGreaterThan(-1);
   });
 });
 
-describe("Reveal the mistery - revealMistery", function() {
-  it("Defines revealMistery", function() {
-    expect(typeof revealMistery).toBe("function");
+describe("Reveal the mystery - revealMystery", function() {
+  it("Defines revealMystery", function() {
+    expect(typeof revealMystery).toBe("function");
   });
 
   it("Return a string", function() {
     expect(
-      typeof revealMistery({
+      typeof revealMystery({
         suspect: { first_name: "aa", last_name: "abc" },
         weapon: { name: "abd" },
         room: { name: "abb" }
@@ -97,7 +97,7 @@ describe("Reveal the mistery - revealMistery", function() {
 
   it("Return <FIRST NAME> <LAST NAME> killed Mr. Boddy using the <WEAPON> in the <PLACE>!!!!", function() {
     expect(
-      revealMistery({
+      revealMystery({
         suspect: { first_name: "Victor", last_name: "Plum" },
         weapon: { name: "poison" },
         room: { name: "Billiard Room" }

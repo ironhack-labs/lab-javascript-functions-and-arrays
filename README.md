@@ -62,7 +62,7 @@ For example:
 ```javascript
 const mrGreen = {
   first_name: "Jacob",
-  last_name: "Green",
+  last_name: "Green"
   // ...
 };
 
@@ -75,7 +75,7 @@ const rope = {
 
 After creating the data structure, put every document into their corresponding array. `charactersArray`, `weaponsArray`, `roomsArray`.
 
-## Iteration 2 - <small>Creating the mistery</small>
+## Iteration 2 - <small>Creating the mystery</small>
 
 At the beginning of the game, players shuffle each one of the card stacks to create a combination of _suspect_, _weapon_ and _room_. This will be the mystery to solve.
 
@@ -89,11 +89,11 @@ Create a function `randomSelector` to randomly select one element from a card st
 
 ### Create the mystery
 
-We need to create a `pickMistery` function that will call `randomSelector` for each card stack, and return an object with the 3 picked cards, a _suspect_, a _weapon_ and a _room_. Our mystery should be stored on a `misteryEnvelope` variable.
+We need to create a `pickMystery` function that will call `randomSelector` for each card stack, and return an object with the 3 picked cards, a _suspect_, a _weapon_ and a _room_. Our mystery should be stored on a `mysteryEnvelope` variable.
 
-## Iteration 3 - <small>Revealing the mistery</small>
+## Iteration 3 - <small>Revealing the mystery</small>
 
-Finally, we need to reveal the mystery. Create a `revealMistery` function, that will receive our `misteryEnvelope` object as an argument and return the revealed mystery like this:
+Finally, we need to reveal the mystery. Create a `revealMystery` function, that will receive our `mysteryEnvelope` object as an argument and return the revealed mystery like this:
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!!!!**
 
