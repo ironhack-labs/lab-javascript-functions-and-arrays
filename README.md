@@ -71,24 +71,24 @@ var rope = {
 
 After creating the data structure, push every document into their corresponding array. `charactersArray`, `weaponsArray`, `roomsArray`.
 
-## Iteration 2 - <small>Creating the mistery</small>
+## Iteration 2 - <small>Creating the mystery</small>
 
 At the beginning of the game, players shuffle each one of the card stacks to create a combination of *suspect*, *weapon* and *room*. This will be the mystery to solve.
 
 ### Remember our tests!
 
-We will be working with test again! You need to open the `SpecRunner.html` file in order to see them. The following instructions will guide you through all the methods and functionality your code should have to pass all the tests.
+We will be working with test again! You need to open the `SpecRunner.html` file in order to see them. The following instructions will guide you through all the functions and functionality your code should have to pass all the tests.
 
 ### Random Selector 
-Create a method `randomSelector` to randomly select one element from a card stack. The method should receive an `array` as an argument, and return randomly one of the elements of the `array`.
+Create a function `randomSelector` to randomly select one element from a card stack. The function should receive an `array` as an argument, and return randomly one of the elements of the `array`.
 
 ### Create the mystery
 
-We need to create a `pickMistery` method that will call `randomSelector` for each card stack, and return an array with the 3 picked cards, a character, a weapon and a room. Our mystery should be stored on a `misteryEnvelope` variable.
+We need to create a `pickMystery` function that will call `randomSelector` for each card stack, and return an array with the 3 picked cards, a character, a weapon and a room. Our mystery should be stored on a `mysteryEnvelope` variable.
 
-## Iteration 3 - <small>Revealing the mistery</small>
+## Iteration 3 - <small>Revealing the mystery</small>
 
-Finally, we need to reveal the mystery. Create a `revealMistery` method, that will receive our `misteryEnvelope` array as an argument and return the revealed mystery like this: 
+Finally, we need to reveal the mystery. Create a function called `revealMystery`, that will receive our `mysteryEnvelope` array as an argument and return the revealed mystery like this: 
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr.Boddy using the \<WEAPON\> in the \<PLACE\>!!!!**
 

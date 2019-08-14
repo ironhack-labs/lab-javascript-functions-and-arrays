@@ -37,46 +37,46 @@ describe('Find a random element of the array - randomSelector', function () {
   });
 });
 
-describe('Pick a random mistery - pickMistery', function () {
-  it('Defines pickMistery', function () {
-    expect(typeof pickMistery).toBe('function');
+describe('Pick a random mystery - pickMystery', function () {
+  it('Defines pickMystery', function () {
+    expect(typeof pickMystery).toBe('function');
   });
 
   it('Return an array', function () {
-    expect(typeof pickMistery()).toEqual('object');
+    expect(typeof pickMystery()).toEqual('object');
   });
 
   it('Return a non empty array', function () {
-    expect(pickMistery().length).toBeGreaterThan(0);
+    expect(pickMystery().length).toBeGreaterThan(0);
   });
 
   it('Return an array with 3 elements', function () {
-    expect(pickMistery().length).toEqual(3);
+    expect(pickMystery().length).toEqual(3);
   });
 
   it('Return a killer on the first index of the array', function () {
-    expect(charactersArray.indexOf(pickMistery()[0])).toBeGreaterThan(-1);
+    expect(charactersArray.indexOf(pickMystery()[0])).toBeGreaterThan(-1);
   });
 
   it('Return a weapon on the second index of the array', function () {
-    expect(weaponsArray.indexOf(pickMistery()[1])).toBeGreaterThan(-1);
+    expect(weaponsArray.indexOf(pickMystery()[1])).toBeGreaterThan(-1);
   });
 
   it('Return a room in the third index of the array', function () {
-    expect(roomsArray.indexOf(pickMistery()[2])).toBeGreaterThan(-1);
+    expect(roomsArray.indexOf(pickMystery()[2])).toBeGreaterThan(-1);
   });
 });
 
-describe('Reveal the mistery - revealMistery', function () {
-  it('Defines revealMistery', function () {
-    expect(typeof revealMistery).toBe('function');
+describe('Reveal the mystery - revealMystery', function () {
+  it('Defines revealMystery', function () {
+    expect(typeof revealMystery).toBe('function');
   });
 
   it('Return an array', function () {
-    expect(typeof revealMistery([{ first_name: 'aa', last_name: 'abc' }, { name: 'abd' }, { name: 'abb' }])).toEqual('string');
+    expect(typeof revealMystery([{ first_name: 'aa', last_name: 'abc' }, { name: 'abd' }, { name: 'abb' }])).toEqual('string');
   });
 
   it('Return <FIRST NAME> <LAST NAME> killed Mr.Boddy using the <WEAPON> in the <PLACE>!!!!', function () {
-    expect(revealMistery([{ first_name: 'Victor', last_name: 'Plum' }, { name: 'poison' }, { name: 'Billiard Room' }])).toEqual('Victor Plum killed Mr.Boddy using the poison in the Billiard Room!!!!');
+    expect(revealMystery([{ first_name: 'Victor', last_name: 'Plum' }, { name: 'poison' }, { name: 'Billiard Room' }])).toEqual('Victor Plum killed Mr.Boddy using the poison in the Billiard Room!!!!');
   });
 });
