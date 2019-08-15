@@ -54,7 +54,7 @@ function averageNumbers(num2){
   return num2.length ? averageValue : null;
   
 }
-console.log(averageNumbers(numbersAvg));
+//console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -79,6 +79,7 @@ function averageWordLength(arrOfWords){
    avg = sum / arrOfWords.length; 
     return arrOfWords.length ? avg : null;
 }
+
 
 console.log(averageWordLength(wordsArr))
 // Unique Arrays
@@ -113,18 +114,25 @@ var wordsUnique = [
 function uniquifyArray(arr){
   let uniqueArray = [];
  for(let val of arr){
-  if(uniqueArray.indexOf(val) === -1){
+  if(uniqueArray.indexOf(val) < 0){
    uniqueArray.push(val);
   }
-  if(uniqueArray === arr ){
-  for (let i = 0; i < arr.length; i++) {
-      uniqueArray[i] = arr[i];
-     }
-  }
 }
- return arr.length ? uniqueArray : [];
-}
-console.log(uniquifyArray(wordsUnique));
+  return uniqueArray;
+} 
+
+  // if(uniqueArray === arr ){
+//   // for (let i = 0; i < arr.length; i++) {
+//   //     uniqueArray[i] = arr[i];
+//   //    }
+//   // }
+// }
+//  //return arr.length ? uniqueArray : [];
+  
+// }
+// console.log(uniquifyArray(wordsUnique));
+
+//const uniquifyArray = words => [...new Set(words)]; 
 
 // Finding Elements
 var wordsFind = [
@@ -148,6 +156,14 @@ function doesWordExist(arraySearch, word){
     return (counter >= 1 && arraySearch.length) ? true : false;
   }
     
+  //return words.includes(words);
+//   const doesWordExist = (arraySearch, word) => {
+//     for(let item of arraySearch){
+//       if( item === word) return true;
+//   }
+//   return false;
+// }
+// };
 
 // Counting Repetion
 var wordsCount = [
@@ -171,7 +187,8 @@ function howManyTimes(arrayCount, word){
         counter++;
       }
   }
-  return arrayCount.length ? counter : 0;
+  //return arrayCount.length ? counter : 0;
+  return counter;
 }
 
 // Bonus Quest
@@ -199,6 +216,27 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(){
+const greatestProduct = matrix =>{
+  let product = 0;
+  const numberOfRows = matrix.length;
+  const numberOfColumns = matrix[0].length;
 
+  for(let i=0; i < numberOfRows; i++){
+    let row = matrix[i];
+    for(let e=0; e < numberOfColumns-3; e++){
+      let rowProduct = row[e] * row[e+1] * row[e+2] * row[e+3];
+     if(rowProduct > product){
+       product = rowProduct;
+     } 
+    }
+  }
+  for(let i=0; i < numberOfColumns; i++){
+    for(let e=0; e < numberOfRows -3; e++){
+      let columnProduct = matrix[e][i] * matrix[e+1][i] * matrix[e+2][i] * matrix[e+3][i];
+    if(columnProduct > product){
+      product = columnProduct;
+    }
+  }
 }
+  return product;
+};
