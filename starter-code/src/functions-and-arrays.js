@@ -2,7 +2,7 @@
 function maxOfTwoNumbers (x,y) {
   return Math.max(x,y)
 }
-
+// this is something that I did using other way
 
 
 // Finding Longest Word
