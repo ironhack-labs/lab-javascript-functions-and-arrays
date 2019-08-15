@@ -1,6 +1,24 @@
 // Find the maximum
 
+let maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
+//-----extra solution const maxOfTwoNumbers = (a, b) => a > b ? a : b;
+
 // Finding Longest Word
+const findLongestWord = (words) => {
+  let longestWord = "";
+  let mostLetters = 0;
+
+  if (words.length === 0) {
+    return null;
+  }
+  for (let value of words) {
+    if (value.length > mostLetters) {
+      longestWord = value;
+      mostLetters = longestWord.length
+    }
+  }
+  return longestWord
+}
 var words = [
   'mystery',
   'brother',
@@ -11,15 +29,38 @@ var words = [
   'crackpot'
 ];
 
+
+
 // Calculating a Sum
+
+let sumArray = (numbers) => {
+  let sumNumbers = 0;
+  for (let number of numbers) {
+    sumNumbers += number
+   }
+   return sumNumbers;
+  }
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
 // Calculate the Average
+
+let averageNumbers = (numbersAvg) => {
+  let avgNumbers = 0;
+  for (let value of numbersAvg) {
+    avgNumbers += value
+   }
+   return avgNumbers / numbersAvg.length;
+  }
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
 // Array of Strings
+
+let averageWordLength = (wordsArr) => {if (!wordsArr.length) return null;return wordsArr.join('').length / wordsArr.length};
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -47,6 +88,11 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+let uniquifyArray = wordsUnique => {
+  let tempArray = [];
+
+}
 
 // Finding Elements
 var wordsFind = [
@@ -98,3 +144,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function newFunction() {
+  return null;
+}
