@@ -24,7 +24,7 @@ function findLongestWord (words) {
       largestWord = word;
     }
   }}
-  return largestWord;
+  return largestWord
 
 // Calculating a Sum
 
