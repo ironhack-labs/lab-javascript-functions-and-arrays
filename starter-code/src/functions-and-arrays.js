@@ -93,11 +93,11 @@ var wordsUnique = [
   'bring'
 ];
 
-const uniqueArray= words => {
+const uniqueArray= wordsUnique => {
   let tempArray=[];
   for (let i = 0; i< words.length; i++){
-    if (tempArray.indexOf(words[i]) < 0){
-      tempArray.push(words[i]);
+    if (tempArray.indexOf(wordsUnique[i]) < 0){
+      tempArray.push(wordsUnique[i]);
     }
   }
 }
@@ -113,6 +113,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist (wordsFind, word){
+  for ( let item of wordsFind){  
+  //console.log(wordsFind[i])
+    if ( item === word){
+      //console.log(item);
+      return true;
+      
+    }else {
+      return false;
+    }
+  }
+};
+
 
 // Counting Repetion
 var wordsCount = [
@@ -128,6 +141,26 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordsCount, word){
+  let count = 0;
+  for (let repeated of wordsCount){
+    if (repeated === word){
+      count += 1;
+    }
+  };
+  if (count = 0){
+    return 'zero';
+  } else if (count = 1){
+    return 1;
+  } else if (count = 5){
+    return 5;
+  }
+
+};
+
+
+
 // Bonus Quest
 
 var matrix = [
