@@ -1,6 +1,14 @@
 // Find the maximum
 
-// Finding Longest Word
+//1
+
+function maxOfTwoNumbers (x , y) {
+  return Math.max(x,y);
+}
+
+
+
+//2 Finding Longest Word
 var words = [
   'mystery',
   'brother',
@@ -11,15 +19,68 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(wordArray){
+  if (wordArray.length === 0) return null;
+  let currentLongestWord = '';
+  for (words of wordArray) {
+    if (words.length > currentLongestWord.length) {
+      currentLongestWord = words;
+    }
+  }
+  return currentLongestWord
+}
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+
+
+//3 Calculating a Sum
+
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]; 
+
+const sumArray = (function(numbers){
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }{
+    return sum;
+  }
+});
+
+// const sumArray = numbers => {
+//   let temp = 0;
+//   for (let number of numbers) {
+//     temp += number
+//   }
+//   return temp;
+// }
+
+
+
+//4 Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+const averageNumbers = (function(numbers){
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }{
+    return sum / numbers.length
+  }
+});
+
+// const averageNumbers = numbers => {
+//   if (!numbers.length) return null;
+//   let temp = 0;
+//   for (let number of numbers) {
+//     temp += number
+//   }
+//   return temp / numbers.length;
+// }
+
+
+
+//5 Array of Strings
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +94,22 @@ var wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+const averageWordlength  = (function(words){
+  let wordLengths = 0;
+  for (let i = 0; i < words.length; i++){
+    wordLengths += words[i];
+  }{
+    return wordLengths / words.length
+  }
+});
+
+// const averageWordLength = words => {
+//   if (!words.length) return null;
+//   return words.join('').length / words.length;
+// };
+
+
+//6 Unique Arrays
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +124,29 @@ var wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+const uniquifyArray = (function(words){
+  let uniqueWord = [];
+  for (let i = 0; i < words.length; i++) {
+    if (uniqueWord.indexOf(words) === words [i]){
+      uniqueWord.push(word);
+    }
+    return uniqueWord;
+  }
+});
+
+// const uniquifyArray = words => {
+//   let tempArray = [];
+//   for (let i = 0; i < words.length; i++) {
+//     let word = words[i];
+//     if (tempArray.indexOf(word) < 0) {
+//       tempArray.push(word);
+//     }
+//   }
+//   return tempArray;
+// };
+
+
+//7 Finding Elements
 var wordsFind = [
   'machine',
   'subset',
@@ -59,6 +157,22 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = function(words, word) {
+  for (let i = 0; i < words.length; i++)
+  if(i === word){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// const doesWordExist = (words, word) => {
+//   for (let item of words) {
+//     if (item === word) return true;
+//   }
+//   return false;
+// };
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +188,28 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = function(words, word) {
+  let numberOfTimes = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (i === word) {
+      numberOfTimes++;
+    }
+  } 
+  return numberOfTimes;
+}
+
+// const howManyTimes = (words, word) => {
+//   let tempValue = 0;
+//   for (let item of words) {
+//     if (item === word) {
+//       tempValue++;
+//     }
+//   }
+//   return tempValue;
+// };
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +234,31 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = matrix => {
+  let product = 0;
+
+  const numberOfRows = matrix.length;
+  const numberOfColumns = matrix[0].length;
+
+  for (let i = 0; i < numberOfRows; i++) {
+    let row = matrix[i];
+    for (let e = 0; e < numberOfColumns - 3; e++) {
+      let rowProduct = row[e] * row[e + 1] * row[e + 2] * row[e + 3];
+      if (rowProduct > product) {
+        product = rowProduct;
+      }
+    }
+  }
+
+  for (let i = 0; i < numberOfColumns; i++) {
+    for (let e = 0; e < numberOfRows - 3; e++) {
+      let columnProduct = matrix[e][i] * matrix[e + 1][i] * matrix[e + 2][i] * matrix[e + 3][i];
+      if (columnProduct > product) {
+        product = columnProduct;
+      }
+    }
+  }
+
+  return product;
+};
