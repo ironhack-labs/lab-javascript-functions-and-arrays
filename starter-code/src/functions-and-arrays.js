@@ -1,4 +1,10 @@
-// Find the maximum
+  // Find the maximum
+
+function maxOfTwoNumbers(a,b){
+  return Math.max(a,b);
+}
+
+
 
 // Finding Longest Word
 var words = [
@@ -11,13 +17,49 @@ var words = [
   'crackpot'
 ];
 
+
+function findLongestWord(){
+ 
+const findLongestWord = words => {
+ if (!words.length) return null;
+ let largestWord = '';
+   for (let word of words) {
+     if (word.length > largestWord.length) {
+       largestWord = word;
+     }
+   }
+   return largestWord;
+ };
+
+
+
+
+
+  
+
+
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumArray = numbers => {
+  let temp = 0;
+  for (let number of numbers) {
+    temp += number;
+  }
+  return temp;
+};
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = numbers => {
+  if (!numbers.length) return null;
+  let temp = 0;
+  for (let number of numbers) {
+    temp += number;
+  }
+  return temp / numbers.length;
+};
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +74,11 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = words => {
+  if (!words.length) return null;
+  return words.join('').length / words.length;
+};
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +95,17 @@ var wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = words => {
+  let tempArray = [];
+  for (let i = 0; i < words.length; i++) {
+    let word = words[i];
+    if (tempArray.indexOf(word) < 0) {
+      tempArray.push(word);
+    }
+  }
+
+  return tempArray;
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +117,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (words, word) => {
+  for (let item of words) {
+    if (item === word) return true;
+  }
+  return false;
+};
 
 // Counting Repetion
 var wordsCount = [
