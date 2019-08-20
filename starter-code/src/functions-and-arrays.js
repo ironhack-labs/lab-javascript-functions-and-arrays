@@ -126,9 +126,17 @@ var wordsUnique = [
 ];
 
 uniquifyArray = arr => {
+  let uniqueArray = []
   if(arr.length === 0){
-    return []
-  } 
+    return uniqueArray
+  } else if(arr.length>0){
+    for(i = 0; i < arr.length; i++){
+      if(uniqueArray.indexOf(arr[i])=== -1){
+        uniqueArray.push(arr[i])
+      }
+    }
+    return uniqueArray
+  }
 }
 
 // Finding Elements
