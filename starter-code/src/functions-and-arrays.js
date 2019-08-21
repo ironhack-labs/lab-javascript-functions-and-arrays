@@ -20,11 +20,14 @@ var words = [
 ];
 
 let findLongestWord = (arr) => {
-    let longestWord = ""
-    for (i = 0; i < arr.length; i++) {
-        if (arr[i].length > longestWord.length) longestWord = arr[i];
+    if (arr.length > 0) {
+        let longestWord = ""
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i].length > longestWord.length) longestWord = arr[i];
+        }
+        return longestWord
     }
-    return longestWord
+    return null
 }
 findLongestWord(words);
 
@@ -33,6 +36,17 @@ findLongestWord(words);
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function myFunc(total, num) {
+    return total + num;
+}
+let sumArray = (array) => {
+    if (array.length > 0) {
+        return array.reduce(myFunc);
+
+    }
+    return 0;
+}
+sumArray(numbers);
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
