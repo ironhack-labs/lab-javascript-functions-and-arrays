@@ -1,6 +1,14 @@
 // Find the maximum
+// Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) return num1
+  if (num2 > num1) return num2
+  else return num1
+}
 
 // Finding Longest Word
+//Write a function findLongestWord that takes an array of words and returns the longest one. 
+//If there are 2 with the same length, it should return the first occurrence.
 var words = [
   'mystery',
   'brother',
@@ -11,15 +19,57 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  let longest = ""
+  if (arr.length > 0) {
+    arr.forEach(word => { 
+      if (word.length > longest.length) longest = word
+    });
+    return longest
+  }
+  return null
+}
+
 // Calculating a Sum
+/*
+Calculating a sum is as simple as iterating over an array and adding each of the elements together.
+
+Semantically reduce is the best method to use for this, but you can use any loop we've discussed so far.
+
+Create a sumArray function that takes an array of numbers as a parameter, and calculate the sum of all its numbers:
+*/
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  return arr.reduce((sum, current) => {
+    return sum += current
+  }, 0)
+}
+
 // Calculate the Average
+/*
+Calculating an average is an extremely common task. Let's practice it a bit.
+Algorithm
+Find the sum as we did in the first exercise
+Take the sum from step 1, and divide it by the number of elements in the list.
+*/
+//Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers:
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  if (arr.length > 0) {
+    return arr.reduce((sum, current) => {
+      return sum += current
+    },0)/arr.length
+  }
+  return null
+}
+
 // Array of Strings
+//Write a function averageWordLength that receives an array of words and calculate the average length of the words:
+
 var wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +83,22 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  if (arr.length > 0) {
+    return arr.reduce((sum, current) => {
+      return sum+= current.length
+    }, 0)/arr.length
+  }
+  return null
+}
+
 // Unique Arrays
+/*
+Take the following array, remove the duplicates, and return a new array. 
+You're more than likely going to want to check out the indexOf function.
+Do this in the form of a function uniquifyArray that receives an array of words as a parameter.
+*/
+
 var wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +113,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let uniqueArr = []
+  arr.forEach(word => {
+    if (!uniqueArr.includes(word)) uniqueArr.push(word)
+  })
+  return uniqueArr
+}
+
 // Finding Elements
+/*
+Let's create a simple array search.
+Write a function doesWordExist that will take in an array of words as one argument,
+ and a word to search for as the other. Return true if it exists, otherwise, return false. 
+ Don't use indexOf for this one. :)
+*/
 var wordsFind = [
   'machine',
   'subset',
@@ -60,7 +139,25 @@ var wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr, searchValue) {
+  if (arr.includes(searchValue)) return true
+  return false
+}
+ // or
+
+ function doesWordExist2(arr, searchValue) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === searchValue) return true
+  }
+  return false
+ }
+
 // Counting Repetion
+/*
+Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. 
+The function will return the number of times that word appears in the array.
+*/
+
 var wordsCount = [
   'machine',
   'matter',
@@ -74,7 +171,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(arr, searchValue) {
+  let count = 0;
+  arr.forEach(word => {
+    if (word === searchValue) count++
+  })
+  return count
+}
+
+
+
 // Bonus Quest
+//In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
+
+//Write a function greatestProduct to find the answer!
 
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
