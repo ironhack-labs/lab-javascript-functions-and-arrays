@@ -98,3 +98,93 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2);
+}
+
+function findLongestWord(arr){
+  if(arr.length == 0)
+    return null;
+
+  return arr.reduce((currentLongestWord, currentWord) => currentWord.length > currentLongestWord.length ? currentWord : currentLongestWord,"");
+}
+
+function sumArray(arr){
+  return arr.reduce( (sum, currentValue) => sum += currentValue, 0)
+}
+
+function averageNumbers(arr){
+  if(arr.length == 0)
+    return null;
+
+  return sumArray(arr)/arr.length;
+}
+
+function averageWordLength(arr){
+  if (arr.length == 0)
+    return null;
+
+  return arr.reduce((sum, currentWord) => sum += currentWord.length,0)/arr.length;
+}
+
+function uniquifyArray(arr){
+  newArr = [];
+
+  arr.forEach((value) =>{
+    if(!newArr.includes(value)){
+      newArr.push(value);
+    }
+  }) 
+
+  return newArr;
+}
+
+function doesWordExist(arr, match){
+  return arr.includes(match);
+}
+
+function howManyTimes(arr, match){
+  return arr.reduce((numOfTimes, currentWord) =>{
+    if(currentWord === match)
+      numOfTimes++;
+
+    return numOfTimes;
+  },0)
+}
+
+function productOf(){
+  let product = 1;
+
+  for(let i = 0; i < arguments.length; i++){
+    product *= arguments[i];
+  }
+
+  return product;
+}
+
+
+function greatestProduct(matrix){
+  let greatestProduct = 0, currentGreatestProduct = 0;
+
+  //Examining Horizontal Products
+  for(let i = 0; i < 20; i++){
+    for(let j = 0; j < 17; j++){
+      currentGreatestProduct = productOf(matrix[i][j], matrix[i][j+1], matrix[i][j+2], matrix[i][j+3]);
+
+      greatestProduct = Math.max(currentGreatestProduct, greatestProduct);
+    }
+  }
+
+  //Examining Vertical Products
+  for (let i = 0; i < 20; i++) {
+    for (let j = 0; j < 17; j++) {
+      currentGreatestProduct = productOf(matrix[j][i], matrix[j+1][i], matrix[j+2][i], matrix[j+3][i]);
+
+      greatestProduct = Math.max(currentGreatestProduct, greatestProduct);
+    }
+  }
+
+  return greatestProduct;
+}
