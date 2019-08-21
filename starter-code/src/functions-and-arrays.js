@@ -390,6 +390,7 @@ function findLongestWord(words) {
     return longest;
   }
 }
+
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 function sumArray(numbers){
@@ -398,4 +399,12 @@ function sumArray(numbers){
   } else{
     return (numbers.reduce(reducer));
   }
+}
+
+function averageNumbers(numbers){
+    if(numbers.length == 0){
+      return null
+    }
+    const total = numbers.reduce((acc, c) => acc + c, 0);
+    return total / numbers.length;
 }
