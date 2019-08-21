@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b){
+  return Math.max(a, b);
+}
 
 // Finding Longest Word
 var words = [
@@ -11,13 +14,40 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr){
+  if(!arr || arr.length == 0){
+    return null;
+  }
+  let longestWord = arr.reduce((longest, current) => {
+    return current.length > longest.length ? current : longest;
+  });
+  return longestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  if(!arr || arr.length == 0){
+    return 0;
+  }
+  let add = (a, b) => a + b;
+  return arr.reduce(add);
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  if(!arr || arr.length == 0){
+    return null;
+  }
+  let add = (a, b) => a + b;
+  return (arr.reduce(add))/arr.length;
+}
+
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +62,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  if(!arr || arr.length == 0){
+    return null;
+  }
+  return arr.join('').length/arr.length;
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +86,13 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  if(!arr || arr.length == 0){
+    return [];
+  }
+  return arr.filter((item, index) => arr.indexOf(item) === index);
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +104,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, el){
+  if(!arr || arr.length == 0){
+    return false;
+  }
+  if(arr.includes(el)){
+    return true;
+  } return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +128,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, el){
+  return arr.filter(i => i == el).length;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +157,35 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let greatestProduct = 0;
+  // iterate through rows
+  for(let i = 0; i < matrix.length; i++){
+    // iterate through columns
+    for(let j = 0; j < matrix[i].length; j++){
+      let horizontalProduct = 1;
+      // check max product in horizontal row
+      for(let k = j; k < (j + 4); k++){
+        if(!matrix[i][k]){
+          horizontalProduct *= 1;
+        } else horizontalProduct *= matrix[i][k];
+      }
+      if(horizontalProduct > greatestProduct){
+        greatestProduct = horizontalProduct;
+      }
+
+      // check max product in vertical row
+      let verticalProduct = 1;
+      for(let k = i; k < (i + 4); k++){
+        if(!matrix[j][k]){
+          verticalProduct *= 1;
+        } else verticalProduct *= matrix[j][k];
+      }
+      if(verticalProduct > greatestProduct){
+        greatestProduct = verticalProduct;
+      }
+    }
+  }
+  return greatestProduct;
+}
