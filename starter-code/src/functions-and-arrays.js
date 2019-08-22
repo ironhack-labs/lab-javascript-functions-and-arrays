@@ -1,4 +1,6 @@
 // Find the maximum
+let maxOfTwoNumbers= (a,b) =>Math.max(a,b);
+
 
 // Finding Longest Word
 var words = [
@@ -6,18 +8,32 @@ var words = [
   'brother',
   'aviator',
   'crocodile',
-  'pearl',
+  'crocodile',
   'orchard',
   'crackpot'
 ];
+function findLongestWord (words) {
+  return (words.length>0)? words.sort((a,b)=> {return a.length-b.length})[words.length-1] : null;
+};
 
+console.log(findLongestWord(words))
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+let sumArray= numbers=> {
+  if(numbers.length<1) {return 0} else {return numbers.reduce((a,b)=>a+b)};
+}
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let averageNumbers= numbers=> {
+  if (numbers.length<1) {
+    return null;
+  }
+  else {
+    return (numbers.reduce((a,b)=>a+b))/numbers.length;
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +48,16 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+let averageWordLength= (wordsArr) => {
+  if(wordsArr.length <1) {
+    return null;
+  }
+  else {
+    return wordsArr.map(x=>x.length).reduce((a,b)=>a+b)/wordsArr.length;
+  }
+}
+
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +74,16 @@ var wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = wordsUnique => { 
+  let newArr= [...wordsUnique];
+  for(let i=0; i< wordsUnique.length; i++) {
+    if (wordsUnique.indexOf(wordsUnique[i],i+1)>i) {
+      wordsUnique[i]=undefined;
+      }
+  }
+   return wordsUnique.filter(x=>Boolean(x))
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,7 +95,7 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+let doesWordExist= (doesWordExist,testChar) => doesWordExist.includes(testChar);
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +110,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+let howManyTimes= (words,testChar) => {
+  let count= 0;
+  for(let element of words) {
+    if (element==testChar) {
+      count++;
+    }
+  } 
+  return count;
+} 
 // Bonus Quest
 
 var matrix = [
