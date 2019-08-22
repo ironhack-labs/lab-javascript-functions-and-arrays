@@ -1,5 +1,17 @@
 // Find the maximum
 
+function maxOfTwoNumbers(x,y) {
+  if (x>y ) {
+    return x;
+  }
+  else if (x == y) {
+    return x;
+  }
+  else {
+    return y;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +23,56 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  let i = 0
+  let word = ""
+ 
+  while (i < arr.length) {
+    if (arr[i].length > word.length) {
+      word = arr[i]
+    }
+    i++
+}
+if (word.length == 0) {
+  return null
+}
+else return word
+
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  let i = 0
+  let count = 0
+  while (i < arr.length) {
+    count += arr[i]
+    i++
+  }
+  if (count == 0) {
+    return 0
+  }
+  else return count
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  let i = 0
+  let count = 0
+  while (i < arr.length) {
+    count += arr[i]
+    i++
+  }
+  if (count == 0) {
+    return null
+  }
+  else return count / arr.length
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +88,19 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  let i = 0
+  let count = 0
+  while (i < arr.length) {
+    count += arr[i].length
+    i++
+  }
+  if (count == 0) {
+    return null
+  }
+  else return count / arr.length
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +115,29 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  if (arr.length == 0) {
+    return []
+  }
+  let i = 0
+   
+  while (i < arr.length - 1) {
+    if (arr[i] ==  arr[i + 1]) {
+      return [arr[0]]
+    }
+    else return arr
+    i++
+  }
+  let finalArr = []
+
+  while (i < arr.length) {
+    if (!finalArr.includes(arr)) {
+      finalArr.push(arr[i])
+    }
+  }
+  return finalArr
+}
 
 // Finding Elements
 var wordsFind = [
@@ -98,5 +189,3 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-Hello world
