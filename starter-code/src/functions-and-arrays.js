@@ -97,6 +97,19 @@ var wordsUnique = [
     'simple',
     'bring'
 ];
+let uniquifyArray = (a) => {
+    let arr = []
+    if (a.length > 0) {
+        for (i = 0; i < a.length; i++) {
+            if (arr.indexOf(a[i]) == -1) {
+                arr.push(a[i]);
+            }
+        }
+        return arr;
+    }
+    return arr;
+}
+uniquifyArray()
 
 // Finding Elements
 var wordsFind = [
