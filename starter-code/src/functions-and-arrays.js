@@ -36,12 +36,12 @@ findLongestWord(words);
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function myFunc(total, num) {
+let reduc = (total, num) => {
     return total + num;
 }
 let sumArray = (array) => {
     if (array.length > 0) {
-        return array.reduce(myFunc);
+        return array.reduce(reduc);
 
     }
     return 0;
@@ -51,7 +51,16 @@ sumArray(numbers);
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+
+let averageNumbers = (array) => {
+        if (array.length > 0) {
+            return array.reduce(reduc) / array.length;
+        }
+        return null;
+    }
+    // Array of Strings
+
+
 var wordsArr = [
     'seat',
     'correspond',
