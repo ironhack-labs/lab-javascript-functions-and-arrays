@@ -1,5 +1,13 @@
 // Find the maximum
-
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2;
+  } else {
+    return num1 = num2;
+  }
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +19,51 @@ var words = [
   'crackpot'
 ];
 
+var meh = [
+];
+
+function findLongestWord(wordList) {
+  let word = "";
+  for (i = 0; i < wordList.length; i++) {
+    if (word.length < wordList[i].length) {
+      word = wordList[i];
+    }
+  }
+  if (word == 0) {
+    return null;
+  }
+  return word;
+};
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(num){
+  let sum=0;
+  for(i=0;i<num.length;i++){
+    sum += num[i]
+    
+  }
+  return sum
+  }
+  sumArray(numbers)
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(num){
+  let sum=0;
+  for(i=0;i<num.length;i++){
+    sum += num[i]
+  };
+  if (num == 0) {
+    return null;
+  }
+  sum = sum / (num.length);
+  return sum
+  }
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +78,18 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(words){
+  let sum=0;
+  for(i=0;i<words.length;i++){
+    sum += words[i].length
+  }
+  if (sum == "") {
+    return null;
+  }
+  sum = sum / (words.length);
+  return sum
+  }
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +106,11 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  let uniqueSet = new Set(array);
+  return [...uniqueSet];
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +122,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (array, word) {
+  for(i = 0; i < array.length; i++) {
+     if (array[i] == word) 
+     return true;
+  } 
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +145,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  let sum = 0;
+  for(i = 0; i < array.length; i++) {
+    if (array[i] == word){
+      sum++; 
+    }
+  }
+  return sum;
+}
 // Bonus Quest
 
 var matrix = [
