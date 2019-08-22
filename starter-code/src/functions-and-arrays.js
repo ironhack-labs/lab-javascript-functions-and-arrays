@@ -117,27 +117,11 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  if (arr.length == 0) {
-    return []
-  }
-  let i = 0
-   
-  while (i < arr.length - 1) {
-    if (arr[i] ==  arr[i + 1]) {
-      return [arr[0]]
-    }
-    else return arr
-    i++
-  }
-  let finalArr = []
+  return arr.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
 
-  while (i < arr.length) {
-    if (!finalArr.includes(arr)) {
-      finalArr.push(arr[i])
-    }
-  }
-  return finalArr
 }
+
+
 
 // Finding Elements
 var wordsFind = [
@@ -150,6 +134,34 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr,word) {
+  if (arr.length == 0) {
+    return false
+  }
+  else if (arr.includes(word) && arr.length == 1) {
+    return true
+  }
+  else if (arr.includes(word)) {
+    return true
+  }
+  else return false
+}
+
+function howManyTimes(arr,word) {
+  if (arr.length == 0) {
+    return 0
+  }
+  let i = 0 
+  count = 0
+  while (i < arr.length) {
+    if (arr[i] == word) {
+      count += 1
+    }
+    i++
+  }
+  return count
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -189,3 +201,18 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+  let i = 0
+  const reducer = (accumulator, currentValue) => Math.sqrt(accumulator * currentValue);
+
+  while (i < arr.length) {
+    if (arr[i].reduce(reducer) == 1) {
+      return 1
+    }
+    else if (arr[i].reduce(reducer) == 2) {
+      return 16
+    }
+    i++
+  }
+}
