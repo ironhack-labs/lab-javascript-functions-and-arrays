@@ -1,5 +1,7 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a, b) {
+  return (a > b) ? a : b
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +13,33 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(someArray) {
+  return (someArray === undefined || someArray.length === 0) ? null :
+    (someArray.length === 1) ? someArray[0] :
+    someArray.reduce( (prev, current) =>
+      (prev.length > current.length) ? prev :
+      (prev.length < current.length) ? current :
+      prev)
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(someArray) {
+  return (someArray.length === 0) ? 0 : 
+  sumTotal = someArray.reduce( (prev, current) => prev + current)
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(someArray) {
+  return (someArray.length === 0) ? null :
+  (someArray.length === 1) ? someArray[0] :
+  someArray.reduce( (prev, current) => prev + current)/someArray.length
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +54,12 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(someArray) {
+  return (someArray.length === 0) ? null :
+  (someArray.length === 1) ? someArray[0].length :
+  someArray.reduce( (prev, current) => prev + current).length/someArray.length
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +76,12 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(someArray) {
+  return (someArray.length === 0) ? [] :
+  someArray.filter ( (current, index) => someArray.lastIndexOf(current) == index )
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +93,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(someArray, wordToSearch) {
+  return someArray.filter((current) => current === wordToSearch).length >= 1 ? true : false
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +112,11 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(someArray, wordToSearch) {
+  return someArray.filter((current) => current === wordToSearch).length
+}
+
 // Bonus Quest
 
 var matrix = [
