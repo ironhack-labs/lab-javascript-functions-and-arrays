@@ -73,8 +73,17 @@ var wordsArr = [
     'fuel',
     'palace'
 ];
-
-// Unique Arrays
+let averageWordLength = (array) => {
+        if (array.length > 0) {
+            let arrCount = [];
+            for (i = 0; i < array.length; i++) {
+                arrCount.push(array[i].length);
+            }
+            return arrCount.reduce(reduc) / array.length;
+        }
+        return null
+    }
+    // Unique Arrays
 var wordsUnique = [
     'crab',
     'poison',
