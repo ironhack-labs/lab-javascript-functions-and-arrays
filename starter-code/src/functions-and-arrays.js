@@ -109,7 +109,7 @@ let uniquifyArray = (a) => {
     }
     return arr;
 }
-uniquifyArray()
+uniquifyArray(wordsUnique);
 
 // Finding Elements
 var wordsFind = [
@@ -122,7 +122,19 @@ var wordsFind = [
     'truth',
     'disobedience'
 ];
+let doesWordExist = (arr, a) => {
+    if (a.length > 0) {
+        for (let i = 0; i < arr.length; i++) {
+            if (a === arr[i]) {
+                return true
+            }
 
+        }
+    }
+
+    return false
+}
+doesWordExist();
 // Counting Repetion
 var wordsCount = [
     'machine',
