@@ -132,6 +132,7 @@ let doesWordExist = (arr, a) => {
         }
     }
 
+
     return false
 }
 doesWordExist();
@@ -149,7 +150,20 @@ var wordsCount = [
     'disobedience',
     'matter'
 ];
-// Bonus Quest
+let howManyTimes = (arr, a) => {
+    let count = 0
+    if (arr.length > 0) {
+        for (i = 0; i < arr.length; i++) {
+            if (a === arr[i]) {
+                count++
+            }
+        }
+        return count
+    }
+    return 0;
+}
+howManyTimes()
+    // Bonus Quest
 
 var matrix = [
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
