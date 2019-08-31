@@ -175,6 +175,43 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(){
+function greatestProduct(array){
+  let finalProduct = 0;
+  const adjacentSize = 4;
+  array.forEach((innerArray)=>{
+    
+    innerArray.forEach((number, index)=>{
+
+      if(index < innerArray.length - 5){
+        let product = innerArray[index] * innerArray[index + 1] * innerArray[index + 2] *innerArray[index + 3]
+        // console.log(product);
+        finalProduct < product ? finalProduct = product : null;
+      }
+      
+    })
+    // console.log("next");
+    
+    
+  })
   
+  
+  array.forEach((innerArray, index)=>{
+    let cont = 0;
+    if (index < array.length -3){
+      
+      while(cont < innerArray.length-1){
+        let product = innerArray[cont] * array[index+1][cont] * array[index+2][cont]* array[index+3][cont]
+        cont ++
+        // console.log(product);
+        finalProduct < product ? finalProduct = product : null;
+      }
+
+
+
+    }
+    
+  })
+  console.log(finalProduct);
+  return finalProduct
+
 }
