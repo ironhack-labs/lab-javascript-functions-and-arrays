@@ -105,6 +105,18 @@ var wordsUnique = [
   'bring'
 ];
 
+function combArray(arr) {
+  let uniqueArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueArray.indexOf(arr[i]) === - 1 && arr[i] !== '') {
+        uniqueArray.push(arr[i]);
+    }
+  }
+  return uniqueArray;
+}
+
+console.log(combArray(words));
+
 // Finding Elements
 var wordsFind = [
   'machine',
