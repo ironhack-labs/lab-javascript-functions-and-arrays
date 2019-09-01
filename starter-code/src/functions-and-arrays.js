@@ -1,5 +1,15 @@
 // Find the maximum
 
+function findMaxNumber(num1, num2) {
+  if (num1 > num2) {
+    return console.log(num1 + " is the largest number!");
+  } else {
+    return console.log(num2 + " is the largest number!");
+  }
+}
+
+findMaxNumber(Math.floor(Math.random() * 100),  Math.floor(Math.random() * 100));
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +21,47 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  let longestWord = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let totalSum = 0;
+
+function calculateSum(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    totalSum += arr[i];
+  }
+  return totalSum;
+}
+
+console.log("The total sum is " + calculateSum(numbers));
+
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let totalSum = 0;
+let finalAvg = 0;
+
+function calculateAvg(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    totalSum += arr[i];
+    finalAvg = totalSum / arr.length;
+  }
+  return finalAvg;
+}
+
+console.log("The average is " + calculateAvg(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +76,19 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+let = totalSumChar = 0;
+let = finalAvgChar = 0;
+
+function calculateAvgChar(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    totalSumChar += arr[i].length;
+    finalAvgChar = totalSumChar / arr.length;
+  }
+  return finalAvgChar;
+}
+
+console.log("The average amount of characters is " + calculateAvgChar(words));
 
 // Unique Arrays
 var wordsUnique = [
