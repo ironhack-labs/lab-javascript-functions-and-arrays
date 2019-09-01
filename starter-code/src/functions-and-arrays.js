@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return num1;
+  } else if(num1 < num2) {
+    return num2;
+  } else {
+    return num1;
+  }
+}
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +21,58 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  let longestWord = '';
+
+  for(let i = 0; i < words.length; i++){
+    if (longestWord.length == words[i].length){
+    } else if (longestWord.length < words[i].length){
+      longestWord = words[i];
+    }
+  }
+  if(words.length == 0){
+    return null;
+  } else if(words.length == 1){
+    return words[0];
+  }
+  return longestWord; 
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+  if(array.length == 0){
+    return 0;
+  }
+  
+let sumNumber = 0;
+
+  for(let i = 0; i < array.length; i++){
+    sumNumber +=  array[i];
+  }
+  return sumNumber;
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if(array.length == 0){
+    return null;
+  }
+  
+  let arrayLenght = array.length;
+
+  let arraySum = 0;
+
+  for(let i =0; i < array.length; i++){
+    arraySum += array[i];
+  }
+  return arraySum/arrayLenght;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +88,21 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  if(array.length == 0){
+    return null;
+  }
+
+  let arrayLenght = array.length;
+
+  let arraySum = 0;
+
+  for(let i =0; i < array.length; i++){
+    arraySum += array[i].length;
+  }
+  return arraySum/arrayLenght;
+}
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +117,27 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(array){
+  if(array.length == 0){
+    return [];
+  }
+
+  let j = 1;
+
+  let finalArray = [];
+
+  for(let i = 0; i < array.length; i++){
+    let currentWord = array[i];
+    for(j; j < array.length - 1; j++){
+      if(currentWord == array[j]){
+        finalArray.push(currentWord);
+      }
+    }
+    j++;
+  }
+  return finalArray;
+}
 
 // Finding Elements
 var wordsFind = [
