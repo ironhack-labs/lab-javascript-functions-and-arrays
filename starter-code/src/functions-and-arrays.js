@@ -2,10 +2,8 @@
 function maxOfTwoNumbers(min, max) {
   if (min > max) {
     return min;
-  } else if (max > min){
+  } else {
     return max;
-  } else if (min == max ){
-    return min, max;
   }
 }
 maxOfTwoNumbers(2, 30);
@@ -21,17 +19,43 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord(word) {
-  
+function findLongestWord (word){
+  let longest = '';
+  for (let i = 0; i < word.length; i++) {
+    if (word === 0){
+      return null;
+    } else if (words[i].length > word.length){
+      longest = words[i];
+    }
+  }
+  return longest;
 }
+findLongestWord();
 
 // Calculating a Sum
-
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(number) {
+  let sum = 0;
+  for (let i = 0; i < number.length; i++) {
+    sum += number[i];
+  }
+  return sum;
+}
+sumArray();
 
 // Calculate the Average
-
+/**
+ * Find the sum as we did in the first exercise
+Take the sum from step 1, and divide it by the number of elements in the list.
+ */
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arr) {
+  if (arr === 0) {
+    return null;
+  } else {
+    
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -46,6 +70,10 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength() {
+  
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -62,6 +90,10 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArr) {
+  
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -73,6 +105,10 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arrWords, findWord) {
+  
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -88,8 +124,12 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
+function howManyTimes(arrWords, findingWord) {
+  
+}
 
+
+// Bonus Quest
 var matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
