@@ -1,14 +1,16 @@
 // Find the maximum
 
-function findMaxNumber(num1, num2) {
+function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
-    return console.log(num1 + " is the largest number!");
+    return console.log("First parameter larger");
+  } else if (num1 < num2) {
+    return console.log("Second parameter larger");
   } else {
-    return console.log(num2 + " is the largest number!");
+    return console.log("First and Second parameter equal");
+    }
   }
-}
 
-findMaxNumber(Math.floor(Math.random() * 100),  Math.floor(Math.random() * 100));
+maxOfTwoNumbers(Math.floor(Math.random() * 100),  Math.floor(Math.random() * 100));
 
 // Finding Longest Word
 var words = [
@@ -30,6 +32,8 @@ function findLongestWord(arr) {
   }
   return longestWord;
 }
+
+findLongestWord(words);
 
 // Calculating a Sum
 
