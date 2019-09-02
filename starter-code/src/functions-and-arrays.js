@@ -19,7 +19,7 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord (word){
+function findLongestWord (word){ 
   let longest = '';
   for (let i = 0; i < word.length; i++) {
     if (word === 0){
