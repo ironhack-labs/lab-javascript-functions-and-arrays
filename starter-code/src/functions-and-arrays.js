@@ -1,4 +1,14 @@
-// Find the maximum
+// Find the maximum,two numbers as arguments and returns the largest
+function maxOfTwoNumbers(min, max) {
+  if (min > max) {
+    return min;
+  } else if (max > min){
+    return max;
+  } else if (min == max ){
+    return min, max;
+  }
+}
+maxOfTwoNumbers(2, 30);
 
 // Finding Longest Word
 var words = [
@@ -10,6 +20,10 @@ var words = [
   'orchard',
   'crackpot'
 ];
+
+function findLongestWord(word) {
+  
+}
 
 // Calculating a Sum
 
