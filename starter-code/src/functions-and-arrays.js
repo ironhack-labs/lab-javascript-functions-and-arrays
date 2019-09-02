@@ -1,79 +1,166 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  return num1 > num2 ? num1 : num2;
+}
 
 // Finding Longest Word
 var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot"
 ];
 
-// Calculating a Sum
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
 
+  let maxLength = 0;
+  let maxLengthElement = "";
+  arr.forEach(el => {
+    if (el.length > maxLength) {
+      maxLength = el.length;
+      maxLengthElement = el;
+    }
+  });
+  return maxLengthElement;
+}
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return arr.reduce(reducer);
+}
 
+// Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  // return (arr.reduce(reducer) / arr.length)
+  return (
+    arr.reduce((accumulator, currentValue) => accumulator + currentValue) /
+    arr.length
+  );
+}
 
 // Array of Strings
 var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace"
 ];
+
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let averageLength = 0;
+  arr.forEach(element => {
+    averageLength += element.length;
+  });
+  return averageLength / arr.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
 ];
+
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return [];
+  }
+  let finalArray = [];
+  arr.forEach(element => {
+    if (finalArray.indexOf(element) === -1) {
+      finalArray.push(element);
+    }
+  });
+  return finalArray;
+}
 
 // Finding Elements
 var wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
+
+function doesWordExist(arr, word) {
+  let found = false;
+  arr.forEach(element => {
+    if (element === word) {
+      // por qué si pongo return true no se sale de la función?
+      found = true;
+    }
+  });
+  return found;
+}
 
 // Counting Repetion
 var wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
+
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  let times = 0;
+  arr.forEach(element => {
+    if (element === word) {
+      times += 1;
+    }
+  });
+  return times;
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +185,33 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  // x => HORIZONTAL // y => VERTICAL
+  let maxProduct = 0;
+  for (let x = 0; x < 20; x++) {
+    for (let y = 0; y < 20; y++) {
+      
+      let xpos = 0, ypos = 0, xneg = 0, yneg = 0;
+      
+      xpos = arr[x][y]  * checkValue(arr, x + 1, y) * checkValue(arr, x + 2, y) * checkValue(arr, x + 3, y);
+      xneg = arr[x][y] * checkValue(arr, x - 1, y) * checkValue(arr, x - 2, y) * checkValue(arr, x - 3, y);
+      ypos = arr[x][y] * checkValue(arr, x, y + 1) * checkValue(arr, x, y + 2) * checkValue(arr, x, y + 3); 
+      yneg = arr[x][y] * checkValue(arr, x, y - 1) * checkValue(arr, x, y - 2) * checkValue(arr, x, y - 3); 
+
+      maxProduct = Math.max(maxProduct, xpos, xneg, ypos, yneg);
+    }
+  }
+  return maxProduct;
+}
+
+// PARA QUE NO SE SALGA DEL GRID
+function checkValue(arr, x, y) {
+  if (x >= 0 && y >= 0 && x <= arr.length - 1 && y <= arr.length - 1) {
+    return arr[x][y];
+  }
+  return 1;
+}
