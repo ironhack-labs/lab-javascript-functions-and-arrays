@@ -200,9 +200,8 @@ function greatestProduct(matrix){
   for (i=1; i<19; i++){
     for (j=1; j <19;j++){
       right = matrix[i+1][j];
-      left = matrix[i+1][j];
-      top = matrix[i-1][j];
-      right = matrix[i][j+1];
+      left = matrix[i-1][j];
+      top = matrix[i][j];
       bottom = matrix[i][j-1];
 
       product = right * left * top * bottom;
