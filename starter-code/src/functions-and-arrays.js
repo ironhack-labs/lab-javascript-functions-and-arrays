@@ -106,7 +106,7 @@ var wordsFind = [
 let doesWordExist = (arr, word) => {
   if (arr.length === 0 || !arr.includes(word)) {
     return false
-  } else if (arr.includes(word)) {
+  } else {
     return true
   }
 }
