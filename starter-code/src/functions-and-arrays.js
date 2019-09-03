@@ -1,18 +1,8 @@
 // Find the maximum
-function maxOfTwoNumbers(num1, num2) {
-  var result;
-
-  if (num1 >= num2) {
-    result = num1;
-  } else {
-    result = num2;
-  }
-
-  return result;
-}
+const maxOfTwoNumbers = (num1, num2) => num1 >= num2 ? num1 : num2;
 
 // Finding Longest Word
-var words = [
+const words = [
   "mystery",
   "brother",
   "aviator",
@@ -23,38 +13,38 @@ var words = [
 ];
 
 function findLongestWord(wArray) {
-  var longestWord = null;
+  let longestWord = null;
 
   if (wArray.length > 0) {
     longestWord = wArray[0];
-    for (var i = 1; i < wArray.length; i++) {
-      if (longestWord.length < wArray[i].length) {
-        longestWord = wArray[i];
+    wArray.forEach((word) => {
+      if (longestWord.length < word.length) {
+        longestWord = word;
       }
-    }
+    });
   }
 
   return longestWord;
 }
 
 // Calculating a Sum
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(nArray) {
-  var sum = 0;
+  let sum = 0;
 
-  for (var i = 0; i < nArray.length; i++) {
-    sum += nArray[i];
-  }
+  nArray.forEach((num) => {
+    sum += num;
+  });
 
   return sum;
 }
 
 // Calculate the Average
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(nArray) {
-  var average = null;
+  let average = null;
   if (nArray.length > 0) {
     average = sumArray(nArray) / nArray.length;
   }
@@ -63,7 +53,7 @@ function averageNumbers(nArray) {
 }
 
 // Array of Strings
-var wordsArr = [
+const wordsArr = [
   "seat",
   "correspond",
   "linen",
@@ -77,11 +67,11 @@ var wordsArr = [
 ];
 
 function averageWordLength(wArray) {
-  var avg = null;
+  let avg = null;
 
-  for (var i = 0; i < wArray.length; i++) {
-    avg += wArray[i].length;
-  }
+  wArray.forEach((word) => {
+    avg += word.length;
+  });
 
   if (wArray.length > 0) {
     avg /= wArray.length;
@@ -91,7 +81,7 @@ function averageWordLength(wArray) {
 }
 
 // Unique Arrays
-var wordsUnique = [
+const wordsUnique = [
   "crab",
   "poison",
   "contagious",
@@ -110,7 +100,7 @@ function uniquifyArray(wArray) {
 }
 
 // Finding Elements
-var wordsFind = [
+const wordsFind = [
   "machine",
   "subset",
   "trouble",
@@ -122,22 +112,23 @@ var wordsFind = [
 ];
 
 function doesWordExist(wArray, word) {
-  var exists = false;
+  let exists = false;
 
-  for (var i = 0; i < wArray.length; i++) {
-    if (wArray[i] === word && !exists) {
-      exists = true;
-    } else if (wArray[i] === word) {
-      exists = false;
-      break;
+  wArray.forEach((w) => {
+    if (w === word) {
+      if (!exists) {
+        exists = true;
+      } else {
+        return false;
+      }
     }
-  }
+  });
 
   return exists;
 }
 
 // Counting Repetion
-var wordsCount = [
+const wordsCount = [
   "machine",
   "matter",
   "subset",
@@ -152,19 +143,19 @@ var wordsCount = [
 ];
 
 function howManyTimes(wArray, word) {
-  var counter = 0;
+  let counter = 0;
 
-  for (var i = 0; i < wArray.length; i++) {
-    if (wArray[i] === word) {
+  wArray.forEach((w) => {
+    if (w === word) {
       counter++;
     }
-  }
+  });
 
   return counter;
 }
 
 // Bonus Quest
-var matrix = [
+const matrix = [
   [08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 04, 56, 62, 00],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 03, 49, 13, 36, 65],
@@ -188,18 +179,18 @@ var matrix = [
 ];
 
 function greatestProduct(mat) {
-  var counter = 0;
+  let counter = 0;
 
-  for (var i = 0; i < mat.length; i++) {
-    for (var j = 0; j < mat[i].length; j++) {
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[i].length; j++) {
       if (j < mat[i].length - 3) {
-        var horizontal = mat[i][j] * mat[i][j + 1] * mat[i][j + 2] * mat[i][j + 3];
+        let horizontal = mat[i][j] * mat[i][j + 1] * mat[i][j + 2] * mat[i][j + 3];
         if (counter < horizontal) {
           counter = horizontal;
         }
       }
       if (i < mat.length - 3) {
-        var vertical = mat[i][j] * mat[i + 1][j] * mat[i + 2][j] * mat[i + 3][j];
+        let vertical = mat[i][j] * mat[i + 1][j] * mat[i + 2][j] * mat[i + 3][j];
         if (counter < vertical) {
           counter = vertical;
         }
