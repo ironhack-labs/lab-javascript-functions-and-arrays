@@ -24,7 +24,7 @@ var words = [
 ];
 
 function findLongestWord(arr) {
-  let longestWord = [];
+  let longestWord = arr[0];
   for (let i = 1; i < arr.length; i++) {
     if (arr[i].length > longestWord.length) {
       longestWord = arr[i];
