@@ -59,7 +59,12 @@ let averageWordLength = arr => {
   if (arr.length === 0) {
     return null
   } else {
-     return arr.reduce((a, b)=>  a.length + b.length)/arr.length
+    let count = 0;
+    arr.forEach((e) => {
+      count += e.length;
+    })
+    return count / arr.length
+
   }
 }
 
@@ -78,6 +83,14 @@ var wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = arr => {
+  if (arr.length === 0) {
+    return []
+  }else {
+    return arr.filter((e,i) => arr.indexOf(e) >= i)
+  }
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -89,6 +102,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+let doesWordExist = (arr, word) => {
+  if (arr.length === 0 || !arr.includes(word)) {
+    return false
+  } else if (arr.includes(word)) {
+    return true
+  }
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -104,6 +125,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (arr, word) => {
+  if (arr.length === 0) {
+    return 0
+  } else {
+    let count = 0;
+    arr.forEach((arrElement) => (arrElement === word && count++));
+    return count;
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
@@ -128,3 +160,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = () => {
+
+}
