@@ -1,4 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2){
+    return num1;
+  } else { 
+    return num2;
+  }
+};
+
+console.log(maxOfTwoNumbers(4,6));
 
 // Finding Longest Word
 var words = [
@@ -11,13 +20,63 @@ var words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+function findLongestWord(arr){
+  let longestWord = '';
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i].length > longestWord.length){
+      longestWord = arr[i];
+    }
+  }
 
+  if (longestWord === ''){
+    return null;
+  } else { 
+   return longestWord;
+  }
+};
+
+console.log(findLongestWord(words));
+
+// Calculating a Sum
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+const reducer = (a, b) => a + b;
 
+function sumArray(numArr){
+  let sum = numArr.reduce(reducer, 0);
+  return sum;
+};
+
+console.log(sumArray(numbers));
+
+// or 
+
+function sumArray2(numArr){
+  let sum = 0;
+  for (let i = 0; i < numArr.length; i++){
+    sum += numArr[i];
+  }
+  return sum;
+};
+
+console.log(sumArray2(numbers));
+
+// Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var empty = [];
+
+function averageNumbers(numArr){
+  let sum = sumArray(numArr);
+
+  if (sum === 0){
+    return null;
+  } else {
+    let average = sum/numArr.length;
+    return average;
+  }
+}
+
+console.log(averageNumbers(empty));
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +91,23 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordArr){
+  let totalLength = 0;
+
+  for (let i = 0; i < wordArr.length; i++){
+    totalLength += wordArr[i].length;
+  };
+
+  if (totalLength === 0){
+    return null;
+  } else {
+    let average = totalLength/wordArr.length; 
+    return average;
+  }
+};
+
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +124,13 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordArr){
+  let uniqueArr = wordArr.filter((a, b) => wordArr.indexOf(a) === b);
+  return uniqueArr;
+};
+
+console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +142,16 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordArr, str){
+  if (wordArr.includes(str)){
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(doesWordExist(wordsFind, 'banana'));
 
 // Counting Repetion
 var wordsCount = [
@@ -74,10 +167,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-// Bonus Quest
 
+function howManyTimes(wordArr, str){
+  let count = 0;
+  wordArr.forEach((word) => (word === str && count++));
+  return count;
+};
+
+console.log(howManyTimes(wordsCount, 'matter'));
+
+// Bonus Quest
 var matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+  [8,   2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
   [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
@@ -91,10 +192,30 @@ var matrix = [
   [16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 0, 17, 54, 24, 36, 29, 85, 57],
   [86, 56, 0, 48, 35, 71, 89, 7, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58],
   [19, 80, 81, 68, 5, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 4, 89, 55, 40],
-  [4, 52, 8, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66],
+  [4,  52, 8, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66],
   [88, 36, 68, 87, 57, 62, 20, 72, 3, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69],
-  [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
+  [4,  42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
-  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
+  [1,  70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Math.max() returns largest number 
+
+function greatestProduct(grid){
+  let num = 4;
+  let product = 0;
+  
+  for (let i = 0; i < (grid.length - num); i++){
+    for (let j = 0; j < (grid.length - num); j++){
+      product = Math.max(
+                product,
+                (grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]),
+                (grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]))
+    }
+  }
+  return product;
+};
+
+console.log(greatestProduct(matrix));
+
