@@ -12,6 +12,15 @@ function shuffle(currentArray) {
   }
   return array;
 }
+//Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+function maxOfTwoNumbers(a, b){
+  if (a > b){
+    return a;
+  }else{
+    return b;
+  }
+}
+
 describe("Find the maximum - maxOfTwoNumbers", function() {
   it("Defines maxOfTwoNumbers", function() {
     expect(typeof maxOfTwoNumbers).toBe("function");
@@ -30,6 +39,22 @@ describe("Find the maximum - maxOfTwoNumbers", function() {
   });
 });
 
+function findLongestWord(array){
+  
+  let longest = array[0];
+
+  for(let i = 1; i < array.length; i++){
+    if(array[i].length > longest.length){
+      longest = array[i];
+    }
+  }
+   
+  if(array.length == 0){
+    return null;
+  }
+
+  return longest;
+}
 describe("Finding Longest Word - findLongestWord", function() {
   it("Defines findLongestWord", function() {
     expect(typeof findLongestWord).toBe("function");
@@ -57,6 +82,16 @@ describe("Finding Longest Word - findLongestWord", function() {
   });
 });
 
+function sumArray(array){
+  let sum = 0;
+
+  for(let i = 0; i < array.length; i++){
+    sum += array[i];
+  }
+
+  return sum;
+}
+
 describe("Calculating a Sum - sumArray", function() {
   it("Defines sumArray", function() {
     expect(typeof sumArray).toBe("function");
@@ -79,6 +114,18 @@ describe("Calculating a Sum - sumArray", function() {
   });
 });
 
+function averageNumbers(array){
+  let sum = 0;
+
+  for(let i = 0; i < array.length; i++){
+    sum += array[i];
+  }
+
+  if (array.length == 0){
+    return null;
+  }
+  return sum/array.length;
+}
 describe("Calculating the Average - averageNumbers", function() {
   it("Defines averageNumbers", function() {
     expect(typeof averageNumbers).toBe("function");
@@ -101,6 +148,20 @@ describe("Calculating the Average - averageNumbers", function() {
   });
 });
 
+
+function averageWordLength(array){
+  let media = 0;
+
+  for(let i = 0; i < array.length;i++){
+    media += array[i].length;
+  }
+
+  if (array.length == 0){
+    return null;
+  }
+
+  return media/array.length;
+}
 describe("Calculating the Average - averageWordLength", function() {
   it("Defines averageWordLength", function() {
     expect(typeof averageWordLength).toBe("function");
@@ -129,6 +190,19 @@ describe("Calculating the Average - averageWordLength", function() {
     ).toBe(7);
   });
 });
+
+
+function uniquifyArray(array){
+  let newArray = [];
+
+  for(let i = 0; i < array.length; i++){
+    if(array.indexOf(array[i]) >= i){
+      newArray.push(array[array.indexOf(array[i])]);
+    }
+  }
+
+  return newArray;
+}
 
 describe("Unique Arrays - uniquifyArray", function() {
   it("Defines uniquifyArray", function() {
@@ -166,6 +240,16 @@ describe("Unique Arrays - uniquifyArray", function() {
   });
 });
 
+
+function doesWordExist(array, word){
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === word){
+      return true;
+    }
+  }
+
+  return false;
+}
 describe("Finding Elements - doesWordExist", function() {
   it("Defines doesWordExist", function() {
     expect(typeof doesWordExist).toBe("function");
@@ -198,6 +282,18 @@ describe("Finding Elements - doesWordExist", function() {
   });
 });
 
+
+function howManyTimes(array, word){
+  let countManyTimes = 0;
+
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === word){
+      countManyTimes += 1;
+    }
+  }
+
+  return countManyTimes;
+}
 describe("Counting Repetition - howManyTimes", function() {
   it("Defines howManyTimes", function() {
     expect(typeof howManyTimes).toBe("function");
@@ -239,6 +335,42 @@ describe("Counting Repetition - howManyTimes", function() {
   });
 });
 
+
+function greatestProduct(matrix){
+  /* let greatest = matrix[0][0] * matrix[0][1] * matrix[0][2] * matrix[0][3];
+  
+  return greatest; */
+
+  const adjacent = 4;
+
+  let greatest = 0;
+
+  for(let col = 0; col < matriz.length; col++){
+    for(let row = 0; row < matriz.length; row++){
+      let tempProduct;
+
+      //vertically
+      if(row < matrix.length - adjacent){
+        tempProduct = [col, row];
+        for(let i = 1; i < adjacent;i++){
+          tempProduct *= matrix[col, row+i];
+        }
+        greatest = Math.max(greatest, tempProduct);
+      }
+
+      //Horizontally
+      if(col < matrix.length - adjacent){
+        tempProduct = [col, row];
+        for(let i = 1; i < adjacent;i++){
+          tempProduct *= matrix[col + i, row];
+        }
+        greatest = Math.max(greatest, tempProduct);
+      }
+
+
+    }
+  }
+}
 describe("Bonus Quest - greatestProduct", function() {
   it("Defines greatestProduct", function() {
     expect(typeof greatestProduct).toBe("function");
