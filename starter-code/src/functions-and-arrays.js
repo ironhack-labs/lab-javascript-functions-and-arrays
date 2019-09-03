@@ -1,5 +1,27 @@
 // Find the maximum
 
+var listOfNumbers = [2, 5, 4];
+
+function maxOfTwoNumbers(number){
+  console.log(Math.max(...number)); // spread operator "..."
+}
+
+maxOfTwoNumbers(listOfNumbers);
+
+/* Another option:
+
+listOfNumbers = [2], [5];
+
+function maxOfTwoNumbers(listOfNumbers){
+   let bigNumber = [];
+  listOfNumbers.forEach(function(number) {
+    bigNumber.push(Math.max(...number))
+  })
+   return bigNumber;
+}
+}
+*/
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +33,42 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr){ // arr = placeholder, unique per fuction 
+  var longest = '';
+  for(var i = 0; i < arr.length; i++){ // to loop on every element of the array 
+    if(arr[i].length > longest.length) { // It compares the first element, if bigger it adds the value to 'longest'
+      longest = arr[i]; 
+    }
+  }
+  return longest; // Adds the value of the function to 'arr'
+}
+
+console.log(findLongestWord(words)); // I use the function on 'words'
+
+
+
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]; // = 87
+
+function sum(arr){
+  return arr.reduce(function(a,b){  // reduce puts all the numbers together, function a (acummulator),b(current value we are passing) takes the values
+    return a + b; // here I sum
+  }, 0); // 0 = initial value, where to start
+}
+  
+console.log(sum(numbers));
+
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]; // = 48
+
+function avg(arr){
+  return sum(arr)/arr.length; // I use the same function to sum and divide the sum by the number of elements in the array
+}
+  
+console.log(avg(numbersAvg)); // = 6
 
 // Array of Strings
 var wordsArr = [
@@ -33,6 +84,19 @@ var wordsArr = [
   'palace'
 ];
 
+var total = 0; // where I store the value of the sum
+for(var i = 0; i < wordsArr.length; i++){
+    total += wordsArr[i].length; // I start from the first element and sum
+} 
+var average = total/wordsArr.length; 
+
+console.log(average); // = 5.3
+
+// OTHER OPTION 
+// avg = wordsArr.join('').length / wordsArr.length     
+// console.log(avg)
+
+
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -47,6 +111,11 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
+
+var unique = [...new Set(wordsUnique)]; // New Set objetct - to return a new array with unique elements only
+console.log(unique); 
+
+// COMING BACK TO THIS ONES :)
 
 // Finding Elements
 var wordsFind = [
