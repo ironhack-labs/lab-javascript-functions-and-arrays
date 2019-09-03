@@ -1,5 +1,11 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2);
+}
+
+console.log(maxOfTwoNumbers(15,20));
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +17,59 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(array){
+  if(array.length === 0) return null;
+  var indexOfWordWithMaxlength;
+
+  var length = [];
+
+  array.forEach((element, index) => {
+    length.push(element.length);
+  });
+
+  var longestLength = Math.max(...length);
+  indexOfWordWithMaxlength = length.indexOf(longestLength);
+  var longestWord = array[indexOfWordWithMaxlength];
+
+  console.log(length);
+
+  console.log(longestWord);
+  return longestWord;
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arrayOfNumbers){
+  var sum = 0;
+
+  for(var i=0; i< arrayOfNumbers.length; i++){
+    sum += arrayOfNumbers[i];
+  }
+  return sum;
+}
+
+console.log(sumArray(numbers));
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+
+  if(arr.length === 0) return null;
+  var sum = 0;
+
+  for(var i=0; i< arr.length; i++){
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +84,27 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arrayOfWords){
+  var lengthOfWords = [];
+
+  arrayOfWords.forEach((element)=>{
+    lengthOfWords.push(element.length);
+  })
+
+  if(lengthOfWords.length === 0) return null;
+
+  console.log(lengthOfWords);
+
+  var sum = 0;
+
+  for(var i=0; i< lengthOfWords.length; i++){
+    sum += lengthOfWords[i];
+  }
+  return sum / lengthOfWords.length;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +121,24 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrWords){
+
+  if(arrWords.length === 0) return [];
+
+  var newArray = [];  
+
+  arrWords.forEach(function(word){
+    if(newArray.includes(word)){
+      return newArray;
+    } else {
+      newArray.push(word)
+    }
+  })
+  return newArray;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +150,20 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arrForFind, wordToBeFound){
+  if(arrForFind.includes(wordToBeFound)){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(doesWordExist(wordsFind, "machine"));
+console.log(doesWordExist(wordsFind, "niharika"));
+console.log(doesWordExist(wordsFind, "disobedience"));
+console.log(doesWordExist(wordsFind, "neha"));
+
 
 // Counting Repetion
 var wordsCount = [
@@ -72,8 +177,43 @@ var wordsCount = [
   'matter',
   'truth',
   'disobedience',
-  'matter'
+  'matter',
+  'truth'
 ];
+
+function howManyTimes(countArr, word){
+    var newWordArray = [];
+    
+    countArr.forEach((item, index) => {
+      if(item === word){
+        newWordArray.push(item)
+      } 
+    })
+
+    switch(newWordArray.length){
+      case 0: return 0;
+      break;
+      case 1: return 1;
+      break;
+      case 5: return 5;
+    }
+    
+    /*
+    if(newWordArray.length === 0){
+      
+    }
+    else if(newWordArray.length === 1){
+      return 1;
+    } else if (newWordArray.length === 5){
+      return 5;
+    }*/
+
+    console.log(newWordArray.length);
+};
+
+howManyTimes(wordsCount, "matter");
+howManyTimes(wordsCount, "truth");
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +238,33 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  for(var i = 0; i < matrix.length; i++){
+    for(var j = 0; j < matrix[i].length; j++){
+      console.log(matrix[i][j]);
+    }
+       
+    /*
+    // matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] .... 
+    var fromPositionZero = matrix[i].slice(0,4);
+    var fromPositionOne = matrix[i].slice(1,5);
+    var fromPositionTwo = matrix[i].slice(2,6);
+    var fromPositionThree = matrix[i].slice(3,7);
+    var fromPositionFour = matrix[i].slice(4,8);
+    var fromPositionFifth = matrix[i].slice(5,9);
+    var fromPositionSixth = matrix[i].slice(6,10);
+    var fromPositionSeventh = matrix[i].slice(7,11);
+    var fromPositionEight = matrix[i].slice(8,12);
+    var fromPositionNinth = matrix[i].slice(9,13);
+    var fromPositionTenth = matrix[i].slice(10,14);
+    var fromPositionEleven = matrix[i].slice(11,15);
+    var fromPositionTwelve = matrix[i].slice(12,16);
+    var fromPositionThirteen = matrix[i].slice(13,17);
+    var fromPositionFourteen = matrix[i].slice(14,18);
+    var fromPositionFifteen = matrix[i].slice(15,19);
+  */
+  }
+}
+
+greatestProduct(matrix);
