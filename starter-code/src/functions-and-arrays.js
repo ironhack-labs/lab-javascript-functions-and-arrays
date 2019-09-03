@@ -1,4 +1,5 @@
 // Find the maximum
+let maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
 
 // Finding Longest Word
 var words = [
@@ -10,14 +11,35 @@ var words = [
   'orchard',
   'crackpot'
 ];
+ 
+let findLongestWord = arr =>  {
+  if (arr.length === 0) {
+    return null
+  } else {
+    return arr.sort((a, b) => b.length - a.length)[0]
+  }
+}
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sumArray = arr => arr.reduce((a, b) => a + b, 0);
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let averageNumbers = arr => {
+  if (arr.length === 0) {
+    return null
+  } else {
+    let sum = arr.reduce((previous, current) => current += previous);
+    return sum / arr.length;
+  }
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +54,14 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+let averageWordLength = arr => {
+  if (arr.length === 0) {
+    return null
+  } else {
+     return arr.reduce((a, b)=>  a.length + b.length)/arr.length
+  }
+}
 
 // Unique Arrays
 var wordsUnique = [
