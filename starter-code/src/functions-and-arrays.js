@@ -8,6 +8,12 @@ function maxOfTwoNumbers(a, b) {
     return b;
   }
 }
+/*
+Se puede hacer super chachi pistachi así
+
+const maxOfTwoNumbers = (a, b) => a > b ? a : b
+
+*/
 
 // Finding Longest Word
 var words = [
@@ -104,6 +110,19 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arr) {
+  let uniqueWords = [];
+  for (let i = 0, l = arr.length; i < l; i++) { //con esto no tengo que pasar por todo el array siempre
+    if (arr.indexOf(arr[i]) < i) {
+      continue;
+    }
+    else {
+      uniqueWords.push(arr[i]);
+    }
+  }
+  return uniqueWords;
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -115,6 +134,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arr, word) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      return true;
+    }
+  }
+  return false; 
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -130,6 +158,17 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr, word) {
+  let result = 0; 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      result++;
+    }
+  }
+  return result;
+}
+
 // Bonus Quest
 
 var matrix = [
