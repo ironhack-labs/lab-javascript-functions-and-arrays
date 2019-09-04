@@ -1,23 +1,90 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return num1;
+  }
+  return num2;
+}
+
+
+let largest = maxOfTwoNumbers(13, 27);
+
+console.log(largest);
+
 // Finding Longest Word
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+
+let words = [
+  'mystery',    // 0 - 7
+  'brother',    // 1 - 7
+  'aviator',    // 2 - 7
+  'crocodile',  // 3 - 9
+  'pearl',      // 4 - 5
+  'orchard',    // 5 - 7
+  'crackpot'    // 6 - 8
 ];
+
+  // let biggest = Math.max(words.length);
+  
+  function findLongestWord (words){
+    let longest = " ";
+    if (words.length === 0){
+      return null;
+    }
+    for (let i = 0; i < words.length; i++){
+      if (words[i].length > longest.length) {
+        longest = words[i];
+      } 
+    }
+    return longest;
+  }
+  
+  let longestWord = findLongestWord(words);
+  
+  console.log(longestWord);
+
 
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray (numbers) {
+  let newNumber = 0;
+  for(let i = 0; i < numbers.length; i++) {
+    newNumber += numbers[i];
+    if (sumArray === 0) {
+      newNumber = [];
+    }
+  }
+  return newNumber;
+}
+sumArray(numbers);  
+
+
+
+
+let suma = sumArray(numbers);
+
+console.log(suma);
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbers){
+  let sumaC = 0;
+  let total = 0;
+  let reltado;
+  for(let i = 0; i < numbers.length; i++){
+    sumaC += numbers[i];
+    total = numbers.length;
+    reltado = sumaC/total;
+  }
+  return reltado;
+}
+
+let resultadoFinal = averageNumbers(numbers);
+
+console.log(resultadoFinal);
 
 // Array of Strings
 var wordsArr = [
@@ -33,20 +100,67 @@ var wordsArr = [
   'palace'
 ];
 
+function averageWordLength(){
+  let numTotalLetras = 0;
+  for(let i = 0; i < wordsList.length; i++){
+    numTotalLetras += wordsList[i].length; 
+  }
+  return numTotalLetras;
+}
+
+averageWordLength();
+
+let numLetras = averageWordLength();
+
+// Numero total palabras (10)
+
+function wordsArray(){
+  let numTotalPalabras = wordsList.length;
+ 
+  for(let i = 0; i < wordsList.length; i++){
+    resultado = numLetras/numTotalPalabras;
+  }
+  return resultado;
+}
+
+wordsArray();
+
+let numPalabras = wordsArray();
+
+console.log(numPalabras);
+
 // Unique Arrays
-var wordsUnique = [
+let wordsRepeated = [
   'crab',
-  'poison',
+  'poison',   // 1. Repated
   'contagious',
-  'simple',
-  'bring',
+  'simple',   // 2. Repated
+  'bring',    // 3. Repated
   'sharp',
   'playground',
-  'poison',
+  'poison',   // 1. Repated
   'communion',
-  'simple',
-  'bring'
+  'simple',   // 2. Repated
+  'bring'     // 3. Repated
 ];
+
+//https://www.youtube.com/watch?v=xdziI2avnZ4
+
+function uniquifyArray(wordsRepeated){
+  let index = []; 
+  for(let i = 0; i < wordsRepeated.length; i++){
+       if (index.indexOf(wordsRepeated[i]) == -1) {
+        index.push(wordsRepeated[i]);
+    }
+  }
+  return index;
+}
+
+uniquifyArray(wordsRepeated);
+
+let verify = uniquifyArray(wordsRepeated);
+
+console.log(verify);
 
 // Finding Elements
 var wordsFind = [
@@ -59,6 +173,22 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, word){
+  for(let i = 0; i < wordsFind.length; i++){
+  if(wordsFind[i] === word){
+    return true;
+  }
+  }
+    return false;
+  }
+
+
+let wordExist = doesWordExist(wordsFind, "matter");
+console.log(wordExist);
+
+let wordDoesNotExist = doesWordExist(wordsFind, "Aitor");
+console.log(wordDoesNotExist);
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +204,22 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(wordCounted, word){
+  let times = 0;
+  for (let i = 0; i < wordCounted.length; i++){
+    if (wordCounted[i] === word){
+      times += 1;
+    }
+  }
+  return times;
+}
+
+let timesRepeated = howManyTimes(wordCounted, 'matter');
+
+console.log(timesRepeated);
+
 // Bonus Quest
 
 var matrix = [
