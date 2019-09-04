@@ -101,3 +101,5 @@ Finally, we need to reveal the mystery. Create a `revealMystery` function, that 
 - [20 Mind-blowing facts about Cluedo.](http://whatculture.com/offbeat/20-mind-blowing-facts-you-didnt-know-about-cluedo)
 - [Wikipedia](https://en.wikipedia.org/wiki/Cluedo)
 - [Data Structures: Objects and Arrays](http://eloquentjavascript.net/04_data.html)
+
+**Happy coding!** :heart:
