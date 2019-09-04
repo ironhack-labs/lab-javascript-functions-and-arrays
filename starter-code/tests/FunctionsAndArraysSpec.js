@@ -335,6 +335,47 @@ describe("Counting Repetition - howManyTimes", function() {
   });
 });
 
+/*
+function greatestProduct(matrix){
+  //let greatest = matrix[0][0] * matrix[0][1] * matrix[0][2] * matrix[0][3];
+  
+  //return greatest; 
+
+  const adjacent = 4;
+
+  let greatest = 0;
+
+  for(let row = 0; row < matrix.length; row++){
+    for(let col = 0; col < matrix.length; col++){
+      let tempProduct;
+
+      //Horizontally
+      if(col < matrix.length - adjacent){
+        tempProduct = matrix[row][col];
+        for(let i = 1; i < adjacent;i++){
+          tempProduct *= matrix[row][col + i];
+          //console.log(matrix[row][col + i]);
+        }
+        
+        greatest = Math.max(greatest, tempProduct);
+        //console.log(greatest);
+      }
+
+      //vertically
+      if(row < matrix.length - adjacent){
+        tempProduct = matrix[col][row];
+        for(let i = 1; i < adjacent;i++){
+          tempProduct *= matrix[col + i][row];
+          //console.log(matrix[col + i, row]);
+        }
+        greatest = Math.max(greatest, tempProduct);
+        //console.log(greatest);
+      }
+    }
+  }
+  return greatest;
+}
+*/
 
 function greatestProduct(matrix){
   /* let greatest = matrix[0][0] * matrix[0][1] * matrix[0][2] * matrix[0][3];
@@ -345,24 +386,27 @@ function greatestProduct(matrix){
 
   let greatest = 0;
 
-  for(let col = 0; col < matriz.length; col++){
-    for(let row = 0; row < matriz.length; row++){
-      let tempProduct;
+  for(let col = 0; col < matrix.length; col++){
+    for(let row = 0; row < matrix.length; row++){
+      let tempProduct = 0;
 
       //vertically
       if(row < matrix.length - adjacent){
-        tempProduct = [col, row];
+        tempProduct = matrix[col][row];
+        
         for(let i = 1; i < adjacent;i++){
-          tempProduct *= matrix[col, row+i];
+          tempProduct *= matrix[col][row+i];
+          
         }
         greatest = Math.max(greatest, tempProduct);
+        
       }
 
       //Horizontally
       if(col < matrix.length - adjacent){
-        tempProduct = [col, row];
+        tempProduct = [col][row];
         for(let i = 1; i < adjacent;i++){
-          tempProduct *= matrix[col + i, row];
+          tempProduct *= matrix[col + i][row];
         }
         greatest = Math.max(greatest, tempProduct);
       }
@@ -370,6 +414,7 @@ function greatestProduct(matrix){
 
     }
   }
+  return greatest;
 }
 describe("Bonus Quest - greatestProduct", function() {
   it("Defines greatestProduct", function() {
