@@ -98,3 +98,120 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(num1,num2){
+  if(num1 > num2){
+    return num1
+  } else {
+    return num2
+  }
+}
+
+
+
+
+
+function findLongestWord (item){  
+
+  if(item == false){
+    return null
+  } else {
+  
+    item.sort(function(a, b){ 
+      return b.length - a.length
+    })  
+  }
+      return item[0]
+}
+
+
+
+function sumArray(num){
+  let total = 0;
+  for(i=0; i<num.length; i++){
+    total += num[i]
+  }
+ return total
+}
+
+
+function averageNumbers(num){
+  if(num == false){
+    return null
+  } else {
+    let total = 0
+    for(i=0; i<num.length; i++){
+      total += num[i]
+    }
+  total /= num.length
+  return total
+}
+
+}
+
+
+function averageWordLength (item) { 
+  let sum =0;
+  if(item == 0){
+    return null
+  } else {
+    for(i=0; i<item.length; i++){
+    sum += item[i].length
+  }
+  sum /= item.length
+  return sum
+}
+}
+
+
+
+
+function uniquifyArray(item){
+  let newWords =[]
+  for(i=0; i<item.length; i++){
+    if (newWords.indexOf(item[i])===-1){
+      newWords.push(item[i])
+    }
+  }
+  console.log(newWords)
+  return newWords
+}
+
+
+
+function howManyTimes(item,search){
+  for(i=0, j=0;i<item.length; i++){
+    if(item[i]===search){
+      j++
+    }else{
+      continue
+    }
+  }
+  console.log(j)
+  return j
+}
+
+
+doesWordExist = (words,word)=>{
+  for(i=0; i<words.length; i++){
+    if(word==words[i]){
+      return true
+    } else {
+      continue
+    }
+  }
+  return false
+}
+
+const greatestProduct =(matrix) => {
+  let sum=0  
+  for(i=1; i < matrix.length-1; i++){  //Vertical
+    for(j=1; j < matrix.length-1; j++){ //Horizontal
+  
+      if(sum< matrix[i-1][j] * matrix[i+1][j] * matrix[i][j-1] * matrix[i][j+1]){
+         sum=matrix[i-1][j] * matrix[i+1][j] * matrix[i][j-1] * matrix[i][j+1]
+       }  
+    }
+  }
+  return sum
+  }
