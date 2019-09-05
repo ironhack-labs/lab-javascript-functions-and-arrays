@@ -1,6 +1,15 @@
 // Find the maximum
+function maxOfTwoNumbers(a,b){
+if(a>b){
+  return a;
+}else {
+  return b;
+}
 
-// Finding Longest Word
+}
+console.log(maxOfTwoNumbers(2,3))
+
+
 const words = [
   'mystery',
   'brother',
@@ -9,17 +18,55 @@ const words = [
   'pearl',
   'orchard',
   'crackpot'
-];
+]
+function findLongestWord(arr){
+  let count="";
+  if(arr.length === 0){
+  return null;
+}
+arr.forEach(function(name){
+  if(name.length > count.length){
+    count = name;
+} 
+  });
+  return count;
+}
 
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr2) {
+  let sum = 0;
+  if(arr2.length === 0){
+    return sum;
+  }
+arr2.forEach(function(num){
+sum += num;
+});
+return(sum)
+}
+
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+
+function averageNumbers (arr3){
+  let sumAvg=0;
+  if(arr3.length === 0){
+    return null;
+  }
+arr3.forEach(function(num){
+sumAvg += num;
+});
+ return sumAvg/arr3.length;
+}
+
 // Array of Strings
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +80,19 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength (arr4){
+let averageLength = 0;
+if(arr4.length === 0){
+  return null;
+}
+arr4.forEach(function(num){
+averageLength += num.length;
+});
+ return averageLength/arr4.length;
+}
+
 // Unique Arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -45,8 +104,21 @@ const wordsUnique = [
   'poison',
   'communion',
   'simple',
-  'bring'
+  'bring',
+  
 ];
+
+function uniquifyArray (arr5){
+ let newArr= [];
+arr5.forEach(function(name){
+  if(newArr.indexOf(name) === -1){
+    newArr.push(name);
+  }
+})
+return newArr;
+}
+
+
 
 // Finding Elements
 const wordsFind = [
@@ -59,6 +131,27 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arr6, str){
+let doesWord = false;
+
+  if(arr6.length === 0){
+    return false;
+  } else if (arr6.length === 1){
+    return true;
+  } else if (arr6.length > 1){
+  arr6.forEach(function(name){
+    if (name === str){
+      doesWord = true;
+    }
+  });
+} return doesWord;
+
+//return arr6.includes(str) //Para pensar.
+}
+
+  
+  
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +167,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr7, str){
+  let count = 0;
+  arr7.forEach(function(name){
+   if (name === str){
+     count += 1;
+   }
+  return count;
+})
+}
 
 // Bonus
 
