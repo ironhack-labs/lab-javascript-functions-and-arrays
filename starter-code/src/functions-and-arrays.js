@@ -475,24 +475,28 @@ function greatestProduct(arr) {
   if (arr.length == 0) {
     return null;
   } else {
+    let product = 0;
     for (let i = 0; i < arr.length; i += 1) {
       for (let x = 0; x < arr[i].length; x += 1) {
-        let product = arr[i][x];
-        if (arr[i - 1][x] != undefined) {
-          product *= arr[i - 1][x];
+        let newProduct = 1;
+        if (i > 0) {
+          newProduct *= arr[i - 1][x];
         }
-        if (arr[i][x - 1] != undefined) {
-          product *= arr[i][x - 1];
+        if (x > 0) {
+          newProduct *= arr[i][x - 1];
         }
-        if (arr[i + 1][x] != undefined) {
-          product *= arr[i + 1][x];
+        if (i < arr.length - 1) {
+          newProduct *= arr[i + 1][x];
         }
-        if (arr[i][x + 1] != undefined) {
-          product *= arr[i][x + 1];
+        if (x < arr[i].length - 1) {
+          newProduct *= arr[i][x + 1];
+        }
+        if (newProduct > product) {
+          product = newProduct;
         }
       }
-      return product;
     }
+    return product;
   }
 }
 console.log(greatestProduct(matrix));
