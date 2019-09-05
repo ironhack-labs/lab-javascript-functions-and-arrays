@@ -5,7 +5,7 @@ function maxOfTwoNumbers (a,b) {
   }else if ( b > a) {
     return b
   }else {
-    return "Os dois sao do mesmo tamanho"
+    return a
   }
 }
 // Finding Longest Word 
@@ -21,6 +21,7 @@ const words = [
 ];
 
 function findLongestWord (array){
+  if(array.length > 0){
     let maior = ""
     array.forEach(function (word) {
         if(word.length > maior.length){
@@ -28,14 +29,23 @@ function findLongestWord (array){
         }
     })
     return maior
+  } else {
+    return null
+  }
+    
 }
 console.log(findLongestWord(words))
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray (array) {
-  const reducer = (acumulador, valorAtual) => acumulador + valorAtual;
-  return array.reduce(reducer)
+  if(array.length > 0){
+    const reducer = (acumulador, valorAtual) => acumulador + valorAtual;
+    return array.reduce(reducer)
+  }else {
+    return 0
+  }
+ 
 }
 console.log(sumArray(numbers))
 // Calculate the Average
@@ -43,8 +53,13 @@ console.log(sumArray(numbers))
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (array) {
-  let total = sumArray(array)
-  return total / array.length
+  if(array.length > 0){
+    let total = sumArray(array)
+    return total / array.length
+  }else {
+    return null;  
+  }
+
 }
 
 console.log(averageNumbers(numbersAvg))
@@ -63,16 +78,27 @@ const wordsArr = [
 ];
 
 function averageWordLength (array) {
-  const reducer = (acumulador, valorAtual) => {
-    if( typeof acumulador == "number"){
-      return acumulador + valorAtual.length
-    }else {
-      return acumulador.length + valorAtual.length
+  if(array.length > 1){
+    const reducer = (acumulador, valorAtual) => {
+      if( typeof acumulador == "number"){
+        return acumulador + valorAtual.length
+      }else {
+        return acumulador.length + valorAtual.length
+      }
+      
     }
+    let tamanhoTotal = array.reduce(reducer)
+    return tamanhoTotal / array.length
+
+  }else if(array.length == 1){
+    return array[0].length 
+  }else{
+    return null;
   }
-  let tamanhoTotal = array.reduce(reducer)
-  return tamanhoTotal / array.length
+    
+  
 }
+
 console.log(averageWordLength(wordsArr))
 
 // Unique Arrays
@@ -172,13 +198,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 01, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 05, 54],
   [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48]
 ];
-function greatestProduct(matrix){
-  // matrix
-  // [1][1] => [0][1] [2][1] [1][0] [1] [2]
-}
-
-
-
 
 
 function greatestProduct2(matrix){
@@ -226,4 +245,41 @@ function greatestProduct2(matrix){
 }
 
 
-greatestProduct(matrix)
+greatestProduct2(matrix)
+
+
+function validaCampo(indexLinha, indexColuna){
+  if((indexLinha > 0 &&  indexLinha < 19) && (indexColuna >  0 && indexColuna < 19)){
+    return true
+  }else {
+    return false
+  }
+}
+
+function greatestProduct(matrix){
+  // matrix
+  let maiorProduto = 0
+  let produto = 0
+  let maiorIndexColuna =0
+  let maiorIndexLinha =0
+  matrix.forEach( (linha,indexLinha) => {
+    linha.forEach( (numero,indexColuna) => {
+        if(validaCampo(indexLinha,indexColuna)){
+          produto = matrix[indexLinha + 1][indexColuna] *  matrix[indexLinha - 1][indexColuna] *  matrix[indexLinha][indexColuna+ 1] * matrix[indexLinha][indexColuna - 1] 
+          if(produto > maiorProduto){
+            maiorProduto = produto
+            maiorIndexLinha = indexLinha
+            maiorIndexColuna= indexColuna
+          }
+        }
+    })
+  })
+  console.log(maiorIndexLinha)
+  console.log(maiorIndexColuna)
+  
+  return maiorProduto
+}
+
+console.log(greatestProduct(matrix))
+
+
