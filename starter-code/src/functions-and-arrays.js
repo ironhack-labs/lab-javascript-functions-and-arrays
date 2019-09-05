@@ -161,5 +161,53 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-let greatestProduct = () => {
+let greatestProduct = arr => {
+  let max = 0;
+  let x;
+  let y;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      let result = 0;
+      let a, b, c, d;
+
+      if ((i - 1) < 0) {
+        a = 1
+      } else {
+        a =  arr[i - 1][j];
+      }
+
+      if ((j + 1) > matrix[i].length - 1) {
+        b = 1
+      } else {
+        b = arr[i][j + 1]
+      }
+
+      if ((i + 1) > matrix.length - 1) {
+        c = 1
+      } else {
+        c = arr[i + 1][j]
+      }
+      if ((j - 1) < 0) {
+        d = 1
+      } else {
+        d = arr[i][j - 1]
+      }
+
+      /*console.log(`${arr[i][j]}: 
+      a: ${a}, 
+      b: ${b}, 
+      c: ${c}, 
+      d: ${d}`)*/
+      result = arr[i][j] * a * b * c * d
+
+      if (result > max) {
+        max =  result;
+        x = j
+        y = i
+      }
+    }
+  }
+  console.log(`El max es: ${max}, en la posicion ${x}, ${y}`)
+  return max
 }
