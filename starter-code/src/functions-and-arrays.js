@@ -1,5 +1,9 @@
 // Find the maximum
 
+const maxOfTwoNumbers = ((num1, num2) => 
+  num1 > num2 ? num1 : num2
+)
+
 // Finding Longest Word
 var words = [
   'mystery',
@@ -11,13 +15,41 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  if (arr.length === 0) return null
+  let longest = ""
+  arr.forEach(currentValue => {
+    if (currentValue.length > longest.length) {
+      longest = currentValue
+    }
+  })
+  return longest
+}
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  let sum = 0;
+  arr.forEach(value =>
+    sum += value
+  )
+  return sum
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length === 0) return null
+  let sum = 0;
+  arr.forEach(value =>
+    sum += value
+  )
+  return sum / arr.length
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +64,15 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if (arr.length === 0) return null
+  let sum = 0
+  arr.forEach(value => 
+    sum += value.length
+  )
+  return sum / arr.length
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +89,16 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let newArray = []
+  arr.forEach(currentValue => {
+    if (newArray.indexOf(currentValue) === -1) {
+      newArray.push(currentValue)
+    }
+  })
+  return newArray
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +110,15 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  for(let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      return true
+    }
+  }
+  return false
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +134,18 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === word) {
+      count++
+    }
+  }
+  return count
+}
+
+
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +170,96 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function multiplyUp(arr, x, y) {
+  if (x - 4 < 0) {
+    return 0
+  }
+  let product = arr[x][y]
+  for(let i = x - 1; i > x - 4; i--){
+    product *= arr[i][y]
+  }
+  return product
+}
+
+function multiplyRight(arr, x, y) {
+  if (y + 4 > arr.length) {
+    return 0
+  }
+  let product = arr[x][y]
+  for(let i = y + 1; i < y + 4; i++){
+    product *= arr[x][i]
+  }
+  return product
+}
+
+function multiplyDown(arr, x, y) {
+  if (x + 4 > arr.length) {
+    return 0
+  }
+  let product = arr[x][y]
+  for(let i = x + 1; i < x + 4; i++){
+    product *= arr[i][y]
+  }
+  return product
+}
+
+function multiplyLeft(arr, x, y) {
+  if (y - 4 < 0) {
+    return 0
+  }
+  let product = arr[x][y]
+  for(let i = y - 1; i > y - 4; i--){
+    product *= arr[x][i]
+  }
+  return product
+}
+
+function isTheGreatest(up, right, down, left) {
+  if (up >= right && up >= down && up >= left) {
+    console.log(`up is the greatest product!`)
+    return up
+  } else if (right >= up && right >= down && up >= left) {
+    console.log(`right is the greatest product!`)
+    return right
+  } else if (down >= up && down >= right && down >= left) {
+    console.log(`down is the greatest product!`)
+    return down
+  } else if (left >= up && left >= right && left >= down) {
+    console.log(`left is the greatest product!`)
+    return left
+  }
+}
+
+function greatestProduct(matrix) {
+
+  let greatest = 0;
+
+  for(let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+
+      let up = multiplyUp(matrix, i, j)
+      let right = multiplyRight(matrix, i ,j)
+      let down = multiplyDown(matrix, i, j)
+      let left = multiplyLeft(matrix, i, j)
+
+      greatest = isTheGreatest(up, right, down, left)
+    }
+  }
+  return greatest
+}
+
+/*
+//test with specific coordinates (i, j)
+
+function greatestProduct(matrix, i, j) {
+
+  let up = multiplyUp(matrix, i, j)
+  let right = multiplyRight(matrix, i ,j)
+  let down = multiplyDown(matrix, i, j)
+  let left = multiplyLeft(matrix, i, j)
+
+  return isTheGreatest(up, right, down, left)
+
+}
+*/
