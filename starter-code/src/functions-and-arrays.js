@@ -1,5 +1,17 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a
+  } else if (b > a) {
+    return b
+  } else {
+    return a
+  }
+}
+
+maxOfTwoNumbers(1, 2);
+
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +23,52 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  if (arr.length===0){
+    return null;
+  }
+  let longestWord = " "
+  arr.forEach(function (item) {
+    if (item.length > longestWord.length) {
+      longestWord = item
+    }
+  });
+  return longestWord
+}
+
+console.log(findLongestWord(words));
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  let sum = 0
+  arr.forEach(function (item) {
+    sum += item
+  });
+  return sum
+}
+
+console.log(sumArray(numbers));
+
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length===0){
+    return null;
+  }
+  let average = 0
+  arr.forEach(function (item) {
+    average += item
+  });
+  return (average / arr.length)
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +83,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if (arr.length===0){
+    return null;
+  }
+  let word = 0
+  arr.forEach(function (item) {
+    word += item.length
+  });
+  return word / arr.length
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +112,24 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arr) {
+  arr.forEach(function (item, index) {
+    if(index < arr.length-1){
+      if (arr.indexOf(item, index + 1) >= 0)   {
+        arr.splice(arr.indexOf(item, index + 1), 1)
+      }
+    } else {
+      if (arr.indexOf(item, 0) >= 0)   {
+        arr.splice(arr.indexOf(item, 0), 1)
+      }
+    }
+  });
+  return arr
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +141,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  let exist = false;
+  arr.forEach(function (item) {
+    if (item == word) {
+      exist = true
+    }
+  });
+  return exist
+}
+
+console.log(doesWordExist(wordsFind, "rt"));
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +168,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let time = 0;
+  arr.forEach(function (item) {
+    if (item === word) {
+      time += 1
+    }
+  });
+  return time
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
+
 
 // Bonus
 
@@ -99,3 +206,43 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+  let maxPro = 0;
+  let valAr = 0;
+  arr.forEach(function (line, indexX) {
+        line.forEach(function (value, indexY) {
+          if (indexX === 0) {
+            if (indexY === 0) {
+              valAr = arr[indexX + 1][indexY] * arr[indexX][indexY + 1]
+            } else if (indexY === arr.length - 1) {
+                valAr = arr[indexX + 1][indexY] * arr[indexX][indexY - 1]
+              } else {
+                valAr = arr[indexX + 1][indexY] * arr[indexX][indexY + 1] * arr[indexX][indexY - 1]
+              }
+            }
+            else if (indexX === arr.length - 1) {
+              if (indexY === 0) {
+                valAr = arr[indexX - 1][indexY] * arr[indexX][indexY + 1]
+              } else if (indexY === arr.length - 1) {
+                valAr = arr[indexX - 1][indexY] * arr[indexX][indexY - 1]
+              } else {
+                valAr = arr[indexX - 1][indexY] * arr[indexX][indexY + 1] * arr[indexX][indexY - 1]
+              }}
+               else if (indexY === 0) {
+                valAr = arr[indexX - 1][indexY] * arr[indexX + 1][indexY] * arr[indexX][indexY + 1]
+              } else if (indexY === arr.length - 1) {
+                valAr = arr[indexX - 1][indexY] * arr[indexX + 1][indexY] * arr[indexX][indexY - 1]
+              } else {
+                valAr = arr[indexX - 1][indexY] * arr[indexX + 1][indexY] * arr[indexX][indexY + 1] * arr[indexX][indexY - 1]
+              }
+
+              if (valAr > maxPro) {
+                maxPro = valAr
+              }
+            })
+        })
+        return maxPro
+      }
+
+      console.log(greatestProduct(matrix));
