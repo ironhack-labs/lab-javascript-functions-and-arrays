@@ -179,8 +179,42 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+/*
 function greatestProduct(matrix) {
   let result = 0;
 
   return result;
+}
+*/
+
+const greatestProduct = grid => {
+  let maxProd = 0;
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid.length; j++ ) {
+      let prod = 0;
+
+      if (i >= 3) {
+        // left
+        prod = grid[i][j] * grid[i-1][j] * grid[i-2][j] * grid[i-3][j] 
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+      if (i <= 16) {
+        // rigth
+        prod = grid[i][j]  * grid[i][j-1] * grid[i][j-2] * grid[i][j-3]
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+      if (j >= 3) {
+        // top
+        prod = grid[i][j]  * grid[i][j-1] * grid[i][j-2] * grid[i][j-3]
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+      if (j <= 16) {
+        // bottom
+        prod = grid[i][j]  * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+
+    }
+  }
+  return maxProd;
 }
