@@ -22,13 +22,9 @@ const words = [
 
 function findLongestWord(arr) {
   let big = "";
-  if (arr.length == 0) {
-    return null;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      if (big.length < arr[i].length) {
-        big = arr[i];
-      }
+  for (let i = 0; i < arr.length; i++) {
+    if (big.length < arr[i].length) {
+      big = arr[i];
     }
   }
   return big;
@@ -51,20 +47,14 @@ console.log(sumArray(numbers));
 // Calculate the Average---------------------------------------------------- ok
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-const rand = [];
 
 function averageNumbers(arr) {
   let sum = 0;
-  if (arr.length == 0) {
-    return null;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
   }
   return sum / arr.length;
 }
-
 console.log(averageNumbers(numbersAvg));
 
 // Array of Strings--------------------------------------------------------- ok
@@ -83,12 +73,8 @@ const wordsArr = [
 
 function averageWordLength(arr) {
   let sum = 0;
-  if (arr.length == 0) {
-    return null;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i].length;
-    }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length;
   }
   return sum / arr.length;
 }
@@ -469,30 +455,3 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct(arr) {
-  let maxProduct = 0;
-  if (arr.length == 0) {
-    return null;
-  } else {
-    for (let i = 0; i < arr.length; i += 1) {
-      for (let x = 0; x < arr[i].length; x += 1) {
-        let product = arr[i][x];
-        if (arr[i - 1][x] != undefined) {
-          product *= arr[i - 1][x];
-        }
-        if (arr[i][x - 1] != undefined) {
-          product *= arr[i][x - 1];
-        }
-        if (arr[i + 1][x] != undefined) {
-          product *= arr[i + 1][x];
-        }
-        if (arr[i][x + 1] != undefined) {
-          product *= arr[i][x + 1];
-        }
-      }
-      return product;
-    }
-  }
-}
-console.log(greatestProduct(matrix));
