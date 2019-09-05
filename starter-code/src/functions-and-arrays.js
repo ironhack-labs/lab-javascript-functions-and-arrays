@@ -1,80 +1,85 @@
 // Find the maximum
-
+const maxOfTwoNumbers = (a, b) => (a > b ? a : b);
 // Finding Longest Word
-const words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
-
+const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
+const findLongestWord = wordArray => {
+  if (wordArray.length === 0) {
+    return null;
+  }
+  let longest = "";
+  wordArray.forEach(element => {
+    if (element.length > longest.length) {
+      longest = element;
+    }
+  });
+  return longest;
+};
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumArray = numArray => {
+  let count = 0;
+  numArray.forEach(element => {
+    count += element;
+  });
+  return count;
+};
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = numArray => {
+  if (numArray.length === 0) {
+    return null;
+  }
+  const sum = sumArray(numArray);
+  return sum / numArray.length;
+};
 // Array of Strings
-const wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+const wordsArr = ["seat", "correspond", "linen", "motif", "hole", "smell", "smart", "chaos", "fuel", "palace"];
+const averageWordLength = wordArray => {
+  if (wordArray.length === 0) {
+    return null;
+  }
+  let countTotalLength = 0;
+  wordArray.forEach(element => {
+    countTotalLength += element.length;
+  });
+  return countTotalLength / wordArray.length;
+};
 
 // Unique Arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const wordsUnique = ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "poison", "communion", "simple", "bring"];
+const uniquifyArray = wordArray => {
+  if (wordArray.length === 0) {
+    return [];
+  }
+  const uniqueArray = [];
+  wordArray.forEach(element => {
+    if (!doesWordExist(uniqueArray, element)) {
+      uniqueArray.push(element);
+    }
+  });
+  return uniqueArray;
+};
 
 // Finding Elements
-const wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
-];
+const wordsFind = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
+const doesWordExist = (wordArray, word) => wordArray.includes(word);
 
 // Counting Repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
-
+const wordsCount = ["machine", "matter", "subset", "trouble", "starting", "matter", "eating", "matter", "truth", "disobedience", "matter"];
+const howManyTimes = (wordArray, word) => {
+  let count = 0;
+  wordArray.forEach(element => {
+    if (word === element) {
+      count += 1;
+    }
+  });
+  return count;
+};
 // Bonus
 
 const matrix = [
@@ -99,3 +104,22 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+const greatestProduct = productArray => {
+  let maxProduct = 0;
+  productArray.forEach((row, indexRow) => {
+    row.forEach((colunm, indexCol) => {
+      if (indexRow === 0 || indexRow === productArray.length - 1) {
+        return;
+      }
+      const top = productArray[indexRow - 1][indexCol];
+      const bottom = productArray[indexRow + 1][indexCol];
+      const left = productArray[indexRow][indexCol - 1];
+      const right = productArray[indexRow][indexCol + 1];
+      const product = top * bottom * left * right;
+      if (maxProduct < product) {
+        maxProduct = product;
+      }
+    });
+  });
+  return maxProduct;
+};
