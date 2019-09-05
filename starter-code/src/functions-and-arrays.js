@@ -86,7 +86,7 @@ var wordsUnique = [
 let uniquifyArray = arr => {
   if (arr.length === 0) {
     return []
-  }else {
+  } else {
     return arr.filter((e,i) => arr.indexOf(e) >= i)
   }
 }
@@ -162,5 +162,4 @@ var matrix = [
 ];
 
 let greatestProduct = () => {
-
 }
