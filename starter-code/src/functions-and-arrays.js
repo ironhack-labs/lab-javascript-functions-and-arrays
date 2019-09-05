@@ -163,8 +163,6 @@ var matrix = [
 
 let greatestProduct = arr => {
   let max = 0;
-  let x;
-  let y;
 
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
@@ -193,21 +191,12 @@ let greatestProduct = arr => {
       } else {
         d = arr[i][j - 1]
       }
-
-      /*console.log(`${arr[i][j]}: 
-      a: ${a}, 
-      b: ${b}, 
-      c: ${c}, 
-      d: ${d}`)*/
-      result = arr[i][j] * a * b * c * d
+      result = a * b * c * d
 
       if (result > max) {
         max =  result;
-        x = j
-        y = i
       }
     }
   }
-  console.log(`El max es: ${max}, en la posicion ${x}, ${y}`)
   return max
 }
