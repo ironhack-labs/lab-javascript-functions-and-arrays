@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(numero1, numero2) {
+  if (numero1 > numero2) {
+    return numero1;
+  } else {
+    return numero2
+  }
+}
 
 // Finding Longest Word
 const words = [
@@ -11,13 +18,56 @@ const words = [
   'crackpot'
 ];
 
+
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null
+  }
+  let longest = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+}
+findLongestWord(words);
+
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+
+
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum / array.length;
+}
+
 
 // Array of Strings
 const wordsArr = [
@@ -33,7 +83,22 @@ const wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i].length;
+  }
+  return sum / array.length;
+}
+
+
+
+
+///Unique Arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +113,21 @@ const wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+function uniquifyArray(array) {
+  if (array.length === []) {
+    return undefined;
+  }
+  let newUniqueArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (newUniqueArray.indexOf(array[i]) === -1) {
+      newUniqueArray.push(array[i]);
+    }
+  }
+  return newUniqueArray;
+}
+
+
+///Finding Elements
 const wordsFind = [
   'machine',
   'subset',
@@ -60,7 +139,20 @@ const wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetition
+
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return false;
+  } else if (array.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+doesWordExist(wordsFind, "notebook");
+
+
+///Counting Repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -74,6 +166,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(array, word) {
+  if (array.length === false) {
+    return 0;
+  }
+  let wordPositionArray = [];
+  let idx = array.indexOf(word);
+  while (idx != -1) {
+    wordPositionArray.push(idx);
+    idx = array.indexOf(word, idx + 1);
+  }
+  return wordPositionArray.length;
+}
+howManyTimes(wordsCount, "matter");
+
+
 
 // Bonus
 
