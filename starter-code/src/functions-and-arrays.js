@@ -23,6 +23,7 @@ var words = [
   'crackpot'
 ];
 
+/*
 function findLongestWord(wordsArray) {
 
   if (wordsArray.length === 0
@@ -30,7 +31,24 @@ function findLongestWord(wordsArray) {
     return null;
   } else {
     let longestWord = '';
-    wordsArray.forEach(function (word) {
+    wordsArray.forEach(word => {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    })
+    return longestWord;
+  }
+
+}
+*/
+
+const  findLongestWord = wordsArray => {
+
+  if (wordsArray.length === 0 || wordsArray === null || wordsArray === undefined) {
+    return null;
+  } else {
+    let longestWord = '';
+    wordsArray.forEach( word => {
       if (word.length > longestWord.length) {
         longestWord = word;
       }
@@ -56,7 +74,7 @@ function sumArray(numsArray) {
 
 const sumArray = numsArray => {
   let result = 0;
-  numsArray.forEach(function (number) {
+  numsArray.forEach( number => {
     result += number;
   })
   return result;
@@ -76,7 +94,8 @@ function averageNumbers(numsArray) {
 }
 */
 
-const averageNumbers = numsArray  => (numsArray.length !== 0 ) ? ( sumArray(numsArray)/numsArray.length ) : null
+const averageNumbers = numsArray  => 
+numsArray.length !== 0  ? sumArray(numsArray)/numsArray.length : null
 
 // Array of Strings
 var wordsArr = [
@@ -104,7 +123,7 @@ function averageWordLength(wordsArray) {
 
 const averageWordLength = wordsArray => {
   let arrayLengths = [];
-  wordsArray.forEach(function (word) {
+  wordsArray.forEach( word => {
     arrayLengths.push(word.length);
   })
   return averageNumbers(arrayLengths);
@@ -136,9 +155,9 @@ function uniquifyArray(wordsArray){
   return arrayResult;
 }
 */
-const uniquifyArray = wordsArray  =>{
+const uniquifyArray = wordsArray  => {
   let arrayResult = [];
-  wordsArray.forEach(function (word) {
+  wordsArray.forEach( word => {
     if (arrayResult.indexOf(word) === -1) {
       arrayResult.push(word);
     }
@@ -172,7 +191,7 @@ function doesWordExist(wordsArray, wordToFind) {
 
 const doesWordExist = (wordsArray, wordToFind) => {
   let result = false;
-  wordsArray.forEach(function (word) {
+  wordsArray.forEach( word => {
     if (wordToFind === word) {
       result = true;
     }
@@ -209,7 +228,7 @@ function howManyTimes(wordsArray, wordToSearch) {
 
 const howManyTimes = (wordsArray, wordToSearch) => {
   let result = 0;
-  wordsArray.forEach(function (word) {
+  wordsArray.forEach( word => {
     if (word === wordToSearch) {
       result++;
     }
@@ -242,6 +261,7 @@ var matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+/*
 const greatestProduct = grid => {
   let maxProd = 0;
   for (let i = 0; i < grid.length; i++) {
@@ -249,27 +269,60 @@ const greatestProduct = grid => {
       let prod = 0;
 
       if (i >= 3) {
-        // left
+        // top
         prod = grid[i][j] * grid[i-1][j] * grid[i-2][j] * grid[i-3][j] 
         maxProd = prod > maxProd ? prod : maxProd;
       }
       if (i <= 16) {
-        // rigth
+        // down
         prod = grid[i][j]  * grid[i][j-1] * grid[i][j-2] * grid[i][j-3]
         maxProd = prod > maxProd ? prod : maxProd;
       }
       if (j >= 3) {
-        // top
+        // left
         prod = grid[i][j]  * grid[i][j-1] * grid[i][j-2] * grid[i][j-3]
         maxProd = prod > maxProd ? prod : maxProd;
       }
       if (j <= 16) {
-        // bottom
+        // right
         prod = grid[i][j]  * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
         maxProd = prod > maxProd ? prod : maxProd;
       }
 
     }
   }
+  return maxProd;
+}
+*/
+
+const greatestProduct = grid => {
+  let maxProd = 0;
+  grid.forEach( (col, y) => {
+    col.forEach( (row, x) =>{
+      let prod = 0;
+
+      if (y >= 3) {
+        // top
+        prod = grid[y][x] * grid[y-1][x] * grid[y-2][x] * grid[y-3][x] 
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+      if (y <= 16) {
+        // down
+        prod = grid[y][x]  * grid[y][x-1] * grid[y][x-2] * grid[y][x-3]
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+      if (x >= 3) {
+        // left
+        prod = grid[y][x]  * grid[y][x-1] * grid[y][x-2] * grid[y][x-3]
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+      if (x <= 16) {
+        // right
+        prod = grid[y][x]  * grid[y][x+1] * grid[y][x+2] * grid[y][x+3]
+        maxProd = prod > maxProd ? prod : maxProd;
+      }
+
+    })
+  })
   return maxProd;
 }
