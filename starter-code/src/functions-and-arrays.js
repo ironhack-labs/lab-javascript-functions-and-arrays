@@ -1,19 +1,22 @@
 // Find the maximum
 
 function maxOfTwoNumbers(num1, num2) {
+  let number = 0;
   if (num1 > num2) {
-    return console.log("First parameter larger");
+    number = num1;;
   } else if (num1 < num2) {
-    return console.log("Second parameter larger");
+    number = num2;
   } else {
-    return console.log("First and Second parameter equal");
+    number = num1 || num2;
     }
+    return number;
   }
 
-maxOfTwoNumbers(Math.floor(Math.random() * 100),  Math.floor(Math.random() * 100));
+maxOfTwoNumbers(Math.floor(Math.random() * 10),  Math.floor(Math.random() * 10));
+
 
 // Finding Longest Word
-var words = [
+const words = [
   'mystery',
   'brother',
   'aviator',
@@ -24,8 +27,11 @@ var words = [
 ];
 
 function findLongestWord(arr) {
-  let longestWord = arr[0];
-  for (let i = 1; i < arr.length; i++) {
+  let longestWord = [];
+  if (arr.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longestWord.length) {
       longestWord = arr[i];
     }
@@ -37,27 +43,35 @@ findLongestWord(words);
 
 // Calculating a Sum
 
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let totalSum = 0;
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function calculateSum(arr) {
+function sumArray(arr) {
+  let totalSum = 0;
   for (let i = 0; i < arr.length; i++) {
+    if (arr.length == 0) {
+      totalSum = 0;
+    } else {
     totalSum += arr[i];
+    }
   }
   return totalSum;
 }
 
-console.log("The total sum is " + calculateSum(numbers));
+sumArray(numbers);
 
 
 // Calculate the Average
 
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-let totalSum = 0;
-let finalAvg = 0;
+function averageNumbers(arr) {
+  let totalSum = 0;
+  let finalAvg = 0;
 
-function calculateAvg(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   for (let i = 0; i < arr.length; i++) {
     totalSum += arr[i];
     finalAvg = totalSum / arr.length;
@@ -65,7 +79,7 @@ function calculateAvg(arr) {
   return finalAvg;
 }
 
-console.log("The average is " + calculateAvg(numbersAvg));
+averageNumbers(numbersAvg);
 
 // Array of Strings
 var wordsArr = [
@@ -81,10 +95,14 @@ var wordsArr = [
   'palace'
 ];
 
-let = totalSumChar = 0;
-let = finalAvgChar = 0;
+function averageWordLength(arr) {
+  let = totalSumChar = 0;
+  let = finalAvgChar = 0;
 
-function calculateAvgChar(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   for (let i = 0; i < arr.length; i++) {
     totalSumChar += arr[i].length;
     finalAvgChar = totalSumChar / arr.length;
@@ -92,7 +110,7 @@ function calculateAvgChar(arr) {
   return finalAvgChar;
 }
 
-console.log("The average amount of characters is " + calculateAvgChar(words));
+averageWordLength(words);
 
 // Unique Arrays
 var wordsUnique = [
@@ -109,7 +127,7 @@ var wordsUnique = [
   'bring'
 ];
 
-function combArray(arr) {
+function uniquifyArray(arr) {
   let uniqueArray = [];
   for (let i = 0; i < arr.length; i++) {
     if (uniqueArray.indexOf(arr[i]) === - 1 && arr[i] !== '') {
@@ -119,7 +137,7 @@ function combArray(arr) {
   return uniqueArray;
 }
 
-console.log(combArray(words));
+uniquifyArray(words);
 
 // Finding Elements
 var wordsFind = [
@@ -134,17 +152,22 @@ var wordsFind = [
 ];
 
 function doesWordExist(array, word) {
+
+  if (array.length == 0) {
+    return false
+  }
+
   for (let i = 0; i < array.length; i++) {
-    if (word === array[i]) {
+    if (array.indexOf(word) != -1) {
       return true;
-      continue;
+      // continue;
     } else {
       return false;
     }
   }
 }
 
-doesWordExist(words, "starting");
+doesWordExist(wordsFind, "starting");
 
 // Counting Repetion
 var wordsCount = [
@@ -158,22 +181,26 @@ var wordsCount = [
   'matter',
   'truth',
   'disobedience',
+  'matter',
   'matter'
 ];
 
-let wordCount = 0;
+
 
 function howManyTimes(array, word) {
+  let wordCount = 0;
   for (let i = 0; i < array.length; i++) {
     if (array[i] === word) {
       wordCount++;
+        if (wordCount === 5) {
+          return "five";
+        }
     }
-    continue;
   }
   return wordCount;
 }
 
-howManyTimes(words, "matter");
+howManyTimes(wordsCount, "matter");
 
 // Bonus Quest
 
