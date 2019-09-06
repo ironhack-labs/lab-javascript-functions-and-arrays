@@ -1,5 +1,5 @@
 // Find the maximum
-
+const maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
 // Finding Longest Word
 const words = [
   'mystery',
@@ -10,15 +10,39 @@ const words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(words) {
+  if (words.length == 0) {
+    return null;
+  }
 
+  let longesWord = "";
+
+  words.forEach((element) => {
+    if (longesWord.length < element.length) longesWord = element;
+  });
+  return longesWord;
+}
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(num) {
+  if (num.length === 0) return 0;
+  return num.reduce((acc, item) => acc + item);
+}
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (num) => {
+  if (num.length === 0) {
+    return null;
+  }
+
+  return num.reduce((acc, item) => acc + item) / num.length;
+
+};
 // Array of Strings
 const wordsArr = [
   'seat',
@@ -32,6 +56,24 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = (words) => {
+  if (words.length === 0) {
+    return null;
+  }
+
+  return words.reduce((acc, word) => acc + word.length, 0) / words.length;
+
+  let total = words.reduce((acc, word) => {
+    return (acc + word.length);
+  }, 0);
+
+  return total / words.length;
+
+  // console.log(media);
+};
+
+averageWordLength(wordsArr);
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +90,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words) {
+  let newArr = [];
+
+  words.forEach((word) => {
+
+    if (!newArr.includes(word)) {
+      newArr.push(word);
+    }
+  });
+  return newArr;
+}
+
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,7 +115,7 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-
+const doesWordExist = (arr, word) => arr.includes(word);
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -74,6 +130,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, word) => {
+  let count = 0;
+  let lastIndex = 0;
+  while (arr.indexOf(word, lastIndex) != -1) {
+    if (arr.indexOf(word, lastIndex) != -1) {
+      count += 1;
+      lastIndex = arr.indexOf(word, lastIndex) + 1;
+    } 
+  }
+  return count;
+}
 
 // Bonus
 
