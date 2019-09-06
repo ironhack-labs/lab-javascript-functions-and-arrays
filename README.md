@@ -1,4 +1,4 @@
-![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
+![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
 # JS | Functions & Arrays
 
@@ -13,23 +13,21 @@ In this exercise you will apply:
 
 Manipulating arrays in code is a very common operation. Whether you're creating a total for a shopping cart, grabbing only the first names out of a list of people, or moving a piece on a chessboard, you're probably going to be modifying or manipulating an array in some way.
 
+
 ## Requirements
 
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Clone this repo into your `~/code/labs`
-- Write your code in the js file provided in the `starter-code`
+- Fork this repo
+- Clone this repo
 
 ## Submission
 
-Upon completion, run the following commands
+Upon completion, run the following commands:
 ```
 $ git add .
-$ git commit -m 'done'
+$ git commit -m "done"
 $ git push origin master
 ```
-Navigate to your repo and create a Pull Request -from your master branch to the original repository master branch.
-
-In the Pull request name, add your name and last names separated by a dash '-'
+Create Pull Request so your TAs can check up your work.
 
 ## Testing Introduction
 
@@ -85,20 +83,21 @@ When coding with tests, is super important to read and understand the errors we 
 
 ## Deliverables
 
-All our work will be located in the `functions-and-arrays.js` file, so that will be enough. Anyway, you have to `push` the whole repo to Github.
+Write your JavaScript in the provided `src/functions-and-arrays.js` file.
 
-## Find the maximum
+
+## Iteration #1: Find the maximum
 
 Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest. 
 
-## Finding Longest Word
+## Iteration #2: Finding Longest Word
 
 Write a function `findLongestWord` that takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence. 
 
 **Starter Code**
 
 ```javascript
-var words = [
+const words = [
   'mystery',
   'brother',
   'aviator',
@@ -109,7 +108,7 @@ var words = [
 ];
 ```
 
-## Calculating a Sum
+## Iteration #3: Calculating a Sum
 
 Calculating a sum is as simple as iterating over an array and adding each of the elements together.
 
@@ -120,10 +119,10 @@ Create a `sumArray` function that takes an array of numbers as a parameter, and 
 **Starter Code**
 
 ```javascript
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 ```
 
-## Calculate the Average
+## Iteration #4: Calculate the Average
 
 Calculating an average is an extremely common task.  Let's practice it a bit.
 
@@ -139,7 +138,7 @@ Write a function `averageNumbers` that receives an array of numbers and calculat
 **Starter Code**
 
 ```javascript
-var numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 ```
 
 ### Level 2: Array of Strings
@@ -149,7 +148,7 @@ Write a function `averageWordLength` that receives an array of words and calcula
 **Starter Code**
 
 ```javascript
-var words = [
+const words = [
     'seat',
     'correspond',
     'linen',
@@ -163,7 +162,7 @@ var words = [
 ];
 ```
 
-## Unique Arrays
+## Iteration #5: Unique Arrays
 
 Take the following array, remove the duplicates, and return a new array. You're more than likely going to want to check out the [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) function.
 
@@ -172,7 +171,7 @@ Do this in the form of a function `uniquifyArray` that receives an array of word
 **Starter Code**
 
 ```javascript
-var words = [
+const words = [
   'crab',
   'poison',
   'contagious',
@@ -188,7 +187,7 @@ var words = [
 
 ```
 
-## Finding Elements
+## Iteration #6: Finding Elements
 
 Let's create a simple array search.
 
@@ -196,7 +195,7 @@ Write a function `doesWordExist` that will take in an array of words as one argu
 
 **Starter Code**
 ```javascript
-var words = [
+const words = [
   'machine',
   'subset',
   'trouble',
@@ -208,14 +207,14 @@ var words = [
 ];
 ```
 
-## Counting Repetion
+## Iteration #7: Counting Repetition
 
 Write a function `howManyTimes` that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 
 **Starter Code**
 
 ```javascript
-var words = [
+const words = [
   'machine',
   'matter',
   'subset',
@@ -230,14 +229,14 @@ var words = [
 ];
 ```
 
-## Bonus Quest
+## Iteration #8: Bonus
 
 In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
 
 Write a function `greatestProduct` to find the answer!
 
 ```javascript
-var matrix = [
+const matrix = [
   [08,02,22,97,38,15,00,40,00,75,04,05,07,78,52,12,50,77,91,08],
   [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,04,56,62,00],
   [81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,03,49,13,36,65],
@@ -260,3 +259,5 @@ var matrix = [
   [01,70,54,71,83,51,54,69,16,92,33,48,61,43,52,01,89,19,67,48],
 ];
 ```
+
+**Happy coding!** :heart: 
