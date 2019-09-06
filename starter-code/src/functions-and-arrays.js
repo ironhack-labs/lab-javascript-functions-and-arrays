@@ -1,5 +1,6 @@
 // Find the maximum
 
+/*
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
@@ -7,6 +8,9 @@ function maxOfTwoNumbers(num1, num2) {
     return num2;
   }
 }
+*/
+
+const maxOfTwoNumbers = (num1, num2) => num1> num2 ? num1 : num2
 
 // Finding Longest Word
 var words = [
@@ -40,7 +44,17 @@ function findLongestWord(wordsArray) {
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+/*
 function sumArray(numsArray) {
+  let result = 0;
+  numsArray.forEach(function (number) {
+    result += number;
+  })
+  return result;
+}
+*/
+
+const sumArray = numsArray => {
   let result = 0;
   numsArray.forEach(function (number) {
     result += number;
@@ -52,6 +66,7 @@ function sumArray(numsArray) {
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+/*
 function averageNumbers(numsArray) {
   if (numsArray.length !== 0) {
     return sumArray(numsArray) / numsArray.length;
@@ -59,6 +74,9 @@ function averageNumbers(numsArray) {
     return null;
   }
 }
+*/
+
+const averageNumbers = numsArray  => (numsArray.length !== 0 ) ? ( sumArray(numsArray)/numsArray.length ) : null
 
 // Array of Strings
 var wordsArr = [
@@ -74,7 +92,17 @@ var wordsArr = [
   'palace'
 ];
 
+/*
 function averageWordLength(wordsArray) {
+  let arrayLengths = [];
+  wordsArray.forEach(function (word) {
+    arrayLengths.push(word.length);
+  })
+  return averageNumbers(arrayLengths);
+}
+*/
+
+const averageWordLength = wordsArray => {
   let arrayLengths = [];
   wordsArray.forEach(function (word) {
     arrayLengths.push(word.length);
@@ -97,7 +125,18 @@ var wordsUnique = [
   'bring'
 ];
 
+/*
 function uniquifyArray(wordsArray){
+  let arrayResult = [];
+  wordsArray.forEach(function (word) {
+    if (arrayResult.indexOf(word) === -1) {
+      arrayResult.push(word);
+    }
+  })
+  return arrayResult;
+}
+*/
+const uniquifyArray = wordsArray  =>{
   let arrayResult = [];
   wordsArray.forEach(function (word) {
     if (arrayResult.indexOf(word) === -1) {
@@ -119,7 +158,19 @@ var wordsFind = [
   'disobedience'
 ];
 
+/*
 function doesWordExist(wordsArray, wordToFind) {
+  let result = false;
+  wordsArray.forEach(function (word) {
+    if (wordToFind === word) {
+      result = true;
+    }
+  })
+  return result;
+} 
+*/
+
+const doesWordExist = (wordsArray, wordToFind) => {
   let result = false;
   wordsArray.forEach(function (word) {
     if (wordToFind === word) {
@@ -144,7 +195,19 @@ var wordsCount = [
   'matter'
 ];
 
+/*
 function howManyTimes(wordsArray, wordToSearch) {
+  let result = 0;
+  wordsArray.forEach(function (word) {
+    if (word === wordToSearch) {
+      result++;
+    }
+  })
+  return result;
+} 
+*/
+
+const howManyTimes = (wordsArray, wordToSearch) => {
   let result = 0;
   wordsArray.forEach(function (word) {
     if (word === wordToSearch) {
@@ -178,14 +241,6 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-/*
-function greatestProduct(matrix) {
-  let result = 0;
-
-  return result;
-}
-*/
 
 const greatestProduct = grid => {
   let maxProd = 0;
