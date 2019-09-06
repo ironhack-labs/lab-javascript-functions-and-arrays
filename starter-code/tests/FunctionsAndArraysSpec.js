@@ -67,7 +67,7 @@ describe("Calculating a Sum - sumArray", function() {
   });
 
   it("returns the sum with one number array", function() {
-    expect(sumArray([4])).toBe(4);
+    expect(sumArray([16])).toBe(16);
   });
 
   it("returns zero if all elements are zero", function() {

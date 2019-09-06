@@ -1,4 +1,16 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+
+  if (a > b) {
+    return a
+  } else if (b > a) {
+    return b
+  } else if (a === b) {
+    return a
+  }
+}
+
+maxOfTwoNumbers(3, 3);
 
 // Finding Longest Word
 const words = [
@@ -11,13 +23,60 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null
+  }
+  let longestWorld = 0
+  let longestWorldString = ''
+  for (i = 0; i < words.length; i += 1) {
+    if (words[i].length > longestWorld) {
+      longestWorld = words[i].length
+      longestWorldString = words[i]
+    }
+  }
+  return longestWorldString
+}
+
+findLongestWord(words)
+
 // Calculating a Sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(num) {
+  if (num.length === 0) {
+    return 0
+  } else if (num.length === 1) {
+    return num[0]
+  }
+  let soma = 0
+  for (let i = 0; i < num.length; i += 1) {
+    soma += num[i]
+
+  }
+  return soma
+}
+
+console.log(sumArray([1, 2, 3, 4, 56, 1718263]))
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(num) {
+  if(num.length === 0){
+    return null
+  }
+
+  let media = 0
+  for (let i = 0; i < num.length; i += 1) {
+    media += num[i]
+  }
+  media = media / num.length
+  return media
+}
+
+averageNumbers(numbersAvg)
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +91,11 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(){
+  let strings = ''
+  for(let i = 0; )
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -99,3 +163,10 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// const user = { name: "Nick", id: 7 }
+
+// const book1 = { title: "The Catcher in the Rye", author: "J.D Salinger", isbn: "0316769487", category: "Classic Literature" };
+// const book2 = { title: "To Kill a Mockingibrd", author: "Harper Lee", isbn: "0446310786", category: "Classic Literature" };
+
+// console.log(`${user.name} `)
