@@ -6,10 +6,9 @@ function maxOfTwoNumbers(min, max) {
     return max;
   }
 }
-maxOfTwoNumbers(2, 30);
 
 // Finding Longest Word
-var words = [
+let words = [
   'mystery',
   'brother',
   'aviator',
@@ -19,46 +18,47 @@ var words = [
   'crackpot'
 ];
 
-function findLongestWord (word){ 
-  let longest = '';
-  for (let i = 0; i < word.length; i++) {
-    if (word === 0){
-      return null;
-    } else if (words[i].length > word.length){
-      longest = words[i];
+function findLongestWord (array){
+  var longest = "";
+
+  if(array.length === 0){
+    return null
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if(array[i].length > longest.length){
+      longest = array[i];
     }
   }
-  return longest;
+  return longest
 }
-findLongestWord();
 
 // Calculating a Sum
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function sumArray(number) {
+
+function sumArray(numberArr) {
   let sum = 0;
-  for (let i = 0; i < number.length; i++) {
-    sum += number[i];
+  for (let i = 0; i < numberArr.length; i++) {
+    if(numberArr[i] != 0){
+      sum += numberArr[i];
+    }
   }
-  return sum;
+  return sum;  
 }
-sumArray();
+
 
 // Calculate the Average
-/**
- * Find the sum as we did in the first exercise
-Take the sum from step 1, and divide it by the number of elements in the list.
- */
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 function averageNumbers(arr) {
-  if (arr === 0) {
-    return null;
-  } else {
-    
+  if(arr.length > 0){
+    return sumArray(arr) / arr.length;
   }
+  return null;
 }
 
 // Array of Strings
-var wordsArr = [
+let wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -71,8 +71,15 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength() {
-  
+function averageWordLength(arr) {
+  let sum = 0;
+  if(arr.length !== 0){
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i].length;
+    }
+    return sum / arr.length;
+  }
+  return null;
 }
 
 // Unique Arrays
@@ -90,8 +97,16 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsArr) {
-  
+function uniquifyArray(arr){
+  let uniqueArr = [];
+  if(arr !== 0){
+    for (let i = 0; i < arr.length; i++) {
+      if(uniqueArr.indexOf(arr[i]) === -1) {
+        uniqueArr.push(arr[i]);
+      }    
+    }
+  }
+  return uniqueArr;
 }
 
 // Finding Elements
@@ -106,8 +121,13 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExist(arrWords, findWord) {
-  
+function doesWordExist(arr, index){
+  for (let i = 0; i < arr.length; i++){
+    if(arr[i] == index){
+      return true;
+    }
+  }
+  return false;
 }
 
 // Counting Repetion
@@ -124,13 +144,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
-function howManyTimes(arrWords, findingWord) {
-  
+
+function howManyTimes(arr, word) {
+  let counter = 0;
+  if(arr.length === 0) {
+    return counter;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] == word){
+      counter++;
+    }
+  }
+  return counter;
 }
 
 
 // Bonus Quest
-var matrix = [
+const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -152,3 +182,17 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let result = 0;
+  for (let i = 0; i < matrix.length -1; i++) { //rows
+    for (let j = 0; j < matrix.length -1; j++) {//cols
+      if (matrix[i].length >= 0 || matrix[i].length < 19 || matrix[j].length >= 0 || matrix[j].length < 19) {
+        result =  matrix[i][j] * matrix[i][j - 1] * 
+        matrix[i][j - 2] * matrix[i][j - 3];
+      }
+    }    
+  }
+  //console.log(result);
+  return result;
+}
