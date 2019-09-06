@@ -1,6 +1,22 @@
 // Find the maximum
 
+let maxOfTwoNumbers = (value1, value2) => {
+  if (value1 > value2) {
+    console.log(`The higher value is ${value1}.`);
+    return value1;
+  } else if (value1 < value2) {
+    console.log(`The higher value is ${value2}.`);
+    return value2;
+  } else {
+    console.log("Equal values!");
+    return value1;
+  }
+}
+
+console.log(maximumValue(5, 4));
+
 // Finding Longest Word
+
 const words = [
   'mystery',
   'brother',
@@ -11,15 +27,60 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(words) {
+  let largestWord = "";
+  if (words.length === 0) {
+    return null;
+  }
+  for (let counter = 0; counter < words.length; counter += 1) {
+    if (counter === 0) {
+      largestWord = words[counter];
+    } else if (words[counter].length > largestWord.length) {
+      largestWord = words[counter];
+    }
+  }
+  return largestWord;
+}
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+  console.log(`The sum for this array is equal to ${sum}.`);
+  return sum;
+}
+
+sumArray(numbers);
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+  let averageNumber = Math.floor(sum / array.length);
+  console.log(`The average number for this array is equal to ${averageNumber}.`);
+  return averageNumber;
+}
+
+averageNumbers(numbersAvg);
+
 // Array of Strings
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +94,23 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  let sumWordLength = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    sumWordLength += array[i].length;
+  }
+  let averageWordLength = Math.floor(parseInt(sumWordLength / array.length));
+  console.log(`The average number of words for each element of this array is equal to ${averageWordLength}.`);
+  return averageWordLength;
+}
+
+averageWordLength(wordsArr);
+
 // Unique Arrays
+
 const wordsUnique = [
   'crab',
   'poison',
