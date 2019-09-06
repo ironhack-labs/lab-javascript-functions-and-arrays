@@ -45,8 +45,6 @@ function findLongestWord(arr){ // arr = placeholder, unique per fuction
 
 console.log(findLongestWord(words)); // I use the function on 'words'
 
-
-
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]; // = 87
@@ -58,7 +56,6 @@ function sum(arr){
 }
   
 console.log(sum(numbers));
-
 
 // Calculate the Average
 
@@ -96,7 +93,6 @@ console.log(average); // = 5.3
 // avg = wordsArr.join('').length / wordsArr.length     
 // console.log(avg)
 
-
 // Unique Arrays
 var wordsUnique = [
   'crab',
@@ -112,10 +108,21 @@ var wordsUnique = [
   'bring'
 ];
 
-var unique = [...new Set(wordsUnique)]; // New Set objetct - to return a new array with unique elements only
-console.log(unique); 
+var newArray = [];
 
-// COMING BACK TO THIS ONES :)
+function unique(one2){ // bad placeholder name, change 
+
+for(var i = 0; i < one2.length; i++) {
+  if(newArray.indexOf(one2[i]) == -1) { 
+      newArray.push(one2[i]);
+  }
+  }
+  console.log(newArray);
+}
+unique(wordsUnique);
+
+// var unique = [...new Set(wordsUnique)]; New Set objetct - to return a new array with unique elements only
+// console.log(unique); 
 
 // Finding Elements
 var wordsFind = [
@@ -129,7 +136,19 @@ var wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetion
+function doesWordExist(words, wordtofind){
+  for (var i=0; i < words.length; i++) {
+      if(words[i] === wordtofind){
+        console.log(wordtofind)
+        return wordtofind;
+      }
+  }
+  console.log('the word does not exist');
+}
+
+doesWordExist(wordsFind, 'hello');
+
+// Counting Repetition
 var wordsCount = [
   'machine',
   'matter',
@@ -143,6 +162,33 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+var count = []; // where I'll store the value
+
+for(var i = 0; i < wordsCount.length; i++){
+  var arr = wordsCount[i]; 
+  count[arr] = count[arr] ? count[arr] + 1 : 1;  // if else - it sums every time it sees the word
+}
+
+console.log(count);
+
+/* I wanted to do it this way but I get stucked 
+
+var count = [];
+
+for(var i = 0; i < wordsCount.length; i++){
+  if (wordsCount[i] === count) {
+      function count(arr){
+        
+      } += 1;
+  }
+  else{
+    count + 1;
+  }
+
+  console.log(count);
+*/
+
 // Bonus Quest
 
 var matrix = [
