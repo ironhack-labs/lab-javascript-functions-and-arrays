@@ -12,6 +12,9 @@ function shuffle(currentArray) {
   }
   return array;
 }
+
+// 1.
+
 describe("Find the maximum - maxOfTwoNumbers", function() {
   it("Defines maxOfTwoNumbers", function() {
     expect(typeof maxOfTwoNumbers).toBe("function");
@@ -29,6 +32,8 @@ describe("Find the maximum - maxOfTwoNumbers", function() {
     expect(maxOfTwoNumbers(4, 4)).toBe(4);
   });
 });
+
+// 2.
 
 describe("Finding Longest Word - findLongestWord", function() {
   it("Defines findLongestWord", function() {
@@ -57,6 +62,9 @@ describe("Finding Longest Word - findLongestWord", function() {
   });
 });
 
+
+// 3.
+
 describe("Calculating a Sum - sumArray", function() {
   it("Defines sumArray", function() {
     expect(typeof sumArray).toBe("function");
@@ -79,6 +87,9 @@ describe("Calculating a Sum - sumArray", function() {
   });
 });
 
+
+// 4.
+
 describe("Calculating the Average - averageNumbers", function() {
   it("Defines averageNumbers", function() {
     expect(typeof averageNumbers).toBe("function");
@@ -100,6 +111,8 @@ describe("Calculating the Average - averageNumbers", function() {
     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
   });
 });
+
+// 5.
 
 describe("Calculating the Average - averageWordLength", function() {
   it("Defines averageWordLength", function() {
@@ -129,6 +142,8 @@ describe("Calculating the Average - averageWordLength", function() {
     ).toBe(7);
   });
 });
+
+// 6.
 
 describe("Unique Arrays - uniquifyArray", function() {
   it("Defines uniquifyArray", function() {
@@ -166,6 +181,8 @@ describe("Unique Arrays - uniquifyArray", function() {
   });
 });
 
+// 7.
+
 describe("Finding Elements - doesWordExist", function() {
   it("Defines doesWordExist", function() {
     expect(typeof doesWordExist).toBe("function");
@@ -197,6 +214,9 @@ describe("Finding Elements - doesWordExist", function() {
     ).toBe(true);
   });
 });
+
+
+// 8.
 
 describe("Counting Repetition - howManyTimes", function() {
   it("Defines howManyTimes", function() {
@@ -238,6 +258,8 @@ describe("Counting Repetition - howManyTimes", function() {
     ).toBe(5);
   });
 });
+
+// BONUS.
 
 describe("Bonus Quest - greatestProduct", function() {
   it("Defines greatestProduct", function() {

@@ -70,19 +70,22 @@ console.log(suma);
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbers){
+function averageNumbers(numbersAvg){
   let sumaC = 0;
   let total = 0;
   let reltado;
-  for(let i = 0; i < numbers.length; i++){
-    sumaC += numbers[i];
-    total = numbers.length;
+  if (numbersAvg.length === 0){
+    return null;
+  }
+  for(let i = 0; i < numbersAvg.length; i++){
+    sumaC += numbersAvg[i];
+    total = numbersAvg.length;
     reltado = sumaC/total;
   }
   return reltado;
 }
 
-let resultadoFinal = averageNumbers(numbers);
+let resultadoFinal = averageNumbers(numbersAvg);
 
 console.log(resultadoFinal);
 
@@ -100,34 +103,27 @@ var wordsArr = [
   'palace'
 ];
 
-function averageWordLength(){
-  let numTotalLetras = 0;
-  for(let i = 0; i < wordsList.length; i++){
-    numTotalLetras += wordsList[i].length; 
+
+
+function averageWordLength(wordsArr){
+  let sumaTotalLetras = 0; 
+  let avarageLetras = 0;
+  if (wordsArr.length === 0){
+    return null;
   }
-  return numTotalLetras;
+  for(let i = 0; i < wordsArr.length; i++){
+    sumaTotalLetras += wordsArr[i].length;
+
+    avarageLetras += wordsArr[i].length/wordsArr.length;
+  }
+  return avarageLetras;
 }
 
-averageWordLength();
+let totalLetras = averageWordLength(wordsArr);
 
-let numLetras = averageWordLength();
+console.log(totalLetras);
 
-// Numero total palabras (10)
 
-function wordsArray(){
-  let numTotalPalabras = wordsList.length;
- 
-  for(let i = 0; i < wordsList.length; i++){
-    resultado = numLetras/numTotalPalabras;
-  }
-  return resultado;
-}
-
-wordsArray();
-
-let numPalabras = wordsArray();
-
-console.log(numPalabras);
 
 // Unique Arrays
 let wordsRepeated = [
@@ -244,3 +240,23 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function findBiggest(xCol, yCol){
+  let x;
+  let y;
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix.length; j++){
+      if(matrix[i].length > x && matrix[j].length > y){
+        x === matrix[i] && y === matrix[j];
+    }
+  }
+  return x, y;
+}
+}
+
+let xValue = findBiggest(1, 5);
+console.log(xValue);
+
+let yValue = findBiggest(5, 2);
+console.log(yValue);
