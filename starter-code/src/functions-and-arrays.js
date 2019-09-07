@@ -169,7 +169,7 @@ function greatestProduct (mm){
   let value = 0;
   let num;
   const matrixRows = mm.length;
-  for (let i=0; i<matrixRows.length -1; i++) {
+  for (let i=0; i<mm.length -1; i++) {
     for(let j=0; j<mm[i].length/2; j++) {
       if (j+3 <= mm[i].length ) {
         num = mm[i][j] * mm[i][j+1] * mm[i][j+2] * mm[i][j+3];
