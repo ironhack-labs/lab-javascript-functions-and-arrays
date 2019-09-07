@@ -192,9 +192,6 @@ function howManyTimes(array, word) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === word) {
       wordCount++;
-        if (wordCount === 5) {
-          return "five";
-        }
     }
   }
   return wordCount;
