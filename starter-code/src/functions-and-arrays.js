@@ -19,27 +19,73 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(list) {
+    var wordCounter = "";
+    if (list.length <= 0) return null;
+    for (var i of list) {
+      if (i.length > wordCounter.length) wordCounter = i;
+    }
+    return wordCounter;
+}
+
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray (listNumber) {
+  var sum = 0
+  for (var num of listNumber) {
+    sum += num;
+    }
+  if (sum == 0) {
+    return 0;
+  } else {
+    return sum
+  }
+  var arrayResultSum = [];
+  arrayResultSum.push(sum);
+  console.log(arrayResultSum);
+  return arrayResultSum;
+}
 
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (listNumber) {
+  var sum = 0
+  if (listNumber.length <= 0) return null;
+  for (var num of listNumber) {
+    sum += num;
+    }
+  return (sum/listNumber.length)
+}
+
 // Array of Strings
 var wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "Ironhack",
+  "Madrid",
+  "Barcelona",
+  "Paris",
+  "Miami",
+  "Mexico",
+  "Berlin",
+  "Programmers"
 ];
+
+function averageWordLength (list) {
+  var arr = []
+  if (list.length <= 0) return null;
+  if (list.length == 1) {
+    return list[0].length
+  }
+  var totalLetter = list.join("");
+  return totalLetter.length / list.length;
+  // arr.push(result);
+  // return arr;
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -56,6 +102,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(list) {
+  if (list.length == 0) {
+    return []
+  }
+  for (var word in list) {
+    var newClenAarray = []
+    for (item of wordsUnique) {
+      if (newClenAarray.indexOf(item) === -1) {
+        newClenAarray.push(item)
+      }
+    }
+    return newClenAarray
+  }
+}
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -67,6 +129,18 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(list, word) {
+  if (list.length == 0){
+    return false
+  }
+  for (i in list) {
+    if (word === list[i]) {
+      return true
+    }
+  }
+  return false
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -82,6 +156,24 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(list, word) {
+  if (list.length == 0){
+    return 0
+  }
+  var countRepeat = 0
+  for (i of list) {
+    if (word == i) {
+      countRepeat += 1
+      console.log("passou")
+    }
+  }
+  return countRepeat
+}
+
+
+
 // Bonus Quest
 
 var matrix = [
@@ -106,3 +198,4 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
