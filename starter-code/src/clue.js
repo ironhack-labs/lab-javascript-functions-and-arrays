@@ -24,7 +24,7 @@ last_name:    Plum
 color:        purple
 description:  Billionaire video game designer
 age:          22
-image:        https://metrouk2.files.wordpress.com/2016/07/professor-plum.jpg
+image:        https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg
 occupation:   Designer
 
 missScarlet
@@ -33,7 +33,7 @@ last_name:    Scarlet
 color:        red
 description:  She is an A-list movie star with a dark past
 age:          31
-image:        https://metrouk2.files.wordpress.com/2016/07/miss-scarlett.jpg
+image:        https://www.radiotimes.com/uploads/images/Original/111967.jpg
 occupation:   Actor
 
 mrsPeacock
@@ -51,7 +51,7 @@ last_name:    Mustard
 color:        yellow
 description:  He is a former football player who tries to get by on his former glory
 age:          62
-image:        https://metrouk2.files.wordpress.com/2016/07/colonel-mustard.jpg
+image:        https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/07/04/08/unspecified-3.jpg
 occupation:   Retired Football player
 
 // Weapons
