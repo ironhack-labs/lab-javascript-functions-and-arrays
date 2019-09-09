@@ -225,23 +225,3 @@ var matrix = [
 
 
 
-
-
-
-
-//Calculate the Average Level 1: Array of Numbers
-
-
-//Calculate the Average Level 2: Array of Strings
-
-
-//Finding Elements
-
-
-//Counting Repetion
-
-
-
-//Unique Arrays
-
-
