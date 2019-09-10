@@ -93,13 +93,24 @@ var wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique){
-  if(wordsUnique.length==0){
-    return [];
-  }else{
-    for(let word of wordsUnique){
-
+  let tempArray=[];
+  /*for (let word of wordsUnique){
+    if(tempArray.indexOf(wordsUnique[i]<0)){
+      tempArray.push(wordsUnique[i]);
     }
+  }*/
+
+  /*for(let word of wordsUnique){
+    let word=wordsUnique[i];
+    if(i===words.indexOf(wor)){
+      tempArray.push(word);
   }
+}
+*/
+
+//faster solution
+  const uniquifyArray=words=>[...new Set(words)];
+
 }
 // Finding Elements
 var wordsFind = [
@@ -112,6 +123,13 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist= (words,word) =>{
+  for(let item of words){
+    if(item===word) return true;
+  }
+  return false;
+}
 
 // Counting Repetion
 var wordsCount = [
@@ -127,6 +145,15 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes=(words,word)=>{
+  let tempValue=0;
+  for(let item of words){
+    if(item===word){
+      tempValue++;
+    }
+  }return tempValue;
+}
 // Bonus Quest
 
 var matrix = [
@@ -151,3 +178,28 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = matrix =>{
+  let product=0;
+  const numberOfRows=matrix.length;
+  const numberOfColumns=matrix[0].length;
+
+  for(let i=0;i<numberOfRows;i++){
+    let row=matrix[i];
+    for(let e=0;e<numberOfColumns-3;i++){
+      let rowProduct=row[e]*row[e+1]*row[e+2]*row[e+3];
+      if(rowProduct>product)
+      product=rowProduct;
+    }
+  }
+
+for (let i = 0; i < numberOfColumns; i++) {
+  for (let e = 0; e < numberOfRows - 3; e++) {
+    let columnProduct = matrix[e][i] * matrix[e + 1][i] * matrix[e + 2][i] * matrix[e + 3][i];
+    if (columnProduct > product) {
+      product = columnProduct;
+    }
+  }
+}
+return product;
+};
