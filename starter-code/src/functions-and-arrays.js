@@ -133,16 +133,15 @@ var wordsFind = [
 ];
 
 function doesWordExist (wordsFind, wordFound) {
-  if (doesWordExist = []) {
+  if (wordsFind.length === 0) {
     return false;
   }
   for (let i = 0;  i < wordsFind.length; i++){
-    if (wordsFind[i] === wordsFound) {
+    if (wordsFind[i] === wordFound) {
       return true;   
-    } else {
-      return false;
-    }
+    } 
   }
+  return false;
 }
 
 // Counting Repetion
@@ -161,7 +160,7 @@ var wordsCount = [
 ];
 
 function howManyTimes(wordsCount, word) {
-  if (wordsCount = []) {
+  if (wordsCount === []) {
     return 0;
   }
   let wordsRepeat = 0;
@@ -169,8 +168,8 @@ function howManyTimes(wordsCount, word) {
     if(wordsCount[i] === word) {
       wordsRepeat += 1;
     } 
-    return wordsRepeat;
   }
+  return wordsRepeat;
 }
 
 
