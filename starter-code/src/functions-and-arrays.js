@@ -1,6 +1,16 @@
 // Find the maximum
+let maxOfTwoNumbers = function(a,b){
+  if(a<b){
+    return b
+  }else if(a>b){
+    return a
+  }else{
+    return a,b
+  }
+}
 
 // Finding Longest Word
+// Write a function findLongestWord that takes an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
 const words = [
   'mystery',
   'brother',
@@ -11,15 +21,68 @@ const words = [
   'crackpot'
 ];
 
+let findLongestWord = function(words){
+  longestWord = ''
+  if (words.length !== 0){
+    for(let i = 0; i < words.length; i++){
+      if(words[i].length > longestWord.length){
+        longestWord = words[i];
+      }
+    }
+    return longestWord
+  }
+  else{
+    return null
+  }
+}
+
 // Calculating a Sum
+// Calculating a sum is as simple as iterating over an array and adding each of the elements together.
+// Semantically reduce is the best method to use for this, but you can use any loop we've discussed so far.
+// Create a sumArray function that takes an array of numbers as a parameter, and calculate the sum of all its numbers:
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// // use loop
+// let sumArray = function(numbers){
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i]
+//   }
+//   return sum
+// }
+
+// // use reduce()
+let sumArray = function(numbers){
+  if(numbers.length !== 0){
+    return sum = numbers.reduce((accum, currentValue) => accum + currentValue)
+  }
+  else{
+    return 0
+  }}
+
 // Calculate the Average
+// Find the sum as we did in the first exercise
+// Take the sum from step 1, and divide it by the number of elements in the list.
+// Level 1: Array of Numbers
+// Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers:
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let averageNumbers = (numbersAvg) => {
+  if (numbersAvg.length !== 0) {
+    let sum = numbersAvg.reduce((accum,currentValue) => accum + currentValue)
+    return average = sum / numbersAvg.length
+  }
+  else{
+    return null
+  }
+}
+
+
 // Array of Strings
+// Write a function averageWordLength that receives an array of words and calculate the average length of the words:
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +96,20 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(wordsArr) {
+  if (wordsArr.length !== 0) {
+    let sum = wordsArr.reduce((accum,currentValue) => accum + currentValue).length
+    return average = sum / wordsArr.length
+  }
+  else{
+    return null
+  }
+}
+
 // Unique Arrays
+// Take the following array, remove the duplicates, and return a new array. You're more than likely going to want to check out the indexOf function.
+// Do this in the form of a function uniquifyArray that receives an array of words as a parameter.
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +124,15 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  return wordsUnique.filter((item,index) => 
+    wordsUnique.indexOf(item) === index)
+}
+
+
 // Finding Elements
+// Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one. :)
+
 const wordsFind = [
   'machine',
   'subset',
@@ -59,6 +143,10 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind,wordToSearch) {
+  
+}
 
 // Counting Repetition
 const wordsCount = [
