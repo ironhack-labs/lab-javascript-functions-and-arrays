@@ -203,8 +203,8 @@ const matrix = [
 
 function greatestProduct(matrix){
   let greatestProduct = 0;
-  for (let i = 0; i < matrix.length - 4; i++) {
-    for (let j = 0; j < matrix[i].length - 4; j++) {
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
 
       // hotizontalProduct
       let horizontalProduct = 1;
