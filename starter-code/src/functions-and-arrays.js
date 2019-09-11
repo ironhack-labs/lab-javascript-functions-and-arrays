@@ -202,13 +202,13 @@ const matrix = [
 ];
 
 function greatestProduct(matrix){
-  var greatestProduct = 0;
-  for (var i = 0; i < matrix.length - 4; i++) {
-    for (var j = 0; j < matrix[i].length - 4; j++) {
+  let greatestProduct = 0;
+  for (let i = 0; i < matrix.length - 4; i++) {
+    for (let j = 0; j < matrix[i].length - 4; j++) {
 
-      // hotizontal
-      var horizontalProduct = 1;
-      for (var k = j; k < (j + 4); k++) {
+      // hotizontalProduct
+      let horizontalProduct = 1;
+      for (let k = j; k < (j + 4); k++) {
         horizontalProduct *= matrix[i][k];
         console.log(horizontalProduct)
       }
@@ -217,9 +217,9 @@ function greatestProduct(matrix){
         greatestProduct = horizontalProduct;
       }
 
-      // vertical
-      var verticalProduct = 1;
-      for (var k = i; k < (i + 4); k++) {
+      // verticalProduct
+      let verticalProduct = 1;
+      for (let k = i; k < (i + 4); k++) {
         verticalProduct *= matrix[k][j];
         console.log(verticalProduct)
       }
