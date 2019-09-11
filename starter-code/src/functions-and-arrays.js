@@ -145,10 +145,11 @@ const wordsFind = [
 ];
 
 function doesWordExist(wordsFind,wordToSearch) {
-  
+  return wordsFind.includes(wordToSearch)
 }
 
 // Counting Repetition
+// Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
 const wordsCount = [
   'machine',
   'matter',
@@ -163,7 +164,19 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(wordsCount,wordToSearch) {
+  let count = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if(wordsCount[i]===wordToSearch){
+      count++
+    }
+  }
+  return count
+}
+
 // Bonus
+// In the 20×20 grid below; What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
+// Write a function greatestProduct to find the answer!
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -187,3 +200,34 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  var greatestProduct = 0;
+  for (var i = 0; i < matrix.length - 4; i++) {
+    for (var j = 0; j < matrix[i].length - 4; j++) {
+
+      // hotizontal
+      var horizontalProduct = 1;
+      for (var k = j; k < (j + 4); k++) {
+        horizontalProduct *= matrix[i][k];
+        console.log(horizontalProduct)
+      }
+
+      if (horizontalProduct > greatestProduct) {
+        greatestProduct = horizontalProduct;
+      }
+
+      // vertical
+      var verticalProduct = 1;
+      for (var k = i; k < (i + 4); k++) {
+        verticalProduct *= matrix[k][j];
+        console.log(verticalProduct)
+      }
+
+      if (verticalProduct > greatestProduct) {
+        greatestProduct = verticalProduct;
+      }
+    }
+  }
+  return greatestProduct;
+}
