@@ -1,6 +1,11 @@
 // Find the maximum
+let maxOfTwoNumbers = function(a, b) {
+  return Math.max(a, b);
+}
+
 
 // Finding Longest Word
+
 const words = [
   'mystery',
   'brother',
@@ -11,13 +16,48 @@ const words = [
   'crackpot'
 ];
 
+let findLongestWord = function(word) {
+  let longest = "";
+   word.forEach(function(arr) {
+     if (arr.length > longest.length) {
+       longest = arr;
+     }
+   });
+   return longest;
+  }
+
+
+
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+let sumArray = function(num) {
+  let total = 0;
+      for (let i = 0; i < num.length; i++) {
+        total += num[i];
+      }
+      return total;
+    }
 
+  
+
+
+
+// Calculate the Average 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let averageNumbers = function(num) {
+  let sumTotal = 0;
+  for (let i = 0; i < num.length; i++) {
+    sumTotal += num[i];
+  }
+  return sumTotal / num.length;
+}
+
+
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +72,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+let averageWordLength = function(str) {
+  let lengthString = 0;
+  for (let i = 0; i < str.length; i++) {
+    lengthString += str[i].length;
+  }
+  return lengthString / str.length;
+}
+
+
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +98,12 @@ const wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = function(arr) {
+  return arr.filter((item, place) => (arr.indexOf(item) === place)); 
+}
+
+//console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -60,12 +116,19 @@ const wordsFind = [
   'disobedience'
 ];
 
+let doesWordExist = function(arr, item) {
+  return arr.includes(item); 
+ }
+
+//console.log(doesWordExist(wordsFind,'eating'));
+
 // Counting Repetition
 const wordsCount = [
   'machine',
   'matter',
   'subset',
   'trouble',
+  'disobedience',
   'starting',
   'matter',
   'eating',
@@ -74,6 +137,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = function(arr, item) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+   if (arr[i] === item) {
+     ++count;
+     i++;
+   }
+  }
+  return count;
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
+
+
 
 // Bonus
 
@@ -99,3 +177,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = function(item) {
+  var greatestProduct = 0;
+  for (var i = 0; i < item.length - 4; i++) {
+    for (var j = 0; j < item[i].length - 4; j++) {
+      var horizontalProduct = 1;
+      for (var k = j; k < (j + 4); k++) {
+        horizontalProduct *= item[i][k];
+      }
+
+      if (horizontalProduct > greatestProduct) {
+        greatestProduct = horizontalProduct;
+      }
+
+      var verticalProduct = 1;
+      for (var k = i; k < (i + 4); k++) {
+        verticalProduct *= item[k][j];
+      }
+
+      if (verticalProduct > greatestProduct) {
+        greatestProduct = verticalProduct;
+      }
+    }
+  }
+  return greatestProduct;
+}
+
+console.log(greatestProduct(matrix))
