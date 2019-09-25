@@ -139,7 +139,9 @@ const wordsCount = [
 ];
 
 function howManyTimes (array,string){
-  let numOftimes=0;
+  return array.filter(item => item == string).length;
+}
+ /* let numOftimes=0;
   if(numOftimes === 5){return 5};
   for (let i=0; i < array.length-1; i++){
     if(string[i]=== string){
@@ -148,6 +150,7 @@ function howManyTimes (array,string){
   }
 return numOftimes;
 }
+*/
 
 // Bonus
 
