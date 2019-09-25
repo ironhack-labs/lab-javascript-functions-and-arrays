@@ -95,12 +95,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray (wordsUnique){
-  if (wordsUnique.length === 0) {return []};
-  for (let i=0; i<wordsUnique.length; i++){
-    let sameWord = 0;
-    sameWord
-  }
+function uniquifyArray (array){
+  if (array.length === 0) {return []};
+
+  let newArray = [];
+  /*mira el primer element de array (es crab), te alguna posicio a la nova array?, 
+  si no te un index a nova array(donara -1), aleshores afegeix-lo a la nova array.
+  Anem al segon element (posion). Te posicio? No perque no existeix, aleshores el pujem.
+  etc..arriba a poison, te posicio a la nova array? si pq ja l'haviem posat. 
+  Aleshores no donara -1 sino el seu index que es 1, aleshores no el puja i quan cridem la 
+  nova array no apareix*/
+  for (let i = 0; i < array.length; i++){
+    if (newArray.indexOf(array[i]) === -1) {
+      newArray.push(array[i]);
+    }
+  }    
+  return newArray;
 }
 
 // Finding Elements
@@ -114,6 +124,14 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordsFind, palabra){
+  if(wordsFind.length === 0){return false}
+  if (wordsFind.includes(palabra)){
+    return true;
+  }
+  return false;
+}
 
 // Counting Repetition
 const wordsCount = [
@@ -129,6 +147,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordsCount, palabra){
+  if (wordsCount.length === 0){return 0}
+  let sum = [];
+  for (let i=0; i<wordsCount.length; i++){
+    if (wordsCount[i] === palabra){
+      sum.push(palabra);
+    }
+  }
+  return sum.length;
+}
 
 // Bonus
 
@@ -154,3 +183,10 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix) {
+  for (let i = 0; i < matrix.length; i++){
+    for (let i = 0; i < matrix[i].length; i++){
+    }
+  }
+}
