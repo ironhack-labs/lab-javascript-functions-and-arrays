@@ -123,20 +123,34 @@ let sumArray = array => {return (array.length > 0) ? array.reduce((a, b) => a + 
 
 // Iteration #4: Calculate the Average
 
-// Level 1: Array of Numbers
-let averageNumbers = array => {return (array.length > 0) ? array.reduce((a, b) => a + b, 0) / array.length : null};
+  // Level 1: Array of Numbers
+  let averageNumbers = array => {return (array.length > 0) ? array.reduce((a, b) => a + b, 0) / array.length : null};
 
-// Level 2: Array of Strings
-let averageWordLength = array => {return (array.length > 0) ? array.reduce((a, b) => a + b.length, 0) / array.length : null};
+  // Level 2: Array of Strings
+  let averageWordLength = array => {return (array.length > 0) ? array.reduce((a, b) => a + b.length, 0) / array.length : null};
 
 // Iteration #5: Unique Arrays
-let uniquifyArray = array => { return (array.length > 0) ? array.filter((value, index) => array.indexOf(value) === index) : array};
-
-
-
+let uniquifyArray = array => {return (array.length > 0) ? array.filter((value, index) => array.indexOf(value) === index) : array};
 
 // Iteration #6: Finding Elements
+function doesWordExist(array, word) {
+  if (array.length == 0) {
+    return false;
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      if (word == array[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+//let doesWordExist = (array, word) => { return (array.length > 0) ? forEach((value, index) => { return (word == array[index]) ? true : false;}) : false};
 
 // Iteration #7: Counting Repetition
+let howManyTimes = (array, word) => { return (array.length > 0) ? array.filter(value => value === word).length : array.length = 0};
 
 // Iteration #8: Bonus
+function greatestProduct(matrix) {
+
+}
