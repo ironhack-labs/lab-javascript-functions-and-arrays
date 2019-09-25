@@ -99,3 +99,44 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Iteration #1: Find the maximum
+let maxOfTwoNumbers = (num1, num2) => (num1 > num2) ? num1 : num2;
+
+// Iteration #2: Finding Longest Word
+function findLongestWord(array) {
+  if (array.length == 0) {
+    return null;
+  } else {
+    var longestWord = [""];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].length > longestWord[0].length) {
+        longestWord[0] = array[i];
+      }
+    }
+  }
+  return (longestWord[0]);
+}
+
+// Iteration #3: Calculating a Sum
+let sumArray = array => {return (array.length > 0) ? array.reduce((a, b) => a + b, 0) : 0};
+
+// Iteration #4: Calculate the Average
+
+// Level 1: Array of Numbers
+let averageNumbers = array => {return (array.length > 0) ? array.reduce((a, b) => a + b, 0) / array.length : null};
+
+// Level 2: Array of Strings
+let averageWordLength = array => {return (array.length > 0) ? array.reduce((a, b) => a + b.length, 0) / array.length : null};
+
+// Iteration #5: Unique Arrays
+let uniquifyArray = array => { return (array.length > 0) ? array.filter((value, index) => array.indexOf(value) === index) : array};
+
+
+
+
+// Iteration #6: Finding Elements
+
+// Iteration #7: Counting Repetition
+
+// Iteration #8: Bonus
