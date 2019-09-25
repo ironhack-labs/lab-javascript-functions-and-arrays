@@ -31,40 +31,45 @@ function findLongestWord(arr){
     longest = arr[i]
   }
     if (arr.length === 0) {
-      return null
+      return null;
     }
-   
-  
-  return longest
+  return longest;
 }
-  /*returns null with an empty array
-  returns the word with an 1-word array
-  returns the first occurrence word when longest have multiple occurrences
-  returns the longest occurrence when it has multiple words */
-
-
-
+//EN JASMINE FUNCIONA, PERO CUANOD LO PONGO EN REPLIT ME SALE UNDEFINED - PREGUNTAR A LOS TA.
 
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray (){
-  let suma="";
-for (let i=0; i<numbers,length;i++) {
-numbers[i] += numbers[i]
+function sumArray (arr){
+  let suma=""; //al ser números, ¿serian comillas o []?
+for (let i=0; i<arr.length;i++) {
+suma = arr[i]+suma;   // suma += arr[i]
 }
-return suma
-  //ESTOY A MITAD DE ESTE EJERCICIO
-
-
-
+if (arr === []) {
+  return zero
 }
+return suma/arr.length;
+}
+//EN REPLIT SALE UNDEFINED Y EN JASMINE El 2 y EL 3 SE QUEDA EN ROJO
+
 
 
 // Calculate the Average
 
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (arr){
+  let avnumber = "";
+  for (let i=0; i<arr.length; i++) {
+    avnumber += arr[i]
+  }
+  if (arr === []) {
+    return null //no funciona porque en jasmine no se pone verde
+}
+    return avnumber/arr.length 
+  }
 
 // Array of Strings
 const wordsArr = [
@@ -80,6 +85,19 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength (arr) {
+let avword = "";
+for (let i=0; i<arr.length; i++) {
+avword = arr[i].length
+if (arr === []) {
+  return null // no funciona pq en Jasmine no se pone verde
+}
+}
+return avword
+}
+
+
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -94,6 +112,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (arr) {
+for (let i=0; i<arr.length;i++) {
+  let dupli = array.indexOf(arr[i]);
+
+// ME he quedado aquí....
+}
+
+}
+
 
 // Finding Elements
 const wordsFind = [
