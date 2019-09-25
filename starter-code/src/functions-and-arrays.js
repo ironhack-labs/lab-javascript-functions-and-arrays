@@ -108,6 +108,8 @@ const averageWordLength = array => {
 console.log(averageWordLength(wordsArr))
 
 // Unique Arrays
+
+//NO TE ESCAQUEES Y ACABALA!!!!!
 const wordsUnique = [
   'crab',
   'poison',
@@ -123,18 +125,16 @@ const wordsUnique = [
 ];
 
 const uniquifyArray = array => {
-  
-  if(array.length === 0){
-    return uniqueWords;
-  }
 
   let uniqueWords = []
+
+  if(array.length === 0){
+    return [];
+  }
   
-  for(let i = 0; i < uniqueWords.length; i++){
-    for(let j = 0; j < array.length ; j++){
-      if(uniqueWords[i] != array[j]){
-        uniqueWords.push(array[i])
-      } 
+  for(let i = 0; i < array.length; i++){
+    if(uniqueWords.indexOf(array[i]) === -1){
+      uniqueWords.push(array[i])
     }
   }
   return uniqueWords
@@ -142,6 +142,9 @@ const uniquifyArray = array => {
 
 
 console.log(uniquifyArray(wordsUnique))
+
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -154,6 +157,14 @@ const wordsFind = [
   'disobedience'
 ];
 
+const doesWordExist = (array, word) => {
+
+  if(array.length === 0){
+    return false;
+  }
+  
+  return array.includes(word)
+}
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -168,6 +179,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const howManyTimes = (array, word) =>{
+  
+  if(array.length === 0){
+    return 0;
+  }  
+  let counter = 0;  
+  for(let i = 0; i < array.length; i++){
+    
+    if(word === array[i]){
+      counter++
+    }
+  }
+    return counter
+  } 
+ 
+
+console.log(howManyTimes(wordsCount, 'trouble'))
 
 // Bonus
 
