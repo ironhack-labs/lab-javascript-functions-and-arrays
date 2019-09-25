@@ -1,4 +1,4 @@
-// Find the maximum
+// 1 Find the maximum
 let maxOfTwoNumbers = (num1, num2) => {
   if (num1 < num2) {
     return num2
@@ -8,7 +8,7 @@ let maxOfTwoNumbers = (num1, num2) => {
 }}
 
 
-// Finding Longest Word
+// 2 Finding Longest Word
 let findLongestWord = (array) => {
   if (array.length === 0){return null}
   let longest = ""
@@ -31,7 +31,7 @@ const words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+// 3 Calculating a Sum
 
 let sumArray = array => {
     let sum = 0;
@@ -43,7 +43,7 @@ let sumArray = array => {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+// 4.1 Calculate the Average
 
 let averageNumbers = array =>{
   if(array.length === 0) {return null}
@@ -52,7 +52,7 @@ let averageNumbers = array =>{
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+// 4.2 Array of Strings
 
 let averageWordLength = array => {
   newArray=[]
@@ -77,7 +77,7 @@ const wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+// 5 Unique Arrays
 
 let uniquifyArray = array => {
   newArray=[]
@@ -102,8 +102,20 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+ 
+// 6 Finding Elements
 
-// Finding Elements
+let doesWordExist = (array, string) => {
+  let foundWord = false
+  for (i=0; i < array.length; i++){
+    if (array[i] === string) {
+      foundWord = true
+    }
+  }
+  return foundWord;
+}
+
+
 const wordsFind = [
   'machine',
   'subset',
@@ -115,7 +127,18 @@ const wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetition
+// 7 Counting Repetition
+
+let howManyTimes = (array, word) =>{
+  let counter = 0
+  for (i=0; i < array.length; i++){
+    if (array[i] === word){
+      counter += 1
+    }
+  }
+  return counter;
+}
+
 const wordsCount = [
   'machine',
   'matter',
