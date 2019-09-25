@@ -145,12 +145,29 @@ function doesWordExist(array, word) {
     return false;
   }
 }
-//let doesWordExist = (array, word) => { return (array.length > 0) ? forEach((value, index) => { return (word == array[index]) ? true : false;}) : false};
 
 // Iteration #7: Counting Repetition
 let howManyTimes = (array, word) => { return (array.length > 0) ? array.filter(value => value === word).length : array.length = 0};
 
 // Iteration #8: Bonus
-function greatestProduct(matrix) {
-
+function greatestProduct(array) {
+  let product, top = 0;
+  for (let row = 0; row < array.length; row++) {
+    for (let col = 0; col < array.length; col++) {
+      if ((row - 3) >= 0) {
+        product = array[row][col] * array[row - 1][col] * array[row - 2][col] * array[row - 3][col];
+        console.log(product);
+        if (product > top) {
+          top = product;
+        }
+      }
+      if ((col - 3) >= 0) {
+        product = array[row][col] * array[row][col - 1] * array[row][col - 2] * array[row][col - 3];
+        if (product > top) {
+          top = product;
+        }
+      }
+    }
+  }
+  return top;
 }
