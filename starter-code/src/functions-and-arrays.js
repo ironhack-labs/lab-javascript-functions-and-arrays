@@ -65,8 +65,13 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
-function averageWordLength(){
-
+function averageWordLength(wordsArr){
+  if (wordsArr.length === 0) {return null};
+  let numWords = 0;
+for (let i=0; i<wordsArr.length; i++){
+  numWords+= wordsArr[i].length;
+}
+return numWords/wordsArr.length;
 }
 // Unique Arrays
 const wordsUnique = [
@@ -82,7 +87,14 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (wordsUnique){
+  if(wordsUnique.length === 0) {return []};
+  let newArray=[];
+  for (let i=0; i<wordsUnique; i++){
+    
 
+  }
+}
 // Finding Elements
 const wordsFind = [
   'machine',
