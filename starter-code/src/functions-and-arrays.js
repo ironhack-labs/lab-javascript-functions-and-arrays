@@ -1,5 +1,17 @@
 // Find the maximum
 
+function maxOfTwoNumbers(a,b) {
+if ( a > b ) { 
+return a
+} else if (a < b) { 
+return b
+  } else if (a = b) { 
+    return b
+  }
+}
+
+
+
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,9 +23,44 @@ const words = [
   'crackpot'
 ];
 
+
+function findLongestWord(arr){
+  let longest ="";
+  for (let i=0; i<arr.length;i++){
+    if (arr[i].length > longest.length) 
+    longest = arr[i]
+  }
+    if (arr.length === 0) {
+      return null
+    }
+   
+  
+  return longest
+}
+  /*returns null with an empty array
+  returns the word with an 1-word array
+  returns the first occurrence word when longest have multiple occurrences
+  returns the longest occurrence when it has multiple words */
+
+
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray (){
+  let suma="";
+for (let i=0; i<numbers,length;i++) {
+numbers[i] += numbers[i]
+}
+return suma
+  //ESTOY A MITAD DE ESTE EJERCICIO
+
+
+
+}
+
 
 // Calculate the Average
 
