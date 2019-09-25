@@ -87,13 +87,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-function uniquifyArray (wordsUnique){
+function uniquifyArray (averageWordLength){
   if(wordsUnique.length === 0) {return []};
   let newArray=[];
-  for (let i=0; i<wordsUnique; i++){
-    
+  for (let i=0; i<wordsUnique; i++){ 
+    if(wordsUnique[i] !== wordsUnique[array.length-1]){
+
+      newArray=newArray.push(wordsUnique[i]);
+
+    }
 
   }
+  return wordsUnique;
 }
 // Finding Elements
 const wordsFind = [
@@ -106,6 +111,17 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist (array,string){
+  let foundWord = false
+  for (i=0; i < array.length-1; i++){
+    if (array[i]=== string){
+      foundWord=true;
+    }
+  }
+  return foundWord;
+}
+
+
 
 // Counting Repetition
 const wordsCount = [
@@ -121,6 +137,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array,string){
+  let numOftimes=0;
+  if(numOftimes === 5){return 5};
+  for (let i=0; i < array.length-1; i++){
+    if(string[i]=== string){
+      numOftimes+=string;
+    }
+  }
+return numOftimes;
+}
 
 // Bonus
 
