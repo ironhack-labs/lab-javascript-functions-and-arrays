@@ -54,22 +54,46 @@ function sumArray(numbers){
     return numbers[0];
   }
 
-  for(var i=0; i<numbers.length; i++){
+  for(let i=0; i<numbers.length; i++){
     if (numbers[i] === 0){ 
       return 0;
     }
- }
-  
+  }return numbers.reduce(function(a,b){
+    return a+b 
+  }, 0);
 }
-
+  
+ 
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(){
+function averageNumbers(array){
 
+  if(array.length === 0){ 
+    return null;
+  }
+
+  if(array.length === 1){
+    return array[0];
+  }
+  
+  let average = array.reduce((p,c) => p + c, 0) / array.length;  
+  return average;
 }
+
+/*
+let negativeElem = 0;
+for(let i=0; i<array.length; i++){
+  if (array[i] < 0){ 
+    negativeElem+=1;
+  }
+}
+return negativeElem;
+*/
+
+
 
 // Array of Strings
 const wordsArr = [
@@ -85,6 +109,31 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  let sum = 0;
+  let newArr = [];
+  
+  if(array.length === 0){ 
+    return null;
+  }
+
+  if(array.length === 1){
+    return array[0].length;
+  }
+
+  if(array.every( word => word === array[0])){ 
+    return array[0].length;
+  }
+
+  array.forEach(function(element){
+    return sum += element;
+  });
+
+
+  }
+  
+
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -99,6 +148,23 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (array){
+  let newFile = [];
+  let duplicate = [0];
+
+  if(array.length === 0){ 
+    return newFile;
+  };
+/*
+  array.forEach(function(element){
+  if(element === array[0]){
+    return array[0];
+  }
+  });*/
+}
+
+
 
 // Finding Elements
 const wordsFind = [
