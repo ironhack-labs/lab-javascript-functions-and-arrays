@@ -1,4 +1,7 @@
 // Find the maximum
+function maxOfTwoNumbers(x, y) {
+  return x > y ? x : y;
+}
 
 // Finding Longest Word
 const words = [
@@ -11,13 +14,44 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    var longestWord = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i].length > longestWord.length) {
+        longestWord = arr[i];
+      }
+    }
+    return longestWord;
+  }
+}
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    const reducer = (sum, currentValue) => sum + currentValue;
+    return arr.reduce(reducer);
+  }
+}
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return sumArray(arr) / arr.length;
+  }
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +66,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let lengthArray = [];
+    arr.forEach(el => lengthArray.push(el.length));
+    return averageNumbers(lengthArray);
+  }
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +92,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return [];
+  } else {
+    arr.forEach((el, i) => {
+      while (arr.indexOf(el, i+1) !== -1) {
+        arr.splice(arr.indexOf(el, i+1),1);
+      }
+    })
+    return arr;
+  }
+}
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +117,19 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return false;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +145,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  if (arr.length === 0 || arr.indexOf(word) === -1) {
+    return 0;
+  } else {
+    let count = 1;
+    for (let i = arr.indexOf(word) + 1; i < arr.length; i++) {
+      if (arr[i] === word) {
+        count ++;
+      }
+    }
+    return count;
+  }
+}
 
 // Bonus
 
@@ -99,3 +184,35 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Plus grand produit horizontal d'une matrice
+function greatestProductH(mat) {
+  let res = 0;
+  for (let row = 0; row < mat.length; row++) {
+    for (let col = 0; col < mat.length-3; col++) {
+      let prod = mat[row][col] * mat[row][col+1] * mat[row][col+2] * mat[row][col+3];
+      if (prod > res) {
+        res = prod;
+      }
+    }
+  }
+  return res;
+}
+
+// Plus grand produit vertital d'une matrice
+function greatestProductV(mat) {
+  let res = 0;
+  for (let col= 0; col < mat.length; col++) {
+    for (let row = 0; row < mat.length-3; row++) {
+      let prod = mat[row][col] * mat[row+1][col] * mat[row+2][col] * mat[row+3][col];
+      if (prod > res) {
+        res = prod;
+      }
+    }
+  }
+  return res;
+}
+
+function greatestProduct(mat) {
+  return maxOfTwoNumbers(greatestProductH(mat), greatestProductV(mat));
+} 
