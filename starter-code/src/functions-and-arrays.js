@@ -129,7 +129,7 @@ const wordsFind = [
 
 function doesWordExist (theWordsFind){
   if (theWordsFind.length === 0){return false}
-  let n = wordsFind.includes(["machine"] , wordsFind);
+  let n = wordsFind.includes(theWordsFind);
 }
 
 
