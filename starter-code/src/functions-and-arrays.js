@@ -35,8 +35,7 @@ function findLongestWord(words){
       if (words[i].length > res.length){
         res = words[i]
       }
-    } 
-    return res;
+    } return res;   
 }
 
 
@@ -110,8 +109,8 @@ const wordsArr = [
 ];
 
 function averageWordLength(array){
-  let sum = 0;
-  let newArr = [];
+  let total = 0;
+ 
   
   if(array.length === 0){ 
     return null;
@@ -125,12 +124,12 @@ function averageWordLength(array){
     return array[0].length;
   }
 
-  array.forEach(function(element){
-    return sum += element;
-  });
-
-
+  for(let i=0; i<array.length; i++){
+     total += array[i].length;
+  } 
+    return total / array.length; 
   }
+
   
 
 
@@ -155,14 +154,16 @@ function uniquifyArray (array){
 
   if(array.length === 0){ 
     return newFile;
-  };
-/*
-  array.forEach(function(element){
-  if(element === array[0]){
-    return array[0];
   }
-  });*/
+
+  array.forEach(function(element){
+    if(newFile.indexOf(element) === -1){
+    newFile.push(element);
+    }    
+  });
+ return newFile;
 }
+
 
 
 
@@ -178,6 +179,23 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(array, word){ 
+ 
+  if(array.length === 0){
+    return false;
+  }
+
+  if(array.length === 1 && word === array[0]){
+    return true;
+  }
+
+  if(!array.includes(word)){
+    return false;
+  }else{
+    return true;
+  }
+}
+
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -192,6 +210,26 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+/*
+let count = 0;
+
+function howManyTimes(array, word){
+  if(array.length === 0){
+    return 0;
+  } 
+  for( let i=0; i<array.length; i++){
+    if(array.includes(word)){
+    count++;
+    }
+      if(count === 1){
+        return 1;
+      }
+      
+    }else if(!array.includes(word)){
+        return 0;
+    }  
+}
+  */
 
 // Bonus
 
@@ -217,3 +255,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(){}
