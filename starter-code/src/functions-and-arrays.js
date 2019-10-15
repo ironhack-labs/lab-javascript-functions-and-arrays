@@ -1,4 +1,10 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+}
 
 // Finding Longest Word
 const words = [
@@ -11,13 +17,55 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(wordArray) {
+  let longest = "";
+  if (wordArray.length == 0) {
+    return null;
+  }
+  wordArray.forEach(function (word) {
+    if (word.length > longest.length) {
+      longest = word;
+    }
+  });
+  return longest;
+}
+
+findLongestWord(words);
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numArray) {
+  if (numArray.length == 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < numArray.length; i++) {
+    sum += numArray[i];
+  }
+  return sum
+}
+
+sumArray(numbers);
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  let lengthAvg = numbersAvg.length;
+  if (numbersAvg.length == 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < lengthAvg; i++) {
+    sum += numbersAvg[i];
+  }
+  return sum / lengthAvg
+}
+averageNumbers(numbersAvg);
+
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +80,22 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr2) {
+  let sum = 0;
+  let length = arr2.length;
+  if (arr2.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < arr2.length; i++) {
+    let charCount = arr2[i].length;
+    sum += charCount;
+  }
+  return (sum / length)
+
+
+}
+averageWordLength(wordsArr);
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +112,14 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  let filtered = array.filter(function (item, pos) {
+    return array.indexOf(item) == pos
+  })
+  return filtered
+}
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +131,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.includes(word) === true) {
+    return true;
+  }
+  return false;
+}
+
+doesWordExist(wordsFind, "matter");
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +155,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr3, word) {
+  let count = 0;
+  for (let i = 0; i < arr3.length; i++) {
+    if (arr3[i] === word) {
+      count += 1;
+    } else {
+      continue;
+    }
+  }
+  return count;
+}
+
+howManyTimes(wordsCount, "matter");
 
 // Bonus
 
@@ -99,3 +194,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
