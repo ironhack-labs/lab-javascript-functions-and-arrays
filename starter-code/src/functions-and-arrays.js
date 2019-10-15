@@ -106,11 +106,12 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
-  if (array.length === 0) return [];
-  let newArray = [array[0]];
-  for (var i = 1; i < array.length; i++) {
-    if (array[i] != array[i - 1]) newArray.push(array[i]);
-  }
+  let newArray = [];
+  array.forEach(function (word, index) {
+    if (newArray.indexOf(word) === -1) {
+      newArray.push(word);
+    }
+  });
   return newArray;
 }
 
@@ -131,10 +132,12 @@ function doesWordExist(array, word) {
   if (array.length === 0) {
     return false
   }
-  for (var i = 1; i < array.length; i++) {
-    if (array[i] === word) return true;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      return true;
+    }
   }
-  return false
+  return false;
 }
 
 
@@ -165,7 +168,6 @@ function howManyTimes(array, word) {
   }
   return counter;
 }
-
 
 
 // Bonus
