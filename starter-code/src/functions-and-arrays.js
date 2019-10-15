@@ -107,30 +107,38 @@ function uniquifyArray(wordsUnique) {
 
 //long way
 function uniquifyArray(wordsUnique) {
-  
+  console.group(wordsUnique);
+
+  //create empty aray to push values to
   resultArr = [];
 
-  for (let i = 0; i < wordsUnique.length - 1; i++) {
+  //iterate over input array
+  for (let i = 0; i < wordsUnique.length; i++) {
     
+    //check if word exist only once, if so push to result arr
     if (wordsUnique.indexOf(wordsUnique[i]) == wordsUnique.lastIndexOf(wordsUnique[i])) {
       console.log(`${wordsUnique[i]} exists once`);
       resultArr.push(wordsUnique[i]);
     }
     
+    //otherwise (= word does exist multiple times) do another check
     else {
+      
+      //check if the word has already been pushed to the new result array
       let count = 0;
-
-      for (let j = 0; j < resultArr.length - 1; j++) {
+      for (let j = 0; j < resultArr.length; j++) {
         if (wordsUnique[i] == resultArr[j]) {
           count += 1;
         }
       }
 
+      //only push, if this isn't the case
       if (count == 0) {
         resultArr.push(wordsUnique[i]);
       }
     }
   }
+  console.log(resultArr);
   return resultArr;
 }
 
@@ -216,5 +224,67 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+  //how many neighbouring numbers are considered (=quartet)
+  let adjNumbers = 4;
+  //last index of a quartet array
+  let lastIndexAdjNumbers = adjNumbers - 1;
+  //last index of a quadratic matrix 
+  let lastIndexMatrix = matrix.length - 1;
+  //index where the last quartet begins (considering its own length)
+  let lastQuartetStart = lastIndexMatrix - lastIndexAdjNumbers;
+  //storage container
+  let storage = 0;
 
+  /* ### Checking all rows first ### */
+  
+  for (let i = 0; i < lastIndexMatrix + 1; i++) {
+  
+      //iterate over each row --> increment array[O][X]
+      for (let j = 0; j < lastQuartetStart + 1; j++) {
+  
+          //create an array of the four values of each quartet (just for checking)
+          let storageArrray = [matrix[i][j], matrix[i][j+1], matrix[i][j+2], matrix[i][j+3]];
+          console.log(storageArrray);
+          
+          //put the product of each quartet in a temporary storage variable
+          let tempStorage = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+          console.log(tempStorage);
+          
+          //check if product of quartet is larger than storage value
+          if (tempStorage > storage) {
+              
+              //put product of quartet in storage
+              storage = tempStorage;
+          }
+      }
+  }
+  
+  //just checking if value is passed
+  console.log(storage); 
+  
+  /* ### Checking all columns now ### */
+  
+  for (let j = 0; j < lastIndexMatrix + 1; j++) {
+  
+      //iterate over each row --> increment array[O][X]
+      for (let i = 0; i < lastQuartetStart + 1; i++) {
+  
+          //create an array of the four values of each quartet (just for checking)
+          let storageArrray = [matrix[i][j], matrix[i+1][j], matrix[i+2][j], matrix[i+3][j]];
+          console.log(storageArrray);
+          
+          //put the product of each quartet in a temporary storage variable
+          let tempStorage = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+          console.log(tempStorage);
+          
+          //check if product of quartet is larger than storage value
+          if (tempStorage > storage) {
+              
+              //put product of quartet in storage
+              storage = tempStorage;
+          }
+      }
+  }
+  console.log(storage);
+  return storage;
 }
