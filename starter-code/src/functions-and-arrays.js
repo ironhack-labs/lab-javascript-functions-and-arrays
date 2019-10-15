@@ -1,4 +1,10 @@
 // Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+};
 
 // Finding Longest Word
 const words = [
@@ -11,13 +17,49 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  longestWord = "";
+  if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = (arr) => {
+  if (arr.length === 0) {
+    return 0;
+  };
+  let counter = 0;
+  arr.forEach(number => {
+    counter += number;
+  });
+  return counter;
+};
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  };
+  let counter = 0;
+  arr.forEach(number => {
+    counter += number;
+  });
+  return (counter / arr.length);
+};
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +74,17 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  let sum = 0;
+  if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length;
+  }
+  return sum / arr.length;
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +101,14 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let uniqueArray = [];
+  for (let i = 0; i < arr.length; i++)
+    if (uniqueArray.indexOf(arr[i]) === -1 && arr[i] !== "")
+      uniqueArray.push(arr[i]);
+  return uniqueArray;
+}
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +120,13 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (arr, word) => {
+  if (arr.includes(word)) {
+    return true;
+  }
+  return false;
+};
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +142,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, word) => {
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      counter++;
+    }
+  }
+  return counter;
+};
 
 // Bonus
 
