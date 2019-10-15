@@ -1,5 +1,13 @@
 // Find the maximum
 
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+}
+
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +19,58 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(words){
+  if(words.length === 0){
+    return null;
+  }
+  if(words.length === 1){
+    return words[0];
+  }
+  let result = [];
+  for( let i = 0; i< words.length; i++){
+    if(result.length < words[i].length){
+      result = words[i];
+    }
+  }
+  return result;
+}
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+
+function sumArray(numbers) {
+  if (numbers.length === 1) {
+    return numbers[0];
+  }
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
+
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  if(numbersAvg.length === 1) {
+    return numbersAvg[0];
+  }
+  if(numbersAvg.length === 0){
+    return null;
+  }
+  let sum = 0
+  for (let i = 0; i< numbersAvg.length; i++) {
+    sum += numbersAvg[i]; }
+    let avr = sum / numbersAvg.length;
+  return avr;
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +85,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(average){
+  if(average.length === 0){
+    return null;
+  }
+  let sum = 0
+  for( let i = 0; i< average.length; i++){
+    sum += average[i].length;
+  }
+  let avrWordLegth = sum / average.length;
+  return avrWordLegth;
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +113,19 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  if(arr.length === 0){
+    return [];
+  }
+  let result = [];
+  arr.forEach(function(element) {
+      if(result.indexOf(element) === -1) {
+        result.push(element);
+      }
+  } );
+  return result;
+} 
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +137,14 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(words, find){
+  if(words.includes(find)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +160,14 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words, find){
+  let item = 0;
+  for (let i = 0; i< words.length; i++) {
+    if (words[i] === find) {item++}
+  } return item;
+    }
+
 
 // Bonus
 
