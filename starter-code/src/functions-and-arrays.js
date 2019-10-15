@@ -213,3 +213,44 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+var maxProduct = 0;
+for (var i = 0; i < matrix.length; i++) {
+    var row = grid[i];
+    for (var j = 0; j < row.length; j++) {
+        //check the left-to-right sum
+        if (j < row.length - 3) {
+            var product = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+            if (product > maxProduct) {
+                maxProduct = product;
+            }
+        }
+
+        //check the top-to-bottom sum
+        if (i < grid.length - 3) {
+            var product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+            if (product > maxProduct) {
+                maxProduct = product;
+            }
+        }
+
+        //check the top-left-to-bottom-right sum
+        if ((j < row.length - 3) && (i < matrix.length - 3)) {
+            var product = grid[i][j] * matrix[i + 1][j + 1] * grid[i + 2][j + 2] * matrix[i + 3][j + 3];
+            if (product > maxProduct) {
+                maxProduct = product;
+            }
+        }
+        
+        //check the top-right-to-bottom-left sum
+        if ((j > 2) && (i < matrix.length - 3)) {
+            var product = matrix[i][j] * matrix[i + 1][j - 1] * grid[i + 2][j - 2] * matrix[i + 3][j - 3];
+            if (product > maxProduct) {
+                maxProduct = product;
+            }
+        }
+    }
+}
+console.log(maxProduct);
