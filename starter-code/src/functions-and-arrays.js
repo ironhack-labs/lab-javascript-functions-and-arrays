@@ -1,5 +1,10 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +16,64 @@ const words = [
   'crackpot'
 ];
 
-// Calculating a Sum
 
+function findLongestWord(words) {
+
+  // initialize empty string
+  let longestWord = "";
+  // return null when array is empty
+  if (words.length === 0) {
+    return null;
+  }
+
+  // iterate over words in array
+  for (let i = 0; i < words.length; i++) {
+    // if word longer than longestWord
+    if (words[i].length > longestWord.length) {
+      // change longest word 
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
+
+
+
+// Calculating a Sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(numbers) {
+  // if array is empty return null
+  if (numbers.length === 0) {
+    return 0;
+  }
 
+  // declare sum to 0
+  let sum = 0;
+
+  // iterate over numbers
+  numbers.forEach(function (element) {
+    // add to sum
+    sum = sum + element;
+  });
+  return sum;
+};
+
+// Calculate the Average
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numberAvg) {
+  // if array is empty return null
+  if (numberAvg.length === 0) {
+    return null;
+  }
+
+  // calculate sum
+  let sum = sumArray(numberAvg);
+
+  // return average
+  return sum / numberAvg.length
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +88,23 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr) {
+  // if array is empty return null
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  // initiliaze empty array
+  let array = [];
+
+  // for each word in array
+  wordsArr.forEach(function (element) {
+    // push length into array
+    array.push(element.length);
+  });
+  return averageNumbers(array);
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +121,22 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  // create empty array
+  let array = [];
+
+  // iterate over words
+  wordsUnique.forEach(function (element) {
+
+    // if word does not exist in the 
+    if (array.indexOf(element) === -1) {
+      // push to array
+      array.push(element)
+    }
+  })
+  return array
+};
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +148,26 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, word) {
+  // if array is empty
+  if (!wordsFind.length) {
+    return false
+  }
+  // create empty array
+  let array = [];
+  // iterate over words 
+  for (let i = 0; i < wordsFind.length; i++) {
+
+    // if word is in array
+    if (wordsFind[i] === word) {
+      // push this word into array
+      array.push(wordsFind[i]);
+    }
+  }
+  // if array.length = 1 return true , if 0 return false
+  return !!array.length
+};
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +183,25 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, word) {
+  // if array is empty return 0
+  if (!wordsCount.length) {
+    return 0;
+  }
+  // create empty array
+  let array = [];
+
+  // iterate over words 
+  for (let i = 0; i < wordsCount.length; i++) {
+    // if word is in in array
+    if (wordsCount[i] === word) {
+      // push this word into array
+      array.push(wordsCount[i]);
+    }
+  }
+  return array.length
+};
 
 // Bonus
 
