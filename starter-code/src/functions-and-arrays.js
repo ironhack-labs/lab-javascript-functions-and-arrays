@@ -193,28 +193,24 @@ const matrix = [
 function greatestProduct(matrix) {
   let largestProduct = 0;
   let product = 0;
-  // find largest horizontal product
-  matrix.forEach(function(array) {
-    array.forEach(function(num, index) {
-      if (index < array.length - 3) {
+  matrix.forEach(function(array, arrayIndex) {
+    array.forEach(function(num, numIndex) {
+      // check horizontal product
+      if (numIndex < array.length - 3) {
         product =
-          num * array[index + 1] * array[index + 2] * array[index + 3];
+          num * array[numIndex + 1] * array[numIndex + 2] * array[numIndex + 3];
         if (product > largestProduct) {
           largestProduct = product;
         }
       }
-    });
-  });
-  // find largest vertical product
-  matrix.forEach(function(array, arrayIndex) {
-    array.forEach(function (num, numIndex) {
+      // check vertical product
       if (arrayIndex < matrix.length - 3) {
         product = num * matrix[arrayIndex + 1][numIndex] * matrix[arrayIndex + 2][numIndex] * matrix[arrayIndex + 3][numIndex];
         if (product > largestProduct) {
           largestProduct = product;
         }
       }
-    })
+    });
   });
   return largestProduct;
 }
