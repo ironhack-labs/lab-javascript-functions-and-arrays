@@ -195,4 +195,30 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+
+
 //What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
+
+
+function greatestProduct(matrix) {
+  let highestProd = 0;
+  //access row in matrix --> matrix[i]
+  for (let i = 0; i < 20; i++) {
+    //access index in row --> matrix[i,j]
+    for (let j = 0; j < 17; j++) {
+      // slice four adjacent indexes from the row --> matrix[i,j] - matrix[i,j+3]
+      let slice = matrix[i].slice(j, j + 4);
+      console.log(slice);
+      let groupProd = 1;
+      for (let x = 0; x < 4; x++) {
+        groupProd *= slice[x];
+      }
+      if (groupProd > highestProd) {
+        highestProd = groupProd;
+      }
+    }
+  }
+  return highestProd;
+}
+
+greatestProduct(matrix);
