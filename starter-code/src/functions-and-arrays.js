@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Finding Longest Word
 const words = [
@@ -11,11 +18,46 @@ const words = [
   'crackpot'
 ];
 
+
+
+function findLongestWord(array) {
+  let longestWord = ``;
+  if (array.length === 0) {
+    return null
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (longestWord.length < array[i].length) {
+      longestWord = array[i];
+    }
+  }
+  return longestWord
+}
 // Calculating a Sum
+
+function sumArray(numberArray) {
+  let liveSum = 0;
+  for (let i = 0; i < numberArray.length; i++) {
+    liveSum += numberArray[i];
+  }
+  return liveSum;
+}
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
+
+function averageNumbers(numberArray2) {
+  let liveSum2 = 0;
+  let sumAverage = 0;
+  if (numberArray2.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < numberArray2.length; i++) {
+    liveSum2 += numberArray2[i];
+  }
+  sumAverage = liveSum2 / (numberArray2.length)
+  return sumAverage;
+}
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -33,6 +75,19 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(wordArray) {
+  if (wordArray.length === 0) {
+    return null;
+  }
+  let wordArrayLengthSum = 0;
+  let averageArrayLengthSum = 0;
+  for (let i = 0; i < wordArray.length; i++) {
+    wordArrayLengthSum += wordArray[i].length;
+  }
+  averageArrayLengthSum = wordArrayLengthSum / (wordArray.length)
+  return averageArrayLengthSum;
+}
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -48,6 +103,28 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordArray2) {
+  let uniqueArray = [];
+  for (let i = 0; i < wordArray2.length; i++) {
+    if (uniqueArray.indexOf(wordArray2[i]) === -1) {
+      uniqueArray.push(wordArray2[i]);
+    }
+  }
+  return uniqueArray;
+}
+
+/* // First attempt trying to mutate the existing array, rather than creating a new one
+function uniquifyArray(wordArray2) {
+  for (let i=0; i < wordArray2.length; i++) {
+    if (wordArray2.indexOf(wordArray2[i]) !== i) {
+      wordArray2.splice(i, 1);
+    }
+  }
+  return wordArray2;
+}
+*/
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +136,20 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordArray3, searchWord) {
+  let existTest = 0;
+  for (let i = 0; i < wordArray3.length; i++) {
+    if (searchWord === wordArray3[i]) {
+      existTest += 1;
+    }
+  }
+  if (existTest > 0) {
+    return true
+  } else {
+    return false;
+  }
+}
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +165,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArray4, searchWord2) {
+  let occurenceTest = 0;
+  for (let i = 0; i < wordArray4.length; i++) {
+    if (searchWord2 === wordArray4[i]) {
+      occurenceTest += 1;
+    }
+  }
+  return occurenceTest;
+}
 
 // Bonus
 
@@ -99,3 +200,34 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const matrixOfOnes = [
+  [1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1]
+]
+
+function greatestProduct(matrixTest) {
+  let productArray = [];
+  let productLargest = 0;
+  for (let row = 0; row < matrixTest.length; row++) {
+    if ((row + 3) > matrixTest.length) {
+      break;
+    }
+    for (let col = 0; col < matrixTest[row].length; col++) {
+      if ((col + 3) > matrixTest[row].length) {
+        break;
+      }
+      productArray.push(matrixTest[row][col] * matrixTest[row][col + 1] * matrixTest[row][col + 2] * matrixTest[row][col + 3]);
+      productArray.push(matrixTest[row][col] * matrixTest[row + 1][col] * matrixTest[row + 2][col] * matrixTest[row + 3][col]); // for some reason this line seems to have an undefined value? Or something along those lines, and it's breaking the code...
+    }
+  }
+  for (let i = 0; i < productArray.length; i++) {
+    if (productArray[i] > productLargest) {
+      productLargest = productArray[i];
+    }
+  }
+  return productLargest;
+}
