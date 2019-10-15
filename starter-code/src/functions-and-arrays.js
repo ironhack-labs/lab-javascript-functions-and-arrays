@@ -99,3 +99,127 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(a, b) {
+  if (a >= b) {
+    return a;
+  } else {
+    return b;
+  }
+};
+
+console.log(maxOfTwoNumbers(3, 5));
+
+
+function findLongestWord(wordList) {
+  if (wordList[0] === undefined) {
+    return null;
+  };
+  let longestLength = 0;
+  for (let i = 0; i < wordList.length; i++) {
+    if (wordList[i].length > longestLength) {
+      longestLength = wordList[i].length;
+    }
+  };
+  for (let i = 0; i < wordList.length; i++) {
+    if (wordList[i].length === longestLength) {
+      return wordList[i];
+    }
+  };
+};
+
+console.log(findLongestWord(words));
+
+function sumArray(num) {
+  if (num[0] === undefined) {
+    return 0;
+  };
+  return num.reduce((a, b) => a + b)
+};
+
+const averageNumbers = (numberElements) => {
+  if (numberElements[0] === undefined) {
+    return null;
+  };
+  let sum = numberElements.reduce((a, b) => a + b);
+  return sum / numberElements.length;
+};
+
+const averageWordLength = (wordList) => {
+  if (wordList[0] === undefined) {
+    return null;
+  };
+  let letterSum = 0;
+  for (let i = 0; i < wordList.length; i++) {
+    letterSum += wordList[i].length;
+  }
+  return letterSum / wordList.length;
+};
+
+const uniquifyArray = (duplicateArray) => {
+  let newArr = duplicateArray.filter((word, pos) => duplicateArray.indexOf(word) === pos);
+  return newArr;
+};
+
+/* const doesWordExist = (wordList, word) => {
+  if (wordList.length === 0) {
+    return false;
+  };
+  if (wordList.indexOf(word) === -1) {
+    return false;
+  };
+  return true;
+}; */
+
+/* const doesWordExist = (wordList, word) => {
+  if (wordList.length === 0) {
+    return false;
+  };
+  let newList = wordList.filter((element) => element === word);
+  if (newList.length > 0) {
+    return true;
+  }
+  return false
+}; */
+
+/* const doesWordExist = (wordList, word) => {
+  if(wordList.includes(word)===true){
+    return true;
+  } return false;
+} */
+
+const doesWordExist = (wordList, word) => {
+  if (wordList.length === 0) {
+    return false;
+  };
+  let newList = [];
+  wordList.forEach(function (element) {
+    if (element === word) {
+      newList.push(element);
+    };
+
+  });
+  if (newList.length > 0) {
+    return true
+  }
+  return false
+};
+
+const howManyTimes = (wordList, word) => {
+  let newArr = wordList.filter((element) => word === element);
+  return newArr.length;
+};
+
+const greatestProduct = (grid) => {
+  let sumsRows = [];
+
+  for (let j = 0; j < grid.length; j++) {
+    for (let i = 0; i < 17; i++) {
+      let sumQuadrouple = (grid[j][i]) * (grid[j][i + 1]) * (grid[j][i + 2]) * (grid[j][i + 3]);
+      sumsRows.push(sumQuadrouple);
+    }
+  }
+  let highestRowSum = sumsRows.sort((a, b) => b - a);
+  return highestRowSum[0];
+
+}
