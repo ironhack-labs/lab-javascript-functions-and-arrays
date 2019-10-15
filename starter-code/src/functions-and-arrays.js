@@ -487,10 +487,10 @@ function greatestProduct(matrix) {
       let horizontalProduct = 1;
       let verticalProduct = 1;
 
-      for (var i = horizontal; i < horizontal + adjacent; i += 1) {
+      for (let i = horizontal; i < horizontal + adjacent; i += 1) {
         horizontalProduct *= matrix[vertical][i];
       }
-      for (var i = vertical; i < vertical + adjacent; i += 1) {
+      for (let i = vertical; i < vertical + adjacent; i += 1) {
         verticalProduct *= matrix[i][horizontal];
       }
 
