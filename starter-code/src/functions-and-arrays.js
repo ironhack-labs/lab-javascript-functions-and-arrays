@@ -59,9 +59,9 @@ function averageNumbers(array) {
   let sum = 0;
   for (var i = 0; i < array.length; i++) {
     sum += array[i];
-    average = sum / 2;
   }
-
+  average = sum / array.length;
+  return average;
 }
 
 // Array of Strings
@@ -78,6 +78,18 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array) {
+  if (array.length === 0) return null;
+  let average = 0;
+  let sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    sum += array[i].length;
+  }
+  average = sum / array.length;
+  return average;
+}
+
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -93,6 +105,16 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  if (array.length === 0) return [];
+  let newArray = [array[0]];
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] != array[i - 1]) newArray.push(array[i]);
+  }
+  return newArray;
+}
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -104,6 +126,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word) {
+  if (array.length === 0) return false;
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] === word) return true;
+  }
+  return false
+}
+
 
 // Counting Repetition
 const wordsCount = [
@@ -119,6 +150,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  let counter = 0;
+  if (array.length === 0) {
+    return 0
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (word === array[i]) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+
+
 
 // Bonus
 
