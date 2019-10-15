@@ -128,7 +128,9 @@ const wordsFind = [
 ];
 
 function doesWordExist(array, word) {
-  if (array.length === 0) return false;
+  if (array.length === 0) {
+    return false
+  }
   for (var i = 1; i < array.length; i++) {
     if (array[i] === word) return true;
   }
