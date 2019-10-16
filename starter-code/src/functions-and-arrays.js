@@ -1,81 +1,205 @@
 // Find the maximum
 
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  }
+  return number2;
+}
 // Finding Longest Word
+
+function findLongestWord(arrOfWords) {
+  if (arrOfWords.length === 0) {
+    return null;
+  }
+  let longestWord = "";
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (arrOfWords[i].length > longestWord.length) {
+      longestWord = arrOfWords[i];
+    } else {
+      continue;
+    }
+  }
+  return longestWord;
+}
+
 const words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot"
 ];
 
 // Calculating a Sum
 
+function sumArray(arrOfNumbers) {
+  result = 0;
+  for (let i = 0; i < arrOfNumbers.length; i++) {
+    result += arrOfNumbers[i];
+  }
+  return result;
+}
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
 
+function averageNumbers(arrOfNumbers) {
+  if (arrOfNumbers.length === 0) {
+    return null;
+  }
+  sum = 0;
+  for (let i = 0; i < arrOfNumbers.length; i++) {
+    sum += arrOfNumbers[i];
+  }
+  average = sum / arrOfNumbers.length;
+  return average;
+}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength(arrOfWords) {
+  if (arrOfWords.length === 0) {
+    return null;
+  }
+  lettersum = 0;
+  for (let i = 0; i < arrOfWords.length; i++) {
+    lettersum += arrOfWords[i].length;
+  }
+  average = lettersum / arrOfWords.length;
+  return average;
+}
 const wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace"
 ];
 
 // Unique Arrays
+
+function uniquifyArray(arrOfWords) {
+  let uniqueArray = [];
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (uniqueArray.indexOf(arrOfWords[i]) === -1) {
+      uniqueArray.push(arrOfWords[i]);
+    }
+  }
+  if (uniqueArray.length === 0) {
+    return arrOfWords;
+  }
+  return uniqueArray;
+}
+
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
 ];
 
 // Finding Elements
+
+function doesWordExist(arrayOfWords, word) {
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (arrayOfWords[i] === word) {
+      return true;
+    }
+  }
+  return false;
+}
 const wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
 
 // Counting Repetition
+
+function howManyTimes(arrayOfWords, word) {
+  if (arrayOfWords.length === 0 || arrayOfWords.indexOf(word) === -1) {
+    return 0;
+  }
+  let counter = 0;
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (arrayOfWords[i] === word) {
+      counter++;
+    }
+  }
+  return counter;
+}
+
+//alternative
+
+function howManyTimes2(words, search) {
+  let counter = 0;
+  words.forEach(function(word) {
+    if (word === search) {
+      counter++;
+    }
+  });
+  return counter;
+}
+
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
 
 // Bonus
+
+function greatestProduct(arr) {
+  let productsArrayHori = [];
+  let prodHori;
+  for (let j = 0; j < arr.length; j++) {
+    for (let i = 0; i < arr[j].length; i++) {
+      prodHori = arr[j][i] * arr[j][i + 1] * arr[j][i + 2] * arr[j][i + 3];
+      productsArrayHori.push(prodHori);
+    }
+  }
+  productsArrayHori.push("Next-for-loop");
+
+  let productsArrayVert = [];
+  let prodVert;
+  for (let k = 0; k < arr.length; k++) {
+    for (let l = 0; l < arr[k].length; l++) {
+      prodVert = arr[l][k] * arr[l + 1][k] * arr[l + 2][k] * arr[l + 3][k];
+      productsArrayVert.push(prodVert);
+    }
+  }
+  return productsArrayHori.concat(productsArrayVert);
+}
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
