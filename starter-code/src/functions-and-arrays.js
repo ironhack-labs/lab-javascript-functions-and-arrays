@@ -1,6 +1,17 @@
-// Find the maximum
+//Find the maximum
 
-// Finding Longest Word
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  };
+}
+maxOfTwoNumbers(5, 1);
+
+// Finding Longest Word Write a function `findLongestWord` that takes an array of words and returns the longest one. 
+//If there are 2 with the same length, it should return the first occurrence. 
+
 const words = [
   'mystery',
   'brother',
@@ -11,13 +22,44 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  if (!arr.length) return null;
+  var longestWord = "";
+  arr.forEach(element => {
+    if (element.length > longestWord.length) {
+      longestWord = element;
+    }
+  });
+  return longestWord;
+}
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  if (!arr.length) return 0;
+  var sum = 0;
+  arr.forEach(element => {
+    sum += element;
+  })
+  return sum;
+}
 // Calculate the Average
-
+//Find the sum as we did in the first exercise
+// Take the sum from step 1, and divide it by the number of elements in the list.
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (!arr.length) return null;
+  var sum = 0;
+  var average = 0;
+  arr.forEach(element => {
+    sum += element;
+  })
+  average = sum / arr.length;
+  return average;
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +74,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if (!arr.length) return null;
+  var sum = 0;
+  var average = 0;
+  arr.forEach(element => {
+    sum += element.length;
+  })
+  average = sum / arr.length;
+  return average;
+}
+
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +102,16 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(elements) {
+  var emptyArray = [];
+  elements.forEach(element => {
+    if (emptyArray.indexOf(element) === -1) {
+      emptyArray.push(element);
+    }
+  });
+  return emptyArray;
+}
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +123,20 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, a) {
+  var word = 0;
+  arr.forEach(element => {
+    if (element === a) {
+      word += 1;
+    };
+  });
+  if (word === 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +152,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, a) {
+  if (!arr.length) return 0;
+  var counting = 0;
+  arr.forEach(element => {
+    if (element === a) {
+      counting += 1;
+    };
+  });
+  return counting;
+}
 
 // Bonus
 
