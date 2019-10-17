@@ -1,81 +1,189 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else if (b > a) {
+    return b;
+  } else if (b === a) {
+    return a;
+  }
+}
+
 
 // Finding Longest Word
 const words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot"
 ];
+
+function findLongestWord(array) {
+  if (array.length === 0)
+    return null;
+  let lengthWord = "";
+  array.forEach(word => {
+    if (word.length > lengthWord.length)
+      lengthWord = word;
+  });
+  return lengthWord;
+}
+
 
 // Calculating a Sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray(array) {
+  if (array.length === 0)
+    return 0;
+  let sum = 0;
+  array.forEach(num => {
+    sum = num + sum;
+  });
+  return sum;
+}
+//console.log(sumArray(array1));
 
+
+// Calculate the Average
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const array2 = [2, 2, 2];
+
+function averageNumbers(array) {
+  if (array.length === 0)
+    return null;
+  let sum = 0;
+  let howManyNumbers = array.length;
+  array.forEach(num => {
+    sum = num + sum;
+    average = sum / howManyNumbers;
+  });
+  return average;
+}
+//console.log(averageNumbers(numbersAvg));
+
 
 // Array of Strings
+// = calculate the average length of the words
 const wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "seat", //4
+  "correspond", //10
+  // "linen",
+  // "motif",
+  // "hole",
+  // "smell",
+  // "smart",
+  // "chaos",
+  // "fuel",
+  "palace" //6
 ];
+
+function averageWordLength(array) {
+
+  // calcule la moyenne
+  if (array.length === 0) // si l'array est vide alors retourne nul
+    return null;
+  let sumWord = 0; // définit la somme des tailles des mots
+  array.forEach(word => { // pour chaque mot
+    sumWord = sumWord + word.length; // ajoute à la somme des tailles des mots la taille du mot en cours
+  });
+  average = sumWord / array.length; // tu divises la somme des tailles des mots par le nombre de mot
+  return average;
+}
+//console.log(averageWordLength(wordsArr)); //6,6667...
+
 
 // Unique Arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
 ];
+
+function uniquifyArray(array) {
+  let newArray = []; // cree new array
+  array.forEach(word => { // pour chaque mot,
+    if (newArray.indexOf(word) === -1) { // si le mot ne se trouve pas dans la new array
+      newArray.push(word); // alors tu le push dedans
+    }
+  });
+  return newArray;
+}
+//console.log(uniquifyArray(wordsUnique));
+
 
 // Finding Elements
+/* Write a function doesWordExist that will take in an array of words as one argument,
+and a word to search for as the other.
+Return true if it exists, otherwise, return false. Don't use indexOf for this one. :)*/
 const wordsFind = [
-  'machine',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'truth',
-  'disobedience'
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience"
 ];
+
+function doesWordExist(array, wordToSearch) {
+  let wordFound = false; // condition de base
+  array.forEach(word => { // pour chaque mot
+    if (word === wordToSearch) { // si le mot === le mot qu'on cherche
+      wordFound = true; // alors change la valeur de la condition de base
+    } // sinon tu lui laisses sa valeur de base (false)
+  });
+  return wordFound;
+}
+//console.log(doesWordExist(wordsFind, "trouble"));
+
 
 // Counting Repetition
+/* Write a function howManyTimes that will take in an array of words as one argument,
+and a word to search for as the other.
+The function will return the number of times that word appears in the array.*/
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
 
+function howManyTimes(array, wordToCount) {
+  let counterOfWord = 0; // initialise le compteur de mot à 0
+  array.forEach(word => { // pour chaque mot,
+    if (word === wordToCount) { // si le mot en cours === le mot à compter
+      counterOfWord++; // alors tu ajoutes un au compteur de mot
+    } // sinon rien
+  });
+  return counterOfWord;
+}
+//console.log(howManyTimes(wordsCount, "matter")); // should be : 4
+
+
 // Bonus
+//In the 20×20 grid below;
+//What is the greatest product of four adjacent numbers in the same direction (up, down, left, right)?
+//Write a function greatestProduct to find the answer!
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
