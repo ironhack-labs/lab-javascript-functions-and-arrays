@@ -23,17 +23,17 @@ const words = [
 
 function findLongestWord(words) {
   var longestWord = "";
-  for (let i = 0; i < words.length; i++) {
-    //if words=[] {
-    //  return null
-
-    //}
-    if (words[i].length > longestWord.length) {
-      longestWord = words[i];
+  if (words.length === 0) {
+    return null;
+  } else
+    for (let i = 0; i < words.length; i++) {
+      if (words[i].length > longestWord.length) {
+        longestWord = words[i];
+      }
     }
-  }
   return longestWord;
 }
+
 
 console.log(findLongestWord(words));
 
@@ -59,7 +59,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersArray) {
   var sumTemp = sumArray(numbersArray);
-  var avg = sumTemp / numbersArray.length;
+  if (numbersArray.length === 0) {
+    return null;
+  } else
+    var avg = sumTemp / numbersArray.length;
   return avg;
 }
 
@@ -129,13 +132,12 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === word) {
-      return true;
-    }
-    return false;
+  if (arr.includes(word)) {
+    return true;
   }
+  return false;
 }
+
 
 console.log(doesWordExist(wordsFind, "eaproutting"));
 
@@ -485,7 +487,7 @@ function greatestProduct(arr) {
       }
     }
   }
-  console.log(arrTemp);
+
   var maxNumber = Math.max(...arrTemp);
   return maxNumber;
 }
