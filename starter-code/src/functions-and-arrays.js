@@ -1,4 +1,12 @@
 // Find the maximum
+function maxOfTwoNumbers(number1, number2){
+  if (number1 > number2){
+    return number1;
+  } else if (number2 > number1) {
+    return number2;
+  }
+  return number1
+}
 
 // Finding Longest Word
 const words = [
@@ -10,6 +18,22 @@ const words = [
   'orchard',
   'crackpot'
 ];
+
+function findLongestWord(wordsArray){
+  if (wordsArray.length == 0){
+    return null;
+  }
+  
+  let longestWord = wordsArray[0];
+  let word;
+  for (let i = 1; i < wordsArray.length; i++) {
+    word = wordsArray[i];
+    if (word.length > longestWord.length){
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
 
 // Calculating a Sum
 
