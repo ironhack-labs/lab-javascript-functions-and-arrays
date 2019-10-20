@@ -34,26 +34,20 @@ function findLongestWord(array) {
 
 // -----------------------------------------
 
-// Calculating a Sum // 1 FAILURE
+// Calculating a Sum // FINISHED
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(a) {
   let x = 0;
-  if (a == 0) {
-    return x;
-  } else if (a.length == 1) {
-    return x;
-  } else
+  if (a == 0) return x;
+  else if (a.length == 1) return a[0];
+  else
     for (let i = 0; i < a.length; i++) {
       x = x + a[i]
     }
   return x;
 }
-
-var emptyArray = []
-
-var oneNumberArray = [2]
 
 // sumArray(numbers)
 
@@ -68,11 +62,13 @@ function averageNumbers(array) {
   else if (array.length == 1) return array[0];
   else return sumArray(array) / array.length;
 }
+
 // averageNumbers(numbersAvg);
 
 // -----------------------------------------
 
 // Array of Strings // FINISHED
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -100,7 +96,7 @@ function averageWordLength(word) {
 
 // -----------------------------------------
 
-// Unique Arrays // 4 FAILURES
+// Unique Arrays // 1 FAILURE
 
 const wordsUnique = [
   'crab',
@@ -119,22 +115,18 @@ const wordsUnique = [
 function uniquifyArray(words) {
   let newArray = []
   words.forEach(function (element, index) {
-    if (words.indexOf(element, index + 1) === -1) {
-      if (newArray.indexOf(element) === -1) {
-        newArray.push(element);
-      }
-    } else if (words.length == 0) {
-      return [];
-    }
+    if (words.indexOf(element, index + 1) === -1)
+      if (newArray.indexOf(element) === -1) newArray.push(element);
+      else if (words.length == 0) newArray;
   })
-  console.log(newArray);
+  return newArray;
 }
 
-// uniquifyArray(wordsUnique) // 1 FAILURE
+// uniquifyArray(wordsUnique)
 
 // -----------------------------------------
 
-// Finding Elements
+// Finding Elements // FINISHED
 
 const wordsFind = [
   'machine',
@@ -152,13 +144,12 @@ function doesWordExist(argument, word) {
     return argument == [];
   else
     for (let i = 0; i < argument.length; i++) {
-      if (word == argument[i]) return true;
-      else if (word == argument[i] && argument.length == 1) return true;
-      else if (word != argument[i]) return false;
+      if (word == argument[i] || argument.length == 1) return true;
     }
+  if (argument != true) return false;
 }
 
-// console.log(doesWordExist(wordsFind, 'machine'))
+// console.log(doesWordExist(wordsFind, 'matter'))
 
 // -----------------------------------------
 
@@ -215,3 +206,17 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array) {
+  var horizontalSum4Values = [];
+  var verticalSum4Values = [];
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {}
+    // console.log(array[i][0] + " premier array vertical");
+
+  }
+
+  // console.log(array[0] + " premier array horizontal")
+}
+
+greatestProduct(matrix)
