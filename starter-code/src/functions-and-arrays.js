@@ -91,20 +91,9 @@ function uniquifyArray(wordsArray){
   if (wordsArray.length === 0) {
     return [];
   }
-  /*let newArray = wordsArray.slice();
-  let indices;
-  let idx;
-  newArray.forEach(word => {
-    indices = [];
-    idx = wordsArray.indexOf(word);
-    while (idx !== -1){
-      indices.push(idx);
-      idx = newArray.indexOf(word, idx + 1);
-    }
-    for (){
-      newArray.splice(i,1)
-    }
-  })*/
+  let newArray;
+  newArray = wordsArray.filter((item, index)=> wordsArray.indexOf(item) === index);
+  return newArray
 }
 
 const wordsUnique = [
