@@ -86,6 +86,27 @@ const wordsArr = [
 ];
 
 // Unique Arrays
+
+function uniquifyArray(wordsArray){
+  if (wordsArray.length === 0) {
+    return [];
+  }
+  /*let newArray = wordsArray.slice();
+  let indices;
+  let idx;
+  newArray.forEach(word => {
+    indices = [];
+    idx = wordsArray.indexOf(word);
+    while (idx !== -1){
+      indices.push(idx);
+      idx = newArray.indexOf(word, idx + 1);
+    }
+    for (){
+      newArray.splice(i,1)
+    }
+  })*/
+}
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -101,6 +122,23 @@ const wordsUnique = [
 ];
 
 // Finding Elements
+
+function doesWordExist(wordsArray, newWord){
+  let answer = false;
+
+  if (wordsArray.length === 0){
+    return answer;
+  }
+  
+  wordsArray.forEach(item => {
+    if (item === newWord) {
+      answer = true;
+    }
+  })
+  
+  return answer;
+}
+
 const wordsFind = [
   'machine',
   'subset',
