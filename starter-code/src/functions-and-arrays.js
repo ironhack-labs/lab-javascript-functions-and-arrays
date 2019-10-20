@@ -6,7 +6,7 @@ function maxOfTwoNumbers(number1, number2){
   } else if (number2 > number1) {
     return number2;
   }
-  return number1
+  return number1;
 }
 
 // Finding Longest Word
@@ -51,9 +51,27 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Calculate the Average
 
+function averageNumbers(numbersArray) {
+  if (numbersArray.length === 0){
+    return null;
+  }
+  let sumTotal = sumArray(numbersArray);
+  let average = sumTotal / numbersArray.length;
+  return average;
+}
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Array of Strings
+
+function averageWordLength(wordsArray){
+  let numbersArray = [];
+  wordsArray.forEach(word =>{
+    numbersArray.push(word.length);
+  })
+  return averageNumbers(numbersArray);
+}
+
 const wordsArr = [
   'seat',
   'correspond',
