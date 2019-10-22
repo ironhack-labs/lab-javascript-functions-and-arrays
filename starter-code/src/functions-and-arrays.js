@@ -1,4 +1,10 @@
 // Find the maximum
+function maxOfTwoNumbers(first, second){
+  if(first > second)
+  return first;
+  else
+  return second;
+}
 
 // Finding Longest Word
 const words = [
