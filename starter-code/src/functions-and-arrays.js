@@ -180,3 +180,139 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix){
+  let greatProd = {Position:[0,0], Direction:"X", Product:0}
+
+  //Look up:
+  function calcProdUp(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x][y-1] * matrix[x][y-2] * matrix[x][y-3];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'UP';
+      greatProd['Position'] = [x, y];
+    }
+  }
+  //Look down
+  function calcProdDown(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x][y+1] * matrix[x][y+2] * matrix[x][y+3];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'DOWN';
+      greatProd['Position'] = [x, y];
+    }
+  }
+  //Look right
+  function calcProdRight(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x+1][y] * matrix[x+2][y] * matrix[x+3][y];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'RIGHT';
+      greatProd['Position'] = [x, y];
+    }
+  }
+  //Look left
+  function calcProdLeft(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x-1][y] * matrix[x-2][y] * matrix[x-3][y];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'LEFT';
+      greatProd['Position'] = [x, y];
+    }
+  }
+
+  // Diagonal up-right
+  function upRight(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x+1][y-1] * matrix[x+2][y-2] * matrix[x+3][y-3];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'DIAGONAL UP-RIGHT';
+      greatProd['Position'] = [x, y];
+    }
+  }
+
+  // Diagonal down-right
+  function downRight(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x+1][y+1] * matrix[x+2][y+2] * matrix[x+3][y+3];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'DIAGONAL UP-RIGHT';
+      greatProd['Position'] = [x, y];
+    }
+  }
+
+  //Diagonal down-left
+  function downLeft(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x-1][y+1] * matrix[x-2][y+2] * matrix[x+3][y+3];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'DIAGONAL UP-RIGHT';
+      greatProd['Position'] = [x, y];
+    }
+  }
+
+  //Diagonal up-left
+function upLeft(matrix, x, y){
+    let prod = matrix[x][y] * matrix[x-1][y-1] * matrix[x-2][y-2] * matrix[x-3][y-3];
+    if (prod> greatProd['Product']){
+      greatProd['Product'] = prod;
+      greatProd['Direction'] = 'DIAGONAL UP-RIGHT';
+      greatProd['Position'] = [x, y];
+    }
+  }
+
+  //Check for all the box values:
+  for (x=0; x<20; x++){
+    for (y=0; y<20; y++){
+      try{
+        calcProdRight(matrix, x, y);
+        continue
+      }catch{
+        continue;
+      }
+      try{
+        calcProdLeft(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+      try{
+        calcProdUp(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+      try{
+        calcProdDown(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+      try{
+        upLeft(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+      try{
+        downRight(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+      try{
+        downLeft(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+      try{
+        upRight(matrix, x, y);
+        continue;
+      }catch{
+        continue;
+      }
+    }
+  }
+  /*return console.log(`The greatest product is located in ${greatProd['Position']} looking ${greatProd['Direction']} with value of ${greatProd['Product']}`)*/
+  return greatProd.Product
+  }
