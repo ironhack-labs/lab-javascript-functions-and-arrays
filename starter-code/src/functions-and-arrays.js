@@ -1,5 +1,11 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a, b){
+  if(a>b){
+    return a
+  }else{
+    return b
+  }
+}
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +17,46 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(a){
+  let s = "";
+  if (a.length>0){
+    for (i=0; i<a.length; i++){
+      if (a[i].length>s.length){
+        s = a[i]
+      }else{
+      continue
+    }
+  }
+  return s
+ }else{
+   return null
+ }
+}
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumArray(numbers){
+  let num =0;
+  for (i=0; i<numbers.length;i++){
+    num += numbers[i]
+  }
+  return num
+}
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers){
+  if (numbers.length>0){
+    let num =0;
+    for (i=0; i<numbers.length;i++){
+      num += numbers[i]
+    }
+    return num/numbers.length
+  }else{
+    return null
+  }
+  }
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +71,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  if (arr.length>0){
+    return arr.join('').length/arr.length
+  } else{
+    return null
+  }
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +95,22 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  let newArray = [];
+  if (arr.length>0){
+    for(i=0; i<arr.length; i++){
+      if(newArray.includes(arr[i])==false){
+        newArray.push(arr[i])
+      }else{
+        continue
+      }
+     }  
+    return newArray
+   }else{
+     return []
+   }
+}
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -60,6 +123,16 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr, word){
+  let check = false;
+  for (i=0; i<arr.length; i++){
+    if(arr[i]==word){
+      check=true;
+      return check
+    }
+    }
+  return check
+  }
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -74,7 +147,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes(arr, word){
+  let counter = 0;
+  arr.forEach(function(e,i,a){
+    if (e==word){
+      counter+= 1
+    }
+  })
+return counter
+}
 // Bonus
 
 const matrix = [
