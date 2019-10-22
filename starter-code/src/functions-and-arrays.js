@@ -1,5 +1,9 @@
 // Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  return num1 > num2 ? num1  : num2;
+}
 
+console.log(maxOfTwoNumbers(0.4, .8));
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,14 +15,41 @@ const words = [
   'crackpot'
 ];
 
+const findLongestWord = (words) => {
+  if(words.length < 1) return null;
+  let wordMaxLength = 0;
+  let maxIdx = -1;
+  words.map((word, idx)=> {
+    if(word.length > wordMaxLength){
+      wordMaxLength = word.length;
+      maxIdx = idx;
+    }  
+  })
+  return words[maxIdx];
+}
+
+console.log(findLongestWord(words))
+
 // Calculating a Sum
 
+const sumArray = (arr) => {
+  let resultado = 0
+  for (num in arr) {
+    resultado+= Number(arr[num])
+  }
+  return resultado
+}
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+console.log(sumArray(numbers))
 // Calculate the Average
-
+ 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+const averageNumbers = numbersAvg => {
+  if(numbersAvg.length < 1) return null;
+  return sumArray(numbersAvg)/numbersAvg.length;
+}
+console.log(averageNumbers(numbersAvg))
 // Array of Strings
 const wordsArr = [
   'seat',
@@ -32,6 +63,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = (arr) => {
+  if(arr.length < 1) return null;
+  const wordLengths = arr.map(word => word.length);
+  return averageNumbers(wordLengths);
+}
+
+console.log(averageWordLength(wordsArr))
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +87,40 @@ const wordsUnique = [
   'bring'
 ];
 
+const nums = ['a', 'a', 'a']
+const nemesis = [
+  "iPhone",
+  "Samsung",
+  "Android",
+  "iOS",
+  "iPhone",
+  "Samsung",
+  "Nokia",
+  "Blackberry",
+  "Android"
+]
+const uniquifyArray = (arr) => {
+  arr.reverse()
+  let indices = []
+  for(i = 0; i< arr.length; i++){
+    let temp = arr[i]
+    let subArr = arr.slice(i+1, arr.length)
+    let test = subArr.indexOf(temp)
+    if(test>=0){
+      indices.push(arr.indexOf(temp))
+    }
+  }
+  let c = 0;
+  for(i = 0; i < indices.length; i++){
+    arr.splice(indices[i] -c, 1)
+    c++;
+  }
+  arr.reverse()
+  return arr
+}
+console.log(uniquifyArray(nemesis))
+// ["iPhone", "Samsung", "Android", "iOS", "Nokia", "Blackberry"]
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -60,6 +133,8 @@ const wordsFind = [
   'disobedience'
 ];
 
+const doesWordExist = (arr, wordToSearch) => arr.includes(wordToSearch);
+console.log(doesWordExist(wordsFind,'apple'))
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -75,6 +150,14 @@ const wordsCount = [
   'matter'
 ];
 
+const howManyTimes = (arr, wordToSearch) => {
+  let count = 0;
+  arr.forEach(word => {
+    if(word === wordToSearch) count++;
+  });
+  return count;
+}
+console.log(howManyTimes([]))
 // Bonus
 
 const matrix = [
