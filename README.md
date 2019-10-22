@@ -1,100 +1,84 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+<p align="center"><img width="250" src="https://i.imgur.com/lMo1s1G.png"/></p>
 
 # JS | Clue - Mixing objects and arrays
 
-Do you remember de classic detective game?
+Do you remember the classic detective board game Clue? It was a very popular game in the 90's.
 
-Clue was a very popular game in the 90's. The plot starts with Mr. Boddy being killed by one of his guests. He was the very rich owner of Tudor Close, who takes the stock character of a generic victim. After his dead, Clue players have to discover who murdered him, with what implement, and where the crime scene took place in his mansion.
+The plot starts with the death of Mr. Boddy, the very wealthy owner of Tudor Manor. He was killed under highly suspicious circumstances, and it's the players mission to uncover which **suspect** murdered him, what **weapon** was used, and in which **room** of the mansion the crime took place.
 
-Hasbro, the toy maker company and owner of Cluedo, [recently changed](http://www.independent.co.uk/arts-entertainment/cluedo-first-new-character-dr-orchid-mrs-white-dead-1949-hasbro-a7118351.html) some of the characters bio. Use the bio to gather information from the characters.
+When playing Clue, these three details are represented by a **suspect** card, a **weapon** card and a **room** card that are kept hidden in an envelope for the duration of the game. By progressively revealing the remaining cards, the players can infer which are the three cards that are hidden. When a player is confident that they know the solution to the mystery, they will try to reveal it. If a player guesses correctly, they win the game.
 
-![Clue Picture](https://i.imgur.com/AZWieq9.jpg=300)
-
-## Requirements
-
-- Fork this repo
-- Clone this repo
-
-## Submission
-
-- Upon completion, run the following commands
-
-  ```
-  git add .
-  git commit -m "done"
-  git push origin master
-  ```
-
-- Create Pull Request so your TAs can check up your work.
+<p align="center"><img width="400" src="https://i.imgur.com/AZWieq9.jpg=300"/></p>
 
 ## Deliverables
 
-Write your JavaScript in the provided `src/clue.js` file.
+Write all of your code in the `src/clue.js` file.
 
-## Iteration 1 - <small>Creating the cards</small>
-
-Clue has three different types of cards: _suspects_, _rooms_, and _weapons_. These three types of cards are always separated. Use data structures to model and create these cards.
-
-In order to do this, you will need to know the game's characters (possible killers), available weapons and house rooms.
-
-### Game Characters
-
-This Clue board game has a new roster of playable characters. All of them have first names, last names, occupations, age, description, and images. On the `clue.js` file you will find all the info about them.
-
-### Available Weapons
-
-There are nine weapons. Each of them has different weight, same as the characters, you will find all the info needed on the `clue.js` file.
-
-### House Rooms
-
-The game board represents the blueprints of a mansion and features fifteen different rooms. Yes, you guess, on the `clue.js` file you have all the info.
-
-### Data Structuring
-
-Create one data structure for each of the people, weapons, and rooms described above. Each document must have all the info.
-
-After creating the data structure, create an array for each type of data and push every document into their corresponding array.
-
-For example:
-
-```javascript
-const mrGreen = {
-  first_name: "Jacob",
-  last_name: "Green"
-  // ...
-};
-
-const rope = {
-  // properties
-};
-
-// etc
-```
-
-After creating the data structure, put every document into their corresponding array. `charactersArray`, `weaponsArray`, `roomsArray`.
-
-## Iteration 2 - <small>Creating the mystery</small>
-
-At the beginning of the game, players shuffle each one of the card stacks to create a combination of _suspect_, _weapon_ and _room_. This will be the mystery to solve.
+Upon completion, commit your changes, push them to your remote fork, and create a pull request so that the TAs can review your submission.
 
 ### Remember our tests!
 
-We will be working with test again! You need to open the `SpecRunner.html` file in order to see them. The following instructions will guide you through all the functions and functionality your code should have to pass all the tests.
+We will be working with automated tests again! Please, open the `SpecRunner.html` in your browser and use it to debug your solution of the Lab.
 
+## Iteration 1 - Creating the cards
+
+Clue has three different _card types_: **suspects**, **rooms**, and **weapons**. We'll be given the same amount of information for any given card with the same _card type_.
+
+As such, lets create an `array` for every _card type_, that is going contain the _objects_ representing each card. These arrays should be named `suspectsArray`, `weaponsArray`, `roomsArray`.
+
+All of the information you need about **suspects**, **rooms**, and **weapons** can be found on the `DATA.md` file.
+
+Suggestion: Copy this data into the `clue.js` file and model it into objects nested inside your card arrays. This is a great chance for you to experiment with IDE shortcuts, multiple-line selection, find and replace, and other great features that VSCode provides you with.
+
+### Game Suspects
+
+All of six possible _suspects_ in Clue have a **first name**, **last name**, **occupation**, **age**, **description**, **image** and **color**.
+
+To complete this iteration, you should have an array that looks something like the following:
+
+```javascript
+const suspectsArray = [
+  {
+    firstName: 'Jacob',
+    lastName: 'Green',
+    occupation: 'Entrepreneur'
+    // ...
+  }
+  // ...
+];
+```
+
+### Available Weapons
+
+There are a total of nine _weapons_. Each of them has a different **name** and **weight**.
+
+### Mansion Rooms
+
+The game board represents the blueprints of the mansion and features fifteen different _rooms_. Each room will only have a **name**.
+
+## Iteration 2 - Creating the mystery
+
+At the beginning of the game, players shuffle each of the card stacks to create a combination of _suspect_, _weapon_ and _room_. This will be the mystery to solve.
 
 ### Random Selector
 
-Create a function `randomSelector` to randomly select one element from a card stack. The method should receive an `array` as an argument, and return randomly one of the elements of the `array`.
+Declare a function named `selectRandom` to randomly select one element from a card stack. The function should expect an `array` as an argument, and should return a random element from the array.
 
 ### Create the mystery
 
-We need to create a `pickMystery` function that will call `randomSelector` for each card stack, and return an object with the 3 picked cards, a _suspect_, a _weapon_ and a _room_. Our mystery should be stored on a `mysteryEnvelope` variable.
+Declare a function named `pickMystery` that takes no arguments and returns an object with three properties, _suspect_, _weapon_ and _room_, each holding as a value a card of that specific type. You can get a random card of each type by calling `selectRandom` on each card stack.
 
-## Iteration 3 - <small>Revealing the mystery</small>
+## Iteration 3 - Revealing the mystery
 
-Finally, we need to reveal the mystery. Create a `revealMystery` function, that will receive our `mysteryEnvelope` object as an argument and return the revealed mystery like this:
+At last, we're ready to unveil the mystery.
 
-**\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!!!!**
+<!--
+Invoke `pickMystery` and store the returned value into a variable named `mysteryEnvelope`.
+-->
+
+Declare a function named `revealMystery` that receives an _envelope_ `object` (such as the one returned by `pickMystery`) as the single argument, and returns a reveal message in the following format:
+
+**\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
 
 ## Extra Resources
 
@@ -102,4 +86,4 @@ Finally, we need to reveal the mystery. Create a `revealMystery` function, that 
 - [Wikipedia](https://en.wikipedia.org/wiki/Cluedo)
 - [Data Structures: Objects and Arrays](http://eloquentjavascript.net/04_data.html)
 
-**Happy coding!** :heart:
+**Happy coding!** 💙
