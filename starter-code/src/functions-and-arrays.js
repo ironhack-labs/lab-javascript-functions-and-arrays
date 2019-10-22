@@ -19,13 +19,17 @@ const words = [
 
 // Function finds the longest word in an array 
 function findLongestWord(wordArr){
-  let largestWord = wordArr[0];
+  if(wordArr.length === 0)
+  return null;
+  else{
+    let largestWord = wordArr[0];
   
   wordArr.forEach((word) => {
     if(largestWord.length < word.length)
     largestWord = word;
   })
   return largestWord;
+  }
 }
 
 // Calculating a Sum
