@@ -1,5 +1,11 @@
 // Find the maximum
-
+let maxOfTwoNumbers = function (num1, num2){
+  if(num1 > num2){
+    return num1;
+  }else{
+    return num2;
+  }
+}
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,14 +17,48 @@ const words = [
   'crackpot'
 ];
 
+let findLongestWord = function(words){
+  if(words.length == 0){
+    return null;
+  }
+  let longestWord = "";
+  words.forEach(word => {
+    if(word.length >longestWord.length){
+      longestWord= word;
+    }
+
+  })
+  return longestWord;
+}
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+ let sumArray = function (numbers){
+  let sum=0; 
+
+  for (let i=0;i<numbers.length;i++){
+    
+      sum+=numbers[i];
+  }
+
+  return sum;
+ }
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+ let averageNumbers = function ( array){
+  if(array.length == 0){
+    return null;
+  }
+  let sum= 0 ; 
+  let totalElements= array.length;
+  array.forEach(element =>{
+    sum+=element;
+   });
+   let average = sum/totalElements;
+   return average;
+ }
 // Array of Strings
 const wordsArr = [
   'seat',
@@ -32,6 +72,20 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+let averageWordLength = function(wordsArr){
+  if(wordsArr.length == 0){
+    return null;
+  }
+  let average= 0;
+  let lengthArray = wordsArr.length;
+  
+  wordsArr.forEach(element =>{
+   let lengtElement = element.length;
+    average+=lengtElement;
+  }
+  );
+  return average/lengthArray;
+}
 
 // Unique Arrays
 const wordsUnique = [
