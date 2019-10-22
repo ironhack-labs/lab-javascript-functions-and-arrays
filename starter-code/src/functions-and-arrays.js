@@ -25,7 +25,7 @@ function findLongestWord(listOfWords){
 let indexLongestWord=0;
 
 for (i=0; i < listOfWords.length; i++){
-  
+
   if (listOfWords[i].length > listOfWords[indexLongestWord].length){
     indexLongestWord = i;
   }
@@ -75,8 +75,6 @@ const wordsArr = [
   'palace'
 ];
 
-
-
 function averageWordLength(arrWords) {
   let numbersAvgNew = [];
   for (i=0; i< arrWords.length; i++){
@@ -101,6 +99,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+//Solved with spread and Set
+//let uniquifyArray = [...new Set(wordsUnique)];
+
+//Solved with only array.from and Set
+//let uniquifyArray = Array.from(new Set(wordsUnique));
+
+//*** Solved with IndexOf
+//let uniquifyArray = [];
+//uniquifyArray = wordsUnique.filter((v, i, a) => a.indexOf(v) === i);
+
+//console.log(uniquifyArray);
+
 
 // Finding Elements
 const wordsFind = [
@@ -113,6 +123,19 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+let exist = false;
+function doesWordExist(wordSearch, wordList){
+  for (i=0; i<wordList.length; i++){
+    if (wordSearch === wordList[i]){
+      exist = true;
+    }
+  }
+  return exist;
+}
+
+console.log(doesWordExist('truth', wordsFind));
+
 
 // Counting Repetition
 const wordsCount = [
