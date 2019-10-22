@@ -46,13 +46,22 @@ else{
 numArr.forEach((num) => {
   sum += num;
 })
-return sum;
+return sum; 
 }
 }
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+// Function finds the average
+
+function averageNumbers(numArr) {
+  if(numArr.length === 0)
+ return null;
+ else 
+ return sumArray(numArr) / numArr.length;
+}
 
 // Array of Strings
 const wordsArr = [
