@@ -16,14 +16,6 @@ const words = [
   'orchard',
   'crackpot'
 ];
-// function findLongestWord(array) {
-//   let longestWord = [''];
-//   for (let i = 0; i < array.length; i++){
-//     if(array[i].length > longestWord.length){
-//       longestWord = array[i];
-//     }
-//   }
-// }
 function findLongestWord(array) {
   if (array.length === 0) {
     return null;
