@@ -1,5 +1,10 @@
 // Find the maximum
 
+function maxOfTwoNumbers (num1, num2) {
+  return (num1 > num2) ? num1:num2;
+}
+
+console.log(maxOfTwoNumbers(7,6));
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +16,48 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord (array) {
+  let longestWord = "";
+  for (let i = 0; i < array.length; ++i) {
+    if (array[i].length > longestWord.length){
+      longestWord = array[i];
+    }
+  }
+  if (array.length == 0){
+    longestWord = null;
+  }
+  return longestWord;
+  
+}
+
+console.log(findLongestWord(words));
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length ; ++i) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+console.log(sumArray(numbers));
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if (sumArray(array) == 0) {
+    return null;
+  }
+  return (sumArray(array) / array.length);
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +72,20 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array) {
+  if (array.length == 0 ){
+    return null;
+  }
+  let contador = 0;
+  for (let i = 0; i < array.length; i++)
+  {
+    contador+= array[i].length;
+  }
+  return contador / array.length;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +102,19 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  for (let i=0; i < array.length; i++) {
+    for (let j=0; j < array.length ; j++) {
+      if ((array[i] === array[j]) && (i != j)) {
+        array.splice(j, 1);
+      }
+    }
+  }
+  return array;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +126,17 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word) {
+  for(let i=0; i < array.length; i++){
+    if (word === array[i]){
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(doesWordExist(wordsFind, "truth"));
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +152,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  let contador= 0;
+  for (let i=0; i < array.length; i++){
+    if (word === array[i]){
+      contador += 1; 
+    }
+  }
+  return contador;
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
 
 // Bonus
 
@@ -99,3 +189,142 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+const matrix2 = [
+[ 1, 2 , 3, 4, 5], 
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 4 , 3, 4, 5] ];
+
+function upProduct(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if (i - index >= 0) {  
+      product *= array[i - index][j];
+    }
+  }
+  return product;
+}
+
+function rightProduct(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if (j + index <= array.length-1) {  
+      product *= array[i][j + index];
+    }
+  }
+  return product;
+}
+
+function downProduct(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if (i + index <= array.length-1) {  
+      product *= array[i + index][j];
+    }
+  }
+  return product;
+}
+
+function leftProduct(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if (j - index >= 0) {  
+      product *= array[i][j - index];
+    }
+  }
+  return product;
+}
+
+function diagonal1Product(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if ((i - index >= 0) && (j + index <= array.length-1)) {
+      product *= array [i - index] [j + index];
+    }
+  }
+}
+
+function diagonal2Product(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if ((i + index <= array.length-1) && (j + index <= array.length-1)) {
+      product *= array [i + index] [j + index];
+    }
+  }
+}
+
+function diagonal3Product(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if ((i + index <= array.length-1) && (j - index >= 0)) {
+      product *= array [i + index] [j - index];
+    }
+  }
+}
+
+function diagonal4Product(array, i, j) {
+  let product = 1;
+  for (let index = 1; index <= 4 ; ++index) {
+    if ((i - index >= 0) && (j - index >= 0)) {
+      product *= array [i - index] [j - index];
+    }
+  }
+}
+
+function greatestProduct(array) {
+  let maximo = 0;
+  let coordI ;
+  let coordJ ;
+  for (let i = 0; i < array.length ; ++i) {
+    for (let j = 0; j < array[i].length ; ++j) {
+      if (upProduct(array, i, j) > maximo) {
+        maximo = upProduct(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (rightProduct(array, i, j) > maximo) {
+        maximo = rightProduct(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (downProduct(array, i, j) > maximo) {
+        maximo = downProduct(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (leftProduct(array, i, j) > maximo) {
+        maximo = leftProduct(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (diagonal1Product(array, i, j) > maximo) {
+        maximo = diagonal1Product(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (diagonal2Product(array, i, j) > maximo) {
+        maximo = diagonal2Product(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (diagonal3Product(array, i, j) > maximo) {
+        maximo = diagonal3Product(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+      if (diagonal4Product(array, i, j) > maximo) {
+        maximo = diagonal4Product(array, i, j);
+        coordI = i;
+        coordJ = j;
+      }
+    }
+  }
+  console.log(coordI);
+  console.log(coordJ);
+  return maximo;
+}
+
+console.log(greatestProduct(matrix));
