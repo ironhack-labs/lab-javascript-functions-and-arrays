@@ -1,5 +1,14 @@
 // Find the maximum
 
+function maxOfTwoNumbers(numOne,numTwo){
+  if (numOne > numTwo){
+    return numOne
+  }
+  else {
+    return numTwo
+  }
+}
+
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +20,40 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(word){
+  if (word.length === 0){
+    return null
+  }
+  var longest = word.sort(function (a, b) { return b.length - a.length; })[0];
+  return longest
+}
+findLongestWord(words)
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+ return  arr.reduce((a, b) => a + b, 0)
+}
+
+console.log(sumArray(numbers))
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers(arr){
+  if (arr.length === 0){
+    return null}
+  else{
+  return arr.reduce((a, b) => a + b, 0)/arr.length
+  }
+  }
+  averageNumbers([])
+  
+
 
 // Array of Strings
 const wordsArr = [
@@ -33,6 +69,19 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  if (arr.length === 0){
+    return null}
+  else{
+  let newArr = arr.map(x=> x.length)
+  console.log(newArr);
+  const sumArr = newArr.reduce((a, b) => a + b, 0)/newArr.length
+  return sumArr
+}
+}
+
+averageWordLength(wordsArr)
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -47,6 +96,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr) {
+  let unique = {};
+  arr.forEach(function(i) {
+    if(!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  return Object.keys(unique);
+}
+ 
+uniquifyArray(wordsUnique)
 
 // Finding Elements
 const wordsFind = [
@@ -59,6 +119,27 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr,word) {
+  if (!wordCheck(arr,word)) {
+    return false
+  } else {
+    return true
+  }
+}
+
+function wordCheck(arr, word){
+  for (i =0; i<arr.length; i++) {
+          console.log(word, arr[i])
+
+    if (word===arr[i]) {
+      return true
+    }
+  }
+  return false
+}
+
+  doesWordExist(wordsFind, 'n')
 
 // Counting Repetition
 const wordsCount = [
@@ -75,8 +156,36 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arr,word) {
+  if (arr.length === 0){
+    return 0
+  }
+  let counter = 0
+    for (i=0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        counter++
+      } 
+    } return counter
+  }
+  howManyTimes(words, 'matter')
+
 // Bonus
 
+function greatestProduct(){
+  let theGreatestNumber= 0;
+
+  for (let i=0; i<matrix.length;i++){
+    let row = matrix[i]
+    //console.log('row is ' row)
+    for (let j=0; j<row.length-4; j++){
+      let product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2]
+      console.log(num)
+      if
+    }
+  }
+}
+
+greatestProduct(matrix)
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
