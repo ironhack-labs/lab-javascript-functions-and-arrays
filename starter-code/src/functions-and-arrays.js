@@ -137,6 +137,17 @@ const wordsFind = [
   'disobedience'
 ];
 
+// Finding if word exists in array
+function doesWordExist(wordArr, word){
+  let flag = false;
+  
+  wordArr.forEach((element)=>{
+    if(word === element) 
+    flag = true;
+  })
+  return flag;
+}
+
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -151,6 +162,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+// Counts the number of times a word appears in an array
+function howManyTimes(wordArr, word) {
+  let count = 0;
+  
+  wordArr.forEach((element)=>{
+    if(word === element) 
+    count++;
+  })
+  return count;
+}
 
 // Bonus
 
