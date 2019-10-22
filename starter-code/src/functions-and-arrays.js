@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return num1;
+  }else{
+    return num2;
+  }
+}
 
 // Finding Longest Word
 const words = [
@@ -10,14 +17,48 @@ const words = [
   'orchard',
   'crackpot'
 ];
+function findLongestWord(arreglo){
+  if(arreglo.length == 0){
+    return null;
+  }
+  let palabraMayor = arreglo[0];
+  for(let i = 0; i < arreglo.length; i++){
+    if(palabraMayor.length < arreglo[i].length){
+      palabraMayor = arreglo[i];
+    }
+  } 
+  return palabraMayor;
+}
 
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(sumArreglo){
+  if(sumArreglo.length == 0){
+    return 0;
+  }
+  let resultado = 0;
+  for(let i = 0; i < sumArreglo.length; i++){
+    resultado += sumArreglo[i];
+  }
+  return resultado;
+}
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(promArreglo){
+  if(promArreglo.length == 0){
+    return null;
+  }
+  let promedio = 0;
+  for(let i = 0; i < promArreglo.length; i++){
+    promedio += promArreglo[i];
+  }
+  return promedio/promArreglo.length;
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +73,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(promWord){
+  if(promWord.length == 0){
+    return null;
+  }
+  let promPalabra = 0;
+  for(let i = 0; i < promWord.length; i++){
+    promPalabra += promWord[i].length;
+  }
+  return promPalabra/promWord.length;
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +99,21 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arreglo1){
+  if(arreglo1.length == 0){
+    return arreglo1;
+  }
+  for(let i = 0; i < arreglo1.length; i++){
+    for(let j = arreglo1.length - 1; j > i; j--){
+      if(arreglo1[i] == arreglo1[j]){
+        arreglo1.splice(j, 1);
+      }
+    }
+  }
+  return arreglo1;
+}
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -60,7 +126,28 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arregloWords, palabra){
+  if(arregloWords.length == 0){
+    return false;
+  }
+  let repetida = 0;
+  for(let i = 0; i < arregloWords.length; i++){
+    if(palabra == arregloWords[i]){
+      repetida++;
+    }
+  }
+  if(repetida == 1){
+    return true;
+  }else if(repetida == 0){
+    return false;
+  }else{
+    return true;
+  }
+}
+
 // Counting Repetition
+
+
 const wordsCount = [
   'machine',
   'matter',
@@ -75,6 +162,18 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arregloWords, palabra){
+  if(arregloWords.length == 0){
+    return 0;
+  }
+  let repeatWord = 0;
+  for(let i = 0; i < arregloWords.length; i++){
+    if(palabra == arregloWords[i]){
+      repeatWord++;
+    }
+  }
+    return repeatWord;
+}
 // Bonus
 
 const matrix = [
