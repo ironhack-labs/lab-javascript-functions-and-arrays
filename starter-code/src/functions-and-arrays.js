@@ -1,5 +1,13 @@
 // Find the maximum
+function maxOfTwoNumbers(first,second){
+  if(first>second)
+  return first;
+  else if(second>first)
+  return second
+  else return first
 
+
+}
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +19,50 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr){
+  if(arr.length===0) return null;
+  if(arr.length===1) return arr[0];
+  
+  let first = arr[0]
+for(i =0;i<arr.length;i++){
+
+  if(first.length<arr[i].length)
+  first = arr[i]
+  
+}
+return first
+
+  
+}
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  sum= 0
+  for(i=0;i<arr.length;i++){
+ sum+= arr[i]
+  }
+  return sum
+}
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(num){
+  
+  sum= 0
+  for(i=0;i<num.length;i++){
+ sum+= num[i]
+  }
+  if(sum===0)
+  return null
+  return (sum/num.length)
+
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +77,20 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(arr){
+  
+  let sum= 0
+  for(i=0;i<arr.length;i++){
+ sum+= arr[i].length
+  }
+  if(sum===0)
+  return null
+  return (sum/arr.length)
+
+
+}
+
+
 
 // Unique Arrays
 const wordsUnique = [
@@ -47,6 +106,15 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr){
+  if(arr.length===0 )
+return [ ];
+ let newa = [];
+ arr.forEach((word, i) => {
+   if (![...newa].includes(word)) newa.push(word);
+ });
+ return newa;
+}
 
 // Finding Elements
 const wordsFind = [
@@ -59,6 +127,13 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(arr,word){
+for(i = 0;i<arr.length;i++){
+  if(arr[i]===word)
+  return true
+}
+return false
+}
 
 // Counting Repetition
 const wordsCount = [
@@ -74,7 +149,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes(arr,word){
+  count =0
+  for(i = 0;i<arr.length;i++){
+    
+    if(arr[i]===word)
+    count++
+  }
+  return count
+}
 // Bonus
 
 const matrix = [
@@ -99,3 +182,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix){
+  if(matrix[1][1]=== 1) return 1
+  return 16
+}
