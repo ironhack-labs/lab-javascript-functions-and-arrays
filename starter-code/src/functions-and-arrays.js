@@ -105,6 +105,26 @@ const wordsUnique = [
   'bring'
 ];
 
+// Remove duplicate elements from word array
+function uniquifyArray(wordArr) {
+  let newArr = [];
+  let k = 0;
+  let flag = 0;
+
+  for(let i=wordArr.length-1; i>=0; i--) {
+    for(let j=i-1; j>=0; j--) {
+      if(wordArr[i] === wordArr[j])
+      flag = 1;      
+    }
+    if(flag === 0) {
+    newArr.push(wordArr[i]);
+    k++;
+    }
+    flag = 0;
+  }
+  return newArr.reverse();
+}
+
 // Finding Elements
 const wordsFind = [
   'machine',
