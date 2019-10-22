@@ -36,6 +36,20 @@ function findLongestWord(wordArr){
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// Function calculates the average
+function sumArray(numArr){
+  if(numArr.length === 0)
+return 0;
+else{
+  let sum = 0;
+
+numArr.forEach((num) => {
+  sum += num;
+})
+return sum;
+}
+}
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
