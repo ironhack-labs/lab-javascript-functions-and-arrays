@@ -179,6 +179,30 @@ function greatestProduct (array) {
           greatProd = rightProd;
         }
       }
+      if (i < array.length-4 && j < array.length-4) {
+        let rightDownProd = array[i][j] * array[i+1][j+1] * array[i+2][j+2] * array[i+3][j+3];
+        if (greatProd < rightDownProd) {
+          greatProd = rightDownProd;
+        }
+      }
+      if (i < array.length-4 && j > 2) {
+        let leftDownProd = array[i][j] * array[i+1][j-1] * array[i+2][j-2] * array[i+3][j-3];
+        if (greatProd < leftDownProd) {
+          greatProd = leftDownProd;
+        }
+      }
+      if (i > 2 && j <array.length-4) {
+        let rightUpProd = array[i][j] * array[i-1][j+1] * array[i-2][j+2] * array[i-3][j+3];
+        if (greatProd < rightUpProd) {
+          greatProd = rightUpProd;
+        }
+      }
+      if (i > 2 && j > 2) {
+        let leftUpProd = array[i][j] * array[i-1][j-1] * array[i-2][j-2] * array[i-3][j-3];
+        if (greatProd < leftUpProd) {
+          greatProd = leftUpProd;
+        }
+      }
     }
     return greatProd;
   }
