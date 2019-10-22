@@ -77,6 +77,19 @@ const wordsArr = [
   'palace'
 ];
 
+// Function caculates the average word length
+function averageWordLength(wordArr) {
+  if(wordArr.length === 0)
+  return null;
+  else {
+    let wordSum = 0;
+    wordArr.forEach((num) => {
+    wordSum += num.length;
+  })
+  return wordSum/wordArr.length;
+  }
+}
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
