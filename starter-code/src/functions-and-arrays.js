@@ -1,5 +1,9 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1,num2){
+let maxValue = Math.max(num1,num2);
+return maxValue;
+}
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +15,50 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(longestword) {
+  let maxLength = 0;
+  let result = null;
+    for (let i = 0; i < longestword.length; i++) {
+        if (longestword[i].length > maxLength) {
+            maxLength = longestword[i].length;
+            result = longestword[i];
+        }
+    }
+    return result;
+    //console.log(longestword);
+ }
+ findLongestWord(words);
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  let sumNum = 0;
+    for(i=0;i<arr.length;i++){
+  sumNum += arr[i];
+  }
+  return sumNum;
+    }
+ 
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(average){
+  var sum = 0;
+  if(Array.isArray(average) && average.length){
+    for(let k = 0; k < average.length; k++) {
+      sum += average[k];
+    }
+    return sum / average.length;
+  } else {
+    sum = null;
+    return sum;
+ }
+ }
+
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +73,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  var sum = 0;
+  if(Array.isArray(arr) && arr.length){
+    for(let i = 0; i < arr.length; i++) {
+      sum += arr[i].length;
+    }
+    return sum / arr.length;
+  } else {
+    sum = null;
+    return sum;
+ }
+}
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +102,13 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(dup){
+  var duplications = dup.filter(function (dupword, index) {
+     return dup.indexOf(dupword) === index;
+ });
+  return duplications;
+ }
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,8 +120,25 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(arrayFind, wordFind) {
+  let result = arrayFind.includes(wordFind);
+  return result;
+ }
 
 // Counting Repetition
+function howManyTimes (arr,word){
+  let numberOfTimes = 0;
+  if (arr != undefined && arr.length != 0) {
+    for(let i = 0; i <= arr.length; i++) {
+    if (word === arr[i]){
+    numberOfTimes +=1;
+    }
+    }
+  
+  }
+        return numberOfTimes;
+  }
+
 const wordsCount = [
   'machine',
   'matter',
@@ -74,6 +152,8 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
 
 // Bonus
 
@@ -99,3 +179,36 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(productArray) {
+  let mergedArray = [].concat(...productArray);
+  //return mergedArray;
+  let compareArray = [];
+  for (var i = 0; i < mergedArray.length; i++) {
+  compareArray.push([mergedArray[i], mergedArray[i+1], mergedArray[i+2], mergedArray[i+3]]);
+  compareArray.push([mergedArray[i], mergedArray[i-1], mergedArray[i-2], mergedArray[i-3]]);
+  compareArray.push([mergedArray[i], mergedArray[i-1], mergedArray[i+1], mergedArray[i+2]]);
+  compareArray.push([mergedArray[i], mergedArray[i-2], mergedArray[i-1], mergedArray[i+1]]);
+  compareArray.push([mergedArray[i], mergedArray[i+20], mergedArray[i+40], mergedArray[i+60]]);
+  compareArray.push([mergedArray[i], mergedArray[i-20], mergedArray[i-40], mergedArray[i-60]]);
+  compareArray.push([mergedArray[i], mergedArray[i-20], mergedArray[i+20], mergedArray[i+40]]);
+  compareArray.push([mergedArray[i], mergedArray[i-40], mergedArray[i-20], mergedArray[i+20]]);
+  compareArray.push([mergedArray[i], mergedArray[i+21], mergedArray[i+42], mergedArray[i+63]]);
+  compareArray.push([mergedArray[i], mergedArray[i-21], mergedArray[i-42], mergedArray[i-63]]);
+  compareArray.push([mergedArray[i], mergedArray[i-21], mergedArray[i+21], mergedArray[i+42]]);
+  compareArray.push([mergedArray[i], mergedArray[i-42], mergedArray[i-21], mergedArray[i+21]]);
+  compareArray.push([mergedArray[i], mergedArray[i+19], mergedArray[i+38], mergedArray[i+57]]);
+  compareArray.push([mergedArray[i], mergedArray[i-19], mergedArray[i-38], mergedArray[i-57]]);
+  compareArray.push([mergedArray[i], mergedArray[i-19], mergedArray[i+19], mergedArray[i+57]]);
+  compareArray.push([mergedArray[i], mergedArray[i-38], mergedArray[i-19], mergedArray[i+19]]);
+ }
+ let greatestSum = 0;
+ for (var i = 0; i < compareArray.length; i++) {
+  let tempSum = compareArray[i].reduce(function(a,b){return a*b;});
+  if (tempSum > greatestSum){
+    greatestSum = tempSum;
+  }
+ }
+  return greatestSum;
+ }
+ console.log(greatestProduct(matrix));
