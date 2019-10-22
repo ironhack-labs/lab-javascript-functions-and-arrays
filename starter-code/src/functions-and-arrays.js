@@ -175,18 +175,19 @@ function greatestProduct (array) {
   let greatProd = 0;
   for (let i = 0; i < array.length; i++){
     for (let j = 0; j < array[i].length; j++) {
-      if (i > array.length-4 || j > array.length-4) {
-        continue;
+      if (i < array.length-4) {
+        let downProd = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
+        if (greatProd < downProd) {
+          greatProd = downProd;
+        }   
       }
-      let rightProd = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
-      if (greatProd < rightProd) {
-        greatProd = rightProd;
+      if (j < array.length-4) {
+        let rightProd = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+        if (greatProd < rightProd) {
+          greatProd = rightProd;
+        }
       }
-      let downProd = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
-      if (greatProd < downProd) {
-        greatProd = downProd;
-      }   
     }
+    return greatProd;
   }
-  return greatProd;
 }
