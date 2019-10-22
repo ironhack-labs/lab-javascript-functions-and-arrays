@@ -198,3 +198,30 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Finds greatest product of four adjacent numbers in the same direction
+function greatestProduct(numArray) {
+  let largestProduct = 0;
+  let horizontalProduct = 1;
+  let verticalProduct = 1;
+
+  // traverse matrix sequentially
+  for(let i=0; i<numArray.length; i++) {
+    for(let j=0; j<=(numArray[i].length-4); j++) {
+      // calculate horizonal product
+      horizontalProduct = numArray[i][j]*numArray[i][j+1]*numArray[i][j+2]*numArray[i][j+3];
+      
+      // if not out of bounds calculate vertical product
+      if(i+4 <= numArray.length) {
+        verticalProduct = numArray[i][j]*numArray[i+1][j]*numArray[i+2][j]*numArray[i+3][j];
+        if(verticalProduct > largestProduct)
+        largestProduct = verticalProduct;
+      }
+
+      // check which variable has the greatest product
+      if(horizontalProduct > largestProduct)
+      largestProduct = horizontalProduct;
+    }
+  }
+return largestProduct;
+}
