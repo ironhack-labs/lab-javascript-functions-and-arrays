@@ -1,5 +1,4 @@
 // Find the maximum
-
 function maxOfTwoNumbers(num1, num2){
   if(num1 > num2){
     return num1;
@@ -7,7 +6,6 @@ function maxOfTwoNumbers(num1, num2){
     return num2;
   }
 }
-
 // Finding Longest Word
 const words = [
   'mystery',
@@ -19,14 +17,6 @@ const words = [
   'crackpot'
 ];
 
-// function findLongestWord(array) {
-//   let longestWord = [''];
-//   for (let i = 0; i < array.length; i++){
-//     if(array[i].length > longestWord.length){
-//       longestWord = array[i];
-//     }
-//   }
-// }
 function findLongestWord(array) {
   if (array.length === 0) {
     return null;
@@ -43,9 +33,7 @@ function findLongestWord(array) {
   }
 }
 // Calculating a Sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumArray(array){
   let sum = 0;
   for(let i =0; i < array.length; i++){
@@ -53,11 +41,8 @@ function sumArray(array){
   }
   return sum;
 }
-
 // Calculate the Average
-
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
 function averageNumbers(array){
   let sum = 0;
   if (array.length === 0) {
@@ -69,7 +54,6 @@ function averageNumbers(array){
 }
   return sum/array.length;
 }
-
 // Array of Strings
 const wordsArr = [
   'seat',
@@ -83,7 +67,6 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
-
 function averageWordLength(array){
   let wordLengths = 0;
   if (array.length === 0) {
@@ -94,8 +77,6 @@ function averageWordLength(array){
     }
   } return wordLengths / array.length;
 }
-
-
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -110,7 +91,6 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
 function uniquifyArray(array){
   let newArray = [];
   for(let i =0; i < array.length; i++){
@@ -121,7 +101,6 @@ function uniquifyArray(array){
     }
   }return newArray;
 }
-
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -133,7 +112,6 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-
 function doesWordExist(array, word){
   for(i =0; i < array.length; i++){
     if(array[i] === word){
@@ -141,7 +119,6 @@ function doesWordExist(array, word){
     }
   }  return false;
 }
-
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -156,7 +133,6 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
 function howManyTimes(array, word){
   let counter = 0;
   for(i =0; i < array.length; i++){
@@ -165,10 +141,7 @@ function howManyTimes(array, word){
     }
   }  return counter;
 }
-
-
 // Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -195,18 +168,19 @@ function greatestProduct (array) {
   let greatProd = 0;
   for (let i = 0; i < array.length; i++){
     for (let j = 0; j < array[i].length; j++) {
-      if (i > array.length-4 || j > array.length-4) {
-        continue;
+      if (i < array.length-4) {
+        let downProd = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
+        if (greatProd < downProd) {
+          greatProd = downProd;
+        }   
       }
-      let rightProd = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
-      if (greatProd < rightProd) {
-        greatProd = rightProd;
+      if (j < array.length-4) {
+        let rightProd = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+        if (greatProd < rightProd) {
+          greatProd = rightProd;
+        }
       }
-      let downProd = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
-      if (greatProd < downProd) {
-        greatProd = downProd;
-      }   
     }
+    return greatProd;
   }
-  return greatProd;
 }
