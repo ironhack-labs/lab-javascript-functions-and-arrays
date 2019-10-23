@@ -21,6 +21,9 @@ const words = [
   'orchard',
   'crackpot'
 ];
+
+//TIP: for each
+
 function findLongestWord(listOfWords){
 let indexLongestWord=0;
 
@@ -49,9 +52,10 @@ function sumArray (arrayOfNumbers){
 console.log(sumArray(numbers));
 
 // Calculate the Average
-
+//tip: Vailar si es 0
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arrayOfNumbers) {
+  //if (array === 0) return;
   let averageOfArray = 0;
    averageOfArray = sumArray(arrayOfNumbers)/arrayOfNumbers.length;
    return averageOfArray;
@@ -74,7 +78,7 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
-
+//TIP: suma += array.length
 function averageWordLength(arrWords) {
   let numbersAvgNew = [];
   for (i=0; i< arrWords.length; i++){
@@ -106,8 +110,8 @@ const wordsUnique = [
 //let uniquifyArray = Array.from(new Set(wordsUnique));
 
 //*** Solved with IndexOf
-//let uniquifyArray = [];
-//uniquifyArray = wordsUnique.filter((v, i, a) => a.indexOf(v) === i);
+let uniquifyArray = [];
+uniquifyArray = wordsUnique.filter((v, i, a) => a.indexOf(v) === i);
 
 //console.log(uniquifyArray);
 
@@ -126,6 +130,9 @@ const wordsFind = [
 
 let exist = false;
 function doesWordExist(wordSearch, wordList){
+  // if (array.length == 0){
+  //return false;
+//}
   for (i=0; i<wordList.length; i++){
     if (wordSearch === wordList[i]){
       exist = true;
