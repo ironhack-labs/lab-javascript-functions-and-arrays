@@ -1,5 +1,65 @@
 // Find the maximum
 
+function maxOfTwoNumbers(number1, number2){
+  return number1 > number2 ? number1 : number2; 
+}
+
+function findLongestWord(arreglo){
+  if(arreglo.length == 0)
+    return null
+  if(arreglo.length == 1)
+    return arreglo[0];
+  let grande = '';
+  for(let i = 0; i < arreglo.length; i++){
+    grande = grande.length < arreglo[i].length ? arreglo[i] : grande;
+  }
+  return grande;
+}
+
+function sumArray(arreglo){
+  let suma = 0
+  for(let i = 0; i < arreglo.length; i++){
+    suma += arreglo[i];
+  }
+  return suma;
+}
+
+function averageNumbers(arreglo){
+  if(arreglo.length == 0)
+    return null
+  return sumArray(arreglo)/arreglo.length
+}
+
+function averageWordLength(arreglo){
+  if(arreglo.length == 0)
+    return null
+  if(arreglo.length == 1)
+    return arreglo[0].length
+
+  return averageNumbers(arreglo.map((element) => {
+    return element.length
+  }))
+}
+
+function uniquifyArray(arreglo){
+  let nuevoArrelo = [];
+  arreglo.forEach((element) => {
+    if(nuevoArrelo.indexOf(element) == -1)
+      nuevoArrelo.push(element);
+  });
+  return nuevoArrelo
+}
+
+function doesWordExist(arreglo, word){
+  let resultado = false
+  arreglo.forEach((element) => {
+    if(word == element){
+      resultado = true
+      return
+    }
+  })
+  return resultado
+}
 // Finding Longest Word
 const words = [
   'mystery',
