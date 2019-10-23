@@ -1,4 +1,16 @@
 // Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  if(num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  } 
+}
+
+maxOfTwoNumbers(2,1);
+maxOfTwoNumbers(1,2);
+maxOfTwoNumbers(2,2);
+
 
 // Finding Longest Word
 const words = [
@@ -11,13 +23,60 @@ const words = [
   'crackpot'
 ];
 
+const findLongestWord = arr =>{
+  if(!arr.length) {
+    return null;
+  } else if (arr.length === 1){
+    return arr[0];
+  }
+
+
+  arr.array.forEach(element => {
+    console.log(element);
+   if (element.length === arr.length) {
+    return element;
+  }
+
+    console.log()
+  });
+}
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+const sumArray = arr => {
+  let sum = 0;
 
+  if (!arr.length) {
+    return 0;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+     sum += arr[i];
+  }
+  return sum;
+}
+
+sumArray(numbers);
+
+
+// Calculate the Average
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = arr => {
+  let sum = 0;
+
+  if (!arr.length) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
+
+averageNumbers(numbersAvg);
 
 // Array of Strings
 const wordsArr = [
@@ -33,6 +92,19 @@ const wordsArr = [
   'palace'
 ];
 
+const averageWordLength = arr => {
+let averageWord = 0;
+
+  if(!arr.length) {
+    return null;
+  } 
+
+  for(let i = 0; i < arr.length; i++) {
+    averageWord += arr[i].length;
+  }
+  return averageWord / arr.length;
+};
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -47,6 +119,26 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+const uniquifyArray = arr => {
+  if (!arr.length) {
+    return [];
+  }
+
+  for(let i = 0; i < arr.length; i++) {
+    //console.log(arr[i]);
+    for(let j = 0; j < arr.length - 1; j++) {
+      //console.log(arr[i]);
+      //console.log('Segunda ' + arr[i+1]);
+      if(arr[i] === arr[j]) {
+        arr.splice(arr[j],1);
+      }
+    }
+  }
+
+}
+
+//uniquifyArray(wordsUnique);
 
 // Finding Elements
 const wordsFind = [
