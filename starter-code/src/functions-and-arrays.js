@@ -70,14 +70,16 @@ function howManyTimes(arreglo, word){
 function greatestProduct(matrix){
   let limit = 4
   let max = 0
-  for(let y = 0; y < matrix.length - (limit -1); y++){
-    for(let x = 0; x < matrix[y].length - (limit - 1) ; x++){
-      let productov = productoh = 1
+  for(let y = limit -1; y < matrix.length - (limit -1); y++){
+    for(let x = limit -1; x < matrix[y].length - (limit - 1) ; x++){
+      let productov = productoh = producton = productop = 1
       for(let i = 0; i < limit; i++){
         productov *= matrix[y + i][x]
         productoh *= matrix[y][x + i]
+        producton *= matrix[y - i][x]
+        productop *= matrix[y][x - i]
       }
-      max = Math.max(productov, productoh, max)
+      max = Math.max(productov, productoh, producton, productop, max)
     }
   }
   return max;
