@@ -1,6 +1,12 @@
-// Find the maximum
+// ============Find the maximum
+function maxOfTwoNumbers (num1 , num2){
+  return Math.max(num1,num2)
 
-// Finding Longest Word
+}
+maxOfTwoNumbers (12839, 5)
+
+
+// ============Finding Longest Word
 const words = [
   'mystery',
   'brother',
@@ -11,15 +17,60 @@ const words = [
   'crackpot'
 ];
 
-// Calculating a Sum
+
+function findLongestWord(words) {
+  if (words ==" "){
+    return 'Null'
+    }
+
+   var longestWord = '';
+   for(var i = 0; i < words.length; i++){
+     if(words[i].length > longestWord.length){
+    longestWord = words[i]
+    }
+   }
+    return longestWord
+}
+
+
+findLongestWord(words)
+
+
+// ==========Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Calculate the Average
+function sumArray (suma) {   
+  let sum = 0; 
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+  return sum
+  }
+  
+  sumArray();
+
+//========== Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Array of Strings
+function arrayAverage(prom){
+    
+  let sum = 0;
+
+  for(let i in numbersArray) {
+      sum += numbersArray[i];
+  }
+  //Get the length of the array
+  let numbersAve = numbersArray.length;
+  
+  return (sum / numbersAve);    
+}
+
+arrayAverage();
+
+
+// ==============Array of Strings
 const wordsArr = [
   'seat',
   'correspond',
@@ -33,7 +84,21 @@ const wordsArr = [
   'palace'
 ];
 
-// Unique Arrays
+
+function averageWordLength (resul){
+  const sumA = 0;
+  for (let i = 0; i < wordsAve.length; i++){ 
+  sumA += (wordsAve[i].length);
+  }
+  return sumA / wordsAve.length;
+  
+  }
+  
+  averageWordLength()
+  
+  
+
+// ============Unique Arrays
 const wordsUnique = [
   'crab',
   'poison',
@@ -48,7 +113,22 @@ const wordsUnique = [
   'bring'
 ];
 
-// Finding Elements
+
+function uniquifyArray(wordsUnique) {
+  let unique = {};
+  wordsUnique.forEach(function(i) {
+    if(!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  return Object.keys(unique);
+}
+
+uniquifyArray(wordsUnique);
+
+
+
+// ========== Finding Elements
 const wordsFind = [
   'machine',
   'subset',
@@ -60,7 +140,16 @@ const wordsFind = [
   'disobedience'
 ];
 
-// Counting Repetition
+function doesWordExist(arr, val) {
+  return arr.some(function(arrVal) {
+    return val === arrVal;
+  });
+}
+doesWordExist(wordsFind, 'runing');   
+doesWordExist(wordsFind, 'eating');
+
+
+// ======== Counting Repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -74,6 +163,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, value) {
+  var count = 0;
+  array.forEach((v) => (v === value && count++));
+  return count;
+}
+
+howManyTimes(wordsCount, "matter"); 
+howManyTimes(wordsCount, "disobedience"); 
+
 
 // Bonus
 
@@ -99,3 +198,50 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+int FindMaxProduct(int arr[][n], int n) 
+{ 
+    int max = 0, result; 
+  
+   
+    for (int i = 0; i < n; i++)  
+    { 
+        for (int j = 0; j < n; j++)  
+        { 
+  
+          
+            if ((j - 3) >= 0)  
+            { 
+                result = arr[i][j] * arr[i][j - 1] * 
+                    arr[i][j - 2] * arr[i][j - 3]; 
+                  
+                if (max < result) 
+                    max = result; 
+            } 
+  
+            
+            if ((i - 3) >= 0)  
+            { 
+                result = arr[i][j] * arr[i - 1][j] * 
+                    arr[i - 2][j] * arr[i - 3][j]; 
+                  
+                if (max < result) 
+                    max = result; 
+            } 
+  
+          
+            if ((i - 3) >= 0 && (j - 3) >= 0)  
+            { 
+                result = arr[i][j] * arr[i - 1][j - 1] * 
+                    arr[i - 2][j - 2] * arr[i - 3][j - 3]; 
+                  
+                if (max < result) 
+                    max = result; 
+            } 
+        } 
+    } 
+  
+    return max; 
+} 
+    int main() */
