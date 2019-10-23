@@ -24,22 +24,25 @@ const words = [
 ];
 
 const findLongestWord = arr =>{
+  let longestWord = '';
+
   if(!arr.length) {
     return null;
   } else if (arr.length === 1){
     return arr[0];
   }
 
-
-  arr.array.forEach(element => {
-    console.log(element);
-   if (element.length === arr.length) {
-    return element;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j= 0; j < arr.length - 1 ; j++){
+        if(arr[j].length > arr[i].length) {
+          longestWord = arr[j];
+        }
+    }  
   }
-
-    console.log()
-  });
+  return longestWord;
 }
+
+findLongestWord(words);
 
 // Calculating a Sum
 
@@ -152,6 +155,27 @@ const wordsFind = [
   'disobedience'
 ];
 
+  const doesWordExist = (arr, word) => {
+    if(!arr.length) {
+      return false;
+    }
+    if(arr[0] === word) {
+      return true;
+    }
+    for (let i = 0; i < arr.length; i++){
+       if(arr[i] === word) {
+         return true;
+       } else {
+         return false;
+       }
+      }
+    }
+   
+   
+   doesWordExist(wordsFind, 'machine')
+ 
+
+
 // Counting Repetition
 const wordsCount = [
   'machine',
@@ -166,6 +190,25 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+const howManyTimes = (arr, word) => {
+  let wordTimes = 0;
+
+  if(!arr.length) {
+    return 0;
+  }
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === word) {
+      wordTimes++;
+    }
+  }
+  return wordTimes;
+}
+
+howManyTimes(wordsCount, 'matter');
+
 
 // Bonus
 
