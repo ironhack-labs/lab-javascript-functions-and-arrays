@@ -7,8 +7,6 @@ function maxOfTwoNumbers(number1, number2){
 function findLongestWord(arreglo){
   if(arreglo.length == 0)
     return null
-  if(arreglo.length == 1)
-    return arreglo[0];
   let grande = '';
   for(let i = 0; i < arreglo.length; i++){
     grande = grande.length < arreglo[i].length ? arreglo[i] : grande;
@@ -45,7 +43,7 @@ function uniquifyArray(arreglo){
   let nuevoArrelo = [];
   arreglo.forEach((element) => {
     if(nuevoArrelo.indexOf(element) == -1)
-      nuevoArrelo.push(element);
+      nuevoArrelo.push(element)
   });
   return nuevoArrelo
 }
@@ -59,6 +57,23 @@ function doesWordExist(arreglo, word){
     }
   })
   return resultado
+}
+
+function howManyTimes(arreglo, word){
+  let times = 0
+  arreglo.forEach((tmpWord) => {
+    times = tmpWord == word ? ++times : times
+  })
+  return times
+}
+
+function greatestProduct(matrix){
+  let max = 0
+  for(let y = 0; y < matrix.length - 3; y++){
+    for(let x = 0; x < matrix[y] - 3 ; x++){
+      
+    }
+  }
 }
 // Finding Longest Word
 const words = [
