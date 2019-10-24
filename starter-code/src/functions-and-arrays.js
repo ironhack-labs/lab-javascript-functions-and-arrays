@@ -119,8 +119,8 @@ const wordsFind = [
   "disobedience"
 ];
 
-function doesWordExist(arr, word){
-    return arr.filter(elem => elem === word).length === 0 ? false : true;
+function doesWordExist(arr, word) {
+  return arr.filter(elem => elem === word).length === 0 ? false : true;
 }
 
 // Counting Repetition
@@ -138,7 +138,7 @@ const wordsCount = [
   "matter"
 ];
 
-function howManyTimes(arr, word){
+function howManyTimes(arr, word) {
   return arr.filter(elem => elem === word).length;
 }
 
@@ -440,33 +440,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct (matrix) {
-  
+function greatestProduct(matrix) {
+
   let max = 0;
 
-  for(let y = 0; y < matrix.length - 4; y++){
-    for(let x = 0; x < matrix[y].length - 4; x++){
-      let productRow = matrix[y][x] * matrix[y][x+1] * matrix[y][x+2] * matrix[y][x+3];
-      let productCol = matrix[y][x] * matrix[y+1][x] * matrix[y+2][x] * matrix[y+3][x];
-      let productDiagLeft = matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3];
-      if(x >= 3) {
-        let productDiagRig = matrix[y][x] * matrix[y+1][x-1] * matrix[y+2][x-2] * matrix[y+3][x-3];
-        if(max < productDiagRig){
+  for (let y = 0; y < matrix.length - 4; y++) {
+    for (let x = 0; x < matrix[y].length - 4; x++) {
+      let productRow = matrix[y][x] * matrix[y][x + 1] * matrix[y][x + 2] * matrix[y][x + 3];
+      let productCol = matrix[y][x] * matrix[y + 1][x] * matrix[y + 2][x] * matrix[y + 3][x];
+      let productDiagLeft = matrix[y][x] * matrix[y + 1][x + 1] * matrix[y + 2][x + 2] * matrix[y + 3][x + 3];
+      if (x >= 3) {
+        let productDiagRig = matrix[y][x] * matrix[y + 1][x - 1] * matrix[y + 2][x - 2] * matrix[y + 3][x - 3];
+        if (max < productDiagRig) {
           max = productDiagRig;
         }
       }
-      if(max < productRow){
+      if (max < productRow) {
         max = productRow;
       }
-      if(max < productCol){
+      if (max < productCol) {
         max = productCol;
       }
-      if(max < productDiagLeft){
+      if (max < productDiagLeft) {
         max = productDiagLeft;
       }
     }
   }
   return max;
 }
-
-console.log(greatestProduct(matrix));
