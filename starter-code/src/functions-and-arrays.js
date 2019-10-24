@@ -1,5 +1,14 @@
 // Find the maximum
-
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2){
+    return num1;
+  }else if(num2 > num1){
+    return num2;
+  }else{
+    return num1;
+  }
+}
+ 
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +20,51 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(someArr){
+  let longestWord = "";
+  if(someArr.length === 0){
+    return null;
+    }else if(someArr.length === 1){
+      return someArr[0];
+    }else{
+      for (let i=0;i<someArr.length;i++){
+        if (longestWord.length < someArr[i].length){
+          longestWord = someArr[i];          
+        }
+    }
+      return longestWord;
+  }
+}
 // Calculating a Sum
-
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(sumArr){
+  let sum = 0;
+  if (sumArr.length === 0){
+    return 0;
+  }else if(sumArr.length === 1){
+    return sumArr[0];
+  }else if(sumArr.length > 1){
+    for(let i = 0; i < sumArr.length; i++){
+      sum += sumArr[i];  
+     }   
+    if (sum === 0){
+      return 0;
+    }else{
+      return sum;
+   }
+  }
+}
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(averArr){
+  if (averArr.length > 0){
+    return sumArray(averArr)/averArr.length; 
+  }else{
+    return null;
+  }
+}
 
 // Array of Strings
 const wordsArr = [
@@ -33,6 +80,18 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr){
+  let contador= 0;
+  if (arr.length === 0){
+    return null;
+  }
+  for (let i=0; i < arr.length;i++){
+    contador += arr[i].length;
+  }
+  return contador/arr.length;
+}
+
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -47,6 +106,20 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(uArr){
+  let contador = 0;
+  if (uArr.length === 0){
+    return [];
+  }
+    for (let i = 0;i < uArr.length ;i++){
+      for (let j = 0; j < uArr.length;i++){
+        if(uArr[i] === uArr[j]){
+          uArr.splice(uArr[j],1)
+        }
+      }
+    }
+  }
 
 // Finding Elements
 const wordsFind = [
