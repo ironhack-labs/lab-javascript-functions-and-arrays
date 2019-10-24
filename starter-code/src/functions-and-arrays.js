@@ -1,5 +1,15 @@
 // Find the maximum
 
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1;
+  } else if (n2 > n1) {
+    return n2;
+  } else {
+    return n1;
+  }
+}
+
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +21,46 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let longestWord = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  let result0;
+  
+  if (arr.length === 0) {
+    return 0;
+  }
+  result0 = arr.reduce((cv, acum) => acum + cv);
+  return result0;
+}
+
+
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let result1 = arr.reduce((cv, acum) => acum += cv) / arr.length; 
+  return result1;
+}
 
 // Array of Strings
 const wordsArr = [
@@ -33,6 +76,16 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let results3 =  arr.reduce((cv, acum) => acum += cv).length / arr.length;
+  return results3;
+}
+
+
+
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -47,6 +100,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return arr;
+  }
+  let result2 = arr.filter((currentValue, index) => arr.indexOf(currentValue) === index);
+  return result2;
+}
+
+
+
 
 // Finding Elements
 const wordsFind = [
@@ -59,6 +122,19 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+
+function doesWordExist(arr, word) {
+  let result = false;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      result = true;
+    }
+  }
+  return result;
+}
+
+
 
 // Counting Repetition
 const wordsCount = [
@@ -75,7 +151,20 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arr, word) {
+  let result = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      result += 1;
+    }
+  }
+  return result;
+}
+
 // Bonus
+
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
