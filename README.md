@@ -106,6 +106,7 @@ const words = [
   'orchard',
   'crackpot'
 ];
+
 ```
 
 ## Iteration #3: Calculating a Sum
