@@ -1,5 +1,11 @@
 // Find the maximum
-
+function maxOfTwoNumbers(a, b) {
+  if (a < b) {
+    return b;
+  } else {
+    return a;
+  }
+}
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,15 +17,64 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(array) {
+
+  let larga = ""
+  if (array.length == 0) {
+    return null
+  }
+
+  array.forEach((elm, i) => {
+
+    if (elm.length > larga.length) {
+      larga = elm;
+    }
+    console.log(larga)
+
+
+  });
+  return larga
+
+}
+findLongestWord(words)
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
+function sumArray(array) {
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+    console.log(array[i])
+
+  }
+
+
+  return sum
+}
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  let sum = 0
+  if (array.length == 0) {
+    return null
+  }
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+    console.log(i, sum)
+  }
+
+  let avr = sum / (array.length)
+  console.log(avr)
+  return avr
+}
 // Array of Strings
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -33,6 +88,23 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array) {
+  let sum = 0
+  let suml = 0
+  if (array.length == 0) {
+    return null
+  }
+  for (let i = 0; i < array.length; i++) {
+    let letras = array[i]
+
+    sum += letras.length
+    console.log(i, sum)
+  }
+  let avr = sum / (array.length)
+  console.log(avr)
+  return avr
+
+}
 // Unique Arrays
 const wordsUnique = [
   'crab',
@@ -48,6 +120,25 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  let letter
+  if (array.length == 0) {
+    return []
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    console.log(array)
+    letter = array[i]
+    let boll = array.indexOf(letter, i + 1)
+
+    console.log(letter, boll)
+
+
+  }
+  console.log(array)
+  return array
+}
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +150,7 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +166,7 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
 
 // Bonus
 
