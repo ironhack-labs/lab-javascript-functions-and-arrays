@@ -1,4 +1,15 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2
+  } else {
+    return num1
+  }
+}
+
+
 
 // Finding Longest Word
 const words = [
@@ -11,13 +22,36 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  var longestWord = "";
+  if (arr.length == 0) { return null }
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
+
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers) {
+  return numbers.reduce((a, b) => a + b, 0);
 
+}
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbers) {
+  if (numbers.length == 0) { return null };
+  let average = numbers.reduce((a, b) => a + b, 0);
+  return average/numbers.length;
+
+
+}
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +66,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(aver) {
+  if (aver.length == 0) { return null };
+  avg = aver.join('').length / aver.length;
+  return avg;
+}
+
+
+
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +90,10 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (unix){
+  return [...new Set(unix)];
+}
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +105,20 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(lupa, item){
+  valor = true;
+  if (lupa.length == 0) { return false};
+  for (let i = 0; i < lupa.length; i++) {
+    if (lupa.includes(item)){
+      valor = true;
+    } else {
+      valor = false;
+    }
+  }
+return valor;
+}
+
 
 // Counting Repetition
 const wordsCount = [
@@ -74,6 +134,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(lista,pepinos){
+  if (lista.length == 0) { return 0};
+  let a= 0
+  for (let i = 0; i < lista.length; i++){
+    if (lista.includes(pepinos)){
+      a++;
+    } else {
+      a = a + 0;
+    }
+  }
+  return a;
+}
+
+
 
 // Bonus
 
