@@ -119,6 +119,10 @@ const wordsFind = [
   "disobedience"
 ];
 
+function doesWordExist(arr, word){
+    return arr.filter(elem => elem === word).length === 0 ? false : true;
+}
+
 // Counting Repetition
 const wordsCount = [
   "machine",
