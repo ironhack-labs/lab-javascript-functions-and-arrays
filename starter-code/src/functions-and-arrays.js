@@ -1,4 +1,11 @@
 // Find the maximum
+function maxOfTwoNumbers(a, b){
+  if(a>b){
+    return a;
+  }else{
+    return b;
+  }
+}
 
 // Finding Longest Word
 const words = [
@@ -11,13 +18,61 @@ const words = [
   'crackpot'
 ];
 
+
+
+function findLongestWord(arr){
+  let longest= "";
+
+  if (arr.length === 0) {
+    return null;
+  } 
+
+  for (i=0; i<arr.length; i++){
+      if (arr[i].length > longest.length){
+        longest= arr[i];
+      }
+  }
+  
+  return longest;
+}
+
+console.log(findLongestWord(words))
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr){
+  let acum = 0;
+
+  for(let i = 0; i < arr.length; i++){
+    acum += arr[i];
+  }
+  return acum;
+}
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr){
+  let acum = 0;
+  
+  if (arr.length === 0) {
+    return null;
+  } 
+
+  for(let i = 0; i < arr.length; i++){
+    acum += arr[i];
+  }
+  let avNum = acum/arr.length;
+  
+  return avNum;
+
+}
+
+
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +87,23 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength(arr){
+  let acum = 0;
+
+  if (arr.length === 0) {
+    return null;
+  } 
+
+  for(let i = 0; i < arr.length; i++){
+    acum += arr[i].length;
+  }
+  return acum/arr.length;
+}
+
+console.log(averageWordLengt(wordArr));
+
 
 // Unique Arrays
 const wordsUnique = [
@@ -48,6 +120,19 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  let result = [];
+
+  for(let i=0; i < arr.length; i++){
+    if(result.indexOf(arr[i]) === -1){
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -59,6 +144,17 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word){
+  let result = arr.filter(item => item === word);
+
+  if(result.length <= 0){
+    return false;
+  } else{
+    return true;
+  }
+}
+
 
 // Counting Repetition
 const wordsCount = [
@@ -75,8 +171,15 @@ const wordsCount = [
   'matter'
 ];
 
-// Bonus
+function howManyTimes(arr, word){
+  let result = arr.filter(item => item === word);
 
+  return result.length;
+}
+
+
+
+// Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
