@@ -1,5 +1,16 @@
 // Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+
+  let max = num1;
+
+  if (num1 < num2) {
+    max = num2;
+  }
+
+  return max;
+}
+
 // Finding Longest Word
 const words = [
   'mystery',
@@ -11,13 +22,44 @@ const words = [
   'crackpot'
 ];
 
+function findLongestWord(wordMatrix) {
+  if (wordMatrix.length === 0) {
+    return null
+  };
+  let result = wordMatrix[0];
+  for (let i = 1; i < wordMatrix.length; i++) {
+    if (wordMatrix[i].length > result.length) {
+      result = wordMatrix[i];
+    }
+  }
+  return result;
+}
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(matrix) {
+
+  return matrix.reduce((acu, elem) => acu + elem, 0);
+
+}
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(matrixNumbers) {
+
+  if (matrixNumbers.length === 0) {
+    return null
+  };
+
+  return matrixNumbers.reduce((acu, elem) => acu + elem, 0) / matrixNumbers.length;
+
+}
+
+
 
 // Array of Strings
 const wordsArr = [
@@ -32,6 +74,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsM) {
+
+  if (wordsM.length === 0) {
+    return null
+  };
+
+  return matrixNumbers.reduce((acu, elem) => acu + elem, 0) / matrixNumbers.length;
+
+}
 
 // Unique Arrays
 const wordsUnique = [
