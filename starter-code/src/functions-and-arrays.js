@@ -108,19 +108,15 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(uArr){
-  let contador = 0;
-  if (uArr.length === 0){
-    return [];
-  }
-    for (let i = 0;i < uArr.length ;i++){
-      for (let j = 0; j < uArr.length;i++){
-        if(uArr[i] === uArr[j]){
-          uArr.splice(uArr[j],1)
-        }
+  let uWord=[];
+    uArr.forEach(uArr => {
+      if (uWord.indexOf(uArr) === -1 ){
+        uWord.push(uArr)
       }
-    }
+    })
+    return uWord;
   }
-
+    
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -132,6 +128,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (arr,word){
+  if(arr.length === 0){
+    return false;
+  }else{
+  let test = arr.includes(word);
+  return test;
+  }
+  }
 
 // Counting Repetition
 const wordsCount = [
@@ -147,6 +152,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr,word){
+let cont = 0;
+for (i =0; i < arr.length;i++){
+  if(arr[i] === word){
+    cont++;
+  }
+}
+return cont;
+
+}
 
 // Bonus
 
