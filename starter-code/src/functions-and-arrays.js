@@ -1,4 +1,14 @@
 // Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  } else if (num2 > num1) {
+    return num2
+  } else {
+    return num1
+  }
+}
+
 
 // Finding Longest Word
 const words = [
@@ -11,9 +21,51 @@ const words = [
   'crackpot'
 ];
 
+
+
+
+function findLongestWord(word) {
+  if (word.length == 0) {
+    return null;
+  } else {
+
+    let longest = "";
+    for (let i = 0; i < word.length; i++) {
+      if (longest.length < word[i].length) {
+        longest = word[i];
+      }
+    }
+    return longest;
+  }
+}
+
+
+
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(arr) {
+  if (arr.length == 0) {
+    return 0;
+  // } else {
+
+    // let newArr = [];
+    // for (let i = 0; i < arr.length; i++) {
+    //   newArr += [i];
+      
+    } else {
+    let newArr = 0;
+    for (let i = 0; i < arr.length; i++) {
+      
+        newArr += arr[i];
+      
+    
+    } 
+    return newArr;
+
+  }
+}
 
 // Calculate the Average
 
