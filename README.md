@@ -38,7 +38,7 @@ Upon completion, commit your changes, push them to your remote fork, and create 
 
 We will be working with automated tests again! Please, open the `SpecRunner.html` in your browser and use it to debug your solution of the Lab.
 
-## Iteration 1 - Create the cards
+## Iteration 1: Create the cards
 
 Clue has three different _card types_: __suspects__, __rooms__, and __weapons__. We'll be given the same amount of information for any given card with the same _card type_.
 
@@ -74,7 +74,7 @@ There are a total of nine _weapons_. Each of them has a different __name__ and _
 
 The game board represents the blueprints of the mansion and features fifteen different _rooms_. Each room will only have a __name__.
 
-## Iteration 2 - Create the mystery
+## Iteration 2: Create the mystery
 
 At the beginning of the game, players shuffle each of the card stacks to create a combination of _suspect_, _weapon_ and _room_. This will be the mystery to solve.
 
@@ -86,7 +86,7 @@ Declare a function named `selectRandom` to randomly select one element from a ca
 
 Declare a function named `pickMystery` that takes no arguments and returns an object with three properties, _suspect_, _weapon_ and _room_, each holding as a value a card of that specific type. You can get a random card of each type by calling `selectRandom` on each card stack.
 
-## Iteration 3 - Reveal the mystery
+## Iteration 3: Reveal the mystery
 
 At last, we're ready to unveil the mystery.
 
