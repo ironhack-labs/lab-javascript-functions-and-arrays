@@ -223,7 +223,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// //if we turn all array elements into 2, it will give 16.
+// //if we turn all array elements into 2, we'll get below greatestProduct of matrix = 16.
 // // Uncomment for-loop to turn all array elements with number 2(or any other number).
 function switchArr(arr, toNumber){
 for(let i=0;i<arr.length;i++){
@@ -233,7 +233,7 @@ for(let i=0;i<arr.length;i++){
 }
 return arr;
 }
-// switchArr(matrix, 2); //switches whole arr el. with 2.
+// switchArr(matrix, 2); //switches whole array (matrix) el. with 2.
 
 
 function get(arr, y, x) {
@@ -244,16 +244,18 @@ function get(arr, y, x) {
   return 0;
 }
 
-function greatestProduct(arr, k) {
+function greatestProduct(arr, numberOfEl) {
 
   let max = 0;
-  let len = arr.length;
-  for (let y = 0; y < len; y++) {
-    for (let x = 0; x < len; x++) {
-
+  let lenY = arr.length;
+  for (let y = 0; y < lenY; y++) {
+    //here we're looping through first 'y' arrays
+    let lenX = arr[y].length;
+    for (let x = 0; x < lenX; x++) {
+    //here we're looping through nested 'x' array of elements.
       let p1 = 1, p2 = 1, p3 = 1, p4 = 1;
 
-      for (let i = 0; i < k; i++) {
+      for (let i = 0; i < numberOfEl; i++) {
         p1*= get(arr, y, x + i);
         p2*= get(arr, y + i, x);
         p3*= get(arr, y + i, x + i);
@@ -264,4 +266,4 @@ function greatestProduct(arr, k) {
   }
   return max;
 }
-greatestProduct(matrix, 4);
+greatestProduct(matrix, 4); //here numberOfEl = 4;
