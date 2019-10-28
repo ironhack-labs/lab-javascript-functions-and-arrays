@@ -11,8 +11,8 @@
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array){
-  if(array.length=== 0){
-    return 0;
+  if(array === undefined || array.length === 0){
+    return null;
   }
   let longestWord = array[0];
   for(let i=0;i<array.length;i++){
@@ -33,7 +33,7 @@ findLongestWord(words);
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(array){
-  if(array.length=== 0){
+  if(array === undefined || array.length === 0){
     return 0;
   }
 let sum=0;
@@ -54,6 +54,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array){
+  if(array === undefined || array.length === 0){
+    return null;
+  }
 let sum=0;
 let sumAvr;
 for(let i=0;i<array.length;i++){
@@ -81,6 +84,9 @@ const wordsArr = [
 ];
 
 function averageWordLength(array){
+  if(array === undefined || array.length === 0){
+    return null;
+  }
 let avgLen;
 let sumEachLen = 0;
 
@@ -116,19 +122,19 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array){
-  let newArr = [];
+  let uniquified = [];
   let remEl = [];
   for(let i=0;i<array.length;i++){
     let checkItem = array[i];
     let searchItem = array.indexOf(checkItem,i+1);
     if(checkItem === array[searchItem]){
          remEl.push(array[searchItem]);
-    } else  newArr.push(checkItem);
+    } else  uniquified.push(checkItem);
 
   }
   // console.log(`These are duplicates: ${remEl}`); // duplicates array
   // console.log(`Uniq items array is: ${newArr}`);    //it should return uniq items array.
-  return newArr;
+  return uniquified;
 }
 uniquifyArray(wordsUnique);
 // console.log(wordsUnique);// to check if global wordsUniq arrays was mutated or not, and it's not! Good:)
