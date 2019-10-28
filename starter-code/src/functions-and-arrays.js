@@ -1,7 +1,7 @@
 // Iteration #1: Find the maximum
   function maxOfTwoNumbers(a,b){
-    if(a>b) return `max number is: ${a}`;
-    else return `max number is: ${b}`;
+    if(a>b) return a;
+    else return b;
   }
   maxOfTwoNumbers(47,73)
   // console.log(maxOfTwoNumbers(47,73));
@@ -11,6 +11,9 @@
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array){
+  if(array.length=== 0){
+    return 0;
+  }
   let longestWord = array[0];
   for(let i=0;i<array.length;i++){
     if(array[i].length>longestWord.length){
@@ -30,9 +33,12 @@ findLongestWord(words);
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(array){
+  if(array.length=== 0){
+    return 0;
+  }
 let sum=0;
-for(let i=0;i<numbers.length;i++){
-  sum = sum + numbers[i];
+for(let i=0;i<array.length;i++){
+  sum = sum + array[i];
 }
 // console.log(`sum of numbers is: ${sum}`);
 
@@ -50,9 +56,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array){
 let sum=0;
 let sumAvr;
-for(let i=0;i<numbersAvg.length;i++){
-  sum = sum + numbersAvg[i];
-  sumAvr = sum/numbersAvg.length;
+for(let i=0;i<array.length;i++){
+  sum = sum + array[i];
+  sumAvr = sum/array.length;
 }
 // console.log(`avg number is: ${sumAvr}`); 
 
@@ -79,7 +85,7 @@ let avgLen;
 let sumEachLen = 0;
 
 array.forEach(el => {
-  let len = wordsArr.length;
+  let len = array.length;
   
   sumEachLen += el.length;
   avgLen = Math.round(sumEachLen/len);
