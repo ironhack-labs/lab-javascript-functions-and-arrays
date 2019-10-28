@@ -1,29 +1,66 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b) {
+  if (a > b)
+    return a
+  else
+    return b
+};
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// // Iteration #2: Find longest word
+// const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// let longest = words.reduce  (function(a, b) { // I coundn't find a different method / still working on it
+//   return a.length > b.length ? a : b
+// }, ''); 
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// function calculateSum() { // this is as far as I got with this one. Will keep trying 💪🏽 
+//   if (numbers.length === 0)
+//     return 0
+//   else
+//     (numbers[0]) + (numbers.slice(1))
+// }
+
+// calculateSum();
+
+// // Iteration #4: Calculate the average
+// // Level 1: Array of numbers
+// const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+// function (numbersAvg) { // not retuning the calculation but I think I'm close
+//   return numbersAvg.reduce(function(a, b) { // joins all elements then adds them up
+//     return (a + b) / numbersAvg.length // devides summed amount but
+//   }, 0);
+// }
+
+// function averageNumbers {
+//     numbersAvg.reduce() {
+//       return averageNumbers / numbersAvg.length
+//   }
+// }
 
 // Level 2: Array of strings
-const wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+// const wordsArr = [
+//   'seat',
+//   'correspond',
+//   'linen',
+//   'motif',
+//   'hole',
+//   'smell',
+//   'smart',
+//   'chaos',
+//   'fuel',
+//   'palace'
+// ];
+
+// averageWordLength = wordsArr.join('').length / wordsArr.length // but this is not a function
+
+// function averageWordLength (wordsArr) { // and this doesn't work
+//   wordsArr.join('').length / wordsArr.length
+// }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
