@@ -1,15 +1,64 @@
 // Iteration #1: Find the maximum
+  function maxOfTwoNumbers(a,b){
+    if(a>b) return `max number is: ${a}`;
+    else return `max number is: ${b}`;
+  }
+  maxOfTwoNumbers(47,73)
+  // console.log(maxOfTwoNumbers(47,73));
 
+// //================================================================================// //
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array){
+  let longestWord = array[0];
+  for(let i=0;i<array.length;i++){
+    if(array[i].length>longestWord.length){
+      longestWord = array[i];
+      
+    }
+  }
+  // console.log(`Longest word of an array: ${longestWord}`);
+  return longestWord;
+}
+findLongestWord(words);
+
+// //================================================================================// //
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array){
+let sum=0;
+for(let i=0;i<numbers.length;i++){
+  sum = sum + numbers[i];
+}
+// console.log(`sum of numbers is: ${sum}`);
+
+return sum;
+}
+sumArray(numbers);
+
+// //================================================================================// //
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+// const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(array){
+let sum=0;
+let sumAvr;
+for(let i=0;i<numbersAvg.length;i++){
+  sum = sum + numbersAvg[i];
+  sumAvr = sum/numbersAvg.length;
+}
+// console.log(`avg number is: ${sumAvr}`); 
+
+return sumAvr;
+}
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +73,26 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array){
+let avgLen;
+let sumEachLen = 0;
+
+array.forEach(el => {
+  let len = wordsArr.length;
+  
+  sumEachLen += el.length;
+  avgLen = Math.round(sumEachLen/len);
+
+});
+// console.log(sumEachLen);// to check.
+// console.log(`avg words lenght :${avgLen}`);
+return avgLen;
+}
+averageWordLength(wordsArr);
+
+
+// //================================================================================// //
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +109,27 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  let newArr = [];
+  let remEl = [];
+  for(let i=0;i<array.length;i++){
+    let checkItem = array[i];
+    let searchItem = array.indexOf(checkItem,i+1);
+    if(checkItem === array[searchItem]){
+         remEl.push(array[searchItem]);
+    } else  newArr.push(checkItem);
+
+  }
+  // console.log(`These are duplicates: ${remEl}`); // duplicates array
+  // console.log(`Uniq items array is: ${newArr}`);    //it should return uniq items array.
+  return newArr;
+}
+uniquifyArray(wordsUnique);
+// console.log(wordsUnique);// to check if global wordsUniq arrays was mutated or not, and it's not! Good:)
+
+
+// //================================================================================// //
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +141,16 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, searchingItem){
+  let item = array.includes(searchingItem);
+  // console.log(item);
+  return item;
+}
+doesWordExist(wordsFind, 'truth'); //returns: true
+doesWordExist(wordsFind, 'hello'); //returns: false
+
+// //================================================================================// //
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +166,25 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, name){
+  let count = 0;
+  // for(let i=0;i<arr.length;i++){
+  //   if(arr[i]===name){
+  //     count+=1;
+  //   }
+  // }
+    arr.map(e =>{
+      if (e === name){
+        count++;
+      }
+    });
+  // console.log(`The word '${name}' in the array comes: ${count} times`);
+  return count;
+}
+
+howManyTimes(wordsCount, 'matter'); 
+// console.log(howManyTimes(wordsCount, 'matter')); //4
 
 // Iteration #8: Bonus
 
