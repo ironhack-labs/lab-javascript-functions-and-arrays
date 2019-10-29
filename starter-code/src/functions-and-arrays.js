@@ -178,18 +178,17 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let arrMultiplication = [];
-  let largestNum = 0;
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      arrMultiplication.push(matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3])
-    if (arrMultiplication[i] > largestNum) {
-      largestNum = arrMultiplication[i]
+    let arrMultiplication = [];
+    let largestNum = 0;
+    for (let i = 0; i < matrix.length; i++) {
+      for (let j = 0; j < matrix[i].length; j++) {
+        arrMultiplication.push(matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3])
+        arrMultiplication.forEach(function(elem) {
+          if (elem > largestNum) {
+            largestNum = elem
+          }
+        })
+      }
     }
-
-    }
-    
+    console.log(largestNum)
   }
-  console.log(largestNum)
-
-}
