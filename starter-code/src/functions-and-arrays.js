@@ -1,3 +1,4 @@
+
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
   if (a > b)
@@ -6,61 +7,67 @@ function maxOfTwoNumbers(a, b) {
     return b
 };
 
-// // Iteration #2: Find longest word
-// const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// Iteration #2: Find longest word
 
-// let longest = words.reduce  (function(a, b) { // I coundn't find a different method / still working on it
-//   return a.length > b.length ? a : b
-// }, ''); 
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'paralelepipedo'];
+
+function findLongestWord (arrayOfWords) { 
+  let longestWord = ''; // create a variable and assign it to an empty string to store the value of the for loop below
+    for (i = 0; i < arrayOfWords.length; i++) { // run the array through the loop to determine length
+      if (longestWord.length < arrayOfWords[i].length) // if current length of i is longer than previous, assign value to longestWord
+        longestWord = arrayOfWords[i]; // this assign the current value of i to longestWord
+    }
+  return longestWord || null; // if conditions met, return longestWord; or else, return null
+}
+
+findLongestWord(words); // function call
 
 // Iteration #3: Calculate the sum
 
-// const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// function calculateSum() { // this is as far as I got with this one. Will keep trying 💪🏽 
-//   if (numbers.length === 0)
-//     return 0
-//   else
-//     (numbers[0]) + (numbers.slice(1))
-// }
-
-// calculateSum();
+function sumArray (arrayOfNumbers) { 
+  let sumOfNumbers = 0; // create a variable to store the sum of each iteration of the loop
+    for (i = 0; i < arrayOfNumbers.length; i++) { // loop to run for the length of the array (10x)
+      sumOfNumbers += arrayOfNumbers[i]; // every time the loop runs, add the value of i to sumOfNumbers
+    }
+  return sumOfNumbers; // returns the final value of sumOfNumbers after the loop iterates all the way
+}
 
 // // Iteration #4: Calculate the average
 // // Level 1: Array of numbers
-// const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// function (numbersAvg) { // not retuning the calculation but I think I'm close
-//   return numbersAvg.reduce(function(a, b) { // joins all elements then adds them up
-//     return (a + b) / numbersAvg.length // devides summed amount but
-//   }, 0);
-// }
-
-// function averageNumbers {
-//     numbersAvg.reduce() {
-//       return averageNumbers / numbersAvg.length
-//   }
-// }
+function averageNumbers (arrayOfNumbers) { 
+  if (arrayOfNumbers.length == 0) // return null if the array is empty to avoid division by zero
+    return null;
+  let sumOfNumbers = sumArray (arrayOfNumbers); // stores the sum of numbers using the previous function
+    return sumOfNumbers / arrayOfNumbers.length; // calculates the average by devided the sumOfNumbers by the length of the array and returns the calculated value
+};
 
 // Level 2: Array of strings
-// const wordsArr = [
-//   'seat',
-//   'correspond',
-//   'linen',
-//   'motif',
-//   'hole',
-//   'smell',
-//   'smart',
-//   'chaos',
-//   'fuel',
-//   'palace'
-// ];
+const wordsArr = [
+  'seat',
+  'correspond',
+  'linen',
+  'motif',
+  'hole',
+  'smell',
+  'smart',
+  'chaos',
+  'fuel',
+  'palace'
+];
 
-// averageWordLength = wordsArr.join('').length / wordsArr.length // but this is not a function
-
-// function averageWordLength (wordsArr) { // and this doesn't work
-//   wordsArr.join('').length / wordsArr.length
-// }
+function averageWordLength (arrayOfWords) {
+  if (arrayOfWords.length == 0) // if length of array is 0 (no content), return null
+    return null;
+  let sumOfLetters = 0; // variable initialized to zero to store calculation of loop
+    for (i = 0; i < arrayOfWords.length; i++) {
+      sumOfLetters += arrayOfWords[i].length; // calculates average of stored value and the current word running through the loop
+    }
+  return sumOfLetters / arrayOfWords.length; // calculates value of stored word devided by length of the array
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -76,6 +83,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (arrayOfWords) {
+  let uniqueWords = []; // declare varible to store unique words found
+  for (i = 0; i < arrayOfWords.length; i++) { // loop through the array
+    let index = uniqueWords.indexOf(arrayOfWords[i]); // declare variable and store value of the index of the current word in the loop
+    if (index == -1) // verifies if the word is already stored in the variable uniqueWords
+      uniqueWords.push(arrayOfWords[i]); // after looping through the array, pushes new word into uniqueWords
+  }
+  return uniqueWords; // returns the new array
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
