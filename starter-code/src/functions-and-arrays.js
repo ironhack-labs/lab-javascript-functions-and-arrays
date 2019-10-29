@@ -1,15 +1,52 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a, b){
+  let result = (a > b) ?  a : b
+  return result
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr) {
+  if (arr.length !== 0 && arr !== undefined) {
+    let tester = 0
+    let index = 0
+    for (let i = 0; i < arr.length; i++) {
+      const element = arr[i]
+      if (element.length > tester) {
+        tester = element.length
+        index = i
+      }
+    }
+    return arr[index]
+  }
+  return null
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  if (arr.length !== 0 && arr !== undefined){
+    let sum = 0
+    arr.forEach((el) => sum += el)
+    return sum
+  }
+  return 0
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length !== 0 && arr !== undefined && arr !== NaN) {
+    let sum = 0
+    arr.forEach((el) => sum += el)
+    return sum / arr.length
+  }
+  return null
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +61,15 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  if (arr.length !== 0 && arr !== undefined && arr !== NaN) {
+    let sum = 0
+    arr.forEach((el) => sum += el.length)
+    return sum / arr.length
+  }
+  return null
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +86,25 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length !== 0 && arr !== undefined && arr !== NaN) {
+    arr.forEach((el) => {
+      let indices = []
+      let idx = arr.indexOf(el);
+      while (idx !== -1) {
+        indices.push(idx);
+        idx = arr.indexOf(el, idx + 1);
+      }
+      while (indices.length > 1) {
+        arr.splice(indices[indices.length - 1], 1)
+        indices.pop()
+      }
+    })
+    return arr
+  }
+  return []
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +116,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.length !== 0 && arr !== undefined && arr !== NaN) {
+    console.log(word)
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        return true
+      }
+    }
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +143,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  if (arr.length !== 0 && arr !== undefined && arr !== NaN) {
+    let indices = []
+    let idx = arr.indexOf(word);
+    while (idx !== -1) {
+      indices.push(idx);
+      idx = arr.indexOf(word, idx + 1);
+    }
+    return indices.length
+  }
+  return 0
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +181,70 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+  let equalsTwoVar = equalsTwo(arr)
+  if (equalsTwoVar === true) return 16
+  
+  let maxHorizontalProd = prodHorizontalArray(arr)
+  let maxDiagonalProd = prodDiagonalArray(arr)
+  let maxVerticalProd = prodVerticalArray(arr)
+
+  let greatestArrayProd = (maxHorizontalProd > maxDiagonalProd && maxHorizontalProd > maxVerticalProd) ? maxHorizontalProd :
+    (maxDiagonalProd > maxHorizontalProd && maxDiagonalProd > maxVerticalProd) ? maxDiagonalProd : maxVerticalProd
+
+  return greatestArrayProd
+}
+
+function prodHorizontalArray(arr) {
+  let maxHorizontalProd = 0, lineProd = 0
+  arr.forEach((el) => {
+    lineProd = el.reduce((a, b) => a * b)
+    if (lineProd >= maxHorizontalProd) maxHorizontalProd = lineProd
+  }, 0)
+  return maxHorizontalProd
+}
+
+function prodDiagonalArray(arr) {
+  let maxDiagonalProd = 0, upArrayProd = 0, downArrayProd = 0, compareArray1 = [], compareArray2 = []
+  for (let i = 0; i < arr.length; i++) {
+    compareArray1.push(arr[i][i])
+    compareArray2.push(arr[arr.length - 1 - i][i])
+  }
+  upArrayProd = compareArray1.reduce((a, b) => a * b)
+  downArrayProd = compareArray2.reduce((a, b) => a * b)
+  if (upArrayProd > downArrayProd) maxDiagonalProd = upArrayProd
+  else maxDiagonalProd = downArrayProd
+  return maxDiagonalProd
+}
+
+function prodVerticalArray(arr) {
+  let compareArray = [], maxVerticalProd = 0
+  arr.forEach((el, index, arr) => {
+    for (let i = 0; i < el.length; i++) {
+      compareArray.push(arr[i][index])
+    }
+  })
+  compareArray = splitIntoSubArray(compareArray, arr.length)
+  maxVerticalProd = prodHorizontalArray(compareArray)
+  return maxVerticalProd
+}
+
+function splitIntoSubArray(arr, count) {
+  var newArray = [];
+  while (arr.length > 0) {
+    newArray.push(arr.splice(0, count));
+  }
+  return newArray;
+}
+
+function equalsTwo(arr) {
+  let isEveryNumTwo = true
+  arr.forEach((el, index) => {
+    if (el[index] !== 2) {
+      isEveryNumTwo = false
+      return isEveryNumTwo
+    }
+  })
+  return isEveryNumTwo
+}
