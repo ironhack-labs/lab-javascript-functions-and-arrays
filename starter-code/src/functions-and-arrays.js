@@ -1,5 +1,5 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(num1, num2) {
+function maxOfTwoNumbers( num1, num2 ) {
   let result = num1 >= num2 ? num1 : num2;
   return result;
 }
@@ -33,7 +33,7 @@ function sumArray( arr ) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(numsArr) {
+function averageNumbers( numsArr ) {
   if ( numsArr.length > 0 ) {
     let sum = numsArr.reduce( (acc, cur) => acc + cur );
     let avg = sum / numsArr.length;
@@ -54,7 +54,7 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
-function averageWordLength(wordsArr) {
+function averageWordLength( wordsArr ) {
   if ( wordsArr.length > 0 ) {
     let sum = wordsArr.reduce( (acc, cur) => acc + cur.length , 0);
     let avg = sum / wordsArr.length;
@@ -76,6 +76,9 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray( wordsArr ) {
+  return wordsArr.filter( (elm, idx, arr) => arr.indexOf(elm) == idx );  
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
