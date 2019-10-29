@@ -109,6 +109,9 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes( wordsArr, wordSearch ) {
+  return wordsArr.filter( elm => elm === wordSearch).length
+}
 
 // Iteration #8: Bonus
 
