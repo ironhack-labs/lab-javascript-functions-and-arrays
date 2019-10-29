@@ -129,13 +129,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes (arrayOfWords, wordToFind) { // passing 2 arguments - 1 with array to look through, and the other with term to look for
-  let repeatedWords = 0;
+function howManyTimes (arrayOfWords, wordToFind) {
+  let repeatedWords = 0; // declare variable to store how many times the word appears in the array
   for (i = 0; i < arrayOfWords.length; i++) {
-    if (arrayOfWords[i] == wordToFind) // if word in the loop = word we are looking for, return true
-      repeatedWords += 1;
+    if (arrayOfWords[i] == wordToFind) // compare word in the array with second argument
+      repeatedWords += 1; // if "if statement" is true, add 1 to repeatedWords variable
   }
-  return repeatedWords;
+  return repeatedWords; // return the final sum in repeatedWords
 }
 
 howManyTimes (wordsCount, 'wordsFind')
