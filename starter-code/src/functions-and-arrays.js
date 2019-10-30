@@ -123,21 +123,19 @@ const wordsUnique = [
 
 function uniquifyArray(array){
   let uniquified = [];
-  let remEl = [];
   for(let i=0;i<array.length;i++){
     let checkItem = array[i];
     let searchItem = array.indexOf(checkItem,i+1);
     if(checkItem === array[searchItem]){
-         remEl.push(array[searchItem]);
+      array.splice(searchItem,1);
     } else  uniquified.push(checkItem);
 
   }
-  // console.log(`These are duplicates: ${remEl}`); // duplicates array
-  // console.log(`Uniq items array is: ${newArr}`);    //it should return uniq items array.
+  // console.log(`Uniq items array is: ${uniquified}`);    //it should return uniq items array.
   return uniquified;
 }
 uniquifyArray(wordsUnique);
-// console.log(wordsUnique);// to check if global wordsUniq arrays was mutated or not, and it's not! Good:)
+// console.log(wordsUnique);// just for myself to check if global wordsUniq arrays was mutated or not, and it's not! Good:)
 
 
 // //================================================================================// //
