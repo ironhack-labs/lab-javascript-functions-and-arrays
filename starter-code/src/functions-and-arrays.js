@@ -176,9 +176,9 @@ function howManyTimes (theArray, searchFor) {
 
 // Iteration #8: Bonus
 
-//Divide the matrix into 2 sections for each direction, storing the product of each consecutive 4 numbers.
-
 function greatestProduct (Neo) {
+
+  //Divide the matrix into 2 sections for each direction, storing the product of each consecutive 4 numbers.
 
   var Morpheus = []; //red pill
   
