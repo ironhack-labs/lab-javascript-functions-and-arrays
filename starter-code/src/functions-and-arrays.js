@@ -1,15 +1,61 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2) return num1
+  else if (num2 > num1) return num2
+  else return num1
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+
+function findLongestWord (wordArray) {
+  var longWord;
+  var checkWordLen1 = 0;
+  var checkWordLen2 = 0;
+  
+    if (!wordArray || !wordArray.length) return null;
+  
+    for (const word of wordArray){
+       checkWordLen1 = word.length;
+      if (checkWordLen1 > checkWordLen2) {
+        longWord = word;
+       checkWordLen2 = word.length;
+       }
+    }
+  return longWord;
+  }
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (sumNums){
+  var numNums = 0;
+  var numNums2 = 0;
+  for (const numNums of sumNums){
+    numNums2 = numNums + numNums2;
+ }
+ return numNums2;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (avgNums){
+  if (!avgNums || !avgNums.length) return null;
+
+  var numNums = 0;
+  var numNums2 = 0;
+  for (const numNums of avgNums){
+    numNums2 = numNums + numNums2;
+ }
+
+ return (numNums2 / avgNums.length);
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +70,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength  (wordArray){
+  if (!wordArray || !wordArray.length) return null;
+
+  var wordWords = 0;
+  var wordWords2 = 0;
+  for (const wordWords of wordArray){
+    wordWords2 = wordWords.length + wordWords2;
+ }
+
+ return (wordWords2 / wordArray.length);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +98,31 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray (uniqueWords){;
+
+  var checkIfDup;
+  var index = 0;
+  var uniqueWords2 = uniqueWords;
+  wordIndexArray = [];
+
+  if (!uniqueWords || !uniqueWords.length) return [];
+
+  for (const words of uniqueWords){
+      index += 1;
+      checkIfDup = uniqueWords.includes(words, index);
+
+      if (checkIfDup == true){
+         uniqueWords2 = uniqueWords2.filter(word => word != words);
+         if (wordIndexArray.includes(words) != true)
+         wordIndexArray.push(words)
+      }
+ }
+
+var finalArray = wordIndexArray.concat(uniqueWords2)
+return finalArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +134,13 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(theArray, searchFor) {
+
+  checkIfDup = theArray.includes(searchFor);
+  
+  return checkIfDup
+  }
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -67,7 +157,90 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes (theArray, searchFor) {
+
+  checkIfDup = theArray.includes(searchFor);
+  foundwords = 0;
+  
+  if (checkifDup = true) {
+     for (const word of theArray){
+        if (word == searchFor) {
+          foundwords += 1;
+        }
+     }
+  }
+  
+  
+  return foundwords
+  }
+
 // Iteration #8: Bonus
+
+//Divide the matrix into 2 sections for each direction, storing the product of each consecutive 4 numbers.
+
+function greatestProduct (Neo) {
+
+  var Morpheus = []; //red pill
+  
+  
+  //horizontal 1
+    for (i = 0; i < Neo.length; i++) {
+        for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
+       var Trinity = (Neo[i][i2]) * (Neo[i][i2+1]) * (Neo[i][i2+2]) * (Neo[i][i2+3])       
+  
+          Morpheus.push(Trinity);
+      }
+  
+    }
+  
+    //horizontal 2
+    for (i = 0; i < Neo.length; i++) {
+        for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
+       var Trinity = (Neo[i][Neo.length-1-i2]) * (Neo[i][Neo.length-1-i2-1]) * (Neo[i][Neo.length-1-i2-2]) * (Neo[i][Neo.length-1-i2-3])       
+  
+          Morpheus.push(Trinity);
+      }
+  
+    }
+  
+  //vertical 1
+    for (i = 0; i < Neo.length; i++) {
+        for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
+          var Trinity = (Neo[i2][i]) * (Neo[i2+1][i]) * (Neo[i2+2][i]) * (Neo[i2+3][i])
+  
+          Morpheus.push(Trinity);
+      }
+    }
+  
+    //vertical 2
+    for (i = 0; i < Neo.length; i++) {
+        for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
+          var Trinity = (Neo[Neo.length-1-i2][i]) * (Neo[Neo.length-1-i2-1][i]) * (Neo[Neo.length-1-i2-2][i]) * (Neo[Neo.length-1-i2-3][i])
+  
+          Morpheus.push(Trinity);
+      }
+    }
+  
+    //diagonal 1
+    for (i = 0; i < Neo.length; i++) {
+        for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
+          var Trinity = (Neo[i2][i]) * (Neo[i2+1][i+1]) * (Neo[i2+2][i+2]) * (Neo[i2+3][i+3])
+  
+          if (!isNaN(Trinity)) Morpheus.push(Trinity);
+      }
+    }
+  
+     //diagonal 2
+    for (i = 0; i < Neo.length; i++) {
+        for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
+          var Trinity = (Neo[i2][Neo.length-1-i]) * (Neo[i2+1][Neo.length-1-i-1]) * (Neo[i2+2][Neo.length-1-i-2]) * (Neo[i2+3][Neo.length-1-i-3])
+  
+          if (!isNaN(Trinity)) Morpheus.push(Trinity);
+      }
+    } 
+  
+  return(Math.max(...Morpheus))
+  }
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
