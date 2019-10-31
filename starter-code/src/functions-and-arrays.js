@@ -182,11 +182,10 @@ function greatestProduct (Neo) {
 
   var Morpheus = []; //red pill
   
-  
   //horizontal 1
     for (i = 0; i < Neo.length; i++) {
         for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
-       var Trinity = (Neo[i][i2]) * (Neo[i][i2+1]) * (Neo[i][i2+2]) * (Neo[i][i2+3])       
+          var Trinity = (Neo[i][i2]) * (Neo[i][i2+1]) * (Neo[i][i2+2]) * (Neo[i][i2+3])       
   
           Morpheus.push(Trinity);
       }
@@ -196,7 +195,7 @@ function greatestProduct (Neo) {
     //horizontal 2
     for (i = 0; i < Neo.length; i++) {
         for (i2 = 0; i2 < ((Neo.length-1)/2); i2++) {
-       var Trinity = (Neo[i][Neo.length-1-i2]) * (Neo[i][Neo.length-1-i2-1]) * (Neo[i][Neo.length-1-i2-2]) * (Neo[i][Neo.length-1-i2-3])       
+          var Trinity = (Neo[i][Neo.length-1-i2]) * (Neo[i][Neo.length-1-i2-1]) * (Neo[i][Neo.length-1-i2-2]) * (Neo[i][Neo.length-1-i2-3])       
   
           Morpheus.push(Trinity);
       }
