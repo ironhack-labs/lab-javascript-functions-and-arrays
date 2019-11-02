@@ -34,9 +34,49 @@ findLongestWord(words)
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Iteration #4: Calculate the average
+
+function sumArray (arr) {
+  let newArr;
+  
+  for(i = 0; i < arr.length; i++){
+      for(j = 1; j < arr.length; j++){
+          arr[i] += arr[j]
+      
+          }
+    }
+return arr[0]
+}
+
+
+sumArray(numbers)
+
+/ Iteration #4: Calculate the average
+function sumArray(arr) {
+  let sumNumbers = 0 ;
+  
+  for(i = 0; i < arr.length; i++){
+          sumNumbers += arr[i] 
+
+  }
+        
+    
+return sumNumbers
+}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+
+  function averageNumbers(arrNum) {
+    let averageNum = 0;
+     averageNum = sumArray(arrNum)/arrNum.length
+  
+    return averageNum
+  }
+
+averageNumbers(numbersAvg)
+
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -51,6 +91,33 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function sumArrayWords (arr) {
+          let newArrSum = 0;
+          
+          
+          for(i = 0; i < arr.length; i++){
+            newArrSum += arr[i].length
+           
+               
+          }//end for 1
+         
+        return newArrSum
+        }//end first function
+
+function averageWordLength (arrWords){
+
+   let averageWords;
+
+         averageWords = sumArrayWords(arrWords)/arrWords.length
+         console.log(averageWords)
+
+
+  return averageWords 
+}//end second function
+
+
+  averageWordLength(wordsArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
