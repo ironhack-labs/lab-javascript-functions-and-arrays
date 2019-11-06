@@ -159,6 +159,16 @@ function howManyTimes(ap, pac) {
   return contador;
 }
 
+function greatestProduct(params) {
+  if (params.length < 0) return 0;
+  //params.reduce;
+  return params.reduce((acc, currval) => {
+    console.log(acc, currval);
+    //if (acc === undefined) return 1;
+    return acc * currval;
+  }, 1);
+}
+
 // Bonus Quest
 
 var matrix = [
