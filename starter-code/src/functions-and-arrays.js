@@ -43,7 +43,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(num){
   
-  sumTotal = 0;
+  let sumTotal = 0;
 
   num.forEach(function(e){
   
@@ -59,6 +59,26 @@ function sumArray(num){
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(num){
+
+  if(num.length){
+    
+    let average = 0;
+
+    num.forEach(function(e){
+    
+      average = e + average;
+    
+    });
+    
+    return average/num.length;
+
+  }
+
+    return null;
+
+}
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -72,6 +92,27 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength(num){
+
+  if(num.length){
+    
+    let average = 0;
+
+    num.forEach(function(e){
+    
+      average = e.length + average;
+    
+    });
+    
+    return average/num.length;
+
+  }
+
+    return null;
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
