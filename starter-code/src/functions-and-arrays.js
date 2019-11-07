@@ -89,7 +89,15 @@ const wordsCount = [
 	'disobedience',
 	'matter'
 ];
-
+function howManyTimes(arr, word) {
+	let counter = 0;
+	arr.forEach(el => {
+		if (el === word) {
+			counter++;
+		}
+	});
+	return counter;
+}
 // Iteration #8: Bonus
 
 const matrix = [
