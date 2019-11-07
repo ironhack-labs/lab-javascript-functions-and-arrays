@@ -30,7 +30,11 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(array){
   let sum = 0;
   for(let i = 0; i < array.length; i++){
-    sum += array[i];
+    if(isNaN(array[i])){
+      sum += array[i].length;
+    } else {
+      sum += array[i];
+    }
   }
   return sum;
 }
@@ -38,6 +42,14 @@ function sumArray(array){
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if(array.length === 0){
+    return null;
+  } else {
+    return sumArray(array)/array.length
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -52,6 +64,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array){
+  if(array.length === 0){
+    return null;
+  } else {
+    return sumArray(array)/array.length
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
