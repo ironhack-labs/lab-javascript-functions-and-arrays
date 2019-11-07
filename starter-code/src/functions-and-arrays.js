@@ -36,6 +36,9 @@ function sumArray(array){
 }
 
 // Iteration #4: Calculate the average
+// Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 function averageNumbers(array){
   if(array.length === 0){
     return null;
@@ -43,8 +46,6 @@ function averageNumbers(array){
     return sumArray(array)/array.length
   }
 }
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Level 2: Array of strings
 const wordsArr = [
