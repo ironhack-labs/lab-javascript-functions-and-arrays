@@ -64,6 +64,18 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(v){
+  let awl = 0;
+  for(let i = 0; i<v.length; i++){
+    awl = awl + v[i].length
+    }
+    awl = awl /v.length
+    return awl
+  }
+  
+  averageWordLength(wordsArr)
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
