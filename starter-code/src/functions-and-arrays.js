@@ -54,6 +54,15 @@ const wordsUnique = [
 	'simple',
 	'bring'
 ];
+function uniquifyArray(arr) {
+	let uniqueArr = [];
+	arr.forEach(word => {
+		if (uniqueArr.indexOf(word) === -1) {
+			uniqueArr.push(word);
+		}
+	});
+	return uniqueArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [ 'machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience' ];
