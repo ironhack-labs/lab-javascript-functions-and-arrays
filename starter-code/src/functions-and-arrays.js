@@ -21,7 +21,6 @@ function findLongestWord(words){
       let longElement = e.length;    
 
       if(longElement > longElementOld){
-        console.log(longElement);
         longElementOld = longElement;
         arrayLongest.push(e);    
       }
@@ -148,6 +147,7 @@ function uniquifyArray(array){
 }
 
 // Iteration #6: Find elements
+
 const wordsFind = [
   'machine',
   'subset',
@@ -158,6 +158,16 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word){
+  
+  if(array.length && array.includes(word)){
+    return true;
+  }
+
+  return false;
+
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
