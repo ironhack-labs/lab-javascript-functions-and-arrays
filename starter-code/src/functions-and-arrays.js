@@ -6,6 +6,23 @@ function maxOfTwoNumbers(a, b) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(words) {
+
+    if (!words.length) {
+        return null;
+    }
+
+    let longestWordCharCount = words.reduce(function (acc, e) {
+        return acc > e.length ? acc : e.length;
+    }, 0)
+
+    return words.find(function (e) {
+        return e.length === longestWordCharCount;
+    });
+}
+
+findLongestWord(words);
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
