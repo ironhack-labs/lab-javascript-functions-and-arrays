@@ -87,6 +87,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  for(let i = 0; i < array.length; i++){
+    let index = array.indexOf(array[i], i+1)
+    if(index != -1){
+      array.splice(index, 1)
+      i--;
+    }
+  }
+  return array;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
