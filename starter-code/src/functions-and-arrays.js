@@ -102,6 +102,12 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words) {
+  return [...new Set(words)];
+}
+
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
