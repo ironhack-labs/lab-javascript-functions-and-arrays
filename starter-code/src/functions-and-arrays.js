@@ -51,7 +51,7 @@ function sumArray(numbers) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
-  if (numbers.length = 0) { 
+  if (numbers.length == 0) { 
     return null;
   }
   return sumArray(numbers)/numbers.length; 
@@ -70,6 +70,22 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (words) {
+  if (words.length == 0) {
+    return null;
+  }
+
+  var lengths = [];
+
+  for (let i=0; i<words.length; i++) {
+    lengths[i] = words[i].length;
+  }
+
+  return averageNumbers(lengths);
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
