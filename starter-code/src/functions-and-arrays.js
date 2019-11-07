@@ -5,6 +5,16 @@ function maxOfTwoNumbers(a, b) {
 
 // Iteration #2: Find longest word
 const words = [ 'mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot' ];
+function findLongestWord(arr) {
+	let longestWord = arr[0];
+	if (arr.length === 0) return null;
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i].length > longestWord.length) {
+			longestWord = arr[i];
+		}
+	}
+	return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
@@ -15,18 +25,7 @@ const numbers = [ 6, 12, 1, 18, 13, 16, 2, 1, 8, 10 ];
 const numbersAvg = [ 2, 6, 9, 10, 7, 4, 1, 9 ];
 
 // Level 2: Array of strings
-const wordsArr = [
-	'seat',
-	'correspond',
-	'linen',
-	'motif',
-	'hole',
-	'smell',
-	'smart',
-	'chaos',
-	'fuel',
-	'palace'
-];
+const wordsArr = [ 'seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace' ];
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
