@@ -30,7 +30,11 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(array){
   let sum = 0;
   for(let i = 0; i < array.length; i++){
-    sum += array[i];
+    if(array[i] == NaN){
+      sum += array[i].length;
+    } else {
+      sum += array[i];
+    }
   }
   return sum;
 }
@@ -60,6 +64,10 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array){
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
