@@ -127,6 +127,14 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word){
+  let count = 0;
+  while(array.includes(word)){
+    array.splice(array.indexOf(word), 1)
+    count ++;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
