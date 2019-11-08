@@ -1,15 +1,55 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b){
+  if(a > b){
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(array){
+  if(array.length === 0){
+    return null;
+  } else {
+    while(array.length > 1){
+      if(array[0].length < array[1].length){
+      array.shift()
+      } else {
+      array.splice(1,1)
+      }
+    }
+  return array[0];
+  } 
+}
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray(array){
+  let sum = 0;
+  for(let i = 0; i < array.length; i++){
+    if(isNaN(array[i])){
+      sum += array[i].length;
+    } else {
+      sum += array[i];
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array){
+  if(array.length === 0){
+    return null;
+  } else {
+    return sumArray(array)/array.length
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -25,6 +65,14 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array){
+  if(array.length === 0){
+    return null;
+  } else {
+    return sumArray(array)/array.length
+  }
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -39,6 +87,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  for(let i = 0; i < array.length; i++){
+    let index = array.indexOf(array[i], i+1)
+    if(index != -1){
+      array.splice(index, 1)
+      i--;
+    }
+  }
+  return array;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -51,6 +109,9 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(array, word){
+  return array.includes(word)
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +127,14 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word){
+  let count = 0;
+  while(array.includes(word)){
+    array.splice(array.indexOf(word), 1)
+    count ++;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +160,37 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  let greatestHorizontal = 1;
+  let greatestVertical = 1;
+  let greatestDiagonal = 1;
+  for(let i = 0; i < array.length; i++){
+    let horizontal = 1;
+    let vertical = 1;
+    let diagonal = 1;
+    for(let j = 0; j < 4; j++){
+      horizontal *= array[i][j];
+      if(i+j < 20){
+        vertical *= array[i+j][i];
+        diagonal *= array[i+j][i+j];
+      }
+    }
+    if(horizontal > greatestHorizontal){
+      greatestHorizontal = horizontal;
+    }
+    if(vertical > greatestVertical){
+      greatestVertical = vertical;
+    }
+    if(diagonal > greatestDiagonal){
+      greatestDiagonal = diagonal;
+    }
+  }
+  if(greatestHorizontal > greatestVertical && greatestHorizontal > greatestDiagonal){
+    return greatestHorizontal;
+  } else if(greatestVertical > greatestHorizontal && greatestVertical > greatestDiagonal){
+    return greatestVertical;
+  } else {
+    return greatestDiagonal;
+  }
+}
