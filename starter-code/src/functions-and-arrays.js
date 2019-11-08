@@ -103,6 +103,29 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(m,a){
+  let t = true
+  let f = false
+  let r = 0
+  
+  for(let i = 0; i < m.length;i++){
+  
+  if(a === m[i]){
+  r = r + 1
+  continue
+  }else{
+  console.log(false)
+  }
+  }
+  if (r != 0){
+   return t
+  }else{
+    return f
+  }
+  }
+  
+  doesWordExist(wordsFind, )
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
