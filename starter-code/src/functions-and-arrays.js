@@ -160,3 +160,37 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  let greatestHorizontal = 1;
+  let greatestVertical = 1;
+  let greatestDiagonal = 1;
+  for(let i = 0; i < array.length; i++){
+    let horizontal = 1;
+    let vertical = 1;
+    let diagonal = 1;
+    for(let j = 0; j < 4; j++){
+      horizontal *= array[i][j];
+      if(i+j < 20){
+        vertical *= array[i+j][i];
+        diagonal *= array[i+j][i+j];
+      }
+    }
+    if(horizontal > greatestHorizontal){
+      greatestHorizontal = horizontal;
+    }
+    if(vertical > greatestVertical){
+      greatestVertical = vertical;
+    }
+    if(diagonal > greatestDiagonal){
+      greatestDiagonal = diagonal;
+    }
+  }
+  if(greatestHorizontal > greatestVertical && greatestHorizontal > greatestDiagonal){
+    return greatestHorizontal;
+  } else if(greatestVertical > greatestHorizontal && greatestVertical > greatestDiagonal){
+    return greatestVertical;
+  } else {
+    return greatestDiagonal;
+  }
+}
