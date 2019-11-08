@@ -7,10 +7,12 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(wordsArray) {
   if (wordsArray.length === 0) return null;
+
   let longest = '';
   wordsArray.forEach(function(e) {
       if (e.length > longest.length) longest = e;
   });
+
   return longest;
 }
 
@@ -25,6 +27,7 @@ function sumArray(numbersArray) {
           sum += numbersArray[i];
       }
   }
+
   return sum;
 }
 
@@ -56,6 +59,7 @@ function sumWordsLength(wordsArray) {
   wordsArray.forEach(function(e) {
       sum += e.length;
   });
+
   return sum;
 }
 
@@ -84,6 +88,7 @@ function uniquifyArray(words) {
   for(let i = 0; i < words.length; i++){
     if(newArray.indexOf(words[i]) == -1) newArray.push(words[i]);
   }
+
   return newArray;
 }
 // Iteration #6: Find elements
@@ -98,6 +103,12 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordsArray, word) {
+  for(let i = 0; i < wordsArray.length; i++){
+    if(wordsArray[i] === word) return true;
+  }
+  return false;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -113,6 +124,14 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(wordsArray, word) {
+  let counter = 0;
+  wordsArray.forEach(function(e) {
+    if(e === word) counter++;
+  });
+
+  return counter;
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -137,3 +156,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let greatest = 0;
+  for(let i = 0; i < matrix.length-3; i++){
+
+    for(let j = 0; j < matrix[i].length; j++){
+      let product;
+      // Horizontal check
+      if(typeof matrix[i][j+3] !== 'undefined') {
+        product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        if( product > greatest) greatest = product;
+      }
+      // Vertical check
+      if(typeof matrix[i+3][j] !== 'undefined') {
+        product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        if( product > greatest) greatest = product;
+      }
+      // Diagonal check
+      if(typeof matrix[i+3][j+3] !== 'undefined') {
+        product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+        if( product > greatest) greatest = product;
+      }
+    }
+
+  }
+
+  return greatest;
+}
