@@ -113,6 +113,10 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(words, search) {
+    return words.includes(search);
+}
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
