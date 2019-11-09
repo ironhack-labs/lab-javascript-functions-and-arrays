@@ -139,3 +139,54 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+const N = 4;
+
+function greatestProduct(numbersArr){
+  let maxProduct = 0;
+  for (let i = 0; i < numbersArr.length; i++){
+    for (let j = 0; j < numbersArr[i].length; j++){
+      let actualProduct = checkProducts(i, j, numbersArr);
+      if (actualProduct > maxProduct) maxProduct = actualProduct;
+    }
+  }
+  return maxProduct;
+}
+
+function checkProducts(i, j, numbersArr){
+  let maxProduct = 0;
+  let product;
+
+  if (j <= numbersArr[i].length - N){
+    product = numbersArr[i][j];
+    for (let m = j + 1; m < j + N; m++){
+      product *= numbersArr[i][m];
+    }
+    if (product > maxProduct) maxProduct = product;
+  }
+
+  if (i <= numbersArr.length - N){
+    product = numbersArr[i][j];
+    for (let k = i + 1; k < i + N; k++){
+      product *= numbersArr[k][j];
+    }
+    if (product > maxProduct) maxProduct = product;
+  }
+
+  if (i <= numbersArr.length - N && j <= numbersArr[i].length - N){
+    product = numbersArr[i][j];
+    for (let m = j + 1; m < j + N; m++){
+      product *= numbersArr[i + (m - j)][m];
+    }
+    if (product > maxProduct) maxProduct = product;
+  }
+
+  if (i >= N - 1 && j <= numbersArr[i].length - N){
+    product = numbersArr[i][j];
+    for (let k = i - 1; k > i - N; k--){
+      product *= numbersArr[k][j + (i - k)];
+    }
+    if (product > maxProduct) maxProduct = product;
+  }
+
+  return maxProduct;
+}
