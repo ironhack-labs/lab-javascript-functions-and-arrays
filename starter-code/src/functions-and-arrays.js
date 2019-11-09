@@ -142,6 +142,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array,search){
+  let e = "";
+  count = 0;
+  for (let i = 0;i < array.length; i++){
+    e = array[i];
+    if (search === e){
+      count++;
+    };
+  };
+  return count;
+};
 
 // Iteration #8: Bonus
 
