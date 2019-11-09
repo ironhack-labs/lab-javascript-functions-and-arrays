@@ -75,7 +75,7 @@ const wordsUnique = [
 function uniquifyArray(wordsArr){
   let uniqueWords = [];
   wordsArr.forEach(e => {
-    if (!uniqueWords.includes(e)) uniqueWords.push(e)
+    if (uniqueWords.indexOf(e) === -1) uniqueWords.push(e);
   });
   return uniqueWords;
 }
@@ -92,6 +92,10 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordsArr, word){
+  return wordsArr.includes(word) ? true : false;
+}
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -107,8 +111,11 @@ const wordsCount = [
   'matter'
 ];
 
-// Iteration #8: Bonus
+function howManyTimes(wordsArr, word){
+  return wordsArr.filter(e => e === word).length;
+}
 
+// Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -131,3 +138,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
