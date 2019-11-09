@@ -163,6 +163,7 @@ function greatestProduct(matrix){
 
     for(let j = 0; j < matrix[i].length; j++){
       let product;
+
       // Horizontal check
       if(typeof matrix[i][j+3] !== 'undefined') {
         product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
@@ -178,6 +179,12 @@ function greatestProduct(matrix){
         product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
         if( product > greatest) greatest = product;
       }
+      // Reverse Diagonal check
+      if(typeof matrix[i+3][j-3] !== 'undefined') {
+        product = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
+        if( product > greatest) greatest = product;
+      }
+
     }
 
   }
