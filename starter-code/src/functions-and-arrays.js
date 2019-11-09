@@ -92,6 +92,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  let arrayZ =[];
+  e = "";
+  for (let i = 0;i < array.length;i++){
+    e = array[i];
+    if (arrayZ.indexOf(e)=== -1){
+      arrayZ.push(e);
+    };
+  };
+    return arrayZ;
+  };
 
 // Iteration #6: Find elements
 const wordsFind = [
