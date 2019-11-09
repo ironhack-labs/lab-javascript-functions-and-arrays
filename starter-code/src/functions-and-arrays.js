@@ -20,6 +20,9 @@ const words = [
 
 function findLongestWord() {
   for (i = 0; i < words.length; i++);
+  
+
+  return words.length;
 }
 
 // Iteration #3: Calculate the sum
