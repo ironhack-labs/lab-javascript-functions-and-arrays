@@ -171,7 +171,7 @@ function greatestProduct(array){
     let diagonal = 1;
     for(let j = 0; j < 4; j++){
       horizontal *= array[i][j];
-      if(i+j < 20){
+      if(i+j < array.length){
         vertical *= array[i+j][i];
         diagonal *= array[i+j][i+j];
       }
