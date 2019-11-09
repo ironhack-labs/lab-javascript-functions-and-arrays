@@ -94,7 +94,7 @@ const wordsUnique = [
 ];
 function uniquifyArray(array){
   let arrayZ =[];
-  e = "";
+  let e = "";
   for (let i = 0;i < array.length;i++){
     e = array[i];
     if (arrayZ.indexOf(e)=== -1){
@@ -115,6 +115,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(array,search){
+  let e = "";
+  result= false;
+  for (let i = 0;i < array.length; i++){
+    e = array[i];
+    if(search === e){
+      result = true;
+      break;
+    }else result = false;
+  };  
+    return result;
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
