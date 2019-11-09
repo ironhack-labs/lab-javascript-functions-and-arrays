@@ -98,8 +98,8 @@ function howManyTimes(arr, word) {
 	});
 	return counter;
 }
-// Iteration #8: Bonus
 
+// Iteration #8: Bonus
 const matrix = [
 	[ 8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8 ],
 	[ 49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0 ],
@@ -122,3 +122,71 @@ const matrix = [
 	[ 20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54 ],
 	[ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48 ]
 ];
+
+function greatestProduct(arr) {
+	const horizontal = horizontalProduct(arr);
+	const vertical = verticalProduct(arr);
+	const diagonal = diagonalProduct(arr);
+	return Math.max((horizontal, vertical, diagonal));
+}
+
+function horizontalProduct(arr) {
+	let currentProd = 1;
+	let maxHorizontal = 0;
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr[i].length - 3; j++) {
+			let newArr = arr[i].slice(j, j + 4);
+			newArr.forEach(num => (currentProd *= num));
+			if (currentProd > maxHorizontal) {
+				maxHorizontal = currentProd;
+			}
+			currentProd = 1;
+		}
+	}
+	return maxHorizontal;
+}
+
+function verticalProduct(arr) {
+	let currentProd = 1;
+	let maxVertical = 0;
+	for (let i = 0; i < arr.length - 3; i++) {
+		for (let j = 0; j < arr[i].length; j++) {
+			currentProd = arr[i][j] * arr[1 + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+			if (currentProd > maxVertical) {
+				maxVertical = currentProd;
+			}
+			currentProd = 1;
+		}
+	}
+	return maxVertical;
+}
+
+function diagonalProduct(arr) {
+	// possible diagonals from left to right
+	let currentLtR = 1;
+	let maxLtR = 0;
+	for (let i = 0; i < arr.length - 3; i++) {
+		for (let j = 0; j < arr[i].length - 3; j++) {
+			currentLtR = arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3];
+			if (currentLtR > maxLtR) {
+				maxLtR = currentLtR;
+			}
+			currentLtR = 1;
+		}
+	}
+
+	// possible diagonals from right to left
+	let currentRtL = 1;
+	let maxRtL = 0;
+	for (let i = 0; i < arr.length - 3; i++) {
+		for (let j = arr[i].length - 1; j > arr[i].length - 3; j--) {
+			currentRtL = arr[i][j] * arr[i + 1][j - 1] * arr[i + 2][j - 2] * arr[i + 3][j - 3];
+			if (currentRtL > maxRtL) {
+				maxRtL = currentRtL;
+			}
+			currentRtL = 1;
+		}
+	}
+
+	return maxLtR > maxRtL ? maxLtR : maxRtL;
+}
