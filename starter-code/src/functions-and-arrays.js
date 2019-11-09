@@ -1,32 +1,44 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(a, b) {
-	return a > b ? a : b > a ? b : a;
+function maxOfTwoNumbers(num1, num2) {
+	return num1 > num2 ? num1 : num2;
 }
 
 // Iteration #2: Find longest word
 const words = [ 'mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot' ];
+function findLongestWord(arr) {
+	let longestWord = arr[0];
+	if (arr.length === 0) return null;
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i].length > longestWord.length) {
+			longestWord = arr[i];
+		}
+	}
+	return longestWord;
+}
 
 // Iteration #3: Calculate the sum
-
 const numbers = [ 6, 12, 1, 18, 13, 16, 2, 1, 8, 10 ];
+function sumArray(arr) {
+	let sum = 0;
+	arr.forEach(num => (sum += num));
+	return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [ 2, 6, 9, 10, 7, 4, 1, 9 ];
+function averageNumbers(arr) {
+	return arr.length === 0 ? null : sumArray(arr) / arr.length;
+}
 
 // Level 2: Array of strings
-const wordsArr = [
-	'seat',
-	'correspond',
-	'linen',
-	'motif',
-	'hole',
-	'smell',
-	'smart',
-	'chaos',
-	'fuel',
-	'palace'
-];
+const wordsArr = [ 'seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace' ];
+function averageWordLength(arr) {
+	if (arr.length === 0) return null;
+	let average = 0;
+	arr.forEach(word => (average += word.length));
+	return average / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -42,9 +54,26 @@ const wordsUnique = [
 	'simple',
 	'bring'
 ];
+function uniquifyArray(arr) {
+	let uniqueArr = [];
+	arr.forEach(word => {
+		if (uniqueArr.indexOf(word) === -1) {
+			uniqueArr.push(word);
+		}
+	});
+	return uniqueArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [ 'machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience' ];
+function doesWordExist(arr, word) {
+	if (arr.length !== 0) {
+		for (let i = 0; i < arr.length; i++) {
+			if (arr[i] === word) return true;
+		}
+	}
+	return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -60,9 +89,17 @@ const wordsCount = [
 	'disobedience',
 	'matter'
 ];
+function howManyTimes(arr, word) {
+	let counter = 0;
+	arr.forEach(el => {
+		if (el === word) {
+			counter++;
+		}
+	});
+	return counter;
+}
 
 // Iteration #8: Bonus
-
 const matrix = [
 	[ 8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8 ],
 	[ 49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0 ],
@@ -85,3 +122,71 @@ const matrix = [
 	[ 20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54 ],
 	[ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48 ]
 ];
+
+function greatestProduct(arr) {
+	const horizontal = horizontalProduct(arr);
+	const vertical = verticalProduct(arr);
+	const diagonal = diagonalProduct(arr);
+	return Math.max((horizontal, vertical, diagonal));
+}
+
+function horizontalProduct(arr) {
+	let currentProd = 1;
+	let maxHorizontal = 0;
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr[i].length - 3; j++) {
+			let newArr = arr[i].slice(j, j + 4);
+			newArr.forEach(num => (currentProd *= num));
+			if (currentProd > maxHorizontal) {
+				maxHorizontal = currentProd;
+			}
+			currentProd = 1;
+		}
+	}
+	return maxHorizontal;
+}
+
+function verticalProduct(arr) {
+	let currentProd = 1;
+	let maxVertical = 0;
+	for (let i = 0; i < arr.length - 3; i++) {
+		for (let j = 0; j < arr[i].length; j++) {
+			currentProd = arr[i][j] * arr[1 + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+			if (currentProd > maxVertical) {
+				maxVertical = currentProd;
+			}
+			currentProd = 1;
+		}
+	}
+	return maxVertical;
+}
+
+function diagonalProduct(arr) {
+	// possible diagonals from left to right
+	let currentLtR = 1;
+	let maxLtR = 0;
+	for (let i = 0; i < arr.length - 3; i++) {
+		for (let j = 0; j < arr[i].length - 3; j++) {
+			currentLtR = arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3];
+			if (currentLtR > maxLtR) {
+				maxLtR = currentLtR;
+			}
+			currentLtR = 1;
+		}
+	}
+
+	// possible diagonals from right to left
+	let currentRtL = 1;
+	let maxRtL = 0;
+	for (let i = 0; i < arr.length - 3; i++) {
+		for (let j = arr[i].length - 1; j > arr[i].length - 3; j--) {
+			currentRtL = arr[i][j] * arr[i + 1][j - 1] * arr[i + 2][j - 2] * arr[i + 3][j - 3];
+			if (currentRtL > maxRtL) {
+				maxRtL = currentRtL;
+			}
+			currentRtL = 1;
+		}
+	}
+
+	return maxLtR > maxRtL ? maxLtR : maxRtL;
+}
