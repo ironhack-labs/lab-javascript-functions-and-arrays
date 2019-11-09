@@ -11,10 +11,10 @@ function findLongestWord(array){
   if(array.length === 0){
     return null;
   }else {
-  let longest = " ";
+    let longest = array[0];
 array.forEach(function(e) {
   if (e.length > longest.length){
-     let longest = e;
+     longest = e;
   };
 });
 return longest;
@@ -25,6 +25,13 @@ return longest;
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(array){
+  let sum = 0;
+  for(let i = 0; i < array.length; i++){
+    sum += array[i];
+  };
+  return sum;
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
