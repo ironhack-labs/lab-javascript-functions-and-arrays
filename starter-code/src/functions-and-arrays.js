@@ -5,20 +5,20 @@
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  
+
   longestWord = ""
-  
+
   if (arr.length != 0) {
-  arr.forEach(function(e){
-  if (e.length > longestWord.length) {
-       longestWord = e;
-   };
-  });
-  return longestWord;
+    arr.forEach(function (e) {
+      if (e.length > longestWord.length) {
+        longestWord = e;
+      };
+    });
+    return longestWord;
 
   } else {
-  return
-}
+    return
+  }
 
 };
 
