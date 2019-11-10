@@ -192,8 +192,16 @@ function greatestProduct(matrix){
         if (product > total){
           total = product;
         }
-      } else array = [];
-  
+      } else {
+        array.shift();
+        array.push(matrix[i][j]);
+      product = array.reduce(function(acumulator,current){
+        return acumulator * current
+      });
+        if (product > total){
+          total = product;
+        }
+      }
     }
   }
   return total;
