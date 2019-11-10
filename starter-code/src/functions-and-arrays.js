@@ -35,6 +35,18 @@ const wordsArr = [
   'palace'
 ];
 
+function avarageWordLength(arr) {
+  
+  let splitW
+  arr.forEach(function(w) {
+   splitW += w.replace(",", " ").split(" ");
+   console.log(splitW)
+  })
+
+  avgLength = (splitW.length - 9) / arr.length;
+  return avgLength;
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
