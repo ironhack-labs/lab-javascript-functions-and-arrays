@@ -18,46 +18,38 @@ const words = [
   "orchard",
   "crackpot"
 ];
-function findLongestWord (words)
-{
- var long = "";
- for (i = 0; i< words.length; i++)
- {
-   if (long.length < words[i].length)
-   {
-    long = words[i];
-   }
- 
- }
- return long;
+function findLongestWord(words) {
+  var long = "";
+  for (i = 0; i < words.length; i++) {
+    if (long.length < words[i].length) {
+      long = words[i];
+    }
+  }
+  return long;
 }
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(numbers)
-{
-var sum = 0;
-for (var i = 0; i < numbers.length ;i++)
-{
-  sum += numbers[i];
-}
-return sum;
+function sumArray(numbers) {
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
 }
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg)
-{
-var sum = null;
+function averageNumbers(numbersAvg) {
+  var sum = null;
 
-for (var i = 0; i < numbersAvg.length;i++)
-{
-  sum += numbersAvg[i];
-}
-return sum / numbersAvg.length;
+  for (var i = 0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+  }
+  return sum / numbersAvg.length;
 }
 
 // Level 2: Array of strings
@@ -80,8 +72,8 @@ function averageWordLength(wordsArr) {
 
 function average(wordsArr) {
   var avg = 0;
-  wordsArr.forEach(function(wordsArr) {
-      avg += wordsArr.length;
+  wordsArr.forEach(function (wordsArr) {
+    avg += wordsArr.length;
   });
   return avg;
 }
@@ -101,22 +93,18 @@ const wordsUnique = [
   "bring"
 ];
 
-function uniquifyArray(wordsUnique)
-{
-var indexunique = [];
+function uniquifyArray(wordsUnique) {
+  var indexunique = [];
 
-for (var i = 0; i< wordsUnique.length;i++)
-{
-if (indexunique.indexOf(wordsUnique[i]) == -1)
-{
-  indexunique.push(wordsUnique[i]);
-}
-}
-return indexunique;
+  for (var i = 0; i < wordsUnique.length; i++) {
+    if (indexunique.indexOf(wordsUnique[i]) == -1) {
+      indexunique.push(wordsUnique[i]);
+    }
+  }
+  return indexunique;
 }
 
 var Unique = uniquifyArray(wordsUnique);
-
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -130,19 +118,15 @@ const wordsFind = [
   "disobedience"
 ];
 
-function doesWordExist(wordsFind)
-{
-for (var i = 0; i < wordsFind.length ;i++)
-{
-  for (var j = 0 ; j< wordsFind[i].length;i++)
-  {
-if (wordsFind[i] === wordsFind[j])
-{
-  return true;
-}
+function doesWordExist(wordsFind) {
+  for (var i = 0; i < wordsFind.length; i++) {
+    for (var j = 0; j < wordsFind[i].length; i++) {
+      if (wordsFind[i] === wordsFind[j]) {
+        return true;
+      }
+    }
+    return false;
   }
-  return false;
-}
 }
 
 // Iteration #7: Count repetition
@@ -159,22 +143,17 @@ const wordsCount = [
   "disobedience",
   "matter"
 ];
-function howManyTimes(wordsCount)
-{
-var count = 0;
-for (var i = 0; i < wordsCount.length; i++)
-{
-  for (var j = 0 ; j < wordsCount[i].length;j++)
-  {
-    if (wordsCount[i] === wordsCount[j])
-    {
-  return count += 1;
+function howManyTimes(wordsCount) {
+  var count = 0;
+  for (var i = 0; i < wordsCount.length; i++) {
+    for (var j = 0; j < wordsCount[i].length; j++) {
+      if (wordsCount[j] === wordsCount[i]) {
+        return (count += 1);
+      }
     }
   }
+  return count;
 }
-return count;
-}
-
 // Iteration #8: Bonus
 
 const matrix = [
@@ -472,3 +451,29 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  var product = 0;
+
+  for (var i = 0; i < matrix.length - 4; i++) {
+    for (var j = 0; i < matrix[i].length - 4; i++) {
+      var horizontal = 1;
+      for (var k = j; k < (j - 4); k++) {
+        horizontal *= matrix[i][k];
+      }
+      if (horizontal > product) {
+        product = horizontal;
+      }
+
+      var vertical = 1;
+      for (var k = i; k > (j ); k++) {
+        vertical *= matrix[i][k];
+      }
+
+      if (vertical > product) {
+        product = vertical;
+      }
+    }
+  }
+  return product;
+}
