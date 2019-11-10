@@ -1,29 +1,70 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b) {
+  return a > b ? a : b;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words_array) {
+  let max = 0;
+  let word_longest = null;
+
+  for (let i = 0; i < words_array.length; ++i) {
+    if (words_array[i].length > max) {
+      word_longest = words_array[i];
+      max = words[i].length;
+    }
+  }
+
+  return word_longest;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers_array) {
+  let sum = 0;
+
+  for (let i = 0; i < numbers_array.length; ++i) {
+    sum += numbers_array[i];
+  }
+
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers_array) {
+  return numbers_array.length === 0 ? null : sumArray(numbers_array) / numbers_array.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace"
 ];
+
+function averageWordLength(words_array) {
+  let n_letters_word = [];
+
+  for (let i = 0; i < words_array.length; ++i) {
+    n_letters_word.push(words_array[i].length);
+  }
+
+  return averageNumbers(n_letters_word);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +81,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words_array) {
+  let unique_array = [];
+
+  for (let i = 0; i < words_array.length; ++i) {
+    let word = words_array[i];
+
+    if (!unique_array.includes(word)) {
+      unique_array.push(word);
+    }
+  }
+
+  return unique_array;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +106,10 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (words_array, word) {
+  return words_array.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +125,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (words_array, word) {
+  let count = 0;
+
+  for (let i = 0; i < words_array.length; ++i) {
+    if (words_array[i] === word) count++;
+  }
+
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +160,39 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix) {
+  let greatest_product = 0;
+
+  for (let i = 0; i < matrix.length; i++){
+    for (let j = 0; j < matrix[i].length; j++) {
+      let product;
+
+      // Horizontal
+      if(j+3 < matrix[i].length) {
+        product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        greatest_product = Math.max(greatest_product, product);
+      }
+
+      // Vertical
+      if(i+3 < matrix.length) {
+        product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        greatest_product = Math.max(greatest_product, product);
+      }
+
+      // Diagonal
+      if(i+3 < matrix.length && j+3 < matrix[i].length) {
+        product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+        greatest_product = Math.max(greatest_product, product);
+      }
+
+      // Reverse Diagonal
+      if(i+3 < matrix.length && j-3 >= 0) {
+        product = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
+        greatest_product = Math.max(greatest_product, product);
+      }
+    }
+  }
+
+  return greatest_product;
+}
