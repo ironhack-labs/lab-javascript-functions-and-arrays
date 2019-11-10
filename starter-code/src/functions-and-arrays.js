@@ -47,9 +47,11 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
   let result = null;
+  //create conditional to give null if an empty array passes as a parameter
   if (arr.length === 0) {
     return result;
   } else {
+    //if the array has numbers return the average (using the previous function to sum)
     result = sumArray(arr)/(arr.length)
     return result
   }
@@ -69,6 +71,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  //create an array with the lenght of the words on the original array
+  let wordLength = []; 
+  arr.forEach( x => {
+    wordLength.push(x.length);
+  })
+  //return the average lenght (calculate the average of the numbers given to the 'wordLength' array)
+  return averageNumbers(wordLength);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
