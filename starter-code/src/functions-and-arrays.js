@@ -224,12 +224,89 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-const mactriz = []
-[ 1,  2, 3, 4, 5]
-[ 1, 20, 3, 4, 5]
-[ 1, 20, 3, 4, 5]
-[ 1, 20, 3, 4, 5]
-[ 1,  4, 3, 4, 5]
-function greatestProduct(){
+    
+function greatestProduct(matrix){
+
+  let row = 0;
+  let col = 0;
+  let arrayPlus = [];
+
+  matrix.forEach(function(e){
+    e.forEach(function(f){
+
+      if(e < matrix.length || f < e.length){
+
+        let numberHorizontal = horizontal(matrix, row, col);
+        let numberVertical = vertical(matrix, row, col);
+        let numberDiagonal = diagonal(matrix, row, col);
+        let arrayCompare = [numberHorizontal, numberVertical, numberDiagonal];
+        let bigNumber = compareNumber(arrayCompare);
+        arrayPlus.push(bigNumber);
+
+        if(numberHorizontal > numberVertical && numberHorizontal > numberDiagonal){
+          col++;
+        } else if(numberVertical > numberHorizontal && numberVertical  >numberDiagonal){
+          row++;
+        } else if(numberDiagonal > numberHorizontal && numberDiagonal > numberVertical){
+          row++;
+          col++;
+        }
+        
+      }
+
+    })
+  })
+  
+  return plusNumbers(arrayPlus);
+
+}
+
+function plusNumbers(array){
+  let result = 1;
+  array.forEach(function(e){
+    result = result * e
+  })
+  return result;
+}
+
+function compareNumber(array){
+
+  let bigNumber = 0;
+
+  for(let i=0; i < array.length; i++){
+    if(array[i] > bigNumber){
+      bigNumber = array[i];
+    }
+    
+  }
+
+  return bigNumber;
+
+}
+
+function horizontal(matrix, i, j){
+
+  if(i < matrix.length || j < matrix[i].length){
+    return matrix[i][j+1];
+  }
+  return 1;
+
+}
+
+function vertical(matrix, i, j){
+
+  if( i < matrix.length || j < matrix[i].length){
+        return matrix[i+1][j];
+      }
+  return 1;
+
+}
+
+function diagonal(matrix, i, j){
+
+  if( i < matrix.length || j < matrix[i].length){
+    return matrix[i+1][j+1];
+  }
+  return 1;
 
 }
