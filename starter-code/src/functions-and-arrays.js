@@ -203,6 +203,20 @@ const wordsCount = [
   "matter"
 ];
 
+function search(e, i) {
+  console.log("hello", e);
+}
+
+function howManyTimes(a, fn) {
+  for (let i = 0; i < wordsCount.length; i++) {
+    fn(wordsCount[i]);
+    console.log(wordsCount[i]);
+  }
+}
+howManyTimes(wordsCount, search);
+
+wordsCount.forEach(search);
+
 // Iteration #8: Bonus
 
 const matrix = [
@@ -500,3 +514,7 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {}
+
+greatestProduct(matrix);
