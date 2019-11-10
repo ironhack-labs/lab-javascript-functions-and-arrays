@@ -21,13 +21,13 @@ const words = [
   "crackpot"
 ];
 
-function findLongestWord() {
+function findLongestWord(words) {
   let counter = 0;
   let longestWord = "";
   if (words === undefined || words.length === 0) {
-    return null; //ERROR :findLongestWord returns null when called with an empty array
+    return null;
   } else if (words.length === 1) {
-    return words[0]; //ERROR :findLongestWord returns the word when called with a single-word array
+    return words[0];
   } else {
     for (let i = 0; i < words.length; i++) {
       if (words[i].length > counter) {
@@ -38,7 +38,7 @@ function findLongestWord() {
     return longestWord;
   }
 }
-findLongestWord();
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
@@ -57,6 +57,25 @@ sumArray(numbers);
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+  let countNumbersAvg = 0;
+  let averageWordLength = "";
+
+  if (numbersAvg.length === 0) {
+    averageWordLength = null;
+    return null;
+
+    console.log(averageWordLength);
+  } else {
+    averageWordLength += numbersAvg.length;
+  }
+  for (let i = 0; i < numbersAvg.length; i++) {
+    countNumbersAvg += numbersAvg[i];
+  }
+  return countNumbersAvg / averageWordLength;
+}
+averageNumbers(numbersAvg);
+
 // Level 2: Array of strings
 const wordsArr = [
   "seat",
@@ -70,6 +89,22 @@ const wordsArr = [
   "fuel",
   "palace"
 ];
+
+function averageWordLength(wordsArr) {
+  let countWords = 0;
+  let numberWords = wordsArr.length;
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    countWords += wordsArr[i].length;
+  }
+
+  return countWords / numberWords;
+}
+
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -85,6 +120,48 @@ const wordsUnique = [
   "simple",
   "bring"
 ];
+// function uniquifyArray(wordsUnique) {
+//   let n = "";
+
+//   for (let i = 0; i < wordsUnique.length; i++) {
+//     n = wordsUnique.indexOf(wordsUnique[i], i + 1);
+//     if (n > -1) {
+//       wordsUnique.splice(n, 1);
+//     }
+//   }
+//   return wordsUnique;
+// }
+
+// uniquifyArray(wordsUnique);
+
+function uniquifyArray(wordsUnique) {
+  let n = "";
+  let f = "";
+
+  console.log(wordsUnique.length);
+  for (let i = 0; i < wordsUnique.length; i++) {
+    n = wordsUnique.indexOf(wordsUnique[i], i + 1);
+    console.log("El valor " + wordsUnique[i] + " se repite en " + n);
+
+    if (n > -1) {
+      wordsUnique.splice(n, 1);
+
+      f = wordsUnique.indexOf(wordsUnique[i], i + 1);
+      console.log("que da f: " + f + " y n: " + n);
+      if (f > -1) {
+        wordsUnique.splice(f, 1);
+      }
+
+      //console.log(wordsUnique)
+    }
+    //console.log(n)
+    //console.log(wordsUnique[i])
+    //console.log(i)
+  }
+  return wordsUnique;
+}
+
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
