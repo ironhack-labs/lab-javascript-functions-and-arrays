@@ -91,7 +91,7 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-
+// He intentado resolver los siguientes ejercicios por mi cuenta pero no esoty muy segura de cómo plantear las funciones :(
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
