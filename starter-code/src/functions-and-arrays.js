@@ -13,12 +13,12 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function avarageNumbers(arr) {
   let sum = 0;
- arr.forEach(function(num) {
-   sum += num;
- })
+  arr.forEach(function (num) {
+    sum += num;
+  })
 
-let avg = sum/arr.length
-return avg;
+  let avg = sum / arr.length
+  return avg;
 }
 
 // Level 2: Array of strings
@@ -36,11 +36,11 @@ const wordsArr = [
 ];
 
 function avarageWordLength(arr) {
-  
+
   let splitW
-  arr.forEach(function(w) {
-   splitW += w.replace(",", " ").split(" ");
-   console.log(splitW)
+  arr.forEach(function (w) {
+    splitW += w.replace(",", " ").split(" ");
+    console.log(splitW)
   })
 
   avgLength = (splitW.length - 9) / arr.length;
