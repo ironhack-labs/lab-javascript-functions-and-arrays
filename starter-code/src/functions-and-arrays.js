@@ -143,49 +143,39 @@ const N = 4;
 
 function greatestProduct(numbersArr){
   let maxProduct = 0;
+  let currentProducts = [[1], [1]];
+  let reducer = (accumulator, currentValue) => accumulator * currentValue;
+
   for (let i = 0; i < numbersArr.length; i++){
-    for (let j = 0; j < numbersArr[i].length; j++){
-      let actualProduct = checkProducts(i, j, numbersArr);
-      if (actualProduct > maxProduct) maxProduct = actualProduct;
+    for (let j = 0; j <= numbersArr[i].length - N; j++){
+      
+      for (let counter = 0; counter < N; counter++){
+        currentProducts[0][counter] = numbersArr[i][j + counter];
+        if (i >= N - 1){
+          currentProducts[1][counter] = numbersArr[i - counter][j + counter];
+        }
+      }
+      currentProducts.forEach(e => {
+        if (e.reduce(reducer) > maxProduct) maxProduct = e.reduce(reducer);
+      });
+
     }
   }
-  return maxProduct;
-}
 
-function checkProducts(i, j, numbersArr){
-  let maxProduct = 0;
-  let product;
+  for (let j = 0; j < numbersArr[0].length; j++){
+    for (let i = 0; i <= numbersArr.length - N; i++){
+      
+      for (let counter = 0; counter < N; counter++){
+        currentProducts[0][counter] = numbersArr[i + counter][j];
+        if (j <= numbersArr[0].length - N){
+          currentProducts[1][counter] = numbersArr[i + counter][j + counter];
+        }
+      }
+      currentProducts.forEach(e => {
+        if (e.reduce(reducer) > maxProduct) maxProduct = e.reduce(reducer);
+      });
 
-  if (j <= numbersArr[i].length - N){
-    product = numbersArr[i][j];
-    for (let m = j + 1; m < j + N; m++){
-      product *= numbersArr[i][m];
     }
-    if (product > maxProduct) maxProduct = product;
-  }
-
-  if (i <= numbersArr.length - N){
-    product = numbersArr[i][j];
-    for (let k = i + 1; k < i + N; k++){
-      product *= numbersArr[k][j];
-    }
-    if (product > maxProduct) maxProduct = product;
-  }
-
-  if (i <= numbersArr.length - N && j <= numbersArr[i].length - N){
-    product = numbersArr[i][j];
-    for (let m = j + 1; m < j + N; m++){
-      product *= numbersArr[i + (m - j)][m];
-    }
-    if (product > maxProduct) maxProduct = product;
-  }
-
-  if (i >= N - 1 && j <= numbersArr[i].length - N){
-    product = numbersArr[i][j];
-    for (let k = i - 1; k > i - N; k--){
-      product *= numbersArr[k][j + (i - k)];
-    }
-    if (product > maxProduct) maxProduct = product;
   }
 
   return maxProduct;
