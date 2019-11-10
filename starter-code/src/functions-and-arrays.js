@@ -160,3 +160,39 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix) {
+  let greatest_product = 0;
+
+  for (let i = 0; i < matrix.length; i++){
+    for (let j = 0; j < matrix[i].length; j++) {
+      let product;
+
+      // Horizontal
+      if(j+3 < matrix[i].length) {
+        product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        greatest_product = Math.max(greatest_product, product);
+      }
+
+      // Vertical
+      if(i+3 < matrix.length) {
+        product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        greatest_product = Math.max(greatest_product, product);
+      }
+
+      // Diagonal
+      if(i+3 < matrix.length && j+3 < matrix[i].length) {
+        product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+        greatest_product = Math.max(greatest_product, product);
+      }
+
+      // Reverse Diagonal
+      if(i+3 < matrix.length && j-3 >= 0) {
+        product = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
+        greatest_product = Math.max(greatest_product, product);
+      }
+    }
+  }
+
+  return greatest_product;
+}
