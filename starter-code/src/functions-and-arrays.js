@@ -37,13 +37,12 @@ const wordsArr = [
 
 function avarageWordLength(arr) {
 
-  let splitW
+  let splitW = [];
   arr.forEach(function (w) {
-    splitW += w.replace(",", " ").split(" ");
-    console.log(splitW)
+    splitW += w.split(" ");
   })
 
-  avgLength = (splitW.length - 9) / arr.length;
+  avgLength = (splitW.length) / arr.length;
   return avgLength;
 }
 
