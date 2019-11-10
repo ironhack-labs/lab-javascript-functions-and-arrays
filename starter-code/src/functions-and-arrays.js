@@ -1,15 +1,62 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a, b) {
+  if (a >= b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(arr) {
 
+  let result = null;
+
+  if (arr.length === 0) {
+    return result;
+
+  } else if (arr.length == 1) {
+    return arr[0];
+
+  } else {
+    let result = arr [0]
+    for (let i = 0; i < arr.length; i++) {
+      if (result.length < arr[i].length) {
+        result = arr[i];
+      }
+    }
+    return result;
+  }
+  
+}
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray (arr) {
+  let result = 0;
+  arr.forEach( x => {
+    result += x;
+  })
+  return result
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  let result = null;
+  //create conditional to give null if an empty array passes as a parameter
+  if (arr.length === 0) {
+    return result;
+  } else {
+    //if the array has numbers return the average (using the previous function to sum)
+    result = sumArray(arr)/(arr.length)
+    return result
+  }
+  
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +71,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr) {
+  //create an array with the lenght of the words on the original array
+  let wordLength = []; 
+  arr.forEach( x => {
+    wordLength.push(x.length);
+  })
+  //return the average lenght (calculate the average of the numbers given to the 'wordLength' array)
+  return averageNumbers(wordLength);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +97,16 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let result = [];
+  arr.forEach( x => {
+    if (result.indexOf(x) === -1) {
+      result.push(x);
+    }
+  })
+  return result;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +118,16 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr,word) {
+  let result = false;
+  arr.forEach( x => {
+    if ( x == word ) {
+      result = true;
+    }
+  })
+  return result;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +143,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,word){
+  let count = 0;
+  arr.forEach( x => {
+    if ( x == word ) {
+      count ++;
+    }
+  })
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +178,51 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let result = 0;
+  let posibleMax = 1;
+  //loop to check every row
+  for (let i = 0; i < matrix.length; i++) {
+    //loop to check every column
+    for (let j = 0; j < matrix[i].length; j++) {
+
+      //check the horizontal max 
+      if ((j+3) < matrix[i].length){
+        for (let k = j; (k-j) < 4; k++) {
+          posibleMax *= matrix[i][k];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      }
+
+      //check the vertical max 
+      if ((i+3) < matrix.length) {
+        for (let l = i; (l-i) < 4; l++) {
+          posibleMax *= matrix[l][j];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      } 
+
+      //check the diagonal max 
+      if ((j+3) < matrix[i].length && (i+3) < matrix.length) {
+        for (let m = 0; m < 4; m++) {
+          posibleMax *= matrix[i+m][j+m];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      }
+
+      //check the inverse diagonal max 
+      if ((j-3) > 0 && (i+3) < matrix.length) {
+        for (let m = 0; m < 4; m++) {
+          posibleMax *= matrix[i+m][j-m];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      }
+    }
+  }
+  return result
+}
