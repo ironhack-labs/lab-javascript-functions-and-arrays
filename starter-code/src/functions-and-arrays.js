@@ -178,3 +178,51 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let result = 0;
+  let posibleMax = 1;
+  //loop to check every row
+  for (let i = 0; i < matrix.length; i++) {
+    //loop to check every column
+    for (let j = 0; j < matrix[i].length; j++) {
+
+      //check the horizontal max 
+      if ((j+3) < matrix[i].length){
+        for (let k = j; (k-j) < 4; k++) {
+          posibleMax *= matrix[i][k];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      }
+
+      //check the vertical max 
+      if ((i+3) < matrix.length) {
+        for (let l = i; (l-i) < 4; l++) {
+          posibleMax *= matrix[l][j];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      } 
+
+      //check the diagonal max 
+      if ((j+3) < matrix[i].length && (i+3) < matrix.length) {
+        for (let m = 0; m < 4; m++) {
+          posibleMax *= matrix[i+m][j+m];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      }
+
+      //check the inverse diagonal max 
+      if ((j-3) > 0 && (i+3) < matrix.length) {
+        for (let m = 0; m < 4; m++) {
+          posibleMax *= matrix[i+m][j-m];
+        }
+        result = maxOfTwoNumbers(posibleMax, result);
+        posibleMax = 1;
+      }
+    }
+  }
+  return result
+}
