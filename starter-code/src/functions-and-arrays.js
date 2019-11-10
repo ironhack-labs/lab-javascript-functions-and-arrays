@@ -28,8 +28,15 @@ function sumArray(){
 sumArray(numbers)
 
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(){
+  for (var i = 0, sum = 0; i < numbersAvg.length; sum += numbersAvg[i++]);
+  return (sum/numbersAvg.length);
+}
+averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -44,6 +51,13 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(){
+  for (var i = 0, sum = 0; i < wordsArr.length; sum += wordsArr[i++]);
+  return (sum);
+}
+averageWordLengt(wordsArr)
+// Sé que puedo utilizar la función anterior pero no sé cómo hacer para dividir las palabras, contar sus vocales y hacer la media de todo
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
