@@ -74,6 +74,12 @@ const wordsUnique = [
   'bring'
 ];
 
+var uniqs = wordsUnique.filter(function(item, index, array) {
+  return array.indexOf(item) === index; //No entendía muy bien cómo tenía que plantear esta función y encontré esta otra. Entiendo que el hecho de que los elementos que aparezcan sean únicos o no, depende de su posición en el array.
+})
+console.log(uniqs); 
+ 
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
