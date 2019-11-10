@@ -466,7 +466,7 @@ function greatestProduct(matrix) {
       }
 
       var vertical = 1;
-      for (var k = i; k > (j ); k++) {
+      for (var k = i; k > (j - 4 ); k++) {
         vertical *= matrix[i][k];
       }
 
