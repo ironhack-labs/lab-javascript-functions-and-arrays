@@ -21,26 +21,24 @@ const words = [
   "crackpot"
 ];
 
-function findLongestWord(Array) {
-  let longesWord = " ";
-  for (i = 0; i < words.length; i++) {
-    if (words[i].length > longesWord) {
-      longesWord = words[i];
+function findLongestWord(arr) {
+  let longesWord = "";
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].length > longesWord.length) {
+      longesWord = arr[i];
     }
   }
   return longesWord;
 }
 
-findLongestWord();
-
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumArray(sumnumbers) {
+function sumArray(arr) {
   let sum = 0;
-  for (i = 0; i < sumnumbers.length; ++i) {
-    sum += sumnumbers[i];
+  for (i = 0; i < arr.length; ++i) {
+    sum += arr[i];
   }
   return sum;
 }
@@ -49,9 +47,10 @@ function sumArray(sumnumbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(sumnumbers) {
-  return sumnumbers.length === 0 ? null : sumArray(numbers) / sumnumbers.length;
+function averageWordLength(arr) {
+  let average = sumArray(numbers)/numbersAvg.length
 }
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -67,14 +66,8 @@ const wordsArr = [
   "palace"
 ];
 
-function averageWordLength(wordsArray) {
-  let avgWord = [];
+function averageWordLength() {
 
-  for (let i = 0; i < wordsArray.length; ++i) {
-    avgWord.push(wordsArray[i].length);
-  }
-  return averageNumbers(avgWord);
-}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
