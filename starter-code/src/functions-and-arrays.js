@@ -35,6 +35,7 @@ function sumArray(n){
   }
   return sum;
 }
+
 sumArray(numbers)
 
 // Iteration #4: Calculate the average
@@ -48,6 +49,7 @@ function averageNumbers(s){
   sum = sum / s.length;
   return sum;
  }
+
  averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
@@ -68,13 +70,12 @@ function averageWordLength(v){
   let awl = 0;
   for(let i = 0; i<v.length; i++){
     awl = awl + v[i].length
-    }
+  }
     awl = awl /v.length
     return awl
-  }
-  
-  averageWordLength(wordsArr)
+}
 
+  averageWordLength(wordsArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -107,23 +108,21 @@ function doesWordExist(m,a){
   let t = true
   let f = false
   let r = 0
-  
   for(let i = 0; i < m.length;i++){
-  
   if(a === m[i]){
-  r = r + 1
-  continue
+    r = r + 1
+    continue
   }else{
-  console.log(false)
+    console.log(false)
   }
   }
   if (r != 0){
-   return t
-  }else{
+    return t
+  } else {
     return f
   }
-  }
-  
+}
+
   doesWordExist(wordsFind, )
 
 // Iteration #7: Count repetition
@@ -150,6 +149,7 @@ function howManyTimes(m,x){
   }
   return u
 }
+
 howManyTimes(wordsCount, )
 // Iteration #8: Bonus
 
