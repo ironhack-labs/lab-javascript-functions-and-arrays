@@ -88,15 +88,12 @@ function averageWordLength(strArr){
   //let wordLengthArray = new Array()[strArr.length];
 
   for(let i = 0; i < strArr.length; i++){
-    
-    wordLengthArray[i] += strArr[i].length;  
+    wordLengthArray.push(strArr[i].length);
+    console.log("The word",strArr[i],"has a length of",wordLengthArray[i]);
   }
-  
-  for(let i = 0; i < wordLengthArray.length; i++){
-    console.log(wordLengthArray[i]);
-  }
+  return averageNumbers(wordLengthArray);
 }
-console.log(averageWordLength(wordsArr));
+//console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -112,6 +109,26 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(strArr){
+  let cleanArr = [];
+  let isRepeated;
+
+  for(let i = 0; i < strArr.length; i++){
+    //let current = strArr.indexOf(strArr[i]);
+    isRepeated = strArr.indexOf(strArr[i], i+1)
+    console.log(strArr[i],"is repeated?:",isRepeated);
+    if(isRepeated != -1){
+      strArr.splice(i,1);
+      i--;
+      //delete strArr[i];
+    }else{
+      cleanArr.push(strArr[i]);
+    }
+  }
+  return cleanArr;
+}
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = [
