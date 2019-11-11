@@ -48,7 +48,7 @@ function sumArray(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageWordLength(arr) {
-  let average = sumArray(numbers)/numbersAvg.length
+  return average = sumArray(numbersAvg)/numbersAvg.length
 }
 
 
@@ -66,7 +66,9 @@ const wordsArr = [
   "palace"
 ];
 
-function averageWordLength() {
+function averageWordLength(arr) {
+
+}
 
 
 // Iteration #5: Unique arrays
