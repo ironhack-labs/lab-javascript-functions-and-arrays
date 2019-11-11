@@ -1,60 +1,18 @@
-// Find the maximum
-function maxOfTwoNumbers (num1, num2) {
+// Iteration #1: Find the maximum
 
-  if (num1 > num2) return num1;
-  else if (num2 > num1) return num2;
-  return num1;
-}
-// Finding Longest Word
+// Iteration #2: Find longest word
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+// Iteration #3: Calculate the sum
 
-var words = [
-  'mystery',
-  'brother',
-  'aviator',
-  'crocodile',
-  'pearl',
-  'orchard',
-  'crackpot'
-];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function findLongestWord() {
+// Iteration #4: Calculate the average
+// Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-  var longest = ''
-  words.forEeach((elem) => {
-    if (elem.length > longest.length) longest = elem;
-
-  })
-  
-}
-// Calculating a Sum
-
-var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumArray() {
-  let total = 0;
-  numbers.forEach((number) => {
-    total = total+number;
-
-  })
-console.log(total);
-}
-
-// Calculate the Average
-
-var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers (){
-  numbersAvg = 0
-  numbersAvg.forEach((num)=> {total=num+total
-  })
-  let Average = total/numbersAvg.length
-  console.log (average)
-}
-
-// Array of Strings
-
-var wordsArr = [
-  
+// Level 2: Array of strings
+const wordsArr = [
   'seat',
   'correspond',
   'linen',
@@ -67,21 +25,8 @@ var wordsArr = [
   'palace'
 ];
 
-let total=0
-  function averageWordLength(Array){
-    for(let i = 0; i < Array.length; i ++ ) {
-      let largo=array[i].length
-      total+=largo
-    }
-
-    console.log(total)
-    promedio = total/(array.length)
-    console.log(promedio)
-  }
-
-
-// Unique Arrays
-var wordsUnique = [
+// Iteration #5: Unique arrays
+const wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -95,22 +40,29 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(array){
-  let nuevoArray = [];
-  
-  for (let i = 0; i<array.length; i++) {
-    if (nuevoArray.indexOf(array[i])==-1) {
+function uniquifyArray(array) {
 
-        nuevoArray.shift(array[i])      
+  let indices = [];
+  //var wordsUnique = ['a', 'b', 'a', 'c', 'a', 'd'];
+  //let element = 'poison';
+
+  array.forEach(function (element) {
+    let idx = array.indexOf(element);
+    while (idx != -1) {
+      indices.push(idx);
+      idx = array.indexOf(element, idx + 1);
     }
-  }
-  console.log(nuevoArray)
-
+    console.log(indices);
+    // [})0, 2, 4]
+  })
 }
 
 
-// Finding Elements
-var wordsFind = [
+uniquifyArray(wordsUnique);
+
+
+// Iteration #6: Find elements
+const wordsFind = [
   'machine',
   'subset',
   'trouble',
@@ -121,23 +73,8 @@ var wordsFind = [
   'disobedience'
 ];
 
-function doesWordExists (wordsFind, search) {
-  wordsFind.forEach(wordsFind =>{
-    if(wordsFind===search) {
-      console.log(search)
-      return true
-    } else {
-      return false
-    }
-    
-  })
-
-
-}
-
-// Counting Repetion
-
-var wordsCount = [
+// Iteration #7: Count repetition
+const wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -151,22 +88,9 @@ var wordsCount = [
   'matter'
 ];
 
-function howManyTimes (words, busqueda) {
-  let total = 0
-  words.fearEach(word=>{
-    if (word===busqueda) {
-      total++
-    } else {
-      return false
-    }
-    console.log(total)
-  })
-}
+// Iteration #8: Bonus
 
-  
-// Bonus Quest
-
-var matrix = [
+const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
