@@ -118,7 +118,7 @@ function uniquifyArray(strArr){
     //let current = strArr.indexOf(strArr[i]);
     isRepeated = strArr.indexOf(strArr[i], i+1)
     console.log(strArr[i],"is repeated?:",isRepeated);
-    if(isRepeated != -1){
+    if(isRepeated !== -1){
       strArr.splice(i,1);
       i--;
       //delete strArr[i];
@@ -128,7 +128,7 @@ function uniquifyArray(strArr){
   }
   return cleanArr;
 }
-console.log(uniquifyArray(wordsUnique));
+//console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -141,6 +141,11 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(strArr, searchFor){
+  return strArr.includes(searchFor);
+}
+//console.log(doesWordExist(wordsFind, "yo mate this is a test"));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -156,6 +161,12 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(strArr, searchFor){
+  strArr.sort();
+  return strArr;
+}
+//console.log(howManyTimes(wordsCount));
 
 // Iteration #8: Bonus
 
