@@ -1,4 +1,5 @@
 // Iteration #1: Find the maximum
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -69,6 +70,30 @@ function sumArray(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 >>>>>>> calculating-a-sum
+=======
+
+// Iteration #2: Find longest word
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// Iteration #3: Calculate the sum
+
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// Iteration #4: Calculate the average
+// Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function avarageNumbers(arr) {
+  let sum = 0;
+  arr.forEach(function (num) {
+    sum += num;
+  })
+
+  let avg = sum / arr.length
+  return avg;
+}
+
+>>>>>>> calculate-the-avarage
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -83,6 +108,20 @@ const wordsArr = [
   'palace'
 ];
 
+<<<<<<< HEAD
+=======
+function avarageWordLength(arr) {
+
+  let splitW = [];
+  arr.forEach(function (w) {
+    splitW += w.split(" ");
+  })
+
+  avgLength = (splitW.length) / arr.length;
+  return avgLength;
+}
+
+>>>>>>> calculate-the-avarage
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
