@@ -47,6 +47,20 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+/*
+sumArray(numbersAvg); // Result = 48
+*/
+
+function averageNumbers(array) {
+  let average = 0;
+  average = sumArray(array)/array.length;
+  return average;
+}
+
+/* Test
+averageNumbers(numbersAvg);
+*/
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -60,6 +74,23 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array) {
+
+  let numCharacters = 0;
+  let average = 0;
+
+  for(let i = 0; i < array.length; i++) {
+    for(let j = 0; j < array[i].length; j++) {
+      numCharacters = array[i][j].length;
+        } 
+      }
+      average = numCharacters/array.length;
+      return average;
+    }
+
+  
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
