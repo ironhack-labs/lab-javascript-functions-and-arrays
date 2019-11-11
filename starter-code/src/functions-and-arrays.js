@@ -9,15 +9,23 @@ function maxOfTwoNumbers(a,b) {
 
 // Iteration #2: Find longest word
 function findLongestWord(words) {
+  if (words.length != 0) {
     let max = 0;
-  let longest;
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].length > max) {
-      max = words[i].length;
-      longest = words[i];
+    let longest;
+    for (let i = 0; i < words.length; i++) {
+      if (words[i].length > max) {
+        max = words[i].length;
+        longest = words[i];
+      }
     }
+    return longest;
+    
+  } else {
+    
+
+    return null;
   }
-  return longest;
+    
   
 }
 
@@ -38,11 +46,16 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 function averageNumbers(num) {
+  if (num.length != 0) {
     let suma = 0;
  for (let i = 0; i < num.length; i++) {
    suma += num[i];
  }
   return suma / num.length;
+  } else {
+    return null;
+  }
+    
   
 }
 
@@ -50,12 +63,16 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Level 2: Array of strings
 function averageWordLength(words) {
+  if (words.length != 0) {
   let suma = 0;
   for (let i = 0; i < words.length; i++) {
     suma += words[i].length;
   }
 
   return suma / words.length;
+} else {
+  return null;
+}
 }
 
 const wordsArr = [
@@ -87,6 +104,15 @@ const wordsUnique = [
 ];
 
 // Iteration #6: Find elements
+function doesWordExist(arr, word) {
+  for (let i = 0; i < arr.length; i++) {
+    if (word === arr[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+
 const wordsFind = [
   'machine',
   'subset',
@@ -99,6 +125,15 @@ const wordsFind = [
 ];
 
 // Iteration #7: Count repetition
+function howManyTimes(arr, word) {
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (word === arr[i]) {
+      counter++;
+    }
+  }
+  return counter;
+}
 const wordsCount = [
   'machine',
   'matter',
@@ -114,6 +149,39 @@ const wordsCount = [
 ];
 
 // Iteration #8: Bonus
+function greatestProduct(arr) {
+  let result;
+  let result2;
+  let maxOne = 0;
+  let maxTwo = 0;
+  let maxTotal;
+
+  for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr[i].length - 3; j++) {
+        result = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3];
+        if (result > maxOne) {
+          maxOne = result;
+        }
+      }
+    }
+
+for (let l = 0; l < 20; l++) {
+  for (let k = 0; k < 17; k++) {
+    result2 = arr[k][l] * arr[k+1][l] * arr[k+2][l] * arr[k+3][l];
+    if (result2 > maxTwo) {
+          maxTwo = result2;
+        }
+  }
+}
+
+  if (maxOne >= maxTwo) {
+    maxTotal = maxOne;
+  } else {
+    maxTotal = maxTwo;
+  }
+
+    return maxTotal;
+  }
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
