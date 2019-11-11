@@ -70,7 +70,7 @@ function averageWordLength(arr) {
   for (i = 0; i < arr.length; i++) {
     sum += arr[i].length;
   }
-  return sum/arr.length;
+  return sum / arr.length;
 }
 
 // Iteration #5: Unique arrays
@@ -87,6 +87,16 @@ const wordsUnique = [
   "simple",
   "bring"
 ];
+
+function uniquifyArray(arr) {
+  var unique = [];
+  for (i = 0; i < arr.length; i++) {
+    if (unique.indexOf(arr[i]) == -1) {
+      unique.push(arr[i]);
+    }
+  }
+  return unique;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
