@@ -163,10 +163,17 @@ const wordsCount = [
 ];
 
 function howManyTimes(strArr, searchFor){
-  strArr.sort();
-  return strArr;
+  let wordCounter = 0;
+  //strArr.sort();
+
+  for(let i = 0; i < strArr.length; i++){
+    if(strArr[i] === searchFor){
+      wordCounter++;
+    }
+  }
+  return wordCounter;
 }
-//console.log(howManyTimes(wordsCount));
+//console.log("The searched word appears",howManyTimes(wordsCount, 'matter'),"times.");
 
 // Iteration #8: Bonus
 
