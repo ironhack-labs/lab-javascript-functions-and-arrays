@@ -43,8 +43,6 @@ const wordsUnique = [
 function uniquifyArray(array) {
 
   let indices = [];
-  //var wordsUnique = ['a', 'b', 'a', 'c', 'a', 'd'];
-  //let element = 'poison';
 
   array.forEach(function (element) {
     let idx = array.indexOf(element);
@@ -53,7 +51,7 @@ function uniquifyArray(array) {
       idx = array.indexOf(element, idx + 1);
     }
     console.log(indices);
-    // [})0, 2, 4]
+
   })
 }
 
