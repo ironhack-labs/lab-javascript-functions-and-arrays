@@ -231,32 +231,54 @@ function greatestProduct(matrix){
   let col = 0;
   let arrayPlus = [];
 
-  matrix.forEach(function(e){
-    e.forEach(function(f){
+  for(let i=0; i<matrix.length-1; i++){
+    for(let j=0; j<matrix[i].length; j++){
 
-      if(e < matrix.length || f < e.length){
+      if(row === i && col === j){
 
-        let numberHorizontal = horizontal(matrix, row, col);
-        let numberVertical = vertical(matrix, row, col);
-        let numberDiagonal = diagonal(matrix, row, col);
-        let arrayCompare = [numberHorizontal, numberVertical, numberDiagonal];
+        //console.log('i', i, 'j', j)
+
+        let numberHorizontal = 1;
+        let numberVertical = 1;
+        let numberDiagonal = 1;
+        let numberDiagonalInverse = 1;
+
+        numberHorizontal = matrix[row][col+1];
+        //console.log('numberHorizontal: ', numberHorizontal);
+        numberVertical = matrix[row+1][col];
+        //console.log('numberVertical: ', numberVertical);
+        numberDiagonal = matrix[row+1][col+1];
+        //console.log('numberDiagonal: ', numberDiagonal);
+        numberDiagonalInverse = matrix[row+1][col-1];
+        //console.log('numberDiagonalInverse: ', numberDiagonalInverse);
+
+        let arrayCompare = [numberHorizontal, numberVertical, numberDiagonal, numberDiagonalInverse];
         let bigNumber = compareNumber(arrayCompare);
+        //console.log('bigNumber: ', bigNumber);
         arrayPlus.push(bigNumber);
 
-        if(numberHorizontal > numberVertical && numberHorizontal > numberDiagonal){
+        if(numberHorizontal === bigNumber){
           col++;
-        } else if(numberVertical > numberHorizontal && numberVertical  >numberDiagonal){
+        } else if(numberVertical === bigNumber){
           row++;
-        } else if(numberDiagonal > numberHorizontal && numberDiagonal > numberVertical){
+        } else if(numberDiagonal === bigNumber){
           row++;
           col++;
+        } else if(numberDiagonalInverse === bigNumber){
+          row++;
+          col--;
         }
-        
+
+        //console.log('row', row, 'col', col)
+
       }
 
-    })
-  })
-  
+      continue;
+
+    }
+  }
+
+  //console.log('arrayPlus: ', arrayPlus);
   return plusNumbers(arrayPlus);
 
 }
@@ -271,42 +293,15 @@ function plusNumbers(array){
 
 function compareNumber(array){
 
-  let bigNumber = 0;
+  let biggestNumber = 0;
 
   for(let i=0; i < array.length; i++){
-    if(array[i] > bigNumber){
-      bigNumber = array[i];
+    if(array[i] > biggestNumber){
+      biggestNumber = array[i];
     }
-    
+
   }
 
-  return bigNumber;
-
-}
-
-function horizontal(matrix, i, j){
-
-  if(i < matrix.length || j < matrix[i].length){
-    return matrix[i][j+1];
-  }
-  return 1;
-
-}
-
-function vertical(matrix, i, j){
-
-  if( i < matrix.length || j < matrix[i].length){
-        return matrix[i+1][j];
-      }
-  return 1;
-
-}
-
-function diagonal(matrix, i, j){
-
-  if( i < matrix.length || j < matrix[i].length){
-    return matrix[i+1][j+1];
-  }
-  return 1;
+  return biggestNumber;
 
 }
