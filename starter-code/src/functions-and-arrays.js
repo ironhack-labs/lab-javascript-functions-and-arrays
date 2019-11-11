@@ -74,6 +74,10 @@ const wordsArr = [
   "palace"
 ];
 
+function averageWordLength() {
+
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   "crab",
@@ -89,6 +93,10 @@ const wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(){
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -100,6 +108,10 @@ const wordsFind = [
   "truth",
   "disobedience"
 ];
+
+function doesWordExist(){
+
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -115,6 +127,10 @@ const wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(){
+
+}
 
 // Iteration #8: Bonus
 
@@ -413,3 +429,7 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(){
+  
+}
