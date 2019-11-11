@@ -1,5 +1,6 @@
 // Iteration #1: Find the maximum
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -94,6 +95,20 @@ function avarageNumbers(arr) {
 }
 
 >>>>>>> calculate-the-avarage
+=======
+
+// Iteration #2: Find longest word
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// Iteration #3: Calculate the sum
+
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// Iteration #4: Calculate the average
+// Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+>>>>>>> unique-arrays
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -109,6 +124,7 @@ const wordsArr = [
 ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 function avarageWordLength(arr) {
 
@@ -122,6 +138,8 @@ function avarageWordLength(arr) {
 }
 
 >>>>>>> calculate-the-avarage
+=======
+>>>>>>> unique-arrays
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -137,6 +155,28 @@ const wordsUnique = [
   'bring'
 ];
 
+<<<<<<< HEAD
+=======
+function uniquifyArray(array) {
+
+  let indices = [];
+
+  array.forEach(function (element) {
+    let idx = array.indexOf(element);
+    while (idx != -1) {
+      indices.push(idx);
+      idx = array.indexOf(element, idx + 1);
+    }
+    console.log(indices);
+
+  })
+}
+
+
+uniquifyArray(wordsUnique);
+
+
+>>>>>>> unique-arrays
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
