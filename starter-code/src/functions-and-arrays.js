@@ -146,6 +146,7 @@ function greatestProduct(numbersArr){
   let currentProducts = [[1], [1]];
   let reducer = (accumulator, currentValue) => accumulator * currentValue;
 
+  // check horizontal and inverse diagonal
   for (let i = 0; i < numbersArr.length; i++){
     for (let j = 0; j <= numbersArr[i].length - N; j++){
       
@@ -156,12 +157,13 @@ function greatestProduct(numbersArr){
         }
       }
       currentProducts.forEach(e => {
-        if (e.reduce(reducer) > maxProduct) maxProduct = e.reduce(reducer);
+        maxProduct = maxOfTwoNumbers(e.reduce(reducer), maxProduct);
       });
 
     }
   }
 
+  // check vertical and diagonal
   for (let j = 0; j < numbersArr[0].length; j++){
     for (let i = 0; i <= numbersArr.length - N; i++){
       
@@ -172,7 +174,7 @@ function greatestProduct(numbersArr){
         }
       }
       currentProducts.forEach(e => {
-        if (e.reduce(reducer) > maxProduct) maxProduct = e.reduce(reducer);
+        maxProduct = maxOfTwoNumbers(e.reduce(reducer), maxProduct);
       });
 
     }
