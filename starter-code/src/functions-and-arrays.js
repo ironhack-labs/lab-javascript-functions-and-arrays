@@ -130,6 +130,23 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(wordsFind) {
+  if (wordsFind.length === 0)
+  {
+return false;
+  }
+  else
+  {    
+   for (var i = 0; i < wordsFind.length; i++) {
+    for (var j = 0; j < wordsFind[i].length; j++) {
+      if (wordsFind[i] === wordsFind[j]) {
+        return true;
+      }
+    }
+    return false;
+  } 
+  }
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -144,6 +161,27 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount){
+  var count = 0;
+  if (wordsCount.length === 0)
+  {
+    return 0;
+  }
+  else
+  {
+  for (var i = 0; wordsCount.length ; i++)
+  {
+    for (var j = 0; wordsCount[i].length; j++)
+    {
+    if (wordsCount[i] === wordsCount[j])
+    {
+      count += 1;
+    }  
+    }
+  }
+  }
+  }
 
 // Iteration #8: Bonus
 
