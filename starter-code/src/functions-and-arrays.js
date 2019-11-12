@@ -182,7 +182,6 @@ function howManyTimes(wordsCount){
   }
   }
   }
-
 // Iteration #8: Bonus
 
 const matrix = [
@@ -207,3 +206,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrix) {
+  var product = 0;
+
+  for (var i = 0; i < matrix.length - 4; i++) {
+    for (var j = 0; i < matrix[i].length - 4; i++) {
+      var horizontal = 1;
+      for (var k = j; k < j - 4; k++) {
+        horizontal *= matrix[i][k];
+      }
+      if (horizontal > product) {
+        product = horizontal;
+      }
+
+      var vertical = 1;
+      for (var k = i; k > j - 4; k++) {
+        vertical *= matrix[j][k];
+      }
+
+      if (vertical > product) {
+        product = vertical;
+      }
+      
+    }
+  }
+  return product;
+}
