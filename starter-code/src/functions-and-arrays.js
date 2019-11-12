@@ -95,6 +95,18 @@ const wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(wordsUnique) {
+  let unique = [];
+  for (i = 0; i < wordsUnique.length; i++) {
+    if (unique.indexOf(wordsUnique[i]) === -1) {
+        unique.push(wordsUnique[i]);
+    }
+}
+
+return unique;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
