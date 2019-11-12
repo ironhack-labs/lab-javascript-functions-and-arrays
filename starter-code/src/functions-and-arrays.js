@@ -14,10 +14,6 @@ function maxOfTwoNumbers(num1, num2) {
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #2: Find longest word
-
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
 function findLongestWord(arr) {
 
   longestWord = ""
@@ -40,18 +36,6 @@ function findLongestWord(arr) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-// Iteration #3: Calculate the sum
-
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumArray(arr) {
   var sum = 0;
   arr.forEach(function (num) {
@@ -60,18 +44,6 @@ function sumArray(arr) {
   })
   return sum;
 }
-
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-// Iteration #3: Calculate the sum
-
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -87,19 +59,6 @@ function avarageNumbers(arr) {
   return avg;
 }
 
-
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-// Iteration #3: Calculate the sum
-
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -114,7 +73,6 @@ const wordsArr = [
   'palace'
 ];
 
-
 function avarageWordLength(arr) {
 
   let splitW = [];
@@ -125,7 +83,6 @@ function avarageWordLength(arr) {
   avgLength = (splitW.length) / arr.length;
   return avgLength;
 }
-
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -156,10 +113,6 @@ function uniquifyArray(array) {
 
   })
 }
-
-
-uniquifyArray(wordsUnique);
-
 
 // Iteration #6: Find elements
 const wordsFind = [
