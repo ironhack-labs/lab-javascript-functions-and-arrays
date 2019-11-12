@@ -18,6 +18,9 @@ const words = [
 ];
 
 function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
   var longestWord = "";
   for (let i = 0; i < arr.length; i++) {
     if (longestWord.length < arr[i].length) {
@@ -48,10 +51,10 @@ sumArray(numbers);
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(num) {
-  if (Array.isArray(num) && num.length > 0) {
-    var sum = sumArray(num);
-    return sum / num.length;
+  if (num.length === 0) {
+    return null;
   }
+  return sumArray(num) / num.length;
 }
 
 averageNumbers(numbersAvg);
@@ -71,13 +74,14 @@ const wordsArr = [
 ];
 
 function averageWordLength(arr) {
-  if (Array.isArray(arr) && arr.length > 0) {
-    var arrayOfLength = [];
-    for (var i = 0; i < arr.length; i++) {
-      arrayOfLength.push(arr[i].length);
-    }
-    return averageNumbers(arrayOfLength);
+  if (arr.length === 0) {
+    return null;
   }
+  var arrayOfLength = [];
+  for (var i = 0; i < arr.length; i++) {
+    arrayOfLength.push(arr[i].length);
+  }
+  return averageNumbers(arrayOfLength);
 }
 averageWordLength(wordsArr);
 
@@ -97,16 +101,13 @@ const wordsUnique = [
   "bring"
 ];
 function uniquifyArray(arr) {
-  if (Array.isArray(arr) && arr.length !== 0) {
-    var unifiedArray = [];
-    for (i = 0; i < wordsUnique.length; i++) {
-      console.log(wordsUnique[i]);
-      if (unifiedArray.indexOf(wordsUnique[i]) === -1) {
-        unifiedArray.push(wordsUnique[i]);
-      }
+  var unifiedArray = [];
+  arr.forEach(function(word) {
+    if (unifiedArray.indexOf(word) === -1) {
+      unifiedArray.push(word);
     }
-    return unifiedArray;
-  }
+  });
+  return unifiedArray;
 }
 uniquifyArray(wordsUnique);
 
