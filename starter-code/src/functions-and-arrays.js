@@ -99,13 +99,12 @@ function uniquifyArray(wordsUnique) {
   let unique = [];
   for (i = 0; i < wordsUnique.length; i++) {
     if (unique.indexOf(wordsUnique[i]) === -1) {
-        unique.push(wordsUnique[i]);
+      unique.push(wordsUnique[i]);
     }
-}
+  }
 
-return unique;
+  return unique;
 }
-
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -118,6 +117,21 @@ const wordsFind = [
   "truth",
   "disobedience"
 ];
+
+function doesWordExist(wordsFind) {
+
+  blank=true
+  blank2=false
+  for (i = 0; i < wordsFind.length; i++) {
+    for (j = 0; j < wordsFind.length; i++)
+      if (wordsFind[i] === wordsFind[j]) {
+        blank=wordsFind[i]
+        blank2=wordsFind[j]
+        return blank;
+      }
+    }
+  return blank2;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
