@@ -1,9 +1,5 @@
 // Iteration #1: Find the maximum
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 function maxOfTwoNumbers(num1, num2) {
 
   if (num1 > num2) {
@@ -17,7 +13,7 @@ function maxOfTwoNumbers(num1, num2) {
 // Iteration #2: Find longest word
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-=======
+
 // Iteration #2: Find longest word
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -39,7 +35,6 @@ function findLongestWord(arr) {
   }
 
 };
->>>>>>> find-longest-word
 
 // Iteration #3: Calculate the sum
 
@@ -49,7 +44,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-=======
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -70,8 +65,6 @@ function sumArray(arr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
->>>>>>> calculating-a-sum
-=======
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -94,8 +87,6 @@ function avarageNumbers(arr) {
   return avg;
 }
 
->>>>>>> calculate-the-avarage
-=======
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -108,7 +99,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
->>>>>>> unique-arrays
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -123,9 +114,7 @@ const wordsArr = [
   'palace'
 ];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 function avarageWordLength(arr) {
 
   let splitW = [];
@@ -137,9 +126,7 @@ function avarageWordLength(arr) {
   return avgLength;
 }
 
->>>>>>> calculate-the-avarage
-=======
->>>>>>> unique-arrays
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -155,8 +142,6 @@ const wordsUnique = [
   'bring'
 ];
 
-<<<<<<< HEAD
-=======
 function uniquifyArray(array) {
 
   let indices = [];
@@ -176,7 +161,6 @@ function uniquifyArray(array) {
 uniquifyArray(wordsUnique);
 
 
->>>>>>> unique-arrays
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
