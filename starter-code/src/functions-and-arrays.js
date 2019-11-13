@@ -89,8 +89,9 @@ function averageWordLength(array) {
       return average;
     }
 
-  
+/*  
 averageWordLength(wordsArr);
+*/
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
