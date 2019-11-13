@@ -89,6 +89,37 @@ const wordsArr = [
 ];
 
 // Iteration #5: Unique arrays
+/* function uniquifyArray(arr) {
+  let newArr = [];
+  arr.push(null);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(arr[i], i+1) === -1) {
+      if (arr[i] != null) {
+        newArr.push(arr[i]);
+      }
+    } else {
+      for (let j = i + 1; j < arr.length -1; j++) {
+        if (arr[i] === arr[j]) {
+          arr[j] = null;
+        }
+      }
+    }
+  }
+
+  return newArr;
+} */
+
+function uniquifyArray(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  
+  return newArr;
+}
+
 const wordsUnique = [
   'crab',
   'poison',
