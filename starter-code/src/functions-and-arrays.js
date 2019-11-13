@@ -32,6 +32,7 @@ sumArray(numbers)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
 function averageNumbers(){
   for (var i = 0, sum = 0; i < numbersAvg.length; sum += numbersAvg[i++]);
   return (sum/numbersAvg.length);
