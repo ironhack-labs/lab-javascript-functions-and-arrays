@@ -144,7 +144,13 @@ const wordsCount = [
 
 function howManyTimes(wordsCount,word)  {
 
-  
+  let blank=0;
+  for(i=0; i<wordsCount.length;i++)
+  if (wordsCount[i]===word){
+    blank +=1;
+
+  }
+return blank;
 
 }
 
