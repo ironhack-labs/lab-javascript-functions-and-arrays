@@ -134,6 +134,21 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(array, word) {
+  
+  let repeats = [];
+  for(let i = 0; i < array.length; i++) {
+    if(array[i].toLowerCase() === word) {
+      repeats.push(i);
+    }
+  }
+  return "The character " + word + " appears: " + repeats.length;
+}
+
+/*
+howManyTimes(wordsCount,"matter");
+*/
+
 // Iteration #8: Bonus
 
 const matrix = [
