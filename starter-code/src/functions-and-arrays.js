@@ -66,7 +66,7 @@ function averageWordLength(array){
   return average;
   };
 };
-// Sé que puedo utilizar la función anterior pero no sé cómo hacer para dividir las palabras, contar sus vocales y hacer la media de todo
+// Sé que puedo utilizar la función anterior pero no sé cómo hacer para dividir las palabras, contar sus vocales y hacer la media de todo. Esto lo he resuelto con un poco de ayuda.
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
