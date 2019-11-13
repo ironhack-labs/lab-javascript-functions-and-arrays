@@ -13,17 +13,16 @@ function maxOfTwoNumbers(num1, num2){
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words){
-  let longest;
+  let longest = "";
   //console.log(words.length);
 
   if(words.length === 0){
-    //console.log("hola")
     return null;
   }
   for(let i = 0; i < words.length; i++){
     if(words.length === 1){
       longest = words[0];
-    }else if(words[i].length > words[i+1].length){
+    }else if(words[i].length > longest.length){
       longest = words[i];
     }
   }
@@ -129,6 +128,19 @@ function uniquifyArray(strArr){
   return cleanArr;
 }
 //console.log(uniquifyArray(wordsUnique));
+
+/* Solución de mi compañero Gonzalo Hernandez, mucho mas limpia, y menos embrollada
+ya lo hemos estado hablando y queda entendido por mi parte, mi lógica es demasiado enrrevesada
+pero os la dejo por si me tenéis que hacer algun comentario (me falla uno de los 4 tests)
+
+function uniquifyArray(wordsArr){
+  let uniqueWords = [];
+  wordsArr.forEach(e => {
+    if (uniqueWords.indexOf(e) === -1) uniqueWords.push(e);
+  });
+  return uniqueWords;
+}
+*/
 
 // Iteration #6: Find elements
 const wordsFind = [
