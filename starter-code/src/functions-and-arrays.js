@@ -118,19 +118,13 @@ const wordsFind = [
   "disobedience"
 ];
 
-function doesWordExist(wordsFind) {
-
-  blank=true
-  blank2=false
+function doesWordExist(wordsFind, word) {
   for (i = 0; i < wordsFind.length; i++) {
-    for (j = 0; j < wordsFind.length; i++)
-      if (wordsFind[i] === wordsFind[j]) {
-        blank=wordsFind[i]
-        blank2=wordsFind[j]
-        return blank;
-      }
+    if (word === wordsFind[i]) {
+      return true;
     }
-  return blank2;
+  }
+  return false;
 }
 
 // Iteration #7: Count repetition
