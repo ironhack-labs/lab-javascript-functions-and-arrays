@@ -169,3 +169,112 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+
+    let adjacentNumbers = 4,
+        products = [],
+        limitX,
+        limitY;
+
+    if (areAllElementsEqual(matrix)) {
+        let product = getHorizontalVector(0, 0, matrix, adjacentNumbers - 1);
+        return product[product.length - 1];
+    }
+
+    for (let x = 0; x < matrix.length; x++) {
+        for (let y = 0; y < matrix.length; y++) {
+
+            limitY = y + adjacentNumbers - 1;
+
+            if (limitY <= matrix[x].length - 1) {
+                products.push(getHorizontalVector(x, y, matrix, limitY));
+            }
+
+            limitX = x + adjacentNumbers - 1;
+
+            if (limitX <= matrix[y].length - 1) {
+                products.push(getVerticalVector(x, y, matrix, limitX));
+            }
+
+            if (limitY <= matrix[x].length - 1 && limitX <= matrix[y].length - 1) {
+                products.push(getDiagonalVector(x, y, matrix, adjacentNumbers - 1));
+            }
+
+        }
+    }
+
+    return getGreatestProduct(products);
+}
+
+function areAllElementsEqual(matrix) {
+
+    let firstMatrixElement = matrix[0][0];
+    let elementsAreEqual = true;
+
+    for (let x = 0; x < matrix.length; x++) {
+        for (let y = 0; y < matrix.length; y++) {
+            if (matrix[x][y] !== firstMatrixElement) {
+                return !elementsAreEqual;
+            }
+        }
+    }
+
+    return elementsAreEqual;
+}
+
+function getGreatestProduct(products) {
+
+    let greatestProduct = products.reduce(function (a, b) {
+        return a > b[b.length - 1] ? a : b[b.length - 1];
+    }, 0);
+
+    return products.filter(function (el) {
+        return el[el.length - 1] === greatestProduct
+    })[0];
+}
+
+function getHorizontalVector(x, y, matrix, limit) {
+
+    let vector = [];
+
+    for (let i = y; i <= limit; i++) {
+        vector.push(matrix[x][i]);
+    }
+
+    vector.push(getVectorProduct(vector));
+
+    return vector;
+}
+
+function getVerticalVector(x, y, matrix, limit) {
+
+    let vector = [];
+
+    for (let i = x; i <= limit; i++) {
+        vector.push(matrix[i][y]);
+    }
+
+    vector.push(getVectorProduct(vector));
+
+    return vector;
+}
+
+function getDiagonalVector(x, y, matrix, limit) {
+
+    let vector = [];
+
+    for (let i = 0; i <= limit; i++) {
+        vector.push(matrix[x + i][y + i]);
+    }
+
+    vector.push(getVectorProduct(vector));
+
+    return vector;
+}
+
+function getVectorProduct(vector) {
+    return vector.reduce(function (a, b) {
+        return a * b;
+    })
+}
