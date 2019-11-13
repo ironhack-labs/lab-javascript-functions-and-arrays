@@ -95,6 +95,21 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (wordsUnique){
+  var indiceDuplicado = 0;
+  var miArray = [];
+  for(let i = 0; i< wordsUnique.length; i++){
+    indiceDuplicado = miArray.indexOf(wordsUnique[i]);
+  if(indiceDuplicado == -1){
+    miArray.push(wordsUnique[i]);
+
+  }
+  else {
+   }
+  }
+  return miArray;
+ 
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
