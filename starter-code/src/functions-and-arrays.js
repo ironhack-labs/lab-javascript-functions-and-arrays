@@ -53,11 +53,19 @@ const wordsArr = [
   'palace'
 ];
 
-function averageWordLength(){
-  for (var i = 0, sum = 0; i < wordsArr.length; sum += wordsArr[i++]);
-  return (sum);
-}
-averageWordLengt(wordsArr)
+function averageWordLength(array){
+  if(array.length === 0){
+    return null;
+  }else {
+  let count = 0;
+  let average = 0;
+  array.forEach(function(e) {
+    count += e.length;
+    });
+  average = count/array.length;
+  return average;
+  };
+};
 // Sé que puedo utilizar la función anterior pero no sé cómo hacer para dividir las palabras, contar sus vocales y hacer la media de todo
 
 // Iteration #5: Unique arrays
