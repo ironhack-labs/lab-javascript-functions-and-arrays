@@ -1,8 +1,10 @@
+//Tomasz Walasek
+//November 2019
+
 // Iteration #1: Find the maximum
 
 function maxOfTwoNumbers (a, b) {
-  if (a > b) return a;
-  else return b;
+  return Math.max(a, b);
 }
 
 // Iteration #2: Find longest word
@@ -24,11 +26,10 @@ function findLongestWord (words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 //console.log (sumArray(numbers));
 function sumArray (nums) {
-  let s = 0;
-  if (typeof nums === "undefined" || !Array.isArray(nums) || nums.length === 0) 
+   if (typeof nums === "undefined" || !Array.isArray(nums) || nums.length === 0) 
     return 0;
-  nums.forEach (elem => {s = s + elem});
-    return s;
+  return nums.reduce (function(prevVal, elem) {
+    return prevVal + elem}, 0);
 }
 
 // Iteration #4: Calculate the average
@@ -68,6 +69,9 @@ function averageWordLength (words) {
 
 
 // Iteration #5: Unique arrays
+// Take an array of words, remove the duplicates, and return a new array. 
+// You're more than likely going to want to check out the indexOf Array method.
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -82,7 +86,23 @@ const wordsUnique = [
   'bring'
 ];
 
+//console.log(uniquifyArray(wordsUnique));
+function uniquifyArray(words) {
+  if (typeof words === "undefined" || !Array.isArray(words) || words.length === 0) 
+    return [];
+  else
+    return words.filter(selectUnique);
+}
+    
+function selectUnique(value, index, array) {
+  firstOccurence = array.indexOf(value);
+  return index === firstOccurence;
+}
+
 // Iteration #6: Find elements
+// Take in an array of words as one argument, and a word to search for as the other. 
+// Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+
 const wordsFind = [
   'machine',
   'subset',
@@ -93,8 +113,21 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+//console.log(doesWordExist(wordsFind, "vvvv"));
+function doesWordExist(words, word) {
+  let exists = false;
+  if (typeof words === "undefined" || !Array.isArray(words) || words.length === 0) 
+    return false;
+  words.forEach((elem, idx) => {
+    exists = exists || (elem === word);
+  });
+  return exists;
+}
 
 // Iteration #7: Count repetition
+// The function takes in an array of words as the first argument, and a word to search for as the second argument. 
+// It returns the number of times that word appears in the array.
+
 const wordsCount = [
   'machine',
   'matter',
@@ -109,7 +142,21 @@ const wordsCount = [
   'matter'
 ];
 
+//console.log(howManyTimes (wordsCount, "matter"));
+function howManyTimes (words, word) {
+  let count = 0;
+  if (typeof words === "undefined" || !Array.isArray(words) || words.length === 0) 
+    return 0;
+  words.forEach(elem => {
+      if (elem === word) count = count + 1;
+    });
+  return count;
+}
+
 // Iteration #8: Bonus
+// What is the greatest product of four adjacent numbers? 
+// We consider adjacent any four numbers that are next to each other in horizontal, vertical or diagonal.
+// Declare a function named greatestProduct to find it in the 20×20 grid below!
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -133,3 +180,61 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//console.log(greatestProduct (matrix));
+  //Assumption: dim = number of rows = number of columns = matrix.length
+  //Concept: slide a winSize x winSize window across the matrix and calculate max product
+  //         over each row, column, forward-diagonal, and back-diagonal (total 10 products per window).  
+  //         In order to cover the complete matrix the upper-left corner of each window 
+  //         must move in the range: [row = 0..dim - winSize][col = 0..dim - winSize]
+  //         where winSize = window size (in this case 4)
+  
+console.log("Final Result: " + greatestProduct(matrix));
+
+function greatestProduct (matrix) {
+  let winSize = 4;
+  let rmax = matrix.length - winSize;
+  let maxProd = 0;
+  for (r = 0; r <= rmax; r++) {
+    for (c = 0; c <= rmax; c++) {
+      maxProd =  Math.max (maxProd, maxWindowProduct (matrix, r, c, winSize));
+      console.log(`Sliding window at ${r} ${c} Largest product: ${maxProd} `);
+    }
+  }
+  return maxProd;    
+}
+
+function maxWindowProduct (matrix, row, col, winSize) {
+  let rmax = row + winSize - 1;
+  let cmax = col + winSize - 1;
+  let maxWinProd = 0;
+  let prod = 1;
+
+  //calculate max product in rows
+  for (let r = row; r <= rmax; r++) {
+    prod = 1;
+    for  (let c = col; c <= cmax; c++)
+      prod = prod * matrix[r][c];
+    maxWinProd = Math.max(prod, maxWinProd);
+  }
+  //calculate max product in columns
+  for  (let c = col; c <= cmax; c++) {
+    prod = 1;
+    for (let r = row; r <= rmax; r++) 
+      prod = prod * matrix[r][c];
+    maxWinProd = Math.max(prod, maxWinProd);
+  }
+  //calculate product in back-diagonal
+  prod = 1;
+  for (let r = row, c = col; r <= rmax; r++, c++)
+    prod = prod * matrix[r][c];
+  maxWinProd = Math.max(prod, maxWinProd);
+
+  //calculate product in forward-diagonal
+  prod = 1;
+  for (let r = row, c = cmax; r <= rmax; r++, c--)
+    prod = prod * matrix[r][c];
+  maxWinProd = Math.max(prod, maxWinProd);
+
+  return maxWinProd;
+}
