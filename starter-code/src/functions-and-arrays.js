@@ -54,6 +54,26 @@ sumArray(numbers);
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numberArray){
+  let total=0;
+  if(numberArray.length===0){return null;}
+  
+  else{
+    for(let i=0; i<numberArray.length; i++){
+        total+=numberArray[i];
+
+
+    }
+  }
+return total/numberArray.length;
+
+}
+
+
+
+
+averageNumbers(numbersAvg);
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
