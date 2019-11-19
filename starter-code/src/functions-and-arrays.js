@@ -155,14 +155,17 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 function greatestProduct(twodimarray){
+  let largestProductIndices=[];
   let greatestProductSoFar=0; // assume all numbers are positive
   // compute products horizontally
   for(let i=0;i<twodimarray.length;i++){
     let row=twodimarray[i];
     for(let j=0;j<row.length-3;j++){
       let product=row[j]*row[j+1]*row[j+2]*row[j+3];
-      if(product>greatestProductSoFar)
+      if(product>greatestProductSoFar){
         greatestProductSoFar=product;
+        largestProductIndices=[[i,j],[i,j+1],[i,j+2],[i,j+3]];
+      }
     }
   }
   // compute products vertically
@@ -173,8 +176,10 @@ function greatestProduct(twodimarray){
       product*=twodimarray[i+1][j];
       product*=twodimarray[i+2][j];
       product*=twodimarray[i+3][j];
-      if(product>greatestProductSoFar)
+      if(product>greatestProductSoFar){
         greatestProductSoFar=product;
+        largestProductIndices=[[i,j],[i+1,j],[i+2,j],[i+3,j]];
+      }
     }
   }
   // and diagonally 
@@ -185,9 +190,19 @@ function greatestProduct(twodimarray){
       product*=twodimarray[i+1][j+1];
       product*=twodimarray[i+2][j+2];
       product*=twodimarray[i+3][j+3];
-      if(product>greatestProductSoFar)
+      if(product>greatestProductSoFar){
         greatestProductSoFar=product;
+        largestProductIndices=[[i,j],[i+1,j+1],[i+2,j+2],[i+3,j+3]];
+      }
     }
+  }
+  if(largestProductIndices.length==4){
+    console.log("The 4 indices with the largest product are: ",largestProductIndices);
+    console.log("The 4 values with the largest product are: "+
+      twodimarray[largestProductIndices[0][0]][largestProductIndices[0][1]]+" "+
+      twodimarray[largestProductIndices[1][0]][largestProductIndices[1][1]]+ " "+
+      twodimarray[largestProductIndices[2][0]][largestProductIndices[2][1]]+ " "+
+      twodimarray[largestProductIndices[3][0]][largestProductIndices[3][1]]);
   }
   return greatestProductSoFar;
 }
