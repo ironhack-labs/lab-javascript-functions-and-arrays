@@ -99,6 +99,8 @@ function uniquifyArray(wordArray){
 }
 console.log(uniquifyArray(wordsUnique));
 
+//1-line solution: 
+//console.log([... new Set(words)]);
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -111,6 +113,17 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordArray, searchingWord){
+  if (wordArray.length === 0) {return false};
+  for (let i = 0; i<wordArray.length; i++){
+    if (wordArray.includes(searchingWord)){
+      return true;
+    }
+    else {return false;}
+  }
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
