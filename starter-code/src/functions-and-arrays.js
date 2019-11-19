@@ -1,15 +1,42 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(one,two){
+  return(one>two?one:two);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(arrayofwords){
+  if(!arrayofwords||!Array.isArray(arrayofwords)||arrayofwords.length==0)
+    return null;
+  let longestword="";
+  for(let i=0;i<arrayofwords.length;i++){
+    if(longestword==null||arrayofwords[i].length>longestword.length){
+      longestword=arrayofwords[i];
+    }
+  }
+  return longestword;
+}
+console.log("The longest word is: '"+findLongestWord(words)+"'.");
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(arrayofnumbers){
+  let sum=0;
+  for(let i=0;i<arrayofnumbers.length;i++)sum+=arrayofnumbers[i];
+  return sum;
+}
+console.log("The sum equals: "+sumArray(numbers)+".");
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arrayofnumbers){
+  if(arrayofnumbers&&Array.isArray(arrayofnumbers)&&arrayofnumbers.length>0)
+    return sumArray(arrayofnumbers)/arrayofnumbers.length;
+  return null;
+}
+console.log("The average equals "+averageNumbers(numbersAvg)+".");
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +51,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(arrayofwords){
+  if(arrayofwords&&Array.isArray(arrayofwords)&&arrayofwords.length>0){
+    let wordlengthsum=0;
+    for(i=0;i<arrayofwords.length;i++){
+      wordlengthsum+=arrayofwords[i].length;
+    }
+    return wordlengthsum/arrayofwords.length;
+  }
+  // no words so zero average word length
+  return null;
+}
+console.log("The average word length is: "+averageWordLength(wordsArr)+".");
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -39,6 +78,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(anyarray){
+  let elementset=[];
+  if(anyarray&&Array.isArray(anyarray)&&anyarray.length>0){
+    elementset.push(anyarray[0]); // first element unique
+    for(let i=1;i<anyarray.length;i++){ // check all other elements
+      if(elementset.indexOf(anyarray[i])<0) // unique if not present yet
+        elementset.push(anyarray[i]); // append
+    }
+  }
+  return elementset;
+}
+console.log("The unique words are: "+uniquifyArray(wordsUnique)+".");
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -51,6 +102,12 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(words,wordtofind){
+  let i=(words&&Array.isArray(words)?words.length:0);
+  while(--i>=0)if(words[i]===wordtofind)break;
+  return(i>=0);
+}
+console.log("Does 'matter' exist? "+(doesWordExist('matter')?"YES":"NO")+".");
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +123,12 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(words,wordtofind){
+  let numberOfTimes=0;
+  for(let i=0;i<words.length;i++)if(words[i]===wordtofind)numberOfTimes++;
+  return numberOfTimes;
+}
+console.log("'matter' occurs "+howManyTimes(wordsCount,'matter')+".");
 
 // Iteration #8: Bonus
 
@@ -91,3 +154,41 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(twodimarray){
+  let greatestProductSoFar=0; // assume all numbers are positive
+  // compute products horizontally
+  for(let i=0;i<twodimarray.length;i++){
+    let row=twodimarray[i];
+    for(let j=0;j<row.length-3;j++){
+      let product=row[j]*row[j+1]*row[j+2]*row[j+3];
+      if(product>greatestProductSoFar)
+        greatestProductSoFar=product;
+    }
+  }
+  // compute products vertically
+  for(let i=0;i<twodimarray.length-3;i++){
+    let row=twodimarray[i];
+    for(let j=0;j<row.length;j++){
+      let product=row[j];
+      product*=twodimarray[i+1][j];
+      product*=twodimarray[i+2][j];
+      product*=twodimarray[i+3][j];
+      if(product>greatestProductSoFar)
+        greatestProductSoFar=product;
+    }
+  }
+  // and diagonally 
+  for(let i=0;i<twodimarray.length-3;i++){
+    let row=twodimarray[i];
+    for(let j=0;j<row.length-3;j++){
+      let product=row[j];
+      product*=twodimarray[i+1][j+1];
+      product*=twodimarray[i+2][j+2];
+      product*=twodimarray[i+3][j+3];
+      if(product>greatestProductSoFar)
+        greatestProductSoFar=product;
+    }
+  }
+  return greatestProductSoFar;
+}
+console.log("The greatest product of 4 numbers is: "+greatestProduct(matrix)+".");
