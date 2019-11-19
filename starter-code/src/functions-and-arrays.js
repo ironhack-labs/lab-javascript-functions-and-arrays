@@ -67,6 +67,18 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength ( array ) {
+  let sumArrayWordLength = 0;
+  if(array.length!=0) {
+    for( let i=0; i<array.length; i++) {
+      sumArrayWordLength += array[i].length;
+    }
+    return sumArrayWordLength / array.length;
+  } else {
+    return null;
+  }
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
