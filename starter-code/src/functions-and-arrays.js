@@ -56,15 +56,16 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numberArray){
   let total=0;
-  if(numberArray.length===0){return null;}
   
-  else{
+  if(numberArray.length===0) return null;
+/*
     for(let i=0; i<numberArray.length; i++){
         total+=numberArray[i];
-
-
     }
-  }
+    */
+   for (number of numberArray) {
+     total += number;
+   }
 return total/numberArray.length;
 
 }
@@ -87,6 +88,22 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr){
+  if(wordsArr.length===0) return null;
+  let sum=0;
+  /*
+  for(let i=0; i<wordsArr.length; i++){
+      sum+=wordsArr[i].length;
+
+  }
+  */
+
+ for (word of wordsArr) {
+   sum += word.length;
+ }
+return sum/wordsArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
