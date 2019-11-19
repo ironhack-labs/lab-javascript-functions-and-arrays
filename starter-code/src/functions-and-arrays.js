@@ -120,6 +120,17 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  let newWordsArray=[];
+  /*let elementOfArray=wordsUnique[0];
+  let indexOfArrayElement=wordsUnique.indexOf(elementOfArray);
+  while(indexOfArrayElement!=-1){
+      newWordsArray.push(indexOfArrayElement);
+      indexOfArrayElement=wordsUnique.indexOf(elementOfArray, indexOfArrayElement +1);
+  }*/
+  return newWordsArray;
+ }
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
