@@ -107,7 +107,7 @@ function doesWordExist(words,wordtofind){
   while(--i>=0)if(words[i]===wordtofind)break;
   return(i>=0);
 }
-console.log("Does 'matter' exist? "+(doesWordExist('matter')?"YES":"NO")+".");
+console.log("Does 'matter' exist? "+(doesWordExist(wordsFind,'matter')?"YES":"NO")+".");
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -128,7 +128,7 @@ function howManyTimes(words,wordtofind){
   for(let i=0;i<words.length;i++)if(words[i]===wordtofind)numberOfTimes++;
   return numberOfTimes;
 }
-console.log("'matter' occurs "+howManyTimes(wordsCount,'matter')+".");
+console.log("'matter' occurs "+howManyTimes(wordsCount,'matter')+" times.");
 
 // Iteration #8: Bonus
 
