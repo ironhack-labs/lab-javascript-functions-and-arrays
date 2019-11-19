@@ -180,3 +180,78 @@ const matrix = [
 ];
 
 // --------------------------------------------------------------
+
+
+let matrix = [
+                [ 1,  2, 3, 4, 5, 8],
+                [ 1, 20, 3, 4, 5, 8],
+                [ 1, 20, 3, 4, 5, 6],
+                [ 1, 20, 3, 4, 5, 7],
+                [ 1,  4, 3, 4, 5, 1]
+            ];
+
+function calcProductOfPosition( matrix, xPos, yPos ) {
+  let maxProduct = -1;
+  let cellProduct = -1;
+
+  // waagerecht
+  cellProduct = calcProductOfPositionHorizontal( matrix, xPos, yPos);
+  if( cellProduct >= 0 && cellProduct > maxProduct) {
+    maxProduct = cellProduct;
+  } 
+  // senkrecht
+  cellProduct = calcProductOfPositionVertical( matrix, xPos, yPos);
+  if( cellProduct >= 0 && cellProduct > maxProduct) {
+    maxProduct = cellProduct;
+  } 
+  return maxProduct;
+
+  // diagonal
+}
+
+function calcProductOfPositionHorizontal( matrix, xPos, yPos ) {
+  let product = -1;
+
+  if( (xPos + 3) < matrix[yPos].length) {
+    product = 1;
+    for (let i=0; i<4; i++) {
+      product *= matrix[yPos][xPos+i];
+    }  
+  }
+  return product;
+}
+
+function calcProductOfPositionVertical( matrix, xPos, yPos ) {
+  let product;
+
+  if( (yPos + 3) < matrix.length) {
+    product = 1;
+    for (let i=0; i<4; i++) {
+      product *= matrix[yPos+i][xPos];
+    }  
+  }
+  return product;
+}
+
+function calcMaxPorductOfMatrix( matrix ) {
+  let maxProduct = -1;
+  let cellProduct = -1;
+  
+  for( let yPos = 0; yPos < matrix.length; yPos++ ) {
+    console.log( matrix[yPos]);
+    console.log( "-------------------------");
+
+    for( let xPos = 0; xPos < matrix.length; xPos++ ) {
+      console.log( " ---> " +matrix[yPos][xPos]);
+  
+      cellProduct = calcProductOfPosition( matrix, xPos, yPos );
+      if( cellProduct >= 0 && cellProduct > maxProduct) {
+        maxProduct = cellProduct;
+      }       
+    }  
+    console.log( "==========================");
+  }
+  return maxProduct;
+}
+
+console.log( calcMaxPorductOfMatrix( matrix ) );
