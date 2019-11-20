@@ -67,7 +67,7 @@ const wordsArr = [
 ];
 
 function averageWordLength(array){
-  if (array.length != 0) {
+  if (array.length != 0){
     let lengthArray = [];  
     for (let i = 0; i<array.length; i++){
       lengthArray.push(array[i].length);  
@@ -75,7 +75,7 @@ function averageWordLength(array){
     console.log(lengthArray);
     let sumLengthArray = 0;
     for (let i = 0 ; i < lengthArray.length; i++){
-      sumLengthArray = sumLengthArray + lengthArray[i];    
+      sumLengthArray += lengthArray[i];    
     }
     console.log(sumLengthArray);
     return sumLengthArray/lengthArray.length;
@@ -103,8 +103,8 @@ const wordsUnique = [
 function uniquifyArray(array){
   if(array.length != 0){
     let uniqueArray = [];
-    for (let i = 0; i < array.length ; i++){
-      if (uniqueArray.indexOf(array[i]) === -1){
+    for(let i = 0; i < array.length ; i++){
+      if(uniqueArray.indexOf(array[i]) === -1){
         uniqueArray.push(array[i]);
       }
     }return uniqueArray;
@@ -125,6 +125,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(array, searchWord){  
+    if(array.includes(searchWord)){
+      return true;
+    }else{
+      return false;
+    }  
+}
+let wordToSearchFor = "matter";
+console.log(doesWordExist(wordsFind, wordToSearchFor));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -140,6 +149,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, searchWord){
+  let counter = 0;
+  array.forEach(element => {
+    if(element === searchWord){
+      counter++;
+    }
+  });
+  return counter;
+}
+let wordToCount = "truth"
+console.log(howManyTimes(wordsCount, wordToCount))
 
 // Iteration #8: Bonus
 
@@ -165,3 +186,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(numberArray){
+  
+}
