@@ -258,10 +258,5 @@ function calcMaxPorductOfMatrix( options ) {
 }
 
 function greatestProduct( matrix ) {
-  let res = calcMaxPorductOfMatrix({ srcMatrix : matrix, calcLength : 4 } );
-
-  console.log(`Result: ${res}`);
-  return res;
-
-  // return calcMaxPorductOfMatrix( matrix );
+  return calcMaxPorductOfMatrix({ srcMatrix : matrix, calcLength : 4 } );
 } 
