@@ -182,76 +182,86 @@ const matrix = [
 // --------------------------------------------------------------
 
 
-let matrix = [
-                [ 1,  2, 3, 4, 5, 8],
-                [ 1, 20, 3, 4, 5, 8],
-                [ 1, 20, 3, 4, 5, 6],
-                [ 1, 20, 3, 4, 5, 7],
-                [ 1,  4, 3, 4, 5, 1]
-            ];
-
-function calcProductOfPosition( matrix, xPos, yPos ) {
+function calcProductOfPosition( options ) {
   let maxProduct = -1;
-  let cellProduct = -1;
 
-  // waagerecht
-  cellProduct = calcProductOfPositionHorizontal( matrix, xPos, yPos);
-  if( cellProduct >= 0 && cellProduct > maxProduct) {
-    maxProduct = cellProduct;
-  } 
-  // senkrecht
-  cellProduct = calcProductOfPositionVertical( matrix, xPos, yPos);
-  if( cellProduct >= 0 && cellProduct > maxProduct) {
-    maxProduct = cellProduct;
-  } 
+  maxProduct = Math.max( calcProductOfPositionHorizontal( options ), maxProduct); // waagerecht
+  maxProduct = Math.max( calcProductOfPositionVertical( options ), maxProduct); // senkrecht
+  maxProduct = Math.max( calcProductOfPositionDiagonal( options ), maxProduct); // diagonal (NE-SW & NW-SE)
+
   return maxProduct;
-
-  // diagonal
 }
 
-function calcProductOfPositionHorizontal( matrix, xPos, yPos ) {
-  let product = -1;
-
-  if( (xPos + 3) < matrix[yPos].length) {
-    product = 1;
-    for (let i=0; i<4; i++) {
-      product *= matrix[yPos][xPos+i];
-    }  
+function calcProductOfPositionHorizontal( options ) {
+  if( (options.xPos + (options.calcLength-1)) < options.srcMatrix[options.yPos].length) {
+    let product = options.srcMatrix[options.yPos][options.xPos];
+    for( let i=1; i<options.calcLength; i++ ) {
+      product *= options.srcMatrix[options.yPos][options.xPos+i];
+    } 
+    return product; 
   }
-  return product;
+  return -1;
 }
 
-function calcProductOfPositionVertical( matrix, xPos, yPos ) {
-  let product;
-
-  if( (yPos + 3) < matrix.length) {
-    product = 1;
-    for (let i=0; i<4; i++) {
-      product *= matrix[yPos+i][xPos];
+function calcProductOfPositionVertical( options ) {
+  if( (options.yPos + (options.calcLength-1)) < options.srcMatrix.length) {
+    let product = options.srcMatrix[options.yPos][options.xPos];
+    for( let i=1; i<options.calcLength; i++ ) {
+      product *= options.srcMatrix[options.yPos+i][options.xPos];
     }  
+    return product;
   }
-  return product;
+  return -1;
 }
 
-function calcMaxPorductOfMatrix( matrix ) {
+function calcProductOfPositionDiagonal( options ) {
   let maxProduct = -1;
-  let cellProduct = -1;
-  
-  for( let yPos = 0; yPos < matrix.length; yPos++ ) {
-    console.log( matrix[yPos]);
-    console.log( "-------------------------");
+  let productNE = -1;
+  let productSE = -1;
 
-    for( let xPos = 0; xPos < matrix.length; xPos++ ) {
-      console.log( " ---> " +matrix[yPos][xPos]);
-  
-      cellProduct = calcProductOfPosition( matrix, xPos, yPos );
-      if( cellProduct >= 0 && cellProduct > maxProduct) {
-        maxProduct = cellProduct;
-      }       
-    }  
-    console.log( "==========================");
+  if( (options.yPos + (options.calcLength-1)) < options.srcMatrix.length ) {
+    // -- NE --
+    if( (options.xPos - (options.calcLength-1)) >= 0 ) {
+      productNE = options.srcMatrix[options.yPos][options.xPos];
+      for (let i=1; i<options.calcLength; i++) {
+        productNE *= options.srcMatrix[options.yPos+i][options.xPos-i];
+      }  
+    }
+
+    // -- SE --
+    if( (options.xPos + (options.calcLength-1))  < options.srcMatrix[options.yPos].length ) {
+      productSE = options.srcMatrix[options.yPos][options.xPos];
+      for( let i=1; i<options.calcLength; i++ ) {
+        productSE *= options.srcMatrix[options.yPos+i][options.xPos+i];
+      } 
+    }
+    maxProduct = Math.max( productNE, productSE );
   }
   return maxProduct;
 }
 
-console.log( calcMaxPorductOfMatrix( matrix ) );
+function calcMaxPorductOfMatrix( options ) {
+  let maxProduct = -1;
+  let cellProduct = -1;
+  
+  if( (options.calcLength > 1) && (options.calcLength < options.srcMatrix.length) ) {
+    for( let yPos = 0; yPos < options.srcMatrix.length; yPos++ ) {
+      for( let xPos = 0; xPos < options.srcMatrix.length; xPos++ ) {
+        cellProduct = calcProductOfPosition( { srcMatrix : options.srcMatrix, xPos : xPos, yPos : yPos, calcLength : options.calcLength } );
+        if( cellProduct >= 0 && cellProduct > maxProduct ) {
+          maxProduct = cellProduct;
+        }       
+      }  
+    }
+  }
+  return maxProduct;
+}
+
+function greatestProduct( matrix ) {
+  let res = calcMaxPorductOfMatrix({ srcMatrix : matrix, calcLength : 4 } );
+
+  console.log(`Result: ${res}`);
+  return res;
+
+  // return calcMaxPorductOfMatrix( matrix );
+} 
