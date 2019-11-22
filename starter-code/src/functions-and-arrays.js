@@ -1,20 +1,20 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(numberOne, numberTwo){
-  if (numberOne > numberTwo){
+function maxOfTwoNumbers(numberOne, numberTwo) {
+  if (numberOne > numberTwo) {
     return numberOne;
   }
-  else if (numberOne < numberTwo){
+  else if (numberOne < numberTwo) {
     return numberTwo;
   }
-  else if (numberOne === numberTwo){
+  else if (numberOne === numberTwo) {
     return numberOne;
   }
 }
-
 // Iteration #2: Find longest word
 var words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 function findLongestWord(words) {
   var longest = words[0];
+  if (words.length === 0) return null;
 
   for (i = 0; i < words.length; i++) {
     if (longest.length < words[i].length) {
@@ -41,9 +41,7 @@ function sumArray(arr) {
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arr) {
   let suma = 0;
-  if (arr.length === 0) {
-    return undefined;
-  }
+  if (arr.length === 0) return null;
 
   for (let i = 0; i < arr.length; i++) {
 
@@ -71,12 +69,9 @@ const wordsArr = [
 ];
 
 function averageWordLength(arr) {
+  if (arr.length === 0) return null;
   var suma = 0;
   var average = 0;
-
-  if (arr.length === 0) {
-    return undefined;
-  }
 
   for (let i = 0; i < arr.length; i++) {
     suma = suma + arr[i].length;
@@ -103,7 +98,7 @@ const wordsUnique = [
 function uniquifyArray(arr) {
   let newArr = [];
   if (arr.length === 0) {
-    return undefined;
+    return [];
   }
 
   for (let i = 0; i < arr.length; i++) {
