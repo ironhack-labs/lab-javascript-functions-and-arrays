@@ -1,15 +1,68 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => {
+  return Math.max(num1, num2);
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const findLongestWord = (words) => {
+  let arrayLength = [];
+  if (words.length !== 0) {
+    words.forEach(element => {
+      arrayLength.push(element.length);
+    });
+    // console.log(arrayLength);
+
+    let longest = Math.max(...arrayLength);
+    // console.log(longest);
+
+    // will find the first occurence of the word that has the same length
+    let indexLongest = arrayLength.indexOf(longest);
+    // console.log(indexLongest);
+
+    return words[indexLongest];
+  } else {
+    return null;
+  }
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = (array) => {
+  let totalSum = 0;
+  if (array.length !== 0) {
+    array.forEach(element => {
+      totalSum += element;
+      // console.log(totalSum);
+    });
+    return totalSum;
+  } else {
+    return totalSum;
+  }
+}
+
+// sumArray([4]);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = (array) => {
+  if (array.length !== 0) {
+    let arrayLength = array.length;
+    let sum = sumArray(array);
+    let average = sum / arrayLength;
+    console.log(average);
+    return average;
+  } else {
+    return null;
+  }
+}
+// averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -25,6 +78,15 @@ const wordsArr = [
   'palace'
 ];
 
+const averageWordLength = (array) => {
+  let arrayLength = [];
+  array.forEach(element => {
+    arrayLength.push(element.length);
+  });
+  return averageNumbers(arrayLength);
+}
+// averageWordLength(wordsArr);
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -39,6 +101,50 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+// const uniquifyArray = (array) => {
+//   let newArray = [];
+//   for(let i = 0; i < array.length; i += 1) {
+//     let acumulador = 0;
+
+//     for(let j = 0; j < array.length; j += 1) {
+
+//       if (array[i] === array[j]) {
+//         acumulador += 1;
+//       }
+//     }
+//     if (acumulador === 0) {
+//       newArray.push(array[i]);
+//     } else {
+//       continue;
+//     }
+//   }
+//   return newArray;
+// }
+
+const uniquifyArray = (array) => {
+  let newArray = [...array];
+  // console.log(newArray);
+  newArray.forEach(element => {
+    let testDuplicated = 0;
+    let indexElement = newArray.indexOf(element);
+
+    if (indexElement !== newArray.length -1) {
+      testDuplicated = newArray.indexOf(element, indexElement + 1);
+      // console.log(testDuplicated);
+    } else {
+      testDuplicated = -1;
+      // console.log(testDuplicated);
+    }
+
+    if (testDuplicated !== -1) {
+      newArray.splice(testDuplicated, 1);
+    }
+  });
+  return newArray;
+}
+
+// console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = [
