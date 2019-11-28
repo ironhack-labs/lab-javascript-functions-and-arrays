@@ -108,21 +108,23 @@ let testArr = [
   "Android"
 ]
 
+let sameArr = ["Ironhack", "Ironhack", "Ironhack"];
+
 function uniquifyArray(array) {
   let uniArray = [];
   if (array.length === 0) {
     return [];
   }else {
     for (let i = 0; i < array.length; i +=1) {
-      if (array.indexOf(array[i], i+1) === -1) {
-        uniArray.push(array[i])
+      if (uniArray.indexOf(array[i]) === -1) {
+        uniArray.push(array[i]);
       }
     }
-    return uniArray;
-  } 
+  }
+  return uniArray; 
 }
 
-console.log(uniquifyArray(testArr))
+console.log(uniquifyArray(wordsUnique))
 
 
 // Iteration #6: Find elements
@@ -136,6 +138,22 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  let wordExist = false;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      wordExist = true;
+      return wordExist;
+    } else {
+      wordExist = false;
+    }
+  }
+  return wordExist;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -151,6 +169,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array, word) {
+  if (array.length === 0) {
+    return 0;
+  }
+  let count = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      count += 1;
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
