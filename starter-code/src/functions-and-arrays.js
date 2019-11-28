@@ -1,15 +1,58 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => {
+  return Math.max(num1,num2);
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array) {
+  let longest = '';
+  if (array.length === 0) {
+      return null
+    }else{  
+    for (let i = 0; i < array.length; i += 1) {
+      if (array[i].length > longest.length) {
+        longest = array[i];
+      }
+    }
+    return longest;
+  }   
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return 0;
+  }else {
+    for (let i = 0; i < array.length; i++) {
+      sum += array[i];
+    }
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  let average = 0;
+  if (array.length === 0) {
+    return null;
+  }else {
+    for (let i = 0; i < array.length; i++) {
+      average += array[i];
+    }
+  }
+  average /= array.length
+  return average ;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -25,6 +68,19 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array) {
+  let average = 0;
+  if (array.length === 0) {
+    return null;
+  }else {
+    for (let i = 0; i < array.length; i++) {
+      average += array[i].length;
+    }
+  }
+  average /= array.length
+  return average ;
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -39,6 +95,35 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+let testArr = [
+  "iPhone",
+  "Samsung",
+  "Android",
+  "iOS",
+  "iPhone",
+  "Samsung",
+  "Nokia",
+  "Blackberry",
+  "Android"
+]
+
+function uniquifyArray(array) {
+  let uniArray = [];
+  if (array.length === 0) {
+    return [];
+  }else {
+    for (let i = 0; i < array.length; i +=1) {
+      if (array.indexOf(array[i], i+1) === -1) {
+        uniArray.push(array[i])
+      }
+    }
+    return uniArray;
+  } 
+}
+
+console.log(uniquifyArray(testArr))
+
 
 // Iteration #6: Find elements
 const wordsFind = [
