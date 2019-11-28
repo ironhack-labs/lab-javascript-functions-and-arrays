@@ -32,25 +32,24 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // const lala = numbers.reduce((a, e) => {return a + e})
 // console.log(lala)
 
-const sumArray = (numbers) => {
-  
+const sumArray = numbers => {
   let sumOfNum = 0;
-  numbers.forEach( e => {
+  numbers.forEach(e => {
     sumOfNum += e;
-  } )
+  });
   return sumOfNum;
-}
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-const averageNumbers = (numArr) => {
+const averageNumbers = numArr => {
   if (numArr.length === 0) {
-    return null
+    return null;
   }
-  return sumArray(numArr)/numArr.length
-}
+  return sumArray(numArr) / numArr.length;
+};
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -66,17 +65,16 @@ const wordsArr = [
   'palace'
 ];
 
-const averageWordLength = (wordArr) => {
+const averageWordLength = wordArr => {
   wordLengthArr = [];
   if (wordArr.length === 0) {
     return null;
   }
-  wordArr.forEach( e => {
-    return wordLengthArr.push(e.length)
-  })
-  return sumArray(wordLengthArr)/wordArr.length
-}
-
+  wordArr.forEach(e => {
+    return wordLengthArr.push(e.length);
+  });
+  return sumArray(wordLengthArr) / wordArr.length;
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -93,6 +91,18 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = arrOfWords => {
+  let arrOfUniqui = [];
+  arrOfWords.forEach(e => {
+    if (arrOfUniqui.indexOf(e) === -1) {
+      arrOfUniqui.push(e);
+    }
+  });
+  return arrOfUniqui;
+};
+
+uniquifyArray(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -104,6 +114,19 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+const doesWordExist = (wordArr, wordToFind) => {
+  let isIncluded = false;
+
+  const forEachCallback = e => {
+    if (e === wordToFind) {
+      isIncluded = true;
+    }
+  };
+
+  wordArr.forEach(forEachCallback);
+
+  return isIncluded;
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -119,6 +142,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (wordArr, wordToCount) => {
+  let wordCounter = 0;
+
+  const forEachCallback = e => {
+    if (e === wordToCount) {
+      wordCounter += 1;
+    }
+  };
+
+  wordArr.forEach(forEachCallback);
+
+  return wordCounter;
+};
+
+console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
 
@@ -417,3 +456,48 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = arrayOfArrays => {
+  const greatestProductArr = [];
+
+  for (let i = 0; i < arrayOfArrays.length; i++) {
+    for (let j = 0; j < arrayOfArrays[i].length; j++) {
+      const currentIndexPlusNextThreeHorizontal =
+        [i][j] * [i][j + 1] * [i][j + 2] * [i][j + 3];
+      const currentIndexPlusNextThreeVertical =
+        [i][j] * [i + 1][j] * [i + 2][j] * [i + 3][j];
+      const currentIndexPlusNextThreeDiagolTop =
+        [i][j] * [i - 1][j + 1] * [i - 2][j + 2] * [i - 3][j + 3];
+      const currentIndexPlusNextThreeDiagolBot =
+        [i][j] * [i + 1][j + 1] * [i + 2][j + 2] * [i + 3][j + 3];
+
+        const valuesToTest = []
+        if (currentIndexPlusNextThreeHorizontal) {
+          valuesToTest.push(currentIndexPlusNextThreeHorizontal);
+        }
+
+        if (currentIndexPlusNextThreeVertical) {
+          valuesToTest.push(currentIndexPlusNextThreeVertical);
+        }
+
+        if (currentIndexPlusNextThreeDiagolTop) {
+          valuesToTest.push(currentIndexPlusNextThreeDiagolTop)
+        }
+
+        if (currentIndexPlusNextThreeDiagolBot) {
+          valuesToTest.push(currentIndexPlusNextThreeDiagolBot)
+        }
+
+        // if (valuesToTest.length === 0) {
+        //   valuesToTest.push(1)
+        // }
+      const greatestProductValue = Math.max(...valuesToTest);
+
+      greatestProductArr.push(greatestProductValue);
+    }
+  }
+  console.log(greatestProductArr);
+  return Math.max(...greatestProductArr);
+};
+
+console.log(greatestProduct(matrix));
