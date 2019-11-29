@@ -231,8 +231,102 @@ let howManyTimes = (array, word) => {
 //   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 // ];
 
-const matrix = [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8];
+const matrix = [
+  [8, 2, 22, 97, 99, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+  [49, 49, 99, 40, 17, 99, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
+  [81, 49, 31, 73, 55, 79, 99, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
+  [52, 70, 95, 23, 4, 60, 11, 99, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
+];
+
+const fourAdjacentProductsColumn = (array, initialPositionY, initialPositionX) => {
+  let product = 0;
+  let i = initialPositionY;
+  let j = initialPositionX;
+
+  product = array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j];
+
+  return product;
+}
+
+const fourAdjacentProductsRow = (array, initialPositionY, initialPositionX) => {
+  let product = 0;
+  let i = initialPositionY;
+  let j = initialPositionX;
+
+  product = array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3];
+
+  return product;
+}
+
+const fourAdjacentProductsDiagonal = (array, initialPositionY, initialPositionX) => {
+  let product = 0;
+  let i = initialPositionY;
+  let j = initialPositionX;
+
+  product = array[i][j] * array[i + 1][j + 1] * array[i + 2][j + 2] * array[i + 3][j + 3];
+
+  return product;
+}
 
 const greatestProduct = (array) => {
-  
-}
+  let maxProduct = 0;
+
+  // max in a row
+
+  for (let i = 0; i < array.length; i += 1) {
+    for (let j = 0; j < array[i].length; j += 1) {
+      if (maxProduct < fourAdjacentProductsRow(array, i, j)) {
+        maxProduct = fourAdjacentProductsRow(array, i, j);
+      }
+    }
+  }
+
+  // max in a column
+
+  for (let i = 0; i + 3 < array.length; i += 1) {
+    for (let j = 0; j < array[i].length; j += 1) {
+      if (maxProduct < fourAdjacentProductsColumn(array, i, j)) {
+        maxProduct = fourAdjacentProductsColumn(array, i, j);
+      }
+    }
+  }
+
+  // max in a diagonal
+
+  for (let i = 0; i + 3 < array.length; i += 1) {
+    for (let j = 0; j < array[i].length; j += 1) {
+      if (maxProduct < fourAdjacentProductsDiagonal(array, i, j)) {
+        maxProduct = fourAdjacentProductsDiagonal(array, i, j);
+      }
+    }
+  }
+
+  console.log(maxProduct);
+  return maxProduct;
+};
+
+greatestProduct(matrix);
+
+//   for (let i1Y = 0; i1Y < array.length; i1Y += 1) {
+//     for (let i1X = 0; i1X < array[i1Y].length; i1X += 1) {
+//       let i2X = i1X + 1;
+//       let i3X = i2X + 1;
+//       let i4X = i3X + 1;
+
+//       if (maxProduct < fourAdjacentProducts(array, i1X)) {
+//         maxProduct = array[i1X] * array[i2X] * array[i3X] * array[i4X];
+//       }
+//     }
+//     console.log(maxProduct);
+//   }
+// }
+
+
+
+    // for (let secondElementRow = i1Row + 1; secondElementRow < arrayLength; secondElementRow += 1) {
+    //   for (let thirdElementRow = secondElementRow + 1; thirdElementRow < array.length; thirdElementRow += 1) {
+    //     for (let fourthElementRow = thirdElementRow + 1; fourthElementRow < array.length; fourthElementRow += 0) {
+    //       maxProduct = array[]
+    //     }
+    //   }
+    // }
