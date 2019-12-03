@@ -460,16 +460,16 @@ const matrix = [
 const greatestProduct = arrayOfArrays => {
   const greatestProductArr = [];
 
-  for (let i = 0; i < arrayOfArrays.length; i++) {
-    for (let j = 0; j < arrayOfArrays[i].length; j++) {
+  for (let i = 0; i < arrayOfArrays.length -3; i++) {
+    for (let j = 0; j < arrayOfArrays[i].length -3; j++) {
       const currentIndexPlusNextThreeHorizontal =
-        [i][j] * [i][j + 1] * [i][j + 2] * [i][j + 3];
+      arrayOfArrays[i][j] * arrayOfArrays[i][j + 1] * arrayOfArrays[i][j + 2] * arrayOfArrays[i][j + 3];
       const currentIndexPlusNextThreeVertical =
-        [i][j] * [i + 1][j] * [i + 2][j] * [i + 3][j];
-      const currentIndexPlusNextThreeDiagolTop =
-        [i][j] * [i - 1][j + 1] * [i - 2][j + 2] * [i - 3][j + 3];
+      arrayOfArrays[i][j] * arrayOfArrays[i + 1][j] * arrayOfArrays[i + 2][j] * arrayOfArrays[i + 3][j];
+          //  currentIndexPlusNextThreeDiagolTop =
+          //  arrayOfArrays[i][j] * arrayOfArrays[i - 1][j + 1] * arrayOfArrays[i - 2][j + 2] * arrayOfArrays[i - 3][j + 3];
       const currentIndexPlusNextThreeDiagolBot =
-        [i][j] * [i + 1][j + 1] * [i + 2][j + 2] * [i + 3][j + 3];
+      arrayOfArrays[i][j] * arrayOfArrays[i + 1][j + 1] * arrayOfArrays[i + 2][j + 2] * arrayOfArrays[i + 3][j + 3];
 
         const valuesToTest = []
         if (currentIndexPlusNextThreeHorizontal) {
@@ -480,9 +480,9 @@ const greatestProduct = arrayOfArrays => {
           valuesToTest.push(currentIndexPlusNextThreeVertical);
         }
 
-        if (currentIndexPlusNextThreeDiagolTop) {
-          valuesToTest.push(currentIndexPlusNextThreeDiagolTop)
-        }
+          // if (currentIndexPlusNextThreeDiagolTop) {
+          //   valuesToTest.push(currentIndexPlusNextThreeDiagolTop)
+          // }
 
         if (currentIndexPlusNextThreeDiagolBot) {
           valuesToTest.push(currentIndexPlusNextThreeDiagolBot)
