@@ -1,4 +1,21 @@
 // Iteration #1: Find the maximum
+// Iteration #1: Find the maximum
+let maxNumber = 0;
+function maxOfTwoNumbers(x, y) {
+  if (x > y) {
+    maxNumber = x;
+    console.log(maxNumber);
+  }
+  else if (x < y) {
+    maxNumber = y;
+    console.log(maxNumber);
+  }
+  else {
+    console.log('The numbers are equal');
+  }
+}
+maxOfTwoNumbers(4, 4)
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
