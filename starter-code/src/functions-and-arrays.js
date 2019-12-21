@@ -81,6 +81,21 @@ const wordsArr = [
   'palace'
 ];
 
+
+
+let wordsArrTotal = 0;
+let numberElementsArr = 0;
+let avgArr = 0;
+
+for (let i = 0; i < wordsArr.length; i++) {
+
+  wordsArrTotal += wordsArr[i].length;
+}
+avgArr = wordsArrTotal / wordsArr.length;
+
+console.log(avgArr);
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
