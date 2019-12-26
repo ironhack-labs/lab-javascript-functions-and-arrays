@@ -30,7 +30,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    sum = sum + array[i];
+    sum += array[i];
   }
   return sum;
 }
@@ -44,7 +44,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    sum = sum + array[i];
+    sum += array[i];
   }
   return sum / array.length;
 }
@@ -68,7 +68,7 @@ const wordsArr = [
 function averageWordLength(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    sum = sum + array[i].length;
+    sum += array[i].length;
   }
   return sum / array.length;
 }
@@ -89,6 +89,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(array) {
+  let newCleanArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (newCleanArray.indexOf(array[i]) == -1 ) {
+      newCleanArray.push(array[i]);
+    }
+  }
+  return newCleanArray;
+}
+
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
