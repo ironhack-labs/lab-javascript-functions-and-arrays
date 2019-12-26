@@ -114,6 +114,17 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(array, wordToSearch) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === wordToSearch) {
+      return true;
+    } 
+  }
+  return false;
+}
+
+doesWordExist(wordsFind, "troublemaker");
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -128,6 +139,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, wordToSearch) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] == wordToSearch) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+howManyTimes(wordsCount, "matter");
 
 // Iteration #8: Bonus
 
