@@ -30,7 +30,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    sum =+ sum + array[i];
+    sum = sum + array[i];
   }
   return sum;
 }
@@ -44,7 +44,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    sum =+ sum + array[i];
+    sum = sum + array[i];
   }
   return sum / array.length;
 }
@@ -65,7 +65,15 @@ const wordsArr = [
   'palace'
 ];
 
-function 
+function averageWordLength(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum = sum + array[i].length;
+  }
+  return sum / array.length;
+}
+
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
