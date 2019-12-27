@@ -44,6 +44,17 @@ function sumArray (arr){
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr){
+  let sum = null;
+  if (arr.length >0){
+    sum=0;
+    for(var i = 0; i < arr.length; i++){
+    sum += arr[i];
+    }
+  }
+  return sum === null ? sum : sum / arr.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -57,6 +68,17 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(arr){
+  let sum = null;
+  if (arr.length >0){
+    sum=0;
+    for(var i = 0; i < arr.length; i++){
+    sum += arr[i].length;
+    }
+  }
+  return sum === null ? sum : sum / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
