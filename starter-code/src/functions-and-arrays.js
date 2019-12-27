@@ -23,7 +23,7 @@ findLongestWord(words);
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sum (arrayTotal) {
+function sumArray (arrayTotal) {
   let result = 0;
   for (i = 0; i < arrayTotal.length; i++) {
     result += arrayTotal[i];
@@ -35,9 +35,20 @@ sumArray(numbers);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (array) {
+  let result = 0;
+  for (let i = 0; i < array.length; i++) {
+    result += array[i];
+  }
+  return result/ array.length;
+}
+averageNumbers (numbersAverage);
+
 // Level 2: Array of strings
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -50,6 +61,16 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (array) {
+  let result = 0;
+  for (let i = 0; i < array.length; i++) {
+    result += array[i].length;
+  }
+  return result / array.length;
+}
+
+averageWordLength (wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -65,8 +86,19 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (array) {
+  let unique = [];
+  for (i = 0; i < array.length; i++) {
+    if (unique.indexOf(array[i]) === -1) {
+      unique.push(array[i]);
+    }
+    return unique;
+  }
+}
+uniquifyArray (uniqueWords);
 
 // Iteration #6: Find elements
+
 const wordsFind = [
   'machine',
   'subset',
@@ -77,6 +109,7 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
