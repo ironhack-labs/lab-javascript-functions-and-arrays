@@ -1,7 +1,32 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a, b){
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr) {
+  let longestWord = null;
+  if (arr.length > 0) {
+    let wordLength = 0;
+    for(var i = 0; i < arr.length; i++){
+      if(arr[i].length > wordLength){
+        wordLength = arr[i].length;
+        longestWord = arr[i];
+      }
+    }
+  } 
+  return longestWord;
+}
+
+findLongestWord(words);
+
 
 // Iteration #3: Calculate the sum
 
@@ -91,14 +116,3 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-
-//Iteration #1: Find the maximum
-
-function maxOfTwoNumbers(a, b){
-  if (a > b) {
-    return a;
-  } else {
-    return b;
-  }
-}
