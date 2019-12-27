@@ -99,11 +99,8 @@ function uniquifyArray(arr){
   let newArr = arr.filter(function (item, index){
     return arr.indexOf(item) === index;
   });
-  return newArr
+  return newArr;
 }
-
-let x = (names) => names.filter((v,i) => names.indexOf(v) === i)
-x(names);
 
 
 
@@ -118,6 +115,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, search){
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === search){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
