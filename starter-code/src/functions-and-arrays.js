@@ -95,6 +95,18 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  let newArr = arr.filter(function (item, index){
+    return arr.indexOf(item) === index;
+  });
+  return newArr
+}
+
+let x = (names) => names.filter((v,i) => names.indexOf(v) === i)
+x(names);
+
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
