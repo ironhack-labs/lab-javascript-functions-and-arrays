@@ -87,22 +87,23 @@ const wordsArr = [
 // Iteration #5: Unique arrays
 function uniquifyArray(array){
   if(array.length>0){
-    let finalList = []
-    let checkTheWords = ""
-    let checker = false
+    let finalList = [];
+    let checkTheWords = "";
+    let checker = false;
     for (let i=0; i<array.length; i++){
       checkTheWords=array[i];
-      if(checkTheWords==array[i+1]){
-        checker= true
-      }
-    }
-    if(checker==true){ 
-      finalList.push(checkTheWords)
-      return finalList
-    } else {
-      return null
-    }
+      for (let x=0; x<finalList.length; x++){
+        if(array[i]==finalList[x]){
+          checker= true
+        }
 
+        }
+        if(checker==false){
+          finalList.push(array[i])
+        }
+        checker = false;
+      }
+    return finalList
     } else{
     return []
   };
