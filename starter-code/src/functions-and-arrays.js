@@ -1,17 +1,76 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if(num1>num2){
+    return num1
+  } else {
+    return num2
+  };
+};
 
 // Iteration #2: Find longest word
+function findLongestWord(array){
+  if(array.length>0){
+    let longestWord = "";
+    for (let i=0; i<array.length; i++){
+      if(array[i].length>longestWord.length){
+        longestWord=array[i]
+      };
+    };
+    return longestWord
+  } else{
+    return null
+  }
+
+}
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 // Iteration #3: Calculate the sum
-
+function sumArray(array){
+  if(array.length>0){
+    let totalSum= 0;
+    for (let i=0; i<array.length; i++){
+      totalSum=totalSum + array[i]
+    }
+    return totalSum
+    } else{
+    return 0
+  }
+}
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+function averageNumbers(array){
+  if(array.length>0){
+    let average = 0;
+    let totalSum = sumArray(array);
+    console.log(totalSum)
+    let numberOfNumbers = array.length;
+    average= totalSum/numberOfNumbers;
+    return average
+    } else{
+    return null
+  };
+};
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Level 2: Array of strings
+function averageWordLength(array){
+  if(array.length>0){
+    let average = 0;
+    let numberOfNumbers = array.length;
+    let sumOfLetters = 0;
+    for (let i=0; i<array.length;i++){
+      sumOfLetters= sumOfLetters + array[i].length;
+    }
+    console.log(sumOfLetters)
+    average = sumOfLetters/numberOfNumbers
+    return average
+    } else{
+    return null
+  };
+};
+
 const wordsArr = [
   'seat',
   'correspond',
@@ -26,6 +85,28 @@ const wordsArr = [
 ];
 
 // Iteration #5: Unique arrays
+function uniquifyArray(array){
+  if(array.length>0){
+    let finalList = []
+    let checkTheWords = ""
+    let checker = false
+    for (let i=0; i<array.length; i++){
+      checkTheWords=array[i];
+      if(checkTheWords==array[i+1]){
+        checker= true
+      }
+    }
+    if(checker==true){ 
+      finalList.push(checkTheWords)
+      return finalList
+    } else {
+      return null
+    }
+
+    } else{
+    return []
+  };
+};
 const wordsUnique = [
   'crab',
   'poison',
