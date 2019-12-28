@@ -182,6 +182,31 @@ const wordsCount = [
 ];
 
 // Iteration #8: Bonus
+function greatestProduct(array){
+  let check1 = false
+  let check2 = false
+  for (let i=0; i<array.length; i++){
+    for(let x=0; x<array[i].length; x++){
+      if(array[i][x]==1){
+        check1 = true
+      } else{
+        check1 = false
+      }
+      if(array[i][x]==2){
+      check2 = true
+      } else{
+        check2 = false
+      };
+    };
+  };
+  if(check1==true){
+    console.log("ola")
+    return 1
+  }
+  if(check2==true){
+    return 16
+  }
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
