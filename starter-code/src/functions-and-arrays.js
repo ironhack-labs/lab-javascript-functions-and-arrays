@@ -123,6 +123,24 @@ const wordsUnique = [
 ];
 
 // Iteration #6: Find elements
+function doesWordExist(array, word){
+  let checker= false
+  if(array.length>0){
+    for (let i=0; i<array.length; i++){
+      if(array[i]==word){
+        checker=true;
+      }
+    }
+    if(checker==true){
+      return true
+    } else{
+    return false
+  };
+  } else{
+    return false
+  }
+};
+
 const wordsFind = [
   'machine',
   'subset',
