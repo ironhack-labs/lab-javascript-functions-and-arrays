@@ -153,6 +153,20 @@ const wordsFind = [
 ];
 
 // Iteration #7: Count repetition
+function howManyTimes(array, word){
+  if(array.length>0){
+    let count = 0;
+    for (let i=0; i<array.length; i++){
+      if(array[i]==word){
+        count = count +1
+      }
+    }
+    return count
+    } else{
+    return 0
+  };
+}
+
 const wordsCount = [
   'machine',
   'matter',
