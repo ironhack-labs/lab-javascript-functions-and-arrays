@@ -27,23 +27,29 @@ console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+//const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray (numbers) {
   let number = 0
-  for (let i=0; i<numbers.length; i+=1) {
+  for (let i = 0; i < numbers.length; i += 1) {
     number += numbers[i];
   }
   return number;
 }
-//console.log(sumArray(numbers));
-
+//sumArray(numbers);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+//const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
-
-  //log.console(averageOfnumbers (numbersAvg));
+function averageNumbers(numbersAverage) {
+  if (numbersAverage.length === 0) {
+    return null;
+  }
+  const sumNumbers = sumArray(numbersAverage);
+  const average = sumNumbers / sumbersAverage.length;
+  return average;
 }
+ 
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -58,6 +64,17 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum = sum + array[i].length;
+  }
+  return sum / array.length;
+}
+
+averageWordLength(wordsArr);
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -71,7 +88,17 @@ const wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
+]; 
+function uniquifyArray(arrayOfWords) {
+  let newArray = [];
+  for(let i = 0; i < arrayOfWords.length; i++) {
+    if (newArray.indexOf(arrayOfWords[i]) == -1) {
+      newArray.push(arrayOfWords[i]);
+    }
+  }
+  return newArray;
+}
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -83,10 +110,20 @@ const wordsFind = [
   'eating',
   'truth',
   'disobedience'
-];
+]; 
+
+function doesWordExist(arrayOfWords, wordToSearch) {
+  for (let i = 0; i < arrayOfWords.length; i++){
+    if (arrayOfWords[i] === wordToSearch) {
+      return true;
+    }
+  }
+return false;
+}
+doesWordExist(wordsFind,'eating')
 
 // Iteration #7: Count repetition
-const wordsCount = [
+/*const wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -98,7 +135,7 @@ const wordsCount = [
   'truth',
   'disobedience',
   'matter'
-];
+]; */
 
 // Iteration #8: Bonus
 
