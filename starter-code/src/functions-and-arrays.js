@@ -123,7 +123,7 @@ return false;
 doesWordExist(wordsFind,'eating')
 
 // Iteration #7: Count repetition
-/*const wordsCount = [
+const wordsCount = [
   'machine',
   'matter',
   'subset',
@@ -135,7 +135,18 @@ doesWordExist(wordsFind,'eating')
   'truth',
   'disobedience',
   'matter'
-]; */
+]; 
+
+function howManyTimes(arrayOfWords, wordToSearch){
+  let count = 0;
+  for (let i = 0; i < arrayOfWords.length; i++){
+    if (arrayOfWords[i] == wordToSearch) {
+      count +=1;
+    }
+  }
+  return count;
+}
+howManyTimes (wordsCount,'subset')
 
 // Iteration #8: Bonus
 
@@ -161,3 +172,8 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix){
+
+}
+
+greatestProduct(matrix);
