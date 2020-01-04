@@ -79,7 +79,7 @@ function averageWordLength(arr){
   return averageWords;
 }
 
-averageWordLength(words);
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -95,6 +95,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArray.indexOf(arr[i]) == -1 ) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+}
+
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
