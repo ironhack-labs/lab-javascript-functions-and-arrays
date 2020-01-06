@@ -233,12 +233,64 @@ const matrix = [
 ];
 
 
-function greatestProduct(array) {
-//  let result = [];
-//  console.log(array);
-//  for (let i = 0; i > array.length; i++) {
-//    result = array[i];
-//    console.log(result);
-//  }
+
+function greatestProduct(matrix) {
+  let howmuch = 4;
+  let result = 0;
+  let resultHorizontal = 0;
+  let resultVertical = 0;
+  let resultDiagonal = 0;
+
+  for (let x = 0; x < matrix.length; x++) {
+    for (let y = 0; y < matrix.length; y++) {
+      let startHorizontal = matrix[x][y];
+      for (let i = y + 1; i < y + howmuch; i++) {
+        startHorizontal *= matrix[x][i];
+      }
+      if (resultHorizontal < startHorizontal) {
+        resultHorizontal = startHorizontal;
+      }
+    }
+  }
+
+  for (let x = 0; x < matrix.length; x++) {
+    for (let y = 0; y < matrix.length; y++) {
+      let startVertical = matrix[x][y];
+      for (let i = x + 1; i < howmuch; i++) {
+        startVertical *= matrix[i][y];
+      }
+      if (resultVertical < startVertical) {
+        resultVertical = startVertical;
+      }
+    }
+  }
+
+  for (let x = 0; x < matrix.length; x++) {
+    for (let y = 0; y < matrix.length; y++) {
+      let startDiagonal = matrix[x][y];
+      for (let i = x + 1; i < howmuch; i++) {
+        startDiagonal *= matrix[i][i];
+      }
+      if (resultDiagonal < startDiagonal) {
+        resultDiagonal = startDiagonal;
+      }
+    }
+  }
+  console.log('The result Vertical is ' + resultVertical);
+  console.log('The result Horizontal is ' + resultHorizontal);
+  console.log('This result Diagonal is ' + resultDiagonal);
+  if (resultVertical > resultHorizontal) {
+    result = resultVertical;
+  } else {
+    result = resultHorizontal;
+  }
+
+  if (result < resultDiagonal) {
+    result = resultDiagonal;
+  }
+  console.log(result);
+  return result;
+
 }
+
 greatestProduct(matrix);
