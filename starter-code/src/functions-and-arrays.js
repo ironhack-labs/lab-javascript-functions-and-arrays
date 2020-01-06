@@ -1,44 +1,94 @@
 // Iteration #1: Find the maximum
+function axOfTwoNumbers(a,b) {
+  let maxNum = [];
+  if (a > b) {
+    maxNum.push(a);
+  }
+  else if (a < b) {
+    maxNum.push(b);
+  }
+  else {
+    maxNum.push(a);
+  }
+  return maxNum;
+}
+
+axOfTwoNumbers(2,3);
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(a) {
+    let longestWord = a.reduce(function(longest, currentWord) {
+        return currentWord.length > longest.length ? currentWord : longest;}, "");
+        return longestWord;
+    }
+   
+findLongestWord(words);
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(a) {
+    let sumTotal = 0;
+    for (i = 0; i < a.length; i++) {
+        sumTotal = sumTotal + a[i];
+    }
+    return sumTotal
+}
+
+sumArray(numbers);
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(x) {
+    let sum = 0;
+    for (i = 0; i < x.length; i++) {
+        sum = sum + x[i];
+    }
+    let average = Math.floor(sum/x.length);
+    return average;
+}
+
+
+averageNumbers(numbersAvg);
+
 
 // Level 2: Array of strings
-const wordsArr = [
-  'seat',
-  'correspond',
-  'linen',
-  'motif',
-  'hole',
-  'smell',
-  'smart',
-  'chaos',
-  'fuel',
-  'palace'
-];
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(x) {
+    let sum = 0;
+    for (i = 0; i < x.length; i++) {
+        sum = sum + x[i].length;
+    }
+    let average = sum / x.length;
+    return average;
+}
+
+averageWordLength(wordsArr);
+
+
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const wordsUnique = [ 'crab', 'poison', 'contagious', 'simple', 'bring', 'sharp', 'playground', 'poison', 'communion', 'simple', 'bring'];
+
+function uniquifyArray(x) {
+    let newArray =[];
+    for (let i = 0; i < x.length; i++) {
+      if (newArray.indexOf(x[i]) == -1) {
+        newArray.push(x[i]);
+      }
+    }
+    return newArray;
+}
+
+uniquifyArray(wordsUnique);
+
 
 // Iteration #6: Find elements
 const wordsFind = [
