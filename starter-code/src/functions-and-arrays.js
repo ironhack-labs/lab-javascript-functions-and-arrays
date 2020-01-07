@@ -480,8 +480,6 @@ function greatestProduct (matrix){
     }
   }
 
-  //console.log(allSums);
-  console.log(allSums.length);
   // Vertical Sums 
   
   for (let i = 0; i < matrix.length; i++){  
@@ -492,8 +490,6 @@ function greatestProduct (matrix){
       }
     }
   }
-  //console.log(allSums);
-  console.log(allSums.length);
 
   // Diagonal Sums 
 
@@ -505,8 +501,7 @@ function greatestProduct (matrix){
       }
     }
   }
-  //console.log(allSums);
-  console.log(allSums.length);
+
   allSums.sort(sortNumber);
   console.log(allSums);
 
