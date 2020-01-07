@@ -38,6 +38,25 @@ function findLongestWord(words) {
   }
   return longestWord;
 }
+//same function with a for...of loop
+/*function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+
+  let longestWord = words[0];
+  for (word of words) {
+    if (
+      longestWord.length > word.length ||
+      longestWord.length === word.length
+    ) {
+      continue;
+    } else {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}*/
 
 // Iteration #3: Calculate the sum
 
@@ -67,6 +86,20 @@ function averageNumbers(numbers) {
   return average;
 }
 
+//same function with a for...of loop
+/*
+  function averageNumbers(numbers) {
+  let sum = 0;
+  let average = null;
+  for (number of numbers) {
+    sum += number;
+  }
+  if (sum !== 0) {
+    average = sum / numbers.length;
+  }
+  return average;
+*/
+
 // Level 2: Array of strings
 const wordsArr = [
   "seat",
@@ -95,6 +128,23 @@ function averageWordLength(words) {
   return averageCharacters;
 }
 
+//same function with for...of loop
+/*
+function averageWordLength(words) {
+  let characterSum = 0;
+  let averageCharacters = null;
+
+  for (word of words) {
+    characterSum += word.length;
+  }
+  console.log(characterSum);
+  if (characterSum !== 0) {
+    averageCharacters = characterSum / words.length;
+  }
+  return averageCharacters;
+}
+*/
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   "bring",
@@ -114,14 +164,29 @@ const wordsUnique = [
 function uniquifyArray(words) {
   let cleanedArray = [];
   for (let i = 0; i < words.length; i++) {
-    if (words.indexOf(words[i])===words.lastIndexOf(words[i])){
-      cleanedArray.push(words[i])
-    } else if (!cleanedArray.includes(words[i])){
-      cleanedArray.push(words[i])
+    if (words.indexOf(words[i]) === words.lastIndexOf(words[i])) {
+      cleanedArray.push(words[i]);
+    } else if (!cleanedArray.includes(words[i])) {
+      cleanedArray.push(words[i]);
     }
   }
   return cleanedArray;
 }
+
+//same function with a for...of loop
+/*
+function uniquifyArray(words) {
+  let cleanedArray = [];
+  for (word of words) {
+    if (words.indexOf(word)===words.lastIndexOf(word)){
+      cleanedArray.push(word)
+    } else if (!cleanedArray.includes(word)){
+      cleanedArray.push(word)
+    }
+  }
+  return cleanedArray;
+}
+*/
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -135,14 +200,26 @@ const wordsFind = [
   "disobedience"
 ];
 
-function doesWordExist (words,searchTerm){
-  for (let i = 0; i<words.length; i++){
-    if (words[i]===searchTerm){
+function doesWordExist(words, searchTerm) {
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === searchTerm) {
       return true;
     }
   }
   return false;
 }
+
+//same function with for...of loop
+/*
+function doesWordExist(words, searchTerm) {
+  for (word of words) {
+    if (word === searchTerm) {
+      return true;
+    }
+  }
+  return false;
+}
+*/
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -159,15 +236,28 @@ const wordsCount = [
   "matter"
 ];
 
-function howManyTimes (words,searchTerm){
+function howManyTimes(words, searchTerm) {
   let wordCount = 0;
-  for (let i = 0; i<words.length; i++){
-    if (words[i]===searchTerm){
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === searchTerm) {
       wordCount++;
     }
   }
-  return wordCount;  
+  return wordCount;
 }
+
+//same function with for...of loop
+/*
+function howManyTimes(words, searchTerm) {
+  let wordCount = 0;
+  for (word of words) {
+    if (word === searchTerm) {
+      wordCount++;
+    }
+  }
+  return wordCount;
+}
+*/
 
 // Iteration #8: Bonus
 
@@ -467,36 +557,42 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct (matrix){
+function greatestProduct(matrix) {
   let allSums = [];
 
-  // Horizontal Sums 
-  for (let i = 0; i < matrix.length; i++){
+  // Horizontal Sums
+  for (let i = 0; i < matrix.length; i++) {
     for (let x = 0; x < matrix[i].length; x++) {
-      if((x+4) <= matrix[i].length){
-        let horizonzalSum = matrix[i][x]*matrix[i][x+1]*matrix[i][x+2]*matrix[i][x+3];
+      if (x + 4 <= matrix[i].length) {
+        let horizonzalSum =
+          matrix[i][x] * matrix[i][x + 1] * matrix[i][x + 2] * matrix[i][x + 3];
         allSums.push(horizonzalSum);
       }
     }
   }
 
-  // Vertical Sums 
-  
-  for (let i = 0; i < matrix.length; i++){  
+  // Vertical Sums
+
+  for (let i = 0; i < matrix.length; i++) {
     for (let x = 0; x < matrix.length; x++) {
-      if((x+4) <= matrix.length){
-        let verticalSum = matrix[x][i]*matrix[x+1][i]*matrix[x+2][i]*matrix[x+3][i];
+      if (x + 4 <= matrix.length) {
+        let verticalSum =
+          matrix[x][i] * matrix[x + 1][i] * matrix[x + 2][i] * matrix[x + 3][i];
         allSums.push(verticalSum);
       }
     }
   }
 
-  // Diagonal Sums 
+  // Diagonal Sums
 
-  for (let i = 0; i < matrix.length; i++){  
+  for (let i = 0; i < matrix.length; i++) {
     for (let x = 0; x < matrix.length; x++) {
-      if((i+4) <= matrix.length && x+4 <= matrix[i].length){
-        let diagnonalSums = matrix[i][x]*matrix[i+1][x+1]*matrix[i+2][x+2]*matrix[i+3][x+3];
+      if (i + 4 <= matrix.length && x + 4 <= matrix[i].length) {
+        let diagnonalSums =
+          matrix[i][x] *
+          matrix[i + 1][x + 1] *
+          matrix[i + 2][x + 2] *
+          matrix[i + 3][x + 3];
         allSums.push(diagnonalSums);
       }
     }
@@ -505,7 +601,7 @@ function greatestProduct (matrix){
   allSums.sort(sortNumber);
   console.log(allSums);
 
-  return allSums[allSums.length-1];
+  return allSums[allSums.length - 1];
 }
 
 function sortNumber(a, b) {
