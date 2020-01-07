@@ -176,34 +176,58 @@ const matrix = [
 
 function horizontalProduct (matrix, position) {
   var product = 1;
-  for (i = 0; i < 4; i++) {
-    product *= matrix[position.row + i][position.column];
+  if (position.column + 4 <= matrix[position.row].length) {
+    for (i = 0; i < 4; i++) {
+//      console.log(`Offset i: ${i} value ${matrix[position.row][position.column + i]}`);
+      product *= matrix[position.row][position.column + i];
+    }
   }
+//  console.log(`Horizontal product: ${product}`);
   return product;
 }
 
 function verticalProduct (matrix, position) {
   var product = 1;
-  for (i = 0; i < 4; i++) {
-    product *= matrix[position.row][position.column + i];
+  if (position.row + 4 <= matrix.length) {
+    for (i = 0; i < 4; i++) {
+//      console.log(`Offset i: ${i} value ${matrix[position.row + i][position.column]}`);
+      product *= matrix[position.row + i][position.column];
+    }
   }
+//  console.log(`Vertical product: ${product}`);
   return product;
 }
 
-function diagonalProduct (matrix, position) {
+function diagonalDownProduct (matrix, position) {
   var product = 1;
-  for (i = 0; i < 4; i++) {
-    product *= matrix[position.row + i][position.column + i];
+  if ((position.row + 4 <= matrix.length) && (position.column + 4 <= matrix[position.row].length)) {
+    for (i = 0; i < 4; i++) {
+//      console.log(`Offset i: ${i} value ${matrix[position.row + i][position.column + i]}`);
+      product *= matrix[position.row + i][position.column + i];
+    }
   }
+//  console.log(`Diagonal down product: ${product}`);
+  return product;
+}
+
+function diagonalUpProduct (matrix, position) {
+  var product = 1;
+  if ((position.row - 3 >= 0) && (position.column + 4 <= matrix[position.row].length)) {
+    for (i = 0; i < 4; i++) {
+//      console.log(`Offset i: ${i} value ${matrix[position.row - i][position.column + i]}`);
+      product *= matrix[position.row - i][position.column + i];
+    }
+  }
+//  console.log(`Diagonal up product: ${product}`);
   return product;
 }
 
 function maxProductFromPosition (matrix, position) {
-  // only considering product to the right or down
   return Math.max(
     horizontalProduct(matrix, position),
     verticalProduct(matrix, position),
-    diagonalProduct(matrix, position)
+    diagonalDownProduct(matrix, position),
+    diagonalUpProduct(matrix, position)
   );
 }
 
@@ -213,13 +237,16 @@ function greatestProduct (matrix) {
     'column': 0
   };
   var maxProduct = 0;
-  for (row = 0; row < matrix.length - 3; row++) {
-    for (column = 0; column < matrix[row].length - 3; column++) {
+  var currentMaxProduct = 0;
+  for (row = 0; row < matrix.length; row++) {
+    for (column = 0; column < matrix[row].length; column++) {
       position.row = row;
       position.column = column;
-      if (maxProductFromPosition(matrix, position) > maxProduct) {
-        maxProduct = maxProductFromPosition(matrix, position);
-        console.log(`New max from position ${JSON.stringify(position)}`);
+//      console.log(`\nPOSITION: ${position.row}, ${position.column}, VALUE: ${matrix[position.row][position.column]}`);
+      currentMaxProduct = maxProductFromPosition(matrix, position);
+      if (currentMaxProduct > maxProduct) {
+        maxProduct = currentMaxProduct;
+//        console.log(`\nSetting new max of ${maxProduct} from position ${JSON.stringify(position)}\n`);
       }
     }
   }
