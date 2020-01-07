@@ -1,15 +1,49 @@
 // Iteration #1: Find the maximum
+console.log(Math.max(3, 2));
+//or
+function maxTowNumbers(n1, n2){
+  if(n1 > n2){
+    return n1;
+  }else{
+    return n2;
+  }
+}
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+functions findLongestWord(words){
+  var longestWord = 0;
+  for(var i = 0; i < words.length; i++){
+    if ( words.length[i].length > longestWord){
+      longestWord = words[i].length;
+    }
+  }
+  return longestWord;
+}
+
+
 
 // Iteration #3: Calculate the sum
-
+var sumArray  = function(numbers) {
+  var sumArray = 0;
+  for (var i=0,len=numbers.length; i<len; ++i) {
+    sumArray += numbers[i];
+  };
+  return sumArray;
+};
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+console.log( sumArray(numbers) );
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var averageNumbers = function(numbersAvg){
+  return sumArray(numbersAvg)/numbersAvg.length;
+};
+console.log(averageNumbers(numbersAvg));
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +58,13 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+var averageWordLength = function(worsdArr){
+  return sumArray(wordsArr)/wordsArr.length;
+};
+
+console.log(averageWordLength(wordsArr));
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +81,15 @@ const wordsUnique = [
   'bring'
 ];
 
+var uniquifyArray = wordsUnique.filter(function(x, i, self){
+  return self.indexOf(x) === i;
+});
+
+console.log(uniquifyArray)
+
+
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +101,12 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+var result = wordsFind.some(function(value){
+  return value === wordsFind;
+});
+
+console.log(result);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +122,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+var data={};
+for(var i=0;i<wordsCount.length;i++){
+  var key=wordsCount[i];
+  if(data[key]==undefined) data[key]=0;
+  data[key]++;
+}
+console.log(data);
+// I almost copied and pasted this code from internet.
+//It works, but I don't understand the details.
+
 
 // Iteration #8: Bonus
 
