@@ -1,16 +1,48 @@
 // Iteration #1: Find the maximum
-
+let maxOfTwoNumbers=(num1,num2)=>{
+  if (num1< num2)
+  {
+    return num2
+  }
+  return num1
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+ let findLongestWord = (arreglo)=>{
+  if (arreglo.length>0 ){
+  let palabrasMasLarga=arreglo[0]
+   for(let i=1;i<arreglo.length;i++){
+     if (arreglo[i].length>palabrasMasLarga.length) palabrasMasLarga=arreglo[i]
+   }
+   return palabrasMasLarga
+  }
+  return null
+ }
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let sumArray = (arreglo)=> {
+let suma = 0
+arreglo.forEach(element => { 
+  suma = suma + element  
+});
+return suma
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+let averageNumbers = (arreglo)=> {
+  if (arreglo.length>0){
+  let suma = 0
+  arreglo.forEach(element => { 
+    suma = suma + element  
+  });
+  suma=suma/arreglo.length
+  return suma
+  }
+  return null
+}
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -24,6 +56,17 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+let averageWordLength = (arreglo)=> {
+  if (arreglo.length>0){
+  let suma = 0
+  arreglo.forEach(element => { 
+    suma = suma + element.length  
+  });
+  suma=suma/arreglo.length
+  return suma
+  }
+  return null
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +83,19 @@ const wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray=(arreglo)=>{
+  let arregloUnico=[]
+  if (arreglo.length <= 1) return arreglo
+  
+  for(let i=0;i<arreglo.length;i++){
+    if(arregloUnico.indexOf(arreglo[i]) === -1) {
+      arregloUnico.push(arreglo[i])
+    }
+  }
+  return arregloUnico
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -52,6 +108,16 @@ const wordsFind = [
   'disobedience'
 ];
 
+let doesWordExist = (arreglo, palabra) => {
+  if (arreglo.length>0){
+  let cadena=arreglo.join(" ")
+  if (cadena.includes(palabra)>0)
+  {
+return true 
+  }
+}
+return false
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -66,6 +132,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (arreglo, palabra) => {
+  let contador = 0 
+  arreglo.forEach(element=> { 
+    if (element==palabra){
+      contador++
+    } 
+  })
+  return contador 
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +167,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
