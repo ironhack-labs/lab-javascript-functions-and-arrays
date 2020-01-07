@@ -108,24 +108,37 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+	let newArray = [];
 
-  let uniqueArray = "";
+	if (wordsUnique.length === 0) {
+		return wordsUnique;
+	} else {
+		for (let i = 0; i < wordsUnique.length; i++)
+			if (newArray.indexOf(wordsUnique[i]) === -1) {
+				newArray.push(wordsUnique[i]);
+			}
+	}
 
-	for (let i = 1; i < wordsUnique.length; i++) {
-    //console.log(wordsUnique.length);
-
-		uniqueArray = wordsUnique.slice()
-      
-    
-      console.log(uniqueArray);
-    }
-    
-    
-return uniqueArray;
+	return newArray;
 }
 
 // Iteration #6: Find elements
 const wordsFind = [ "machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience" ];
+function doesWordExist(wordArray, word) {
+	let testArray = [];
+
+	for (let i = 0; i < wordArray.length; i++) {
+		if (wordArray[i] === word) {
+			testArray.push(wordArray[i]);
+		}
+	}
+
+	if (testArray.length > 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -141,6 +154,21 @@ const wordsCount = [
 	"disobedience",
 	"matter"
 ];
+function howManyTimes(wordsCount, word) {
+	let testArray = [];
+
+	for (let i = 0; i < wordsCount.length; i++) {
+		if (wordsCount[i] === word) {
+			testArray.push(wordsCount[i]);
+		}
+	}
+
+	if (testArray.length > 0) {
+		return testArray.length;
+	} else {
+		return 0;
+	}
+}
 
 // Iteration #8: Bonus
 
@@ -166,3 +194,45 @@ const matrix = [
 	[ 20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54 ],
 	[ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48 ]
 ];
+
+function greatestProduct(matrix) {
+	let test = 0;
+	let i = 0;
+	let j = 0;
+
+	// only works for matrix up to 20x20
+
+	// find horizontal greatest product
+	for (let i = 1; i < 17; i++) {
+		for (let j = 1; j < 17; j++) {
+			result = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+			if (result > test) {
+				test = result;
+			}
+		}
+	}
+
+	// find vertiacl greatest product
+	for (let i = 1; i < 17; i++) {
+		for (let j = 1; j < 17; j++) {
+			result = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+			if (result > test) {
+				test = result;
+			}
+		}
+	}
+
+	// find digonal greatest product
+	for (let i = 1; i < 17; i++) {
+		for (let j = 1; j < 17; j++) {
+			result = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+			if (result > test) {
+				test = result;
+			}
+		}
+	}
+
+	console.log(test, result);
+
+	return result;
+}
