@@ -1,15 +1,47 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (num1, num2) {
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord (words) {
+  if (words.length > 0) {
+    var longestWord = "";
+    words.forEach(function(word) {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    });
+    return longestWord;
+  } else {
+    return null;
+  }
+}
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumArray (numbers) {
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (numbersAvg) {
+  if (numbersAvg.length > 0) {
+    return sumArray (numbersAvg) / numbersAvg.length;
+  } else {
+    return null;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +56,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordsArr) {
+  if (wordsArr.length > 0) {
+    var sumWordLengths = 0;
+    for (const word of wordsArr) {
+      sumWordLengths += word.length;
+    }
+    return sumWordLengths / wordsArr.length;
+  } else {
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +84,22 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique) {
+  if (wordsUnique.length > 0) {
+    wordsUnique.forEach(function(word) {
+      var wordIndex = wordsUnique.indexOf(word);
+      for (var i = wordIndex + 1; i < wordsUnique.length; i++) {
+        if (word === wordsUnique[i]) {
+          wordsUnique.splice(i, 1);
+        }
+      }
+    });
+    return wordsUnique;
+  } else {
+    return [];
+  }
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +111,16 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (wordsFind, searchWord) {
+  var isWordFound = false;
+  wordsFind.forEach(function(word) {
+    if (word === searchWord) {
+      isWordFound = true;
+    }
+  });
+  return isWordFound;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +136,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordsCount, searchWord) {
+  var wordCount = 0;
+  if (wordsCount.length > 0) {
+    wordsCount.forEach(function(word) {
+      if (searchWord === word) {
+        wordCount += 1;
+      }
+    });
+  }
+  return wordCount;
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +173,57 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function horizontalProduct (matrix, position) {
+  var product = 1;
+  for (i = 0; i < 4; i++) {
+    product *= matrix[position.row + i][position.column];
+  }
+  return product;
+}
+
+function verticalProduct (matrix, position) {
+  var product = 1;
+  for (i = 0; i < 4; i++) {
+    product *= matrix[position.row][position.column + i];
+  }
+  return product;
+}
+
+function diagonalProduct (matrix, position) {
+  var product = 1;
+  for (i = 0; i < 4; i++) {
+    product *= matrix[position.row + i][position.column + i];
+  }
+  return product;
+}
+
+function maxProductFromPosition (matrix, position) {
+  // only considering product to the right or down
+  return Math.max(
+    horizontalProduct(matrix, position),
+    verticalProduct(matrix, position),
+    diagonalProduct(matrix, position)
+  );
+}
+
+function greatestProduct (matrix) {
+  var position = {
+    'row': 0,
+    'column': 0
+  };
+  var maxProduct = 0;
+  for (row = 0; row < matrix.length - 3; row++) {
+    for (column = 0; column < matrix[row].length - 3; column++) {
+      position.row = row;
+      position.column = column;
+      if (maxProductFromPosition(matrix, position) > maxProduct) {
+        maxProduct = maxProductFromPosition(matrix, position);
+        console.log(`New max from position ${JSON.stringify(position)}`);
+      }
+    }
+  }
+  return maxProduct;
+}
+
+console.log(greatestProduct(matrix));
