@@ -466,3 +466,53 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix){
+  let allSums = [];
+
+  // Horizontal Sums 
+  for (let i = 0; i < matrix.length; i++){
+    for (let x = 0; x < matrix[i].length; x++) {
+      if((x+4) <= matrix[i].length){
+        let horizonzalSum = matrix[i][x]*matrix[i][x+1]*matrix[i][x+2]*matrix[i][x+3];
+        allSums.push(horizonzalSum);
+      }
+    }
+  }
+
+  //console.log(allSums);
+  console.log(allSums.length);
+  // Vertical Sums 
+  
+  for (let i = 0; i < matrix.length; i++){  
+    for (let x = 0; x < matrix.length; x++) {
+      if((x+4) <= matrix.length){
+        let verticalSum = matrix[x][i]*matrix[x+1][i]*matrix[x+2][i]*matrix[x+3][i];
+        allSums.push(verticalSum);
+      }
+    }
+  }
+  //console.log(allSums);
+  console.log(allSums.length);
+
+  // Diagonal Sums 
+
+  for (let i = 0; i < matrix.length; i++){  
+    for (let x = 0; x < matrix.length; x++) {
+      if((i+4) <= matrix.length && x+4 <= matrix[i].length){
+        let diagnonalSums = matrix[i][x]*matrix[i+1][x+1]*matrix[i+2][x+2]*matrix[i+3][x+3];
+        allSums.push(diagnonalSums);
+      }
+    }
+  }
+  //console.log(allSums);
+  console.log(allSums.length);
+  allSums.sort(sortNumber);
+  console.log(allSums);
+
+  return allSums[allSums.length-1];
+}
+
+function sortNumber(a, b) {
+  return a - b;
+}
