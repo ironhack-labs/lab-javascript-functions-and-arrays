@@ -1,15 +1,53 @@
 // Iteration #1: Find the maximum
+let maxOfTwoNumbers = (num1, num2) => {
+  if(num1 < num2) return num2
+  return num1
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+let findLongestWord = (elmaslargo) => {
+    for(let i = 0; i < elmaslargo.length; i ++){
+        if(elmaslargo[i].length > elmaslargo[i+1].length)
+        return elmaslargo[i]
+    }
+    console.log(findLongestWord(words))
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(number){
+let valorsum=0;
+  for(let i=0;i<number.length;i++){
+valorsum+=number[i];
+}
+return valorsum
+}
+console.log(sumArray(numbers))
 
+/*
+let sumArray=(sumanum)=>{
+  numbers.forEach(element => {
+    console.log(numbers)
+  });
+}
+*/
 // Iteration #4: Calculate the average
+
+//const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbers){
+  if (numbers.length === 0){
+    return null
+  }else{
+  return sumArray(numbers)/numbers.length;
+}
+}
+console.log(averageNumbers(numbers))
+
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +62,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordsArr){
+  let sumWords=0;
+  if(wordsArr.length===0){
+    return null
+  }else{
+  for(let i = 0; i < wordsArr.length; i++){
+    sumWords+=wordsArr[i].length;
+  }
+  return sumWords/wordsArr.length
+}
+}
+console.log(averageWordLength(wordsArr))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +91,31 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  let equalArray=wordsUnique[0]
+if(wordsUnique.length===0){
+  return []
+}else{
+  let i=0;
+  while(i<wordsUnique.length){
+    if(wordsUnique[i]===wordsUnique[i-1]){
+      if(i===wordsUnique.length-1){
+        return equalArray
+      }
+      else{
+        i++
+      }
+  
+    }else{
+      i=wordsUnique.length
+    }
+  }
+
+}
+
+}
+
+console.log(uniquifyArray(wordsUnique))
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
