@@ -169,3 +169,49 @@ const matrix = [
 ];
 
 
+let greatestProduct=(matriz)=>{
+  let resultado=0
+  let producto=0
+  let num1=0 
+  let num2=0 
+  let num3=0 
+  let num4 =0
+  let j=0
+  if (matriz.length<1) return 0
+  
+  let i=0
+  
+  for (i;i<matriz[0].length-3;i++)
+  {
+    for (j=0;j<matriz.length-3;j++)
+    {
+      producto=matriz[i][j]*matriz[i+1][j]*matriz[i+2][j]*matriz[i+3][j]
+      if (producto>resultado) {
+        resultado=producto
+        num1=matriz[i][j]
+        num2=matriz[i+1][j]
+        num3=matriz[i+2][j]
+        num4=matriz[i+3][j]
+      }
+      producto=matriz[i][j]*matriz[i][j+1]*matriz[i][j+2]*matriz[i][j+3]
+      if (producto>resultado) {
+        resultado=producto
+        num1=matriz[i][j]
+        num2=matriz[i][j+1]
+        num3=matriz[i][j+2]
+        num4=matriz[i][j+3]
+      }
+      producto=matriz[i][j]*matriz[i+1][j+1]*matriz[i+2][j+2]*matriz[i+3][j+3]
+      if (producto>resultado) {
+        resultado=producto
+        num1=matriz[i][j]
+        num2=matriz[i+1][j+1]
+        num3=matriz[i+2][j]+2
+        num4=matriz[i+3][j+3]
+      }
+    }
+  }
+  
+
+  return resultado
+}
