@@ -1,5 +1,3 @@
-//PP Week1 Day2 Carla & 
-
 // Iteration #1: Find the maximum
 let maxOfTwoNumbers = (numOne, numTwo) => {
   if(numOne < numTwo) return numTwo
@@ -23,14 +21,20 @@ function findLongestWord(array){
   }
 }
 
-// Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumArray(numbers){
   let sumTot = 0;
   numbers.forEach(number => (sumTot += number))
   return sumTot
+
+  
+  /*for(let i=0; i<numbers.length; i++){
+    sumTot += numbers[i]
+  }
+  return sumTot
+  */
 }
 
 // Iteration #4: Calculate the average
@@ -44,6 +48,7 @@ function averageNumbers(array){
   return promedio
   }
 }
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -70,6 +75,7 @@ function averageWordLength(array) {
   }
 }
 
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -84,6 +90,7 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
 function uniquifyArray(array){
   let cleanArray = []
   array.forEach(palabra =>
@@ -107,10 +114,10 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-const doesWordExist = (array, palabraBuscar) => {
-  return array.includes(palabraBuscar)
-}
 
+  const doesWordExist = (array, palabraBuscar) => {
+      return array.includes(palabraBuscar)
+  }
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -135,6 +142,8 @@ function howManyTimes(array, palabra){
   })
   return counter
 }
+
+
 // Iteration #8: Bonus
 
 const matrix = [
@@ -159,3 +168,68 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PRUEBA CON ICHO, QUE NADIE VEA ESTOO JIJII POR ESO ESTA HASTA ABAJO*/
+/*
+function averageNumbers (inputArray){
+  let sumaTot = 0
+  for(let i=0; i<inputArray.length; i++){
+    sumaTot += inputArray[i]
+  }
+  let averageTot = sumaTot/inputArray.length
+  if (typeof averageTot === Number){
+    return null
+  } else {
+  return averageTot
+  }
+}*/
+/*function averageWordLength (inputArray){
+  let wordLength = 0
+  for(let i=0; i<inputArray.length; i++){
+    wordLength += inputArray[i].length
+  }
+  let averageLen = wordLength/inputArray.length
+  if (averageLen === NaN){
+    return null
+  } else {
+  return averageLen
+  }
+}*/
+/*function sumArray(inputArray){
+  let sumaTot = 0
+  for(let i=0; i<inputArray.length; i++){
+    sumaTot += inputArray[i]
+  }
+  return sumaTot
+}
+*/
