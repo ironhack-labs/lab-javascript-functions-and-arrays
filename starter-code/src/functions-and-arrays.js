@@ -4,10 +4,8 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
-  } else if (num2 > num1) {
-    return num2;
   } else {
-    return 4; // Jasmine expected this to return 4. But why 4?
+    return num2;
   }
 }
 
@@ -24,17 +22,15 @@ const words = [
 ];
 
 function findLongestWord(arr) {
+  // findLongestWord returns null when called with an empty array:
   if (arr.length === 0) {
     return null;
-  } else if (arr.length === 1) {
-    return arr[0];
   }
-  let longestWordLength = 0;
+
   let longestWord = "";
   arr.forEach(function(element) {
-    if (element.length > longestWordLength) {
+    if (element.length > longestWord.length) {
       longestWord = element;
-      longestWordLength = element.length;
     }
   });
   return longestWord;
@@ -63,6 +59,11 @@ sumArray(numbers);
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
+  // Function should return null if called with an empty array
+  if (!arr.length) {
+    return null;
+  }
+
   let sum = 0;
   arr.forEach(function(num) {
     sum += num;
@@ -118,7 +119,13 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  // Function should return null if called with an empty array:
+  if (arr.length === 0) {
+    return [];
+  }
+
   arr.forEach(function(word) {
+    // If the first index !== last index, means it is a duplicate, so remove:
     if (arr.indexOf(word) !== arr.lastIndexOf(word)) {
       arr.splice(arr.lastIndexOf(word), 1);
     }
@@ -142,6 +149,17 @@ const wordsFind = [
   "disobedience"
 ];
 
+function doesWordExist(wordsArr, search) {
+  for (const word of wordsArr) {
+    if (word === search) {
+      return true;
+    }
+  }
+  // return false needs to be outside the loop, so that it will loop through the entire array, not just stop at the first element
+  return false;
+}
+
+/* .indexOf() approach:
 function doesWordExist(arr, search) {
   if (arr.indexOf(search) === -1) {
     return false;
@@ -151,6 +169,7 @@ function doesWordExist(arr, search) {
 }
 
 doesWordExist(wordsFind, "machine");
+*/
 
 // Iteration #7: Count repetition
 // Declare a function named howManyTimes that will take in an array of words as the first argument, and a word to search for as the second argument. The function will return the number of times that word appears in the array.
@@ -477,3 +496,91 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/*
+// brainstorm:
+// starting point [0][0] --> [x][y]
+// let greatestProd = 0;
+
+// check horizontal: horProd = [0][0] * [0][1] * [0][2] * [0][3]
+  // [x][y++]
+  // if horProd > greatestProd, horProd = greatestProd
+
+// check vertical: vertProd = [0][0] * [1][0] * [2][0] * [3][0]
+  // [x++][y]
+  // if vertProd > greatestProd, vertProd = greatestProd
+
+// check diagonal: diagProd = [0][0] * [1][1] * [2][2] * [3][3]
+  // [x++][y++]
+  // if diagProd > greatestProd, diagProd = greatestProd
+
+  // return greatestProd
+
+
+ function greatestProduct(arr) {
+
+  let greatestProd = 0;
+
+  for(x = 0; x < arr.length; x++) {
+    // check horizontal product
+    for(y = 0; y < y + 3; y++) {
+      let horProd *= arr[x][y];
+      if (horProd > greatestProd) {
+        horProd = greatestProd;
+      }
+    }
+  }
+    
+
+
+
+    let diagProd *= arr[i][i];
+    if (diagProd > greatestProd) {
+      diagProd = greatestProd;
+    }
+  }
+
+  for(i = 0; i < i + 4; i++) {
+    let horProd *= arr[0][i];
+    if (horProd > greatestProd) {
+      horProd = greatestProd;
+    }
+  }
+
+  for(i = 0; i < i + 4; i++) {
+    let vertProd *= arr[i][0];
+    if (vertProd > greatestProd) {
+      vertProd = greatestProd;
+    }
+  }
+  return greatestProd;
+}
+
+// Old attempt
+function greatestProduct(arr) {
+
+    let greatestProd = 0;
+
+    for(y = 0; y < arr.length; y++) {
+      let diagProd *= arr[i][i];
+      if (diagProd > greatestProd) {
+        diagProd = greatestProd;
+      }
+    }
+
+    for(i = 0; i < i + 4; i++) {
+      let horProd *= arr[0][i];
+      if (horProd > greatestProd) {
+        horProd = greatestProd;
+      }
+    }
+
+    for(i = 0; i < i + 4; i++) {
+      let vertProd *= arr[i][0];
+      if (vertProd > greatestProd) {
+        vertProd = greatestProd;
+      }
+    }
+    return greatestProd;
+  }
+*/
