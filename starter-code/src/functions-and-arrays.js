@@ -90,6 +90,18 @@ const wordsCount = [
   'matter',
 ];
 
+function howManyTimes(words, word) {
+  let newArr = [];
+  let count = 0;
+  for (let i = 0; i < words.length; i++) {
+    newArr.push(words[i].includes(word));
+    if (newArr[i] == true) {
+      count++;
+    }
+  }
+  return count;
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
