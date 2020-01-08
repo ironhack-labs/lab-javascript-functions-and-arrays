@@ -233,6 +233,5 @@ function greatestProduct(matrix) {
 	}
 
 	console.log(test, result);
-
 	return result;
 }
