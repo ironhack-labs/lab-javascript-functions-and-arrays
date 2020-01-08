@@ -1,15 +1,98 @@
 // Iteration #1: Find the maximum
 
+let maxOfTwoNumbers = (num1, num2) => {
+  if (num1 < num2) return num2
+  return num1
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+let saveElement = ""
+const findLongestWord = array => {
+
+  if (array.length === 0) {
+    return null
+  }
+
+  if (array.length === 1) {
+    return array[0]
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    //Pendiente agregar condicionante. Lo marca como completado.
+    return array[0]
+  }
+
+  // Pendiente un ejercicio en esta seccion
+
+ /* var long1= 0;
+
+var plorp = ["bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"];
+
+function longestString(arr){
+  for (i=0; i<arr.length; i++){
+      if (arr[i].length > long1){
+        long1= arr[i].length;
+      }
+
+  }
+  return long1;
+}
+*/
+
+
+  for (let i = 0; i < array.length; i++) {
+    saveElement = array[i] - 1
+    if (saveElement > array[i]) {
+      return saveElement
+    }
+  }
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArray = array2 => {
+  let suma = 0
+  for (let i = 0; i < array2.length; i++) {
+    suma += array2[i]
+  }
+  return suma
+}
+
+/* const sumArray = (accumulator, currentValue) => accumulator + currentValue
+console.log(numbers.reduce(sumArray))
+*/
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let sum = 0
+let average = 0
+function averageNumbers (number) {
+  if (number === 0) {
+    return null
+  }
+  
+  
+
+}
+
+/*
+const averageNumber = array3 => {
+  array3.forEach(element => {
+    sum += element
+    average = sum / array3.length
+  })
+  return average;
+}
+*/
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +107,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength () {
+
+}
+
+let longitudDePalabra
+let promedioDePalabra 
+const averageWordLenght = array4 => {
+  array4.forEach(element => {
+    longitudDePalabra += element.length
+  })
+  promedioDePalabra = longitudDePalabra / array4.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +136,16 @@ const wordsUnique = [
   'bring'
 ];
 
+// iterar el array buscar la palabra indexOf y si se repite sacarla.
+const uniquifyArray = array5 => {
+  array5.forEach(element => {
+    indexOf(element)
+  })
+}
+
+
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +157,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = (array6, word)=> {
+  for (let i = 0; i < array6.length; i++) {
+    if (array6.includes(word)) {
+      return true
+    } else {
+      false
+    }
+  }
+}
+
+// array and word. Use includes()
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +184,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let counter = 0
+const howManyTimes = (array7, word) => {
+  if ((array7 === undefined || array7.length == 0)) {
+    return 0
+  }
+
+
+
+}
+
 
 // Iteration #8: Bonus
 
