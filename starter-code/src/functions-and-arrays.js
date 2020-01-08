@@ -38,6 +38,7 @@ function findLongestWord(words) {
   }
   return longestWord;
 }
+
 //same function with a for...of loop
 /*function findLongestWord(words) {
   if (words.length === 0) {
@@ -574,10 +575,10 @@ function greatestProduct(matrix) {
   // Vertical Sums
 
   for (let i = 0; i < matrix.length; i++) {
-    for (let x = 0; x < matrix.length; x++) {
-      if (x + 4 <= matrix.length) {
+    for (let x = 0; x < matrix.length[i]; x++) {
+      if (i + 4 <= matrix.length) {
         let verticalSum =
-          matrix[x][i] * matrix[x + 1][i] * matrix[x + 2][i] * matrix[x + 3][i];
+          matrix[i][x] * matrix[i + 1][x] * matrix[i + 2][i] * matrix[i + 3][x];
         allSums.push(verticalSum);
       }
     }
