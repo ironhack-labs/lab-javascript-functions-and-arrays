@@ -22,24 +22,31 @@ const words = [
 function findLongestWord(word) {
   if (word.length === 0) {
     return null;
-  } else {
-    let longestWord = "";
-    for (let i = 0; i < word.length; i++) {
-      if (word[i].length > longestWord.length) {
-        longestWord = word.length[i];
-      }
-      return longestWord;
+  }
+  //  else {
+  let longestWord = "";
+  for (let i = 0; i < word.length; i++) {
+    if (word[i].length > longestWord.length) {
+      longestWord = word[i];
     }
   }
+  return longestWord;
+  //}
 }
 findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let sum = 0;
-function sumArray(number) {
-  for (let i = 0; i < number.length; i++) {
-    sum += number[i];
+function sumArray(numberArr) {
+  if (numberArr.length === 0) {
+    return 0;
+  }
+
+  let sum = 0;
+
+  for (let i = 0; i < numberArr.length; i++) {
+    sum += numberArr[i];
   }
   return sum;
 }
@@ -92,7 +99,22 @@ const wordsUnique = [
   "simple",
   "bring"
 ];
+function uniquifyArray(wordsArr) {
+  // if (wordsArr.length === 0) {
+  //   return [];
+  // }
 
+  const uniques = [];
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    const currentWord = wordsArr[i];
+
+    if (uniques.indexOf(currentWord) === -1) {
+      uniques.push(currentWord);
+    }
+  }
+  return uniques;
+}
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -104,7 +126,22 @@ const wordsFind = [
   "truth",
   "disobedience"
 ];
+function doesWordExist(Arr, search) {
+  // if (Arr.length === 0) {
+  //   return false;
+  // } else if (Arr[0] === search) {
+  //   return true;
+  // } else if (Arr[0] !== search) {
+  //   return false;
+  // }
 
+  for (const word of Arr) {
+    if (word == search) {
+      return true;
+    }
+  }
+  return false;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
@@ -119,7 +156,16 @@ const wordsCount = [
   "disobedience",
   "matter"
 ];
+function howManyTimes(wordsArr, search) {
+  let count = 0;
 
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === search) {
+      count++;
+    }
+  }
+  return count;
+}
 // Iteration #8: Bonus
 
 const matrix = [
