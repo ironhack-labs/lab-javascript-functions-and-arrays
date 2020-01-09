@@ -214,6 +214,37 @@ function greatestProduct(matrix) {
     if ( zero == 0 ){
         return 16;
     }    
+    
+    produitTab = [];
+    for(let i = 0; i < matrix.length ; i++){
+        for(let j = 0; j < matrix[i].length ; j++){
+            let produit = 1;
+            for(let k = 0; k < 4 ; k++){
+                if ( i < matrix[i].length && (j+k) < matrix[i].length  ) {
+                    produit = produit * matrix[i][j+k];
+                }
+                produitTab.push(produit);
+            }
+            produit = 1;
+            for(let k = 0; k < 4 ; k++){
+                if ( (i+k) < matrix[i].length && j < matrix[i].length ) {
+                    produit = produit * matrix[i+k][j];
+                }
+                produitTab.push(produit);
+            }
+            produit = 1;
+            for(let k = 0; k < 4 ; k++){            
+                if ( (i+k) < matrix[i].length && (j+k) < matrix[i].length ) {
+                    produit = produit * matrix[i+k][j+k];
+                }                                
+                produitTab.push(produit);
+            }
+        }
+    }
+    
+    let toto = Math.max(...produitTab);
+    return  toto;
+    
 }
 
 
