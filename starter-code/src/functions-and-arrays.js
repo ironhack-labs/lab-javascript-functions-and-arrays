@@ -26,6 +26,12 @@ const howManyTimes = (arr, word) =>
   arr.reduce((a, b) => (b === word ? (a += 1) : a), 0);
 
 function greatestProduct(arr) {
-  let num = +uniquifyArray(arr.map(a => +uniquifyArray(a)));
-  return num === 2 ? 16 : num === 1 ? 1 : "";
+  let big = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 4; j++) {
+      let sum = arr[j][i] * arr[j + 1][i] * arr[j + 2][i] * arr[j + 3][i];
+      if (sum > big) big = sum;
+    }
+  }
+  return big;
 }
