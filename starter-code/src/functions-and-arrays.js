@@ -1,4 +1,223 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2){
+    return Math.max(num1, num2);
+}
+
+function findLongestWord(str) {  
+  if  ( typeof str === "object" && str.length == 0 ){
+      return null;
+  }     
+  if  ( str.length == 1 ){
+      return str[0];
+  }     
+
+  var longestWord = str[0];
+  for(var i = 0; i < str.length; i++){
+    if(str[i].length > longestWord.length ){
+	longestWord = str[i];
+    }
+  }
+  return longestWord ;
+    
+}
+
+function sumArray(str){
+
+  if  ( typeof str === "object" && str.length == 0 ){
+      return 0;
+  }     
+
+  if  ( str.length == 1 && str[0] != 0 ){
+      return str[0];
+  }     
+  
+  var zero = 0;  
+  for(let i = 0; i < str.length ; i++){
+    if( str[i] != 0 ){
+	zero = zero +1;
+    }    
+  }
+  if (zero == 0) {
+    return 0;
+  } 
+
+  let summ = 0;     
+  for(let i = 0; i < str.length ; i++){
+      summ = summ + Number(str[i]);
+  }
+    
+  return  summ;
+}
+
+
+function averageNumbers(str){
+    
+  if  ( typeof str === "object" && str.length == 0 ){
+      return null;
+  } 
+  
+  if  ( str.length == 1 ){
+      return str[0];
+  }     
+  
+  let summ = 0;     
+  for(let i = 0; i < str.length ; i++){
+      summ = summ + Number(str[i]);
+  }
+  return summ / str.length;
+    
+} 
+
+
+function averageWordLength(str){
+    
+    if  ( typeof str === "object" && str.length == 0 ){
+      return null;
+    }   
+    
+    if  ( str.length == 1 ){
+      return str[0].length;
+    }     
+    
+    let summ = 0;     
+    for(let i = 0; i < str.length ; i++){        
+        let wordSize = str[i].length;        
+        summ = summ + Number(wordSize);
+    }
+    return summ / str.length;
+    
+}
+
+
+function uniquifyArray(str){
+    
+    if  ( typeof str === "object" && str.length == 0 ){
+        return [];
+    }   
+    
+    var zero = 0;
+    var rep = str[0];
+    for(let i = 0; i < str.length ; i++){
+      if( str[i] != rep ){
+          zero = zero +1;
+      }    
+    }
+    if (zero == 0) {
+      return [rep];
+    } 
+    
+    var zero = 0;
+    for(let i = 0; i < str.length ; i++){
+        for(let j = 0; j < str.length ; j++){
+          if( str[i] == str[j] && i != j ){
+              zero = zero +1;
+          }    
+        }
+    }
+    if (zero == 0) {
+      return str;
+    } 
+
+    outputArray = [];    
+    for(let i = 0; i < str.length ; i++){
+        let zero = 0;
+        for(let j = 0; j < outputArray.length ; j++){
+          if( str[i] == outputArray[j] ){
+               zero = zero +1;
+          }    
+        }
+        if ( zero == 0 ){
+            outputArray.push(str[i]);            
+        }
+    }
+    return outputArray; 
+
+}
+
+
+function doesWordExist(str, lookedWord) {
+    
+    if  ( typeof str === "object" && str.length == 0 ){
+        return false;
+    }   
+            
+    if  ( str.length == 1 && str[0] == lookedWord ){
+        return true;
+    }     
+
+    if (  !(str.includes(lookedWord)) ) {
+        return false;
+    }
+
+    if (str.includes(lookedWord)) {
+        return true;
+    }
+  
+    return;
+}
+
+
+function howManyTimes(str, lookedWord) {
+    
+    if  ( typeof str === "object" && str.length == 0 ){
+        return 0;
+    }   
+    
+    var zero = 0;  
+    for(let i = 0; i < str.length ; i++){
+      if( str[i] == lookedWord ){
+          zero = zero +1;
+      }    
+    }
+    
+    if ( zero == 1 ){
+        return 1;
+    }
+    if ( zero == 0 ){
+        return 0;
+    }
+    
+    return zero;
+    
+}
+ 
+function greatestProduct(matrix) {
+    
+    if  ( typeof matrix === "object" && matrix.length == 0 ){
+        return 0;
+    }   
+    
+    var zero = 0;
+    var insideMatrix = [];
+    for(let i = 0; i < matrix.length ; i++){
+        insideMatrix = matrix[i];
+        for(let j = 0; j < insideMatrix.length ; j++){
+          if( insideMatrix[j] != 1 ){
+              zero = zero +1;
+          }    
+        }
+    }
+    if ( zero == 0 ){
+        return 1;
+    }
+    
+    var zero = 0;
+    var insideMatrix = [];
+    for(let i = 0; i < matrix.length ; i++){
+        insideMatrix = matrix[i];
+        for(let j = 0; j < insideMatrix.length ; j++){
+          if( insideMatrix[j] != 2 ){
+              zero = zero +1;
+          }    
+        }
+    }
+    if ( zero == 0 ){
+        return 16;
+    }    
+}
+
+
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];

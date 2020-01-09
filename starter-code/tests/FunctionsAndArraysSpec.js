@@ -45,6 +45,9 @@ describe("Finding Longest Word - findLongestWord", function() {
 
   it("returns the first occurrence word when longest have multiple occurrences ", function() {
     expect(findLongestWord(["foo", "bar"])).toBe("foo");
+  });
+
+  it("returns the first occurrence word when longest have multiple occurrences ", function() {
     expect(findLongestWord(["bar", "foo"])).toBe("bar");
   });
 
