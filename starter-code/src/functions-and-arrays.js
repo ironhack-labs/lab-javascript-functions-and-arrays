@@ -189,7 +189,7 @@ function greatestProduct(matrix) {
     }
   }
   for (let i = matrix.length-1; i-3 >=0; i--) {
-    for (let j = matrix[i].length-1; j - 3 < matrix[i].length; j--) {
+    for (let j = matrix[i].length-1; j - 3 >=0; j--) {
       let prodDiagInv = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3];
       if (prodDiagInv > product) {
         product = prodDiagInv;
