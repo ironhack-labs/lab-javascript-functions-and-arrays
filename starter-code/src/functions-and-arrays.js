@@ -1,15 +1,62 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (number1, number2) {
+  if (number1 > number2) { return(number1)}
+  else if (number1 === number2) {return(number1)}
+  else {return(number2)};
+}
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (words) {
+  if (typeof words === "object" && words.length === 0){ 
+    return null;
+  } else {
+  let word = "";
+  for (let i = 0; i < words.length; i++) {
+    if (word.length < words[i].length) {
+      word = words[i];
+    }
+  }
+  return word;
+  }
+};
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numbers) {
+  if (typeof numbers === "object" && numbers.length === 0) {
+    return 0;
+  } else {
+    var sum = 0;
+  for (i=0; i <numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  if (typeof numbersAvg === "object" && numbersAvg.length === 0) {
+    return null;
+  } else {
+  sum = 0;
+  for (i=0; i <numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+    }
+  var average = sum / numbersAvg.length;
+  return average;
+  }
+}
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +71,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr) {
+  if (typeof wordsArr === "object" && wordsArr.length === 0) {
+    return null;
+  } else {
+  sum = 0;
+  for (i=0; i <wordsArr.length; i++) {
+    sum += wordsArr[i].length;
+    }
+  var average = sum / wordsArr.length;
+  return average;
+}
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +100,23 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrWords) {
+  if (typeof arrWords === "object" && arrWords.length === 0) {
+    return [];
+  }
+  else {
+    var cleanArr = [];
+    for (i = 0; i < arrWords.length; i++) {
+      if (cleanArr.indexOf(arrWords[i]) === -1) {
+        cleanArr.push(arrWords[i])
+      }
+      
+    }
+return cleanArr;
+  }
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +128,22 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arrWords, word) {
+  var wordExists = false;
+  for (i=0; i < arrWords.length; i++) {
+    if (word === arrWords[i]) {
+      return wordExists = true;
+    } else { 
+      continue;
+    }
+  }
+  if (wordExists === true) {
+    return true
+  } else {
+    return false
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +159,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrWords, word) {
+  if (typeof arrWords === "object" && arrWords.length === 0) {
+    return 0;
+  } else {
+      numberOfOccurrences = 0;
+      for (i=0; i < arrWords.length; i++) {
+        if (arrWords[i] === word) {
+          numberOfOccurrences ++;
+      }
+    }
+  }
+  return numberOfOccurrences;
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +198,30 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrix) {
+  var productRow = 0;
+  var productCol = 0;
+  var productDia = 0;
+  var highestProduct = 0;
+  for (let u=0; u < matrix.length - 3 ; u++) {
+  for (let i=0; i < matrix[u].length ; i++) {
+    productRow = matrix[u][i] * matrix[u][i + 1] * matrix[u][i + 2] * matrix[u][i + 3];
+    productCol = matrix[u][i] * matrix[u+1][i] * matrix[u+2][i] * matrix[u+3][i];
+    productDia = matrix[u][i] * matrix[u+1][i+1] * matrix[u+2][i+2] * matrix[u+3][i+3];
+    if (productRow > highestProduct) {
+      highestProduct = productRow;
+    }
+    if (productCol > highestProduct){
+      highestProduct = productCol;
+    }
+    if (productDia > highestProduct) {
+      highestProduct = productDia
+    }
+    }
+  }
+  return highestProduct
+}
+
+
