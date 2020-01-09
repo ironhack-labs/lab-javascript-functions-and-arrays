@@ -1,15 +1,64 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (a, b){
+  if (a > b) {
+    return a ;
+  } else if (a === b) {
+    return a ;
+  } else {
+    return b ;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(someArr) {
+  let longestWord = "" ;
+  if (someArr.length == 0) {
+    return null ;
+  } else if ( someArr.length === 1)
+   {
+    longestWord = someArr[0] ;
+  } else {
+    for (i = 0 ; i < someArr.length ; i += 1) {
+      if (someArr[i].length > longestWord.length) {
+        longestWord = someArr[i] ;
+      }
+    }
+  }
+  return longestWord ;
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumArray(numberArr){
+  let sum = 0 ;
+  for (i = 0 ; i < numberArr.length ; i += 1) {
+    sum += numberArr[i] ;
+  }
+  return sum ;
+}
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers(numberArr) {
+  if (numberArr.length === 0) {
+    return null ;
+  } 
+  let sum = 0 ;
+  for (let i = 0 ; i < numberArr.length ; i += 1) {
+    sum += numberArr[i] ;
+   }
+  return sum / numberArr.length ;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -23,7 +72,18 @@ const wordsArr = [
   'chaos',
   'fuel',
   'palace'
-];
+] ;
+
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null ;
+  }
+  let sum = 0 ;
+  for (let i = 0 ; i < wordsArr.length ; i += 1) {
+    sum += wordsArr[i].length ;
+  }
+  return sum / wordsArr.length ;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +100,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArr) {
+  if (wordsArr.length === 0) {
+    return [] ;
+  } else {
+    let newArr = [] ;
+    for (let i = 0 ; i < wordsArr.length ; i += 1) {
+      if (newArr.indexOf(wordsArr[i]) == -1) {
+        newArr.push(wordsArr[i]) ;
+      }
+    }
+    return newArr ;
+  } 
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +125,20 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsArr, word) {
+  if (wordsArr.length === 0) {
+    return false ;
+  } else {
+    for (i = 0 ; i < wordsArr.length ; i += 1) {
+      if (wordsArr[i] == word) {
+        return true ;
+      } 
+    }
+    return false ;
+  }
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +154,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArr, wordToFind) {
+  let counter = 0 ;
+  if (wordArr.length == 0){
+    return 0 ;
+  } else {
+    for (i = 0 ; i < wordArr.length ; i += 1) {
+      
+      if (wordToFind === wordArr[i]) {
+        counter += 1 ;
+      }
+    }
+  }
+  return counter ;
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +194,25 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// étrangement j'ai l'impression que ça fonctionne bien sur les diagonales (en tout cas quand je me fais une petite matrice, ça semble fonctionner), mais sur les h et v c'est n'importe quoi.
+
+
+function greatestProduct(someMatrix) {
+  let biggestProduct = 0 ;
+  let hProduct = 0 ;
+  let vProduct = 0 ;
+  let dProduct1 = 0 ;
+  let dProduct2 = 0 ;
+  for (i = 0 ; i < someMatrix.length - 3 ; i += 1) {
+    for (j = 0 ; j < someMatrix[i].length - 3 ; j += 1) {
+      hProduct = someMatrix[i][j] * someMatrix[i + 1][j] * someMatrix[i + 2][j] * someMatrix[i + 3][j] ;
+      vProduct = someMatrix[i][j] * someMatrix[i][j + 1] * someMatrix[i][j + 2] * someMatrix[i][j + 3] ;
+      dProduct1 = someMatrix[i][j] * someMatrix[i + 1][j + 1] * someMatrix[i + 2][j + 2] * someMatrix[i + 3][j + 3] ;
+      dProduct2 = someMatrix[i + 3][j] * someMatrix[i + 2][j + 1] * someMatrix[i + 1][j + 2] * someMatrix[i][j + 3] ;
+      } if (Math.max(hProduct, vProduct, dProduct1, dProduct2) > biggestProduct) {
+      biggestProduct = Math.max(hProduct, vProduct, dProduct1, dProduct2)
+    } 
+  }
+  return biggestProduct ;
+}
