@@ -176,30 +176,7 @@ const wordsCount = [
 
 // Iteration #8: Bonus
 
-function greatestProduct(matrix) {
-  let product = 0;
-  for (let i = 0; i + 3 < matrix.length; i++) {
-    for (let j = 0; j + 3 < matrix[i].length; j++) {
-      let prodVert = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
-      let prodHor = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
-      let prodDiag = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
-      if (Math.max(prodVert, prodHor, prodDiag) > product) {
-        product = Math.max(prodVert, prodHor, prodDiag)
-      }
-    }
-  }
-  for (let i = matrix.length-1; i-3 >=0; i--) {
-    for (let j = matrix[i].length-1; j - 3 >=0; j--) {
-      let prodDiagInv = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3];
-      if (prodDiagInv > product) {
-        product = prodDiagInv;
-      }
-    }
-  }
-  return product;
-}
-
-const matrix = [
+const matrix2 = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -221,3 +198,26 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let product = 0;
+  for (let i = 0; i + 3 < matrix.length; i++) {
+    for (let j = 0; j + 3 < matrix[i].length; j++) {
+      let prodVert = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      let prodHor = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      let prodDiag = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      if (Math.max(prodVert, prodHor, prodDiag) > product) {
+        product = Math.max(prodVert, prodHor, prodDiag)
+      }
+    }
+  }
+  for (let i = 0; i + 3 < matrix.length; i++) {
+    for (let j = matrix[i].length-1; j - 3 >=0; j--) {
+      let prodDiagInv = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+      if (prodDiagInv > product) {
+      }
+    }
+  }
+  return product;
+}
+console.log(greatestProduct(matrix2))
