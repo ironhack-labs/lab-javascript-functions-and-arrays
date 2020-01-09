@@ -207,6 +207,16 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
-
+function greatestProduct(matrix) {
+  let prodX = 1;
+  let prodRow = 1;
+  for (let i=0; i<matrix.length; i+=1) {
+    for (let j=0; j+3<matrix[i].length; j+=1) {
+      prodX = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      if (prodX > prodRow) {
+        prodRow = prodX;
+      }
+    }
+  }
+  return prodRow;
 }
