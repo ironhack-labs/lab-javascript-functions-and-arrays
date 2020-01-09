@@ -1,16 +1,44 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a, b){
+  let max = []
+  if(a>b){
+max.push(a);
+  }else if(a<b){
+max.push(b);
+  }else{
+max.push(b);
+  }
+  return max;
+}
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (words){
 
+  return words.sort(function(a, b) {return b.length - a.length})[0];
+  
+  }
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray (numbers){
+  
+let sumTotal = 0 ;
 
+for (i=0; i<a.lenght; i++){
+  sumTotal = sumTotal + a[i];
+}
+return sumTotal;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(num){
+   let sum = num.reduce(function(a,b){
+        return a + b;
+ })
+ let average = sum / num.length
+ return Math.floor(average)
+   
+}
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -24,6 +52,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLenght(x){
+  let a = 0;
+for(i = 0; i < x.length; i++){
+  a= a + x[i].length;
+}
+let average = a/x.length;
+return average;
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -39,6 +75,9 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (arr){
+  return arr.reduce(function(a,b){if(a.indexOf(b)<0)a.push(b);return a;},[]);
+  }
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -51,6 +90,14 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(a, b){
+focus(i=0; i<a.length; i++){
+  if(a[i]===b){
+    return true;
+  }
+}
+return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,7 +113,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes (a, b){
+let num = 0;
+for(i=0; i < a.length; i++){
+  if(a[i]===b){
+num +=1;
+}
+}
+return num;
+}
 // Iteration #8: Bonus
 
 const matrix = [
