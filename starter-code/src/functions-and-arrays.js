@@ -208,15 +208,28 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+
+  // to find greatest product HORIZONTALLY 
   let prodX = 1;
   let prodRow = 1;
   for (let i=0; i<matrix.length; i+=1) {
-    for (let j=0; j+3<matrix[i].length; j+=1) {
-      prodX = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
-      if (prodX > prodRow) {
-        prodRow = prodX;
-      }
+      for (let j=0; j+3<matrix[i].length; j+=1) {
+        prodX = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+        if (prodX > prodRow) prodRow = prodX;
     }
   }
+
+  // to find greatest product VERTICALLY
+  let prodY = 1;
+  let prodCol = 1;
+  for (let i=0; i+3<matrix.length; i+=1) {
+      for (let j=0; j<matrix[i].length; j+=1) {
+        prodY = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+        if (prodY > prodCol) prodCol = prodY;
+    }
+  }
+
+  // to compare greatest products vertically and diagonally
+  if (prodCol > prodRow) return prodCol;
   return prodRow;
 }
