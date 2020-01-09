@@ -1,15 +1,54 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(number1, number2) {
+  return Math.max(number1, number2);
+  }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+function findLongestWord(wordTab) {
+  if (wordTab.length === 0) {
+    return null;
+  }
+  let longestWord = wordTab[0];
+  for (let i=1; i<wordTab.length; i++) {
+    if (wordTab[i].length > longestWord.length) {
+      longestWord = wordTab[i];
+    } else if (longestWord.length == wordTab[i].length) {
+      continue;
+    }     
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(sumOfNumber) {
+  let sum=0;
+  for (let i=0; i<sumOfNumber.length; i++) {
+    sum+=sumOfNumber[i]
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(tabNumbers) {
+  if (tabNumbers.length === 0) {
+    return null;
+  }
+  let sum=0; 
+  for (let i=0; i<tabNumbers.length; i++) {
+    sum+=tabNumbers[i]
+  }
+  return sum/tabNumbers.length;
+}
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +63,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(stringTab) {
+  let sum = 0;
+  if (stringTab.length === 0) {
+    return null;
+  }
+  for (let i=0; i<stringTab.length; i++) {
+    sum+= stringTab[i].length;
+  }
+  return sum/stringTab.length
+}
+
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +92,18 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(stringTab) {
+  const objUnique = [...new Set(stringTab)];
+
+  if (stringTab.length === 0) {
+    return [];
+  }
+  return objUnique;
+}
+
+// const setWords = new Set(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +115,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(stringTab, searched) {
+  if (stringTab.length === 0) {
+    return false;
+  }
+  for(let i=0; i<stringTab.length; i++) {
+    if (stringTab[i]===searched) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +142,25 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(stringTab, searched) {
+  let cpt = 0;
+  if (stringTab.length === 0) {
+    return 0;
+  }
+  for(let i=0; i<stringTab.length; i++) {
+    if (stringTab[i]===searched) {
+      cpt += 1;   
+    } 
+  }
+  if (cpt===1) {
+    return 1;
+  } else if (cpt === 5) {
+    return 5;
+  } else {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +186,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {
+  console.log("to be continued...in one year");
+}
