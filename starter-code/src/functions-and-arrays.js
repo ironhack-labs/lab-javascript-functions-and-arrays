@@ -1,15 +1,38 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a,b) {
+  return a > b ? a : b;
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(wordArray) {
+  // Empty array
+  if (wordArray.length === 0) { return null; }
+
+  // Initialize
+  let longestWord = "";
+
+  for (let i = 0; i < wordArray.length; i++ ) {
+    if ( wordArray[i].length > longestWord.length ) {
+      longestWord = wordArray[i];
+    }
+  }
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(numArray) {
+  return numArray.reduce((total, num) => { return total + num; }, 0);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numArray) {
+  if ( numArray.length === 0 ) { return null; }
+  return (sumArray(numArray) / numArray.length);
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +47,13 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+// Average word length of all words in array
+function averageWordLength(wordsArray) {
+  if ( wordsArray.length === 0 ) { return null; }
+  let wordsLengthArray = wordsArray.map( (word, index) => { return word.length } );
+  return averageNumbers(wordsLengthArray);
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +70,16 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArray) {
+  let uniqueArray = [];
+  for (let i = 0; i < wordsArray.length; i++) {
+    if(!uniqueArray.includes(wordsArray[i])) {
+      uniqueArray.push(wordsArray[i])
+    }
+  }
+  return uniqueArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +91,10 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsArray, word) {
+  return wordsArray.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -67,8 +111,15 @@ const wordsCount = [
   'matter'
 ];
 
-// Iteration #8: Bonus
+function howManyTimes(wordsArray, word) {
 
+  // Optional :
+  // if ( wordsArray.length === 0 ) { return 0; }
+
+  return wordsArray.filter(el => el === word).length;
+}
+
+// Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -91,3 +142,61 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix, n) {
+
+  // Default value
+  if (n === undefined ) { n = 4; }
+
+  let total = 0;
+
+  /*
+   * Check Matrix horizontally
+   */
+  matrix.forEach((row, r) => {
+    // console.log(row);
+    row.forEach((element, e, arr) => {
+
+      // Dont overshoot row
+      if (e > arr.length - n) {
+        return;
+      }
+
+      // Multiply by element by n * next elements
+      let newTotal = element;
+      for (let t = 1; t < n; t++) {
+        newTotal = newTotal * row[e + t];
+      }
+      if (newTotal > total) { total = newTotal; }
+
+    });
+  });
+
+  /**
+   * Check Matrix verticaly
+   */
+  let maxRowIndex = matrix.length - n;
+
+  // Go row by row, but dont overshoot
+  for (let i = 0; i <= maxRowIndex; i++) {
+    let currentRow = matrix[i];
+
+    // For each row, do a sum of all the n * vertical elements
+    // Add it to total only if greater than previous total
+    currentRow.forEach((element, e, arr) => {
+
+      // Multiply by element by n * next elements vertically
+      let newTotal = element;
+      for (let t = 1; t < n; t++) {
+        newTotal = newTotal * matrix[i + t][e]
+      }
+      if (newTotal > total) { total = newTotal; }
+
+    });
+
+  }
+
+  // TODO diagonals !
+
+  return total;
+}
