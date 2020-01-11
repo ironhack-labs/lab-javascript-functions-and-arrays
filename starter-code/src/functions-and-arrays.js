@@ -1,15 +1,50 @@
 // Iteration #1: Find the maximum
+const maxOfTwoNumbers = function (num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const findLongestWord = function (wordsArr) {
+  let longestWord = wordsArr[0];
+  for (let i =0; i < wordsArr.length; i++) {
+    if (wordsArr[i].length > longestWord.length) {
+      longestWord = wordsArr[i];
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumArr = function (numArr) {
+  let sum = 0;
+  for (let i = 0; i < numArr.length; i++) {
+    sum +=numArr[i]
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
+
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = function (numArr){
+  let sum = 0;
+  for (let i = 0; i < numArr.length; i++) {
+    sum +=numArr[i]
+  }
+  return sum/numArr.length
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +59,14 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+const averageWordLength = function (wordsArr) {
+  let sum = 0;
+  for (let i=0; i<wordsArr.length; i++) {
+    sum+=wordsArr[i].length;
+  }
+  return sum/wordsArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +83,16 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = function (wordsArr) {
+  let uniqueArr = [];
+  for (let i =0; i < wordsArr.length; i++) {
+    if (uniqueArr.indexOf(wordsArr[i]) < 0) {
+      uniqueArr.push(wordsArr[i]);
+    }
+  }
+  return uniqueArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +104,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+const doesWordExist = function (wordsArr, wordToTest) {
+  for (let i =0; i < wordsArr.length; i++) {
+    if (wordToTest === wordsArr[i]) {
+      return true
+    }  
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +128,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = function (wordsArr, wordToCount) {
+  let num=0;
+  for(let i =0; i<wordsArr.length; i++) {
+    if(wordToCount === wordsArr[i]) {
+      num++
+    }
+  }
+  return num
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +163,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = function (matrix) {
+  let largestNum = 0;
+  for (let i=0; i<20; i++) {
+    for(let j=0;j<17; j++) {
+      let product1 = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      if(product1 > largestNum) {
+        largestNum = product1;
+      }
+    }
+  }
+  for (let i=0; i<17; i++) {
+    for(let j=0;j<20; j++) {
+      let product2 = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      if(product2 > largestNum) {
+        largestNum = product2;
+      }
+    }
+  }
+  for (let i=0; i<17; i++) {
+    for(let j=0;j<17; j++) {
+      let product3 = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j+2]*matrix[i+3][j+3];
+      if(product3 > largestNum) {
+        largestNum = product3;
+      }
+    }
+  }
+  return largestNum;
+}
