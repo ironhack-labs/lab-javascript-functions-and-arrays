@@ -47,7 +47,7 @@ function sumArray(arrayOfNumbers) {
   for (let i = 0; i < arrayOfNumbers.length; i++) {
     sum += arrayOfNumbers[i];
   }
-  console.log("la somme est " + sum);
+  //console.log("la somme est " + sum);
   return sum;
 }
 //sumArray([4]);
@@ -175,26 +175,58 @@ function howManyTimes(arrayOfWords, word) {
   else return count;
 }
 
-/*function greatestProduct(listOfnNumbers) {
-  greatestProduct = [];
+function greatestProduct(listOfnNumbers) {
+  var greatestProductsNumber = [];
+  console.log(listOfnNumbers.length);
+  console.log(listOfnNumbers[0].length);
 
-  for (let i = 0; i < listOfnNumbers.length - 3; i++) {
+  for (let i = 0; i < listOfnNumbers.length; i++) {
     for (let j = 0; j < listOfnNumbers[i].length; j++) {
-      greatestProduct.push(
-        listOfnNumbers[i][j] *
+      let verticalProduct;
+      let horizontalProduct;
+      let diagonalProduct;
+      if (i + 3 < listOfnNumbers.length) {
+        verticalProduct =
+          listOfnNumbers[i][j] *
           listOfnNumbers[i + 1][j] *
           listOfnNumbers[i + 2][j] *
-          listOfnNumbers[i + 3][j]
-      );
-      console.log("i  :" + i + "j: " + j);
+          listOfnNumbers[i + 3][j];
+        greatestProductsNumber.push(verticalProduct);
+      }
+      if (j + 3 < listOfnNumbers[i].length) {
+        horizontalProduct =
+          listOfnNumbers[i][j] *
+          listOfnNumbers[i][j + 1] *
+          listOfnNumbers[i][j + 2] *
+          listOfnNumbers[i][j + 3];
+        greatestProductsNumber.push(horizontalProduct);
+      }
+      if (j + 3 < listOfnNumbers[i].length && i + 3 < listOfnNumbers.length) {
+        diagonalProduct =
+          listOfnNumbers[i][j] *
+          listOfnNumbers[i + 1][j + 1] *
+          listOfnNumbers[i + 2][j + 2] *
+          listOfnNumbers[i + 3][j + 3];
+        greatestProductsNumber.push(diagonalProduct);
+      }
     }
-
-    console.log(greatestProduct);
   }
+  var max = greatestProductsNumber.reduce(function(a, b) {
+    return Math.max(a, b);
+  });
+  console.log("max" + max);
+  return max;
 }
-const matrix = [[08, 02, 22, 97],[08, 02, 03, 05]];
+
+const matrix = [
+  [08, 02, 22, 97],
+  [08, 02, 03, 05],
+  [08, 02, 22, 97],
+  [08, 02, 22, 97],
+  [08, 02, 22, 97]
+];
 greatestProduct(matrix);
-*/
+
 /*
 // Iteration #8: Bonus
 
