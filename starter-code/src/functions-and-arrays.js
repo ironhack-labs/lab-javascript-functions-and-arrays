@@ -1,15 +1,48 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(n1, n2) {
+  return n1 > n2 ? n1 : n2;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  if (words.length === 0) return null;
+  let longestWord = words[0];
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+sumArray = arr => {
+  let sum = 0;
+  for (let number of arr) {
+    sum += number;
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+averageNumbers = arr => {
+  if (arr.length === 0) return null;
+
+  let total = 0;
+  for (let number of arr) {
+    total += number;
+  }
+
+  return total / arr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +57,17 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+averageWordLength = arr => {
+  if (arr.length === 0) return null;
+
+  let total = 0;
+  for (let word of arr) {
+    total += word.length;
+  }
+
+  return total / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +84,16 @@ const wordsUnique = [
   'bring'
 ];
 
+uniquifyArray = (arr) => {
+  return [...new Set(arr)]
+}
+
+// function uniquifyArray(arr) {
+//   arr.filter((value, index) => {
+//     arr.indexOf(value) == -1;
+//   })
+// }
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +105,11 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+doesWordExist = (arr, word) => {
+  if (arr.indexOf(word) !== -1) return true;
+  if (arr.indexOf(word) == -1) return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +125,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+howManyTimes = (arr, word) => {
+  count = 0
+  for (let item of arr) {
+    if (item === word) count++
+  }
+  return count;
+}
+
 
 // Iteration #8: Bonus
 
@@ -91,3 +159,29 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+findBiggest = arr => {
+  let biggest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > biggest) biggest = arr[i]
+  }
+  return biggest;
+}
+
+findBiggest([1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48])
+
+
+getDown = (number, matrix) => {
+
+}
+
+
+
+
+
+
+greatestProduct = arr => {
+  for (let line of arr) {
+
+  }
+}
