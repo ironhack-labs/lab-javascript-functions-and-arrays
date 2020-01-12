@@ -190,5 +190,13 @@ const greatestProduct = function (matrix) {
       }
     }
   }
+  for (let i=0; i<17; i++) {
+    for(let j=19;j>2; j--) {
+      let product4 = matrix[i][j]*matrix[i+1][j-1]*matrix[i+2][j-2]*matrix[i+3][j-3];
+      if(product4 > largestNum) {
+        largestNum = product4;
+      }
+    }
+  }
   return largestNum;
 }
