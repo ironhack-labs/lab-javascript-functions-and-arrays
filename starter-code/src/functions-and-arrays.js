@@ -17,15 +17,17 @@ function maxOfTwoNumbers(min, max) {
 console.log(`Iteration #1: The biggest number is: ${maxOfTwoNumbers(10, 15)}`);
 
 
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'christmas'];
 
 
 function findLongestWord(wordArr) {
 
-let longestWord;
-let longestLength = 0;
-  
+  let longestWord;
+  let longestLength = 0;
+
 
   if (wordArr === undefined || wordArr.length == 0) {
 
@@ -44,7 +46,6 @@ let longestLength = 0;
         longestLength = wordArr[i].length;
         longestWord = wordArr[i];
 
-
       }
     }
 
@@ -53,6 +54,9 @@ let longestLength = 0;
 }
 console.log(`Iteration #2 | The longest word in the array is: ${findLongestWord(words)}`);
 
+
+
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -60,7 +64,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(arrWords) {
 
-let sum = 0;
+  let sum = 0;
 
   if (arrWords === undefined || arrWords.length == 0) {
 
@@ -85,8 +89,9 @@ let sum = 0;
 console.log(`Iteration #3: The sum of the numbers in the array is: ${sumArray(numbers)}`);
 
 
-// Iteration #4: Calculate the average
 
+
+// Iteration #4: Calculate the average
 
 // Level 1: Array of numbers
 
@@ -94,26 +99,27 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrNumbers) {
 
-let sumNum = 0;
-
   if (arrNumbers === undefined || arrNumbers.length === 0) {
 
     return null;
 
+  } else if (arrNumbers.length === 1) {
+
+    return arrNumbers[0];
+
   }
 
-  else {
+
+  let sumNum = 0;
 
   arrNumbers.forEach(function (num) {
     sumNum += num;
   })
 
- 
-    
-
-  }
-
   return sumNum / arrNumbers.length;
+
+
+
 }
 
 console.log(`Iteration #4, level 1 | The average of the numbers in the array is: ${averageNumbers(numbersAvg)}`);
@@ -136,24 +142,21 @@ const wordsArr = [
 
 function averageWordLength(arrWords) {
 
-let wordLengthSum = 0;
-const wordLengthSumValues = wordsArr.length;
+   if (arrWords === undefined || arrWords.length === 0) {
 
+    return null;
+
+  }
+
+
+  let wordLengthSum = 0;
   arrWords.forEach(function (value) {
 
     wordLengthSum += value.length;
 
   })
-
-  if (wordLengthSumValues !== 0 || wordLengthSumValues !== 0) {
-
-    return wordLengthSum / wordLengthSumValues;
-
-  } else {
-
-    console.log(`Can't generate a calcution with zero`)
-
-  }
+   
+  return wordLengthSum / arrWords.length;
 
 }
 
@@ -207,19 +210,28 @@ const wordsFind = [
 ];
 
 function doesWordExist(findWordArr, word) {
-    
+
+if (findWordArr.length === 0 || findWordArr === undefined) {
+
+return false;
+
+}
+
+else {
 
   for (let i = 0; i < findWordArr.length; i++) {
 
-  if (findWordArr[i]=== word) {
-    
-  return true;
-  
+    if (findWordArr[i] === word) {
+
+      return true;
+
+
+    }
 
   }
-  
-  }
-  
+
+}
+
   return false;
 
 }
@@ -245,9 +257,8 @@ const wordsCount = [
 
 function howManyTimes(wordCountArr, word) {
 
-let counter = 0;
-let wordCountArray = [];
-  
+  let wordCountArray = [];
+
 
   wordCountArr.forEach(function (value) {
 
@@ -261,7 +272,7 @@ let wordCountArray = [];
 
 }
 
-console.log(`Iteration #7 | The word is found ${howManyTimes(wordsCount, 'truth')} times in the array`);
+console.log(`Iteration #7 | The word is found ${howManyTimes(wordsCount, 'matter')} time(s) in the array`);
 
 // Iteration #8: Bonus
 
@@ -288,23 +299,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-let sumHorizontal = 0;
-let sumVertical = 0;
-let sumDiagonal = 0;
-let totalSum = 0;
 
+function greatestProduct(){
 
-function greatestProduct(matrixArr) {
-
-for (let i =0; i < matrixArr.length; i++) {
-
-  for (let j =0; j < matrixArr[i].length; j++) {
-  
-}
-
-}
 
 
 }
-
-greatestProduct(matrix);
