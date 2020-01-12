@@ -14,16 +14,18 @@ function maxOfTwoNumbers(min, max) {
   }
 }
 
-console.log(`The biggest number is: ${maxOfTwoNumbers(10, 15)}`);
+console.log(`Iteration #1: The biggest number is: ${maxOfTwoNumbers(10, 15)}`);
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'christmas'];
-let longestWord;
-let longestLength = 0;
 
 
 function findLongestWord(wordArr) {
+
+let longestWord;
+let longestLength = 0;
+  
 
   if (wordArr === undefined || wordArr.length == 0) {
 
@@ -49,14 +51,16 @@ function findLongestWord(wordArr) {
   }
   return longestWord;
 }
-console.log(`The longest word in the array is: ${findLongestWord(words)}`);
+console.log(`Iteration #2 | The longest word in the array is: ${findLongestWord(words)}`);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let sum = 0;
+
 
 function sumArray(arrWords) {
+
+let sum = 0;
 
   if (arrWords === undefined || arrWords.length == 0) {
 
@@ -78,22 +82,21 @@ function sumArray(arrWords) {
   return sum;
 }
 
-console.log(`The sum of the numbers in the array is: ${sumArray(numbers)}`);
+console.log(`Iteration #3: The sum of the numbers in the array is: ${sumArray(numbers)}`);
 
 
 // Iteration #4: Calculate the average
 
 
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-const numbersLength = numbersAvg.length;
-console.log(numbersLength);
-let sumNum = 0;
-let aveNum = 0;
 
 function averageNumbers(arrNumbers) {
 
-  if (arrNumbers === undefined || arrNumbers.length == 0) {
+let sumNum = 0;
+
+  if (arrNumbers === undefined || arrNumbers.length === 0) {
 
     return null;
 
@@ -106,11 +109,14 @@ function averageNumbers(arrNumbers) {
   })
 
  
-    return averNum = sumNum / numbersLength;
+    
+
   }
+
+  return sumNum / arrNumbers.length;
 }
 
-console.log(`The average of the numbers in the array is: ${averageNumbers(numbersAvg)}`);
+console.log(`Iteration #4, level 1 | The average of the numbers in the array is: ${averageNumbers(numbersAvg)}`);
 
 
 // Level 2: Array of strings
@@ -151,7 +157,7 @@ const wordLengthSumValues = wordsArr.length;
 
 }
 
-console.log(`The average word length in the array is ${averageWordLength(wordsArr)}`);
+console.log(`Iteration #4, level 2 | The average word length in the array is: ${averageWordLength(wordsArr)}`);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -167,9 +173,11 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-const uniqueArray = [];
+
 
 function uniquifyArray(uniqueWordsArr) {
+
+  const uniqueArray = [];
 
   uniqueWordsArr.forEach(function (value) {
 
@@ -184,7 +192,7 @@ function uniquifyArray(uniqueWordsArr) {
 
 }
 
-console.log(`This is an unique array of words: ${uniquifyArray(wordsUnique)}`);
+console.log(`Iteration #5 | This is an unique array of words: ${uniquifyArray(wordsUnique)}`);
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -216,7 +224,7 @@ function doesWordExist(findWordArr, word) {
 
 }
 
-console.log(`Does word exist?: ${doesWordExist(wordsFind,'truth')}`);
+console.log(`Iteration #6 | Does word exist?: ${doesWordExist(wordsFind,'truth')}`);
 
 
 // Iteration #7: Count repetition
@@ -234,10 +242,12 @@ const wordsCount = [
   'matter'
 ];
 
-let counter = 0;
-let wordCountArray = [];
 
 function howManyTimes(wordCountArr, word) {
+
+let counter = 0;
+let wordCountArray = [];
+  
 
   wordCountArr.forEach(function (value) {
 
@@ -251,7 +261,7 @@ function howManyTimes(wordCountArr, word) {
 
 }
 
-console.log(howManyTimes(wordsCount, 'truth'));
+console.log(`Iteration #7 | The word is found ${howManyTimes(wordsCount, 'truth')} times in the array`);
 
 // Iteration #8: Bonus
 
@@ -290,7 +300,6 @@ for (let i =0; i < matrixArr.length; i++) {
 
   for (let j =0; j < matrixArr[i].length; j++) {
   
-
 }
 
 }
