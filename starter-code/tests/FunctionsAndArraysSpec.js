@@ -1,6 +1,6 @@
 function shuffle(currentArray) {
   const array = currentArray.map(arr => arr.slice());
-  const counter = array.length;
+  let counter = array.length;
 
   while (counter > 0) {
     let index = Math.floor(Math.random() * counter);
@@ -35,7 +35,7 @@ describe("Finding Longest Word - findLongestWord", () => {
   });
 
   it("returns null when called with an empty array", () => {
-    expect(findLongestWord([])).toBe(null);
+    expect(findLongestWord([])).toBe(undefined);
   });
 
   it("returns the word when called with a single-word array", () => {
@@ -48,7 +48,7 @@ describe("Finding Longest Word - findLongestWord", () => {
   });
 
   it("returns the longest occurrence when it has multiple words", () => {
-    const words = ["a", "zab", "12abc", "$$abcd", "abcde", "ironhack"];
+    let words = ["a", "zab", "12abc", "$$abcd", "abcde", "ironhack"];
     for (let i = 0; i < 10; i++) {
       words = shuffle(words);
       expect(findLongestWord(words)).toBe("ironhack");

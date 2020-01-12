@@ -1,15 +1,82 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = function (num1, num2) {
+  // if num1 is bigger than num2, return num1
+  if (num1 > num2) {
+    return num1
+    // if num2 is bigger than num1, return num2
+  } else if (num2 > 1) {
+    return num2
+  } else {
+    // if they are equal, return error message
+    console.log('Your numbers are equal.')
+  }
+}
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+let findLongestWord = function (array) {
+  var longest = "";
+  // if there is only one item in the array, return that item
+  if (array.length === 1) {
+    return array[0];
+    // if the array is empty or undefined, return undefined
+  } else if (array.length < 1 || array == undefined) {
+    return undefined;
+  } else {
+    // loop through each item in the array and check for the length of each item. Each time the item's length is longer than the one stored in the 'longest' variable, overwrite it.
+    for (var i = 0; i < array.length; i++) {
+      if (longest.length < array[i].length) {
+        longest = array[i];
+      }
+    }
+    return longest;
+  }
+}
+
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(array) {
+  // !array.length is the same as writing array.length === 0
+  let sum = 0
+  if (!array.length) {
+    return 0;
+  } else {
+    // loop through each item in the array and add its value to the sum variable
+    for (i = 0; i < array.length; i++) {
+      sum += array[i];
+    }
+    return sum;
+  }
+}
+sumArray(numbers);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  // !array.length is the same as writing array.length === 0
+  let sum = 0
+  if (!array.length) {
+    return null;
+  } else {
+    // loop through each item in the array and add it to the sum variable
+    for (i = 0; i < array.length; i++) {
+      sum += array[i];
+    }
+    // divide the total by the number of items inside the array to arrive at the average
+    return sum / array.length;
+  }
+}
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +91,23 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(array) {
+  // !array.length is the same as writing array.length === 0
+  let sum = 0
+  if (!array.length) {
+    return null;
+  } else {
+    // loop through each item in the array and add its length to the sum variable
+    for (i = 0; i < array.length; i++) {
+      sum += array[i].length;
+    }
+    return sum / array.length;
+  }
+}
+
+console.log(averageWordLength(wordsArr));
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +124,23 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  // start a new empty array
+  let unique_array = []
+  // return empty array if there is nothing in the array to begin with
+  if (!array.length) {
+    return [];
+  } else {
+    //loop through each item in the old array and check if this item is already in the new item. If it is not in the new item, it gets pushed into the new item. 
+    for (let i = 0; i < array.length; i++) {
+      if (unique_array.indexOf(array[i]) === -1) {
+        unique_array.push(array[i])
+      }
+    }
+    return unique_array
+  }
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +152,27 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, searchWord) {
+  // if array is empty, return false
+  if (!array.length) {
+    return false;
+    // if array only contains 1 item and this item is the search word, return true
+  } else if (array.length === 1 && array[0] === searchWord) {
+    console.log('is it this one?');
+    return true;
+  } else {
+    // Loop through each item of the array and check if it’s the search word to return true
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === searchWord) {
+        console.log(`search word is: ${array[i]}`);
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +188,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, searchWord) {
+  let counter = 0
+  // if array is empty, return 0
+  if (!array.length) {
+    return 0;
+  } else {
+    // loop through each item in the array and check if it is the search word. If it is, 1 is added to the counter variable.
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === searchWord) {
+        counter += 1
+      }
+    }
+  } return counter;
+}
+
+
 
 // Iteration #8: Bonus
 
