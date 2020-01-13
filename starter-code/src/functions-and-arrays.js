@@ -6,7 +6,7 @@ maxOfTwoNumbers(1,2);
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 const findLongestWord = wordArray => {
-	wordLength = "";
+	let wordLength = "";
 	wordArray.forEach(function(word) {
 		wordLength += word.length;
   });
@@ -24,7 +24,7 @@ findLongestWord(words);
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 const sumArray = arg1 => {
-  calculateSum = 0;
+  let calculateSum = 0;
   arg1.forEach(function(numArr) {
 	  calculateSum += numArr;
   });
@@ -39,8 +39,8 @@ console.log(sumArray(numbers));
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 const averageNumbers = arg1 => {
-	amountOfItems = 0;
-	calculateSum = 0;
+	let amountOfItems = 0;
+	let calculateSum = 0;
 	for (let i = 0; i < arg1.length; i++) {
 		amountOfItems = i + 1;
 	}
@@ -67,8 +67,8 @@ const wordsArr = [
 ];
 
 const averageWordLength = wordArray => {
-	wordLength = 0;
-	amountOfItems = 0;
+	let wordLength = 0;
+	let amountOfItems = 0;
 	wordArray.forEach(function(word) {
 		amountOfItems += 1;
 		wordLength += word.length;
@@ -94,7 +94,7 @@ const wordsUnique = [
 ];
 
 const uniquifyArray = arg1 => {
-	newArray = [];
+	const newArray = [];
 	arg1.forEach(function(element) {
 		newArray.indexOf(element) < 0 ? newArray.push(element) : null;
 	});
@@ -116,7 +116,7 @@ const wordsFind = [
 ];
 
 const doesWordExist = (arg1, arg2) => {
-	result = false;
+	let result = false;
 	for (let i = 0; i < arg1.length; i++) {
 		//console.log(`word: ${arg1[i]}, keyword ${arg2}`);
 		if (arg1[i] === arg2) { result = true; break; } else { result = false; }
@@ -142,7 +142,7 @@ const wordsCount = [
 ];
 
 const howManyTimes = (arg1, arg2) => {
-	howMany = 0;
+	let howMany = 0;
 	arg1.forEach(function(word) {
 		word === arg2 ? (howMany += 1) : howMany;
 	});
@@ -178,4 +178,4 @@ const matrix = [
 ];
 
 
-greatestProduct;
+//greatestProduct;
