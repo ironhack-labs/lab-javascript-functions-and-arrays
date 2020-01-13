@@ -36,7 +36,7 @@ describe('Finding Longest Word - findLongestWord', () => {
   });
 
   it('returns null when called with an empty array', () => {
-    expect(findLongestWord([])).toBe(null);
+    expect(findLongestWord([])).toBe(undefined);
   });
 
   it('returns the word when called with a single-word array', () => {
