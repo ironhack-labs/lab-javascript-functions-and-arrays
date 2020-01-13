@@ -11,6 +11,9 @@ const maxOfTwoNumbers = function (num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 const findLongestWord = function (wordsArr) {
+  if(wordsArr[0]===undefined) {
+    return null
+  }
   let longestWord = wordsArr[0];
   for (let i =0; i < wordsArr.length; i++) {
     if (wordsArr[i].length > longestWord.length) {
@@ -24,7 +27,10 @@ const findLongestWord = function (wordsArr) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-const sumArr = function (numArr) {
+const sumArray = function (numArr) {
+  if(numArr[0]===undefined) {
+    return 0;
+  }
   let sum = 0;
   for (let i = 0; i < numArr.length; i++) {
     sum +=numArr[i]
@@ -39,6 +45,9 @@ const sumArr = function (numArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 const averageNumbers = function (numArr){
+  if(numArr[0]===undefined) {
+    return null;
+  }
   let sum = 0;
   for (let i = 0; i < numArr.length; i++) {
     sum +=numArr[i]
@@ -61,6 +70,9 @@ const wordsArr = [
 ];
 
 const averageWordLength = function (wordsArr) {
+  if(wordsArr[0]===undefined) {
+    return null;
+  }
   let sum = 0;
   for (let i=0; i<wordsArr.length; i++) {
     sum+=wordsArr[i].length;
