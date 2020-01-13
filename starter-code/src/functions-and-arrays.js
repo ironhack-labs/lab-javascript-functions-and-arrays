@@ -1,15 +1,56 @@
 // Iteration #1: Find the maximum
+ 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1> num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  let i;
+  let word;
+
+  if (words.length === 0 ){
+    return undefined;
+  } else {
+        word = words[0];
+        for (i = 0; i < words.length; i++) {
+          if (word.length < words[i].length){
+              word = words[i];
+          }
+        }
+        return word;
+  }
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  let sum = 0 ;
+  numbers.forEach(function(number){
+  sum = sum + number;
+ })
+ return sum;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+ 
+function averageNumbers(array1) {
+   if (array1.length === 0 ){
+     return null;
+   } else {
+   let sum = sumArray(array1);
+   return (sum / array1.length) ;
+  }
+ }
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +65,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordArray) {
+  let totalWordLength = 0;
+  let avgWordLength = 0;
+  if (wordArray.length ===0 ) {
+    return null;
+  }
+  wordArray.forEach(function(word){
+    totalWordLength = totalWordLength + word.length;
+   })
+  avgWordLength = totalWordLength / wordArray.length ; 
+  return avgWordLength;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +94,24 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  let newArray = [];
+  let index = 0;
+
+  for(let i = 0;i < wordsUnique.length; i++) {
+    index = wordsUnique.indexOf(wordsUnique[i], 0);
+    if (index === i) {
+      index = wordsUnique.indexOf(wordsUnique[i], (index + 1))
+      if (index === -1 ){
+        newArray.push(wordsUnique[i]);
+      } else if (index > i ) {
+        newArray.push(wordsUnique[i]);
+      }
+    }
+  }
+  return newArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +123,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (array, searchWord) {
+  let doesExist = false;
+
+  if (array.includes(searchWord)){
+    doesExist = true;
+  }
+  return doesExist;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -67,6 +148,20 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(searchArray, searchWord) {
+  let index = 0;
+  let count = 0;
+  do {
+    index = searchArray.indexOf(searchWord, index );
+    if (index > -1 ){
+      count++;
+      index++;
+    } else {
+      break;
+    }
+  } while(index < searchArray.length);
+  return count;
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -91,3 +186,42 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(prodArray) {
+ let horizontalProduct = 0;
+ let verticalProduct = 0;
+ let diagonalProduct = 0;
+ let dProduct = 0;
+ let vProduct = 0;
+ let hProduct = 0;
+ 
+ for (i = 0; i < 20; i++){
+   for (j = 0; j < 17 ; j++){
+     hProduct = prodArray[i][j] * prodArray[i][j+1] * prodArray[i][j+2] * prodArray[i][j+3];
+     if (hProduct > horizontalProduct){
+      horizontalProduct = hProduct;
+     }
+     vProduct = prodArray[j][i] * prodArray[j+1][i] * prodArray[j+2][i] * prodArray[j+3][i];
+     if (vProduct > verticalProduct){
+      verticalProduct = vProduct;
+    }
+    if ( i < 17 && j < 17 ){
+      dProduct = prodArray[i][j] * prodArray[i+1][j+1] * prodArray[i+2][j+2] * prodArray[i+3][j+3];
+      if (dProduct > diagonalProduct){
+       diagonalProduct = dProduct;
+     }
+      }
+   }
+ }
+ 
+ if ((horizontalProduct >= verticalProduct) && (horizontalProduct >= diagonalProduct) ) {
+   return horizontalProduct;
+ }
+ if ((verticalProduct >= horizontalProduct) && (verticalProduct >= diagonalProduct) ) {
+  return horizontalProduct;
+ }
+ if ((diagonalProduct >= horizontalProduct) && ( diagonalProduct >=verticalProduct) ) {
+   return horizontalProduct;
+ }
+}
+
