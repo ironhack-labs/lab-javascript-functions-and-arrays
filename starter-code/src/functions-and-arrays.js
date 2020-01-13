@@ -1,15 +1,51 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1,num2) {
+  return Math.max(num1,num2)
+}
+maxOfTwoNumbers(1,2)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(array) {
+  if(array.length < 1 || array == undefined){
+    return null;
+  } else {
+    let longestWord = array[0];
+    for (i = 0; i < (array.length - 1); i++) {
+      if (array[i+1].length > longestWord.length) {
+      longestWord = array[i+1];
+      } else {
+      longestWord = longestWord;
+      }
+    }
+    return longestWord
+  } 
+}
+findLongestWord(words)
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumArray(array) {
+  let sumOfNumbers = 0
+  for (let i = 0; i < array.length; i++) {
+    sumOfNumbers = sumOfNumbers + array[i];
+  }
+  return sumOfNumbers
+}
+sumArray(numbers)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(array) {
+  if (array < 1 || array == undefined) {
+    return null;
+  } else {
+    return sumArray(array) / array.length;
+  }
+}
+averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +60,21 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(array) {
+  if (array < 1 || array == undefined) {
+    return null;
+  } else {
+    return sumArrayOfWords(array) / array.length;
+  }
+}
+function sumArrayOfWords(array) {
+  let sumOfNumbers = 0
+  for (let i = 0; i < array.length; i++) {
+    sumOfNumbers = sumOfNumbers + array[i].length;
+  }
+  return sumOfNumbers
+}
+averageWordLength(wordsArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -39,6 +90,24 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array) {
+  let newUniqueArray = [];
+  if (array.length < 1 || array === undefined || array === null) {
+    newUniqueArray = [];
+  } else if (typeof array === "string") {
+    newUniqueArray.push(array);
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      if (newUniqueArray.indexOf(array[i])>-1) {
+        continue;
+      } else {
+        newUniqueArray.push(array[i]);
+      }
+    }
+  }
+  return newUniqueArray;
+}
+uniquifyArray(wordsUnique)
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -51,6 +120,25 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, searchWord) {
+  if (findWordInArray(array, searchWord) == true) {
+    return true;
+  } else {
+    return false
+  }
+}
+
+function findWordInArray(array, searchWord) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === searchWord) {
+      return true;
+      break;
+    } else {
+      continue;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -67,8 +155,19 @@ const wordsCount = [
   'matter'
 ];
 
-// Iteration #8: Bonus
+function howManyTimes(array, searchWord) {
+  let repetitions = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === searchWord) {
+      repetitions++;
+    } else {
+      continue;
+    }
+  }
+  return repetitions
+}
 
+// Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -91,3 +190,61 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let arrayOfFour = [0, 0, 0, 0]
+let maxProduct = 0;
+let bingo = [0,0,0,0]
+let x;
+let y;
+let a = 0;
+let b = 0;
+let c = 0;
+let d = 0;
+
+function pushAbcdToArray() {
+  arrayOfFour.splice(0, 1, a);
+  arrayOfFour.splice(1, 1, b);
+  arrayOfFour.splice(2, 1, c);
+  arrayOfFour.splice(3, 1, d);
+}
+pushAbcdToArray()
+
+//check horyzontal (x=0-19 for each y=0-16)
+for (x=0; x<matrix.length; x++) {
+    for (y=0; y<matrix[x].length-3; y++) {
+      a=matrix[x][y];
+      b=matrix[x][y+1];
+      c=matrix[x][y+2];
+      d=matrix[x][y+3];
+      pushAbcdToArray()
+      findMaxMulitpicatorOfFour(arrayOfFour)
+    }
+  findMaxMulitpicatorOfFour(arrayOfFour)
+}
+
+//check vertical (y=0-19 for each x=0-16)
+for (y=0; y<matrix[y].length-3; y++) {
+    for (x=0; x<matrix.length-3; x++) {
+      a=matrix[x][y];
+      b=matrix[x+1][y];
+      c=matrix[x+2][y];
+      d=matrix[x+3][y];
+      pushAbcdToArray()
+      findMaxMulitpicatorOfFour(arrayOfFour)
+    }
+  findMaxMulitpicatorOfFour(arrayOfFour)
+}
+
+function findMaxMulitpicatorOfFour(array) {
+  if (array[0]*array[1]*array[2]*array[3]>maxProduct) {
+    maxProduct = array[0]*array[1]*array[2]*array[3];
+    bingo = [array[0],array[1],array[2],array[3]];
+  } else {
+    maxProduct = maxProduct;
+  }
+}
+
+function greatestProduct(array) {
+  console.log(maxProduct);
+}
+//greatestProduct(matrix)
