@@ -15,7 +15,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 var highestWordCount = 0;
 var highestWord = "";
 function findLongestWord() {
-  for (let i = 0; i <= words.length; i++) {
+  for (let i = 0; i < words.length; i++) {
     if (words[i].length > highestWordCount) {
       highestWordCount = words[i].length;
       highestWord = words[i];
@@ -32,9 +32,29 @@ findLongestWord()
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  console.log(sum)
+}
+
+sumArray(numbers);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  console.log(sum/arr.length) 
+}
+
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -50,6 +70,16 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length;
+  }
+  console.log(sum/arr.length)
+}
+
+averageWordLength(wordsArr)
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -64,6 +94,19 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(arr[i]) !== i) {
+      arr.splice(i, 1)
+      i--
+    }
+  }
+}
+
+uniquifyArray(wordsUnique)
+
+console.log(wordsUnique)
 
 // Iteration #6: Find elements
 const wordsFind = [
