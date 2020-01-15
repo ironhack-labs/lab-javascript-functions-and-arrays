@@ -47,6 +47,9 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 // Level 1: Array of numbers
 
 var averageNumbers = (numbersAvg) => {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
   var suma=sumArray(numbersAvg);
   return suma/numbersAvg.length;
 }
@@ -57,10 +60,13 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 //Declare a function named averageWordLength
 //that receives as a single argument an array of words and returns the average length of the words:
 var averageWordLength = (wordsArr) =>{
+  if (wordsArr.length === 0) {
+    return null;
+  }
   var wordsTotalLength = 0;
   for (var i=0; i<wordsArr.length;i++){
     wordsTotalLength= wordsTotalLength+wordsArr[i].length;
-   }
+  }
    return wordsTotalLength/wordsArr.length;
 }
 
@@ -78,6 +84,26 @@ const wordsArr = [
 ];
 
 // Iteration #5: Unique arrays
+//Take the following array, remove the duplicates, and return a
+// new array. You're more than likely going to want to check out the indexOf Array method.
+//Do this in the form of a function uniquifyArray that receives an array of words as a argument.
+
+var uniquifyArray = (arrayOfWords) => {
+  var newArray = [];
+  if (arrayOfWords.length === 0) {
+    return newArray;
+  }
+
+  for ( var i=0; i < arrayOfWords.length; i++){
+    if (arrayOfWords[i]=== arrayOfWords[i++]){
+      console.log("yyyynew array", arrayOfWords.splice(i++));
+      newArray.push(arrayOfWords.splice(i++,1));
+    }
+  }
+  return newArray;
+}
+uniquifyArray(wordsArr)
+
 const wordsUnique = [
   'crab',
   'poison',
