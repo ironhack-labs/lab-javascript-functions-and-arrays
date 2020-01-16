@@ -162,6 +162,13 @@ function howManyTimes(wordsCount, palabra) {
 }
 
 
+
+
+
+
+
+
+
   
 
 // Iteration #8: Bonus
