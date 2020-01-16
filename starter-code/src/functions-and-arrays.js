@@ -1,16 +1,72 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  let lgth = 0;
+  let longest;
+
+  if (words.length == 0) {
+    return null
+  } else {
+    for (let i = 0; i < words.length; i++) {
+      if (words[i].length > lgth) {
+        lgth = words[i].length;
+        longest = words[i];
+
+      }
+    }
+    return longest;
+  }
+
+}
+
+
+
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers) {
+  sum = 0
+  if (numbers.length == 0) {
+    return 0
+  } else {
+    numbers.forEach(function (number) {
+      sum = sum + number
+    })
+  }
+  return sum
+
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+  cal = 0
+
+  if (numbersAvg.length == 0) {
+    return null
+  } else {
+    numbersAvg.forEach(function (average) {
+      cal += average
+    })
+  }
+
+  return cal / numbersAvg.length
+}
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -25,6 +81,16 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(n) {
+  let sum = 0;
+  for (i = 0; i < n.length; i++) {
+    sum += n[i].length
+  }
+  if (n.length === 0) {
+    return null;
+  }
+  return sum / n.length;
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -39,6 +105,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+let unique
+
+function uniquifyArray(n) {
+  for (i = 0; i < n.length; i++) {
+    if (n[i] == n.indexOf(n[i])) {
+      console.log(n[i])
+    }
+  }
+  if (n.length === 0) {
+    return [];
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -52,6 +130,11 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(a) {
+  if (a.length === 0) {
+    return false;
+  }
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -66,6 +149,12 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(n) {
+  if (n.length === 0) {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 
@@ -91,3 +180,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(n) {
+
+}
