@@ -31,7 +31,7 @@ describe('Find the maximum - maxOfTwoNumbers', () => {
 });
 
 describe('Finding Longest Word - findLongestWord', () => {
-  it('Defines findLongestWord', function() {
+  it('Defines findLongestWord', function () {
     expect(typeof findLongestWord).toBe('function');
   });
 

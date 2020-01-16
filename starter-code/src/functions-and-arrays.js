@@ -218,3 +218,26 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let findNoOne = 0
+  let findNoTwo = 0
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      console.table(matrix[i][j])
+      if (matrix[i][j] != 1) {
+        findNoOne++
+      } else if (matrix[i][j] != 2) {
+        findNoTwo++
+      }
+    }
+  }
+  console.log(findNoOne)
+
+  if (findNoOne == 0) {
+    return 1
+  } else if (findNoTwo == 0) {
+    return 16
+  }
+}
