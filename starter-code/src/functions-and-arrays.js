@@ -84,10 +84,6 @@ const wordsArr = [
 ];
 
 // Iteration #5: Unique arrays
-//Take the following array, remove the duplicates, and return a
-// new array. You're more than likely going to want to check out the indexOf Array method.
-//Do this in the form of a function uniquifyArray that receives an array of words as a argument.
-
 var uniquifyArray = (arrayOfWords) => {
   var newArray = [];
   if (arrayOfWords.length === 0) {
@@ -95,9 +91,11 @@ var uniquifyArray = (arrayOfWords) => {
   }
 
   for ( var i=0; i < arrayOfWords.length; i++){
-    if (arrayOfWords[i]=== arrayOfWords[i++]){
-      console.log("yyyynew array", arrayOfWords.splice(i++));
-      newArray.push(arrayOfWords.splice(i++,1));
+    if (arrayOfWords.indexOf(arrayOfWords[i]) != -1) {
+      if (newArray.indexOf(arrayOfWords[i]) != -1) {
+        continue;
+      }
+      newArray.push(arrayOfWords[i])
     }
   }
   return newArray;
@@ -119,6 +117,18 @@ const wordsUnique = [
 ];
 
 // Iteration #6: Find elements
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return false;
+  }
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      return true;
+    }
+  }
+  return false;
+}
+
 const wordsFind = [
   'machine',
   'subset',
@@ -131,6 +141,15 @@ const wordsFind = [
 ];
 
 // Iteration #7: Count repetition
+function howManyTimes(array, word) {
+  timesThatAppears = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      timesThatAppears++;
+    }
+  }
+  return timesThatAppears;
+}
 const wordsCount = [
   'machine',
   'matter',
