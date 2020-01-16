@@ -14,12 +14,12 @@ maxOfTwoNumbers(11, 11)
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  var longest = 0;
-  var word = 0;
+  let longest = 0;
+  let word = 0;
   if (arr.length === 0) {
     return null
   }
-  for (var i = 0; i <= arr.length - 1; i++)
+  for (let i = 0; i <= arr.length - 1; i++)
     if (longest < arr[i].length) {
       longest = arr[i].length;
       word = arr[i];
@@ -128,11 +128,11 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, str) {
-  var word = 0;
+  let word = 0;
   if (arr.length === 0) {
     return false;
   }
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (str === arr[i]) {
       return true;
     }
@@ -156,11 +156,11 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, str) {
-  var word = 0;
+  let word = 0;
   if (arr.length === 0) {
     return 0;
   }
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (str === arr[i]) {
       word++;
     }
