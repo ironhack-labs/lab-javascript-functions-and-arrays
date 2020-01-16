@@ -105,16 +105,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-let unique
 
-function uniquifyArray(n) {
-  for (i = 0; i < n.length; i++) {
-    if (n[i] == n.indexOf(n[i])) {
-      console.log(n[i])
-    }
-  }
-  if (n.length === 0) {
+function uniquifyArray(arr) {
+  let newArr = [];
+  if (arr.length === 0) {
     return [];
+  } else {
+    for (i = 0; i <= arr.length - 1; i++) {
+      if (newArr.indexOf(arr[i]) === -1) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
   }
 }
 
