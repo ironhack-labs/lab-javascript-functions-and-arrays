@@ -152,9 +152,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(n) {
-  if (n.length === 0) {
+function howManyTimes(wordsCount) {
+  let manyTimes = 0;
+  let actualWord = '';
+
+  if (wordsCount.length === 0) {
     return 0;
+  } else {
+    for (i = 0; i <= wordsCount.length - 1; i++) {
+
+      return wordsCount.indexOf(wordsCount[i])
+    }
+
   }
 }
 
