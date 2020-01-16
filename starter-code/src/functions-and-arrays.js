@@ -40,20 +40,15 @@ function findLongestWord(arr) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-
-
-
 function sumArray(numbers) {
-
   var sum = 0;
 
   if (numbers.length === 0) {
-
     return 0;
   }
 
   for (var i = 0; i < numbers.length; i++) {
-    if(numbers[i] === 0){
+    if (numbers[i] === 0) {
       return 0;
     }
     sum = sum + numbers[i];
@@ -65,33 +60,26 @@ function sumArray(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers (numbersAvg){
-
+function averageNumbers(numbersAvg) {
   var average;
 
   var sum = 0;
 
   if (numbersAvg.length === 0) {
-
     return null;
   }
 
   for (var i = 0; i < numbersAvg.length; i++) {
-    if(numbersAvg[i] === 0){
+    if (numbersAvg[i] === 0) {
       return 0;
     }
     sum = sum + numbersAvg[i];
-
-    
   }
 
   average = sum / numbersAvg.length;
 
   return average;
-
-
 }
-
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -107,36 +95,27 @@ const wordsArr = [
   "palace"
 ];
 
-
-function averageWordLength (wordsArr){
-
+function averageWordLength(wordsArr) {
   var average;
 
   var sum = 0;
 
   arr = wordsArr.map(words => words.length);
 
-
   if (wordsArr.length === 0) {
-
     return null;
   }
 
-
   for (var i = 0; i < arr.length; i++) {
-    if(wordsArr[i] === 0){
+    if (wordsArr[i] === 0) {
       return 0;
     }
     sum = sum + arr[i];
-
-    
   }
 
   average = sum / wordsArr.length;
 
   return average;
-
-
 }
 
 // Iteration #5: Unique arrays
@@ -154,6 +133,16 @@ const wordsUnique = [
   "bring"
 ];
 
+function uniquifyArray(wordsUnique) {
+  let newArr = [];
+  for (var i = 0; i < wordsUnique.length; i++) {
+    if (newArr.indexOf(wordsUnique[i]) === -1) {
+      newArr.push(wordsUnique[i]);
+    }
+  }
+  return newArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -165,6 +154,31 @@ const wordsFind = [
   "truth",
   "disobedience"
 ];
+
+var word;
+
+function doesWordExist(arrWords, word) {
+  if (arrWords.length === 0) {
+    return false;
+  }
+
+  for (var i = 0; i < arrWords.length; i++) {
+    if (arrWords.length === 0) {
+      return false;
+    }
+  }
+
+    for (var i = 0; i < arrWords.length; i++) {
+      if (arrWords[i] === word) {
+        return true;
+      }
+    }
+    for (var j = 0; j < arrWords.length; j++) {
+      if (arrWords[i] !== word) {
+        return false;
+      }
+    }
+  }
 
 // Iteration #7: Count repetition
 const wordsCount = [
