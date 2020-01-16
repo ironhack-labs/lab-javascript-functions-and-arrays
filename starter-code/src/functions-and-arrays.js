@@ -112,8 +112,8 @@ function doesWordExist(arr, word) {
   if(arr.length === 0) {
     return false;
   }
-  let repetido = arr.find(elem => elem === word);
-  if(repetido === undefined) {
+  let repeated = arr.find(elem => elem === word);
+  if(repeated === undefined) {
     return false;
   } else {
     return true;
@@ -136,7 +136,9 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  
+  let counter = 0;
+  arr.forEach(elem => {elem === word ? counter++ : false});
+  return counter; 
 }
 
 // Iteration #8: Bonus
