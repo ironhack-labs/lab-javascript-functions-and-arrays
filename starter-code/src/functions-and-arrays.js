@@ -39,7 +39,7 @@ sumArray(numbers)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
-  if (array < 1 || array == undefined) {
+  if (array.length < 1 || array.length == undefined) {
     return null;
   } else {
     return sumArray(array) / array.length;
@@ -61,7 +61,7 @@ const wordsArr = [
   'palace'
 ];
 function averageWordLength(array) {
-  if (array < 1 || array == undefined) {
+  if (array.length < 1 || array.length == undefined) {
     return null;
   } else {
     return sumArrayOfWords(array) / array.length;
@@ -98,11 +98,14 @@ function uniquifyArray(array) {
     newUniqueArray.push(array);
   } else {
     for (let i = 0; i < array.length; i++) {
-      if (newUniqueArray.indexOf(array[i])>-1) {
-        continue;
-      } else {
-        newUniqueArray.push(array[i]);
-      }
+      //Short solution with ! and array.includes
+      if(!newUniqueArray.includes(array[i])) {newUniqueArray.push(array[i])}
+      //Old solution:
+      // if (newUniqueArray.indexOf(array[i])>-1) {
+      //   continue;
+      // } else {
+      //   newUniqueArray.push(array[i]);
+      // }
     }
   }
   return newUniqueArray;
@@ -129,16 +132,19 @@ function doesWordExist(array, searchWord) {
   }
 }
 
-function findWordInArray(array, searchWord) {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === searchWord) {
-      return true;
-      break;
-    } else {
-      continue;
-    }
-  }
-}
+//Sort solution for find a word in array with array.includes
+function findWordInArray(array, searchWord) {return array.includes(searchWord)}
+//old solution
+// function findWordInArray(array, searchWord) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === searchWord) {
+//       return true;
+//       break;
+//     } else {
+//       continue;
+//     }
+//   }
+// }
 
 // Iteration #7: Count repetition
 const wordsCount = [
