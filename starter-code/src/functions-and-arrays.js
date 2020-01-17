@@ -1,15 +1,73 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(firstNum, secondNum){
+  if (firstNum > secondNum) {
+     console.log(firstNum + " is larger than " + secondNum);
+     return (firstNum);
+  } else {
+      console.log(firstNum + " is less than " + secondNum);
+  }  return (secondNum);
+}
+
+maxOfTwoNumbers(11,2);
+
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// I asked for help to another student and I copied it :)
+
+let findLongestWord = function (array) {
+  var longest = "";
+  // if there is only one item in the array, return that item
+  if (array.length === 1) {
+    return array[0];
+    // if the array is empty or undefined, return undefined
+  } else if (array.length < 1 || array == undefined) {
+    return null;
+  } else {
+    // loop through each item in the array and check for the length of each item. Each time the item's length is longer than the one stored in the 'longest' variable, overwrite it.
+    for (var i = 0; i < array.length; i++) {
+      if (longest.length < array[i].length) {
+        longest = array[i];
+      }
+    }
+    return longest;
+  }
+};
+
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers) {
+  let sum = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+} 
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersTwo) {
+  // if(numbersAvg[0]===undefined) {
+  //   return null;
+  // }
+  let sum = 0;
+  for (var i = 0; i < numbersTwo.length; i++) {
+    sum += numbersTwo[i];
+  }
+  return sum/numbersTwo.length;
+}
+// for the TA. When I add the if statement the function seems 
+// to have some issues in Jasmine :(
+
+// console.log(averageNumbers(numbersTwo));
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +82,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr) {
+  if(wordsArr[0]===undefined) {
+    return null;
+  }
+  let sum = 0;
+  for (let i=0; i<wordsArr.length; i++) {
+    sum+=wordsArr[i].length;
+  }
+  return sum/wordsArr.length;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,7 +111,22 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  let uniqueArr = [];
+  for (let i =0; i < wordsUnique.length; i++) {
+    if (uniqueArr.indexOf(wordsUnique[i]) < 0) {
+      uniqueArr.push(wordsUnique[i]);
+    }
+  }
+  return uniqueArr;
+}
+console.log(uniquifyArray(wordsUnique));
+
 // Iteration #6: Find elements
+
+// when I add an 'else' statement it doesn't work anymore :(
+  // and it returns as 'undefined' instead of false :(
+
 const wordsFind = [
   'machine',
   'subset',
@@ -51,6 +137,20 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind, wordRandom) {
+  if (!wordsFind.length) {
+    return false;
+  }
+  for (let i =0; i < wordsArr.length; i++) {
+    if (wordsFind[i] === wordRandom) {
+      return true;
+    }  
+  }
+  return false;
+}
+console.log(doesWordExist(wordsFind, 'matter'));
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -67,7 +167,20 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(wordsCount, wordsToCount) {
+  let num = 0;
+  for(let i=0; i< wordsCount.length; i++) {
+    if(wordsToCount === wordsCount[i]) {
+      num++;
+    }
+  } return num;
+}
+
+console.log(howManyTimes(wordsCount, 'matter'))
+
+
 // Iteration #8: Bonus
+// not ready for the bonus yet :)
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
