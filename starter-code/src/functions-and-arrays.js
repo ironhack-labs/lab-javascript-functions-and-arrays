@@ -1,15 +1,56 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a, b) {
+  if(a > b) {
+    return a;
+  } else return b;
+};
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(wordList) {
+  let longestWord = "";
+  if (wordList.length < 1) {
+    return null;
+  };
+  
+  if (wordList.length == 1) {
+    return wordList[0];
+  };
+
+  for (i = 0 ; i < wordList.length ; i++) {    
+    if (wordList[i].length > longestWord.length) {
+      longestWord = wordList[i];
+    }
+  };
+
+  return longestWord;
+};
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbersList) {
+  let sum = 0;
+  for (let i = 0; i < numbersList.length ; i++) {
+    sum += numbersList[i];
+  }
+return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersList) {
+  
+  if (numbersList.length === 0) return null;
+
+  let average = sumArray(numbersList) / numbersList.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +65,19 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsList) {
+
+  if (wordsList.length === 0) return null;
+
+  let wordsLengths = [];
+
+  for (let i = 0; i < wordsList.length ; i++) {
+    wordsLengths.push(wordsList[i].length);
+  }
+  
+  return averageNumbers(wordsLengths); 
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +94,16 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsList) {
+  let noDuplicates = [];
+  for (let i = 0; i < wordsList.length; i++) {
+    if (noDuplicates.indexOf(wordsList[i]) < 0) {
+      noDuplicates.push(wordsList[i]);
+    }
+  }
+  return noDuplicates;
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +115,17 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsList, wordToCompare) {
+  let doesItExist = false;
+
+  for (let i = 0; i < wordsList.length ; i++) {
+    if (wordToCompare === wordsList[i]) {
+      doesItExist = true;
+    }
+  }
+  return doesItExist;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +141,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsList, wordToCount) {
+  let count = 0;
+  for (let i = 0 ; i < wordsList.length ; i++) {
+    if (wordToCount === wordsList[i]) {
+      count += 1;
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
