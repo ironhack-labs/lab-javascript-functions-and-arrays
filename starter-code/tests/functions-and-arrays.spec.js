@@ -140,9 +140,7 @@ describe('Unique Arrays - uniquifyArray', () => {
   });
 
   it('returns the correct array when having an array of the same element', () => {
-    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual([
-      'Ironhack'
-    ]);
+    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
   });
 
   it('returns the same array when no element is repeated', () => {
@@ -180,21 +178,15 @@ describe('Finding Elements - doesWordExist', () => {
   });
 
   it('returns false if the word we are looking is not in the array', () => {
-    expect(
-      doesWordExist(
-        ['machine', 'poison', 'eat', 'apple', 'horse'],
-        'ratatouille'
-      )
-    ).toBe(false);
+    expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(
+      false
+    );
   });
 
   it('returns true if the word we are looking is in the array', () => {
-    expect(
-      doesWordExist(
-        ['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'],
-        'book'
-      )
-    ).toBe(true);
+    expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(
+      true
+    );
   });
 });
 
@@ -208,9 +200,7 @@ describe('Counting Repetition - howManyTimes', () => {
   });
 
   it('returns one when the word appears only one time on the array', () => {
-    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(
-      1
-    );
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
   });
 
   it('returns zero when the word does not appears on the array', () => {

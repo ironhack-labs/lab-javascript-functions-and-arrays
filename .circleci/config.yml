@@ -1,0 +1,44 @@
+version: 2.1
+
+description: Testing lab solutions
+
+jobs:
+  install-dependencies:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Package Cache
+          keys:
+            - npm-packages-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          name: Save npm Package Cache
+          key: npm-packages-{{ checksum "package.json" }}
+          paths:
+            - ~/.cache/npm
+      - persist_to_workspace:
+          root: .
+          paths: .
+  test-solution:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Client Unit Tests
+          command: npm run test
+          no_output_timeout: 15s
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - install-dependencies
+      - test-solution:
+          requires:
+            - install-dependencies

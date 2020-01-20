@@ -1,0 +1,18 @@
+{
+  "plugins": ["jasmine"],
+  "env": {
+    "jasmine": true
+  },
+  "extends": ["airbnb-base/legacy", "plugin:jasmine/recommended"],
+  "rules": {
+    "func-names": 0,
+    "no-console": 0,
+    "no-plusplus": 0,
+    "no-unused-vars": 1,
+    "vars-on-top": 0,
+    "no-multi-spaces": 0,
+    "key-spacing": 0,
+    "max-len": 0,
+    "no-undef": 0
+  }
+}

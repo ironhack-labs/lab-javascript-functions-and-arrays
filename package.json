@@ -1,0 +1,11 @@
+{
+  "name": "lab-javascript-greatest-movies",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "jasmine --config=./starter-code/tests/jasmine.config.json"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "rewire": "^4.0.1"
+  }
+}
