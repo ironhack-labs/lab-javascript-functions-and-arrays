@@ -91,3 +91,110 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Iteration 1
+function maxOfTwoNumbers(a, b) {
+  if (a > b) return a;
+  return b;
+}
+
+// Iteration 2
+function findLongestWord(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+  let longestWord;
+  for (let word of arrayOfWords) {
+    if (typeof longestWord === 'undefined' || word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
+
+// Iteration 3
+function sumArray(arrayOfNumbers) {
+  let sum = 0;
+  for (let number of arrayOfNumbers) {
+    sum += number;
+  }
+  return sum;
+}
+
+// Iteration 4
+function averageNumbers(arrayOfNumbers) {
+  if (arrayOfNumbers.length === 0) {
+    return null;
+  }
+  const sum = sumArray(arrayOfNumbers);
+  const average = sum / arrayOfNumbers.length;
+  return average;
+}
+
+// Iteration 5
+function averageWordLength(arrayOfWords) {
+  if (!arrayOfWords.length) return null;
+  const numberOfWords = arrayOfWords.length;
+  let totalLength = 0;
+  for (let word of arrayOfWords) {
+    totalLength += word.length;
+  }
+  const averageLength = totalLength / numberOfWords;
+  return averageLength;
+}
+
+// Iteration 6
+function uniquifyArray(arrayOfWords) {
+  const arrayOfUniques = [];
+  for (let word of arrayOfWords) {
+    if (arrayOfUniques.indexOf(word) < 0) {
+      arrayOfUniques.push(word);
+    }
+  }
+  return arrayOfUniques;
+}
+
+// Iteration 7
+function doesWordExist(arrayOfWords, word) {
+  for (let occurrence of arrayOfWords) {
+    if (occurrence === word) return true;
+  }
+  return false;
+}
+
+// Iteration 8
+function howManyTimes(arrayOfWords, word) {
+  let count = 0;
+  for (let occurrence of arrayOfWords) {
+    if (occurrence === word) count++;
+  }
+  return count;
+}
+
+// Bonus Iteration
+
+function greatestProduct(matrix) {
+  let greatest;
+
+  // CHECK COMBINATIONS HORIZONTALY
+  for (let r = 0; r < matrix.length; r++) {
+    for (let i = 0; i < matrix[r].length - 4 + 1; i++) {
+      const product = matrix[r][i] * matrix[r][i + 1] * matrix[r][i + 2] * matrix[r][i + 3];
+      if (typeof greatest === 'undefined' || product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+
+  // CHECK COMBINATIONS VERTICALY
+  for (let c = 0; c < matrix[0].length; c++) {
+    for (let i = 0; i < matrix.length - 4 + 1; i++) {
+      const product = matrix[i][c] * matrix[i + 1][c] * matrix[i + 2][c] * matrix[i + 3][c];
+      if (typeof greatest === 'undefined' || product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+
+  return greatest;
+}
