@@ -1,15 +1,59 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (a,b){
+  if (a>b){
+    return a;
+  } else {return b;}
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words){
+  let index = 0;
+  if (words.length==0){
+    return null;
+  }
+
+  for (let i=1; i<words.length; i++){
+    
+    if (words[index].length<words[i].length){
+      index = i;
+    } 
+  }
+  return words[index];
+}
+
+//console.log(longestWord(words))
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray (array){
+  let sum = 0;
+
+    for (let i = 0; i<array.length; i++){
+    sum += array[i];
+  }
+  return sum;
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  let average =0;
+  if(numbersAvg.length==0){
+    return null;
+  }
+
+  return average = sumArray(numbersAvg)/numbersAvg.length;
+
+
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +68,20 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (wordsArr){
+  let averageWordLength = 0;
+  if (wordsArr.length == 0){
+    return null;
+  }
+
+  wordsArr.forEach((element,index,array) => {
+    averageWordLength += element.length;
+  });
+
+  return averageWordLength/wordsArr.length;
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -40,6 +98,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique) {
+  let array= [];
+  let element = "";
+  for (let i = 0; i<wordsUnique.length; i++){
+    if (wordsUnique.indexOf(wordsUnique[i])==i){
+      array.push(wordsUnique[i]);
+    }
+    
+  }
+  return array;
+}
+
+
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -51,6 +123,16 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(wordsFind,word){
+  
+  for (let i=0; i<wordsFind.length; i++){
+    if (wordsFind[i]===word){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -66,6 +148,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsFind,word){
+  let num=0;
+  for (let i=0; i<wordsFind.length; i++){
+    if (wordsFind[i]===word){
+      num +=1;
+    }
+  }
+  return num;
+}
+
 
 // Iteration #8: Bonus
 
@@ -91,3 +184,56 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const matrix1 = [[1,2,3,4,5],
+                 [1,20,3,4,5],
+                 [1,20,3,4,5],
+                 [1,20,3,4,5],
+                 [1,4,3,4,5]];
+
+function greatestProduct(matrix1){
+let great = 0;
+let multiHoriz = 0;
+let multiVert = 0;
+let multiDiagRight = 0;
+let multiDiagLeft = 0;
+for (let i = 0; i<matrix1.length; i++){
+console.log(i);
+for(let j = 0; j<matrix1[i].length;j++){
+  console.log(matrix1[i].length);
+  if (j<matrix1[i].length && j+1 <matrix1[i].length && j + 2<matrix1[i].length && j + 3 <matrix1[i].length){
+    console.log('entrou no if')
+    multiHoriz = ((matrix1[i][j])*(matrix1[i][j+1])*(matrix1[i][j+2])*(matrix1[i][j+3]));
+    if (great<multiHoriz){
+      great = multiHoriz;
+    }
+  }
+
+if (i<matrix1[i].length && i+1 <matrix1[i].length && i + 2<matrix1[i].length && i + 3 <matrix1[i].length){
+    
+    multiVert = ((matrix1[i][j])*(matrix1[i+1][j])*(matrix1[i+2][j])*(matrix1[i+3][j]));
+    if (great<multiVert){
+      great = multiVert;
+    }
+  }
+
+if (i<matrix1[i].length && j<matrix1[i].length && i+1<matrix1[i].length && j+1<matrix1[i].length && i+2<matrix1[i].length && j+2<matrix1[i].length && i+3<matrix1[i].length && j+3<matrix1[i].length){
+    
+    multiDiagRight = ((matrix1[i][j])*(matrix1[i+1][j+1])*(matrix1[i+2][j+2])*(matrix1[i+3][j+3]));
+    if (great<multiDiagRight){
+      great = multiDiagRight;
+    }
+  }
+
+if (i<matrix1[i].length && j<matrix1[i].length && i+1<matrix1[i].length && j-1<matrix1[i].length && i+2<matrix1[i].length && j-2<matrix1[i].length && i+3<matrix1[i].length && j-3<matrix1[i].length){
+    
+    multiDiagLeft = ((matrix1[i][j])*(matrix1[i+1][j-1])*(matrix1[i+2][j-2])*(matrix1[i+3][j-3]));
+    if (great<multiDiagLeft){
+      great = multiDiagLeft;
+    }
+  }
+  
+}
+}
+return great;
+}
