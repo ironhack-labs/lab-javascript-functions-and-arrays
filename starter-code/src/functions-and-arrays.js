@@ -202,7 +202,42 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-
-function greatestProduct(){
-
-}
+const greatestProduct = (array) => {
+    let greatProduct = 0;
+    for (i = 0; i < array.length-3; i++){
+      for (j = 0; j < array.length; j++){
+        const newArray = [
+          array[i][j], array[i][j+1], array[i][j+2], array[i][j+3],
+          array[i+1][j], array[i+1][j+1], array[i+1][j+2], array[i+1][j+3],
+          array[i+2][j], array[i+2][j+1], array[i+2][j+2], array[i+2][j+3],
+          array[i+3][j], array[i+3][j+1], array[i+3][j+2], array[i+3][j+3]
+          ]
+        if(!newArray.includes(undefined)){
+          
+          const arrayProd = [];
+          arrayProd.push(newArray[0]*newArray[1]*newArray[2]*newArray[3],
+                        newArray[4]*newArray[5]*newArray[6]*newArray[7],
+                        newArray[8]*newArray[9]*newArray[10]*newArray[11],
+                        newArray[12]*newArray[13]*newArray[14]*newArray[15],
+                        newArray[0]*newArray[4]*newArray[8]*newArray[12],
+                        newArray[1]*newArray[5]*newArray[9]*newArray[13],
+                        newArray[2]*newArray[5]*newArray[10]*newArray[14],
+                        newArray[3]*newArray[7]*newArray[11]*newArray[15],
+                        newArray[0]*newArray[5]*newArray[10]*newArray[15],
+                        newArray[3]*newArray[6]*newArray[9]*newArray[12],);
+          
+          if(Math.max.apply(null, arrayProd) > greatProduct){
+            greatProduct = Math.max.apply(null, arrayProd);
+          }
+        }
+      }
+    }
+    return greatProduct;
+  }
+  
+console.log(greatestProduct(matrix));
+  
+  
+  
+  
+  
