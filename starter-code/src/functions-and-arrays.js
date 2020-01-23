@@ -35,6 +35,20 @@ const sumArray = arr => {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+const averageNumbers = arr => {
+  if (arr.length < 1) return null
+  let sum = 0
+  arr.forEach(num => {
+    sum+=num
+  });
+ 
+  
+  let nums = arr.length
+  let average = sum/nums
+  return average
+}
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
@@ -48,6 +62,15 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength (words) {
+  let totalLength = 0;
+  if(words.length === 0) return null
+  for (let word of words){
+    totalLength += word.length;
+  }
+  return totalLength / words.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -63,6 +86,12 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (array) {
+  let mySet = new Set(array)
+  let newset = [...mySet]
+  return newset
+
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -75,7 +104,10 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist (arr, word){
+  return arr.includes(word)
+  
+  }
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -90,7 +122,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes (arr, word){
+  let count = 0
+  for(let i in arr) {
+    if (arr[i] === word) {
+      count += 1
+    }
+  }
+  return count
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -115,3 +155,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrixOfNumbers){
+  let max=0
+  let result=0
+  for (let i=0;i<matrixOfNumbers.length;i++){ //Loop each array in array
+    for (let j=0;j<matrixOfNumbers[i].length;j++){//Loop each element in array within array
+      if((j-3)>=0){
+        result=(matrixOfNumbers[i][j] * matrixOfNumbers[i][j - 1] * matrixOfNumbers[i][j - 2] * matrixOfNumbers[i][j - 3])
+        if (max<result){
+          max=result
+        }
+      }
+      if((i-3)>=0){
+        result=(matrixOfNumbers[i][j] * matrixOfNumbers[i-1][j] * matrixOfNumbers[i-2][j] * matrixOfNumbers[i-3][j])
+        if (max<result){
+          max=result
+        }
+      }
+      if((i-3)>=0 && (j-3)>=0) {
+        result=(matrixOfNumbers[i][j] * matrixOfNumbers[i-1][j - 1] * matrixOfNumbers[i-2][j - 2] * matrixOfNumbers[i-3][j - 3])
+        if (max<result){
+          max=result
+        }
+      }
+    }
+  }
+  return max
+}
+greatestProduct(matrix)
