@@ -1,6 +1,6 @@
-// Iteration #1: Find the maximum
-// Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
-
+/* Iteration #1: Find the maximum
+Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+*/
 function maxOfTwoNumbers(num1, num2){
   if(num1>num2){
     console.log('#1 THE MAXIMUM IS', num1);
@@ -14,20 +14,19 @@ maxOfTwoNumbers(11,101);
 
 
 
-// Iteration #2: Find longest word
-// Declare a function named findLongestWord that takes as an argument an array of words and
-// returns the longest one. If there are 2 with the same length, it should return the first occurrence.
-
+/* Iteration #2: Find longest word
+Declare a function named findLongestWord that takes as an argument an array of words and
+returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+*/
 const words = ['mystery', 'brotcrodsoher', 'aviator', 'crocodile', 'crocodilo', 'orchard', 'crackpot'];
 
 function findLongestWord(arr){
-  if (arr.length === 0 ){return null};
+  if (arr.length === 0 )return null;
   let longestWord = arr[0];
   arr.forEach(element => {
     if(element.length > longestWord.length) {
       longestWord = element;
     }
-    //console.log(element.length);
   });
   console.log('#2 THE LONGEST WORD IS', longestWord);
   return longestWord;
@@ -37,12 +36,12 @@ findLongestWord(words);
 
 
 
-// Iteration #3: Calculate the sum
-// Calculating a sum is as simple as iterating over an array and adding each of the elements together.
-// Declare a function named sumArray that takes as an argument an array of numbers, and returns the sum of
-// all of the numbers in the array. Later in the course we'll learn how to do this by using the reduce array
-// method, which will make your work significantly easier. For now, let's practice "manual" way using loops.
-
+/* Iteration #3: Calculate the sum
+Calculating a sum is as simple as iterating over an array and adding each of the elements together.
+Declare a function named sumArray that takes as an argument an array of numbers, and returns the sum of
+all of the numbers in the array. Later in the course we'll learn how to do this by using the reduce array
+method, which will make your work significantly easier. For now, let's practice "manual" way using loops.
+*/
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumArray(arr){
@@ -58,29 +57,27 @@ sumArray(numbers);
 
 
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-// Declare a function named averageNumbers that expects an array of numbers and returns the average of the numbers:
-
+/* Iteration #4: Calculate the average
+Level 1: Array of numbers
+Declare a function named averageNumbers that expects an array of numbers and returns the average of the numbers:
+*/
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9, 5];
-//const emptyArray = [];
 
 function averageNumbers(arr){
-  if (arr.length === 0) {return null};
+  if (arr.length === 0) return null;
   let average = sumArray(arr)/arr.length;
   console.log('#4.1 AVERAGE IS', average);
   return average;
 }
 
-//averageNumbers(emptyArray);
 averageNumbers(numbersAvg);
 
 
 
-// Level 2: Array of strings
-// Declare a function named averageWordLength that receives as a single argument an
-// array of words and returns the average length of the words:
-
+/* Level 2: Array of strings
+Declare a function named averageWordLength that receives as a single argument an
+array of words and returns the average length of the words:
+*/
 const wordsArr = [
   'seat',
   'correspond',
@@ -95,7 +92,7 @@ const wordsArr = [
 ];
 
 function averageWordLength(arr){
-  if(arr.length === 0) {return null};
+  if(arr.length === 0) return null;
   let average = 0;
   arr.forEach(element => {
     average +=element.length;
@@ -109,11 +106,11 @@ averageWordLength(wordsArr);
 
 
 
-// Iteration #5: Unique arrays
-// Take the following array, remove the duplicates, and return a new array. You're more than
-// likely going to want to check out the indexOf Array method.
-// Do this in the form of a function uniquifyArray that receives an array of words as a argument.
-
+/* Iteration #5: Unique arrays
+Take the following array, remove the duplicates, and return a new array. You're more than
+likely going to want to check out the indexOf Array method.
+Do this in the form of a function uniquifyArray that receives an array of words as a argument.
+*/
 const wordsUnique = [
   'crab',
   'poison',
@@ -129,38 +126,25 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr){
-  let newArray = [];
-  arr.forEach(element => {
-
-  });
+  let newArr = [];
+  arr.forEach((e, idx) =>{
+    if(arr.indexOf(e) === idx){
+      newArr.push(e);
+    }
+  })
+  return newArr;
 }
-////// INDEX OF É UM LOOP
-////// INDEX OF É UM LOOP
-// Declarou array com atributo 0
-var indices = [];
-// Declarou array e atribuiu
-var arrayTeste = ['a', 'b', 'a', 'c', 'a', 'd'];
-// Declarou um string com valor 'a'
-var element = 'a';
-// Declarou um number que recebe o indexOf de 'a' que é comeca com 0
-var idx = arrayTeste.indexOf(element);
-console.log(arrayTeste.indexOf(element));
 
-while (idx != -1) {
-  indices.push(idx);
-  idx = arrayTeste.indexOf(element, idx + 1);
-  //console.log(idx);
-}
-//console.log(indices);
-// [0, 2, 4]
-
-
-
-
+console.log('#5', uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
+/*Let's create a simple array search.
+Declare a function named doesWordExist that will take in an array of words as one argument,
+and a word to search for as the other. Return true if it exists, otherwise, return false.
+Don't use indexOf for this one.
+*/
 const wordsFind = [
   'machine',
   'subset',
@@ -172,7 +156,23 @@ const wordsFind = [
   'disobedience'
 ];
 
+function doesWordExist(arr, str){
+  let i=0;
+  while (i < arr.length){
+    if (arr[i]===str) return true;
+    i++;
+  }
+  return false;
+}
+
+console.log('#6', doesWordExist(wordsFind, 'machine'));
+
+
+
 // Iteration #7: Count repetition
+/*Declare a function named howManyTimes that will take in an array of words as the first argument,
+and a word to search for as the second argument. The function will return
+the number of times that word appears in the array.*/
 const wordsCount = [
   'machine',
   'matter',
@@ -186,6 +186,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, str){
+  let count=0;
+  for(let i=0; i<arr.length; i++){
+    if (arr[i]===str) count++;
+  }
+  return count;
+}
+
+console.log('#7',howManyTimes(wordsCount, 'matter'));
+
+
 
 // Iteration #8: Bonus
 
