@@ -20,35 +20,18 @@ const words = [
   "crackpot"
 ];
 
-function findLongestWord(arr) {
-  let a = "";
-  let b = "";
-  let maior = "";
-
+findLongestWord = (arr) => {
   if (arr.length === 0) {
-    maior = null;
+    return null;
   }
 
   if (arr.length === 1) {
-    maior = arr[0];
+    return arr[0];
   }
-
-  for (let i = 0; i < arr.length; i++) {
-    a = arr[i].length;
-    if (b > arr.length) {
-      b = arr[i].length;
-    } else {
-      b = arr[i++].length;
-    }
-
-    if (a > b) {
-      maior = arr[i];
-    } else if (b > a) {
-      maior = arr[i++];
-    }
-  }
-
-  return maior;
+  
+  let arrSorted = arr.sort((a, b) => b.length - a.length)
+  
+  return arrSorted[0]
 }
 
 // Iteration #3: Calculate the sum
