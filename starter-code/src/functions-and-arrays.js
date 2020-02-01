@@ -24,7 +24,11 @@ function findLongestWord(wordArray){
         longestWord = wordArray[i];
       }
     }  
-
+	
+  if(longestWord == ""){
+	return null
+  }
+  
   return longestWord;
 }
 
@@ -47,6 +51,11 @@ function sumArray(numArray){
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numArray){
+
+  if(numArray.length == 0){
+	  return null
+  }
+	
   let average = (sumArray(numArray)/numArray.length);
   return average
 }
