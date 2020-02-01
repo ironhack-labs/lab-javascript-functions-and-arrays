@@ -1,15 +1,63 @@
 // Iteration #1: Find the maximum
+//Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2){
+   return num1
+  }
+  else if (num1 < num2){
+    return num2
+  }
+  else {return "First and Second parameter equal";}
+
+}
 
 // Iteration #2: Find longest word
+/* Declare a function named findLongestWord that takes as an argument 
+an array of words and returns the longest one. 
+If there are 2 with the same length, it should return the first occurrence.*/
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(anArray){
+  let lgth = 0;
+  let longest;
+  if (anArray.length === 0){
+    return null;
+  }
+  for(let i = 0 ; i < anArray.length; i++){
+    if(anArray[i].length > lgth){
+        lgth = anArray[i].length;
+        longest = anArray[i];
+    }      
+  } 
+  return longest;
+}
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(anArray){
+  let sum = anArray.reduce(function(a, b){
+    return a + b;
+  }, 0);
+  return sum;
+}
+console.log(sumArray(numbers));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(anArray){
+  if (anArray.length === 0){
+    return null;
+  }
+
+  let sum = sumArray(anArray);
+  let average = sum / (anArray.length);
+  return average;
+}
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +72,17 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+function averageWordLength(anArray){
+  if (anArray.length === 0){
+    return null;
+  }
+  let sumWords = 0;
+  for (i = 0 ; i < anArray.length ; i++){
+    sumWords += anArray[i].length;
+  }
+  return sumWords/anArray.length;
+}
+console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
