@@ -1,15 +1,46 @@
 // Iteration #1: Find the maximum
+function findTheMaximum(num1, num2) {
+  if (num1 < num2) {
+    return (num2);
+  } else {
+    return (num1);
+  }
+}
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(someArr) {
+  let longestWord = ''
+  for (i = 0; i < someArr.length; i++) {
+    if (word.length < someArr[i].length + 1) {
+      longestWord = someArr[i]
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function calculateTheSum(someArr) {
+  let result = 0;
+  for (i = 0; i < someArr.length; i++) {
+    result += someArr[i];
+  }
+  return result;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function calculateTheAverage(someArr) {
+  let average = calculateTheSum(someArr) / someArr.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -24,6 +55,17 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(someArr) {
+  let sumLength = 0;
+  for (i = 0; i < someArr.length; i++) {
+    sumLength += someArr[i].length
+  }
+  let result = sumLength / someArr.length
+  return result;
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -51,6 +93,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+
+let isExistence = false
+
+function doesWordExist(someArr, word) {
+  for (i = 0; i < someArr.length; i++) {
+    if (word == someArr[i]) {
+      isExistence = true;
+    }
+  }
+  return isExistence;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
