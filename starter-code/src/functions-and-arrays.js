@@ -7,7 +7,7 @@ function maxOfTwoNumbers(num1, num2){
     return num2;
   } 
   else{
-    return "The numbers have the same value!"
+    return num1
   }
   
 }
