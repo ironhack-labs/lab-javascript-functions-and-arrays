@@ -62,6 +62,23 @@ calculateTheSum(numbers)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function avgOfNumbers(addNumbersDivideNumbers) {
+  //average means divided by sum of numbers
+  let sumOfNumbers = 0
+
+  for (let i = 0; i < numbersAvg.length; i++) {
+    //console.log(numbersAvg[i])
+    sumOfNumbers += numbersAvg[i]
+    //console.log(sumOfNumbers)
+  }
+  //console.log(sumOfNumbers)
+  //console.log(numbersAvg.length)
+  averageOfNumbers = sumOfNumbers / numbersAvg.length
+  console.log(averageOfNumbers)
+}
+
+avgOfNumbers(numbersAvg)
+
 // Level 2: Array of strings
 const wordsArr = [
   'seat',
