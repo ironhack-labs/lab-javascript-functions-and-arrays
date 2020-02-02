@@ -84,9 +84,9 @@ numberOfLetters(wordsArr)
 
 function averageWordLength(myCountLetters){
   for (let i=0; i < myCountLetters.length; i++){
-    result4b += myCountLetters[i] / myCountLetters.length
+    result4b += Math.floor(myCountLetters[i] / myCountLetters.length)
   }
-  return Math.floor(result4b)
+  return result4b
 }
 averageWordLength(countLetters)
 
@@ -105,10 +105,47 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(myWordsUnique){
+let arr = []
+let newArray = []
 
+
+//RETURNS DUPLICATES, SO NOT REALLY WHAT WE WANT...
+//=================================================
+const uniquifyArray = (arr) => {
+  let sorted_arr = arr.slice().sort(); 
+  let results = [];
+  for (let i = 0; i < sorted_arr.length - 1; i++) {
+    if (sorted_arr[i + 1] == sorted_arr[i]) {
+      results.push(sorted_arr[i]);
+    }
+  }
+  return results;
 }
-console.log(wordsUnique.indexOf('simple'))
+
+uniquifyArray(wordsUnique)
+
+
+
+
+//NOT SURE WHERE I'M GOING WITH THIS:
+//===================================
+/*
+function uniquifyArray(arr){
+ for (i = 0; i < arr.length; i++){
+
+
+  newArray.push(arr[i])
+   //arr.indexOf(duplicateToRemove)
+   console.log(newArray)
+ }
+}
+//console.log(wordsUnique.indexOf('simple'))
+
+uniquifyArray(wordsUnique)
+*/
+
+
+
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -121,6 +158,23 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+let word = ""
+let arr = []
+
+function doesWordExist(arr, word){
+  arr.some(function (arr){
+    if (arr.includes(word)){
+      console.log(`"${word}" is included in the array.`)
+      return true
+    } else {
+      console.log(`"${word}" is NOT included in the array.`)
+      return false
+    }  
+  })
+}
+
+  doesWordExist(wordsFind, 'disobedience')
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -136,6 +190,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let result7 = 0
+
+function howManyTimes(arr, word){
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === word){
+      result7 += 1
+    } 
+  //console.log(i)
+  //console.log(arr[i])
+  }
+  console.log(result7)
+}
+
+howManyTimes(wordsCount, 'matter')
+
 
 // Iteration #8: Bonus
 
