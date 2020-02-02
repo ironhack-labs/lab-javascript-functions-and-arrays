@@ -6,12 +6,15 @@ as arguments and returns the largest.
 function maxOfTwoNumbers(num1, num2) {  
   if (num1 < num2) {
     console.log(`${num1} is smaller than ${num2}`)
+    //return num2 - did I get the Jasmine correctly
   }
   else if (num1 > num2) {
     console.log(`${num1} is bigger than ${num2}`)
+    //return num1 - did I get the Jasmine correctly
   }
   else {
     console.log(`${num1} is equal to ${num2}`)
+    //return num1 - did I get the Jasmine correctly
   }
 }
 
@@ -44,7 +47,7 @@ findLongestWord(words)
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function calculateTheSum(addNumbers) {
+function sumArray(addNumbers) {
 
   let sumOfNumbers = 0
 
@@ -56,28 +59,28 @@ function calculateTheSum(addNumbers) {
   console.log(sumOfNumbers)
 }
 
-calculateTheSum(numbers)
+sumArray(numbers)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const wordsArr = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function avgOfNumbers(addNumbersDivideNumbers) {
+function averageNumbers(addNumbersDivideNumbers) {
   //average means divided by sum of numbers
   let sumOfNumbers = 0
 
-  for (let i = 0; i < numbersAvg.length; i++) {
-    //console.log(numbersAvg[i])
-    sumOfNumbers += numbersAvg[i]
+  for (let i = 0; i < wordsArr.length; i++) {
+    //console.log(wordsArr[i])
+    sumOfNumbers += wordsArr[i]
     //console.log(sumOfNumbers)
   }
   //console.log(sumOfNumbers)
-  //console.log(numbersAvg.length)
-  averageOfNumbers = sumOfNumbers / numbersAvg.length
+  //console.log(wordsArr.length)
+  averageOfNumbers = sumOfNumbers / wordsArr.length
   console.log(averageOfNumbers)
 }
 
-avgOfNumbers(numbersAvg)
+averageNumbers(wordsArr)
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -93,7 +96,21 @@ const wordsArr = [
   'palace'
 ];
 
+function averageWordLength(listOfWordsForAvg) {
+
+  let sumOfWordLength = 0
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    sumOfWordLength += wordsArr[i].length
+  }
+  averageOfWordLength = sumOfWordLength / wordsArr.length
+  console.log(averageOfWordLength)
+} 
+
+averageWordLength(wordsArr)
+
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -108,6 +125,24 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray() {
+
+  let newWordsUnique = []
+
+  for (let i = 0; i < wordsUnique.length; i++) {
+    let concreteWord = wordsUnique[i]
+    //console.log(concreteWord)
+    if (newWordsUnique.includes(concreteWord) != true) {
+      newWordsUnique.push(concreteWord)
+      //console.log(newWordsUnique)
+    }
+  }
+  return newWordsUnique
+  //console.log(newWordsUnique)
+}
+
+uniquifyArray(wordsUnique)
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -119,6 +154,8 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist() {}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -134,6 +171,8 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes() {}
 
 // Iteration #8: Bonus
 
@@ -159,3 +198,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct() {}
