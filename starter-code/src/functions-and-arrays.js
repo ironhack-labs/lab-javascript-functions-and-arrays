@@ -39,6 +39,7 @@ console.log(sumArray);
 
 
 
+
 // #4
 
 function averageNumber () {
@@ -61,6 +62,10 @@ const wordsGiven = [
   'fuel',
   'palace'
 ];
+=======
+// Level 2: Array of strings
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
 
 let totalWordLength = 0; 
 let averageWordLengthi = 0
@@ -91,6 +96,7 @@ const wordsForUnique = [
   'bring'
 ];
 
+//<<<<<<< master
     function getUnique(array){
         var uniqueArray = [];
         
@@ -118,6 +124,10 @@ const wordsForUnique = [
   'truth',
   'disobedience'
 ];
+//
+// Iteration #6: Find elements
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+// >>>>>>> master
 
 let gesucht = ""
 function doesWordExist (wordPool, search) {
