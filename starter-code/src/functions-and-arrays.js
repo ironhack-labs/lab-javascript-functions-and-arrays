@@ -5,16 +5,19 @@ as arguments and returns the largest.
 */
 function maxOfTwoNumbers(num1, num2) {  
   if (num1 < num2) {
-    console.log(`${num1} is smaller than ${num2}`)
+    //console.log(`${num1} is smaller than ${num2}`)
     //return num2 - did I get the Jasmine correctly
+    return num2
   }
   else if (num1 > num2) {
-    console.log(`${num1} is bigger than ${num2}`)
+    //console.log(`${num1} is bigger than ${num2}`)
     //return num1 - did I get the Jasmine correctly
+    return num1
   }
   else {
-    console.log(`${num1} is equal to ${num2}`)
+    //console.log(`${num1} is equal to ${num2}`)
     //return num1 - did I get the Jasmine correctly
+    return num1
   }
 }
 
@@ -27,18 +30,19 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(listOfWords) {
   //loop through array
   let longestWord = ""
-  for (i = 0; i < words.length; i++) {
+  for (i = 0; i < listOfWords.length; i++) {
     //check length and console.log it
     //lengthOfWord = words[i] + " " + words[i].length
     //console.log(lengthOfWord)
     //compare if words[i] is longer words[i++] - continue with the winner
-    if (words[i].length > longestWord.length) {
+    if (listOfWords[i].length > longestWord.length) {
       // < check next i+1 and i+2
       //console.log(`${words[i+1]} is longer than ${words[i]}.`)
-      longestWord = words[i]
+      longestWord = listOfWords[i]
     }
   }
-  console.log(longestWord)
+  //console.log(longestWord)
+  return longestWord
 }
 
 findLongestWord(words)
@@ -51,12 +55,13 @@ function sumArray(addNumbers) {
 
   let sumOfNumbers = 0
 
-  for (let i = 0; i < numbers.length; i++) {
-    console.log(numbers[i])
-    sumOfNumbers += numbers[i]
+  for (let i = 0; i < addNumbers.length; i++) {
+    console.log(addNumbers[i])
+    sumOfNumbers += addNumbers[i]
     console.log(sumOfNumbers)
   }
-  console.log(sumOfNumbers)
+  //console.log(sumOfNumbers)
+  return sumOfNumbers
 }
 
 sumArray(numbers)
@@ -69,15 +74,16 @@ function averageNumbers(addNumbersDivideNumbers) {
   //average means divided by sum of numbers
   let sumOfNumbers = 0
 
-  for (let i = 0; i < wordsArr.length; i++) {
+  for (let i = 0; i < addNumbersDivideNumbers.length; i++) {
     //console.log(wordsArr[i])
-    sumOfNumbers += wordsArr[i]
+    sumOfNumbers += addNumbersDivideNumbers[i]
     //console.log(sumOfNumbers)
   }
   //console.log(sumOfNumbers)
   //console.log(wordsArr.length)
-  averageOfNumbers = sumOfNumbers / wordsArr.length
-  console.log(averageOfNumbers)
+  averageOfNumbers = sumOfNumbers / addNumbersDivideNumbers.length
+  //console.log(averageOfNumbers)
+  return averageOfNumbers
 }
 
 averageNumbers(wordsArr)
@@ -100,11 +106,12 @@ function averageWordLength(listOfWordsForAvgwords) {
 
   let sumOfWordLength = 0
 
-  for (let i = 0; i < wordsArr2.length; i++) {
-    sumOfWordLength += wordsArr2[i].length
+  for (let i = 0; i < listOfWordsForAvgwords.length; i++) {
+    sumOfWordLength += listOfWordsForAvgwords[i].length
   }
-  averageOfWordLength = sumOfWordLength / wordsArr2.length
-  console.log(averageOfWordLength)
+  averageOfWordLength = sumOfWordLength / listOfWordsForAvgwords.length
+  //console.log(averageOfWordLength)
+  return averageOfWordLength
 } 
 
 averageWordLength(wordsArr2)
@@ -129,8 +136,8 @@ function uniquifyArray(arrayOfWords) {
 
   let newWordsUnique = []
 
-  for (let i = 0; i < wordsUnique.length; i++) {
-    let concreteWord = wordsUnique[i]
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    let concreteWord = arrayOfWords[i]
     //console.log(concreteWord)
     if (newWordsUnique.includes(concreteWord) != true) {
       newWordsUnique.push(concreteWord)
@@ -158,15 +165,15 @@ const wordsFind = [
 
 function doesWordExist(arrayOfWords, anyOtherWord) {
   let trueOrFalse = ""
-  for (let i = 0; i < wordsFind.length; i++) {
-    if (wordsFind[i] === anyOtherWord) {
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (arrayOfWords[i] === anyOtherWord) {
       //return true
-      trueOrFalse = "true"
+      trueOrFalse = true
       break;
     }
     else {
       //return false
-      trueOrFalse = "false"
+      trueOrFalse = false
       continue;
     }
   }
@@ -191,12 +198,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arrayOfWords, specificWord) {
+function howManyTimes(arrayOfWords2, specificWord) {
 
   let numberOfTimes = 0
 
-  for (let i = 0; i < wordsCount.length; i++) {
-    if (wordsCount[i] === specificWord)
+  for (let i = 0; i < arrayOfWords2.length; i++) {
+    if (arrayOfWords2[i] === specificWord)
     numberOfTimes += 1
   }
   //just to TRY to fit jasmine
