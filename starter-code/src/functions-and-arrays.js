@@ -64,6 +64,7 @@ const averageWordLength = words => {
   }
 };
 averageWordLength(wordsArr);
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   "crab",
@@ -91,6 +92,15 @@ const wordsFind = [
   "disobedience"
 ];
 
+const doesWordExist = (arr, word) => {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return arr.includes(word);
+  }
+};
+doesWordExist(wordsFind, "subset");
+
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
@@ -105,6 +115,21 @@ const wordsCount = [
   "disobedience",
   "matter"
 ];
+
+const howManyTimes = (arr, word) => {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        count++;
+      }
+    }
+    return count;
+  }
+};
+howManyTimes(wordsCount, "matter");
 
 // Iteration #8: Bonus
 
