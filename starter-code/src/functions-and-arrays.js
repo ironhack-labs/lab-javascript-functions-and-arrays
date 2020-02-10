@@ -35,7 +35,7 @@ const sumNumbers = (numArr) => {
     let numSum = 0
 
     for (number in numArr) {
-      numSum = numSum + numArr[number]
+      numSum += numArr[number]
     }
 
     return numSum
@@ -47,8 +47,31 @@ const sumNumbers = (numArr) => {
 }
 
 // Iteration #3.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+const sum = (mix) => {
+  let hasObject = mix.some(elem => typeof elem == 'object');
+  let numSum = 0
 
+  if (hasObject) {
+    throw "Error: Unsupported data type sir or ma'am"
+
+  } else if (mix.length !== 0) {
+    for (number in mix) {
+      if (typeof mix[number] == "number") {
+        numSum += mix[number]
+      } else if (typeof mix[number] == "string") {
+        numSum += mix[number].length
+      } else if (typeof mix[number] == "boolean") {
+        numSum += Number(mix[number])
+      }
+    }
+    return numSum
+
+  } else {
+    return numSum
+  }
+}
 
 
 // Iteration #4: Calculate the average
