@@ -78,6 +78,21 @@ const sum = (mix) => {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (numArr) => {
+  if (numArr.length !== 0) {
+    let numSum = 0
+
+    for (number in numArr) {
+      numSum += numArr[number]
+    }
+
+    return numSum / numArr.length
+
+  } else {
+    return null;
+  }
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
