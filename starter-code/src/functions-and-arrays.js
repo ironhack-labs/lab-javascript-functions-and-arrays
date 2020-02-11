@@ -58,7 +58,7 @@ const sum = mix => {
   let numSum = 0;
 
   if (hasObject) {
-    throw "Error: Unsupported data type sir or ma'am";
+    throw new Error("Unsupported data type sir or ma'am")
   } else if (mix.length !== 0) {
     for (number in mix) {
       if (typeof mix[number] == "number") {
@@ -121,6 +121,27 @@ const averageWordLength = wordArr => {
   }
 };
 
+// Level 3: Miexed array
+
+const avg = mix => {
+  if (mix.length !== 0) {
+    let numSum = 0;
+
+    for (number in mix) {
+      if (typeof mix[number] == "number") {
+        numSum += mix[number];
+      } else if (typeof mix[number] == "string") {
+        numSum += mix[number].length;
+      } else if (typeof mix[number] == "boolean") {
+        numSum += Number(mix[number]);
+      }
+    }
+    return (numSum / mix.length).toFixed(2);
+  } else {
+    return null;
+  }
+};
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   "crab",
@@ -166,6 +187,14 @@ const wordsFind = [
   "disobedience"
 ];
 
+const doesWordExist = function (wordArr, wordSearch) {
+  if (wordArr.length !== 0) {
+    return wordArr.includes(wordSearch);
+  } else {
+    return null;
+  }
+};
+
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
@@ -180,6 +209,22 @@ const wordsCount = [
   "disobedience",
   "matter"
 ];
+
+const howManyTimes = function (wordArr, wordSearch) {
+  if (howManyTimes.length !== 0) {
+    let wordCounter = 0;
+
+    for (word in wordArr) {
+      if (wordArr[word] === wordSearch) {
+        wordCounter++;
+      }
+    }
+
+    return wordCounter;
+  } else {
+    return wordCounter;
+  }
+};
 
 // Iteration #8: Bonus
 
@@ -478,3 +523,7 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+
+}
