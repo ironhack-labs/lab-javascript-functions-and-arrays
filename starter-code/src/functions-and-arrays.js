@@ -526,4 +526,8 @@ const matrix = [
 
 const greatestProduct = (matrix) => {
 
+  var maxProduct = 0;
+
+  return maxProduct;
+
 }
