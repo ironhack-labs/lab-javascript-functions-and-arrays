@@ -1,20 +1,125 @@
 // Iteration #1: Find the maximum
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function maxOfTwoNumbers(a,b){
+  if (a > b) {return a}
+  else if (a < b) {return b}
+  else {return a && b};
+}
 
-// Iteration #3: Calculate the sum
+
+
+
+
+
+
+/////////////////////////////////////////////////////////
+///////////////////// Iteration #2: Find longest word
+const words = [
+  'mystery', 
+  'brother', 
+  'aviator', 
+  'crocodile', 
+  'pearl', 
+  'orchard', 
+  'crackpot'];
+
+function findLongestWord(arg1) {
+  if (arg1 !== [] ) {return null} // hasta aqui todo bien
+
+  else {arg1.forEach()
+  }
+}
+
+findLongestWord(words)
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////
+//////////////////////// Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
+function sumNumbers(numArray)    {
+  if (numArray.length === 0) {return 0}
+  /* usando notacion normal 
+            else {  let sum =  numArray.reduce(  
+                function    (acc, currentValue)  {return acc+currentValue }  )
+              return sum  
+  */
+
+   // usando ES6 
+  else {let sum = numArray.reduce(  
+          (acc, currentValue) => acc+currentValue)
+            return sum } }
+        
+ 
+/////////////////////////////////////////////////
+////////////////////////////////////////////////// bonus sum
+
+function sum (arg1) {
+  if (arg1.length === 0) {return 0}
+  else {let sum = arg1.reduce(  (acc, currentValue) => acc+currentValue)
+    return sum  
+        }
+                                                  }
+  sumNumbers(NumArray);
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////
+/////////////////// Iteration #4: Calculate the average
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Level 2: Array of strings
+function averageNumbers(arg1) {
+  if (arg1.length === 0) {return null}
+  else {
+    let avg = arg1.reduce(  (acc, currentValue) => acc+currentValue)
+    let numAvg = (avg / arg1.length); return numAvg;
+       }
+                              }
+  
+
+
+
+
+
+
+/////////////////////////////////////////////////////////
+////////////////////////////// Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// Iteration #5: Unique arrays
+function averageWordLength (arg1) {
+  if (arg1.length === 0) {return null}
+  else {let newArr = (arg1.join("").length) / (arg1.length)
+  return newArr
+      }
+
+  }
+
+//////////////////////////////////////////////
+ ////////////////// BONUS 2 AVERAGES
+ function avg (arg1){
+  if (arg1.length === 0) {return null}
+}
+
+//FALTA
+
+
+
+
+/////////////////////////////////////////////////////////
+// ///////////////////////////////Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
   'poison',
@@ -29,10 +134,47 @@ const wordsUnique = [
   'bring'
 ];
 
-// Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function uniquifyArray (arg1) {
+  if   (arg1.length === 0) {return null}
+  else {return [...new Set(arg1)  ]     }
+  // lo vi en internet, aunq aun no llegamos a constructores
+}
 
-// Iteration #7: Count repetition
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////
+/////////////////////////// Iteration #6: Find elements
+const wordsFind = [
+  'machine', 
+  'subset', 
+  'trouble', 
+  'starting', 
+  'matter', 
+  'eating', 
+  'truth', 
+  'disobedience'];
+
+function doesWordExist (arg1, palabra) {
+  
+  if (arg1.length === 0) {return null}
+  else {arg1.includes(palabra) 
+    return true;}
+}
+
+
+
+
+
+
+///////////////////////////////////////////////////////////
+//////////////////////////// Iteration #7: Count repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -47,7 +189,19 @@ const wordsCount = [
   'matter'
 ];
 
-// Iteration #8: Bonus
+function howManyTimes(arg1, palabra){
+  let i = 0;
+  if (arg1.length === 0 ) {return 0}
+  else if (arg1[i]== palabra) {i++} 
+
+    return i;
+}
+
+
+
+
+////////////////////////////////////////////////////////////
+///////////////////////////////////////// Iteration #8: Bonus
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -71,3 +225,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct () {
+  
+}
