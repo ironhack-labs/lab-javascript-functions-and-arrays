@@ -32,6 +32,28 @@ const sumNumbers = arr => {
   }
 };
 
+// bonus 3.1
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+const sum = arr => {
+  let counter = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    for (i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "number") {
+        counter += arr[i];
+      } else if (typeof arr[i] === "boolean") {
+        counter += arr[i] ? 1 : 0;
+      } else if (typeof arr[i] === "string") {
+        counter += arr[i].length;
+      }
+    }
+    return counter;
+  }
+};
+
+console.log(sum(mixedArr));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -64,6 +86,27 @@ const averageWordLength = words => {
   }
 };
 averageWordLength(wordsArr);
+
+// bonus 4.1
+const avg = arr => {
+  let counter = 0;
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "number") {
+        counter += arr[i];
+      } else if (typeof arr[i] === "boolean") {
+        counter += arr[i] ? 1 : 0;
+      } else if (typeof arr[i] === "string") {
+        counter += arr[i].length;
+      }
+    }
+    return counter / arr.length;
+  }
+};
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
