@@ -136,7 +136,7 @@ const avg = mix => {
         numSum += Number(mix[number]);
       }
     }
-    return (numSum / mix.length).toFixed(2);
+    return Number((numSum / mix.length).toFixed(2)); //WOW!!
   } else {
     return null;
   }
@@ -526,8 +526,27 @@ const matrix = [
 
 const greatestProduct = (matrix) => {
 
-  var maxProduct = 0;
+  let maxProduct = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    let row = matrix[i];
+    for (let x = 0; x < row.length; x++) {
+      //check products left to right
+      if (x < row.length - 3) {
+        let product = row[x] * row[x + 1] * row[x + 2] * row[x + 3];
+        if (product > maxProduct) {
+          maxProduct = product;
+        }
+      }
 
+      //check products top to bottom
+      if (i < matrix.length - 3) {
+        let product = matrix[i][x] * matrix[i + 1][x] * matrix[i + 2][x] * matrix[i + 3][x];
+        if (product > maxProduct) {
+          maxProduct = product;
+        }
+      }
+    }
+  }
   return maxProduct;
 
 }
