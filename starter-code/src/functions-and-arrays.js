@@ -229,3 +229,4 @@ function greatestProduct(array) {
   }
   return maxProduct;
 }
+
