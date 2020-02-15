@@ -53,7 +53,7 @@ function sum(array) {
     } else if (array[i] === false) {
       totalSum += 0;
     } else if (typeof array[i] === 'object') {
-      return null;
+      throw new Error ("Unsupported data type sir or ma'am");
     }
   }
   return totalSum;
@@ -91,7 +91,7 @@ function avg(arr) {
   if (arr.length) {
     const totalSum = sum(arr);
     const average = totalSum / arr.length;
-    return Math.round(100*average)/100;
+    return Math.round(100 * average) / 100;
     // return parseFloat(average.toFixed(2));
   } else {
     return null;
@@ -115,7 +115,7 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray (array) {
+function uniquifyArray(array) {
   let uniqueArray = [];
   if (array.length) {
     for (let i = 0; i < array.length; i++) {
@@ -132,7 +132,7 @@ function uniquifyArray (array) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(array,word) {
+function doesWordExist(array, word) {
   if (array.length) {
     for (let i = 0; i < array.length; i++) {
       if (word === array[i]) {
@@ -159,6 +159,20 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(array, word) {
+  let count = 0;
+  if (array.length) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+        count++;
+      }
+    }
+    return count;
+  } else {
+    return 0;
+  }
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
@@ -183,3 +197,35 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+const matrix2 = [
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2]
+]
+
+function greatestProduct(array) {
+  let verticalProduct = 1;
+  let horizontalProduct = 1;
+  let maxProduct = 1;
+  let j = 0;
+  for (let i = 0; i < array.length; i+=4) {
+    for ( j = 0; j < array.length; j+=4) {
+      horizontalProduct = array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3];
+      if (horizontalProduct > maxProduct) {
+        maxProduct = horizontalProduct;
+      }
+    }
+    verticalProduct = array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j];
+    if (verticalProduct > maxProduct) {
+      maxProduct = verticalProduct;
+    }
+  }
+  return maxProduct;
+}
