@@ -15,7 +15,6 @@ function maxOfTwoNumbers(a, b) {
 //  return Math.max(a, b);
 //}
 
-
 // Iteration #2: Find longest word
 const words = ['mystery fftft', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 function findLongestWord(array) {
@@ -40,16 +39,24 @@ function sumNumbers (arrayOfNumbers) {
   }
   return result;
 }
-
+//Bonus
 function sum (arrayOfNumbers) {
   if (arrayOfNumbers.length === 0) {
     return 0;
   }
   let result = 0;
   for (let i = 0; i < arrayOfNumbers.length; i++) {
-    result += arrayOfNumbers[i];
+    if (typeof arrayOfNumbers[i] === "number") {
+      result += arrayOfNumbers[i];
+    }
     if (typeof arrayOfNumbers[i] === "string") {
       result += arrayOfNumbers[i].length;
+    }
+    if (typeof arrayOfNumbers[i] === "boolean" && arrayOfNumbers[i] === true) {
+      result ++;
+    }
+    else if (arrayOfNumbers[i] === "[]" || typeof arrayOfNumbers[i] === "{}") {
+      return "Unsupported data type sir or ma'am";
     }
   }
   return result;
@@ -99,16 +106,50 @@ function uniquifyArray (array) {
 if (!array.length) {
   return null;
 }
-let uniquifiedArray = [];
-for (let i = 0; i < array.length; i++) {
-  if (array.indexOf(array[i]) === 1) {
-    uniquifiedArray.push(array[i]);
-  }
-}
+let uniquifiedArray = array.filter(function(theseWord, i) {
+  return array.indexOf(theseWord) === i;
+});
+
 return uniquifiedArray;
 }
+
+// Bonus:
+function avg (array) {
+  let totalOfElements = 0;
+
+  if (array.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    
+    if (typeof array[i] === "boolean") {
+      totalOfElements ++;
+    }
+    if (typeof array[i] === "number") {
+      totalOfElements += array[i];
+    }
+
+    totalOfElements += array[i].length;
+  }
+
+  return totalOfElements / array.length
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word) {
+  if(array.length === 0) {
+    return null;
+  }
+  
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      return true;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -124,6 +165,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  let counter = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      counter ++;
+    }
+  }
+
+  return counter;
+}
 
 // Iteration #8: Bonus
 
