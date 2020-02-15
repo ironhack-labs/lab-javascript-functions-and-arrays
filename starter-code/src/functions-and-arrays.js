@@ -135,12 +135,16 @@ const wordsUnique = [
 
 function uniquifyArray(array){
   if (array.length === 0) return null;
-  /*
-  for (let i= 0; i < array.length; i++){
-   
-  }
-  */
 
+  let uniquifiedArray = [];
+  
+  
+  for (let i = 0; i < array.length; i++){
+    if(uniquifiedArray.indexOf(array[i]) === -1) {
+      uniquifiedArray.push(array[i]);
+    }
+  }
+  return uniquifiedArray;
 }
 
 // Iteration #6: Find elements
@@ -151,7 +155,7 @@ function doesWordExist(arr, word){
   if (arr.length === 0) return null;
 
   for (let i = 0; i < arr.length; i++){
-    if (word === arr[i]){
+    if (arr.indexOf(word) >= 0){
       return true;
     } else{
       return false;
@@ -173,6 +177,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array, word){
+  if (array.length === 0) return 0;
+  
+  let count = 0;
+
+  for (let i = 0; i < array.length; i++){
+    if(array[i] === word){
+      count++;
+    }
+  }
+  return count;
+}
+
+
 
 // Iteration #8: Bonus
 
