@@ -92,6 +92,45 @@ function sumNumbers (arrayOfNumbers){
   return number;
 }
 
+// Iteration #3.1: Bonus - A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(array){
+  if (array.length === 0) return 0;
+
+  let stringCount = 0;
+  let booleanCount = 0;
+  let numbersSum = 0;
+
+  for (let i = 0; i < array.length; i++){
+    /*
+    if(typeof array[i] === "object"){ //it's not working as an error
+      return "Error message";
+      break;
+    } */
+    if (typeof array[i] === "string"){
+      //console.log(array[i].length);
+      stringCount += array[i].length;
+    } else if(typeof array[i] === "boolean"){
+      if (array[i] === true){
+        booleanCount += 1;
+      } else{
+        booleanCount += 0;
+      }
+    } else if(typeof array[i] === "number"){
+      numbersSum += array[i];
+    }
+  }
+
+  let totalArrSum = stringCount + booleanCount + numbersSum;
+
+  return totalArrSum;
+}
+
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -101,7 +140,7 @@ function averageNumbers(numbers) {
   var totalSum = sumNumbers(numbers);
   var numOfElements = numbers.length;
   var average = (totalSum/numOfElements)
-  return average
+  return average;
 };
 
 // Level 2: Array of strings
@@ -117,6 +156,19 @@ function averageWordLength (array){
   }
   return wordLength / array.length;
 }
+
+
+// Iteration #4.1: Bonus - A generic avg() function
+
+function avg(arr){
+  if (arr.length === 0) return null;
+
+  let totalSum = sum(arr);
+  let numberOfElements = arr.length;
+  let average = (totalSum/numberOfElements);
+  return Math.round(average*100)/100;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -217,3 +269,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+
+}
