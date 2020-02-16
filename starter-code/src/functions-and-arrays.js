@@ -124,12 +124,16 @@ function uniquifyArray (array){
   if(!array.length){
     return null
   }
-  let element=array[i];
-  for (let index = 0; index < array.length; index++) {
-      
-  }
-
+  
+  let newArray = [];
+  array.forEach(function(i){
+    if (newArray.indexOf(i) === -1){
+      newArray.push(i); 
+    }
+  })
+  return newArray;
 }
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
