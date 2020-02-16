@@ -57,6 +57,18 @@ let sum = (mixedArr) => {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let averageNumbers = numbersAvg => {
+  if (!numbersAvg.length) {
+    return null
+  }
+  let result = 0
+  for (let i = 0; i < numbersAvg.length; i++) {
+    result += numbersAvg[i]
+  }
+  return(result / numbersAvg.length) 
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
