@@ -1,12 +1,58 @@
 // Iteration #1: Find the maximum
+let maxOfTwoNumbers = (number1, number2) => {
+  return Math.max (number1, number2)
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let findLongestWord = (array) => {
+  if (!array.length) {
+    return null
+  }
+  let longestWord= ""
+  for(let i = 0; i < array.length; i++){
+    if (array[i].length > longestWord.length){
+      longestWord = array[i]
+    }
+    }
+  return(longestWord);
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let sumNumbers = (numbers) => {
+  let result = 0
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i]
+  }
+  return(result)
+}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+let sum = (mixedArr) => {
+  let result = 0
+  if (mixedArr.length === 0) {
+    return 0
+  }
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === "string") {
+      result += mixedArr[i].length
+    }
+    else if (typeof mixedArr[i] === "number") {
+      result += mixedArr[i]
+    }
+    else if (mixedArr[i] === true){
+      result += 1
+    }
+    else if (mixedArr[i] === false){
+      result += 0
+    } else {
+      throw new Error ("Unsupported data type sir or ma'am")
+    }
+  }
+  return result
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
