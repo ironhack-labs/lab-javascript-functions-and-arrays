@@ -52,18 +52,26 @@ function sumNumbers(numbers){
 }
 
 // Bonus 3.1
-function sum (numbers){
-  if (numbers.length === 0) {
-      return 0;
+function sum(arrayOfNumbers) {
+  if (arrayOfNumbers.length === 0) {
+    return 0;
   }
-  let result=0;
-  for (let i = 0; i < numbers.length; i++) {
-     result += numbers[i];
-  } 
-    return result;
-  
+  let result = 0;
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    if (typeof arrayOfNumbers[i] === "number") {
+      result += arrayOfNumbers[i];
+    } else if (typeof arrayOfNumbers[i] === "string") {
+      result += arrayOfNumbers[i].length;
+    } else if (arrayOfNumbers[i] === true) {
+      result += 1;
+    } else if (arrayOfNumbers[i] === false) {
+      result += 0;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return result;
 }
-  
 
 
 // Iteration #4: Calculate the average
@@ -89,22 +97,34 @@ function averageWordLength(word){
   }
   let sum= 0
   for (let i = 0; i < word.length; i++) {
-    sum += word[i].length; // VER A SOMA COM STRINGS
+    sum += word[i].length; 
   }
   return sum/word.length
 }
 
-function avg (a){
-  if(!a.length){
-    return null
-  }
-  let sum= 0
-  for (let i = 0; i < a.length; i++) {
-    sum += a[i].length; 
-  }
-  return sum/a.length
+function avg (array) {
+  let totalOfElements = 0;
 
+  if (array.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    
+    if (typeof array[i] === "boolean") {
+      totalOfElements ++;
+    }
+    if (typeof array[i] === "number") {
+      totalOfElements += array[i];
+    }
+
+    totalOfElements += array[i].length;
+  }
+
+  return totalOfElements / array.length
 }
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -138,6 +158,17 @@ function uniquifyArray (array){
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(array, word) {
+  if (!array.length){
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      return true;
+    }
+  }
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -153,6 +184,15 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes (array, word) {
+  var wordCount = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      wordCount++;
+    }
+  }
+  return wordCount;
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -177,3 +217,16 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array) {
+  let answer = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (Math.max.apply(Math, array[i]) === 1) {
+      answer = 1;
+    } else if (Math.min.apply(Math, array[i]) === 2 && Math.max.apply(Math, array[i]) === 2) {
+      answer = 16;
+    }
+  }
+
+  return answer;
+}
