@@ -2,6 +2,7 @@
 let maxOfTwoNumbers = (number1, number2) => {
   return Math.max(number1, number2);
 }
+
 maxOfTwoNumbers(1,2);
 
 // Iteration #2: Find longest word
@@ -20,7 +21,6 @@ function findLongestWord(words){
       longestWord = words[i];
     } 
   }
-
   return(longestWord);
 }
 
@@ -40,7 +40,6 @@ let sumNumbers = (numbers) => {
 }
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
 
 function sum(mix) {
   let result = 0;
@@ -74,11 +73,9 @@ function sum(mix) {
 
   }
 
-
  return result;
 
 }
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -119,7 +116,6 @@ let avg = (arr) => {
   return parseFloat(result);
 
 }
-
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -190,7 +186,6 @@ let howManyTimes = (checkArr, searchWord) => {
   let result = [];
   let existWord = checkArr.indexOf(searchWord);
 
-  
   for (let i=0; i<checkArr.length; i++) {
     if (existWord !== -1 ) {
       result.push(existWord);
@@ -199,8 +194,6 @@ let howManyTimes = (checkArr, searchWord) => {
   }
   return result.length;
 }
-
-
 
 // Iteration #8: Bonus
 
@@ -230,7 +223,6 @@ const matrix = [
 let greatestProduct = (matrix) => {
   let largestCombo = [0,0,0,0];
   
-
   for (let i=0; i<matrix.length; i++) {
 
       for (let iChild= 0; iChild < matrix[i].length; iChild++) {
@@ -240,14 +232,13 @@ let greatestProduct = (matrix) => {
           largestCombo[i] = matrix[i][iChild];
       
         }
-
-      } 
-        
+      }    
   }
 
-  console.log(largestCombo)
+  //console.log(largestCombo)
 
   let result = largestCombo[0];
+
   for(i=1; i<largestCombo.length; i++){
     result = result*largestCombo[i];
   }
