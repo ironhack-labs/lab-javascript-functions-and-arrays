@@ -1,18 +1,125 @@
 // Iteration #1: Find the maximum
+let maxOfTwoNumbers = (number1, number2) => {
+  return Math.max(number1, number2);
+}
+maxOfTwoNumbers(1,2);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words){
+  let longestWord = "";
+
+  if (words.length === 0){
+    return null;
+  }
+
+  for (let i = 0; i < words.length; i++) {
+    //console.log(words[i].length);
+    if(words[i].length > longestWord.length ) {
+      longestWord = words[i];
+    } 
+  }
+
+  return(longestWord);
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sumNumbers = (numbers) => {
+  let result = 0;
+
+  for(let i = 0; i < numbers.length; i++){
+    result += numbers[i];
+  }
+
+  return result;
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function sum(mix) {
+  let result = 0;
+
+  if (mix.length === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < mix.length; i++) {
+    
+
+    if ( typeof mix[i] === "string"){
+      result += mix[i].length;
+    }
+
+    else if ( typeof mix[i] === "number"){
+      result += mix[i];
+    } 
+    
+    else if ( mix[i] === true ) {
+      result += 1
+    }
+
+    else if ( mix[i] === false ) {
+      result += 0
+    }
+
+    else {
+      throw new Error ("Unsupported data type sir or ma'am");
+    }
+
+  }
+
+
+ return result;
+
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let averageNumbers = (num) => {
+
+  if (num == 0) {
+    return null;
+  }
+
+  return sumNumbers(num) / num.length
+
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+let averageWordLength = (arrOfWords) => {
+  let result = [];
+  
+  for(let i=0; i<arrOfWords.length; i++){
+    result.push(arrOfWords[i].length);
+  }
+
+  return averageNumbers(result)
+
+}
+
+let avg = (arr) => {
+
+  if (arr == 0) {
+    return null;
+  }
+
+  let result = (sum(arr)/arr.length).toFixed(2)
+
+  return parseFloat(result);
+
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +136,40 @@ const wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = (checkinArr) => {
+  let result = [];
+  
+  if (checkinArr == 0) {
+    return null;
+  }
+
+  for (let i=0; i<checkinArr.length; i++){
+    if(result.indexOf(checkinArr[i]) === -1){
+      result.push(checkinArr[i]);
+    }
+  }
+  return result
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+let doesWordExist = (checkArr, checkWord) => {
+
+  if (checkArr == 0) {
+    return null
+  }
+  
+  for (let i=0; i<checkArr.length; i++) {
+    if (checkArr.includes(checkWord)){
+      return true
+    }
+    else {
+      return false
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +185,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (checkArr, searchWord) => {
+  let result = [];
+  let existWord = checkArr.indexOf(searchWord);
+
+  
+  for (let i=0; i<checkArr.length; i++) {
+    if (existWord !== -1 ) {
+      result.push(existWord);
+      existWord = checkArr.indexOf(searchWord, existWord+1)
+    }
+  }
+  return result.length;
+}
+
+
 
 // Iteration #8: Bonus
 
@@ -71,3 +226,36 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = (matrix) => {
+  let largestCombo = [0,0,0,0];
+  
+
+  for (let i=0; i<matrix.length; i++) {
+
+      for (let iChild= 0; iChild < matrix[i].length; iChild++) {
+
+        if(matrix[i][iChild] > largestCombo[i]) {
+          
+          largestCombo[i] = matrix[i][iChild];
+      
+        }
+
+      } 
+        
+  }
+
+  console.log(largestCombo)
+
+  let result = largestCombo[0];
+  for(i=1; i<largestCombo.length; i++){
+    result = result*largestCombo[i];
+  }
+
+  return result;
+
+}
+
+let greatestProductOfDiagonals = (matrix) => {
+  //woooooow
+}
