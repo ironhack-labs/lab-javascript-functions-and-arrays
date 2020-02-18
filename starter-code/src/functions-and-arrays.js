@@ -21,13 +21,13 @@ const words = [
 
 function findLongestWord(arr) {
   if (arr.length !== 0) {
-    var currValue = '';
+    let currValue = '';
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].length > currValue.length) {
         currValue = arr[i];
       }
-      return currValue;
     }
+    return currValue;
   } else {
     return null;
   }
@@ -38,10 +38,32 @@ findLongestWord(words);
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(arr) {
+  let sum = 0;
+  arr.forEach(element => {
+    sum += element;
+  });
+  return sum;
+}
 
-// Iteration #4: Calculate the average
+sumOfAnArray(numbers);
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arr) {
+  if (arr.length !== 0) {
+    let average = 0;
+    arr.forEach(element => {
+      average += element / arr.length;
+    });
+    console.log(average);
+    return Math.round(average);
+  } else {
+    return null;
+  }
+}
+
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -57,6 +79,25 @@ const wordsArr = [
   'palace',
 ];
 
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let letterCount = 0;
+    let avgWordLength = 0;
+    arr.forEach(str => {
+      console.log(str);
+      console.log(str.length);
+      letterCount += str.length;
+    });
+    avgWordLength = Math.floor(letterCount / arr.length);
+    console.log(avgWordLength);
+    return avgWordLength;
+  }
+}
+
+averageWordLength(wordsArr);
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -71,6 +112,25 @@ const wordsUnique = [
   'simple',
   'bring',
 ];
+
+function uniquifyArray(orignalArr) {
+  let arr = [...orignalArr];
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        let duplicate = arr.indexOf(arr[i], j);
+        if (duplicate > -1) {
+          arr.splice(duplicate, 1);
+        }
+      }
+    }
+  }
+  return arr;
+}
+
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
