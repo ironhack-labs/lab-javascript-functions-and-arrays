@@ -208,13 +208,37 @@ function findMax(myArray){
 
 //greatest produc function
 
-function greatestProduct(matrix){
-  //finding the maxiumum of the rows
+function greatestProduct(myMatrix){
+  //Emtpy array case
 if(myMatrix.length==0){
   return null;
-}else{
-  for(var i =0; i<matrix[i].length;i++){
 
+}else{
+
+  //Finding horizontal maximum
+  maxArray1=[];
+  for(var i =0; i<myMatrix.length;i++){
+    var product=1;
+    for(var j =0; j<myMatrix[0].length;j++){
+      product *= myMatrix[i][j];
   }
+    maxArray1.push(product);
+  }
+  var maxHorizontal = findMax(maxArray1);  //This is the Horizontal maximum
+
+  //Finding the vertical maximum
+  maxArray2=[];
+  for(var a =0; a<matrix[0].length;a++){
+    var product2=1;
+    for(var b =0; b<matrix.length;b++){
+      product2 *= myMatrix[b][a];
+    }
+    maxArray2.push(product2);
+  }
+  var maxVertical = findMax(maxArray2);  //This is the Horizontal maximum
+
+//Find the greater of the two maximum products
+  var largestProduct= maxOfTwoNumbers(maxHorizontal,maxVertical);
+  return largestProduct;
 }
 }
