@@ -118,7 +118,38 @@ function uniquifyArray(wordArray){
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(myArray, word){
+
+  if(myArray.length===0){
+      return null;
+  }else{
+       for (var i=0;i<myArray.length;i++){
+         if(myArray[i]===word){
+           return true;
+         }
+       } 
+      return false;
+}
+
+}
 // Iteration #7: Count repetition
+
+function howManyTimes(myArray, word){
+if (myArray.length===0){
+  return 0;
+}else{
+       var count=0;
+        for (var i=0; i <myArray.length;i++){
+        if(myArray[i]==word){
+          count++;
+        }
+        
+}
+      return count;
+
+}
+}
+
 const wordsCount = [
   'machine',
   'matter',
@@ -132,6 +163,8 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
 
 // Iteration #8: Bonus
 
@@ -157,3 +190,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//Find the maximum of an array of numbers
+function findMax(myArray){
+  if(myArray.length==0){
+    return null;
+  }else{
+    var max=0;
+    for(var i=0;i<myArray.length;i++){
+      if(myArray[i]>max){
+        max=myArray[i];
+      }
+    }
+    return max;
+  }
+}
+
+//greatest produc function
+
+function greatestProduct(matrix){
+  //finding the maxiumum of the rows
+if(myMatrix.length==0){
+  return null;
+}else{
+  for(var i =0; i<matrix[i].length;i++){
+
+  }
+}
+}
