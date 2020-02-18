@@ -1,18 +1,98 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1,num2){
+  if (num1>num2){
+    return num1;
+  } else {
+    return num2;
+  };
+};
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (words){
+  if (words.length!=0) {
+    var langest="";
+    words.forEach(function(item){
+      if (item.length>langest.length){
+        langest = item;
+      };
+    })
+    return langest;
+  } else {
+    return null;
+  }
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers){
+  if (numbers.length!=0){
+    var aSum=0;
+    numbers.forEach(function(item){
+      aSum += item;
+    });
+    return aSum;
+  } else {
+    return 0;
+  };
+};
+
+
+function sum(mixedArray){
+  if (mixedArray.length!=0){
+    var aSum=0;
+    mixedArray.forEach(function(item){
+      if (typeof(item)=="number"){
+        aSum += item;
+      } else if (typeof(item)=="string") {
+        aSum += item.length;
+      } else if (typeof(item)=="boolean") {
+        aSum ++;
+      } else {
+        aSum = aSum+0;
+      };  
+    });
+    return aSum;
+  } else {
+    return 0;
+  };
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (numArr){
+  if (numArr.length != 0) {
+    let sum = sumNumbers(numArr);
+    let avg = sum / (numArr.length);
+    return avg;
+  } else {
+    return null;
+  };
+};
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(someArr) {
+  if (someArr.length != 0){
+    var lengthArr = [];
+    someArr.forEach(function(item){
+    lengthArr.push(item.length);
+    });
+    let avg = averageNumbers(lengthArr);
+    return avg;
+    } else {
+    return null;
+    };
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +109,43 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(someArr){
+  if (someArr.length != 0) {
+    var Arr = [...someArr];
+    for (var i=0; i<Arr.length; i++){
+      for (var j=i+1; j<Arr.length; j++){
+        let ix=Arr.indexOf(Arr[i],j);
+        //console.log(ix);
+        if (ix>-1) {
+        Arr.splice(ix,1);
+      };
+      
+    };
+  };
+  return Arr;
+  } else {
+    return null;
+  }; 
+};
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(someArr,someWord){
+  if (someArr.length != 0){
+    var result=false;
+    for (let i=0; i<someArr.length; i++){
+      if (someArr[i]===someWord){
+        result=true;
+        break;
+      };
+    };
+  return result;
+  } else {
+    return null;
+  };
+  
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +161,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(someArr,someWord){
+  if (someArr.length != 0){
+    var result=0;
+    for (let i=0; i<someArr.length; i++){
+      if (someArr[i]===someWord){
+        result++;
+      };
+    };
+  return result;
+
+  } else {
+    return 0;
+  };
+};
 
 // Iteration #8: Bonus
 
@@ -71,3 +201,48 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix,num){
+  if (matrix.length != 0){
+    var rowResult = 0;
+    var allRowsResult = 0;
+    var columnResult = 0;
+    var allColumnResult = 0;
+    var temp1;
+    var temp2;
+    for (let i=0; i<matrix.length; i++){
+      for (let j=0; j+num<=matrix[i].length; j++){
+        temp1 = 1;
+        temp2 = 1;
+        for (let x=0; x < num; x++){
+          temp1 *= matrix[i][j+x];
+          temp2 *= matrix[j+x][i]; 
+        };
+        //console.log(temp);
+        if (temp1>rowResult){
+          rowResult = temp1;
+          //console.log(rowResult);
+        };
+        if (temp2>columnResult){
+          columnResult = temp2;
+          //console.log(columnResult);
+        };
+      }
+      if (rowResult>allRowsResult){
+        allRowsResult=rowResult;
+      };
+      if (columnResult>allColumnResult){
+        allColumnResult=columnResult;
+      };
+    };
+
+    if (allColumnResult>allRowsResult){
+      return allColumnResult;
+    } else {
+      return allRowsResult;
+    };  
+  } else {
+    return 0;
+  };
+};
+

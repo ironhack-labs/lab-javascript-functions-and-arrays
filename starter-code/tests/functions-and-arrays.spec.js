@@ -131,6 +131,7 @@ describe('Calculate the average of an array of numbers', () => {
 
   it('should return null if receives an empty array when called', () => {
     // should it return null or zero?
+    debugger
     expect(averageNumbers([])).toBe(null);
   });
 
