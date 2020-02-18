@@ -40,11 +40,12 @@ describe('Find the longest word', () => {
   it('should return null when called with an empty array', () => {
     expect(findLongestWord([])).toBe(null);
   });
-
+  
   it('should return the word when called with a single-word array', () => {
     expect(findLongestWord(['foo'])).toBe('foo');
   });
 
+    //not sure if my answer for this task is correct
   it('should return the first occurrence of the word when longest have multiple occurrences ', () => {
     expect(findLongestWord(['foo', 'bar'])).toBe('foo');
     expect(findLongestWord(['bar', 'foo'])).toBe('bar');
