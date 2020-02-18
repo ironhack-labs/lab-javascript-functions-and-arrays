@@ -42,6 +42,31 @@ function sumNumbers (numArr) {
   return sum;
 }
 
+function sum(arr){
+  var sm = 0;
+  if (arr.length === 0){
+    return 0;
+  }
+  arr.forEach(element => {
+    switch (typeof(element)) {
+      case "number":
+        sm += element;
+        break;
+      case "string":
+        sm += element.length;
+        break;
+      case "boolean":
+        if (element){
+          sm++;
+        }
+        break;
+      default:
+        throw console.error("Unsupported data type sir or ma'am");
+        break;
+    }
+  });
+  return sm;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
