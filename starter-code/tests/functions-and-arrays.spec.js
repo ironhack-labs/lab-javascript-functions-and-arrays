@@ -135,14 +135,14 @@ describe('Calculate the average of an array of numbers', () => {
   });
 
   // do we need this?
-  // it("should return the average of a one-element array", () => {
-  //   expect(averageNumbers([9])).toBe(9);
-  // });
+  it("should return the average of a one-element array", () => {
+    expect(averageNumbers([9])).toBe(9);
+  });
 
   // do we need this?
-  // it("should return the average even with negative values", () => {
-  //   expect(averageNumbers([9, -3, -4, 6])).toBe(2);
-  // });
+  it("should return the average even with negative values", () => {
+    expect(averageNumbers([9, -3, -4, 6])).toBe(2);
+  });
 
   it('should return the average of the array', () => {
     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
@@ -160,9 +160,9 @@ describe('Calculate the average of an array of strings', () => {
   });
 
   // do we need this?
-  // it("should return the average of a one-element array", () => {
-  //   expect(averageWordLength(["ironhack"])).toBe(8);
-  // });
+  it("should return the average of a one-element array", () => {
+    expect(averageWordLength(["ironhack"])).toBe(8);
+  });
 
   it('should return the average of a the array', () => {
     expect(

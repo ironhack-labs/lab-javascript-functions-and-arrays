@@ -86,8 +86,53 @@ function sum(arr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  if (arr.length == 0) {
+    return null
+  } else {
+    var getSum = 0
+    for (let n = 0; n < arr.length; n++){
+      getSum += arr[n]
+    }
+    return getSum / arr.length
+  }
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(arr){
+  if (arr.length == 0){return null}
+  else if (arr.length ==1) {return arr[0].length}
+  else {
+    var wordLength = 0
+    for (let n=0;n<arr.length;n++){
+      wordLength += arr[n].length
+    }
+    return wordLength / arr.length
+  }
+}
+
+function avg(arr) {
+  if (arr.length == 0){return null}
+  else {
+    var valueLength = 0
+    for (let n=0;n<arr.length;n++){
+      switch (typeof(arr[n])){
+        case 'string':
+          valueLength += arr[n].length
+          break
+        case 'number':
+          valueLength += arr[n]
+          break
+        case 'boolean':
+          if(arr[n]){valueLength++}
+      }
+    }
+    var avgValue = valueLength / arr.length
+    return Math.round(avgValue * 100) / 100
+    
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -103,6 +148,26 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr){
+  if (arr.length == 0){return null}
+  else if (arr.length == 1){return arr}
+  else {
+    var newArr = []
+    for (let n=0;n<arr.length;n++){
+      var isAlreadyThere = false
+      newArr.forEach(elemnt => {
+        if (elemnt === arr[n]){
+          isAlreadyThere = true
+        }
+      })
+      if (!isAlreadyThere){
+        newArr.push(arr[n])
+      }
+    }
+    return newArr
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
