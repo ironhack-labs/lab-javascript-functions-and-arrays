@@ -153,24 +153,37 @@ function uniquifyArray(arr){
   if (arr.length == 0){return null}
   else if (arr.length == 1){return arr}
   else {
-    var newArr = []
-    for (let n=0;n<arr.length;n++){
-      var isAlreadyThere = false
-      newArr.forEach(elemnt => {
-        if (elemnt === arr[n]){
-          isAlreadyThere = true
-        }
-      })
-      if (!isAlreadyThere){
-        newArr.push(arr[n])
-      }
-    }
-    return newArr
+   var newArr = []
+   for (let n=0;n<arr.length;n++){
+     var isAlreadyThere = false
+     for (let n2 =0;n2<newArr.length;n2++){
+       if (arr[n] === newArr[n2]){
+         isAlreadyThere = true
+       }
+     }
+     if (!isAlreadyThere){
+       newArr.push(arr[n])
+     }
+   }
+   return newArr
   }
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr,searchword){
+  if (arr.length == 0){return null}
+  else {
+    var wordFound = false
+    for (let n = 0; n<arr.length ; n++){
+      if (searchword === arr[n]){wordFound = true}
+    }
+    return wordFound
+  }
+}
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -186,6 +199,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,searchword){
+  if (arr.length == 0){return 0}
+  else {
+    var findCount = 0
+    for (let n=0;n<arr.length;n++){
+      if(searchword == arr[n]){
+        findCount++
+      }
+    }
+    return findCount
+  }
+}
 
 // Iteration #8: Bonus
 
