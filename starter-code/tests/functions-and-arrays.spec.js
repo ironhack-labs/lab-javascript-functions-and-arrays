@@ -1,3 +1,5 @@
+//Miranda's test version
+
 function shuffle(currentArray) {
   const array = currentArray.map(arr => arr.slice());
   let counter = array.length;
