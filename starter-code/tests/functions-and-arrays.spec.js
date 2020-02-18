@@ -1,5 +1,3 @@
-//Miranda's test version
-
 function shuffle(currentArray) {
   const array = currentArray.map(arr => arr.slice());
   let counter = array.length;
@@ -126,6 +124,8 @@ describe('Bonus: Calculate the sum', () => {
   });
 });
 
+
+
 describe('Calculate the average of an array of numbers', () => {
   it('should create a function named averageNumbers', () => {
     expect(typeof averageNumbers).toBe('function');
@@ -150,6 +150,8 @@ describe('Calculate the average of an array of numbers', () => {
     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
   });
 });
+
+
 
 describe('Calculate the average of an array of strings', () => {
   it('should create a function named averageWordLength', () => {
