@@ -114,7 +114,7 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+//test
 /* function uniquifyArray(array) {
   if (array.length === 0) {
     return null;
