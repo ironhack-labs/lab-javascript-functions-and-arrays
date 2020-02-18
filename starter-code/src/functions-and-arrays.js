@@ -11,9 +11,16 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr){
   var word = "";
-  if (arr.length === 0){
-    return null;
-  } else {
+   if (arr.length === 0){
+     return null;
+    } else {
+  //   for (let i = arr.length; i>=0; i--){
+  //     if(word.length < arr[i].length){
+  //       word = arr[i];
+  //       console.log(word);
+  //     }   
+  //   }
+  /* it works from here on */
   arr.forEach(element => {
     if(word.length < element.length){
       word = element;
@@ -81,6 +88,19 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordArr){
+  var uniArr = [];
+  if (wordArr.length === 0){
+    return null;
+  }
+    for(var i = 0; i < wordArr.length; i++){
+      if(uniArr.indexOf(wordArr[i]) < 0) {
+        uniArr.push(wordArr[i]);
+      }
+    }
+    console.log(uniArr);
+    return uniArr;
+  }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
