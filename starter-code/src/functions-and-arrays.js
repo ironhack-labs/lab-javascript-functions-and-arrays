@@ -68,9 +68,41 @@ let averageNumbers = numbersAvg => {
   return(result / numbersAvg.length) 
 }
 
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+let averageWordLength = wordsArr => {
+  if (!wordsArr.length) {
+    return null
+  }
+  let average = 0
+  for (let i = 0; i < wordsArr.length; i++) {
+    average += wordsArr[i].length
+  }
+  return(average / wordsArr.length)
+}
+//Bonus 4.1
+
+let avg = mixedArr => {
+  if (!mixedArr.length) {
+    return null
+  }
+  let mixSum = 0
+  for (let i = 0; i < mixedArr.length; i++) {
+
+    if (typeof mixedArr[i] === "number") {
+        mixSum += mixedArr[i];
+    } 
+    if (typeof mixedArr === "string") {
+        mixSum += mixedArr[i].length;
+    } 
+    if (typeof mixedArr === "boolean") {
+        mixSum ++;
+    }
+  mixedArr += mixedArr[i].length;
+  }
+  return (mixSum / mixedArr.length)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -86,6 +118,8 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
