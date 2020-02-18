@@ -1,6 +1,10 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNUmbers(num1,num2) {
+function maxOfTwoNumbers(num1,num2) {
   if (num1>num2) {
+    return num1;
+  } else if (num1<num2) {
+    return num2;
+  } else {
     return num1;
   }
 }
@@ -8,18 +12,111 @@ function maxOfTwoNUmbers(num1,num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(arr) {
+  var longestWord = "";
+  if (arr.length == 0) {
+    return null;
+  }
+  for (var i=arr.length-1; i>=0; i--) {
+    if (arr[i].length >= longestWord.length) {
+       longestWord = arr[i];
+       }
+     }
+     return longestWord;
+    }
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(arr) {
+  var sum = 0;
+  for (var i=0; i< arr.length; i++) {
+     sum += arr[i];    
+  }
+return sum;
+}
+
+// Iteration #3: BONUS
+
+ mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum (arr) {
+  var sum = 0;
+  for (var i=0; i< arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === "number"){
+      sum += arr[i];  
+    } else if (typeof arr[i] === "boolean") {
+      if (true) {
+       sum += 333
+      } else if (false) {
+       sum += 0 
+      } 
+    } else {
+      throw "Error";
+    }    
+}
+return sum;
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+ if (arr.length == 0) {
+   return null;
+ } 
+ return sumNumbers(arr) / arr.length;
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(arr) {
+var sumOfLetters = 0;
+if (arr.length == 0) {
+  return null;
+}
+for (var i=0; i<arr.length; i++) {
+ sumOfLetters += arr[i].length
+}
+return sumOfLetters / arr.length;
+}
+
+// BONUS - HELP
+
+function avg(arr) {
+  var sum = 0;
+  if (arr.length == 0) {
+    return null;
+  }  
+  for (var i=0; i<arr.length; i++) {
+    if (typeof arr[i] == "string") {
+      sum += arr[i].length
+    } else if (typeof arr[i] === "number") {
+      sum += arr[i];
+    } else if (typeof arr[i] === "boolean") {
+      if (true) {
+       sum += 333;
+      } else if (false) {
+       sum += 0; 
+      } 
+    } else {
+      throw "Error";
+    }
+  }
+  return sum / arr.length;
+}
+
+
 // Iteration #5: Unique arrays
+
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -34,8 +131,37 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arr) {
+  var uniquifiedArr = []
+  if (arr.length == 0) {
+    return null;
+  }
+  for (var i=0; i<arr.length; i++) {
+    if (uniquifiedArr.indexOf(arr[i]) === -1) {
+      uniquifiedArr.push(arr[i]);
+    }
+  }
+  return uniquifiedArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr,word) {
+  if (arr.length == 0) {
+    return null;
+  }
+  for (var i=0; i<arr.length;i++) {
+   if(arr[i] === word) {
+     return true;
+     break;
+   } else {
+     return false;
+     break;
+   }
+ }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -51,6 +177,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,word) {
+  var counter = 0;
+  if (arr.length == 0) {
+    return 0;
+  }
+  for (var i=0; i<arr.length; i++) {
+    if (arr[i] === word) {
+      counter += 1 
+    }
+  }
+   return counter;
+}
 
 // Iteration #8: Bonus
 
@@ -76,3 +215,20 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+ var greatestProductOfFour = 0; 
+ for (var i=0; i<arr[i].length; i++) {
+   for (var j=0; j<arr[j].length; j++) {
+      console.log(arr[i][j])
+   } 
+ }
+}
+
+/*
+Bonus Quest - greatestProduct
+
+should create a function named greatestProduct
+should return 1 (one) when all numbers of the arrays are 1
+should return 16 when all the numbers of the arrays are 2
+*/
