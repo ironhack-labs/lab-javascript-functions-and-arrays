@@ -16,7 +16,7 @@ function findLongestWord(array) {
     return null;
   }
   for (let i = array.length - 1; i >= 0; i--) {
-    if (longestWord.length < array[i].length) {
+    if (longestWord.length <= array[i].length) {
       longestWord = array[i];
     }
   }
@@ -52,7 +52,6 @@ function sum(array) {
     } else if (typeof array[i] === "boolean") {
       sum += array[i].toString().length;
     } else {
-      sum = sum;
       throw Error(`Unsupported data type sir or ma'am`);
     }
   }
@@ -129,15 +128,25 @@ const wordsFind = [
 ];
 
 function doesWordExist(array, oneWord) {
-  let exists = "";
   if (array.length === 0) {
     return null;
   }
-  for (let i = 0; i < array.length; i++) {
-    exists = array.includes(oneWord);
-  }
-  return exists;
+  return array.includes(oneWord)
 }
+
+
+//alternative solution
+// function doesWordExist(array, oneWord) {
+//   if (array.length === 0) {
+//     return null;
+//   }
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === oneWord){
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
 // Iteration #7: Count repetition
 const wordsCount = [
