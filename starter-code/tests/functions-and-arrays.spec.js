@@ -1,7 +1,7 @@
 function shuffle(currentArray) {
   const array = currentArray.map(arr => arr.slice());
   let counter = array.length;
-
+  console.log("hi")
   while (counter > 0) {
     let index = Math.floor(Math.random() * counter);
     counter--;
