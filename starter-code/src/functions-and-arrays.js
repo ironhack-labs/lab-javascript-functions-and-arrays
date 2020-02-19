@@ -168,6 +168,5 @@ function greatestProduct(matrix){
       }
     }
   }
-  console.log(greatestProduct)
   return greatestProduct;
 }
