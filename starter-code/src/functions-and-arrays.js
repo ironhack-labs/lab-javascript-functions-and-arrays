@@ -35,12 +35,51 @@ const sumArray = (arr) => {
 
 sumArray(numbers);
 
+/* BONUS 3.1
+A generic sum() function
+POLYMORPHISM
+*/
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+const sum = (arr) => {
+  let sum = 0;
+  arr.forEach((e) => {
+    if (typeof e === 'string') {
+      sum += e.length;
+    } else if (typeof e === 'boolean') {
+      sum += +e;
+    } else {
+      sum += e;
+    }
+  });
+  return sum;
+};
+
+sum(mixedArr);
+
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (arr) => {
+  return sumArray(arr) / arr.length;
+};
+
+averageNumbers(numbersAvg);
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (arr) => {
+  return arr.reduce((a, b) => {
+    return a + b.length;
+  }, 0) / arr.length;
+};
+
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
