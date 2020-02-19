@@ -71,3 +71,139 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function maxOfTwoNumbers(arg1,arg2){
+  if (arg1>arg2){
+    return arg1;
+  }else{
+    return arg2;
+  }
+}
+function findLongestWord(array){
+  let elMasLargo="";
+  if (array==""){
+    return null;
+  }else{
+    for (i=0;i<array.length;i++){
+      if (array[i].length>elMasLargo.length){
+        elMasLargo=array[i];
+      }else{
+        continue;
+      }
+    }
+  }return elMasLargo;
+}
+
+function sumNumbers(array){
+  sumArray=0;
+  if (array.length===0){
+    return 0;
+  }else{
+    for (i=0;i<array.length;i++){
+      sumArray+=array[i];
+    }
+  }return sumArray;
+}
+
+function sum(array){
+  sumArray=0;
+  if (array.length === 0){
+    return 0;
+  }else{
+    for (i=0;i<array.length;i++){
+      if (typeof array[i]=== 'number'){
+        sumArray+=array[i];
+      }else if(typeof array[i]==='string'){
+        sumArray+=array[i].length;
+      }else if(typeof array[i]==='boolean'){
+        sumArray+= array[i] ? 1 : 0;
+      }else{
+        return new Error("Error");
+      }
+    }
+  }return sumArray;
+}
+
+function averageNumbers(array){
+  sumArray=0;
+  if (array.length===0){
+    return null;
+  }else{
+    for(i=0;i<array.length;i++){
+      sumArray+=array[i];
+    }
+  }return sumArray/array.length;
+}
+
+function averageWordLength(array){
+  sumArray=0;
+  if (array.length===0){
+    return null;
+  }else{
+    for(i=0;i<array.length;i++){
+      sumArray+=array[i].length;
+    }
+  }return sumArray/array.length;
+}
+function avg(array){
+  sumArray=0;
+  if (array.length === 0){
+    return null;
+  }else{
+    for (i=0;i<array.length;i++){
+      if (typeof array[i]=== 'string'){
+        sumArray+=array[i].length;
+      }else{
+        sumArray+=array[i];
+      }
+      if(typeof avg[i] === 'object' || typeof avg[i] === 'array'){
+        throw new Error("Informacion no valida para hacer la media.");
+      } 
+      
+    }
+  }sumArray/=array.length;
+  return sumArray.toFixed(2);//de esta manera corta el resultado a lo que lo necesita pero no se porque Jasmine no me lo coge :(
+}
+function uniquifyArray(array){
+  if (!array.length){
+    return null;
+  }else{
+    newArray=[];
+    for (i=0;i<array.length;i++){
+      if (newArray.indexOf(array[i])=== -1){
+        newArray.push(array[i]);
+      }else{
+        continue;
+      }
+    }
+    return newArray;
+  }
+}
+function doesWordExist(array,word){
+  if (!array.length){
+    return null;
+  }else{
+    for (i=0;i<array.length;i++){
+      if (array[i]===word){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
+}  
+function howManyTimes(array,word){
+  if (!array.length){
+    return 0;
+  }else{
+    newCount=0;
+    for (i=0;i<array.length;i++){
+      if (word===array[i]){
+        newCount+=1;
+      }else{
+        continue;
+      }
+    }
+    return newCount;
+  }
+}
