@@ -56,26 +56,20 @@ function sumNumbers(numbers) {
 // }
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-function sum (mixedArr) {
-  let number = 0;
-  if (mixedArr.length == 0){
-    return 0;
-  }
-  for (let i=0; i < mixedArr.length; i++) {
-    if (typeof mixedArr[i] == "string") {
-      number += mixedArr[i].length}
-    else if (typeof mixedArr[i] == "boolean") {
-      number += Number(mixedArr[i])
+function sum(numArray) {
+  let sum = 0;
+  for (i = 0; i < numArray.length; i++) {
+    if (typeof numArray[i] === "string") {
+      sum += numArray[i].length;
     } else {
-      number += mixedArr[i];
-    }  
-  } return number;
+      sum += numArray[i];
+    }
+    if (typeof numArray[i] === "object" || typeof numArray[i] === "array") {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
 }
-    // if (typeof mixedArr[i] == "object" || "array") {
-    //   let e = new Error("Unsupported data type sir or ma'am");
-    //   throw e;
-    //   }
-  // NOT WORKING
     
 // function sum(numbers) {
 //   let sum = 0;
@@ -154,66 +148,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
-  let indices = 0;
-  if (wordsUnique = []){
+function uniquifyArray(wordsArray) {
+  if (!wordsArray.length) {
     return null;
-  } 
-  for (let i = 0; i < wordsUnique.length; i++) {
-     if (indices.indexOf(wordsUnique[i]) == -1) {
-      indices.push(wordsUnique[i]);
-     } return indices;
+  } else {
+    let newArray = [];
+    for (i = 0; i < wordsArray.length; i++) {
+      if (newArray.indexOf(wordsArray[i]) === -1) {
+        newArray.push(wordsArray[i]);
+      } else {
+        continue;
+      }
+    }
+    return newArray;
   }
 }
-  // } else {
-  //   switch(wordsUnique) {
-  //     case crab:
-  //       wordsUnique.indexOf(crab, 0) === 0;
-  //       indices.push(crab);
-  //     case poison:
-  //       wordsUnique.indexOf(poison, 0) === 0;
-  //       indices.push(poison);
-  //     case contagious:
-  //       wordsUnique.indexOf(contagious, 0) === 0;
-  //       indices.push(contagious);
-  //     case simple:
-  //       wordsUnique.indexOf(simple, 0) === 0;
-  //       indices.push(simple);
-  //     case bring:
-  //       wordsUnique.indexOf(bring, 0) === 0;
-  //       indices.push(bring);
-  //     case sharp:
-  //       wordsUnique.indexOf(sharp, 0) === 0;
-  //       indices.push(sharp);
-  //     case playground:
-  //       wordsUnique.indexOf(playground, 0) === 0;
-  //       indices.push(playground);
-  //     case communion:
-  //       wordsUnique.indexOf(communion, 0) === 0;
-  //       indices.push(communion);
-  //   }
-  // } return indices;
-  // } 
-
-
 // JASMINE SOLUTION WITH DIFFERENT WORDS - WHY IS IT COMMING OUT NULL?
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind, newWord) {
-  if (wordsFind = []){
+function doesWordExist(array, word) {
+  if (!array.length) {
     return null;
+  } else if (array.includes(word)) {
+    return true;
+  } else {
+    return false;
   }
-for (let i=0; i < wordsFind.length; i++) {
-      if (wordsFind.includes(newWord[i], 0)) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }
-// DID NOT WORK
+}
+
 let hasMachine = doesWordExist(wordsFind, "machine");
 
 // Iteration #7: Count repetition
