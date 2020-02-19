@@ -119,7 +119,7 @@ describe('Bonus: Calculate the sum', () => {
     // const arr = [6, 12, "miami", 1, "barca", "200", "lisboa", 8, [], {}];
 
     expect(() => sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])).toThrow(
-      new Error("Unsupported data type sir or ma'am")
+      new Error("unsupported data type (object or array) present in the array")
     );
   });
 });
