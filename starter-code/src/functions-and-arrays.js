@@ -96,8 +96,26 @@ const wordsUnique = [
   'bring'
 ];
 
+/*
+He encontado en google el SET, que he visto que de por sí, NO permite duplicados. Si le pasas algún duplicado, se los carga automáticamente
+https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c
+ */
+
+const uniquifyArray = (arr) => {
+  return [...new Set(arr)];
+};
+
+uniquifyArray(wordsUnique);
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (arr, word) => {
+  return arr.includes(word);
+};
+
+console.log(doesWordExist(wordsFind, 'umbrella'));
 
 // Iteration #7: Count repetition
 const wordsCount = [
