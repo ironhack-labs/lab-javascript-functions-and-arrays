@@ -100,7 +100,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray() {
-
+if (array.length === 0) {
+        return null;
+    }
 }
 
 // Iteration #6: Find elements
@@ -145,7 +147,9 @@ const wordsCount = [
 ];
 
 function howManyTimes() {
-
+if (array.length === 0) {
+        return 0;
+    }
 }
 // Iteration #8: Bonus
 
