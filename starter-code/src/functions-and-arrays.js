@@ -4,7 +4,7 @@ const maxOfTwoNumbers = (num1, num2) => {
   return Math.max(num1, num2);
 };
 
-maxOfTwoNumbers(25, 3);
+console.log(maxOfTwoNumbers(25, 3));
 
 
 // Iteration #2: Find longest word
@@ -33,7 +33,7 @@ const sumArray = (arr) => {
   }, 0);
 };
 
-sumArray(numbers);
+console.log(sumArray(numbers));
 
 /* BONUS 3.1
 A generic sum() function
@@ -56,7 +56,7 @@ const sum = (arr) => {
   return sum;
 };
 
-sum(mixedArr);
+console.log(sum(mixedArr));
 
 
 // Iteration #4: Calculate the average
@@ -68,7 +68,7 @@ const averageNumbers = (arr) => {
   return sumArray(arr) / arr.length;
 };
 
-averageNumbers(numbersAvg);
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -79,7 +79,7 @@ const averageWordLength = (arr) => {
   }, 0) / arr.length;
 };
 
-averageWordLength(wordsArr);
+console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -105,7 +105,7 @@ const uniquifyArray = (arr) => {
   return [...new Set(arr)];
 };
 
-uniquifyArray(wordsUnique);
+console.log(uniquifyArray(wordsUnique));
 
 
 // Iteration #6: Find elements
@@ -131,6 +131,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, word) => {
+  let numTimes = 0;
+  arr.forEach((e) => {
+    if (e === word) {
+      numTimes += 1;
+    }
+  });
+  return numTimes;
+};
+
+console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
 
