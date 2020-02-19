@@ -1,18 +1,91 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a, b){
+  if (a>b){return a}
+  else {return b}
+}
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+function findLongestWord(array){
+if (array.length === 0){return null}
+let highest = 0
+for (let i=0; i<array.length; i++){
+  if (array[i].length > array[highest].length) {highest=i}
+}
+return array[highest]
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumNumbers(array){
+  let sum=0;
+  for (let i=0; i<array.length; i++){
+    sum +=  array[i]
+  }
+  return sum
+}
+
+function sum(array){
+  let suma=0;
+  for (let i=0; i<array.length; i++){
+    if (typeof array[i] === "number"){suma += array[i]} 
+    else if (typeof array[i] === "string"){suma +=array[i].length;}
+      else if (typeof array[i] === "boolean"){
+        if (array[i]=== true){suma++}}
+      else {throw new Error("Unsupported data type sir or ma'am")}
+  }
+  return suma
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+function averageNumbers(array){
+  let sum=0;
+if (array.length === 0){return null}
+  for (let i=0; i<array.length; i++){
+    sum +=  array[i]
+  }
+  return sum/array.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array){
+  let sum=0;
+  if (array.length === 0){return null}
+  for (let i=0; i<array.length; i++){
+    sum +=  array[i].length}
+  return sum/array.length;
+}
+
+
+
+
+function avg(array){
+  let sum=0;
+  if (array.length === 0){return null}
+  for (let i=0; i<array.length; i++){
+    if (typeof array[i] === "number"){sum += array[i]} 
+    else if (typeof array[i] === "string"){sum +=array[i].length;}
+      else if (typeof array[i] === "boolean"){
+        if (array[i]=== true){sum++}}
+      else {throw new Error("Unsupported data type sir or ma'am")}
+  }
+  return sum/array.length;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +102,27 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  let newArray=[]
+  if (array.length === 0){return null}
+  for (let i=0; i<array.length; i++){
+    if (newArray.indexOf(array[i]) ===-1){newArray.push(array[i])}
+  }
+  return newArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word){
+  let result=false
+  if (array.length === 0){return null}
+  for (let i=0; i < array.length; i++){
+    if (word === array[i]){result=true}
+  }
+  return result
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +138,14 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  let result=0
+  for (let i=0; i < array.length; i++){
+    if (word === array[i]){result++}
+  }
+  return result
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +171,26 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(array){
+  let greatestResult=0
+  for (let i=0; i< array.length; i++){
+  for (let j=0; j< array.length; j++){
+  if ((array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3]) > greatestResult){greatestResult = (array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3])}
+  if ((array[i][j]*array[i+1][j]*array[i+2][j]*array[i+3][j]) > greatestResult){greatestResult = (array[i][j]*array[i]+1[j]*array[i+2][j]*array[i+3][j])}
+  }
+}
+return greatestResult
+}
+
+
+function greatestProductOfDiagonals(array){
+  let greatestResult=0
+  for (let i=0; i< array.length; i++){
+  for (let j=0; j< array.length; j++){
+  if ((array[i][j]*array[i+1][j+1]*array[i+1][j+2]*array[i+3][j+3]) > greatestResult){greatestResult = (array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3])}
+  if ((array[i][j]*array[i-1][j]*array[i-2][j-2]*array[i-3][j-3]) > greatestResult){greatestResult = (array[i][j]*array[i]+1[j]*array[i+2][j]*array[i+3][j])}
+  }
+}
+return greatestResult
+}
