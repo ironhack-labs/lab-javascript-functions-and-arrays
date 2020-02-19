@@ -61,8 +61,7 @@ function sum(arr){
         }
         break;
       default:
-        throw console.error("Unsupported data type sir or ma'am");
-        break;
+        throw new Error("Unsupported data type sir or ma'am");
     }
   });
   return sm;
@@ -88,16 +87,31 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function  averageWordLength(arr){
   if (arr.length === 0){
     return null;
-  }else{
+  }
     var wordLengthArr = [];
     arr.forEach(element => {
       wordLengthArr.push(element.length);   
     });
     return averageNumbers(wordLengthArr);
-  }
+  
 }
 
+// iteration #4.1: bonus
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function avg(arr) {
+  if (arr.length === 0){
+    return null;
+  }
+
+  var arrlgth = arr.length;
+  var average = sum(arr) / arrlgth;
+  var averageRounded = Math.floor(average*100)/100;
+  console.log(averageRounded);
+  return averageRounded;
+}
+
+avg(mixedArr);
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -161,14 +175,14 @@ function howManyTimes (wordArr, word){
   if (wordArr.length === 0){
     return 0;
   }
-  let a = 0;
-  let wordCount
+
+  let wordCount = 0;
   wordArr.forEach(element => {
     if(element === word){
-      a++;
+      wordCount++;
     } 
   });
-  return a;
+  return wordCount;
 }
 
 // Iteration #8: Bonus
