@@ -15,11 +15,11 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(array){
   let word = "";
-  for(let i=0;i<array.length;i++){
-    if (word.length = 0){
+   if (array.length === 0){
       return null;
     }
-    else if(word.length < array[i].length){
+  for(let i=0;i<array.length;i++){
+   if(word.length < array[i].length){
       word = array[i];
     }
   }
