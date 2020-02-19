@@ -1,18 +1,86 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers (num1,num2){
+  if (num1 > num2){
+    return num1; 
+  } else {
+    return num2;
+  }
+} 
+
+maxOfTwoNumbers(5,1);
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array){
+    if (array.length === 0) {
+    return null;
+    }
+  let wordLngt = 0;
+  let per = " ";
+  for (let i = 0; i <array.length; i++){
+    if (array[i].length > wordLngt){
+      per = array[i];
+      wordLngt = array[i].length;
+    }
+    
+  }
+  return per;
+}
+
+findLongestWord(words);
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+sumNumbers(numbers);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+  if (array.length === 0){ 
+    return null; }
+  
+  return sumNumbers(array)/array.length;
+}
+
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function sumStrng(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i].length;
+  }
+  return sum;
+}
+
+function averageWordLength(array) {
+  
+  if (array.length === 0) {
+    return null;
+  }
+  return  sumStrng(array)/ array.length;
+}
+
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -31,6 +99,15 @@ const wordsUnique = [
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array,word) {
+  if (array.length === 0) { 
+    return null 
+    }
+  return array.includes(word)
+}
+
+doesWordExist(wordsFind,"mapa");
 
 // Iteration #7: Count repetition
 const wordsCount = [
