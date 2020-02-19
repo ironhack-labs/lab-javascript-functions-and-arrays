@@ -141,7 +141,7 @@ if (arr.length === 0){
   }
 }
 
-doesWordExist(wordsFind, 'ex')
+doesWordExist(wordsFind, 'true')
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -158,12 +158,20 @@ const wordsCount = [
   'matter'
 ];
 
- function howManyTimes (array) {
-   if( array.length === 0) {
-     return 0
-   }
+function howManyTimes(arr,word) {
+  let counter = 0;
+  if (arr.length == 0) {
+    return 0;
+  }
+  for (var i=0; i<arr.length; i++) {
+    if (arr[i] === word) {
+      counter++
+    }
+  }
+   return counter;
 }
-  
+howManyTimes(wordsCount, 'matter')
+
 // Iteration #8: Bonus
 
 const matrix = [
