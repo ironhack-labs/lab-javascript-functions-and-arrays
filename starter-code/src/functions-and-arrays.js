@@ -1,18 +1,71 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a,b) {
+  if (a>b){
+    return a;}
+    else if (b>a){
+      return b;}
+      else {return a}
+    }
+  
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(array){
+  if(array.length === 0){return null;}
+  if(array.length === 1){return array[0]};
+  let longest = 0;
+  for(let i = 1; i<array.length; i++){
+    if(array[i].length > array[longest].length) {longest = i; }
+  }
+  return array[longest];
+  }
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(array){
+  let sum = 0;
+  if(array === 0) {return 0}
+  for(let i = 0; i <array.length; i++){
+    sum += array[i];
+   
+  }
+  return sum;
+};
 
 // Iteration #4: Calculate the average
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(array){
+  if(array <= 0){return 0}
+  return array + 1;
+}
+sum(mixedArr);
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(array) {
+  if(array <= 0){return null}
+  let suma = 0;
+  for(let i = 0; i < array.length; i++){
+    suma += array[i];
+  }
+  let promedio = suma / array.length;
+  return promedio;
+  
+};
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(array){
+  if(array <= 0){return null};
+  return array.join(" ").concat().length;
+}
+averageWordLength(wordsArr);
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +81,13 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array){
+  array.in
+  if(array <= 0){return null};
+  console.log(array.join(", "));
+}
+uniquifyArray(wordsUnique)
+  
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
