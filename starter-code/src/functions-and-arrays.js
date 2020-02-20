@@ -1,34 +1,61 @@
 // Iteration #1: Find the maximum
 let num1 = 9;
 let num2 = 5;
-function maxOfTwoNumbers () {
+function maxOfTwoNumbers (num1,num2) {
 if (num1 > num2) {
   console.log (`${num1} é maior que ${num2}`)
-} else {
+  return num1;
+} else if(num2 > num1){
   console.log (`${num2} é maior que ${num1}`)
+  return num2;
+} else {
+
+return (num1,num2);
+
 }
+
+
 }
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot','kkkkkkk'];
 // cons words = [3,6,8,4,2,1];
 
 function findLongestWord (words){
-let x = 0; // Variavel responsável por guardar o tamanho de cada uma das palavras do Array!
-let y = ""; // Variável responsável por guardar a palavra que apresenta o maior número de caracteres!
+let sizeOfTheBiggestWord = 0; // Variavel responsável por guardar o tamanho de cada uma das palavras do Array!
+let biggestWord = ""; // Variável responsável por guardar a palavra que apresenta o maior número de caracteres!
+  if(words.length == 0){
+    return null;
+  } else if(words.length == 1){
+
+    return words[0];
+
+  } 
   for (let i = 0; i < words.length; i++) {  // For responsável por varrer cada uma das posições do array.
-let len = words[i].length // len é o display do contador guardando temporariamente o numero de letras de cada palavra.
+    let p = 0;
+    if(words[i].length > sizeOfTheBiggestWord){
+      // Condicional responsável por determinar se o valor temporariamente exposto em len é maior que o valor guardado definitivamente em x.
 
-if(len > x){ // Condicional responsável por determinar se o valor temporariamente exposto em len é maior que o valor guardado definitivamente em x.
+      let len = words[i].length // len é o display do contador guardando temporariamente o numero de letras de cada palavra.
+        p += 1;
+        sizeOfTheBiggestWord = len  // "Função" responsável por guardar o valor resultante da condicional exposto temporariamente em len na variável x.
+        biggestWord = words[i] // "Função" responsavel por guardar em y a palavra que neste momento tem o maior numero de letras no array.
+        
+     
+    }
+    
 
-  x = len  // "Função" responsável por guardar o valor resultante da condicional exposto temporariamente em len na variável x.
-  y = words[i] // "Função" responsavel por guardar em y a palavra que neste momento tem o maior numero de letras no array.
+
+} 
+
+  return biggestWord;
+
+
+
 }
+// console.log(biggestWord); // "Imprime o conteúdo de y"
 
-}
-console.log(y); // "Imprime o conteúdo de y"
 
-}
 findLongestWord(words); // Executa a função findLonguestWord utilizando o array "word" como parâmetro.
 
 
