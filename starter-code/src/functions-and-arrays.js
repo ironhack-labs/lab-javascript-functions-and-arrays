@@ -10,6 +10,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
   let word = "";
+  if (arr.length === 0) {return null}
   for (let i = 0; i < arr.length; i++) {
     if (word.length < arr[i].length) {
       word = arr[i];
@@ -44,7 +45,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (array){
   if (array.length === 0){
-    return undefined;
+    return null;
   }else{
     var sum = 0
     array.forEach(function (numero){
@@ -59,7 +60,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength (array){
   if (array.length === 0){
-    return undefined;
+    return null;
   }else{
     var sum = 0
   
