@@ -142,7 +142,7 @@ function avg(value) {
     }
   }
 
-  return val / value.length
+  return Math.floor((val / value.length)*100)/100
 }
 console.log(avg(mixedArr))
 // Iteration #5: Unique arrays
@@ -525,3 +525,70 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  bestResoult = {
+    result: null,
+    posiciox: null,
+    posicioy: null,
+    sentido:null
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      let calc = 0
+
+      //calcul horizontal
+      if (16 >= j) {
+        calc = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+        if (bestResoult.result < calc) {
+          bestResoult.result = calc
+          bestResoult.posiciox=i
+          bestResoult.posicioy=j
+          bestResoult.sentido="horizontal"
+        }
+      }
+      //calcul vertical
+
+      if (16 >= i) {
+        calc = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j]
+        if (bestResoult.result < calc) {
+          bestResoult.result = calc
+          bestResoult.posiciox=i
+          bestResoult.posicioy=j
+          bestResoult.sentido="vertical"
+        }
+
+      }
+      //calcul diagonal dret
+      if (16 >= i) {
+        if (16 >= j) {
+          calc = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3]
+          if (bestResoult.result < calc) {
+            bestResoult.result = calc
+            bestResoult.posiciox=i
+            bestResoult.posicioy=j
+            bestResoult.sentido="diagonal derecha"
+          }
+
+        }
+      }
+      //calcul diagonal esquerra
+
+      if (i > 3) {
+        if (j > 3) {
+          calc = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3]
+          if (bestResoult.result < calc) {
+            bestResoult.result = calc
+            bestResoult.posiciox=i
+            bestResoult.posicioy=j
+            bestResoult.sentido="diagonal izquierda"
+          }
+
+        }
+      }
+    }
+  }
+  console.log(bestResoult)
+  return bestResoult.result
+}
+console.log(greatestProduct(matrix))
