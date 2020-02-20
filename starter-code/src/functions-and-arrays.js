@@ -120,7 +120,11 @@ function avg(array) {
       throw new Error("Unsupported data type sir or ma'am");
     }
   }
-  return sum / array.length;
+  let result = sum / array.length;
+  result *= 100
+  result = Math.floor(result)
+  result /= 100
+  return result;
 }
 
 // Iteration #5: Unique arrays
@@ -499,54 +503,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+
 function greatestProduct(array) {
   let greatestResult = 0;
-  for (let i = 0; i < array.length; i++) {
+  let provisionalResult= 0;
+  for (let i = 0; i < array.length-3; i++) {
     for (let j = 0; j < array.length; j++) {
-      if (
-        array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3] >
-        greatestResult
-      ) {
-        greatestResult =
-          array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3];
-      }
-      if (
-        array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j] >
-        greatestResult
-      ) {
-        greatestResult =
-          array[i][j] * array[i] + (1)[j] * array[i + 2][j] * array[i + 3][j];
+      provisionalResult= ( array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3]);
+      greatestResult = checkResult(provisionalResult, greatestResult);
+      provisionalResult= (array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j]);
+      greatestResult = checkResult(provisionalResult, greatestResult);
+      provisionalResult= ( array[i][j] * array[i + 1][j + 1] * array[i + 2][j + 2] * array[i + 3][j + 3]);
+      greatestResult = checkResult(provisionalResult, greatestResult);
+      provisionalResult= (array[i+3][j] * array[i + 2][j + 1] * array[i + 1][j + 2] * array[i][j + 3]);
+      greatestResult = checkResult(provisionalResult, greatestResult);
       }
     }
-  }
   return greatestResult;
 }
 
-function greatestProductOfDiagonals(array) {
-  let greatestResult = 0;
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      if (
-        array[i][j] *
-          array[i + 1][j + 1] *
-          array[i + 1][j + 2] *
-          array[i + 3][j + 3] >
-        greatestResult
-      ) {
-        greatestResult =
-          array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3];
-      }
-      if (
-        array[i][j] *
-          array[i - 1][j] *
-          array[i - 2][j - 2] *
-          array[i - 3][j - 3] >
-        greatestResult
-      ) {
-        greatestResult =
-          array[i][j] * array[i] + (1)[j] * array[i + 2][j] * array[i + 3][j];
-      }
-    }
-  }
-  return greatestResult;
+function checkResult(provisionalResult,greatestResult) {
+   if (provisionalResult > greatestResult) {return provisionalResult}
+  else {return greatestResult}
 }
