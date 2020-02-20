@@ -72,7 +72,7 @@ function averageWordLength(array){
 }
 function avg(array){
   if (!checkEmpty(array)) { return null }
-  return sum(array)/array.length; 
+  return parseFloat((sum(array)/array.length).toFixed(2)); 
 }
 // Iteration #5: Unique arrays
 const wordsUnique = [
