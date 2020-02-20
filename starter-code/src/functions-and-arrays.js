@@ -149,18 +149,19 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 function greatestProduct(matrix){
-  let greatestProduct = 0;
-  for (var i = 0; i < matrix.length - 4; i++) {
-    for (var j = 0; j < matrix[i].length - 4; j++) {
+  let greatestProduct = 0,
+  numberOfRows = 4;
+  for (var i = 0; i < matrix.length - numberOfRows; i++) {
+    for (var j = 0; j < matrix[i].length - numberOfRows; j++) {
       let hMatrix = 1;
-      for (let k = j; k < (j + 4); k++) {
+      for (let k = j; k < (j + numberOfRows); k++) {
         hMatrix *= matrix[i][k];
       }
       if (hMatrix > greatestProduct) {
         greatestProduct = hMatrix;
       }
       let vMatrix = 1;
-      for (let k = i; k < (i + 4); k++) {
+      for (let k = i; k < (i + numberOfRows); k++) {
         vMatrix *= matrix[k][j];
       }
       if (vMatrix > greatestProduct) {
