@@ -11,28 +11,26 @@ if (num1 > num2) {
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// cons words = [3,6,8,4,2,1];
 
 function findLongestWord (words){
-  for (let i = 0; i < words.length; i++) 
-  {
+let x = 0; // Variavel responsável por guardar o tamanho de cada uma das palavras do Array!
+let y = ""; // Variável responsável por guardar a palavra que apresenta o maior número de caracteres!
+  for (let i = 0; i < words.length; i++) {  // For responsável por varrer cada uma das posições do array.
+let len = words[i].length // len é o display do contador guardando temporariamente o numero de letras de cada palavra.
 
-   Math.max x = words[i].length
-   
-var max = Math.max(...x.length);
-console.log(max);
-//     // console.log(words[i].length); 
-//     var max = words[i].length.reduce(function(a, b) {
-//     return Math.max(a, b);
-//   });
-//     // console.log(Math.max(x.length))
-  }
+if(len > x){ // Condicional responsável por determinar se o valor temporariamente exposto em len é maior que o valor guardado definitivamente em x.
+
+  x = len  // "Função" responsável por guardar o valor resultante da condicional exposto temporariamente em len na variável x.
+  y = words[i] // "Função" responsavel por guardar em y a palavra que neste momento tem o maior numero de letras no array.
 }
-var arr = [1, 2, 3];
-var max = Math.max(...arr);
-console.log(max);
-// max: 3
 
-findLongestWord(words)
+}
+console.log(y); // "Imprime o conteúdo de y"
+
+}
+findLongestWord(words); // Executa a função findLonguestWord utilizando o array "word" como parâmetro.
+
 
 
 
