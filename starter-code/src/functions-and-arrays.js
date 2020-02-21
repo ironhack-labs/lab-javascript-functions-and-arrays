@@ -1,29 +1,29 @@
 // Iteration #1: Find the maximum
 
-let maior = 0;
+const maxOfTwoNumbers = function(a, b){
+  
+  let result = 0;
 
-function maxOfTwoNumbers (a, b) {
-  if (a > b) {
-    maior = a;
-  } else {
-    maior = b;
+  if( a > b)
+  {
+    result  = a;
   }
-  return maior;
+  else {
+    result = b;
+  }
+
+  return result;
 }
 
-
-
 // Iteration #2: Find longest word
-
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-
-
-function findLongestWord (words) {
+function findLongestWord (words)
+{
   let palavra = 0;
+  let str = "";
+  let str2 = "";
 
-let str = "";
-let str2 = "";
   if (words.length !== 0) {
     for (let i = 0; i < words.length; i += 1) {
       if (words[i].length > palavra) {
@@ -37,36 +37,119 @@ let str2 = "";
   else {
     str = null;
   }
-  return str;
+  return str; 
 }
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-
-
-function sumNumbers (numbers) {
-
+function sumNumbers(numbers)
+{
   let total = 0;
-  if (numbers.length !== 0) {
-    numbers.forEach(function(item){
-    total += item;
+
+  if(numbers.length !== 0)
+  {
+    numbers.forEach(function(sum, index){
+      
+      if(sum === 0)
+      {
+        total = 0;
+      }
+      else{
+        total += sum;
+      }
     });
-  } else {
-    total = 0;
   }
+  else
+  {
+    total = 0;
+  }  
+
   return total;
 }
+// BONUS 3.1
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Level 2: Array of strings
+function averageNumbers(numbersAvg)
+{
+  let result = 0;
+  if(numbersAvg.length !== 0)
+  {
+    result = sumNumbers(numbersAvg)/numbersAvg.length;
+  }
+  else{
+    result = null;
+  }
+  
+  return result;
+}
+
+// Level 2: Array of strings **CHECK AGAIN
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// Iteration #5: Unique arrays
+function averageWordLength(wordsArr)
+{
+  let total = 0;
+
+  if(wordsArr.length !== 0)
+  {
+    wordsArr.forEach(function(sum, index){
+      
+      if(sum.length === 0)
+      {
+        total = 0;
+      }
+      else{
+        total = (total + sum.length) / wordsArr.length;
+        total = total.toFixed(0);
+      }
+    });
+  }
+  else{
+
+    total = null;
+  }
+  
+  return total;
+}
+
+//Iteration #4: BONUS 4.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(mixedArr)
+{
+  let total = 0;
+  let arrNumber = [];
+  let totalString = 0;
+
+  if(mixedArr.length !== 0)
+  {
+    mixedArr.forEach(function(sum, index){
+
+      if(typeof (sum) === "number")
+      {
+        arrNumber.push(sum);
+      }
+      else{
+        totalString += sum.length;
+      }
+    });
+    total = (sumNumbers(arrNumber) + totalString)/ mixedArr.length;
+  }
+  else{
+
+    total = null;
+  }
+
+  return total;
+}
+
+// Iteration #5: Unique arrays ***CHECK
 const wordsUnique = [
   'crab',
   'poison',
@@ -81,10 +164,43 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique)
+{ 
+  let arr = [];
+
+  if(wordsUnique.length !== 0)
+  {
+    arr = wordsUnique.splice(0, wordsUnique.length, ...(new Set(wordsUnique)));
+  }
+  else{
+    arr = null;
+  }
+
+  return arr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-// Iteration #7: Count repetition
+function doesWordExist (wordsFind)
+{
+  let bool = true;
+  
+  if(wordsFind.length !== 0)
+  {
+    wordsFind.forEach(function(item){
+      
+      bool = wordsFind.includes(item);
+    });
+    
+  }
+  else{
+    bool = null;
+  }
+  return bool;
+}
+
+// Iteration #7: Count repetition ***Check
 const wordsCount = [
   'machine',
   'matter',
@@ -98,6 +214,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount)
+{
+  let count = [];
+
+  if(wordsCount.length !== 0)
+  {
+    wordsCount.forEach(function(x){
+      count[x] = (count[x] || 0) + 1;
+    });    
+  }
+  else{
+    count = 0;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
