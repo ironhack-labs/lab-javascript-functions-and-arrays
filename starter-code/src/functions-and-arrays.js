@@ -83,26 +83,26 @@ let averageWordLength = wordsArr => {
 }
 //Bonus 4.1
 
-let avg = mixedArr => {
-  if (!mixedArr.length) {
-    return null
-  }
-  let mixSum = 0
-  for (let i = 0; i < mixedArr.length; i++) {
+// let avg = mixedArr => {
+//   if (!mixedArr.length) {
+//     return null
+//   }
+//   let mixSum = 0
+//   for (let i = 0; i < mixedArr.length; i++) {
 
-    if (typeof mixedArr[i] === "number") {
-        mixSum += mixedArr[i];
-    } 
-    if (typeof mixedArr === "string") {
-        mixSum += mixedArr[i].length;
-    } 
-    if (typeof mixedArr === "boolean") {
-        mixSum ++;
-    }
-  mixedArr += mixedArr[i].length;
-  }
-  return (mixSum / mixedArr.length)
-}
+//     if (typeof mixedArr[i] === "number") {
+//         mixSum += mixedArr[i];
+//     } 
+//     if (typeof mixedArr === "string") {
+//         mixSum += mixedArr[i].length;
+//     } 
+//     if (typeof mixedArr === "boolean") {
+//         mixSum ++;
+//     }
+//   mixedArr += mixedArr[i].length;
+//   }
+//   return (mixSum / mixedArr.length)
+// }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -119,6 +119,15 @@ const wordsUnique = [
   'bring'
 ];
 
+let uniqueArray = []
+let uniquifyArray = (wordsUnique) => {
+  for (i = 0; i<wordsUnique.length; i++) {
+    if (uniqueArray.indexOF (wordsUnique[i]) === -1) {
+      uniqueArray.push(wordsUnique[i]);     
+    }
+    return(uniqueArray)
+  }
+}
 
 
 // Iteration #6: Find elements
