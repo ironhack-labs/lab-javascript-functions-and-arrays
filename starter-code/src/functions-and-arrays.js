@@ -83,26 +83,25 @@ let averageWordLength = wordsArr => {
 }
 //Bonus 4.1
 
-// let avg = mixedArr => {
-//   if (!mixedArr.length) {
-//     return null
-//   }
-//   let mixSum = 0
-//   for (let i = 0; i < mixedArr.length; i++) {
+let avg = mixedArr => {
+  if (mixedArr.length === 0) {
+    return null
+  }
+  let mixSum = 0
+  for (let i = 0; i < mixedArr.length; i++) {
 
-//     if (typeof mixedArr[i] === "number") {
-//         mixSum += mixedArr[i];
-//     } 
-//     if (typeof mixedArr === "string") {
-//         mixSum += mixedArr[i].length;
-//     } 
-//     if (typeof mixedArr === "boolean") {
-//         mixSum ++;
-//     }
-//   mixedArr += mixedArr[i].length;
-//   }
-//   return (mixSum / mixedArr.length)
-// }
+    if (typeof mixedArr[i] === "number") {
+        mixSum += mixedArr[i];
+    } 
+    if (typeof mixedArr[i] === "string") {
+        mixSum += mixedArr[i].length;
+    } 
+    if (typeof mixedArr[i] === "boolean") {
+        mixSum += 1
+    }
+  }
+  return mixSum / mixedArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -119,19 +118,35 @@ const wordsUnique = [
   'bring'
 ];
 
-let uniqueArray = []
-let uniquifyArray = (wordsUnique) => {
-  for (i = 0; i<wordsUnique.length; i++) {
-    if (uniqueArray.indexOF (wordsUnique[i]) === -1) {
-      uniqueArray.push(wordsUnique[i]);     
-    }
-    return(uniqueArray)
+let uniquifyArray = (array) => {
+  if (array.length === 0) {
+    return null
   }
+  let newArray = []
+  for (let i = 0; i < array.length; i++) {
+      if (newArray.indexOF(array[i]) === -1) {
+      newArray.push(array[i]);     
+      }
+    }
+  return newArray
 }
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+let doesWordExist = (array, word) => {
+  if (array.length === 0) {
+    return null
+  }
+  for (i = 0; i < array.length; i++) {
+    if (array[i] = word) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -147,6 +162,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (arr,word) => {
+  if (arr.length === 0) {
+    return 0
+  }
+  let sum = 0
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      sum += 1
+    }
+  } return sum
+}
 
 // Iteration #8: Bonus
 
@@ -172,3 +199,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = matrix => {
+  
+}
