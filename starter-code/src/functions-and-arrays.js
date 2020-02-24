@@ -40,37 +40,103 @@ let biggestWord = ""; // Variável responsável por guardar a palavra que aprese
         p += 1;
         sizeOfTheBiggestWord = len  // "Função" responsável por guardar o valor resultante da condicional exposto temporariamente em len na variável x.
         biggestWord = words[i] // "Função" responsavel por guardar em y a palavra que neste momento tem o maior numero de letras no array.
-        
-     
     }
-    
-
-
 } 
-
   return biggestWord;
-
-
-
 }
-// console.log(biggestWord); // "Imprime o conteúdo de y"
-
-
 findLongestWord(words); // Executa a função findLonguestWord utilizando o array "word" como parâmetro.
-
-
-
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = (numArray) => { 
+  let aux = 0; //variavel auxiliar responsavel de fazer a soma
+  numArray.forEach(element => { //forEach para passar em cada elemento para somar
+    aux += element
+  })
+  return aux 
+};
+sumNumbers (numbers)
+
+
+const mixArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,["a","b","c","d"]];
+
+const sum = (arr) => {
+ let aux = 0; //variavel auxiliar responsavel de fazer a soma
+ arr.forEach (element => {
+   if (typeof element == "object"){ //para verificar se element for object e retornar erro
+    //  throw new Error("Unsupported data type sir or ma'am");
+   } else if (typeof element == "string") { // para verificar e somar se element for string
+    aux += element.length
+  } else if (element == true) { // para verificar e somar se element for boolean
+    aux++
+  } else if (typeof element == "number") {
+    aux += element //para somar se element for number
+  }
+})
+return aux;
+}
+sum(mixArr)
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (array) => {
+  if(array.length == 0){ //para verificar se o array é 0 e retornar null
+    return null
+  }
+  let aux = 0; //variavel auxiliar responsavel de fazer a soma
+  array.forEach(element => { //forEach para passar em cada elemento para somar
+    aux += element; //soma de todos os elementos do array
+  })
+  aux /= array.length; //dividir a soma por o length para resultar a media
+  return aux;
+}
+
+averageNumbers(numbersAvg)
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (arr) => {
+  if(arr.length == 0){ //para verificar se o array é 0 e retornar null
+    return null
+  }
+  let aux = 0; 
+  arr.forEach(element => {
+    aux += element.split("").length //para separar e somar cada letra das palavras no array
+  })
+  aux /= arr.length //para fazer a media
+  return aux;
+}
+// averageWordLenght(wordsArr)
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg (arr){
+ let aux = 0; //variavel auxiliar responsavel de fazer a soma
+  if(arr.length == 0){ //para verificar se o array é 0 e retornar null
+    return null
+  }
+ arr.forEach (element => {
+  if (typeof element == "string") { // para verificar e somar se element for string
+    aux += element.length
+  } else if (element == true) { // para verificar e somar se element for boolean
+    aux++
+  } else if (typeof element == "number") {
+    aux += element //para somar se element for number
+  }
+})
+aux /= arr.length; //para fazer a media do array
+return +aux.toFixed(2); //para transformar em duas casa decimais e o + para fazer com que o elemento seja número ja que o toFixed o transforma em string
+}
+avg(mixedArr)
+console.log(avg(mixedArr))
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -84,11 +150,43 @@ const wordsUnique = [
   'poison',
   'communion',
   'simple',
-  'bring'
+  'bring',
 ];
+
+const uniquifyArray = ( arr  ) => {
+  let newArr = [];
+  if(arr.length == 0){ //para verificar se o array é 0 e retornar null
+    return null
+  }
+  arr.forEach( (element, index) => {
+    if (arr.indexOf(element, index+1) == -1){ // para verificar se o elemento se encontra no array além do primeiro encontrado, mais de uma vez, se for -1 não está duplicado
+      newArr.push(element) // para fazer um novo array com os elementos que não estão duplicados
+    }else{
+      newArr.push( element ) //para colocar os elementos dupliacados no array também
+      arr.splice(arr.indexOf(element, index+1),1) //para eliminar os elementos duplicados
+    }
+  })
+  console.log(newArr)
+  return newArr;
+}
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (arr, word) => {
+  if(arr.length == 0){ //para verificar se o array é 0 e retornar null
+    return null
+  } 
+  let status = false //variável auxiliar
+  arr.forEach((element) => {
+    if (element == word){ //para verificar se o elemento é igual ao parametro passado na função
+      status = true // se sim o status muda para true
+    }
+  })
+  return status;
+}
+doesWordExist(wordsFind, "machine");
 
 // Iteration #7: Count repetition
 const wordsCount = [
