@@ -68,7 +68,63 @@ function sumNumbers(numbers)
 
   return total;
 }
-// BONUS 3.1
+
+// BONUS 3.1: Generic Sum
+
+function sum (arr) {
+
+  let sumTotal = 0;
+  
+  let word2 = 0;
+  arr.forEach(word => {
+
+    if(arr.length === 0)
+    {
+      return 0;
+    }
+
+    word2 = typeof word;
+    switch(typeof word)
+    {
+      case "string":  
+        // let wordTemp = word;
+        // let isNumber = Number(word);     
+        // if(isNumber !== NaN)
+        // {
+        //  sumTotal += +isNumber;
+        // }
+        // else{ 
+        //   sumTotal += Number(wordTemp.length); 
+        // }
+        sumTotal += word.length;
+        break;
+      
+      case "number":
+        if(word == Number(word)) 
+        { let numberCount = word;
+          sumTotal += word;
+        }
+        break;
+
+      case "boolean":
+       if(word === true)
+       {
+        word = 1;
+        sumTotal += word;
+       }  
+       else{ 
+        word = 0; 
+        sumTotal += word;}
+        break;
+    
+      default: 
+        throw new Error ("Unsupported data type sir or ma'am");
+      }
+    
+  });
+   return sumTotal;
+ 
+}
 
 
 // Iteration #4: Calculate the average
@@ -89,33 +145,32 @@ function averageNumbers(numbersAvg)
   return result;
 }
 
-// Level 2: Array of strings **CHECK AGAIN
+// Level 2: Array of strings 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr)
 {
   let total = 0;
+  let ar = wordsArr.length;
 
   if(wordsArr.length !== 0)
   {
-    wordsArr.forEach(function(sum, index){
+    wordsArr.forEach(function(sum){
       
       if(sum.length === 0)
       {
-        total = 0;
+        return 0;
       }
       else{
-        total = (total + sum.length) / wordsArr.length;
-        total = total.toFixed(0);
+        total += sum.length;
       }
     });
   }
   else{
-
-    total = null;
+    return null;
   }
-  
-  return total;
+  total =  (total / ar).toFixed(0);
+  return Number(total);
 }
 
 //Iteration #4: BONUS 4.1
@@ -123,33 +178,20 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(mixedArr)
 {
+  let arraySize = mixedArr.length;
+
   let total = 0;
-  let arrNumber = [];
-  let totalString = 0;
-
-  if(mixedArr.length !== 0)
-  {
-    mixedArr.forEach(function(sum, index){
-
-      if(typeof (sum) === "number")
-      {
-        arrNumber.push(sum);
-      }
-      else{
-        totalString += sum.length;
-      }
-    });
-    total = (sumNumbers(arrNumber) + totalString)/ mixedArr.length;
+  if(arraySize !== 0)
+  {  
+    total = sum(mixedArr) / arraySize;
   }
   else{
-
-    total = null;
+    return null;
   }
-
-  return total;
+  return Number(total.toFixed(2));
 }
 
-// Iteration #5: Unique arrays ***CHECK
+// Iteration #5: Unique arrays 
 const wordsUnique = [
   'crab',
   'poison',
@@ -166,17 +208,34 @@ const wordsUnique = [
 
 function uniquifyArray (wordsUnique)
 { 
-  let arr = [];
-
-  if(wordsUnique.length !== 0)
+  let arr = [...wordsUnique];
+  let result = [];
+  let start = false;
+  let count = 0;
+  let arraySize = arr.length;
+  
+  if(arraySize !== 0 )
   {
-    arr = wordsUnique.splice(0, wordsUnique.length, ...(new Set(wordsUnique)));
+    for(let i = 0; i < arraySize; i++) { 
+      for(let j = 0; j < result.length; j++) {
+        if(arr[i] === result[j]) {
+          start = true;
+        }
+      }
+      count += 1;
+      if(count === 1 && start === false)
+      {
+        result.push(arr[i]);
+      }
+      start = false;
+      count = 0;
+    }
   }
-  else{
-    arr = null;
+  else {
+    return null;
   }
 
-  return arr;
+  return result;
 }
 
 // Iteration #6: Find elements
@@ -195,12 +254,12 @@ function doesWordExist (wordsFind)
     
   }
   else{
-    bool = null;
+    return null;
   }
   return bool;
 }
 
-// Iteration #7: Count repetition ***Check
+// Iteration #7: Count repetition ***CHECK
 const wordsCount = [
   'machine',
   'matter',
@@ -217,18 +276,26 @@ const wordsCount = [
 
 function howManyTimes(wordsCount)
 {
-  let count = [];
-
+  let arrCopy = [...wordsCount];
+  let countWord = 0;
+  let arrSize = wordsCount.length;
+  let result = [];
   if(wordsCount.length !== 0)
   {
     wordsCount.forEach(function(x){
-      count[x] = (count[x] || 0) + 1;
-    });    
+      countWord = arrCopy.filter(word => word ===  x).length;
+      if(countWord === 0)
+      { 
+        countWord = 0;
+      }
+    });   
+
   }
   else{
-    count = 0;
+    return 0;
   }
-  return count;
+  
+  return countWord;
 }
 
 // Iteration #8: Bonus
@@ -255,3 +322,28 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix)
+{
+  let check = 0;
+  let total = 1;
+  let count = 0;
+
+  for(let i = 0; i < 20; i++)
+  {
+    for( let j = 0; j < 20; j++)
+    {
+      if(matrix[i][j] === 1)
+      {
+        check = 1;
+      }
+      else if(matrix[i][j] === 2 && count < 4)
+      {
+        count++;
+        total *= matrix[i][j];
+        check = total;
+      }
+    }
+  }
+  return check;
+}
