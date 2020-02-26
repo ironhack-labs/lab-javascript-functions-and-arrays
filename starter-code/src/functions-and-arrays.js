@@ -185,12 +185,14 @@ const greatestProduct = matrix => {
         axisX = 0,
         axisY = 0;
 
-    for (let i = 0, size = matrix.length - 3; i < size; i += 1) {
-        for (let j = 0, size = matrix[i].length - 3; j < size; j += 1) {
+    for (let i = 0, sizeY = matrix.length; i < sizeY; i += 1) {
+        for (let j = 0, sizeX = matrix[i].length; j < sizeX; j += 1) {
+            if (i < sizeY - 3) {
+                axisY = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+            }
             axisX = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
-            axisY = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
-            if (axisX > product) product = axisX;
             if (axisY > product) product = axisY;
+            if (axisX > product) product = axisX;
         }
     }
     return product;
