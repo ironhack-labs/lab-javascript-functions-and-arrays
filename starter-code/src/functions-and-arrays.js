@@ -166,16 +166,38 @@ const matrix = [
  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-const greatestProduct = (matrix) => {
+const greatestProduct = matrix => {
   let greatest = 0;
-  let product = 1;
-  matrix.forEach(arr => {
-    arr.forEach(item => {
-      product *= item
-      if(greatest < product) greatest = product;
-      if(arr.every(a => a == 2)) greatest = 16;
-    });
-    product = 0;
+  let productHor = 1;
+  let productVer = 1;
+  matrix.forEach((arr, i) => {
+    for(let j = 0; j < arr.length-3; j++){
+      
+      productVer = matrix[j][i]*matrix[j+1][i]*matrix[j+2][i]*matrix[j+3][i];
+      
+      if(productVer > greatest){
+        greatest = productVer
+        console.log(`
+          Greatest is now equal: ${productVer}
+          Vertical product of the items: ${matrix[j][i]}, ${matrix[j+1][i]}, ${matrix[j+2][i]}, ${matrix[j+3][i]} 
+          Starting in the array position matrix[${j}][${i}]
+        `)
+      } 
+      productHor = arr[j]*arr[j+1]*arr[j+2]*arr[j+3];
+      
+       if(productHor > greatest){
+        greatest = productVer
+        console.log(`
+          Greatest is now equal: ${productHor}
+          Horizontal product of the items: ${arr[j]}, ${arr[j+1]}, ${arr[j+2]}, ${arr[j+3]} 
+          Starting in the array position matrix[${j}][${i}]
+        `)
+      } 
+      productHor > greatest ?  greatest = productHor : greatest
+//       console.log(productVer, " ", productHor, j, " ", i)
+      productHor = 1;
+      productVer = 1;
+    }
   });
   return greatest;
 }
