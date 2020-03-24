@@ -1,18 +1,136 @@
 // Iteration #1: Find the maximum
+let maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  } else {
+    return num1;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+let findLongestWord = (arr) => {
+  let longestW = "";
+  arr.forEach(element => {
+    if (element.length > longestW.length) {
+      longestW = element;
+    } 
+  });
+  if (longestW) {
+    return longestW;
+  } else {return null;
+  }
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sumNumbers = (arr) => {
+  
+  let calcul = 0;
+  arr.forEach(function (number) {
+    calcul += number;
+  });
+  return calcul;
+}
+
+
+//Bonus
+let sum = (arr) => {
+  let calcul = 0;
+  arr.forEach(function (elem) {
+    if (typeof elem == "number") {
+      calcul += elem;
+    } else if (typeof elem == "boolean" && elem) {
+      calcul += 1;
+    } else if (typeof elem == "string") {
+      for (let i = 0; i<elem.length; i++) {
+        calcul += 1;
+      }
+    } else if (typeof elem == "boolean" && !elem) {
+      calcul += 0;
+    } else {
+        throw new Error ("Unsupported data type sir or ma'am");
+      }
+    }
+  )
+  return calcul;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let averageNumbers = (arr) => {
+
+  if (arr.length === 0) {
+    return null;
+  } else {
+  let sumNum = sumNumbers(arr);
+  let divisor = 0;
+  arr.forEach(() => {
+    divisor += 1;    
+  })
+  let avg = sumNum / divisor;
+  return avg;
+}
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+let averageWordLength = (arr) => {
+
+  if (arr.length === 0) {
+    return null;
+  } else {
+  let letterCount = 0;
+  arr.forEach(function (elem) {
+    letterCount += elem.length;
+  })
+  let divisor = arr.length
+  let avg = letterCount / divisor;
+  return avg;
+}
+}
+
+
+//Bonus Level 2
+let avg = (arr) => {
+
+  if (arr.length === 0) {
+    return null;
+  } else {
+    
+
+  let calcul = 0;
+
+  arr.forEach(function (elem) {
+    if (typeof elem == "number") {
+      calcul += elem;
+    } else if (typeof elem == "boolean" && elem) {
+      calcul += 1;
+    } else if (typeof elem == "string") {
+      for (let i = 0; i<elem.length; i++) {
+        calcul += 1;
+      }
+    } else if (typeof elem == "boolean" && !elem) {
+      calcul += 0;
+    } else {
+        throw new Error ("Unsupported data type sir or ma'am");
+      }
+    }
+  )
+  let divisor = arr.length
+  let division = calcul / divisor;
+  let average = parseFloat(division.toFixed(2))
+  return average;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +147,30 @@ const wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  } else {
+  let newArr = []
+  arr.forEach((elem) => {
+    if (!newArr.includes(elem)) {
+      newArr.push(elem);
+    }
+  })
+  return newArr;
+  }
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let doesWordExist = (arr, word) => {
+  if (arr.length === 0) {
+    return null;
+  } else {
+  if (arr.includes(word)) {
+    return true;
+  } else {return false;}
+}}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +186,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (arr, word) => {
+  let counter = 0;
+  arr.forEach(function (elem) {
+    if (elem === word) {
+      counter += 1;
+    }
+  })
+  return counter;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +221,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = (matrix) => {
+
+  //find greatest product horizontally
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix[i].length; j++) {
+
+      //j=matrix[i][j]
+      //k=matrix[i][j+1]
+      //l=matrix[i][j+2]
+      //m=matrix[i][j+3]
+      
+      //find highest avg in row
+      let checkVal = 0;
+       
+       if (matrix[i][j] + matrix[i][j+1] + matrix[i][j+ 2] + matrix[i][j+ 3] > checkVal) {
+         checkVal = matrix[i][j] + matrix[i][j+1] + matrix[i][j+ 2] matrix[i][j+ 3]
+       }
+
+      
+      console.log(matrix[i][j])
+
+    }
+  }
+}
+
+  //find greatest product vertically
+
+  // compare
