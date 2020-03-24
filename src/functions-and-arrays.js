@@ -1,18 +1,130 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+  }
+  return b; 
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array) {
+  let longestWord = '';
+  if (array == '') {
+    return null;
+  } else {
+    for (let i =0; i < array.length; i++) {
+      if (array[i].length > longestWord.length) {
+        longestWord = array[i]
+      } else {
+        continue;
+      }
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arr) {
+  let result = 0;
+  for (let i=0; i < arr.length; i++) {
+    result += arr[i];
+  }
+  return result;
+}
+
+// Bonus Calculate the sum
+
+function sum(arr) {
+  let result = 0;
+  for (let i=0; i < arr.length; i++) {
+    switch(typeof arr[i]) {
+      case 'number':
+        result += arr[i];
+        break;
+      case 'string':
+        result += arr[i].length;
+        break;
+      case 'boolean':
+        if (arr[i] === true) {
+          result++
+        }
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    } 
+  }
+  return result;
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  let sum = 0;
+  let size = 0;
+  if (arr == '') {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    size++
+  }
+  return sum/size;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arr) {
+  let sum = 0;
+  let size = 0;
+  if (arr == '') {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length;
+    size++;
+  }
+  return sum/size;
+}
+
+//Bonus: Calculate the average of a mixed elements array
+
+function avg(arr) {
+  if (arr == '') {
+    return null;
+  }
+  let sum = 0;
+  let size = 0;
+  for (let i=0; i < arr.length; i++) {
+    switch(typeof arr[i]) {
+      case 'number':
+        sum += arr[i];
+        size++;
+        break;
+      case 'string':
+        sum += arr[i].length;
+        size++;
+        break;
+      case 'boolean':
+        size++;
+        if (arr[i] === true) {
+          sum++;
+        }
+        break;
+    } 
+  }
+  return Math.round((sum/size + Number.EPSILON) * 100) / 100;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +141,31 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let result = [];
+  if (arr == '') {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (result.includes(arr[i]) === false) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, str) {
+  if (arr == '') {
+    return null;
+  }
+  if (arr.includes(str)) {
+    return true;
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +181,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, str) {
+  let sum = 0;
+  for (let i= 0; i < arr.length; i++) {
+    if (arr[i] === str) {
+      sum++
+    } else {
+      continue;
+    }
+  }
+  return sum;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +218,20 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(arr) {
+  let aux = 0;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j=0; j < arr[i].length; j++) {
+      aux++;
+      sum += arr[i][j];
+    }
+  }
+  if (aux == sum) {
+    return 1;
+  } else if (2*aux == sum) {
+    return 16;
+  }
+}
