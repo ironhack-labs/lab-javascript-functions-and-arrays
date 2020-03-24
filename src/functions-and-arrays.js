@@ -1,18 +1,93 @@
 // Iteration #1: Find the maximum
 
+//console.log(Math.max(1, 3, 2));
+
+function maxOfTwoNumbers(a, b) {
+  return Math.max(a, b);
+  /*
+  if (a > b) {
+    return a;
+  }
+  else {
+    return b;
+  }
+  */
+} 
+console.log("Iteration #1: Find the maximum:", maxOfTwoNumbers(2, 4));
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// let wordsLength = [7, 7, 7, 9];
+// console.log(wordsLength.indexOf(9)); // 3
+
+function findLongestWord(anyArray) {
+  lengthWords = [];
+  for (let i = 0; i < anyArray.length; i++) {
+    lengthWords.push(anyArray[i].length);
+  }
+  
+  maxLength = Math.max(...lengthWords); // leghosszabb szo hossza
+  indexOfLongestWord = lengthWords.indexOf(maxLength); // leghosszabb szo hosszanak indexe
+  longestWord = anyArray[indexOfLongestWord]; // leghosszabb szo az index alapjan
+
+  return longestWord;
+}
+
+console.log("Iteration #2: Find longest word:", findLongestWord(words));
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(anyArray) {
+  let sumAll = 0;
+  for (let i = 0; i < anyArray.length; i++) {
+    sumAll += anyArray[i];
+  }
+  return sumAll;
+}
+
+console.log("Iteration #3: Calculate the sum", sumNumbers(numbers));
+
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+//console.log(sumNumbers(numbersAvg));
+//console.log(numbersAvg.length);
+console.log("Iteration #4: Calculate the average / Level 1:", sumNumbers(numbersAvg) / numbersAvg.length);
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(anyArray) {
+  lengthOfWordArray = [];
+  for (let i = 0; i < anyArray.length; i++) {
+    lengthOfWordArray.push(anyArray[i].length);
+  }
+  average = sumNumbers(lengthOfWordArray) / lengthOfWordArray.length;
+  return average;
+}
+
+console.log("Iteration #4: Calculate the average / Level 2:", averageWordLength(wordsArr));
+
+/*
+const testArray = ['robi', 'anita'];
+console.log(averageWordLength(testArray)); // 4.5
+*/
+
+
+// Bonus - Iteration #4.1: A generic avg() function
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +104,51 @@ const wordsUnique = [
   'bring'
 ];
 
+/*
+console.log(wordsUnique[0]); // crab
+console.log(wordsUnique[1]); // poison
+console.log(wordsUnique.indexOf(wordsUnique[0])); // 0
+console.log(wordsUnique.indexOf(wordsUnique[1])); // 1
+console.log(wordsUnique.indexOf(wordsUnique[2])); // 2
+console.log(wordsUnique.indexOf(wordsUnique[3])); // 3
+console.log(wordsUnique.indexOf(wordsUnique[4])); // 4
+console.log(wordsUnique.indexOf(wordsUnique[5])); // 5
+console.log(wordsUnique.indexOf(wordsUnique[6])); // 6
+console.log(wordsUnique.indexOf(wordsUnique[7])); // 1
+console.log(wordsUnique.indexOf(wordsUnique[8])); // 8
+console.log(wordsUnique.indexOf(wordsUnique[9])); // 3
+console.log(wordsUnique.indexOf(wordsUnique[10])); // 4
+
+function uniquifyArray(anyArray) {
+  newArray = [];
+  for (let i = 0; i < anyArray.length; i++) {
+    if () {
+      
+    }
+  }
+  return anyArray;
+}
+
+console.log(uniquifyArray(wordsUnique));
+*/
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+// console.log(wordsFind.includes("apple"));
+
+function doesWordExist(anyArray, word) {
+  if (anyArray.includes(word)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+console.log("Iteration #6: Find elements:", doesWordExist(wordsFind, "machine"));
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +164,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(anyArray, word) {
+  wordCount = 0;
+  for (let i = 0; i < anyArray.length; i++) {
+    if (anyArray[i] === word) {
+      wordCount += 1;
+    }
+  }
+  return wordCount;
+}
+
+console.log("Iteration #7: Count repetition:", howManyTimes(wordsCount, "matter"));
+
 
 // Iteration #8: Bonus
 
