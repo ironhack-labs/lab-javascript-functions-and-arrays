@@ -1,11 +1,46 @@
+/*jshint esversion: 6 */
+
 // Iteration #1: Find the maximum
+let maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let temp = words[0];
+
+let findLongestWord = wordsArray => {
+  if (wordsArray.length === 0) return null;
+  let temp = wordsArray[0];
+  wordsArray.forEach((word, it, arr) => {
+    if (temp.length < word.length) temp = word;
+  });
+  return temp;
+};
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+let sumNumbers = numsArrray => {
+  let sumed = 0;
+  for (let i = 0; i < numsArrray.length; i++) {
+    sumed = sumed + numsArrray[i];
+  }
+  return sumed;
+};
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+let sum = numsArrray => {
+  if (numsArrray.length === 0) return 0;
+  let sumed = 0;
+  for (let i = 0; i < numsArrray.length; i++) {
+    if ((typeof numsArrray[i]) === 'string') sumed = sumed + numsArrray[i].length;
+    else if ((typeof numsArrray[i]) === true) sumed++;
+    else if ((typeof numsArrray[i]) === false) sumed--;
+    else sumed = sumed + numsArrray[i];
+    return sumed;
+  }
+};                                                                                                                                                                                              
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
