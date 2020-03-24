@@ -221,17 +221,50 @@ const matrix = [
 
 
 function greatestProduct(arr) {
-  let aux = 0;
-  let sum = 0;
+  let aux = 1;
   for (let i = 0; i < arr.length; i++) {
     for (let j=0; j < arr[i].length; j++) {
-      aux++;
-      sum += arr[i][j];
+      if(!arr[i+3] || !arr[j+3]){
+        continue;
+      } else if (aux < arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j]) {
+        if (arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3] > arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j]) {
+          aux = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+        } else {
+          aux = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j]
+        }
+      } else {
+        continue;
+      }
     }
   }
-  if (aux == sum) {
-    return 1;
-  } else if (2*aux == sum) {
-    return 16;
+  return aux;
+}
+
+// Iteration #8: Bonus 2
+
+function greatestProductOfDiagonals(arr) {
+  let aux = 1;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j=0; j < arr[i].length; j++) {
+      if(!arr[i+3] || !arr[j+3]){
+        continue;
+      } else if (aux < arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3]) {
+        aux = arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3];
+      } else {
+        continue;
+      }
+    }
   }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j=arr[i].length-1; j >= 0; j--) {
+      if(!arr[i+3] || !arr[j-3]){
+        continue;
+      } else if (aux < arr[i][j]*arr[i+1][j-1]*arr[i+2][j-2]*arr[i+3][j-3]) {
+        aux = arr[i][j]*arr[i+1][j-1]*arr[i+2][j-2]*arr[i+3][j-3];
+      } else {
+        continue;
+      }
+    }
+  }
+  return aux;
 }
