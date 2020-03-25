@@ -42,11 +42,12 @@ let sum = 0;
   for (let i = 0; i < arrayOfNumbers.length; i++){
     sum += arrayOfNumbers[i];
   }
-  if(arrayOfNumbers.length === 0 || sum === 0){
+  if(sum.length === 1){
+    return sum;
+  } else if (arrayOfNumbers.length === 0 || sum === 0){ // I figured it out that sum is already zero, so that's why it wasn't working 
     return 0;
-  } else if(sum.length === 1){
-    return sum; // not working
   }
+    
 } 
 console.log(sumNumbers(num23));
 
