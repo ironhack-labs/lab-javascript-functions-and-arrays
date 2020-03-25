@@ -11,6 +11,9 @@ function maxOfTwoNumbers(num1, num2){
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 function findLongestWord(array){
+  if (array.length === 0) {
+    return null;
+  }
   let word = "";
   for(let i=0; i < array.length; i++) {
     if (word.length < array[i].length) {
@@ -37,6 +40,9 @@ console.log(sumNumbers(numbers));
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numArr){
+  if (numArr.length === 0) {
+    return null;
+  }
   let avg = sumNumbers(numArr) / numArr.length;
   return avg;
 } 
@@ -45,6 +51,9 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(wordArr){
+  if (wordArr.length === 0) {
+    return null;
+  }
   let sum = 0;
  for (let i=0; i < wordArr.length; i++){
    sum += wordArr[i].length;
@@ -68,6 +77,9 @@ const wordsUnique = [
   "bring"
 ];
 function uniquifyArray(wordArr) {
+  if (wordArr.length === 0) return null; {
+    
+  }
   let newArray = [];
   for (let i = 0; i < wordArr.length; i++) {
     if (wordArr.length === 0) {
@@ -84,6 +96,9 @@ console.log(uniquifyArray(wordsUnique));
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 function doesWordExist (array, word) {
+  if (array.length === 0) return null; {
+
+  }
   if (array.includes(word)){
     return true;
     console.log("true");
@@ -110,15 +125,12 @@ const wordsCount = [
 ];
 function howManyTimes(wordArray, searchWord) {
   let count = 0;
-  for (let i = 0; i < wordArray.length; i++) {
-    if (wordArray.includes(searchWord)) {
+  for (let word of wordArray) {
+    if (word === searchWord) {
       count++;
-      return count;
-    } else {
-      return 0;
     }
   }
-console.log(count);
+  return count;
 }
 //howManyTimes(wordsCount, 'matter');
 
