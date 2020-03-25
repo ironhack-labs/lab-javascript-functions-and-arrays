@@ -147,7 +147,7 @@ const wordsUnique = [
 function uniquifyArray(words) {
   let newArray = [];
   for (i = 0; i < words.length; i++) {
-    if (console.log(newArray.indexOf(words[i])) == -1) {
+    if (newArray.indexOf(words[i]) == -1) {
       newArray.push(words[i]);
     }
   }
@@ -159,26 +159,33 @@ function uniquifyArray(words) {
   return newArray;
 }
 // Iteration #6: Find elements
-const wordsFind = [
-  "machine",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "truth",
-  "disobedience"
-];
 
-function doesWordExist(wordsFind) {
-  let wordToCheck = "";
-
-  if (wordToCheck == "") {
+function doesWordExist(wordsArray, word) {
+  console.log(wordsArray, "el array");
+  console.log(word, "la palabra a buscar");
+  if (wordsArray.length == 0) {
     return null;
   }
+  for (i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] == word) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // Iteration #7: Count repetition
+
+function howManyTimes(words, word) {
+  let numRep = 0;
+  for (i = 0; i < words.length; i++) {
+    if (words[i] == word) {
+      numRep += 1;
+    }
+  }
+  return numRep;
+}
+
 const wordsCount = [
   "machine",
   "matter",
@@ -195,6 +202,7 @@ const wordsCount = [
 
 // Iteration #8: Bonus
 
+function greatestProduct(matrix) {}
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [
