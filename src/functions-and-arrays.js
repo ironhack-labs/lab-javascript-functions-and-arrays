@@ -224,29 +224,72 @@ const matrix = [
 
 let greatestProduct = (matrix) => {
 
+  let result = 0;
   //find greatest product horizontally
   for (let i=0; i<matrix.length; i++) {
     for (let j=0; j<matrix[i].length; j++) {
-
-      //j=matrix[i][j]
-      //k=matrix[i][j+1]
-      //l=matrix[i][j+2]
-      //m=matrix[i][j+3]
       
-      //find highest avg in row
+      //find highest val in row
       let checkVal = 0;
-       
-       if (matrix[i][j] + matrix[i][j+1] + matrix[i][j+ 2] + matrix[i][j+ 3] > checkVal) {
-         checkVal = matrix[i][j] + matrix[i][j+1] + matrix[i][j+ 2] matrix[i][j+ 3]
-       }
-
-      
-      console.log(matrix[i][j])
-
+       if (matrix[i][j] * matrix[i][j+1] * matrix[i][j+ 2] * matrix[i][j+ 3] > checkVal) {
+         checkVal = matrix[i][j] * matrix[i][j+1] * matrix[i][j+ 2] * matrix[i][j+ 3];
+       } 
+      if (checkVal > result) {
+        result = checkVal;
+      } 
     }
+  }
+  
+
+  //find greatest product vertically
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix[i].length; j++) {
+      
+      //find highest val in row
+      let checkVal = 0;
+       if (matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j] > checkVal) {
+         checkVal = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+       } 
+      if (checkVal > result) {
+        result = checkVal;
+      } 
+    }
+  }
+  return result;
+}
+
+let greatestProductOfDiagonals= (matrix) => {
+
+  let result = 0;
+
+//find greatest product diagonally
+for (let i=0; i<matrix.length; i++) {
+  for (let j=0; j<matrix[i].length; j++) {
+    
+    //find highest val in row
+    let checkVal = 0;
+     if (matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3] > checkVal) {
+       checkVal = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+     } 
+    if (checkVal > result) {
+      result = checkVal;
+    } 
   }
 }
 
-  //find greatest product vertically
-
-  // compare
+//find greatest product diagonally the other way round
+for (let i=0; i<matrix.length; i++) {
+  for (let j=0; j<matrix[i].length; j++) {
+    
+    //find highest val in row
+    let checkVal = 0;
+     if (matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3] > checkVal) {
+       checkVal = matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3];
+     } 
+    if (checkVal > result) {
+      result = checkVal;
+    } 
+  }
+}
+return result;
+}
