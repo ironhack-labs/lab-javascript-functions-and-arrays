@@ -102,19 +102,17 @@ const wordsArr = [
 ];
 
 function averageWordLength(wordArray) {
-
   if (checkIfEmpty(wordArray) == true) {
     return null;
   }
 
-  let lengthSum = 0
+  let lengthSum = 0;
 
   wordArray.forEach(elm => {
     lengthSum += elm.length;
   });
 
   return lengthSum / wordArray.length;
-
 }
 
 // Iteration #5: Unique arrays
@@ -132,7 +130,28 @@ const wordsUnique = [
   'bring'
 ];
 
-// Iteration #6: Find elements
+
+function uniquifyArray(array) {
+  if (checkIfEmpty(array) == true) {
+    return null;
+  }
+
+  let uniqueArray = [];
+
+  for(i=0; i < array.length; i++){
+
+    /*this looks at whether array[i] is already on the uniqueArray, if it isn't (= -1), it 
+    pushes it to the array, if array[i] already there it's skipped */
+    if(uniqueArray.indexOf(array[i]) === -1) { 
+
+        uniqueArray.push(array[i]);
+
+    }
+}
+return uniqueArray;
+}
+
+// Iteration #6: Find elements (NO INDEXOF)
 const wordsFind = [
   'machine',
   'subset',
