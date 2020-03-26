@@ -1,21 +1,116 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    return num1
+  } else {
+    return num2
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array){
+  let longestWord = "";
+  array.forEach(function(arg){
+    if(arg.length > longestWord.length){
+      longestWord = arg;
+    }
+  })
+  if(array.length === 0){
+    longestWord = null;
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array){
+  let sum = 0;
+  array.forEach(function(element){
+    sum += element;
+  })
+  return sum;
+}
+
+// Bonus
+
+function makeNum(item){
+  switch(typeof(item)) {
+    case "number":
+      return item;
+    case "boolean":
+      if(item == true){
+        return 1;
+      } else {
+        return 0;
+      }
+    case "string":
+      return item.length;
+    default:
+      throw Error("Unsupported data type sir or ma'am");
+  }
+}
+
+function sum(array){
+  let sum = 0;
+  array.forEach(function(element){
+    sum += makeNum(element);
+  })
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array){
+  if(array.length === 0){
+    return null;
+  }
+  let sum = sumNumbers(array);
+  let num = array.length;
+  let avg = sum / num;
+  return avg;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+// Declare a function named `averageWordLength` that receives as a single argument an array of words and returns the average length of the words:
+
+function averageWordLength(array){
+  if(array.length === 0){
+    return null;
+  }
+  let add = sum(array);
+  let num = array.length;
+  let avr = add / num;
+  return avr;
+}
+
+// Create function `avg(arr)` that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or strings and/or booleans. We are following a similar logic to the one applied on the bonus iteration 4.1. :wink:
+
+function avg(array){
+  if(array.length === 0){
+    return null;
+  }
+  let add = sum(array);
+  let num = array.length;
+  let avr = add / num;
+
+// THIS IS RIDICULOUS 👇
+
+  return Math.round(avr * 100)/100;
+}
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
+  // 'Ironhack', 'Ironhack', 'Ironhack'
   'crab',
   'poison',
   'contagious',
@@ -29,8 +124,34 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  const newArray = []
+  if(array.length === 0){
+    return null;
+  }
+  array.forEach(function(element,index){
+    if(newArray.indexOf(element) === -1){
+      newArray.push(element);
+    }
+  })
+  return newArray;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
+// Let's create a simple array search.
+
+// Declare a function named `doesWordExist` that will take in an array of words as one argument, and a word to search for as the other. Return `true` if it exists, otherwise, return `false`. **Don't** use `indexOf` for this one.
+
+function doesWordExist(array,word){
+  if(array.length === 0){
+    return null;
+  }
+  return array.includes(word)
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +167,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array,word){
+  if(array.length === 0){
+    return 0;
+  }
+  let counter = 0;
+  array.forEach(function(element){
+    if(element === word){
+      counter++
+    }
+  })
+  return counter;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +205,70 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// This is actually not correct, because it ignores the three right-most and bottom-most rows/columns 👇
+
+// function greatestProduct(mat){
+//   let bigNum = 0;
+//   for(i = 0; i < mat.length - 3; i++){
+//     for(j = 0; j < mat.length - 3; j++){
+//       let horz = mat[i][j] * mat[i][j + 1] * mat[i][j + 2] * mat[i][j + 3];
+//       let vert = mat[i][j] * mat[i + 1][j] * mat[i + 2][j] * mat[i + 3][j];
+//       if(horz > bigNum){
+//         bigNum = horz;
+//       }
+//       if(vert > bigNum){
+//         bigNum = vert;
+//       }
+//     }
+//   }
+//   return bigNum;
+// }
+
+function greatestProduct(mat){
+  let bigNum = 0;
+  for(i = 0; i < mat.length; i++){
+    for(j = 0; j < mat.length - 3; j++){
+      let horz = mat[i][j] * mat[i][j + 1] * mat[i][j + 2] * mat[i][j + 3];
+      if(horz > bigNum){
+        bigNum = horz;
+      }
+    }
+  }
+  for(i = 0; i < mat.length - 3; i++){
+    for(j = 0; j < mat.length; j++){
+      let vert = mat[i][j] * mat[i + 1][j] * mat[i + 2][j] * mat[i + 3][j];
+      if(vert > bigNum){
+        bigNum = vert;
+      }
+    }
+  }
+  return bigNum;
+}
+
+// Iteration 8.1: Bonus
+
+function greatestProductOfDiagonals(mat){
+  let bigNum = 0;
+  for(i = 0; i < mat.length - 3; i++){
+    for(j = 0; j < mat.length - 3; j++){
+      let downRight = mat[i][j] * mat[i + 1][j + 1] * mat[i + 2][j + 2] * mat[i + 3][j + 3];
+      if(downRight > bigNum){
+        // console.log("Down, right: " + i + ", " + j + ": " + downRight);
+        bigNum = downRight;
+      }
+    }
+  }
+  for(i = 0; i < mat.length - 3; i++){
+    for(j = 3; j < mat.length; j++){
+      let downLeft = mat[i][j] * mat[i + 1][j - 1] * mat[i + 2][j - 2] * mat[i + 3][j - 3];
+      if(downLeft > bigNum){
+        // console.log("Down, left: " + i + ", " + j + ": " + downLeft);
+        bigNum = downLeft;
+      }
+    }
+  }
+  return bigNum;
+}
+
+greatestProductOfDiagonals(matrix);
