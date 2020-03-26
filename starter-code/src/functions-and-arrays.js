@@ -22,7 +22,7 @@ function findLongestWord(arr) {
     return longestWord = arr[0];
 
   }
-  for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longestWord.length) {
       longestWord = arr[i];
     }
@@ -39,10 +39,10 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let count = 0;
 
 function sumArray(arr) {
-  if (arr.length===0){
+  if (arr.length === 0) {
     return 0;
   }
-  if (arr.length===1){
+  if (arr.length === 1) {
     return arr[0];
   }
 
@@ -57,14 +57,14 @@ function sumArray(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
-  if (arr.length===0){
+  if (arr.length === 0) {
     return null;
   }
-  let average=0;
-for (let i=0; i<arr.length;i++){
-average += Math.round(arr[i]/arr.length);
-}
-return average; 
+  let average = 0;
+  for (let i = 0; i < arr.length; i++) {
+    average += Math.round(arr[i] / arr.length);
+  }
+  return average;
 }
 
 // Level 2: Array of strings
@@ -80,20 +80,21 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
 function averageWordLength(arr) {
-  let averageWord=0;
-  let sumLength=0;
-  if (arr.length===0){
+  let averageWord = 0;
+  let sumLength = 0;
+  if (arr.length === 0) {
     return null;
   }
-  for (let i=0;i< arr.length; i++){
-    sumLength+=arr[i].length;
+  for (let i = 0; i < arr.length; i++) {
+    sumLength += arr[i].length;
   }
-  averageWord = sumLength/arr.length;
-  
- 
+  averageWord = sumLength / arr.length;
+
+
   return averageWord;
-  
+
 
 }
 console.log(averageWordLength(wordsArr));
@@ -118,6 +119,30 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0 || arr.length === 1) {
+    return arr;
+  } else {
+
+    for (let i = 0; i < arr.length; i++) {
+
+      let index = arr.indexOf(arr[i]);
+
+      while (index != -1) {
+        index = arr.indexOf(arr[i], index + 1);
+        if (index != -1) {
+          arr.splice(index, 1);
+        }
+
+      }
+
+    }
+    return arr;
+
+  }
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -129,6 +154,14 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -144,6 +177,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  const indices = [];
+  let index = arr.indexOf(word);
+  while (index != -1) {
+    indices.push(index);
+    index = arr.indexOf(word, index + 1)
+  }
+  return indices.length;
+}
 
 // Iteration #8: Bonus
 
@@ -169,3 +212,72 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// 8.1 Vertical, horizontal
+
+function greatestProduct(arr) {
+
+  let greatestProd = 0;
+  let prod = 0
+
+  for (let i = 0; i < 16; i++) {
+    for (let j = 0; j < 16; j++) {
+      if (arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3] > greatestProd) {
+        greatestProd = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3]
+      }
+
+    }
+  }
+  for (let j = 0; j < 16; j++) {
+    for (let i = 0; i < 16; i++) {
+      if (arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j] > greatestProd) {
+        greatestProd = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j]
+      }
+
+    }
+  }
+
+  return greatestProd;
+}
+
+// 8.2 Vertical, horizontal and diagonal product
+
+function greatestProductOfDiagonals(arr) {
+
+  let greatestProd = 0;
+  let prod = 0
+
+  for (let i = 0; i < 16; i++) {
+    for (let j = 0; j < 16; j++) {
+      if (arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3] > greatestProd) {
+        greatestProd = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3]
+      }
+
+    }
+  }
+  for (let j = 0; j < 16; j++) {
+    for (let i = 0; i < 16; i++) {
+      if (arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j] > greatestProd) {
+        greatestProd = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j]
+      }
+
+    }
+  }
+  for (let i = 0; i < 16; i++) {
+    for (let j = 0; j < 16; j++) {
+      if (arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3] > greatestProd) {
+        greatestProd = arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3]
+      }
+
+    }
+  }
+  for (let i = 0; i < 16; i++) {
+    for (let j = 0; j < 16; j++) {
+      if (arr[i][j + 3] * arr[i + 1][j + 2] * arr[i + 2][j + 1] * arr[i + 3][j] > greatestProd) {
+        greatestProd = arr[i][j + 3] * arr[i + 1][j + 2] * arr[i + 2][j + 1] * arr[i + 3][j]
+      }
+
+    }
+  }
+  return greatestProd;
+}
