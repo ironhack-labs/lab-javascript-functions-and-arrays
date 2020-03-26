@@ -193,6 +193,23 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(array, word) {
+  if (checkIfEmpty(array) == true) {
+    return 0;
+  }
+
+  let timeCounter = 0;
+
+  array.forEach(elm => {
+    if (elm === word) {
+      timeCounter++;
+    }
+  });
+
+  return timeCounter;
+
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
