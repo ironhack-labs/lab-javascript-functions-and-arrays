@@ -35,7 +35,6 @@ function checkIfEmpty(array) {
 }
 
 function findLongestWord(wordArray) {
-  
   if (checkIfEmpty(wordArray) == true) {
     return null;
   }
@@ -63,7 +62,6 @@ the reduce array method, which will make your work significantly easier. For now
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
-
   let numberSum = 0;
 
   array.forEach(elm => {
@@ -78,7 +76,6 @@ function sumNumbers(array) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-
   if (checkIfEmpty(array) == true) {
     return null;
   }
@@ -88,7 +85,6 @@ function averageNumbers(array) {
   const avg = numberSum / array.length;
 
   return avg;
-
 }
 
 // Level 2: Array of strings
@@ -104,6 +100,22 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordArray) {
+
+  if (checkIfEmpty(wordArray) == true) {
+    return null;
+  }
+
+  let lengthSum = 0
+
+  wordArray.forEach(elm => {
+    lengthSum += elm.length;
+  });
+
+  return lengthSum / wordArray.length;
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
