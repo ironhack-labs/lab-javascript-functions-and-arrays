@@ -24,8 +24,19 @@ const words = [
   'crackpot'
 ];
 
+/*checkIfEmpty checks whether an array is empty or not. This will be useful for many exercises.*/
+
+function checkIfEmpty(array) {
+  if (array.length == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function findLongestWord(wordArray) {
-  if (wordArray.length == 0) {
+  
+  if (checkIfEmpty(wordArray) == true) {
     return null;
   }
 
@@ -65,6 +76,16 @@ function sumNumbers(array) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(array) {
+
+  const numberSum = sumNumbers(array);
+
+  const avg = numberSum / array.length;
+
+  return avg;
+
+}
 
 // Level 2: Array of strings
 const wordsArr = [
