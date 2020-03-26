@@ -45,9 +45,9 @@ function sumNumbers() {
 // Iteration #4: Calculate the average
 
 function averageNumbers(arr) {
-  var sum = 0;
+  let sum = 0;
 
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
 
@@ -59,6 +59,14 @@ function averageNumbers(arr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageWordLength() {
+  let length = 0
+  let sum = 0
+  let average_array = 0
+
+
+
+}
 
 
 // Level 2: Array of strings
