@@ -44,8 +44,23 @@ function findLongestWord(wordArray) {
 }
 
 // Iteration #3: Calculate the sum
+/*Declare a function named sumNumbers that takes an array of numbers as an argument, and returns 
+the sum of all of the numbers in the array. Later in the course we will learn how to do this by using 
+the reduce array method, which will make your work significantly easier. For now, let's practice 
+"declarative" way adding values, using loops.*/
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(array) {
+
+  let numberSum = 0;
+
+  array.forEach(elm => {
+    numberSum += elm;
+  });
+
+  return numberSum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
