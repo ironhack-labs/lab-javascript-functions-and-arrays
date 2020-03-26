@@ -130,7 +130,6 @@ const wordsUnique = [
   'bring'
 ];
 
-
 function uniquifyArray(array) {
   if (checkIfEmpty(array) == true) {
     return null;
@@ -138,17 +137,14 @@ function uniquifyArray(array) {
 
   let uniqueArray = [];
 
-  for(i=0; i < array.length; i++){
-
+  for (i = 0; i < array.length; i++) {
     /*this looks at whether array[i] is already on the uniqueArray, if it isn't (= -1), it 
     pushes it to the array, if array[i] already there it's skipped */
-    if(uniqueArray.indexOf(array[i]) === -1) { 
-
-        uniqueArray.push(array[i]);
-
+    if (uniqueArray.indexOf(array[i]) === -1) {
+      uniqueArray.push(array[i]);
     }
-}
-return uniqueArray;
+  }
+  return uniqueArray;
 }
 
 // Iteration #6: Find elements (NO INDEXOF)
@@ -162,6 +158,25 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word) {
+  if (checkIfEmpty(array) == true) {
+    return null;
+  }
+
+  array.forEach(elm => {
+    if (elm === word) {
+      return true;
+    }
+  });
+
+  //Why did I have to add this hackjob for it to work with an 1-element array? why isn't it working with the forEach function?
+  if (array[0] === word) {
+    return true;
+  }
+
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
