@@ -79,6 +79,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
 
+  if (checkIfEmpty(array) == true) {
+    return null;
+  }
+
   const numberSum = sumNumbers(array);
 
   const avg = numberSum / array.length;
