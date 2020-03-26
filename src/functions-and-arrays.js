@@ -25,21 +25,23 @@ const words = [
 ];
 
 function findLongestWord(wordArray) {
-  
-  if (wordArray.length <= 0) {
+  if (wordArray.length == 0) {
     return null;
   }
 
-  let longestWord = 0;
+  if (wordArray.length == 1) {
+    return wordArray[0];
+  }
+
+  let longestWord = '';
+
   wordArray.forEach(elm => {
     if (elm.length > longestWord.length) {
       longestWord = elm;
     }
-    return longestWord;
   });
+  return longestWord;
 }
-
-console.log([].length);
 
 // Iteration #3: Calculate the sum
 
