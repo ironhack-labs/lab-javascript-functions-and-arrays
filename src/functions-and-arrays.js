@@ -50,23 +50,12 @@ function sumNumbers(numArray) {
 
     return 0
 
-  } else if (numArray.length !== 0) {
-
-    numArray.forEach(function (sum) {
-
-      sum +=
-
-    })
-
-
-
+  } 
 
   }
 
 
 
-
-}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
