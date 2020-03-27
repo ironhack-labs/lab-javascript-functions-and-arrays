@@ -1,18 +1,113 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if(num1 < num2)
+    return num2;
+  else
+    return num1;
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(list){
+  if(list.length == 0)
+    return null;
+
+    let biggestWord="";
+    list.forEach(function (e,i) {
+      if(list[i].length > biggestWord.length)
+        biggestWord = e;
+    });
+
+    return biggestWord;
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sumNumbers(numberList){
+  if(numberList.length == 0)
+    return 0;
+  
+  let calc = 0;
+  
+  numberList.forEach((e) => {
+    calc += e;
+  });
+
+  return calc;
+}
+
+function sum(array){
+  if(array.length == 0)
+    return 0;
+
+  let calc = 0;
+  array.forEach((e) => {
+    switch(typeof e){
+      case "number":
+        calc += e;
+        break;
+
+      case "string":
+        calc += e.length;
+        break;
+
+      case "boolean":
+        calc += e ? 1 : 0;
+        break;
+
+      default: 
+        throw Error("Unsupported data type sir or ma'am");
+    }
+  });
+  
+  return calc;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers) {
+  if(numbers.length == 0)
+    return null;
+  else if(numbers.length == 1){
+    return numbers[0];
+  }
+
+  let totalNumbers = numbers.length;
+  let calc = sumNumbers(numbers);
+  return calc/totalNumbers;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(words){
+  if(words.length === 0) {
+    return null;
+  } else if(words.length === 1) {
+    return words[0].length;
+  }
+
+  let totalWords = words.length;
+  let totalLetters = sum(words);
+  return totalLetters/totalWords;
+}
+
+function avg(datas){
+  if(datas.length === 0){
+    return null;
+  }
+
+  let totalCount = sum(datas);
+  return Number((totalCount/datas.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +124,28 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words){
+  if(words.length === 0)
+    return null;
+
+  let uniqueNames = {};
+  words.forEach((elem) => {
+    if(!uniqueNames[elem]){
+      uniqueNames[elem] = true;
+    }
+  });
+  return Object.keys(uniqueNames);
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordsList, wordToSearch){
+  if(wordsList.length === 0 || wordToSearch.length === 0)
+    return null;
+
+  return wordsList.includes(wordToSearch);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +161,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(listWords, wordToCount){
+  if(listWords.length === 0){
+    return 0;
+  }
+
+  let count = 0;
+  listWords.forEach((e) => {
+    if(e === wordToCount){
+      count++
+    }
+  });
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +200,54 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let adjacentNumber = 4;
+  let totalGrid = [matrix.length, matrix[0].length];
+
+  let maxTotal = 0;
+  for(let x = 0; x < totalGrid[0]; x++) {
+    for(let y = 0; y < totalGrid[1]; y++){
+      let temp = 0;
+
+      // Vertical (BORDEL >.< ce script est sponsorisé par Doliprane)
+      // Si x (row) est plus petit que la taille maximum de la grille - le nombre max adjacents
+      if(x < (totalGrid[0] - 1) - adjacentNumber) {
+        temp = matrix[y][x];                                        // Définition de la base de la variable temporaire
+        for(let i = 1; i < adjacentNumber; i++){                    // Boucle un nombre de fois équivalent aux nombres adjacents demandés (-1 car déjà une valeur entrée) 
+          if(!isNaN(matrix[y][x+i])){                               // Si la cellule suivante est un nombre correct alors...
+            temp *= matrix[y][x+i];                                 // On multiplie la valeur temporaire avec la nouvelle cellule
+          }
+        }
+        maxTotal = Math.max(temp, maxTotal);
+      }
+      
+      // Horizontal
+      if(y < (totalGrid[1] - 1) - adjacentNumber) {
+        temp = matrix[y][x];
+        for(let i = 1; i < adjacentNumber; i++){
+            temp *= matrix[y+i][x];
+        }
+        maxTotal = Math.max(temp, maxTotal);
+      }
+
+      // Diagonal 
+      if((y < (totalGrid[0] - 1) - adjacentNumber) && (x >= adjacentNumber)){
+        temp = matrix[y][x];
+        for(let i = 1; i < adjacentNumber; i++){
+          temp *= matrix[y+i][x-i];
+        }
+        maxTotal = Math.max(temp, maxTotal);
+      }
+
+      if((x < (totalGrid[0] - 1) - adjacentNumber) && (y < (totalGrid[1] - 1) - adjacentNumber)){
+        temp = matrix[y][x];
+        for(let i = 1; i < adjacentNumber; i++){
+          temp *= matrix[y+i][x+i];
+        }
+        maxTotal = Math.max(temp, maxTotal);
+      }
+    }
+  }
+  return maxTotal;
+}
