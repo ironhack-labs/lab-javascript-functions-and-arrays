@@ -1,7 +1,124 @@
 // Iteration #1: Find the maximum
 
+
+/*
+conts maxOfTwoNumbers = (numberFirst, numberSecond) => {
+
+  if (numberFirst >= numberSecond) {
+
+    console.log(numberFirst)
+
+  } else { console.log(numberSecond)
+  
+  }
+
+}
+*/
+
+function maxOfTwoNumbers( numberFirst, numberSecond ) {
+ 
+  if (numberFirst === numberSecond) {
+    console.log("Both numbers are equal, " + numberFirst + numberSecond )
+    
+  } else if (numberFirst >= numberSecond) {
+
+    console.log( numberFirst + " is larger than " + numberSecond )
+
+  } else { console.log(numberSecond + " is larger than " + numberFirst)
+  
+  }
+}
+
+maxOfTwoNumbers(9,10)
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+let words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+let wordsLength = []
+
+let lengthMax = " "
+
+let indexWordMax = " "
+
+let wordMax =[]
+
+console.log(words.slice(0))
+
+
+console.log(words[3].length)
+/*
+for (let i = 0; i < words.length; i++) {
+
+
+  function findLongestWord (words) { 
+
+  
+    wordsLength.push(words[i].length)
+
+    console.log(letterCounter)
+  }
+  
+}
+
+
+
+function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
+*//*
+
+words.forEach(funtion (i) {
+
+})*/
+
+
+words.forEach(function logArrayElements(element, index, array) {
+    console.log("a[" + index + "] = " + element)
+
+  /*  let intNumber = parseInt(words[index].length)*/
+
+        wordsLength.push(words[index].length)
+
+    lengthMax = Math.max.apply(null,wordsLength)
+
+    indexWordMax = wordsLength.indexOf(lengthMax, 0)
+
+    wordMax.push(words[indexWordMax])
+
+
+
+    switch (wordMax) {
+      
+         case (wordMax.length > 1):
+         console.log("La palabra " + wordMax[0] + " es la mas larga")
+
+               break
+
+         case (wordMax.length === 0): 
+          console.log("Hay más de una palabra más larga que las demás, son estas: " + wordMax.slice(0))
+
+        break
+       
+        }
+/*
+   if (wordMax.length > 1) {
+      console.log(`La palabra "${wordMax[0]}" es la mas larga`)
+      }
+      else if { console.log(`Hay más de una palabra más larga que las demás, son estas: "{wordMax.slice(0)}"`)}
+
+      else{ console.log("algo")}  
+    */
+
+
+});
+
+console.log(wordsLength)
+console.log(lengthMax)
+console.log(indexWordMax)
+
+
 
 // Iteration #3: Calculate the sum
 
