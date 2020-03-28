@@ -199,6 +199,21 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  if (!array.length) {
+    return null;
+  } else {
+    for (word of array) {
+      if (array.indexOf(word) !== array.lastIndexOf(word)) {
+        array.splice(array.lastIndexOf(word), 1);
+      }
+    }
+  }
+  return array;
+}
+
+console.log(`Iteration 5 : ${uniquifyArray(wordsUnique)}`);
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -210,6 +225,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, word) {
+  if (!array.length) {
+    return null;
+  } else if (array.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(`Iteration 6 : ${doesWordExist(wordsFind, 'starting')}`);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -225,6 +252,39 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+// function howManyTimes(array, word) {
+//   if (!array.length) {
+//     return 0;
+//   } else if (array.includes(word)) {
+//     let count = 0;
+//     for (let i = 0; i < array.length; i++) {
+//       if (array.indexOf(word, i) !== array.lastIndexOf(word) && ) {
+//         count++;
+//         console.log(count);
+//       }
+//     }
+//     return count;
+//   } else {
+//     return 0;
+//   }
+// }
+
+function howManyTimes(array, word) {
+  if (array.includes(word)) {
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+        count++;
+      }
+    }
+    return count;
+  } else if (!array.length || !array.includes(word)) {
+    return 0;
+  }
+}
+
+console.log(`Iteration 7 : ${howManyTimes(wordsCount, 'matter')}`);
 
 // Iteration #8: Bonus
 
@@ -523,3 +583,23 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// function greatestProduct(matrix) {
+//   for (let i = 0; i < matrix.length; i++) {
+//     for (let j = 0; j < matrix[i].length; j++) {
+//       if (
+//         matrix[i][j + 1] *
+//           matrix[i][j + 2] *
+//           matrix[i][j + 3] *
+//           matrix[i][j + 4] >
+//         matrix[i + 1][j] *
+//           matrix[i + 2][j] *
+//           matrix[i + 3][j] *
+//           matrix[i + 4][j]
+//       ) {
+//       }
+//     }
+//   }
+// }
+
+// console.log(`Iteration 7 : ${greatestProduct(matrix)}`);
