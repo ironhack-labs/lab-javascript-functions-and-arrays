@@ -1,15 +1,73 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (num1, num2) {
+  return Math.max(num1,num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (wordsArray) {
+  //test
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  // iniciamos las variables
+  let maxSize = 0;
+  let longestWord = "";
+  // procedimiento
+  for (let i = 0; i < wordsArray.length; i++) {
+    //comparamos cada palabra del array con la variable referencia longestWord
+    if (wordsArray[i].length > maxSize) {
+      maxSize = wordsArray[i].length;
+      longestWord = wordsArray[i];
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers (numArray) {
+  // test -> return 0
+  if (numArray.length === 0) {
+    return 0;
+  }
+  let result = sum (numArray);
+  /*// procedimiento
+  let sumResult = 0;
+  numArray.forEach(num => sumResult += num);
+  return sumResult;
+  /*
+  for (let i=0; i < numArray.length; i++) {
+    suma += numArray[1];
+  } */
+  return result;
+}
+function sum (anyArray) {
+  let sumResult = 0;
+  for (let i=0; i < anyArray.length; i++) {
+    if (typeof anyArray[i] == "number") {
+      sumResult += anyArray[i];
+    } else if (typeof anyArray[i] == "boolean") {
+      sumResult += anyArray[i];
+    } else if (typeof anyArray[i] == "string") {
+      sumResult += anyArray[i].length;
+    }
+  }
+  return sumResult;    
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (numArray) {
+  // test empty array
+  if (numArray.length === 0) {
+    return null;
+  }
+  // average is calculated with the sumNumbers function
+  let average = sumNumbers(numArray) / numArray.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
