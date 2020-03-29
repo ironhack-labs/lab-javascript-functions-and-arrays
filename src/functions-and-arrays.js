@@ -1,20 +1,172 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2);
+}
+
 // Iteration #2: Find longest word
+// -- Declare a function named findLongestWord that takes as an argument an array of words and returns the longest one. 
+// -- If there are 2 with the same length, it should return the first occurrence.
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(arrayWords) {
+  if (arrayWords.length === 0) {
+    return null;
+  }
 
+  // declaramos variables de control
+  let largura = 0;
+  let palabraMaslarga; // si let palabraMasLarga = null --> // significa que la variable no apunta a cap lloc de la memoria de la computadora
+
+  // loop para chequear todas las palabras
+  for(let i = 0; i < arrayWords.length; i++) {
+    if (arrayWords[i].length > largura) {
+      largura = arrayWords[i].length;
+      palabraMaslarga = arrayWords[i];
+    }
+  }
+
+  // retornamos palabra más larga
+  return palabraMaslarga;
+
+};
+
+// Iteration #3: Calculate the sum
+// -- Declare a function named sumNumbers that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array.
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// tenemos que sumar todos los valores del array
+
+function sumNumbers(arrayNumbers) {
+
+  // declaramos variables de control
+  let suma = 0;
+
+  // loop para chequear todos los números del array
+  for (let i = 0; i < arrayNumbers.length; i++) {
+    suma += arrayNumbers[i];
+  }
+
+  // retornamos valor de la suma
+  return suma;
+  
+};
+
+// BONUS
+// -- Create a new function sum() that calculates the sum for array filled with (almost) any type of data.
+// -- Strings should have their length added to the total.
+// -- Boolean values should be coerced into their corresponding numeric values
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arrayItems){
+
+  // declaramos variables de control
+  let suma = 0;
+
+  // loop para chequear todos los números del array
+  for (let i = 0; i < arrayItems.length; i++){
+    // condicionales definir el valor de cada item en función de su data type
+    if(typeof arrayItems[i] === "numbers"){
+      suma += arrayItems[i];
+    } else if(typeof arrayItems[i] === "boolean"){
+      suma += arrayItems[i];
+    } else if(typeof arrayItems[i] === "string"){
+      suma += arrayItems[i].length;
+    } else {
+      suma += arrayItems[i];
+    }
+  };
+  
+  // retornamos valor de la suma
+  return suma;
+  
+};
+
 // Iteration #4: Calculate the average
+// -- Find the sum as we did in the first exercise (or how about reusing that the sumNumbers()?)
+// -- Take that sum and divide it by the number of elements in the list.
+
 // Level 1: Array of numbers
+// -- Declare a function named averageNumbers that expects an array of numbers and returns the average of the numbers:
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrayNumbers){
+
+  if (arrayNumbers.length === 0){
+    return null;
+  }
+
+  // declaramos variables de control + reusamos función sumNumbers()
+  let averageNumbers = (sumNumbers(arrayNumbers) / arrayNumbers.length);
+
+  return averageNumbers;
+
+}
+
 // Level 2: Array of strings
+// -- Declare a function named averageWordLength that receives as a single argument an array of words and returns the average length of the words.
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(arrayWords){
+
+  if(arrayWords.length === 0){
+    return null;
+  }
+  
+  let sumLengthWords = 0;
+
+  for (let i = 0; i < arrayWords.length; i++){
+    sumLengthWords += arrayWords[i].length;
+  }
+
+  let averageLengthWords = (sumLengthWords / arrayWords.length);
+
+  return averageLengthWords;
+
+};
+
+// BONUS
+// Iteration #4.1: A generic avg() function
+// -- Create function avg(arr) that receives any mixed array and calculates average. 
+// -- Consider as mixed array an array filled with numbers and/or strings and/or booleans.
+
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr){
+
+  if(arr.length === 0){
+    return null;
+  }
+
+  let sumLengthItems = 0; 
+  
+  for (let i = 0; i < arr.length; i++){
+    if(typeof arr[i] === "number"){
+      sumLengthItems += arr[i];
+    } else if (typeof arr[i] === "boolean"){
+      sumLengthItems += arr[i]
+    } else if (typeof arr[i] === "string"){
+      sumLengthItems += arr[i].length;
+    } else {
+      sumLengthItems += arr[i].length;
+    }
+  }
+
+  let avgLengthItems = Math.round((sumLengthItems / arr.length) * 100) / 100;
+
+  return avgLengthItems;
+
+};
+
 // Iteration #5: Unique arrays
+// -- Take the following array, remove the duplicates, and return a new array. 
+// -- You are more than likely going to want to check out the indexOf Array method.
+// -- Do this in the form of a function uniquifyArray that receives an array of words as a argument.
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -29,10 +181,54 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrayWords){
+
+  if(arrayWords.length === 0){
+    return null;
+  }
+
+  // declaramos variables de control
+  let newArray = [];
+
+  // loop para checkear items duplicados y dejar sólo uno en el newArray
+  for(let i = 0; i < arrayWords.length; i++){
+    if(newArray.indexOf(arrayWords[i]) === -1){
+      newArray.push(arrayWords[i]);
+    }
+  }
+
+  return newArray;
+
+};
+
 // Iteration #6: Find elements
+// -- Let's create a simple array search.
+// -- Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. 
+// -- Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(arrayWords, wordSearch){
+
+  if(arrayWords.length === 0){
+    return null;
+  }
+
+  // loop para chequear si el item existe en el array usando method arr.includes()
+
+  for (let i = 0; i < arrayWords.length; i++){
+    if(arrayWords.includes(wordSearch)){
+      return true;
+    } else {
+      return false;
+    }
+  };
+};
+
 // Iteration #7: Count repetition
+// -- Declare a function named howManyTimes that will take in an array of words as the first argument, and a word to search for as the second argument. 
+// -- The function will return the number of times that word appears in the array.
+
 const wordsCount = [
   'machine',
   'matter',
@@ -46,6 +242,28 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayWords, wordSearch){
+
+  if(arrayWords.length === 0){
+    return 0;
+  }
+
+  // declaramos variables
+
+  let counter = 0;
+
+  // loop para chequear items del array. Si el item = valor de busqueda, sumamos 1 al counter por cada coincidencia
+
+  for (let i = 0; i < arrayWords.length; i++){
+    if(arrayWords[i] === wordSearch){
+      counter++;
+    }
+  }
+
+  return counter;
+
+};
 
 // Iteration #8: Bonus
 
