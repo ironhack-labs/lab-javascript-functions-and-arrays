@@ -10,12 +10,12 @@ function findLongestWord (wordsArray) {
   if (wordsArray.length === 0) {
     return null;
   }
-  // iniciamos las variables
+  // inicialization
   let maxSize = 0;
   let longestWord = "";
-  // procedimiento
+  // procedure
   for (let i = 0; i < wordsArray.length; i++) {
-    //comparamos cada palabra del array con la variable referencia longestWord
+    //compare each array-word length with the reference value longestWord, if founded the reference is updated
     if (wordsArray[i].length > maxSize) {
       maxSize = wordsArray[i].length;
       longestWord = wordsArray[i];
@@ -31,23 +31,21 @@ function sumNumbers (numArray) {
   if (numArray.length === 0) {
     return 0;
   }
+
   let result = sum (numArray);
-  /*// procedimiento
+  /*
+  - pre-bonus
   let sumResult = 0;
   numArray.forEach(num => sumResult += num);
   return sumResult;
-  /*
-  for (let i=0; i < numArray.length; i++) {
-    suma += numArray[1];
-  } */
+  */
   return result;
 }
 function sum (anyArray) {
   let sumResult = 0;
   for (let i=0; i < anyArray.length; i++) {
-    if (typeof anyArray[i] == "number") {
-      sumResult += anyArray[i];
-    } else if (typeof anyArray[i] == "boolean") {
+    // procedure depending on the var type
+    if (typeof anyArray[i] == "number" || typeof anyArray[i] == "boolean") {
       sumResult += anyArray[i];
     } else if (typeof anyArray[i] == "string") {
       sumResult += anyArray[i].length;
@@ -71,6 +69,37 @@ function averageNumbers (numArray) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength (wordsArr) {
+  // test empty array
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  // procedure of average calculation
+  let sum = 0;
+  wordsArr.forEach(word => sum += word.length);
+  let avResult = sum / wordsArr.length;
+  return avResult;
+}
+
+// Bonus #4.1
+function avg (arr) {
+  // test empty array
+  if (arr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  // procedure depending on the var type
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] == "number" || typeof arr[i] == "boolean") {
+      sum += arr[i];
+    } else if (typeof arr[i] == "string") {
+      sum += arr[i].length;
+    }
+  }
+  // limit 2 decimal numbers
+  let avResult = Math.floor((sum / arr.length)*100)/100;
+  return avResult;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
