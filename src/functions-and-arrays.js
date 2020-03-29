@@ -1,18 +1,98 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arrayOfWords) {
+
+  //tests -probar los parámetros
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+
+  //inicializar los valores
+  let palabraGanadora = null;
+  let tam = 0;
+
+  //iterar
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (tam < arrayOfWords[i].length) {
+      tam = arrayOfWords[i].length;
+      palabraGanadora = arrayOfWords[i];
+    }
+  }
+  return palabraGanadora;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+//Sólo para números
+function sumNumbers(arrayNumbers) {
+  return sum(arrayNumbers);
+}
+
+//Función general con errores si hay data types no permitidos en la array dada.
+function sum(arrayMix) {
+  if (arrayMix.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < arrayMix.length; i++) {
+    if (typeof arrayMix[i] === "number") {
+      sum += arrayMix[i];
+    } else if (typeof arrayMix[i] === "boolean") {
+      sum += arrayMix[i];
+    } else if (typeof arrayMix[i] === "string") {
+      sum += arrayMix[i].length;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+
+  }
+  return sum;
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrayNum) {
+  //probar si arrayNum es vacío
+  if (arrayNum.length === 0) {
+    return null;
+  }
+  let average = sumNumbers(arrayNum) / arrayNum.length;
+  return average;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let average = sum(wordsArr) / wordsArr.length;
+  return average;
+}
+
+//common function
+
+function avg(arrayMix) {
+  if (arrayMix.length === 0) {
+    return null;
+  }
+  let average = Number((sum(arrayMix) / arrayMix.length).toFixed(2));
+  return average;
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +109,36 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrayGiven) {
+  if (arrayGiven.length === 0) {
+    return null;
+  }
+  let uniArray = [];
+  //para cada uno de los elementos de la array quedarse con una aparición.
+  for (let i = 0; i < arrayGiven.length; i++) {
+    if (uniArray.indexOf(arrayGiven[i], 0) === -1) {
+      uniArray.push(arrayGiven[i]);
+    }
+  }
+  return uniArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayGiven, wordGiven) {
+  if (arrayGiven.length === 0) {
+    return null;
+  }
+  let uniArray = uniquifyArray(arrayGiven);
+
+  //método find necesita de una función de llamada
+  if (uniArray.find(checkWord => checkWord === wordGiven)) {
+    return true;
+  }
+
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,7 +155,25 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arrayGiven, wordGiven) {
+  if (arrayGiven.length === 0) {
+    return 0;
+  }
+  let lasPosition = 0;
+  let counter = 0;
+  //contar cuantas veces aparece una palabra dada recorriendo la array y emprzando cada iteración desde la última posición + 1 donde se encontró la palabra.
+  for (let i = 0; i < arrayGiven.length; i++) {
+    if (arrayGiven.indexOf(wordGiven, lasPosition) != -1) {
+      lasPosition = arrayGiven.indexOf(wordGiven, lasPosition) + 1;
+      i = lasPosition;
+      counter++;
+    }
+  }
+  return counter;
+}
+
 // Iteration #8: Bonus
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -71,3 +197,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let max = 0;
+  //recorrer columnas (i) y filas (j)
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      //calcular productos de 4 elementos consecutivos en fila y ver si es mayor que el max corriente
+      if ((j - 3) >= 0) {
+        if (matrix[i][j - 3] * matrix[i][j - 2] * matrix[i][j - 1] * matrix[i][j] > max) {
+          max = matrix[i][j - 3] * matrix[i][j - 2] * matrix[i][j - 1] * matrix[i][j];
+        }
+      }
+      //calcular productos de 4 elementos consecutivos en columna y ver si es mayor que el max corriente
+      if ((i - 3) >= 0) {
+        if (matrix[i - 3][j] * matrix[i - 2][j] * matrix[i - 1][j] * matrix[i][j] > max) {
+          max = matrix[i - 3][j] * matrix[i - 2][j] * matrix[i - 1][j] * matrix[i][j];
+        }
+      }
+      //calcular productos de 4 elementos consecutivos en diagonal y ver si es mayor que el max corriente
+      if ((i - 3) >= 0 && (j - 3) >= 0) {
+        if (matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3] > max) {
+          max = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3];
+        }
+      }
+    }
+  }
+  return max;
+}
