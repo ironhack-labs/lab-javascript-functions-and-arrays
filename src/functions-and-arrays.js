@@ -218,3 +218,92 @@ function multiplyYAxis(matrix, pointX, pointY, lastChoice){
   }
   return lastChoice;
 }
+
+// Iteration #8.1: Bonus
+function greatestProductOfDiagonals(matrix){
+  let bestChoice = { value: 1, greatest:[1,1,1,1]};
+
+  for(let x = 0;x < matrix.length;x++){
+    for(let y = 0;y < matrix[x].length;y++){
+      bestChoice = isGreatestProductOfDiagonals(matrix, x, y, bestChoice);
+    }
+  }
+
+  return bestChoice.value;
+}
+function isGreatestProductOfDiagonals(matrix, pointX, pointY, lastChoice){
+  lastChoice = multiplyLeftTop(matrix, pointX, pointY, lastChoice);
+  lastChoice = multiplyLeftBottom(matrix, pointX, pointY, lastChoice);
+  lastChoice = multiplyRightTop(matrix, pointX, pointY, lastChoice);
+  lastChoice = multiplyRightBottom(matrix, pointX, pointY, lastChoice);
+
+  return lastChoice;
+}
+function multiplyLeftTop(matrix, pointX, pointY, lastChoice){
+  let selectedMatrix = [];
+  let selectedValue = 1;
+
+  for (let xAxis = pointX; xAxis > (pointX-4) && xAxis >= 0;xAxis--){
+    for (let yAxis = pointY; yAxis > (pointY-4) && yAxis >= 0;yAxis--){
+      selectedMatrix.push(matrix[xAxis][yAxis]);
+      selectedValue*=matrix[xAxis][yAxis];
+    }
+  }
+
+  if (selectedValue>lastChoice.value){
+    lastChoice.value = selectedValue;
+    lastChoice.greatest = selectedMatrix;
+  }
+  return lastChoice;
+}
+function multiplyLeftBottom(matrix, pointX, pointY, lastChoice){
+  let selectedMatrix = [];
+  let selectedValue = 1;
+
+  for (let xAxis = pointX; xAxis > (pointX-4) && xAxis >= 0;xAxis--){
+    for (let yAxis = pointY; yAxis < (pointY+4) && yAxis < matrix[xAxis].length;yAxis++){
+      selectedMatrix.push(matrix[xAxis][yAxis]);
+      selectedValue*=matrix[xAxis][yAxis];
+    }
+  }
+
+  if (selectedValue>lastChoice.value){
+    lastChoice.value = selectedValue;
+    lastChoice.greatest = selectedMatrix;
+  }
+  return lastChoice;
+}
+function multiplyRightTop(matrix, pointX, pointY, lastChoice){
+  let selectedMatrix = [];
+  let selectedValue = 1;
+
+  for (let xAxis = pointX; xAxis < (pointX+4) && xAxis < matrix.length;xAxis++){
+    for (let yAxis = pointY; yAxis > (pointY-4) && yAxis >= 0;yAxis--){
+      selectedMatrix.push(matrix[xAxis][yAxis]);
+      selectedValue*=matrix[xAxis][yAxis];
+    }
+  }
+
+  if (selectedValue>lastChoice.value){
+    lastChoice.value = selectedValue;
+    lastChoice.greatest = selectedMatrix;
+  }
+  return lastChoice;
+}
+function multiplyRightBottom(matrix, pointX, pointY, lastChoice){
+  let selectedMatrix = [];
+  let selectedValue = 1;
+
+  for (let xAxis = pointX; xAxis < (pointX+4) && xAxis < matrix.length;xAxis++){
+    for (let yAxis = pointY; yAxis < (pointY+4) && yAxis < matrix[xAxis].length;yAxis++){
+      selectedMatrix.push(matrix[xAxis][yAxis]);
+      selectedValue*=matrix[xAxis][yAxis];
+    }
+  }
+
+  if (selectedValue>lastChoice.value){
+    lastChoice.value = selectedValue;
+    lastChoice.greatest = selectedMatrix;
+  }
+  return lastChoice;
+}
