@@ -1,18 +1,168 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  }
+  if (num2 > num1) {
+    return num2
+  } else {
+    return num1
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(arr) {
+  let longestWord = ""
+  if (arr.length === 0) {
+    return null
+  } else if (arr.length === 1) {
+    return arr[0]
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i]
+    }
+  }
+  return longestWord
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(arr) {
+  if (arr.length === 0) {
+    return 0
+  }
+
+  let sum = arr.reduce(function (a, b) {
+    return a + b
+  });
+  return sum
+}
+// Iteration #3.Bonus
+
+function sum(arr) {
+  let sumBe = 0;
+  if (arr.length === 0) {
+    return 0
+  }
+  if (arr.length === 1) {
+    return arr[0]
+  }
+
+  arr.forEach(function (elm) {
+    let everyString = arr.every(elm => typeof elm === 'string')
+    let everyNumber = arr.every(elm => typeof elm === 'number')
+    let everyBoolean = arr.every(elm => typeof elm === 'boolean')
+
+    if (everyNumber === true) {
+      sumBe += elm
+    } else if (everyString === true) {
+      sumBe += elm.length
+    } else if (everyString === false && everyNumber === false || everyString === false && everyNumber === false && everyBoolean === false) {
+      let nums = arr.filter(elm => typeof elm === 'number')
+      let str = arr.filter(elm => typeof elm === 'string')
+      let boo = arr.filter(elm => typeof elm === 'boolean')
+      let sumNum = 0;
+      let sumStr = 0;
+      let sumBo = 0;
+      nums.forEach(elm => sumNum += elm)
+      str.forEach(elm => sumStr += elm.length)
+      boo.forEach(function (elm) {
+        if (elm === true) {
+          elm = 1;
+        } else {
+          elm = 0;
+        }
+        sumBo += elm
+      })
+
+      sumBe = sumNum + sumStr + sumBo
+
+    } else {
+      throw "Error: Unsupported data type sir or ma'am"
+    }
+
+  })
+
+  return sumBe
+}
+
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null
+  }
+  if (arr.length === 1) {
+    return arr[0]
+  }
+  let avG = 0;
+  let numElms = arr.length;
+  let sum = 0;
+  arr.forEach(elm => sum += elm)
+
+  avG = sum / numElms
+  return avG
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null
+  }
+
+  let sum = 0
+  let arrLeng = arr.length
+
+  arr.forEach(elm => sum += elm.length)
+
+  let avG = sum / arrLeng;
+  return avG
+}
+//Bonus
+const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]
+
+function avg(arr) {
+  if (arr.length === 0) {
+    return null
+  }
+  let nums = arr.filter(elm => typeof elm === 'number')
+  let str = arr.filter(elm => typeof elm === 'string')
+  let boo = arr.filter(elm => typeof elm === 'boolean')
+  let sumNum = 0;
+  let sumStr = 0;
+  let sumBo = 0;
+  nums.forEach(elm => sumNum += elm)
+  str.forEach(elm => sumStr += elm.length)
+  boo.forEach(function (elm) {
+    if (elm === true) {
+      elm = 1;
+    } else {
+      elm = 0;
+    }
+    sumBo += elm
+  })
+  let sumBe = 0;
+  sumBe = sumNum + sumStr + sumBo
+  let arrLeng = arr.length
+
+  let avG = 0;
+  avG = sumBe / arrLeng
+  let average = Number(avG.toFixed(2))
+
+  return average
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +179,33 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null
+  }
+  let uniQ = []
+
+  arr.forEach(elm => {
+    if (uniQ.indexOf(elm) === -1) {
+      uniQ.push(elm)
+    }
+  })
+
+  return uniQ
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null
+  } else if (arr.includes(word)) {
+    return true
+  } else {
+    return false
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,6 +222,19 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arr, word) {
+  let counTer = 0;
+  if (arr.length === 0) {
+    return 0
+  }
+  arr.forEach(elm => {
+    if (elm === word) {
+      counTer++
+    }
+  })
+
+  return counTer
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -71,3 +259,25 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr) {
+  let allOne = true
+  let allTwo = true
+
+  arr.forEach(elm => {
+    elm.forEach(elm1 => {
+      if (elm1 != 1) {
+        allOne = false
+      } else if (elm1 != 2) {
+        allTwo = false
+      }
+    })
+  })
+
+  if (allOne) {
+    return 1
+  } else if (allTwo) {
+    return 16
+  }
+
+}

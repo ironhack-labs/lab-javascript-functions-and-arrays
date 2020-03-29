@@ -141,6 +141,7 @@ function doesWordExist(arr, word) {
 }
 
 
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
