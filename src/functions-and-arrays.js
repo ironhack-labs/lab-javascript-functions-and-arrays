@@ -182,7 +182,7 @@ function uniquifyArray(arrayWords) {
     }
   }
 
- return newArray; 
+  return newArray;
 
 }
 
@@ -190,20 +190,20 @@ function uniquifyArray(arrayWords) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 
-function doesWordExist(arrayWords, word){
- 
+function doesWordExist(arrayWords, word) {
+
   if (arrayWords.length === 0) {
     return null;
   }
-  
+
   for (let i = 0; i < arrayWords.length; i++) {
 
-    if(word === arrayWords[i]){
+    if (word === arrayWords[i]) {
       return true;
     }
-  } 
-   return false; 
- 
+  }
+  return false;
+
 }
 
 // Iteration #7: Count repetition
@@ -221,22 +221,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arrayWords, word){
+function howManyTimes(arrayWords, word) {
 
   if (arrayWords.length === 0) {
     return 0;
   }
 
-  let total= 0;
+  let total = 0;
 
   for (let i = 0; i < arrayWords.length; i++) {
 
-    if(word === arrayWords[i]){
+    if (word === arrayWords[i]) {
       total = total + 1;
     }
-  } 
+  }
 
-  return total; 
+  return total;
 
 }
 
@@ -265,6 +265,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix){
+function greatestProduct(matrix) {
+
+  let valor = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 3; j < matrix[i].length; j++) {
+
+      let new_valor = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] ** matrix[i][j - 3];
+
+      if (new_valor > valor) {
+        valor = new_valor;
+      }
+    }
+  }
+
+  for (let j = 0; j < matrix[0].length; j++) {
+    for (let i = 3; i < matrix.length; i++) {
+      let new_valor = matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] ** matrix[i - 3][j];
+
+      if (new_valor > valor) {
+        valor = new_valor;
+      }
+    }
+  }
   
+  return valor;
 }
+
+greatestProduct(matrix1) 
