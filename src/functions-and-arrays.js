@@ -1,15 +1,72 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1,num2);
+};
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(wordsArray){
+  if(wordsArray.length === 0){
+    return null;
+  };
+  let size = 0;
+  let longestWord = "";
+  for(let i = 0; i < wordsArray.length; i++){
+    if(wordsArray[i].length > size){
+      size = wordsArray[i].length;
+      longestWord = wordsArray[i];
+    }
+  }
+  return longestWord;
+};
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(arrayNumbers){
+  if(arrayNumbers == ""){
+    return 0;
+  };
+
+  let sum = 0;
+  for(let i = 0; i < arrayNumbers.length; i++){
+    sum+= arrayNumbers[i];
+  }
+  return sum
+};
+
+function sum(arr){
+  if(arr == ""){
+    return 0;
+  };
+
+  let sumNum = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(typeof arr[i] === "number"){
+      sumNum+= arr[i];
+    } else if (typeof arr[i] === "string"){
+      sumNum+= arr[i].length;
+    } else if (typeof arr[i] === "boolean"){
+      sumNum+=arr[i];
+    } else {
+      throw "Error: Unsupported data type sir or ma'am";
+    }
+  }
+  return sumNum
+};
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(num){
+  let averageWordLength = sumNumbers(num)/num.length;
+  if (num.length === 0){
+    return null;
+  }
+};
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
