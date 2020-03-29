@@ -49,7 +49,10 @@ function sum (anyArray) {
       sumResult += anyArray[i];
     } else if (typeof anyArray[i] == "string") {
       sumResult += anyArray[i].length;
+    } else if (typeof anyArray[i] == "object") {
+      throw new Error("Unsupported data type sir or ma'am");
     }
+
   }
   return sumResult;    
 }
@@ -115,9 +118,43 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (wordsArr) {
+  // test empty array
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  // procedure
+  for (let i = 0; i < wordsArr.length-1; i++) {
+    let check = wordsArr.indexOf(wordsArr[i], i+1);
+    // only starts the procedure if there is a match
+    if (check !== -1) {
+      wordsArr.splice(check,1);
+      // only starts the procedure if there is a match
+      if(wordsArr.indexOf(wordsArr[i], check) !== -1){
+        for (let z = check; z < wordsArr.length; z++){
+          let newCheck = (wordsArr.indexOf(wordsArr[i], check));
+          wordsArr.splice(newCheck,1);
+        }
+      }
+    }
+  }
+  return wordsArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist (wordsArr,word) {
+  // test empty array
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === word){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -133,6 +170,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes (wordsArr, word) {
+  // test empty array
+  if (wordsArr.length === 0) {
+    return 0;
+  }
+  let numTimes = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === word){
+      numTimes++;
+    }
+  }
+  return numTimes;
+}
 
 // Iteration #8: Bonus
 
@@ -158,3 +208,33 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let maxValue = 0;
+  for (let y = 0; y < matrix.length - 3; y++){
+    for (let x = 0; x < matrix[y].length - 3; x++) {
+      let tempValueX = matrix[y][x]*matrix[y][x+1]*matrix[y][x+2]*matrix[y][x+3];
+      let tempValueY = matrix[y][x]*matrix[y+1][x]*matrix[y+2][x]*matrix[y+3][x];
+      if (tempValueX > maxValue) {
+        maxValue = tempValueX;
+      }
+      if (tempValueY > maxValue) {
+        maxValue = tempValueY;
+      }
+    }
+  }
+  return maxValue;
+}
+
+function greatestProduct(matrix) {
+  let maxValueDiag = 0;
+  for (let y = 0; y < matrix.length - 3; y++){
+    for (let x = 0; x < matrix[y].length - 3; x++) {
+      let tempValue = matrix[y][x]*matrix[y+1][x+1]*matrix[y+2][x+2]*matrix[y+3][x+3];
+      if (tempValue > maxValueDiag) {
+        maxValueDiag = tempValue;
+      }
+    }
+  }
+  return maxValueDiag;
+}
