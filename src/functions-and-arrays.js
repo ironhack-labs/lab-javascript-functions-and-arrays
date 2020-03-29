@@ -171,15 +171,50 @@ const matrix = [
 ];
 
 function greatestProduct(matrix){
-  let returnValue = 1;
-  let newMatrix;
+  let bestChoice = { value: 1, greatest:[1,1,1,1]};
 
-  for(x=0;x<matrix.length;x++){
-    for(y=0;y<matrix[x].length;y++){
-      
+  for(let x = 0;x < matrix.length;x++){
+    for(let y = 0;y < matrix[x].length;y++){
+      bestChoice = isGreatestProduct(matrix, x, y, bestChoice);
     }
   }
 
+  return bestChoice.value;
+}
+function isGreatestProduct(matrix, pointX, pointY, lastChoice){
+  lastChoice = multiplyXAxis(matrix, pointX, pointY, lastChoice);
+  lastChoice = multiplyYAxis(matrix, pointX, pointY, lastChoice);
 
-  return returnValue;
+  return lastChoice;
+}
+function multiplyXAxis(matrix, pointX, pointY, lastChoice){
+  let selectedMatrix = [];
+  let selectedValue = 1;
+
+  for (let xAxis = pointX;xAxis < (pointX+4) && xAxis <  matrix.length;xAxis++){
+    selectedMatrix.push(matrix[xAxis][pointY]);
+    selectedValue*=matrix[xAxis][pointY];
+  }  
+
+  if (selectedValue>lastChoice.value){
+    lastChoice.value = selectedValue;
+    lastChoice.greatest = selectedMatrix;
+  }
+
+  return lastChoice;
+}
+function multiplyYAxis(matrix, pointX, pointY, lastChoice){
+  let selectedMatrix = [];
+  let selectedValue = 1;
+
+  for (let yAxis = pointY; yAxis < (pointY+4) && yAxis < matrix[pointX].length;yAxis++){
+    selectedMatrix.push(matrix[pointX][yAxis]);
+    selectedValue*=matrix[pointX][yAxis];
+  }
+
+  if (selectedValue>lastChoice.value){
+    lastChoice.value = selectedValue;
+    lastChoice.greatest = selectedMatrix;
+  }
+  return lastChoice;
 }
