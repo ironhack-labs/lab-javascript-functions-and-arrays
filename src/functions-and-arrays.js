@@ -1,7 +1,7 @@
 // Iteration #1: Find the maximum
 
-function maxOfTwoNumbers(num1, num2) {
-  return Math.max(num1, num2);
+function maxOfTwoNumbers(num1,num2) {
+  return Math.max(num1,num2);
 }
 
 
@@ -107,6 +107,7 @@ return sum(wordsArr)/wordsArr.length;
 }
 
 // Iteration #5: Unique arrays
+// indexOf Array method.  function uniquifyArray that receives an array of words as a argument.
 const wordsUnique = [
   'crab',
   'poison',
@@ -121,9 +122,20 @@ const wordsUnique = [
   'bring'
 ];
 
+//function uniquifyArray(wordsArr){
+
+//if (wordsArr.length==0) return; null
+//let returnValue = [''];
+
+//for (let word=0; word<wordsArray.length; word++)
+//if( 
+
+//}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+//array search.
+//remember ejercicio contar palabras  lorem
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -139,6 +151,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsArray, word){
+  let wordCounts = 0;
+
+  for(let b=0; b<wordsArray.length;b++){
+    if(wordsArray[w]===word) wordCounts++;
+  }
+
+  return wordCounts;
+}
 
 // Iteration #8: Bonus
 
