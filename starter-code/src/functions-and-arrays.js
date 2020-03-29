@@ -39,17 +39,12 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let count = 0;
 
 function sumArray(arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
-  if (arr.length === 1) {
-    return arr[0];
-  }
+  let sum = 0;
 
   for (let i = 0; i < arr.length; i++) {
-    count += arr[i];
+    sum += arr[i];
   }
-  return count;
+  return sum;
 }
 
 // Iteration #4: Calculate the average
@@ -60,12 +55,14 @@ function averageNumbers(arr) {
   if (arr.length === 0) {
     return null;
   }
-  let average = 0;
-  for (let i = 0; i < arr.length; i++) {
-    average += Math.round(arr[i] / arr.length);
-  }
-  return average;
+  // let average = 0;
+  // for (let i = 0; i < arr.length; i++) {
+  //   average += Math.round(arr[i] / arr.length);
+  // }
+  return sumArray(arr) / arr.length;
 }
+
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -82,18 +79,14 @@ const wordsArr = [
 ];
 
 function averageWordLength(arr) {
-  let averageWord = 0;
-  let sumLength = 0;
+  let lengthArr = [];
   if (arr.length === 0) {
     return null;
   }
-  for (let i = 0; i < arr.length; i++) {
-    sumLength += arr[i].length;
-  }
-  averageWord = sumLength / arr.length;
-
-
-  return averageWord;
+  arr.forEach(element => {
+    lengthArr.push(element.length)
+  });
+  return averageNumbers(lengthArr);
 
 
 }
@@ -119,29 +112,40 @@ const wordsUnique = [
   'bring'
 ];
 
+
+
+
+
 function uniquifyArray(arr) {
   if (arr.length === 0 || arr.length === 1) {
     return arr;
   } else {
 
+    // for (let i = 0; i < arr.length; i++) {
+
+    //   let index = arr.indexOf(arr[i]);
+
+    //   while (index != -1) {
+    //     index = arr.indexOf(arr[i], index + 1);
+    //     if (index != -1) {
+    //       arr.splice(index, 1);
+    //     }
+
+    //   }
+
+    // }
+    let uniquifiedArray = []
     for (let i = 0; i < arr.length; i++) {
-
-      let index = arr.indexOf(arr[i]);
-
-      while (index != -1) {
-        index = arr.indexOf(arr[i], index + 1);
-        if (index != -1) {
-          arr.splice(index, 1);
-        }
-
+      if (i === arr.lastIndexOf(arr[i])) {
+        uniquifiedArray.push(arr[i]);
       }
-
-    }
-    return arr;
+    };
+    return uniquifiedArray;
 
   }
 
 }
+
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -156,11 +160,7 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word) {
-  if (arr.includes(word)) {
-    return true;
-  } else {
-    return false;
-  }
+  return arr.includes(word)
 }
 
 // Iteration #7: Count repetition
@@ -218,9 +218,8 @@ const matrix = [
 function greatestProduct(arr) {
 
   let greatestProd = 0;
-  let prod = 0
 
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < 16; j++) {
       if (arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3] > greatestProd) {
         greatestProd = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3]
@@ -228,7 +227,7 @@ function greatestProduct(arr) {
 
     }
   }
-  for (let j = 0; j < 16; j++) {
+  for (let j = 0; j < arr.length; j++) {
     for (let i = 0; i < 16; i++) {
       if (arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j] > greatestProd) {
         greatestProd = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j]
@@ -244,25 +243,9 @@ function greatestProduct(arr) {
 
 function greatestProductOfDiagonals(arr) {
 
-  let greatestProd = 0;
-  let prod = 0
+  let greatestProd = greatestProduct(arr);
 
-  for (let i = 0; i < 16; i++) {
-    for (let j = 0; j < 16; j++) {
-      if (arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3] > greatestProd) {
-        greatestProd = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3]
-      }
 
-    }
-  }
-  for (let j = 0; j < 16; j++) {
-    for (let i = 0; i < 16; i++) {
-      if (arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j] > greatestProd) {
-        greatestProd = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j]
-      }
-
-    }
-  }
   for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
       if (arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3] > greatestProd) {
