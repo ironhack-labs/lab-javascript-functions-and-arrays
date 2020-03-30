@@ -89,6 +89,26 @@ function averageNumbers(arrayNumbers) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(words) {
+  let returnValue;
+
+  if (words.length === 0) {
+    returnValue = null;
+    return returnValue;
+  }
+  returnValue = sum(words) / words.length.toFixed(2);
+
+  return returnValue;
+}
+
+function avg(arrayWords) {
+  if (arrayWords.length === 0) return null;
+
+  let returnValue = (sum(arrayWords) / arrayWords.lenght).toFixed(2);
+
+  return parseFloat(returnValue);
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
