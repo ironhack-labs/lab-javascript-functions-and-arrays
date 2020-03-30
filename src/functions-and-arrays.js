@@ -33,11 +33,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbersArray) {
   let returnValue = 0;
 
-  if (numbersArray.lenght === 0) {
-    returnValue = null;
-    return returnValue;
-  }
-
   numbersArray.forEach(element => {
     returnValue += element;
     return returnValue;
@@ -82,9 +77,9 @@ function averageNumbers(arrayNumbers) {
     return returnValue;
   }
 
-  returnValue = sum(arrayNumbers) / arrayNumbers.lenght;
+  returnValue = (sum(arrayNumbers) / arrayNumbers.length).toFixed(2);
 
-  return returnValue;
+  return parseFloat(returnValue);
 }
 
 // Level 2: Array of strings
@@ -98,7 +93,7 @@ function averageWordLength(words) {
     returnValue = null;
     return returnValue;
   }
-  returnValue = sum(words) / words.length.toFixed(2);
+  returnValue = (sum(words) / words.length);
 
   return returnValue;
 }
@@ -106,7 +101,7 @@ function averageWordLength(words) {
 function avg(arrayWords) {
   if (arrayWords.length === 0) return null;
 
-  let returnValue = (sum(arrayWords) / arrayWords.lenght).toFixed(2);
+  let returnValue = (sum(arrayWords) / arrayWords.length).toFixed(2);
 
   return parseFloat(returnValue);
 }
