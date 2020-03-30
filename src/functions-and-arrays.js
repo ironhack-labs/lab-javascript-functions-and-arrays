@@ -192,7 +192,7 @@ function howManyTimes(arr,word) {
   };
 };
 
-// Iteration #8: Bonus
+// Iteration #8: Bonus - Product of adjacent numbers
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -251,7 +251,7 @@ function greatestProduct(arr) {
 
 function greatestProduct(arr) {
 
-  greatestProd = 0;
+  let greatestProd = 0;
   i= 0;
   j= 0;
   let productPosition = 0;
@@ -274,7 +274,6 @@ function greatestProduct(arr) {
       productPosition = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j]
       if (productPosition > greatestProd) {
         greatestProd = productPosition
-        console.log(i,j,arr[i][j],arr[i+1][j],arr[i+2][j],arr[i+3][j]);
       };
       j++;
     };
@@ -283,4 +282,43 @@ function greatestProduct(arr) {
   };
 
   return greatestProd;
+};
+
+
+// Iteration #8.1: Bonus - Product of diagonals
+
+function greatestProductOfDiagonals(arr) {
+
+  let greatestDiagProd = 0;
+  i= 0;
+  j= 0;
+  let productPosition = 0;
+
+  while (i<arr.length-3) {
+    while (j<arr[i].length-3) {
+      productPosition = arr[i][j]*arr[i+1][j+1]*arr[i+2][j+2]*arr[i+3][j+3]
+      if (productPosition > greatestDiagProd) {
+        greatestDiagProd = productPosition
+      };
+      j++;
+    };
+    i++;
+    j=0;
+  };
+
+  i= 3;
+  j= 0;
+  while (i<arr.length) {
+    while (j<arr[i].length-3) {
+      productPosition = arr[i][j]*arr[i-1][j+1]*arr[i-2][j+2]*arr[i-3][j+3]
+      if (productPosition > greatestDiagProd) {
+        greatestDiagProd = productPosition
+      };
+      j++;
+    };
+    i++;
+    j=0;
+  };
+
+  return greatestDiagProd;
 };
