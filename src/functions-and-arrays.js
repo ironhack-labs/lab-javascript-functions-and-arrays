@@ -47,20 +47,25 @@ function sumNumbers(numbersArray) {
 
 // Bonus - Iteration #3.1: A generic sum() function
 
-function sum(array) {
+function sum(arrayObjects) {
   let returnValue = 0;
 
-  for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === 'number') {
-      returnValue += array[i];
-    } else if (typeof array[i] === 'boolean') {
-      returnValue += array[i];
-    } else if (typeof array[i] === 'string') {
-      returnValue += array[i].length;
-    } else {
-      throw new Error("Unsupported data type sir or ma'am");
+  arrayObjects.forEach(element => {
+    switch (typeof (element)) {
+      case 'number':
+        returnValue += element;
+        break;
+      case 'boolean':
+        returnValue += element;
+        break;
+      case 'string':
+        returnValue += element.length;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
     }
-  }
+  });
+
   return returnValue;
 }
 
