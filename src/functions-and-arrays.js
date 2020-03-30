@@ -180,6 +180,23 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(words, word) {
+  let returnValue = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    if ((i === words.length - 1) && (words[i] != word)) {
+      break;
+
+    } else if (words[i] != word) {
+      continue;
+      
+    } else {
+      returnValue++;
+    }
+  }
+  return returnValue;
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
