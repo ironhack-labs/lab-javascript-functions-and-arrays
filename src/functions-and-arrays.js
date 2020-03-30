@@ -110,6 +110,7 @@ function avg(arrayWords) {
 }
 
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -123,6 +124,19 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(wordsArray){
+  let returnValue = [];
+
+  if (wordsArray.length === 0) {
+    returnValue = null;
+    return returnValue;
+  }
+
+  wordsArray.filter(function(item, index, array) {
+    returnValue=  array.indexOf(item) === index;
+  })
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
