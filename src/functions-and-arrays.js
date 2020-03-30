@@ -1,18 +1,98 @@
+const testArr = (someArr, message) => {
+  if (!someArr.length) {
+    return message;
+  }
+}
 // Iteration #1: Find the maximum
-
+const maxOfTwoNumbers = (num1, num2) => {
+  return Math.max(num1, num2);
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+
+const findLongestWord = wordsArray => {
+  let tam = 0;
+  let winner = null;
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i].length > tam) {
+      tam = wordsArray[i].length;
+      winner = wordsArray[i];
+    }
+  }
+  return winner;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = arrayNumbers => {
+  testArr(arrayNumbers, null);
+  let resultado = 0;
+  arrayNumbers.forEach(e => {
+    resultado += e;
+  });
+  return resultado;
+};
+//Bonus
+const sum = mixedArr => {
+  testArr(mixedArr, null);
+  //Variable de control
+  let suma = 0;
+  //Analizamos cada componente de la string con el bucle for y le damos el valor correspondiente.
+  for (let i = 0; i < mixedArr.length; i++) {
+    switch (typeof mixedArr[i]) {
+      case 'boolean':
+        suma += mixedArr[i]
+        break;
+      case 'string':
+        suma += mixedArr[i].length;
+        break;
+      case 'number':
+        suma += mixedArr[i];
+        break;
+      default:
+        throw (new Error("Unsupported data type sir or ma'am"));
+    }
+  }
+  return suma;
+}
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = someArr => {
+  //Aqui he intentado llamar la funcion testArr() pero Jasmine me arroja error.
+  if (!someArr.length) {
+    return null;
+  }
+  return sumNumbers(someArr) / someArr.length;
+
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = stringArr => {
+  //La funcion testArr() me devuelve error
+  if (stringArr.length === 0) {
+    return null;
+  }
+  return sum(stringArr) / stringArr.length;
+
+}
+//Bonus
+const avg = avgArr => {
+  //La funcion testArr() me devuelve error
+  if (avgArr.length === 0) {
+    return null;
+  }
+  //Retornamos resultado con dos decimales con los metodos parseFloat() y toFixed()
+  return parseFloat((sum(avgArr) / avgArr.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,9 +109,31 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = wordsArr => {
+  //La funcion testArr() me devuelve error
+  if (!wordsArr.length) {
+    return null;
+  }
+  //Variables de control
+  let tempString = [];
+  let definitiveArray = [];
+  //Loop utilizando el metodo .include() para analizar strings existentes.
+  for (let i = 0; i < wordsArr.length; i++) {
+    definitiveArray.includes(wordsArr[i]) ?
+      tempString.push(wordsArr[i]) :
+      definitiveArray.push(wordsArr[i]);
+  }
+  return definitiveArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+const doesWordExist = (wordsArr, wordSearch) => {
+  if (!wordsArr.length) {
+    return null;
+  }
+  return wordsArr.includes(wordSearch);
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,7 +148,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+const howManyTimes = (wordsArr, wordSearch) => {
+  //Tampoco funciona correctamente la funcion testArr()
+  if (!wordsArr.length) {
+    return 0;
+  }
+  //Variable de control
+  let count = 0;
+  //El bucle incrementa el valor de count cuando .includes() devuelve true
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].includes(wordSearch)) {
+      count++;
+    }
+  }
+  return count;
+}
 // Iteration #8: Bonus
 
 const matrix = [
