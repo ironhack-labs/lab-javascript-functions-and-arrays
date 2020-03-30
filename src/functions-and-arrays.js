@@ -76,6 +76,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayNumbers) {
   let returnValue;
+
   if (arrayNumbers.length === 0) {
     returnValue = null;
     return returnValue;
@@ -126,7 +127,7 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsArray) {
+/*function uniquifyArray(wordsArray) {
   let returnValue = [];
 
   if (wordsArray.length === 0) {
@@ -137,6 +138,23 @@ function uniquifyArray(wordsArray) {
   wordsArray.filter(function (item, index, array) {
     returnValue = array.indexOf(item) === index;
   })
+}*/
+
+function uniquifyArray(arrayWords) {
+  let returnValue = [];
+
+  if (arrayWords.length === 0) {
+    returnValue = null;
+    return returnValue;
+  }
+
+  for (let i = 0; i < arrayWords.length; i++) {
+    if (!doesWordExist(returnValue, arrayWords[i])) {
+      returnValue.push(arrayWords[i]);
+    }
+  }
+
+  return returnValue;
 }
 
 // Iteration #6: Find elements
@@ -189,7 +207,7 @@ function howManyTimes(words, word) {
 
     } else if (words[i] != word) {
       continue;
-      
+
     } else {
       returnValue++;
     }
@@ -221,3 +239,35 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let returnValue;
+  let greatProduct = 0;
+
+  for (let i = 0; i < matrix.length - 4; i++) {
+    for (let j = 0; j < matrix[i].length - 4; j++) {
+
+      let horizontalProduct = 1;
+
+      for (let k = j; k < (j + 4); k++) {
+        horizontalProduct *= matrix[i][k];
+      }
+
+      if (horizontalProduct > greatProduct) {
+        greatProduct = horizontalProduct;
+      }
+
+      let verticalProduct = 1;
+
+      for (let k = i; k < (i + 4); k++) {
+        verticalProduct *= matrix[k][j];
+      }
+
+      if (verticalProduct > greatProduct) {
+        greatProduct = verticalProduct;
+      }
+    }
+  }
+  returnValue = greatProduct;
+  return returnValue;
+}
