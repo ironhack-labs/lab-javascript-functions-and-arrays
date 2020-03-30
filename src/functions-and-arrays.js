@@ -67,36 +67,19 @@ function sum(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     //ir haciendo la suma
-    try {
-      if (typeof arr[i] === 'number') {
-        suma += arr[i];
-      } else if (typeof arr[i] === 'boolean') {
-        suma += arr[i];
-      } else if (typeof arr[i] === 'string') {
-        suma += arr[i].length;
-      } else if (typeof arr[i] === 'object'){
-        console.log(typeof arr[i]);
-        throw "Unsupported data type sir or ma'am";
-      }
-    }
-    
-    catch(e) {
-      return e;
-    };
-    
-
-    /*
     if (typeof arr[i] === 'number') {
       suma += arr[i];
     } else if (typeof arr[i] === 'boolean') {
       suma += arr[i];
     } else if (typeof arr[i] === 'string') {
       suma += arr[i].length;
-    } 
-    */
-
-  }
-  return suma;
+    } else if (typeof arr[i] === 'object'){
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    
+  };
+  
+    return suma;
 
 };
 
@@ -111,9 +94,9 @@ function averageNumbers(arrayNumbers) {
     return null;
   }
   
-  avg = sum(arrayNumbers)/arrayNumbers.length;
+  average = sum(arrayNumbers)/arrayNumbers.length;
 
-  return avg;
+  return average;
 
 }
 
@@ -132,25 +115,20 @@ function averageWordLength(arrayStrings) {
   for (let i = 0; i < arrayStrings.length; i++) {
     suma += arrayStrings[i].length
   }
-  avg = suma/arrayStrings.length;
+  average = suma/arrayStrings.length;
 
-  return avg;
+  return average;
 
 }
 
-function avg(arrayMixed) {
-
-  //probar si null
-  if (arrayMixed.length === 0) {
+function avg(arr) {
+  if (arr.length === 0) {
     return null;
   }
 
-  suma = sum(arrayMixed);
+  averAge = Math.round((sum(arr)/(arr.length)) * 100) / 100;
 
-  avg = suma/arrayMixed.length;
-
-  return avg;
-
+  return averAge;
 }
 
 // Iteration #5: Unique arrays
