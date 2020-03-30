@@ -74,6 +74,18 @@ function sum(arrayObjects) {
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrayNumbers) {
+  let returnValue;
+  if (arrayNumbers.length === 0) {
+    returnValue = null;
+    return returnValue;
+  }
+
+  returnValue = sum(arrayNumbers) / arrayNumbers.lenght;
+
+  return returnValue;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
