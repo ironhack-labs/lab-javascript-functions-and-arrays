@@ -49,10 +49,9 @@ function sum(arrayMix) {
       sum += arrayMix[i];
     } else if (typeof arrayMix[i] === "string") {
       sum += arrayMix[i].length;
-    } else {
+    } else if (typeof arrayMix[i] === "object") {
       throw new Error("Unsupported data type sir or ma'am");
-    }
-
+    }else {}
   }
   return sum;
 }
