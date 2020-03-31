@@ -12,7 +12,7 @@ function maxOfTwoNumbers(x,y)
 	}
 	else
 	{
-		console.log("The values are the same")
+		return x;
 	}
 }
 
@@ -22,6 +22,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr)
  {
+	if(arr.length === 0) {return null;}
 	let longestWordPoint = 0;
 	for (i=0; i<arr.length; i++)
 	{
@@ -53,6 +54,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr)
 {
+	if (arr.length === 0) { return null; }
 	let sumOfNumbers = 0
 	for(i=0; i<arr.length; i++)
 	{
@@ -64,8 +66,9 @@ function averageNumbers(arr)
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-averageWordLength
+function averageWordLength(arr)
 {
+	if(arr.length === 0) {return null;}
 	let sumOfNumbers = 0
 	for(i=0; i<arr.length; i++)
 	{
@@ -91,9 +94,10 @@ const wordsUnique = [
 
 function uniquifyArray(arr)
 {
+	if (arr.length === 0) { return null };
 	for(i=0; i<arr.length; i++)
 	{
-		if(arr.indexOf(arr[i],i+1) !== -1)
+		while(arr.indexOf(arr[i],i+1) !== -1)
 		{
 			arr.splice(arr.indexOf(arr[i],i+1),1)
 		}
@@ -106,6 +110,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(arr,word)
 {
+	if (arr.length === 0) { return null; }
 	for(i=0;i<arr.length;i++)
 	{
 		if(arr[i] == word)
@@ -133,6 +138,7 @@ const wordsCount = [
 
 function howManyTimes(arr,word)
 {
+	if(arr.length === 0) {return 0;}
 	let numOfTimes = 0
 	for(i=0; i<arr.length; i++)
 	{
