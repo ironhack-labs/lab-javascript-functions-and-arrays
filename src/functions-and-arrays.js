@@ -1,18 +1,107 @@
 // Iteration #1: Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const findLongestWord = (arr) => {
+  let maxLength = 0;
+  let longestWord = null;
+
+  arr.forEach((element) => {
+    if (element.length > maxLength) {
+        maxLength = element.length;
+        longestWord = element;
+    }
+  })
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = (numbers) => {
+  let sum = 0;
+  for (const number of numbers) {
+    sum += number;
+  }
+  return sum
+}
+
+// BONUS | Iteration 3.1.
+const sum = (arr) => {
+  let totalSum = 0;
+
+  for (const element of arr) {
+    switch (typeof element) {
+      case "number":
+        totalSum += element;
+        break;
+      case "boolean":
+        totalSum += element ? 1 : 0;
+        break;
+      case "string":
+        totalSum += element.length;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return totalSum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = (numbers) => {
+  if (numbers.length === 0) { return null };
+  
+  let sum = 0;
+  for (const number of numbers) {
+    sum += number;
+  }
+  return sum/numbers.length;
+}
+
+// BONUS | Iteration 4.1.
+const avg = (arr) => {
+  if (arr.length === 0) { return null};
+  
+  let totalSum = 0;
+
+  for (const element of arr) {
+    switch (typeof element) {
+      case "number":
+        totalSum += element;
+        break;
+      case "boolean":
+        totalSum += element ? 1 : 0;
+        break;
+      case "string":
+        totalSum += element.length;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  
+  let avg = totalSum/arr.length; 
+  return avg.toFixed(2) * 1;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = (wordsArr) => {
+  if (wordsArr.length === 0) { return null };
+  
+  let sum = 0;
+  for (const word of wordsArr) {
+    sum += word.length;
+  }
+  return sum/wordsArr.length;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +118,43 @@ const wordsUnique = [
   'bring'
 ];
 
+// Option 1
+// const uniquifyArray = (wordsUnique) => {
+//   if (wordsUnique.length === 0) { return null };
+  
+//   let outputArray = [];
+//   for (const word of wordsUnique) {
+//     if (!outputArray.includes(word)) {
+//       outputArray.push(word);
+//     }
+//   }
+
+//   return outputArray;
+// }
+
+// Option 2
+function uniquifyArray(arr)
+{
+  if (arr.length === 0) { return null };
+
+	for(i=0; i<arr.length; i++)
+	{
+		while(arr.indexOf(arr[i],i+1) !== -1)
+		{
+			arr.splice(arr.indexOf(arr[i],i+1),1)
+		}
+	}
+  return arr
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (wordsFind, wordToFind) => {
+  if (wordsFind.length === 0) { return null };
+  return wordsFind.includes(wordToFind);
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +170,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const howManyTimes = (wordsFind, wordToFind) => {
+  if (wordsFind.length === 0) { return 0 };
+  let times = 0;
+
+  for (const word of wordsFind) {
+    if (wordToFind === word) { times++ } 
+  }
+  
+  return times;
+}
+
 
 // Iteration #8: Bonus
 
@@ -71,3 +206,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Iteration #8: Bonus
+
+const greatestProduct = (matrix) => {
+  let lengthOfGroup = 4; // Will take product of a group of 4 elements 
+  let greatestProduct = 0;
+
+// Going through matrix with x up to down and y left to right
+// Review all vertical options
+  for (let x = 0; x < matrix.length - lengthOfGroup + 1; x++) {
+    for (let y = 0; y < matrix[0].length; y++) {
+      console.log(x, y);
+      console.log(matrix[x][y]);
+      let currentProduct = matrix[x][y] * matrix[x+1][y] * matrix[x+2][y] * matrix[x+3][y];
+      greatestProduct = Math.max(greatestProduct, currentProduct);
+    }
+  }
+
+  // Review all horizontal options
+  for (let x = 0; x < matrix.length; x++) {
+    for (let y = 0; y < matrix[0].length - lengthOfGroup + 1; y++) {
+      let currentProduct = matrix[x][y] * matrix[x][y+1] * matrix[x][y+2] * matrix[x][y+3];
+      greatestProduct = Math.max(greatestProduct, currentProduct);
+    }
+  }
+
+  return greatestProduct;
+}
+
