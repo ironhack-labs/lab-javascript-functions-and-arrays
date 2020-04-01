@@ -117,18 +117,19 @@ const wordsCount = [
   'matter'
 ];
 
-const howManyTimes = (arr, searchWord) =>  {
-  if(arr.length === 0) return 0;
+function howManyTimes(array, searchWord) {
+  if (array.length === 0) return 0;
   let nTimes = 0;
 
-  for(let word of array) {
-    if(word === searchWord) nTimes++;
+  for (let word of array) {
+    if (word === searchWord) nTimes++;
   }
   return nTimes;
 }
 
-
 // Iteration #8: Bonus
+
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
