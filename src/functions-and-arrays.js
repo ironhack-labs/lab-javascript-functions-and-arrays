@@ -47,7 +47,6 @@ const averageNumbers= (numbers) => {
 }
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -63,12 +62,27 @@ const wordsUnique = [
   'bring'
 ];
 function uniquifyArray(arr){
-  if (arr.length===0)
+  if (arr.length===0){
   return null;
+}
+let uniquifyArray=[]
+for(i=0; i<arr.length; i++){
+  if(uniquifyArray.indexOf(arr[i]) ===-1){
+    uniquifyArray.push(arr[i]);
+  }
+}
+return uniquifyArray;
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (wordsFind, wordToFind) => {
+  if (wordsFind.length === 0) { return null };
+  return wordsFind.includes(wordToFind);
+}
+ 
 
+
+  
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -83,6 +97,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(arr, searched){
+if(arr.length===0){
+  return 0;
+}
+let nTimes=0;
+for(i=0; i<arr.length; i++){
+  if(arr[i]===searched) nTimes ++; 
+}
+return nTimes;
+}
 
 // Iteration #8: Bonus
 
@@ -108,3 +132,30 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+const greatestProduct= (arr)=>{
+  let biggestProduct=0;
+
+  for( let i=0; i<arr.length; i++){
+    let row= arr[i];
+    for(let j=0; j<row.length; j++){
+      let number= row[j]
+      let secondNumber = row[j+1] ? row[j+1] :1 
+      let thirdNumber= row[j+2] ? row[j+2]:1
+      let fourthNumber= row[j+3]? row[j+3]:1
+      let product = number * secondNumber * thirdNumber * fourthNumber;
+      if(product > biggestProduct)
+      biggestProduct= product
+
+      let vNumber= arr[i][j]
+      let vSecondNumber= arr[i+1] ? arr[i+1][j] :1
+      let vThirdNumber= arr[i+2] ? arr[i+2][j] :1
+      let vFourthNumber= arr[i+3] ? arr[i+3][j] :1
+      product= vNumber * vSecondNumber * vThirdNumber * vFourthNumber
+      if(product > biggestProduct)
+      biggestProduct= product
+      
+      console.log(product)
+    }
+  }
+  return biggestProduct
+}
