@@ -46,14 +46,20 @@ function sumNumbers(array) {
 }
 
 function sum(array) {
-  result = 0;
-  if (array.length === 0) {
-    return 0;
-  } else if (array.length === 1) {
-    return array[0];
-  }
-
+  // let result = 0;
+  // if (array.length === 0) {
+  //   return 0;
+  // } else {
+  //   for (let i = 0; i < array.length; i++) {
+  //     result = array[i];
+  //   }
+  //   if (typeof (result) == Number) {
+  //     function sumNumbers(result);
+  //   }
+  // }
 }
+
+
 //A FINIR
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -66,7 +72,7 @@ function averageNumbers(array) {
     return null;
   } else {
     for (let i = 0; i < array.length; i++) {
-      result = (sum += array[i]) / array.length
+      result = (sum += array[i]) / array.length;
     }
   }
   return result;
@@ -82,7 +88,7 @@ function averageWordLength(array) {
   } else {
     for (let i = 0; i < array.length; i++) {
       str += array[i];
-      result = str.length/array.length;
+      result = str.length / array.length;
     }
   }
   return result;
@@ -103,16 +109,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(array){
-if (array.length===0){
-  return null;
-}
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null;
+  }
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(){
+function doesWordExist() {
 
 };
 // Iteration #7: Count repetition
@@ -130,7 +136,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(){
+function howManyTimes() {
 
 }
 
@@ -159,14 +165,13 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(array){
+function greatestProduct(array) {
   let sum = 0;
-  for (let i = 0; i<array.length; i++){
-if ((sum+=array[i])===array.length ){
-  return 1;
-} else if (((sum += array[i])*2) === (array.length)*2) {
-  return 16;
+  for (let i = 0; i < array.length; i++) {
+    if ((sum += array[i]) === array.length) {
+      return 1;
+    } else if (((sum += array[i]) * 2) === (array.length) * 2) {
+      return 16;
+    } else break
   }
-  else break
-}
 }
