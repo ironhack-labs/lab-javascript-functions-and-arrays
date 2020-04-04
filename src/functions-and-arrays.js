@@ -133,8 +133,7 @@ const wordsUnique = [
 // }
 
 // Option 2
-function uniquifyArray(arr)
-{
+function uniquifyArray(arr) {
   if (arr.length === 0) { return null };
 
 	for(i=0; i<arr.length; i++)
