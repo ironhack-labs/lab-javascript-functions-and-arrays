@@ -120,11 +120,13 @@ function doesWordExist(wordsArr, word) {
     if (wordsArr[i] === word){
       return true;
     }
-  }
+  }  
   return false;
 }
 
-console.log(doesWordExist(wordsFind));
+
+console.log(doesWordExist(wordsFind,'starting'));
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -150,12 +152,13 @@ function howManyTimes (wordsArr, word) {
   for (let i = 0; i < wordsArr.length; i++) {
     if (wordsArr[i] === word){
       nTimes++;
-    }
+    } 
   }
   return nTimes;
 }
 
 console.log(howManyTimes(wordsCount));
+
 
 // Iteration #8: Bonus
 
@@ -181,3 +184,28 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (array) {
+  let product = 0;
+  let max = 0;
+  for (let x=0; x < array.length; x++) {
+  for (let y=0; y < array.length; y++) {
+    if (array.length - x >= 4) {
+    product = array[y][x]*array[y][x+1]*array[y][x+2]*array[y][x+3];
+    }
+    if (product > max) {
+      max = product;
+    }
+    if (array.length - y >= 4) {
+    product = array[y][x]*array[y+1][x]*array[y+2][x]*array[y+3][x];
+    }
+    if (product > max) {
+      max = product;
+    }
+  }
+  }
+  console.log(`The highest product is = ${max}`)
+  return max;
+};
+
+console.log(greatestProduct(matrix));
