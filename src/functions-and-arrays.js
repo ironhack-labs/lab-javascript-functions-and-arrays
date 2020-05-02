@@ -6,7 +6,7 @@ function maxOfTwoNumbers(firstNumber,secondNumber) {
     return secondNumber
   }
   */
-  return Math.maxOfTwoNumbers(firstNumeber,secondNumber)  
+  return Math.maxOfTwoNumbers(firstNumber,secondNumber)  
 }
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
