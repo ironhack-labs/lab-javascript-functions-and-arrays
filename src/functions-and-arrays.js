@@ -1,4 +1,7 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumber(num1, num2) {
+  num1 > num2 ? console.log('el primer parámetro es mayos que el segundo') : console.log('el segundo parámetro es mayo que el primero');
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
