@@ -92,7 +92,28 @@ function averageWordLength(array) {
   return average
 }
 
-
+//Bonus 4.1: avg(arr)
+function avg(array) {
+  if (array.length === 0){
+    return null
+  }
+ let totalNumberLetters = 0
+ for (let i = 0; i < array.length; i++){
+   if (typeof array[i] === 'string'){
+     totalNumberLetters += array[i].length
+   } else if (typeof array[i] === 'boolean') {
+       if (array[i] === true){
+         totalNumberLetters +=1
+       }
+   } else if (typeof array[i] === 'number'){
+     totalNumberLetters += array[i]
+   } else {
+     throw Error("Unsupported data type sir or ma'am")
+   }
+ }
+ const average = totalNumberLetters / array.length
+ return Math.round(average * 100) / 100;
+}
 
 
 // Iteration #5: Unique arrays
