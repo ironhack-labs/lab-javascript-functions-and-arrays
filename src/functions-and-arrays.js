@@ -79,6 +79,18 @@ function averageNumbers(array) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(array) {
+  if (array.length === 0){
+    return null
+  }
+
+  let totalLetters = 0
+  for (let i = 0; i < array.length; i++){
+    totalLetters += array[i].length
+  }
+  const average = totalLetters / array.length
+  return average
+}
 
 
 
