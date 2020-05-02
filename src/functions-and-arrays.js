@@ -40,6 +40,23 @@ function sumNumbers(array) {
 //Iteration #3.1: Sum of every character
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(array) {
+  let summatory = 0
+  for (let i = 0; i < array.length; i++){
+    if (typeof array[i] === 'string'){
+      summatory += array[i].length
+    } else if (typeof array[i] === 'boolean') {
+        if (array[i] === true){
+          summatory +=1
+        }
+    } else if (typeof array[i] === 'number'){
+        summatory += array[i]
+    } else {
+      throw Error("Unsupported data type sir or ma'am")
+    }
+  }
+  return summatory
+}
 
 
 // Iteration #4: Calculate the average
