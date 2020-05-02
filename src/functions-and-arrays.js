@@ -29,10 +29,11 @@ function sumNumbers(numbers) {
   for (i = 0; i < numbers.length; i++) {
     result += numbers[i]
   }
-  console.log(result);
+  return result;
 }
 
-sumNumbers(numbers)
+ console.log(sumNumbers(numbers));
+  
 
 
 // Iteration #4: Calculate the average
@@ -40,6 +41,8 @@ sumNumbers(numbers)
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 let averageNums = 0
+
+sumNumbers
 
 
 // Level 2: Array of strings
