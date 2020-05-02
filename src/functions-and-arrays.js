@@ -54,12 +54,14 @@ function sum(itemsArray) {
       sumItems += itemsArray[i]
     } else if (typeof itemsArray[i] === "string") {
       sumItems += itemsArray[i].length
-    } else if (typeof itemsArray[i] === "boolean") {
+    } else if (itemsArray[i] === true) {
       sumItems += 1
+    } else if (itemsArray[i] === false) {
+      sumItems += 0
     } else if (typeof itemsArray[i] === "object") {
-      return "Error"
+      throw new Error("Unsupported data type sir or ma'am")
     } else if (typeof itemsArray[i] === "array") {
-      return "Error"
+      throw new Error("Unsupported data type sir or ma'am")
     }
   }
   return sumItems
@@ -72,7 +74,7 @@ sum(mixedArr)
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]
 
 function averageNumbers(arrayNumbers) {
-  if (arrayNumbers.length === 0) return 0
+  if (arrayNumbers.length === 0) return null
 
   const average = sum(arrayNumbers) / arrayNumbers.length
   return average
@@ -101,7 +103,8 @@ const anotherMixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 1
 
 function avg(itemsArray) {
   if (itemsArray.length === 0) return null
-  return sum(itemsArray) / itemsArray.length
+  const result = Math.floor((sum(itemsArray) / itemsArray.length) * 100) / 100
+  return result
 }
 
 avg(anotherMixedArr)
@@ -126,9 +129,12 @@ function uniquifyArray(arr) {
   if (arr.length === 0) return null
 
   for (i = 0; i < arr.length; i++) {
-    for (j = ++i; j < arr.length; j++) {
+    console.log(`i = ${i}`)
+    for (j = i + 1; j < arr.length; j++) {
+      console.log(`j = ${j}`)
       if (arr[i] === arr[j]) {
         arr.splice(j, 1);
+        console.log(arr)
       }
     }
   }
@@ -169,7 +175,7 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  if (arr.length === 0) return null
+  if (arr.length === 0) return 0
   let wordTimes = 0
   for (i = 0; i < arr.length; i++) {
     if (arr[i] === word) {
