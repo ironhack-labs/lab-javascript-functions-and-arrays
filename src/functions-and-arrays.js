@@ -84,6 +84,22 @@ function averageWordLength(arr) {
   return average;
 }
 
+// Bonus #4 
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let sumOfArray = 0;
+  arr.forEach( function(item) {
+    if(typeof item === 'number' || typeof item === 'boolean') {
+      sumOfArray += Number(item);
+    } else {
+      sumOfArray += item.length;
+    }
+  });
+  return Number((sumOfArray / arr.length).toFixed(2));;
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
