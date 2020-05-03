@@ -33,7 +33,24 @@ function sumNumbers(numbers) {
 }
 
 //Iteration #3 Bonus: Calculate the sum of array elements
-
+function sum(elements) {
+  let result = 0;
+  elements.forEach( function(item) {
+    switch(typeof item) {
+      case 'string':
+        result += item.length;
+        break;
+      case 'number':
+      case 'boolean':
+        result += Number(item);
+        break;
+      case 'object':
+      case 'array':
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return result;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
