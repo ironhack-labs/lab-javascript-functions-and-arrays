@@ -1,18 +1,169 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers (numOne, numTwo) {
+  
+   return numOne > numTwo ? numOne : numTwo
+
+
+}
+
+
+
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord (words) {
+ 
+  if (words.length === 0) {
+    return null
+  }
+
+  let longestWord = ''
+ 
+  for(let i = 0; i < words.length; i++) {
+     
+     if(words[i].length > longestWord.length) {
+       longestWord = words[i]
+     } 
+ 
+  }
+ 
+  return longestWord
+ 
+ }
+
+
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
+
+function sumNumbers (numbers) {
+
+  let resultSum = 0
+
+  numbers.forEach(number => {
+    resultSum += number
+  })
+
+  return resultSum
+
+}
+
+// Bonus #3: A generic sum() function
+
+
+function sum (elements) {
+
+  let resultSumElements = 0
+
+  for (let i = 0; i < elements.length ; i++) {
+
+    const typeElement = typeof elements[i]
+
+    switch (typeElement) {
+      case 'string' : 
+        resultSumElements += elements[i].length
+        break;
+      case 'number':
+        resultSumElements += elements[i]
+        break;
+      case 'boolean':
+        elements[i] && (resultSumElements+= 1)
+        break;
+      default:
+        throw new Error ("Unsupported data type sir or ma'am")
+    }
+
+  }
+
+  return resultSumElements
+
+}
+
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (numbers) {
+
+  if (numbers.length === 0){
+    return null;
+  } 
+
+  let resultSum = 0
+
+  numbers.forEach(number => {
+    resultSum += number
+  })
+
+
+ const resultAverage = resultSum / numbers.length
+
+ return resultAverage
+
+}
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (words) {
+
+  //Cuando es un if solo con un valor, ¿Como hacerlo de la forma mas limpia?
+
+  if (words.length === 0) return null 
+
+  let average = 0
+
+  words.forEach(word => { 
+    average += word.length
+  });
+
+  const resultAverage = average / words.length;
+
+  return resultAverage;
+}
+
+
+//Bonus 4.1: A generic avg() function
+
+function avg (elements) {
+
+  if (elements.length === 0) return null
+
+  let resultSumElements = 0
+
+  for (let i = 0; i < elements.length ; i++) {
+
+    const typeElement = typeof elements[i]
+
+
+    switch (typeElement) {
+      case 'string' : 
+        resultSumElements += elements[i].length
+        break;
+      case 'number':
+        resultSumElements += elements[i]
+        break;
+      case 'boolean':
+        elements[i] && (resultSumElements+= 1)
+        break;   
+    }
+  }
+
+  const resultAverageElements = resultSumElements / elements.length
+
+  /*Si no lo paso a Float me da error, en Jasmine me dice que es un String pero
+    si compruebo con typeof me devuelve number. Me sale el siguiente error:
+     Expected '5.11' to be 5.11. */
+
+  return parseFloat(resultAverageElements.toFixed(2))
+
+}
+//REVISAR 
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +180,55 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray (words) {
+
+  if (words.length === 0) {
+      return null
+    }
+
+  let newArrayWords = [];
+
+  for (let i = 0 ; i < words.length ; i++) {
+
+      const index = newArrayWords.indexOf(words[i])
+  
+      if (index === -1){
+        newArrayWords.push(words[i])
+      }
+  }
+
+  return newArrayWords
+
+}
+
+
+
+
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (words, wordSearch) {
+
+  if (words.length === 0) {
+      return null
+    }
+
+
+  for (let i = 0 ; i < words.length ; i++) {
+
+    if (words[i] === wordSearch){
+      return true
+    }
+  }
+
+  return false
+
+}
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +244,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (words, wordSearch) {
+
+  let countWord = 0
+
+  for (let i = 0 ; i < words.length ; i++) {
+
+    if (words[i] === wordSearch){
+      countWord++
+    }
+  }
+
+  return countWord
+
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +284,94 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+/* En este ejercicio he dudado bastante, hay alguna otra manera de hacerlo 
+sustituyendo los if para que el codigo sea mas limpio?*/
+
+
+function greatestProduct (matrix) {
+
+  let resultgreatestProduct = 0
+  let product = 0
+
+  for (let i = 0 ; i < matrix.length ; i++) {
+    for (let j = 0 ; j < matrix.length ; j++) {
+
+      if (i === 0 && j === 0) {
+        product = matrix[i][j+1] * matrix[i+1][j]
+      } else if ( i === 0 && j === matrix.length-1) {
+        product = matrix[i][j-1] * matrix[i+1][j]
+      } else if ( i === matrix.length-1 && j === 0) {
+        product = matrix[i][j+1] * matrix[i-1][j]
+      } else if ( i === matrix.length-1 && j === matrix.length-1) {
+        product = matrix[i][j-1] * matrix[i-1][j]
+      } else if (i === 0) {
+        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i+1][j]
+      } else if (j === 0){
+        product = matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j]
+      } else if (i === matrix.length - 1) {
+        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i-1][j]
+      } else if (j === matrix.length - 1){
+        product = matrix[i][j-1] * matrix[i-1][j] * matrix[i+1][j]
+      } else {
+        product = matrix[i][j-1] * matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j]
+      }
+
+      if (product > resultgreatestProduct) {
+        resultgreatestProduct = product
+      }
+
+    }
+   
+  }
+
+  return resultgreatestProduct
+
+}
+
+
+
+//BONUS 8.1 : Product of diagonals
+
+
+function greatestProductOfDiagonals (matrix) {
+
+  let resultgreatestProductofDiagonals = 0
+  let product = 0
+
+  for (let i = 0 ; i < matrix.length ; i++) {
+    for (let j = 0 ; j < matrix.length ; j++) {
+
+      if (i === 0 && j === 0) {
+        product = matrix[i][j+1] * matrix[i+1][j] * matrix[i+1][j+1]
+      } else if ( i === 0 && j === matrix.length-1) {
+        product = matrix[i][j-1] * matrix[i+1][j] * matrix[i+1][j-1]
+      } else if ( i === matrix.length-1 && j === 0) {
+        product = matrix[i][j+1] * matrix[i-1][j] * matrix[i-1][j+1]
+      } else if ( i === matrix.length-1 && j === matrix.length-1) {
+        product = matrix[i][j-1] * matrix[i-1][j] * matrix[i-1][j-1]
+      } else if (i === 0) {
+        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i+1][j] * matrix[i+1][j-1] * matrix[i+1][j+1]
+      } else if (j === 0){
+        product = matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j] * matrix[i-1][j+1] * matrix[i+1][j+1]
+      } else if (i === matrix.length - 1) {
+        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i-1][j] * matrix[i-1][j-1] * matrix[i-1][j+1]
+      } else if (j === matrix.length - 1){
+        product = matrix[i][j-1] * matrix[i-1][j] * matrix[i+1][j] * matrix[i-1][j-1] * matrix[i+1][j-1]
+      } else {
+        product = matrix[i][j-1] * matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j] * matrix[i+1][j+1] * matrix[i-1][j-1] * matrix[i+1][j-1] * matrix[i-1][j+1]
+      }
+
+      if (product > resultgreatestProductofDiagonals) {
+        resultgreatestProductofDiagonals = product
+      }
+
+
+    }
+   
+  }
+
+  return resultgreatestProductofDiagonals
+
+}
