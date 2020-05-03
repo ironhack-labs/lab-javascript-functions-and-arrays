@@ -225,6 +225,40 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-function greatestProduct (array) {
 
+/*
+const testMatrix = [[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5]]
+*/
+
+//x = j
+//y = i
+
+function greatestProduct (array) {
+  let highestProduct = 0
+  let numbersOfHighestProduct = ''
+
+  for (let i = 0; i < array.length; i++){
+      for (let j = 0; j <= array[i].length - 4; j++){
+      if (array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3] > highestProduct) {
+        highestProduct = array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3]
+        numbersOfHighestProduct = `${array[i][j]} * ${array[i][j + 1]} * ${array[i][j + 2]} * ${array[i][j + 3]}`
+      }
+    } 
+  }
+
+  for (let i = 0; i <= (array.length - 4); i++){
+    for (let j = 0; j < array[i].length; j++){
+      if (array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j] > highestProduct) {
+        highestProduct = array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j]
+        numbersOfHighestProduct = `${array[i][j]} * ${array[i + 1][j]} * ${array[i + 2][j]} * ${array[i + 3][j]}`
+      }
+    } 
+  }
+
+  console.log(numbersOfHighestProduct)
+  return highestProduct
 }
