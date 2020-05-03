@@ -1,15 +1,84 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else { 
+    return num2;
+  }
+} 
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const findLongestWord = (arr) => {
+  if (arr == false){
+    return null
+  } else{
+    let checkWords = arr.sort((a,b) =>  b.length - a.length )
+    
+    return checkWords[0]
+  }
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = (arr) => {
+
+  let sum = 0
+
+  for ( let i = 0; i < arr.length; i++ ) {
+       sum += arr[i];
+  }
+  return sum
+};
+
+//Bonus Iteration 3.1: A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+let acum = 0
+
+const sum = (arr) => {
+  if ( arr === false) {
+    return 0
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if ( typeof arr[i] === 'number'){
+        acum += arr[i] 
+      } else if ( typeof arr[i] === 'string') {
+        acum += arr[i].length
+      } else if ( arr[i] === true ) {
+        acum += 1
+      } else if ( arr[i] === false ) {
+        acum += 0
+      } else if ( typeof arr[i] !== 'number' && typeof arr[i] !== 'string' &&  arr[i] !== true && arr[i] !== false) {
+        throw Error("Unsupported data type sir or ma'am")
+      }
+    }
+  }
+  return acum
+} 
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let acum2 = 0
+
+const averageNumbers = (arr) => {
+    if ( arr !== true) {
+      return null
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        acum2 += arr[i]
+    }
+    
+  }
+  return acum / arr.length
+} 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
