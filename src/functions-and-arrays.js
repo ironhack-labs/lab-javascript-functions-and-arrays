@@ -1,7 +1,7 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
   if (a >= b) {
-    return a;
+    return a
   } 
   return b
 }
@@ -13,13 +13,13 @@ function findLongestWord(array) {
   if (array.length === 0) {
     return null
   }
-  let longestWord = "";
+  let longestWord = ''
   for (let i = 0; i < array.length; i++) {
     if(array[i].length > longestWord.length) {
       longestWord = array[i]
     }
   }
-  return longestWord;
+  return longestWord
 }
 
 
@@ -112,7 +112,7 @@ function avg(array) {
    }
  }
  const average = totalNumberLetters / array.length
- return Math.round(average * 100) / 100;
+ return Math.round(average * 100) / 100
 }
 
 
@@ -152,22 +152,22 @@ function uniquifyArray(array) {
       arrayWithoutRepetition.pop()
     }
   }
-  return arrayWithoutRepetition;
+  return arrayWithoutRepetition
 }
 */
 function uniquifyArray(array) {
   if (array.length === 0) {
     return null
-  }`
-  `
+  }
+
   let arrayWithoutRepetition = []
   for (let i = 0; i < array.length; i++) {
-    if (arrayWithoutRepetition.indexOf(array[i]) === -1){
+    if (arrayWithoutRepetition.indexOf(array[i]) === -1) {
       arrayWithoutRepetition.push(array[i])
     }
   }
 
-  return arrayWithoutRepetition;
+  return arrayWithoutRepetition
 }
 
 // Iteration #6: Find elements
@@ -203,7 +203,7 @@ const wordsCount = [
 ];
 
 function howManyTimes (array, word) {
-  let count = 0;
+  let count = 0
 
   for (let i = 0; i < array.length; i++) {
     if (array[i] === word) {
