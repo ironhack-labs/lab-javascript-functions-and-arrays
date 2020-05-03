@@ -128,17 +128,13 @@ const wordsUnique = [
 function uniquifyArray(arr) {
   if (arr.length === 0) return null
 
-  for (i = 0; i < arr.length; i++) {
-    console.log(`i = ${i}`)
-    for (j = i + 1; j < arr.length; j++) {
-      console.log(`j = ${j}`)
-      if (arr[i] === arr[j]) {
-        arr.splice(j, 1);
-        console.log(arr)
-      }
+  const newArray = []
+  for (i = 0; i <= arr.length; i++) {
+    if ((i === arr.indexOf(arr[i]))) {
+      newArray.push(arr[i])
     }
   }
-  return arr
+  return newArray
 }
 
 uniquifyArray(wordsUnique)
