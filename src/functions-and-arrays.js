@@ -43,15 +43,42 @@ function sumNumbers (arrNum) {
   return total
 }
 
-sumNumbers (numbers)
 
 // Iteration #4: Calculate the average
 
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (arrNum) {
+
+  let total = 0
+
+  for (let i = 0; i < arrNum.length; i++) {
+    total += arrNum[i]
+  }
+  
+  let average = total / arrNum.length
+
+  return average
+
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (arrWords) {
+
+  let wordsLength = 0
+
+   arrWords.forEach(word => {
+    
+     wordsLength += word.length
+
+  });
+  
+
+  return wordsLength
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -68,8 +95,28 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arrWords) {
+  
+  let newArr = []
+
+  arrWords.forEach (word => {
+
+    if (!newArr.includes(word)) {
+
+      newArr.push(word)
+
+    }
+
+  })
+
+  return newArr
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
