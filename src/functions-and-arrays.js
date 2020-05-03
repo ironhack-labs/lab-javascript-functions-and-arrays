@@ -187,3 +187,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+const testSample = [
+  [ 20,  2, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 20, 4, 5],
+  [ 1, 20, 3, 20, 5],
+  [ 1,  4, 3, 4, 5]
+]
+
+function greatestProduct(matrix) {
+  let highestProduct = 0;
+  for (let i = 0; i < matrix.length-3; i++) {
+    for (let j = 0; j < matrix.length-3; j++) {
+      //horizontal check
+      let horizontalProductOfFour = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      if (horizontalProductOfFour  > highestProduct) {
+        highestProduct = horizontalProductOfFour;
+      }
+      //vertical check
+      let verticalProductOfFour = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+      if (verticalProductOfFour  > highestProduct) {
+        highestProduct = verticalProductOfFour;
+      }
+      //diagonal check
+      let diagonalProductOfFour = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+      if (diagonalProductOfFour  > highestProduct) {
+        highestProduct = diagonalProductOfFour;
+      }
+    }
+  }
+  return highestProduct;
+}
+console.log(greatestProduct(testSample));
