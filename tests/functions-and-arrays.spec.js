@@ -144,25 +144,25 @@ describe('Calculate the average of an array of numbers', () => {
   });
 });
 
-// describe('Calculate the average of an array of strings', () => {
-//   it('should create a function named averageWordLength', () => {
-//     expect(typeof averageWordLength).toBe('function');
-//   });
+describe('Calculate the average of an array of strings', () => {
+  it('should create a function named averageWordLength', () => {
+    expect(typeof averageWordLength).toBe('function');
+  });
 
-//   it('should return null if receives an empty array when called', () => {
-//     expect(averageWordLength([])).toBe(null);
-//   });
+  it('should return null if receives an empty array when called', () => {
+    expect(averageWordLength([])).toBe(null);
+  });
 
-//   it('should return the average of a one-element array', () => {
-//     expect(averageWordLength(['ironhack'])).toBe(8);
-//   });
+  it('should return the average of a one-element array', () => {
+    expect(averageWordLength(['ironhack'])).toBe(8);
+  });
 
-//   it('should return the average of a the array', () => {
-//     expect(
-//       averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])
-//     ).toBe(7);
-//   });
-// });
+  it('should return the average of a the array', () => {
+    expect(
+      averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])
+    ).toBe(7);
+  });
+});
 
 // describe('Bonus: Calculate the average of a mixed elements array', () => {
 //   it('should create a function named avg', () => {
