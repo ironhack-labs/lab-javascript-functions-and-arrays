@@ -227,44 +227,44 @@ describe('Find elements', () => {
   });
 });
 
-// describe('Count repetition', () => {
-//   it('should create a function named howManyTimes', () => {
-//     expect(typeof howManyTimes).toBe('function');
-//   });
+describe('Count repetition', () => {
+  it('should create a function named howManyTimes', () => {
+    expect(typeof howManyTimes).toBe('function');
+  });
 
-//   it('should return 0 (zero) if receives an empty array when called', () => {
-//     expect(howManyTimes([])).toBe(0);
-//   });
+  it('should return 0 (zero) if receives an empty array when called', () => {
+    expect(howManyTimes([])).toBe(0);
+  });
 
-//   it('should return 1 (one) when the word appears only one time in the array', () => {
-//     expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
-//   });
+  it('should return 1 (one) when the word appears only one time in the array', () => {
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
+  });
 
-//   it("should return 0 (zero) when the word doesn't appear in the array", () => {
-//     expect(howManyTimes(['basketball', 'football', 'tennis'], 'rugby')).toBe(0);
-//   });
+  it("should return 0 (zero) when the word doesn't appear in the array", () => {
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'rugby')).toBe(0);
+  });
 
-//   it('should return 5 (five) when the word appears 5 times in the array', () => {
-//     expect(
-//       howManyTimes(
-//         [
-//           'basketball',
-//           'football',
-//           'tennis',
-//           'rugby',
-//           'rugby',
-//           'ping pong',
-//           'rugby',
-//           'basketball',
-//           'rugby',
-//           'handball',
-//           'rugby'
-//         ],
-//         'rugby'
-//       )
-//     ).toBe(5);
-//   });
-// });
+  it('should return 5 (five) when the word appears 5 times in the array', () => {
+    expect(
+      howManyTimes(
+        [
+          'basketball',
+          'football',
+          'tennis',
+          'rugby',
+          'rugby',
+          'ping pong',
+          'rugby',
+          'basketball',
+          'rugby',
+          'handball',
+          'rugby'
+        ],
+        'rugby'
+      )
+    ).toBe(5);
+  });
+});
 
 // describe('Bonus Quest - greatestProduct', () => {
 //   it('should create a function named greatestProduct', () => {

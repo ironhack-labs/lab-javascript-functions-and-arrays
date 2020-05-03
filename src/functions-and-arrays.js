@@ -175,6 +175,21 @@ const wordsCount = [
   'matter'
 ];
 
+const howManyTimes = (arr, word) => {
+  let acum = 0
+  if ( arr.length === 0 ) {
+    return acum
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        acum++
+      }
+    }
+  }
+  return acum
+}
+
+
 // Iteration #8: Bonus
 
 const matrix = [
