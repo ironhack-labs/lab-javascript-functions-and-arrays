@@ -228,9 +228,9 @@ const greatestProduct = (matrix) => {
   }
     for (let i = 0; i < matrix.length - 4; i++) {
       for (let j = 0; j <= matrix[i].length; j++ ) {
-      let checkVertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i][j + 3]
-      if ( checkVertical > maximunProduct){
-        maximunProduct = checkVertical;
+        let checkVertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i][j + 3]
+        if ( checkVertical > maximunProduct){
+          maximunProduct = checkVertical;
       }
     }
   }
