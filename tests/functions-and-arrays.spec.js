@@ -181,29 +181,29 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
   });
 });
 
-// describe('Unique array', () => {
-//   it('should create a function named uniquifyArray', () => {
-//     expect(typeof uniquifyArray).toBe('function');
-//   });
+describe('Unique array', () => {
+  it('should create a function named uniquifyArray', () => {
+    expect(typeof uniquifyArray).toBe('function');
+  });
 
-//   it('should return null if receives an empty array when called', () => {
-//     expect(uniquifyArray([])).toEqual(null);
-//   });
+  it('should return null if receives an empty array when called', () => {
+    expect(uniquifyArray([])).toEqual(null);
+  });
 
-//   it('should return the correct uniqified array when an array of the same elements passed as argument', () => {
-//     expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
-//   });
+  it('should return the correct uniqified array when an array of the same elements passed as argument', () => {
+    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+  });
 
-//   it('should return the same array when no element is repeated', () => {
-//     expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
-//   });
+  it('should return the same array when no element is repeated', () => {
+    expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
+  });
 
-//   it('should return the uniquified array', () => {
-//     expect(
-//       uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])
-//     ).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
-//   });
-// });
+  it('should return the uniquified array', () => {
+    expect(
+      uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])
+    ).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
+  });
+});
 
 // describe('Find elements', () => {
 //   it('should create a function named doesWordExist', () => {
