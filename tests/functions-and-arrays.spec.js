@@ -205,27 +205,27 @@ describe('Unique array', () => {
   });
 });
 
-// describe('Find elements', () => {
-//   it('should create a function named doesWordExist', () => {
-//     expect(typeof doesWordExist).toBe('function');
-//   });
+describe('Find elements', () => {
+  it('should create a function named doesWordExist', () => {
+    expect(typeof doesWordExist).toBe('function');
+  });
 
-//   it('should return null if receives an empty array when called', () => {
-//     expect(doesWordExist([])).toBe(null);
-//   });
+  it('should return null if receives an empty array when called', () => {
+    expect(doesWordExist([])).toBe(null);
+  });
 
-//   it('should return true if the word we are looking for is the only one in the array', () => {
-//     expect(doesWordExist(['machine'], 'machine')).toBe(true);
-//   });
+  it('should return true if the word we are looking for is the only one in the array', () => {
+    expect(doesWordExist(['machine'], 'machine')).toBe(true);
+  });
 
-//   it('should return false if the word we are looking for is not in the array', () => {
-//     expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
-//   });
+  it('should return false if the word we are looking for is not in the array', () => {
+    expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
+  });
 
-//   it('should return true if the word we are looking for is in the array', () => {
-//     expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
-//   });
-// });
+  it('should return true if the word we are looking for is in the array', () => {
+    expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
+  });
+});
 
 // describe('Count repetition', () => {
 //   it('should create a function named howManyTimes', () => {
