@@ -236,3 +236,28 @@ const greatestProduct = (matrix) => {
   }
   return maximunProduct
 }
+
+//Bonus - Iteration #8.1: Product of diagonals
+
+const greatestProductOfDiagonals = (matrix) => {
+  
+  let maximunProduct = 0
+
+  for (let i = 0; i < matrix.length - 4; i++) {
+    for (let j = 0; j <= matrix[i].length ; j++ ) {
+      let checkHorizontal = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3]
+      if ( checkHorizontal > maximunProduct){
+        maximunProduct = checkHorizontal;
+      }
+    }
+  }
+    for (let i = 0; i < matrix.length - 4; i++) {
+      for (let j = 0; j <= matrix[i].length; j++ ) {
+      let checkVertical = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3]
+      if ( checkVertical > maximunProduct){
+        maximunProduct = checkVertical;
+      }
+    }
+  }
+  return maximunProduct
+}
