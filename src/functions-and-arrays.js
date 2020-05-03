@@ -19,7 +19,7 @@ function findLongestWord (arrWords) {
   }
   
   let longestWord = ''
-  
+
   arrWords.forEach(word => {
     if (word.length > longestWord.length) {
       longestWord = word
@@ -44,13 +44,14 @@ function sumNumbers (arrNum) {
   return total
 }
 
-//Bonus - Iteration #3.1: A generic sum() function
-
+//Bonus - Iteration #3.1: A generic sum() function 
+/*
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum () {
 
 }
+*/
 
 // Iteration #4: Calculate the average
 
@@ -89,11 +90,13 @@ function averageWordLength (arrWords) {
 }
 
 //Bonus - Iteration #4.1: A generic avg() function
+/*
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg (arr) {
 
 }
+*/
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -198,7 +201,8 @@ const matrix = [
 ];
 
 //Bonus - Iteration #8.1: Product diagonals
-
+/*
 function greatestProductOfDiagonals () {
 
 }
+*/
