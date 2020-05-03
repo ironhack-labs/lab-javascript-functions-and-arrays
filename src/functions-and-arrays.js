@@ -97,6 +97,30 @@ const averageWordLength = (arr) => {
   return acum / arr.length
 } 
 
+//Bonus - Iteration #4.1: A generic avg() function
+
+const avg = (arr) => {
+  let acum = 0
+  if ( arr.length === 0) {
+    return null
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if ( typeof arr[i] === 'number'){
+        acum += arr[i]
+      } else if ( typeof arr[i] === 'string') {
+        acum += arr[i].length
+      } else if ( arr[i] === true ) {
+        acum += 1
+      } else if ( arr[i] === false ) {
+        acum += 0
+      } else if ( typeof arr[i] !== 'number' && typeof arr[i] !== 'string' &&  arr[i] !== true && arr[i] !== false) {
+        throw Error("Unsupported data type sir or ma'am")
+      }
+    }
+  }
+  return Number((acum / arr.length).toFixed(2))
+} 
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
