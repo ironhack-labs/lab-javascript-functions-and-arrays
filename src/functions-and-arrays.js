@@ -130,7 +130,7 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+/*
 function uniquifyArray(array) {
   if (array.length === 0) {
     return null
@@ -154,8 +154,21 @@ function uniquifyArray(array) {
   }
   return arrayWithoutRepetition;
 }
+*/
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null
+  }`
+  `
+  let arrayWithoutRepetition = []
+  for (let i = 0; i < array.length; i++) {
+    if (arrayWithoutRepetition.indexOf(array[i]) === -1){
+      arrayWithoutRepetition.push(array[i])
+    }
+  }
 
-
+  return arrayWithoutRepetition;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -193,7 +206,7 @@ function howManyTimes (array, word) {
   let count = 0;
 
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === word){
+    if (array[i] === word) {
       count++
     }
   }
@@ -241,17 +254,17 @@ function greatestProduct (array) {
   let highestProduct = 0
   let numbersOfHighestProduct = ''
 
-  for (let i = 0; i < array.length; i++){
-      for (let j = 0; j <= array[i].length - 4; j++){
-      if (array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3] > highestProduct) {
-        highestProduct = array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3]
-        numbersOfHighestProduct = `${array[i][j]} * ${array[i][j + 1]} * ${array[i][j + 2]} * ${array[i][j + 3]}`
-      }
+  for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j <= array[i].length - 4; j++) {
+        if (array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3] > highestProduct) {
+          highestProduct = array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j + 3]
+          numbersOfHighestProduct = `${array[i][j]} * ${array[i][j + 1]} * ${array[i][j + 2]} * ${array[i][j + 3]}`
+        }
     } 
   }
 
-  for (let i = 0; i <= (array.length - 4); i++){
-    for (let j = 0; j < array[i].length; j++){
+  for (let i = 0; i <= array.length - 4; i++) {
+    for (let j = 0; j < array[i].length; j++) {
       if (array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j] > highestProduct) {
         highestProduct = array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j]
         numbersOfHighestProduct = `${array[i][j]} * ${array[i + 1][j]} * ${array[i + 2][j]} * ${array[i + 3][j]}`
@@ -259,6 +272,34 @@ function greatestProduct (array) {
     } 
   }
 
+  console.log(numbersOfHighestProduct)
+  return highestProduct
+}
+
+//Bonus 8.1: Diagonal
+
+function greatestProductOfDiagonals (array) {
+  let highestProduct = 0
+  let numbersOfHighestProduct = ''
+
+  //Right Diagonal
+  for (let i = 0; i < array.length - 4; i++) {
+      for (let j = 0; j <= array[i].length - 4; j++) {
+        if (array[i][j] * array[i + 1][j + 1] * array[i + 2][j + 2] * array[i + 3][j + 3] > highestProduct) {
+          highestProduct = array[i][j] * array[i + 1][j + 1] * array[i + 2][j + 2] * array[i + 3][j + 3]
+          numbersOfHighestProduct = `${array[i][j]} * ${array[i + 1][j + 1]} * ${array[i + 2][j + 2]} * ${array[i + 3][j + 3]}`
+        }
+    } 
+  }
+  //Left Diagonal
+  for (let i = 0; i <= array.length - 4; i++) {
+    for (let j = 4; j < array[i].length; j++) {
+      if (array[i][j] * array[i + 1][j - 1] * array[i + 2][j - 2] * array[i + 3][j - 3] > highestProduct) {
+        highestProduct = array[i][j] * array[i + 1][j - 1] * array[i + 2][j - 2] * array[i + 3][j - 3]
+        numbersOfHighestProduct = `${array[i][j]} * ${array[i + 1][j - 1]} * ${array[i + 2][j - 2]} * ${array[i + 3][j - 3]}`
+      }
+    } 
+  }
   console.log(numbersOfHighestProduct)
   return highestProduct
 }
