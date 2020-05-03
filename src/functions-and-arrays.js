@@ -39,10 +39,11 @@ const sumNumbers = (arr) => {
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-let acum = 0
+
 
 const sum = (arr) => {
-  if ( arr === false) {
+  let acum = 0
+  if ( arr.length === 0 ) {
     return 0
   } else {
     for (let i = 0; i < arr.length; i++) {
@@ -66,14 +67,15 @@ const sum = (arr) => {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-let acum2 = 0
+
 
 const averageNumbers = (arr) => {
-    if ( arr !== true) {
+  let acum = 0
+  if ( arr.length === 0) {
       return null
-    } else {
-      for (let i = 0; i < arr.length; i++) {
-        acum2 += arr[i]
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      acum += arr[i]
     }
     
   }
@@ -82,6 +84,8 @@ const averageNumbers = (arr) => {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
