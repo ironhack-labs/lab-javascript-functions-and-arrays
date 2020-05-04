@@ -41,8 +41,6 @@ function sum(array) {
     let sumNum = 0
 
     for (const iterator of array) {
-        console.log(typeof iterator);
-
         if (typeof iterator === 'string') {
             sumNum += iterator.length
         } else if (typeof iterator === 'boolean') {
@@ -100,11 +98,14 @@ function avg(array) {
     if (array.length === 0) {
         return null
     }
+    let sumNum = 0
 
-    let sumNum = array / array.length
+    sumNum = sumNum / array.length
+
 
     return sumNum
 }
+avg(numbersAvg)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -121,8 +122,42 @@ const wordsUnique = [
     'bring'
 ];
 
+function uniquifyArray(arrayWords) {
+    if (arrayWords.length === 0) {
+        return null
+    }
+
+    let uniqueValues = []
+    for (const iterator of arrayWords) {
+        if (uniqueValues.indexOf(iterator) === -1) {
+            uniqueValues.push(iterator)
+        }
+    }
+
+    return uniqueValues
+}
+uniquifyArray(wordsUnique)
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayWords, search) {
+    if (arrayWords.length === 0 || search.length === 0) {
+        return null
+    }
+
+    let valReturned
+    if (arrayWords.indexOf(search) === -1) {
+        valReturned = false
+    } else {
+        valReturned = true
+    }
+
+    return valReturned
+}
+
+doesWordExist(wordsFind, 'Ironhack')
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -138,6 +173,22 @@ const wordsCount = [
     'disobedience',
     'matter'
 ];
+
+function howManyTimes(array, search) {
+    if (array.length === 0 || search.length === 0 || array.indexOf(search) === -1) {
+        return 0
+    }
+
+    let sumRepeats = 0
+
+    for (const iterator of array) {
+        if (iterator === search) {
+            sumRepeats++
+        }
+    }
+    return sumRepeats
+}
+howManyTimes(wordsCount, 'subset')
 
 // Iteration #8: Bonus
 
