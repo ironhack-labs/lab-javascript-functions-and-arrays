@@ -1,6 +1,7 @@
 // Iteration #1: Find the maximum
 
 const maxOfTwoNumbers = (num1, num2) => {
+
   if (num1 > num2) {
     return num1;
   } else { 
@@ -9,14 +10,15 @@ const maxOfTwoNumbers = (num1, num2) => {
 } 
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 const findLongestWord = (arr) => {
+
   if (arr == false){
     return null
   } else{
-    let checkWords = arr.sort((a,b) =>  b.length - a.length )
-    
+    let checkWords = arr.sort((a,b) =>  b.length - a.length)
     return checkWords[0]
   }
 }
@@ -42,7 +44,9 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 
 const sum = (arr) => {
+
   let acum = 0
+
   if ( arr.length === 0 ) {
     return 0
   } else {
@@ -65,28 +69,31 @@ const sum = (arr) => {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-
-
 const averageNumbers = (arr) => {
+
   let acum = 0
+
   if ( arr.length === 0) {
       return null
   } else {
     for (let i = 0; i < arr.length; i++) {
       acum += arr[i]
-    }
-    
+    }  
   }
   return acum / arr.length
 } 
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 const averageWordLength = (arr) => {
+
   let acum = 0
+
   if ( arr.length === 0) {
     return null
   } else {
@@ -100,7 +107,9 @@ const averageWordLength = (arr) => {
 //Bonus - Iteration #4.1: A generic avg() function
 
 const avg = (arr) => {
+
   let acum = 0
+
   if ( arr.length === 0) {
     return null
   } else {
@@ -122,6 +131,7 @@ const avg = (arr) => {
 } 
 
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -137,22 +147,25 @@ const wordsUnique = [
 ];
 
 const uniquifyArray = (arr) => {
+
   if ( arr.length === 0){
     return null
   } 
-   let acum = []
-   for (let i = 0; i < arr.length; i++) {
-     if (acum.indexOf(arr[i]) === -1) {
+  let acum = []
+  for (let i = 0; i < arr.length; i++) {
+    if (acum.indexOf(arr[i]) === -1) {
        acum.push(arr[i])
-     }
-   }
-   return acum
+    }
+  }
+  return acum
  }
 
 // Iteration #6: Find elements
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 const doesWordExist = (arr, word) => {
+
   if ( arr.length === 0) {
     return null
   } else {
@@ -161,6 +174,7 @@ const doesWordExist = (arr, word) => {
 }
 
 // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -176,7 +190,9 @@ const wordsCount = [
 ];
 
 const howManyTimes = (arr, word) => {
+
   let acum = 0
+
   if ( arr.length === 0 ) {
     return acum
   } else {
@@ -216,6 +232,7 @@ const matrix = [
 ];
 
 const greatestProduct = (matrix) => {
+
   let maximunProduct = 0
 
   for (let i = 0; i < matrix.length; i++) {
@@ -253,9 +270,9 @@ const greatestProductOfDiagonals = (matrix) => {
   }
     for (let i = 0; i < matrix.length - 4; i++) {
       for (let j = 0; j <= matrix[i].length; j++ ) {
-      let checkVertical = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3]
-      if ( checkVertical > maximunProduct){
-        maximunProduct = checkVertical;
+        let checkVertical = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3]
+        if ( checkVertical > maximunProduct){
+          maximunProduct = checkVertical;
       }
     }
   }
