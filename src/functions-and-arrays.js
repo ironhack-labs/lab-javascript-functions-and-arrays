@@ -63,8 +63,48 @@ sum(mixedArr)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers) {
+    if (numbers.length === 0) {
+        return null
+    }
+    let sumNum = 0
+    for (let i = 0; i < numbers.length; i++) {
+        sumNum += numbers[i]
+    }
+    sumNum = sumNum / numbers.length
+
+    return sumNum
+}
+averageNumbers(numbersAvg)
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrayWords) {
+    if (arrayWords.length === 0) {
+        return null
+    }
+    let sumLengthWords = 0
+    for (let i = 0; i < arrayWords.length; i++) {
+        sumLengthWords += arrayWords[i].length
+    }
+    sumLengthWords = sumLengthWords / arrayWords.length
+
+    return sumLengthWords
+}
+averageWordLength(wordsArr)
+
+// Bonus: Calculate the average of a mixed elements array
+
+function avg(array) {
+    if (array.length === 0) {
+        return null
+    }
+
+    let sumNum = array / array.length
+
+    return sumNum
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
