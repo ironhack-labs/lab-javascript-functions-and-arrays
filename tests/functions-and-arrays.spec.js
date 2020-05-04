@@ -32,6 +32,7 @@ describe('Find the maximum', () => {
   });
 });
 
+
 describe('Find the longest word', () => {
   it('should create a function named findLongestWord', () => {
     expect(typeof findLongestWord).toBe('function');
@@ -323,3 +324,5 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(greatestProduct(matrix)).toBe(16);
   });
 });
+
+
