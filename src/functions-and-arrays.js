@@ -232,3 +232,40 @@ function greatestProduct(matrix) {
   console.log(currentHighestProduct)
   return currentHighestProduct
 }
+
+// Bonus - Iteration #8.1: Product of diagonals
+
+function greatestProductOfDiagonals(matrix) {
+  let currentHighestProduct = 0
+  let currentGreatestProductArr = []
+  let index = []
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      let tempProductDownRight = 0
+      let tempProductDownLeft = 0
+      if(j+3< matrix[i].length && i+3< matrix.length) {
+        tempProductDownRight = matrix[i][j] * matrix[i+ 1][j + 1] * matrix[i+ 2][j + 2] * matrix[i+ 3][j + 3]
+      }
+      if(j-3 > 0 && i+3< matrix.length) {
+        tempProductDownLeft = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i+ 2][j - 2] * matrix[i+ 3][j - 3]
+      }
+       if(tempProductDownRight > tempProductDownLeft) {
+         if(currentHighestProduct < tempProductDownRight) {
+           currentHighestProduct = tempProductDownRight
+           currentGreatestProductArr = [matrix[i][j] , matrix[i+ 1][j + 1] , matrix[i+ 2][j + 2] , matrix[i+ 3][j + 3]]
+           index = [i,j]
+         }
+       }
+       else {
+        if(currentHighestProduct < tempProductDownLeft) {
+          currentHighestProduct = tempProductDownLeft
+          currentGreatestProductArr = [matrix[i][j] , matrix[i + 1][j - 1] , matrix[i+ 2][j - 2] , matrix[i+ 3][j - 3]]
+          index = [i,j]
+        }
+       }       
+    }
+  }
+  console.log(currentHighestProduct)
+  console.log(currentGreatestProductArr + " index at x=" + index[0] + " y="+ index[1])
+  return currentHighestProduct
+}
