@@ -86,6 +86,26 @@ function averageWordLength(words) {
 
 //Bonus
 
+function avg(arr) {
+  if (arr.length<=0) {
+    return null
+  }
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    
+    if( typeof arr[i] == 'boolean') {
+      result += arr[i]
+    } else if( typeof arr[i] == 'number') {
+      result += arr[i]
+    } else if( typeof arr[i] == 'string') {
+      result += arr[i].length
+    } else { 
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+  }
+  return Math.floor((result / arr.length) * 100) /100
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
