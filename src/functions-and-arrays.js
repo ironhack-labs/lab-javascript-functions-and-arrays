@@ -7,8 +7,6 @@ function maxOfTwoNumbers (num1, num2){
 }
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-const pos= []
 function findLongestWord (words){
   if (words.length == 0) return null;
   let max_length = 0
@@ -23,10 +21,9 @@ function findLongestWord (words){
   //const sel = words[pos.indexOf(Math.max(...pos))]
   return selectedWord
 }
-console.log(findLongestWord(['foo', 'bar']))
+
 
 // Iteration #3: Calculate the sum
-
 function sumNumbers (numbers){
   let suma = 0
   for (i=0; i<numbers.length; i++){
@@ -34,7 +31,6 @@ function sumNumbers (numbers){
   }
   return suma
 }
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sum (mixedArr){
   suma = []
@@ -50,13 +46,9 @@ function sum (mixedArr){
   }
   return sumNumbers(suma)
 }
-//console.log(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}]))
-
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers (numbersAvg){
   let total = 0
   if(numbersAvg.length === 0) return null
@@ -84,27 +76,11 @@ function avg (mixedArr){
     val === true && sum.push(1)
     Number.isInteger(val) && sum.push(val)
   }
-  console.log(sum)
   return averageNumbers(sum)
 }
 
-console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]))
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
-
 function uniquifyArray (wordsUnique){
   newWords = []
   if (wordsUnique.length == 0) return null
@@ -116,8 +92,6 @@ function uniquifyArray (wordsUnique){
 }
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
 function doesWordExist (wordsFind, wordSearch){
   if (wordsFind.length === 0) return null
   for (word of wordsFind){
@@ -130,20 +104,6 @@ function doesWordExist (wordsFind, wordSearch){
 }
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
-
 function howManyTimes (wordsFind, wordSearch){
   let cont = 0
   for (word of wordsFind){
@@ -154,7 +114,6 @@ function howManyTimes (wordsFind, wordSearch){
 }
 
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -179,9 +138,7 @@ const matrix = [
 ];
 
 function greatestProduct(matrix){
-  
 }
 
 function greatestProductOfDiagonals(matrix){
-
 }
