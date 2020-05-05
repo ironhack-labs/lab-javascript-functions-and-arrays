@@ -121,6 +121,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsArr) {
+  if (wordsArr.length<=0) {
+    return null
+  }
+  const returnArry = []
+  for (let i = 0; i< wordsArr.length;i++) {
+    if (returnArry.indexOf(wordsArr[i]) < 0) {
+      returnArry.push(wordsArr[i]);
+    }
+  }
+
+  return returnArry;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
