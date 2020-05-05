@@ -83,40 +83,40 @@ describe('Calculate the sum of array of numbers', () => {
 
 describe('Bonus: Calculate the sum', () => {
   it('should create a function named sum', () => {
-    expect(typeof sum).toBe('function');
+    expect(typeof sumAnyArray).toBe('function');
   });
 
   it('should return zero if receives an empty array when called', () => {
-    expect(sum([])).toBe(0);
+    expect(sumAnyArray([])).toBe(0);
   });
 
   it('should return the sum with one number array', () => {
-    expect(sum([4])).toBe(4);
+    expect(sumAnyArray([4])).toBe(4);
   });
 
   it('should return zero if all elements are zero', () => {
-    expect(sum([0, 0, 0, 0, 0])).toBe(0);
+    expect(sumAnyArray([0, 0, 0, 0, 0])).toBe(0);
   });
 
   it('should return the sum when passed array of numbers', () => {
-    expect(sum([10, 5, 4, 32, 8])).toBe(59);
+    expect(sumAnyArray([10, 5, 4, 32, 8])).toBe(59);
   });
 
   it('should return the sum when passed array of strings', () => {
-    expect(sum(['ana', 'marco', 'nicolas', 'tania', 'ptwd'])).toBe(24);
+    expect(sumAnyArray(['ana', 'marco', 'nicolas', 'tania', 'ptwd'])).toBe(24);
   });
 
   it('should return the sum when passed array of mixed strings and numbers - ', () => {
-    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, 10])).toBe(56);
+    expect(sumAnyArray([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, 10])).toBe(56);
   });
   it('should return the sum when passed array of mixed strings, numbers and booleans - ', () => {
     // false is counted as 0
-    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46);
+    expect(sumAnyArray([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46);
     // true is counted as 1
-    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47);
+    expect(sumAnyArray([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47);
   });
   it('should throw an error when unsupported data type (object or array) present in the array', () => {
-    expect(() => sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])).toThrow(
+    expect(() => sumAnyArray([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])).toThrow(
       new Error("Unsupported data type sir or ma'am")
     );
   });
