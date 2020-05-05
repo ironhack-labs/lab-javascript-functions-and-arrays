@@ -81,6 +81,9 @@ function averageNumbers(array) {
   return avgResult;
 }
 
+// Level 2: Array of strings
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
 
 function averageWordLength(array) {
   let avgResult;
@@ -93,6 +96,8 @@ function averageWordLength(array) {
   }
   return avgResult;
 }
+
+//Bonus 4.1 Generic avg function
 
 function avg(array) {
   let avgResult;
@@ -110,8 +115,6 @@ function avg(array) {
 
 
 
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -127,6 +130,22 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(array) {
+  let newArray = [];
+
+  if (array.length == 0) {
+    newArray = null
+  }
+  
+  array.forEach(element => {
+    if (newArray.indexOf(element) == -1) {
+      newArray.push(element);
+    }
+  });
+
+return newArray
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
