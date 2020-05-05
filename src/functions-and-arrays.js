@@ -1,18 +1,108 @@
-// Iteration #1: Find the maximum
+//jshint esversion:6
 
+// Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2){
+    return num1;
+  } else if (num1 < num2){
+    return num2;
+  } else {
+    return num1;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr){
+  if (arr.length === 0){
+    return null;
+  } else {
+    var longestElem = "";
+    arr.forEach(function(elem){
+      if (elem.length > longestElem.length){
+        longestElem = elem;
+      } 
+    });
+    return longestElem;
+  }
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arr){
+  let total = 0;
+  arr.forEach(function(num){
+    total += num;
+  });
+  return total;
+}
+
+// Bonus - Iteration #3.1: A generic sum() function
+function sum(arr){
+  if (arr.length === 0){
+    return 0;
+  } else {
+    let total = 0; 
+    arr.forEach(function(elem){
+      if (typeof elem === "number"){
+        total += elem;
+      } else if (typeof elem === "string"){
+        total += elem.length;
+      } else if (typeof elem === "boolean"){
+        if (elem === true){
+          total += 1;
+        }
+      } else {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    });
+    return total;
+  }
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr){
+  if (arr.length === 0){
+    return null;
+  } else {
+  return sumNumbers(arr) / arr.length;
+}
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function sumWords(arr){
+  let total = 0;
+  arr.forEach(function(word){
+    total += word.length;
+  });
+  return total;
+}
+
+function averageWordLength(arr){
+  if (arr.length === 0){
+    return null;
+  } else {
+  return sumWords(arr) / arr.length;
+}
+}
+
+// Bonus - Iteration #4.1: A generic avg() function
+function avg(arr){
+  if (arr.length === 0){
+    return null;
+  } else {
+    return Number((sum(arr) / arr.length).toFixed(2));
+  }
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +119,37 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let uniqueArray = [];
+    arr.forEach(function (elem) {
+      if (uniqueArray.indexOf(elem) === -1) {
+        uniqueArray.push(elem);
+      }});
+        return uniqueArray;
+  }
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
+function doesWordExist(arr,searchWord) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let doesExist = false;
+    for (let x=0; x < arr.length; x++){
+      if (arr[x] === searchWord) {
+        doesExist = true;
+        break;
+      }}
+      return doesExist;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,7 +166,22 @@ const wordsCount = [
   'matter'
 ];
 
+
+function howManyTimes(arr,searchWord) {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    let timesExist = 0;
+    for (let x=0; x < arr.length; x++){
+      if (arr[x] === searchWord) {
+        timesExist ++;
+      }}
+      return timesExist;
+  }
+}
+
 // Iteration #8: Bonus
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -71,3 +205,72 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// Bonus - Iteration #8: Product of adjacent numbers
+
+function greatestProduct(matrix) {
+  let total = 0;
+  // HORIZONTAL
+  for (let y = 0; y < matrix.length; y++) {
+    for (let x = 3; x < matrix[y].length; x++) {
+      let fourRow = matrix[y][x] * matrix[y][x-1] * matrix[y][x-2] * matrix[y][x-3];
+      if (fourRow > total) {
+        total = fourRow;
+      }
+    }
+  }
+  // VERTICAL
+  for (let y = 3; y < matrix.length; y++) {
+    for (let x = 0; x < matrix[y].length; x++) {
+      let fourColumn = matrix[y][x] * matrix[y-1][x] * matrix[y-2][x] * matrix[y-3][x];
+      if (fourColumn > total) {
+        total = fourColumn;
+      }
+    }
+  }
+  return total;
+}
+
+// Bonus - Iteration #8.1: Product of diagonals
+
+function greatestProductOfDiagonals(matrix){
+  let total = 0;
+  // HORIZONTAL
+  for (let y = 0; y < matrix.length; y++) {
+    for (let x = 3; x < matrix[y].length; x++) {
+      let fourRow = matrix[y][x] * matrix[y][x-1] * matrix[y][x-2] * matrix[y][x-3];
+      if (fourRow > total) {
+        total = fourRow;
+      }
+    }
+  }
+  // VERTICAL
+  for (let y = 3; y < matrix.length; y++) {
+    for (let x = 0; x < matrix[y].length; x++) {
+      let fourColumn = matrix[y][x] * matrix[y-1][x] * matrix[y-2][x] * matrix[y-3][x];
+      if (fourColumn > total) {
+        total = fourColumn;
+      }
+    }
+  }
+  // DIAGONAL TO THE LEFT
+  for (let y = 0; y < (matrix.length-3); y++) {
+    for (let x = 3; x < matrix[y].length; x++) {
+      let fourDiagLeft = matrix[y][x] * matrix[y+1][x-1] * matrix[y+2][x-2] * matrix[y+3][x-3];
+      if (fourDiagLeft > total) {
+        total = fourDiagLeft;
+      }
+    }
+  }
+    // DIAGONAL TO THE RIGHT
+  for (let y = 0; y < (matrix.length-3); y++) {
+    for (let x = 0; x < matrix[y].length-3; x++) {
+      let fourDiagRight = matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3];
+      if (fourDiagRight > total) {
+        total = fourDiagRight;
+      }
+    }
+  }
+  return total;
+}
+
