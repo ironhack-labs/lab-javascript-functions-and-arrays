@@ -286,8 +286,7 @@ const matrix = [
 ];
 
 
-/* En este ejercicio he dudado bastante, hay alguna otra manera de hacerlo 
-sustituyendo los if para que el codigo sea mas limpio?*/
+
 
 
 function greatestProduct (matrix) {
@@ -298,28 +297,20 @@ function greatestProduct (matrix) {
   for (let i = 0 ; i < matrix.length ; i++) {
     for (let j = 0 ; j < matrix.length ; j++) {
 
-      if (i === 0 && j === 0) {
-        product = matrix[i][j+1] * matrix[i+1][j]
-      } else if ( i === 0 && j === matrix.length-1) {
-        product = matrix[i][j-1] * matrix[i+1][j]
-      } else if ( i === matrix.length-1 && j === 0) {
-        product = matrix[i][j+1] * matrix[i-1][j]
-      } else if ( i === matrix.length-1 && j === matrix.length-1) {
-        product = matrix[i][j-1] * matrix[i-1][j]
-      } else if (i === 0) {
-        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i+1][j]
-      } else if (j === 0){
-        product = matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j]
-      } else if (i === matrix.length - 1) {
-        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i-1][j]
-      } else if (j === matrix.length - 1){
-        product = matrix[i][j-1] * matrix[i-1][j] * matrix[i+1][j]
-      } else {
-        product = matrix[i][j-1] * matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j]
+      //Product in horizontal
+      if ((j - 3) >= 0) {
+        product = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2]  * matrix[i][j - 3]
+        if (product > resultgreatestProduct) {
+        resultgreatestProduct = product
+        }
       }
 
-      if (product > resultgreatestProduct) {
-        resultgreatestProduct = product
+      //Product in vertical
+      if ((i - 3) >= 0) {
+        product = matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j]  * matrix[i - 3][j]
+        if (product > resultgreatestProduct) {
+          resultgreatestProduct = product
+          }
       }
 
     }
@@ -343,30 +334,23 @@ function greatestProductOfDiagonals (matrix) {
   for (let i = 0 ; i < matrix.length ; i++) {
     for (let j = 0 ; j < matrix.length ; j++) {
 
-      if (i === 0 && j === 0) {
-        product = matrix[i][j+1] * matrix[i+1][j] * matrix[i+1][j+1]
-      } else if ( i === 0 && j === matrix.length-1) {
-        product = matrix[i][j-1] * matrix[i+1][j] * matrix[i+1][j-1]
-      } else if ( i === matrix.length-1 && j === 0) {
-        product = matrix[i][j+1] * matrix[i-1][j] * matrix[i-1][j+1]
-      } else if ( i === matrix.length-1 && j === matrix.length-1) {
-        product = matrix[i][j-1] * matrix[i-1][j] * matrix[i-1][j-1]
-      } else if (i === 0) {
-        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i+1][j] * matrix[i+1][j-1] * matrix[i+1][j+1]
-      } else if (j === 0){
-        product = matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j] * matrix[i-1][j+1] * matrix[i+1][j+1]
-      } else if (i === matrix.length - 1) {
-        product = matrix[i][j+1] * matrix[i][j-1] * matrix[i-1][j] * matrix[i-1][j-1] * matrix[i-1][j+1]
-      } else if (j === matrix.length - 1){
-        product = matrix[i][j-1] * matrix[i-1][j] * matrix[i+1][j] * matrix[i-1][j-1] * matrix[i+1][j-1]
-      } else {
-        product = matrix[i][j-1] * matrix[i][j+1] * matrix[i-1][j] * matrix[i+1][j] * matrix[i+1][j+1] * matrix[i-1][j-1] * matrix[i+1][j-1] * matrix[i-1][j+1]
-      }
 
-      if (product > resultgreatestProductofDiagonals) {
-        resultgreatestProductofDiagonals = product
-      }
+        //Product in diagonal (go throw right to left)
+        if ((j - 3) >= 0 && (i - 3) >= 0) {
+          product = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2]  * matrix[i - 3][j - 3]
+          if (product > resultgreatestProductofDiagonals) {
+            resultgreatestProductofDiagonals = product
+          }
+        }
+  
+        //Product in diagonal (go throw left to rigth)
 
+        if ((i - 3) >= 0 && (j + 3) < matrix.length) {
+          product = matrix[i][j] * matrix[i - 1][j + 1] * matrix[i - 2][j + 2]  * matrix[i - 3][j + 3]
+          if (product > resultgreatestProductofDiagonals) {
+            resultgreatestProductofDiagonals = product
+          }
+        }
 
     }
    
