@@ -192,6 +192,31 @@ function howManyTimes(array, word) {
 
 // Iteration #8: Bonus
 
+function greatestProduct(matrix) {
+  let greatestNum = 0;
+  let horProduct = 0;
+  let vertProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+
+     if (j + 3 < matrix[i.length]) {horProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3] ;}
+
+     if (i + 3 <matrix.length) {vertProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j] ;}
+
+      if (horProduct > vertProduct && horProduct > greatestNum) {
+        greatestNum = horProduct ;
+      } else if (vertProduct > horProduct && vertProduct > greatestNum)
+        greatestNum = vertProduct ;
+    }
+  }
+
+  return greatestNum;
+}
+
+
+//Iteration #8.1: Bonus
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -214,3 +239,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
