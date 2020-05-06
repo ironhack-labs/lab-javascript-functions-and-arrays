@@ -217,6 +217,28 @@ function greatestProduct(matrix) {
 
 //Iteration #8.1: Bonus
 
+function greatestProductOfDiagonals(matrix) {
+  let greatestNum = 0;
+  let diagonalRProduct = 0;
+  let diagonalLProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+
+     if (j + 3 < matrix[i.length] && i + 3 < matrix.length) {diagonalRProduct = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3] ;}
+
+     if (j - 3 >= 0 && i + 3 <matrix.length) {diagonalLProduct = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3] ;}
+
+      if (diagonalRProduct > diagonalLProduct && diagonalRProduct > greatestNum) {
+        greatestNum = diagonalRProduct ;
+      } else if (diagonalLProduct > diagonalRProduct && diagonalLProduct > greatestNum)
+        greatestNum = diagonalLProduct ;
+    }
+  }
+
+  return greatestNum;
+}
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
