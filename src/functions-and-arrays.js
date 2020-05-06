@@ -1,18 +1,118 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(x, y) {
+  if (x > y) {
+    return x;
+  } else {
+    return y;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  
+  const e = words.length;
+  let longestWord = '';
+
+  for (let i = 0; i < e; i++) {
+    if (words[i].length > longestWord.length) {
+        longestWord = words[i];
+      }
+  }
+  return longestWord;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
+function sumNumbers(numbers) {
+  let i = 0;
+  var total = 0;
+  
+  while (i < numbers.length) {
+    total += numbers[i];
+    i++;
+  }
+  return total;
+}
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+function sum(mixedArr) {
+  let r = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if ( typeof mixedArr[i] === "number") {
+        r += mixedArr[i];
+    } else if (typeof mixedArr[i] === "boolean" && mixedArr[i] === true) {
+        r += 1;
+    } else if (typeof mixedArr[i] === "string") {
+      r += mixedArr[i].length;
+    } else
+      continue;
+    }
+    return r;
+  }
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+  let m = 0;
+  let i = 0;
+  
+  if (isNaN(numbersAvg[i]) || numbersAvg.length === 0) {
+    m = null;
+  } else {
+      while (i < numbersAvg.length) {
+        if (typeof numbersAvg[i] !== "number") {
+          throw "Error2";
+        }
+        m += numbersAvg[i]
+        i++;
+      }
+  }
+  let averageResult = (m/numbersAvg.length);
+  return averageResult;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  let sumLength = 0;
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    sumLength += wordsArr[i].length;
+  }
+  let averageLength = sumLength / wordsArr.length;
+  
+  return averageLength;
+}
+
+function avg (mixedArr) {
+  let r = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if ( typeof mixedArr[i] === "number") {
+        r += mixedArr[i];
+    } else if (typeof mixedArr[i] === "boolean" && mixedArr[i] === true) {
+        r += 1;
+    } else if (typeof mixedArr[i] === "string") {
+      r += mixedArr[i].length;
+    } else
+      continue;
+    }
+    let rAvg = r/mixedArr.length;
+    let rAvgFixed = rAvg.toFixed(2);
+    return rAvgFixed;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +129,33 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words3)
+ {
+   let newArray = [];
+   if (words3.length === 0) {
+    return null;
+   } else { 
+   for (let i = 0; i < words3.length; i++) {
+     let n = newArray.includes(words3[i]);
+     if (!n) {
+      newArray.push(words3[i]);
+     } 
+   }
+  }
+   return newArray;
+ }
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (words, x) {
+  let n = words.includes(x);
+  if (words.length === 0) {
+    return null;
+  } else { 
+  return n;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +171,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (words, x) {
+  let i = 0;
+  let e = 0;
+  if (words.length === 0) {
+    return null;
+  } else { 
+    while (i < words.length) {
+      if (words[i] === x) {
+        e++;
+      }
+      i++;
+    }
+  }
+  return e;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +212,22 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let j = 0;
+  let mNumber = 0;
+  let newMatrix = [];
+
+for (let i = 0, j = 0; j < matrix.length ; j++) {
+  mNumber = 0;
+    for (; i < matrix[j].length; i++) {
+        
+        if (mNumber < matrix[j][i] ) {
+            mNumber = matrix[j][i];
+        }
+    }
+  i = 0;
+  newMatrix.push(mNumber);
+}
+return newMatrix;
+}
