@@ -211,28 +211,37 @@ function greatestProduct(numbersArray) {
   let verticalMultiply = 0
   let horizontalMultiply = 0
   for (let i = 0; i + 3 < numbersArray.length; i++) {
-    for (let j = 0; j < numbersArray[i].length; j++) {
-      for (let k = 0, multiplyResult = 1; k <= 3; k++) {
-        multiplyResult = (numbersArray[i + k][j]) * multiplyResult
-        //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
-        if (multiplyResult > verticalMultiply) {
-          verticalMultiply = multiplyResult
+    if (numbersArray.length < 4 || numbersArray[i].length < 4) {
+      return `The array must have at least a 4x4 matrix`
+    } else {
+      for (let j = 0; j < numbersArray[i].length; j++) {
+        for (let k = 0, multiplyResult = 1; k <= 3; k++) {
+          multiplyResult = (numbersArray[i + k][j]) * multiplyResult
+          //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
+          if (multiplyResult > verticalMultiply) {
+            verticalMultiply = multiplyResult
+          }
         }
+        //console.log(`////`)
       }
-      //console.log(`////`)
     }
+
   }
 
   for (let i = 0; i < numbersArray.length; i++) {
-    for (let j = 0; j + 3 < numbersArray[i].length; j++) {
-      for (let k = 0, multiplyResult = 1; k <= 3; k++) {
-        multiplyResult = (numbersArray[i][j + k]) * multiplyResult
-        //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
-        if (multiplyResult > horizontalMultiply) {
-          horizontalMultiply = multiplyResult
+    if (numbersArray.length < 4 || numbersArray[i].length < 4) {
+      return `The array must have at least a 4x4 matrix`
+    } else {
+      for (let j = 0; j + 3 < numbersArray[i].length; j++) {
+        for (let k = 0, multiplyResult = 1; k <= 3; k++) {
+          multiplyResult = (numbersArray[i][j + k]) * multiplyResult
+          //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
+          if (multiplyResult > horizontalMultiply) {
+            horizontalMultiply = multiplyResult
+          }
         }
+        //console.log(`////`)
       }
-      //console.log(`////`)
     }
   }
   //console.log(`verticalMultiply = ${verticalMultiply}`)
