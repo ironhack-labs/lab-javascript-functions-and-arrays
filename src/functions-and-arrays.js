@@ -208,20 +208,41 @@ const matrix = [
 ];
 
 function greatestProduct(numbersArray) {
-  let multipliedNumbers = 0
+  let verticalMultiply = 0
+  let horizontalMultiply = 0
   for (let i = 0; i + 3 < numbersArray.length; i++) {
     for (let j = 0; j < numbersArray[i].length; j++) {
       for (let k = 0, multiplyResult = 1; k <= 3; k++) {
         multiplyResult = (numbersArray[i + k][j]) * multiplyResult
         //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
-        if (multiplyResult > multipliedNumbers) {
-          multipliedNumbers = multiplyResult
+        if (multiplyResult > verticalMultiply) {
+          verticalMultiply = multiplyResult
         }
       }
       //console.log(`////`)
     }
   }
-  return multipliedNumbers
+
+  for (let i = 0; i < numbersArray.length; i++) {
+    for (let j = 0; j + 3 < numbersArray[i].length; j++) {
+      for (let k = 0, multiplyResult = 1; k <= 3; k++) {
+        multiplyResult = (numbersArray[i][j + k]) * multiplyResult
+        //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
+        if (multiplyResult > horizontalMultiply) {
+          horizontalMultiply = multiplyResult
+        }
+      }
+      //console.log(`////`)
+    }
+  }
+  //console.log(`verticalMultiply = ${verticalMultiply}`)
+  //console.log(`horizontalMultiply = ${horizontalMultiply}`)
+
+  if (verticalMultiply >= horizontalMultiply) {
+    return verticalMultiply
+  } else {
+    return horizontalMultiply
+  }
 }
 
 greatestProduct(matrix)
