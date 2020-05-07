@@ -207,19 +207,18 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(arr) {
+function greatestProduct(numbersArray) {
   let multipliedNumbers = 0
-  let multiplyResult
-  for (i = 0; i < arr.length - 1; i++) {
-    for (j = 0; j < arr[i].length - 1; j++) {
-      if (i > 0 && j > 0) {
-        multiplyResult = arr[i - 1][j] * arr[i + 1][j] * arr[i][j + 1] * arr[i][j - 1]
-        //console.log(`${arr[i-1][j]} * ${arr[i+1][j]} * ${arr[i][j+1]} * ${arr[i][j-1]} = ${multiplyResult}`)
+  for (let i = 0; i + 3 < numbersArray.length; i++) {
+    for (let j = 0; j < numbersArray[i].length; j++) {
+      for (let k = 0, multiplyResult = 1; k <= 3; k++) {
+        multiplyResult = (numbersArray[i + k][j]) * multiplyResult
+        //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
         if (multiplyResult > multipliedNumbers) {
           multipliedNumbers = multiplyResult
-          //console.log(`multipliedNumbers = ${multipliedNumbers} / multiplyResult = ${multiplyResult}`)
         }
       }
+      //console.log(`////`)
     }
   }
   return multipliedNumbers
