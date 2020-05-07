@@ -216,7 +216,7 @@ function greatestProduct(numbersArray) {
     } else {
       for (let j = 0; j < numbersArray[i].length; j++) {
         for (let k = 0, multiplyResult = 1; k <= 3; k++) {
-          multiplyResult = (numbersArray[i + k][j]) * multiplyResult
+          multiplyResult *= (numbersArray[i + k][j])
           //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
           if (multiplyResult > verticalMultiply) {
             verticalMultiply = multiplyResult
@@ -225,7 +225,6 @@ function greatestProduct(numbersArray) {
         //console.log(`////`)
       }
     }
-
   }
 
   for (let i = 0; i < numbersArray.length; i++) {
@@ -234,7 +233,7 @@ function greatestProduct(numbersArray) {
     } else {
       for (let j = 0; j + 3 < numbersArray[i].length; j++) {
         for (let k = 0, multiplyResult = 1; k <= 3; k++) {
-          multiplyResult = (numbersArray[i][j + k]) * multiplyResult
+          multiplyResult *= (numbersArray[i][j + k])
           //console.log(`iteraccion ${k} -> multiplyResult = ${multiplyResult}`)
           if (multiplyResult > horizontalMultiply) {
             horizontalMultiply = multiplyResult
@@ -256,23 +255,36 @@ function greatestProduct(numbersArray) {
 
 greatestProduct(matrix)
 
-function greatestProductOfDiagonals(arr) {
-  if (arr.length === 0) return null
-  let multipliedNumbers = 0
-  let multiplyResult
-  for (i = 0; i < arr.length - 1; i++) {
-    for (j = 0; j < arr[i].length - 1; j++) {
-      if (i > 0 && j > 0) {
-        multiplyResult = arr[i - 1][j - 1] * arr[i - 1][j + 1] * arr[i + 1][j - 1] * arr[i + 1][j + 1]
-        //console.log(`${arr[i - 1][j-1]} * ${arr[i - 1][j+1]} * ${arr[i + 1][j - 1]} * ${arr[i + 1][j + 1]} = ${multiplyResult}`)
-        if (multiplyResult > multipliedNumbers) {
-          multipliedNumbers = multiplyResult
-          //console.log(`multipliedNumbers = ${multipliedNumbers} / multiplyResult = ${multiplyResult}`)
+function greatestProductOfDiagonals(numbersArray) {
+  let toRightDiagonalMultiply = 0
+  let toLeftDiagonalMultiply = 0
+  for (let i = 0; i + 3 < numbersArray.length; i++) {
+    for (let j = 0; j < numbersArray[i].length - 3; j++) {
+      for (let k = 0, multiplyResult = 1; k <= 3; k++) {
+        multiplyResult *= (numbersArray[i + k][j + k])
+        if (multiplyResult > toRightDiagonalMultiply) {
+          toRightDiagonalMultiply = multiplyResult
         }
       }
     }
   }
-  return multipliedNumbers
+
+  for (let i = 0; i + 3 < numbersArray.length; i++) {
+    for (let j = numbersArray[i].length - 1; j - 3 >= 0; j--) {
+      for (let k = 0, multiplyResult = 1; k <= 3; k++) {
+        multiplyResult *= (numbersArray[i + k][j - k])
+        if (multiplyResult > toLeftDiagonalMultiply) {
+          toLeftDiagonalMultiply = multiplyResult
+        }
+      }
+    }
+  }
+
+  if (toRightDiagonalMultiply >= toLeftDiagonalMultiply) {
+    return toRightDiagonalMultiply
+  } else {
+    return toLeftDiagonalMultiply
+  }
 }
 
 greatestProductOfDiagonals(matrix)
