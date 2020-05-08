@@ -2,7 +2,7 @@
 
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
-    return num1   
+    return num1
   } else {
     return num2
   }
@@ -27,7 +27,7 @@ function findLongestWord(words) {
   }
 }
 
-  
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -46,17 +46,18 @@ const array = []
 
 function sum(array) {
   let sumTotal = 0;
-  
-  const err = Error('Unsupported data type sir or ma\'am');
-  
-  /* FIX ERROR MSG!!!
+
+  const err = Error();
+
+
   try {
-    if (!Array.isArray(array) throw err;
+    if (!Array.isArray(array)) throw Error('Unsupported data type sir or ma\'am');
+  } catch {
+    throw Error('Unsupported data type sir or ma\'am')
   }
-  */
-  
+
   for (i = 0; i < array.length; i++) {
-    if (typeof(array[i]) == 'number' || typeof(array[i]) === 'boolean') {
+    if (typeof (array[i]) == 'number' || typeof (array[i]) === 'boolean') {
       sumTotal += array[i];
     } else if (typeof (array[i]) == 'string') {
       sumTotal += array[i].length;
@@ -73,8 +74,8 @@ function averageNumbers(array) {
   let avgResult;
 
   if (array.length > 0) {
-    avgResult = sumNumbers(array)/(array.length);
-    
+    avgResult = sumNumbers(array) / (array.length);
+
   } else {
     avgResult = null;
   }
@@ -89,8 +90,8 @@ function averageWordLength(array) {
   let avgResult;
 
   if (array.length > 0) {
-    avgResult = sum(array)/(array.length);
-    
+    avgResult = sum(array) / (array.length);
+
   } else {
     avgResult = null;
   }
@@ -104,9 +105,9 @@ function avg(array) {
   let roundResult;
 
   if (array.length > 0) {
-    avgResult = sum(array)/(array.length);
-        
-    output = (Math.round(avgResult*100))/100
+    avgResult = sum(array) / (array.length);
+
+    output = (Math.round(avgResult * 100)) / 100
   } else {
     output = null;
   }
@@ -144,7 +145,7 @@ function uniquifyArray(array) {
     }
   });
 
-return newArray
+  return newArray
 }
 
 // Iteration #6: Find elements
@@ -179,11 +180,11 @@ const wordsCount = [
 ];
 
 function howManyTimes(array, word) {
-  let wordCount = 0 ;
+  let wordCount = 0;
 
   for (let i = 0; i < array.length; i++) {
     if (word === array[i]) {
-      wordCount++ ;
+      wordCount++;
     }
   }
 
@@ -200,14 +201,18 @@ function greatestProduct(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
 
-     if (j + 3 < matrix[i.length]) {horProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3] ;}
+      if (j + 3 < matrix[i.length]) {
+        horProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      }
 
-     if (i + 3 <matrix.length) {vertProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j] ;}
+      if (i + 3 < matrix.length) {
+        vertProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      }
 
       if (horProduct > vertProduct && horProduct > greatestNum) {
-        greatestNum = horProduct ;
+        greatestNum = horProduct;
       } else if (vertProduct > horProduct && vertProduct > greatestNum)
-        greatestNum = vertProduct ;
+        greatestNum = vertProduct;
     }
   }
 
@@ -225,14 +230,18 @@ function greatestProductOfDiagonals(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
 
-     if (j + 3 < matrix[i.length] && i + 3 < matrix.length) {diagonalRProduct = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3] ;}
+      if (j + 3 < matrix[i.length] && i + 3 < matrix.length) {
+        diagonalRProduct = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      }
 
-     if (j - 3 >= 0 && i + 3 <matrix.length) {diagonalLProduct = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3] ;}
+      if (j - 3 >= 0 && i + 3 < matrix.length) {
+        diagonalLProduct = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+      }
 
       if (diagonalRProduct > diagonalLProduct && diagonalRProduct > greatestNum) {
-        greatestNum = diagonalRProduct ;
+        greatestNum = diagonalRProduct;
       } else if (diagonalLProduct > diagonalRProduct && diagonalLProduct > greatestNum)
-        greatestNum = diagonalLProduct ;
+        greatestNum = diagonalLProduct;
     }
   }
 
@@ -261,5 +270,3 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-
