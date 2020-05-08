@@ -58,6 +58,10 @@ function sum () {
 // Level 1: Array of numbers
 function averageNumbers (arrNum) {
 
+  if (arrNum.length === 0){
+    return null
+  }
+
   let total = 0
 
   for (let i = 0; i < arrNum.length; i++) {
@@ -75,6 +79,10 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength (arrWords) {
 
+  if (arrWords.length === 0){
+    return null
+  }
+
   let wordsLength = 0
 
    arrWords.forEach(word => {
@@ -84,7 +92,7 @@ function averageWordLength (arrWords) {
   });
   
 
-  return wordsLength
+  return wordsLength / arrWords.length
 
 
 }
@@ -114,7 +122,11 @@ const wordsUnique = [
 ];
 
 function uniquifyArray (arrWords) {
-  
+
+  if (arrWords.length === 0){
+    return null
+  }
+
   let newArr = []
 
   arrWords.forEach (word => {
@@ -136,6 +148,10 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist (arrWords, specificWord) {
 
+  if (arrWords.length === 0){
+    return null
+  }
+  
   if (arrWords.includes(specificWord)) {
     return true
   } else {
