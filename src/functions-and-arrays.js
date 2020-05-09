@@ -119,13 +119,36 @@ function averageWordLength (arrWords) {
 }
 
 //Bonus - Iteration #4.1: A generic avg() function
-/*
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function avg (arr) {
+function avg (aMixedArr) {
 
+  if (aMixedArr.length === 0){
+    return null
+  }
+  
+  let total = 0
+
+
+  aMixedArr.forEach(element => {
+    switch (typeof element) {
+      case 'string':
+        total += element.length
+        break;
+      case 'boolean':
+        if (element === true) {
+          total++
+        }
+        break;
+      case 'number':
+        total += element
+    }
+  
+  })
+  
+  let rounding = (total / aMixedArr.length).toFixed(2)
+  return rounding
+  
 }
-*/
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
