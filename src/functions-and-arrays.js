@@ -216,10 +216,13 @@ const matrix = [
 ];
 
 function greatestProduct(array) {
-    // for (let x = 0; x < array.length; x++) {
-    //     const actual = array[x];
-    //     const sumActual = actual + ;
-    // }
+    for (let x = 0; x < array.length; x++) {
+        for (let y = 0; y < array[x].length; y++) {
+            const element = array[x][y];
+            console.log(element);
+
+        }
+    }
 
 }
 greatestProduct(matrix)
