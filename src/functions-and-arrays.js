@@ -45,13 +45,34 @@ function sumNumbers (arrNum) {
 }
 
 //Bonus - Iteration #3.1: A generic sum() function 
-/*
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum () {
+function sum (aMixedArr) {
 
+  if (aMixedArr.length === 0){
+    return 0
+  }
+  
+  let total = 0
+
+  aMixedArr.forEach(element => {
+    switch (typeof element) {
+      case 'string':
+        total += element.length
+        break;
+      case 'boolean':
+        if (element === true) {
+          total++
+        }
+        break;
+      case 'number':
+        total += element
+    }
+    
+  })
+
+  return total
+  
 }
-*/
 
 // Iteration #4: Calculate the average
 
@@ -151,7 +172,7 @@ function doesWordExist (arrWords, specificWord) {
   if (arrWords.length === 0){
     return null
   }
-  
+
   if (arrWords.includes(specificWord)) {
     return true
   } else {
