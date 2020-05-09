@@ -33,29 +33,24 @@ function sumNumbers(numbers) {
     }
     return sumNum
 }
-sumNumbers(numbers)
 
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, [], {}];
 
-function sum(array) {
+function sum(mixedArr) {
     let sumNum = 0
-
-    for (const iterator of array) {
+    for (const iterator of mixedArr) {
         if (typeof iterator === 'string') {
             sumNum += iterator.length
-        } else if (typeof iterator === 'boolean') {
+        } else if (typeof iterator === 'boolean' && iterator === true) {
             sumNum += 1
         } else if (typeof iterator === 'number') {
             sumNum += iterator
+        } else if (typeof iterator === 'object' || Array.isArray(iterator)) {
+            throw new Error("Unsupported data type sir or ma'am")
         }
     }
-
-    return Number(sumNum)
-
+    return sumNum
 }
-sum(mixedArr)
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -65,15 +60,16 @@ function averageNumbers(numbers) {
     if (numbers.length === 0) {
         return null
     }
+
     let sumNum = 0
     for (let i = 0; i < numbers.length; i++) {
-        sumNum += numbers[i]
+        sumNum += parseInt(numbers[i])
     }
     sumNum = sumNum / numbers.length
 
     return sumNum
 }
-averageNumbers(numbersAvg)
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -94,18 +90,9 @@ averageWordLength(wordsArr)
 
 // Bonus: Calculate the average of a mixed elements array
 
-function avg(array) {
-    if (array.length === 0) {
-        return null
-    }
-    let sumNum = 0
-
-    sumNum = sumNum / array.length
-
-
-    return sumNum
+function avg(numbers) {
+    return numbers.length !== 0 ? Number((sum(numbers) / numbers.length).toFixed(2)) : null
 }
-avg(numbersAvg)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -127,16 +114,14 @@ function uniquifyArray(arrayWords) {
         return null
     }
 
-    let uniqueValues = []
+    const uniqueValues = []
     for (const iterator of arrayWords) {
         if (uniqueValues.indexOf(iterator) === -1) {
             uniqueValues.push(iterator)
         }
     }
-
     return uniqueValues
 }
-uniquifyArray(wordsUnique)
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -144,20 +129,12 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arrayWords, search) {
     if (arrayWords.length === 0 || search.length === 0) {
         return null
-    }
-
-    let valReturned
-    if (arrayWords.indexOf(search) === -1) {
-        valReturned = false
+    } else if (arrayWords.indexOf(search) === -1) {
+        return false
     } else {
-        valReturned = true
+        return true
     }
-
-    return valReturned
 }
-
-doesWordExist(wordsFind, 'Ironhack')
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -178,9 +155,7 @@ function howManyTimes(array, search) {
     if (array.length === 0 || search.length === 0 || array.indexOf(search) === -1) {
         return 0
     }
-
     let sumRepeats = 0
-
     for (const iterator of array) {
         if (iterator === search) {
             sumRepeats++
@@ -188,7 +163,6 @@ function howManyTimes(array, search) {
     }
     return sumRepeats
 }
-howManyTimes(wordsCount, 'subset')
 
 // Iteration #8: Bonus
 
@@ -216,13 +190,23 @@ const matrix = [
 ];
 
 function greatestProduct(array) {
-    for (let x = 0; x < array.length; x++) {
-        for (let y = 0; y < array[x].length; y++) {
-            const element = array[x][y];
-            console.log(element);
-
+    let currentProduct = 0
+    let hightProduct = 0
+    for (let x = 3; x < array.length - 4; x++) {
+        for (let y = 3; y < array[x].length - 4; y++) {
+            let tempSum = 1
+            let tempSubtract = 1
+            for (let i = 0; i < 4; i++) {
+                tempSum *= array[x][y + i];
+                tempSubtract *= array[x][y - i];
+                currentProduct = tempSum > tempSubtract ? tempSum : tempSubtract
+            }
+            tempSum = 1
+            tempSubtract = 1
+            hightProduct = currentProduct > hightProduct ? currentProduct : hightProduct
         }
     }
 
+    return hightProduct
+
 }
-greatestProduct(matrix)
