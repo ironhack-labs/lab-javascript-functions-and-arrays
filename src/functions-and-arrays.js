@@ -1,19 +1,97 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  return ((num1 > num2) ? num1 : num2);
+}
+console.log(maxOfTwoNumbers(10, 12));
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(arr) {
+  let word = "";
+  if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+      word = arr[i];
+    }
+  }
+  return word;
+}
+
+findLongestWord
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(anyNumbers) {
+  var sum = 0;
+  for (let i = 0; i < anyNumbers.length; i++) {
+    sum += anyNumbers[i];
+  }
+  console.log(anyNumbers, sum);
+  return sum;
+}
+
+//Iteration 3.1 Bonus: Calculate the sum
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr2 = [5, 13, 4, 2, 14];
+const mixedArr3 = [5, 13, true, false, true];
+
+function booleanValue(boolean) {
+  return boolean ? 1 : 0;
+}
+
+function sum(mixedArr) {
+  var sum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    var element = mixedArr[i];
+    if (typeof element === 'number') {
+      sum += element;
+    } else if (typeof element === 'boolean') {
+      sum += booleanValue(element);
+    } else if (typeof element === 'string') {
+      sum += mixedArr[i].length;
+    } else {
+      throw Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  return sumNumbers(array) / array.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  return sum(array) / array.length;
+}
+
+// Iteration #4: bonus
+function avg(array) {
+  return twoDecimals(averageWordLength(array));
+}
+
+function twoDecimals(x) {
+  if (x === null) {
+    return null;
+  }
+  return parseFloat(x.toFixed(2));
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -29,8 +107,33 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(anyArray) {
+  if (anyArray.length === 0) {
+    return null;
+  }
+  let newArray = [];
+  for (let i = 0; i < anyArray.length; i++) {
+    if (!(newArray.includes(anyArray[i]))) {
+      newArray.push(anyArray[i]);
+    }
+  }
+  return newArray;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(anyArray, wordToSearch) {
+  if (anyArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < anyArray.length; i++) {
+    if (wordToSearch === anyArray[i]) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,7 +150,39 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(anyArray, wordToSearch) {
+  let counter = 0;
+  for (let i = 0; i < anyArray.length; i++) {
+    if (wordToSearch === anyArray[i]) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+
 // Iteration #8: Bonus
+
+function greatestProduct(matrix) {
+  let biggestOneSoFar = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    let line = matrix[i];
+    for (let j = 0; j < line.length; j++) {
+      if (j <= line.length - 4) {
+        let multiplication = line[j] * line[j + 1] * line[j + 2] * line[j + 3];
+        if (multiplication > biggestOneSoFar) {
+          biggestOneSoFar = multiplication;
+        }
+      }
+      if (i <= matrix.length - 4) {
+        let columnMultiplication = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (columnMultiplication > biggestOneSoFar) {
+          biggestOneSoFar = columnMultiplication;
+        }
+      }
+    }
+  }
+  return biggestOneSoFar;
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
