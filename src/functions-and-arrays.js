@@ -16,13 +16,11 @@ function findLongestWord(wordsArr) {
     return null;
   } else if (wordsArr.length === 1) {
     return wordsArr[0];
-  } else if(wordsArr.length) {
+  } else if (wordsArr.length) {
     let maxLength = 0;
     let biggestWord = '';
-    let biggestWordFounded = false;
-    //let secondLargestWord = '';
-    for(let i = 0; i < wordsArr.length; i ++) {
-      if(wordsArr[i].length > maxLength) {
+    for (let i = 0; i < wordsArr.length; i++) {
+      if (wordsArr[i].length > maxLength) {
         maxLength = wordsArr[i].length;
         biggestWord = wordsArr[i];
       }
@@ -35,9 +33,9 @@ function findLongestWord(wordsArr) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  total = 0;
-  for (let i = 0; i< numbers.length; i++) {
-    total+=numbers[i];
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
   }
   return total;
 }
@@ -52,6 +50,26 @@ function averageNumbers(numsArr) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  const wordsArrLength = wordsArr.length;
+  if (!wordsArrLength) {
+    return null;
+  }
+  let totalLength = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    totalLength+= wordsArr[i].length;
+  }
+  return totalLength / wordsArrLength;
+}
+
+function iterateWords(wordsArr) {
+  let totalLength = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    totalLength+= wordsArr[i].length;
+  }
+  return totalLength / wordsArrLength;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
