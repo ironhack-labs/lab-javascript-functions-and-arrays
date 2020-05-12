@@ -65,7 +65,11 @@ function sum (aMixedArr) {
         }
         break;
       case 'number':
-        total += element
+        total += element;
+        break;
+      case 'object':
+      case 'array':
+          throw new Error("This is an unsupported data type");
     }
     
   })
