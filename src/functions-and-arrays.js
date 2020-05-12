@@ -93,7 +93,7 @@ function uniquifyArray(words) {
   let newArray = [];
   for (let i = 0; i < words.length; i++) {
     if (newArray.indexOf(words[i]) === -1) {
-      newArray.push(words[i]);  
+      newArray.push(words[i]);
     }
   }
   return newArray;
@@ -119,6 +119,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let counter = 0;
+
+  if (!arr.length) {
+    return 0;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+}
 
 // Iteration #8: Bonus
 
