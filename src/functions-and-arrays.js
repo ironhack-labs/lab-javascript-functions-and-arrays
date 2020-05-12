@@ -58,7 +58,7 @@ function averageWordLength(wordsArr) {
   }
   let totalLength = 0;
   for (let i = 0; i < wordsArr.length; i++) {
-    totalLength+= wordsArr[i].length;
+    totalLength += wordsArr[i].length;
   }
   return totalLength / wordsArrLength;
 }
@@ -66,7 +66,7 @@ function averageWordLength(wordsArr) {
 function iterateWords(wordsArr) {
   let totalLength = 0;
   for (let i = 0; i < wordsArr.length; i++) {
-    totalLength+= wordsArr[i].length;
+    totalLength += wordsArr[i].length;
   }
   return totalLength / wordsArrLength;
 }
@@ -86,6 +86,18 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words) {
+  if (!words.length) {
+    return null;
+  }
+  let newArray = [];
+  for (let i = 0; i < words.length; i++) {
+    if (newArray.indexOf(words[i]) === -1) {
+      newArray.push(words[i]);  
+    }
+  }
+  return newArray;
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
