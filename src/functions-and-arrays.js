@@ -79,7 +79,7 @@ function avg (mixedArr){
   }
   return averageNumbers(sum)
 }
-console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]))
+
 
 // Iteration #5: Unique arrays
 function uniquifyArray (wordsUnique){
