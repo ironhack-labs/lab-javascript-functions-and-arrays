@@ -74,6 +74,15 @@ const averageWordLength = (arrayOfWords) => {
   return average;
 }
 
+const avg = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  let average = sum(arr) / arr.length;
+  let roundedAverage = Number(average.toFixed(2))
+  return roundedAverage;
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -89,8 +98,31 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = (arrayOfWords) => {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+  let unrepeatedWords = arrayOfWords.filter((firstWord,secondWord) => arrayOfWords.indexOf(firstWord) === secondWord);
+  return unrepeatedWords;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (arrayOfWords, word) => {
+  if (arrayOfWords.length == 0) {
+     return null;
+   }
+   for (let i = 0; i < arrayOfWords.length; i++) { 
+     if (arrayOfWords[i] === word) { 
+       return true;
+     } else {
+       return false;
+     }
+   }
+} 
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -106,6 +138,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arrayOfWords, word) => {
+  let wordCount = 0;
+  for (let i = 0; i < arrayOfWords.length; i++) { 
+    if (arrayOfWords[i] === word) { 
+      wordCount += 1;
+    }    
+   }
+  return wordCount;
+}
 
 // Iteration #8: Bonus
 
