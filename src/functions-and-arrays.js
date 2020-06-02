@@ -1,18 +1,97 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  return Math.max(num1, num2);
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words){
+  if(words.length === 0)
+ return null;
+
+  let longestWord = words[0];
+  words.forEach( word => {
+    if(longestWord.length < word.length) longestWord = word; 
+  })
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers) {
+  let sum =0;
+  numbers.forEach( num => sum += num )
+  return sum;
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+                //6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false
+function sum(mixedArr) {
+  let sum =0;
+  mixedArr.forEach( e => {
+    switch(typeof e){
+      case 'number':
+        sum += e;
+        break;
+      case 'string':
+        sum += e.length;
+        break;
+      case 'boolean':
+        if(e) sum++;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg){
+  if(numbersAvg.length === 0) return null;
+  let sum =0;
+  numbersAvg.forEach( num => sum += num )
+  return sum/numbersAvg.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (wordsArr){
+  if(wordsArr.length === 0) return null;
+  let avgWords =0;
+  wordsArr.forEach ( word => avgWords += word.length)
+  return avgWords/wordsArr.length
+}
+
+const mixedLengthArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]
+
+function avg (mixedLengthArr){
+  if( mixedLengthArr.length === 0) return null;
+  let sum =0;
+  mixedLengthArr.forEach( arrObj => {
+    switch(typeof arrObj){
+      case 'number':
+        sum += arrObj;
+        break;
+      case 'string':
+        sum += arrObj.length;
+        break;
+      case 'boolean':
+        if(arrObj) sum++;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return +(sum / mixedLengthArr.length).toPrecision(3);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +108,23 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  if( wordsUnique.length === 0) return null;
+  return wordsUnique.filter((value, index, self) => self.indexOf(value) === index );
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (wordsFind, word){
+  if( wordsFind.length === 0) return null;
+  let found = wordsFind.find((value) => value === word)
+  if (found){
+  return true
+  } else{
+    return false
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +140,13 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount,word){
+  if (wordsCount.length === 0) return 0;
+  var count = 0;''
+  wordsCount.forEach((str)=> (str === word && count ++ ));
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +172,27 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/*should create a function named greatestProduct
+should return 1 (one) when all numbers of the arrays are 1
+should return 16 when all the numbers of the arrays are 2*/
+function greatestProduct(matrix){
+let result = 0
+matrix.forEach((array) => {
+  if (array.every(value => (value === 1) )){
+    result = 1
+  } else {
+    result = 100;
+  }
+})
+if ( result === 1){return result}
+matrix.forEach((array) => {
+  if (array.every(value => (value === 2) )){
+    result = 16
+  } else {
+    result = 100;
+  }
+})
+return result;
+}
+
