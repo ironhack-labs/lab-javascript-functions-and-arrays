@@ -145,8 +145,6 @@ function howManyTimes(wordsCount, word){
   });
   return result;
 }
-
-
 // Iteration #8: Bonus
 
 const matrix = [
