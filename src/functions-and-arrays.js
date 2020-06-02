@@ -114,14 +114,12 @@ const doesWordExist = (arrayOfWords, word) => {
   if (arrayOfWords.length == 0) {
      return null;
    }
-   for (let i = 0; i < arrayOfWords.length; i++) { 
-     if (arrayOfWords[i] === word) { 
+  if (arrayOfWords.includes(word)) { 
        return true;
      } else {
        return false;
      }
-   }
-} 
+}
 
 
 // Iteration #7: Count repetition
