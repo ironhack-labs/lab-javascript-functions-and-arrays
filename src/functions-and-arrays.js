@@ -1,18 +1,78 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+let emptyArray = [];
+const findLongestWord = (array) => {
+  let longestWord = '';
+  for (let i = 0; i < array.length; i++) {
+    if (longestWord.length < array[i].length) {
+      longestWord = array[i];
+    }
+  }
+  if (array.length === 0) {
+    return null;
+  }
+  return longestWord;
+}
+
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = (arrayOfNumbers) => {
+  let sum = 0;
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    sum += arrayOfNumbers[i]
+  }
+    return sum;
+}
+
+
+const sum = (mixedArrayOfNumbers) => {
+  let sum = 0;
+  for (let i = 0; i < mixedArrayOfNumbers.length; i++) {
+    if (typeof mixedArrayOfNumbers[i] == 'string') {
+      mixedArrayOfNumbers[i] = mixedArrayOfNumbers[i].length;
+      } else if (typeof mixedArrayOfNumbers[i] == 'object') {
+        throw new Error("Unsupported data type sir or ma'am")  
+      }
+    sum += mixedArrayOfNumbers[i]
+  }
+    return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (arrayOfNumbers) => {
+  if (arrayOfNumbers.length === 0) {
+    return null;
+  }
+  let average = sumNumbers(arrayOfNumbers) / arrayOfNumbers.length;
+  return average;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (arrayOfWords) => {
+  if (arrayOfWords.length === 0) {
+      return null;
+  } else if (arrayOfWords.length === 1){
+      return arrayOfWords[0].length;
+  } 
+  let average = sum(arrayOfWords) / arrayOfWords.length;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
