@@ -1,18 +1,110 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(number1, number2) {
+  return Math.max(number1, number2);
+}
+console.log('Iteration #1: The maximum is ->', maxOfTwoNumbers(5, 2))
+
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array) {
+  if (array.length === 0) {
+    return null
+  }
+  if (array.length === 1) {
+    return array[0]
+  }
+  const wordLongestedSize = Math.max(...array.map(word => word.length))
+  const [wordLongest] = array.filter(word => word.length === wordLongestedSize)
+  return wordLongest
+}
+console.log('Iteration #2: The longest word is ->', findLongestWord(words))
+
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0
+  }
+  return numbers.reduce((total, element) => total + element, 0)
+}
+
+console.log('Iteration #3: The sum is ->', sumNumbers(numbers));
+
+//Bonus - Iteration #3.1: A generic sum()
+
+function sum(array) {
+
+  if (array.length === 0) {
+    return 0
+  }
+  if (array.length === 1) {
+    return array[0]
+  }
+
+  return array.reduce((total, element) => {
+    if (typeof element === 'string') {
+      return total + element.length
+    }
+    if (Array.isArray(element) || typeof element === 'object') {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+    return total + Number(element)
+  }, 0)
+
+}
+console.log('Bonus - Iteration #3.1: A generic is ->', sum(['ana', 'marco', 'nicolas', 'tania', 'ptwd']))
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null
+  }
+  return Number((sumNumbers(numbers) / numbers.length).toFixed(2))
+}
+
+console.log('Iteration #4: Level1 the average of number is ->', averageNumbers(numbersAvg))
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(arr) {
+  return averageNumbers(arr.map(element => element.length))
+}
+
+console.log('Iteration #4: Level2 the average of strings is ->', averageWordLength(wordsArr))
+
+
+
+// Bonus - Iteration #4.1: A generic avg() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  const arrToNumber = arr.map(element => {
+    if (typeof element == 'string') {
+      return element.length
+    }
+    return Number(element)
+  })
+  return averageNumbers(arrToNumber)
+}
+
+console.log('Bonus - Iteration #4.1: A generic avg is ->', avg(mixedArr))
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +121,30 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+
+  if (arr.length === 0) {
+    return null
+  }
+
+  return Array.from(new Set(arr))
+}
+console.log('Iteration #5: Array contains unique values ->', uniquifyArray(wordsUnique))
+
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, search) {
+  if (array.length === 0) {
+    return null
+  }
+  return array.includes(search)
+}
+console.log('Iteration #6: Found word TROUBLE', doesWordExist(wordsFind, 'trouble'))
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +160,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, search) {
+  if (array.length === 0) {
+    return 0;
+  }
+  const countQuantityTimes = uniquifyArray(array).map(element => [element, array.filter(str => str === element).length]);
+  const countTimes = countQuantityTimes.filter(element => doesWordExist(element[0], search)).flat()
+  if (countTimes.length === 0) {
+    return 0;
+  }
+  return countTimes[1]
+}
+
+console.log('Iteration #7:Repetition of word matter ', howManyTimes(wordsCount, 'matter'))
+
+
 
 // Iteration #8: Bonus
 
