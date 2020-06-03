@@ -34,7 +34,7 @@ function sumNumbers(numArr) {
   return sum;
 }
 
-
+// Bonus: #3.1
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixArr) {
   if (mixArr.length === 0) {
@@ -46,12 +46,16 @@ function sum(mixArr) {
   
   let onlyNumbersArr = [];
   for (let i = 0; i < mixArr.length; i++) {
-    if (typeof mixArr[i] === 'number') {
+     if(typeof mixArr[i] === 'number') {
       onlyNumbersArr.push(mixArr[i]);
     } else if (typeof mixArr[i] === 'string') {
       onlyNumbersArr.push(mixArr[i].length);
     } else if (typeof mixArr[i] === 'boolean') {
-      onlyNumbersArr.push(mixArr[i].toString().length)
+       if (!mixArr[i]) {
+        onlyNumbersArr.push(0);
+       } else {
+         onlyNumbersArr.push(1);
+       }
     }
   }
   
@@ -66,6 +70,7 @@ function sum(mixArr) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
