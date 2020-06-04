@@ -1,4 +1,12 @@
 // Iteration #1: Find the maximum
+function max (firstNum, secondNum) {
+	if (firstNum > secondNum){
+		console.log(`${firstNum} is the biggest number here.`);
+	} else {
+		console.log(`${secondNum} is the biggest number here.`);
+	}}
+	max(7, 9)
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
