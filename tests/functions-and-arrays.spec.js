@@ -227,7 +227,7 @@ describe('Find elements', () => {
   });
 });
 
-describe('Count repetition', () => {
+describe('Count howManyTimes', () => {
   it('should create a function named howManyTimes', () => {
     expect(typeof howManyTimes).toBe('function');
   });
