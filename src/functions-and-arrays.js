@@ -28,17 +28,10 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(num) {
   let sum = 0;
-  for (let i=0; i<numbers.length; i++) {
-    sum += numbers[i];
-  }
-  return sum; 
+  numbers.forEach((num) => {sum += num;})
+  return sum;
 }
 console.log(sumNumbers(numbers));
-
-// alternate solution 
-// let sum = 0;
-// numbers.forEach(function sumNumbers(num){return sum += num;})
-// console.log(sum);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
