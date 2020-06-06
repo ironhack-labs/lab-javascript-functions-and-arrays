@@ -109,6 +109,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTime(wordsArray, wordToSearch){
+  let count = 0;
+  wordsArray.forEach((word) => {
+    if (word === wordToSearch) count++;
+  })
+  return count;
+}
+
+console.log(howManyTime(wordsCount, 'matter'));
+
 // Iteration #8: Bonus
 
 const matrix = [
