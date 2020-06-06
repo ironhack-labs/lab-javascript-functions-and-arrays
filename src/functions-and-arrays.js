@@ -21,7 +21,13 @@ console.log(longestWord); 
 
 // Iteration #3: Calculate the sum
 
+let numSum = 0;
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+numbers.forEach(function addingNumbers(num) {
+  numSum += num;
+});
+console.log(numSum)
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
