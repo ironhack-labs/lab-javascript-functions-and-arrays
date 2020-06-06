@@ -44,6 +44,13 @@ console.log(averageNumbers)
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+let charCount = 0;
+for(let i = 0; i < wordsArr.length; i++){
+ charCount += wordsArr[i].length
+}
+console.log(charCount)
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
