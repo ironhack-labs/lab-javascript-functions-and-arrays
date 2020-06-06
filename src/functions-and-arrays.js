@@ -22,18 +22,18 @@ const maxOfTwoNumbers = (num1, num2) => {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  if(words.length === 0) {
-    return null;
+function findLongestWord(arr) {
+  if(!arr.length) { // check if array is empty
+    return null; // if so return null 
   } 
 
-  let word = '';
-  for (let i = 0; i < words.length; i++) {
-    if (word.length < words[i].length) {
-      word = words[i];
+  let word = ''; // create variable for word
+  for (let i = 0; i < arr.length; i++) { // loop over array
+    if (word.length < arr[i].length) { // if length of word is shorter than index word =>
+      word = arr[i]; // change word into index word. longest word will stay
     }
   }
-  return word;
+  return word; // return the longest word
 }
 
 
@@ -41,10 +41,10 @@ function findLongestWord(words) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(numbers){
+function sumNumbers(arr){
   let sum = 0; // sum starts at 0
-  for(let i = 0; i < numbers.length; i++) { // loop over array
-    sum += numbers[i]; // add every number of array to sum
+  for(let i = 0; i < arr.length; i++) { // loop over array
+    sum += arr[i]; // add every number of array to sum
   }
   return sum; // when iteration of loop is done, return total of sum
 }
@@ -53,12 +53,30 @@ function sumNumbers(numbers){
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg){
+function averageNumbers(arr){
+  if(!arr.length) { // check if array is empty
+    return null; // if so return null 
+  } 
 
+  return sumNumbers(arr) / arr.length; // use sumNumbers function as callback and devide by length of arry
+  
 };
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arr){
+  if(!arr.length) { // check if array is empty
+    return null; // if so return null 
+  } 
+
+  let sumWords = 0;
+  for(let i = 0; i < arr.length; i++) {
+    sumWords += arr[i].length;
+  }
+  return sumWords / arr.length;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
