@@ -7,12 +7,18 @@ function maxOfTwoNumbers(num1, num2){
  //console.log(maxOfTwoNumbers(10,2))
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// Declare a function named `findLongestWord` that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+
+//this one does not return the first occurrence when tested with a longer word after crocodile...
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']
+//this is to text 1st occurrence shows as answer 
+// meaning added crocodilA  after crocodile which  =  length of eacheother...
+// const words2 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crocodilA'];
 
 function findLongestWord(arr){
   if(arr.length === 0){
     return null
-  }
+  } // sanitize jasmine wants this for empty arrays to = null
   let lword = ""
 for(i=0;i<arr.length; i++){
   if(arr[i].length > lword.length){
@@ -23,8 +29,34 @@ return lword
 
 }
 console.log(findLongestWord(words))
+//console.log(findLongestWord(words2))
+
+// cleaned up the syntax from above and used else. see which one we want to use? if else or 2 ifs? 
+function findLongestWord(arr){
+  if (arr.length == 0) {
+    return null //undefined
+  } else {
+      let lword = "" 
+      for(i=0; i<arr.length; i++){
+        if(arr[i].length > lword.length){
+          lword = arr[i]
+        }
+      }
+      return lword
+    }
+  }
+  console.log(findLongestWord(words))
+  //console.log(findLongestWord(words2))
+
+
+
+
 
 // Iteration #3: Calculate the sum
+// Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+
+// Declare a function named `sumNumbers` that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array. Later in the course we will learn how to do this by using the `reduce` array method, which will make your work significantly easier. For now, let's practice _"declarative"_ way adding values, using loops.
+
 
 // const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
