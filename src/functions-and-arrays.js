@@ -15,18 +15,20 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 // meaning added crocodilA  after crocodile which  =  length of eacheother...
 // const words2 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crocodilA'];
 
+
+
+//  syntax fixed
 function findLongestWord(arr){
   if(arr.length === 0){
-    return null
-  } // sanitize jasmine wants this for empty arrays to = null
-  let lword = ""
-for(i=0;i<arr.length; i++){
-  if(arr[i].length > lword.length){
-  lword = arr[i]
-  } 
-}
-return lword
-
+    return null // sanitize jasmine wants this for empty arrays to = null
+    }
+    let lword = ""
+    for(i=0;i<arr.length; i++){
+      if(arr[i].length > lword.length){
+        lword = arr[i]
+      } 
+    }
+    return lword
 }
 console.log(findLongestWord(words))
 //console.log(findLongestWord(words2))
