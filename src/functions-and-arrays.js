@@ -71,10 +71,10 @@ function averageWordLength(arr){
   } 
 
   let sumWords = 0;
-  for(let i = 0; i < arr.length; i++) {
-    sumWords += arr[i].length;
+  for(let i = 0; i < arr.length; i++) { // loop over array
+    sumWords += arr[i].length; // add number of characters of word in array to sumWords
   }
-  return sumWords / arr.length;
+  return sumWords / arr.length; // total of sumWords divided by length of array
 }
 
 
@@ -93,8 +93,38 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  if(!arr.length) { // check if array is empty
+    return null; // if so return null 
+  } 
+
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, word) {
+  if(!arr.length) { // check if array is empty
+    return null; // if so return null 
+  } 
+
+  for (var i = 0; i < arr.length; i++) { // loop over array
+    if (arr[i] === word) { // check if specific word is in array
+      return true; // if so, return true
+    }
+  }
+  return false; // word is not in array, return false
+}
+
+// doesWordExist(wordsFind, 'ajax'); //=> false
+// doesWordExist(wordsFind, 'trouble'); //=> true
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -110,6 +140,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  if(!arr.length) { // check if array is empty
+    return 0; // if so return null 
+  } 
+
+  let countWord = 0;
+  for (var i = 0; i < arr.length; i++) { // loop over array
+    if(arr[i] === word){
+      countWord++;
+    }
+  }
+  return countWord;
+}
+
+howManyTimes(wordsCount, 'matter'); //==> 4
+howManyTimes(wordsCount, 'ajax'); //==> 4
 
 // Iteration #8: Bonus
 
