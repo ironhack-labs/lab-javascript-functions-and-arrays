@@ -12,14 +12,23 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(wordArray) {
   let longestWord = "";
-  wordArray.forEach(word => {
+
+  if (wordArray.length === 0){
+
+    return null;
+
+  } else {
+
+    wordArray.forEach(word => {
     if (word.length === longestWord.length) {} 
     else if (word.length > longestWord.length) {longestWord = word}
-  })  
-  return longestWord
+    })
+
+    return longestWord;
+  }
 }
 
-console.log(findLongestWord(words));
+console.log(findLongestWord(""));
 
 // Iteration #3: Calculate the sum
 
