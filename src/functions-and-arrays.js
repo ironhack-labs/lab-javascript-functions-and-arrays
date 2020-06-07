@@ -15,6 +15,7 @@ const maxOfTwoNumbers = (num1, num2) => {
 };
 
 
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -33,7 +34,6 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 //   return word; // return the longest word
 // }
 
-
 // ES6 + forEach
 const findLongestWord = arr => {
   if(!arr.length) { // check if array is empty
@@ -45,50 +45,86 @@ const findLongestWord = arr => {
     if(word.length > longestWord.length) {
       longestWord = word;
     }
-  });
+  })
   return longestWord; // return the longest word
-}
+};
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(arr){
-  let sum = 0; // sum starts at 0
-  for(let i = 0; i < arr.length; i++) { // loop over array
-    sum += arr[i]; // add every number of array to sum
-  }
-  return sum; // when iteration of loop is done, return total of sum
-}
+// ES5
+// function sumNumbers(arr){
+//   let sum = 0; // sum starts at 0
+//   for(let i = 0; i < arr.length; i++) { // loop over array
+//     sum += arr[i]; // add every number of array to sum
+//   }
+//   return sum; // when iteration of loop is done, return total of sum
+// };
+
+// ES6 +forEach
+const sumNumbers = arr => {
+  let sum = 0;
+  arr.forEach(num => {
+    sum += num;
+  });
+  return sum;
+};
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arr){
+// ES5
+// function averageNumbers(arr){
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   };
+
+//   return sumNumbers(arr) / arr.length; // use sumNumbers function as callback and devide by length of arry  
+// };
+
+// ES6
+const averageNumbers = arr => {
   if(!arr.length) { // check if array is empty
     return null; // if so return null 
   } 
 
-  return sumNumbers(arr) / arr.length; // use sumNumbers function as callback and devide by length of arry
-  
+  return sumNumbers(arr) / arr.length; // use sumNumbers function as callback and devide by length of array
 };
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(arr){
+// ES5 + for loop
+// function averageWordLength(arr){
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   } 
+
+//   let sumWords = 0;
+//   for(let i = 0; i < arr.length; i++) { // loop over array
+//     sumWords += arr[i].length; // add number of characters of word in array to sumWords
+//   }
+//   return sumWords / arr.length; // total of sumWords divided by length of array
+// }
+
+// ES6 + forEach
+const averageWordLength = arr => {
   if(!arr.length) { // check if array is empty
     return null; // if so return null 
-  } 
+  }
 
   let sumWords = 0;
-  for(let i = 0; i < arr.length; i++) { // loop over array
-    sumWords += arr[i].length; // add number of characters of word in array to sumWords
-  }
+  arr.forEach(word => {
+    sumWords += word.length; // add number of characters of word in array to sumWords
+  });
   return sumWords / arr.length; // total of sumWords divided by length of array
-}
-
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
