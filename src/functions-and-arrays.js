@@ -9,33 +9,45 @@
 //   }
 // };
 
-// ES6
+// ES6 + Ternary Operator
 const maxOfTwoNumbers = (num1, num2) => {
-  if(num1 > num2) {
-    return num1;
-  } else {
-    return num2;
-  }
+  return num1 > num2 ? num1 : num2; // checks conditions and returns highest number
 };
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(arr) {
+// ES5
+// function findLongestWord(arr) {
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   } 
+
+//   let word = ''; // create variable for word
+//   for (let i = 0; i < arr.length; i++) { // loop over array
+//     if (word.length < arr[i].length) { // if length of word is shorter than index word =>
+//       word = arr[i]; // change word into index word. longest word will stay
+//     }
+//   }
+//   return word; // return the longest word
+// }
+
+
+// ES6 + forEach
+const findLongestWord = arr => {
   if(!arr.length) { // check if array is empty
     return null; // if so return null 
   } 
-
-  let word = ''; // create variable for word
-  for (let i = 0; i < arr.length; i++) { // loop over array
-    if (word.length < arr[i].length) { // if length of word is shorter than index word =>
-      word = arr[i]; // change word into index word. longest word will stay
+  
+  let longestWord = '';
+  arr.forEach(word => {
+    if(word.length > longestWord.length) {
+      longestWord = word;
     }
-  }
-  return word; // return the longest word
+  });
+  return longestWord; // return the longest word
 }
-
 
 // Iteration #3: Calculate the sum
 
@@ -146,17 +158,17 @@ function howManyTimes(arr, word) {
     return 0; // if so return null 
   } 
 
-  let countWord = 0;
+  let countWord = 0; // create new variable to count amount
   for (var i = 0; i < arr.length; i++) { // loop over array
-    if(arr[i] === word){
-      countWord++;
+    if(arr[i] === word){ // if specific word is in array =>
+      countWord++; // add 1 to countWord variable
     }
   }
-  return countWord;
+  return countWord; // return total of countWord
 }
 
 howManyTimes(wordsCount, 'matter'); //==> 4
-howManyTimes(wordsCount, 'ajax'); //==> 4
+howManyTimes(wordsCount, 'ajax'); //==> 0
 
 // Iteration #8: Bonus
 
