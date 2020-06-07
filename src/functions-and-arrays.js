@@ -37,8 +37,36 @@ const sumNumbers = (arr) => {
   } 
   return result
 };
-
 console.log(sumNumbers(numbers));
+
+
+// Bonus - Iteration #3.1: A generic sum() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,];
+
+// should return: 57
+const sum = (arr) => {
+  let result = 0;
+  for(i=0;i<arr.length;i++){
+    switch (typeof arr[i]) {
+  case ('number'):
+      result += arr[i]
+  break;
+    case ('boolean'):
+      if (arr[i] === true) {
+        result += 1
+      } 
+  break;
+    case ('string'):
+      result += arr[i].length
+  break;
+  default:
+  throw new Error("Unsupported data type sir or ma'am")
+}
+  } 
+  return result;
+};
+
+sum(mixedArr)
 
 
 // Iteration #4: Calculate the average
