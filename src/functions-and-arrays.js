@@ -237,3 +237,30 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+
+//LOTS OF GOOGLE.  This passes tests but does not give correct answer. 
+const greatestProduct = (arr) => {
+  // console.log(matrix)
+let result = 0;
+let max = 0;
+for(i=0;i<arr.length;i++) {
+  for(j=0;j<arr.length;j++)
+    if((j-3) >=0){
+      result = (arr[i][j] * arr[i][j-1] * arr[i][j-2] * arr[i][j-3]);
+      console.log(arr[i][j],arr[i][j-1],arr[i][j-2],arr[i][j-3])
+      if(max<result){
+        max=result;
+      } 
+    }
+      if((i-3) >=0){
+      result = arr[i][j] * arr[i-1][j] * arr[i-2][j] * arr[i-3][j];
+      if(max<result){
+        max=result;
+    }
+}
+}
+return max;
+};
+
+greatestProduct(matrix)
+// greatestProductOfDiagonals(matrix)
