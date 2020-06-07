@@ -33,7 +33,7 @@ function sumNumbers(arr) {
 }
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// 3.1
+// // 3.1
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(arr) {
@@ -45,27 +45,29 @@ function sum(arr) {
       count = count + arr[i].length;
     } else if (arr[i] === true) {
       count = count + 1;
-    }
+    } //else {
+      //throw Error;
+    //} 
   }
   return count;
 }
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// // Iteration #4: Calculate the average
+// // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
   if (arr.length > 0) {
       let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    count = count + arr[i];
-  }
-  return count/2;  
+    for (let i = 0; i < arr.length; i++) {
+      count = count + arr[i];
+    }
+    return count/arr.length;  
   } else {
     return null;
   }
 }
-// Level 2: Array of strings
+ // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arr) {
@@ -74,11 +76,34 @@ function averageWordLength(arr) {
     for (let i = 0; i < arr.length; i++) {
       count = count + arr[i].length;
     }
-    return count/2;
+    return count/arr.length;
   } else {
     return null;
   }
 }
+
+//  Iteration #4.1: A generic avg() function
+
+function avg(arr) {
+  let count = 0;
+  if (arr.length > 0) {
+    for (let i = 0; i <arr.length; i++) {
+      if(typeof arr[i] === 'number') {
+        count = count + arr[i];
+      } else if(typeof arr[i] === 'string') {
+        count = count + arr[i].length;
+      } else if (arr[i] === true) {
+        count = count + 1;
+      } 
+    }
+  } else {
+    return null;
+  }
+  
+  return (count/arr.length).toPrecision(2)
+}
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -95,25 +120,29 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  let newArr = [];
-  for(let i = 0; i < arr.length; i++) {
-    for(let j = 0; i < arr.length; j++) {
-      if (arr[i] !== arr[j]) {
-        newArr.push(arr[i]);
-      }
-    }
+  if (arr.length > 0) {
+    let result = arr.filter((item, index) => {
+      return arr.indexOf(item) == index;
+    })
+    return result;
+  } else {
+    return null;
   }
-  return newArr;
 }
 
-// Iteration #6: Find elements
+// // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, str) {
-  return arr.includes(str);
+  if (arr.length > 0) {
+    return arr.includes(str) ? true : false;
+  } else {
+    return null;
+  }
+  
 }
 
-// Iteration #7: Count repetition
+// // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -138,7 +167,7 @@ function howManyTimes(arr, str) {
   return count;
 }
 
-// Iteration #8: Bonus
+// // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -165,13 +194,43 @@ const matrix = [
 function greatestProduct(matrix) {
   let count = 0;
   for (let j = 0; j < matrix.length; j++) {
-      for (let i = 0; i < matrix[0].length; i ++) {
-        let temp = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[0][i + 3];
-          if (temp > count) {
-            count = temp;
-          }
+    for (let i = 0; i < matrix[j].length; i ++) {
+      let temp = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      if (temp > count) {
+        count = temp;
+      }
     }
   }
 
+  for (let j = 0; j < matrix.length - 3; j ++) {
+    for (let i = 0; i < matrix[j].length; i ++) {
+      let temp = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i];
+      if (temp > count) {
+        count = temp;
+      }
+    }
+  }
   return count;
 }
+
+// function greatestProductOfDiagonals(matrix) {
+// let count = 0;
+// for (let j = 0; j < matrix.length; j++) {
+//   for (let i = 0; i < matrix[j].length; i ++) {
+//     let temp = matrix[j][i] * matrix[j +1][i + 1] * matrix[j + 2][i + 2] * matrix[j + 3][i + 3];
+//     if (temp > count) {
+//       count = temp;
+//     }
+//   }
+// }
+
+// for (let j = -1; j < matrix.length - 3; j --) {
+//   for (let i = -1; i < matrix[j].length; i --) {
+//     let temp = matrix[j][i] * matrix[j -2][i - 2] * matrix[j - 3][i - 3] * matrix[j - 4][i - 4];
+//     if (temp > count) {
+//       count = temp;
+//     }
+//   }
+// }
+// return count;
+// }
