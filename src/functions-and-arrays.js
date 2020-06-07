@@ -106,6 +106,35 @@ return sum/arr.length
 };
 
 
+// Bonus - Iteration #4.1: A generic avg() function
+const avg = (arr) => {
+  let result = 0;
+  if (arr.length>0){
+  for(i=0;i<arr.length;i++){
+    switch (typeof arr[i]) {
+  case ('number'):
+      result += arr[i]
+  break;
+    case ('boolean'):
+      if (arr[i] === true) {
+        result += 1
+      } 
+  break;
+    case ('string'):
+      result += arr[i].length
+  break;
+  default:
+  throw new Error('data type not valid')
+}
+  } 
+  return Math.round((result/arr.length)*1e2) / 1e2;
+} else {
+  return null;
+}
+};
+avg(mixedArr);
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
