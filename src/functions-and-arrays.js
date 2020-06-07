@@ -31,32 +31,34 @@ function findLongestWord(word){
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(array){
   if(array.length === 0){
-    return 0
+    return 0 ;
   }else{
     let sumTotal = 0;
       for(let i=0 ; i<array.length ; i++){
         sumTotal += array[i];
-      }
-      return sumTotal;
+      } return sumTotal;
   }
 }
 //Iteration 3.1 Bonus
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(array){
-  let sumTotal = 0;
-  for(let i=0 ; i<array.length ; i++){
-    if(typeof array[i] === "object" ||typeof array[i] === "array"){
-      throw new Error("Unsupported data type sir or ma'am");
-     }else if(typeof array[i] === "string"){
-      sumTotal += array[i].length ;
-     }else if(array[i]===true){
-       sumTotal += 1;
-     }else if(array[i]===false){
-       continue; 
-     }else{sumTotal += array[i]};
-  }
-  return sumTotal;
+  if(array.length === 0){
+    return 0;
+  }else{
+    let sumTotal = 0;
+    for(let i=0 ; i<array.length ; i++){
+      if(typeof array[i] === "object" ||typeof array[i] === "array"){
+        throw new Error("Unsupported data type sir or ma'am");
+      }else if(typeof array[i] === "string"){
+        sumTotal += array[i].length ;
+      }else if(array[i]===true){
+        sumTotal += 1;
+      }else if(array[i]===false){
+        continue; 
+      }else{sumTotal += array[i]};
+    }
+  }return sumTotal;
 }
 
 
@@ -117,25 +119,41 @@ function averageWordLength(array){
 //4.1 Bonus
 
 function sum(array){
-  let sumTotal = 0;
-  for(let i=0 ; i<array.length ; i++){
-    if(typeof array[i] === "string"){
-      sumTotal += array[i].length ;
-     }else if(array[i]===true){
-       sumTotal += 1;
-     }else if(array[i]===false){
-       continue; 
-     }else{sumTotal += array[i]};
+  let totalSum = 0
+  if(array.length===0){
+    return null;
+  }else{
+    for(let i=0 ; i<array.length ; i++){
+      if(typeof array[i] ==="object"||typeof array ==="array"){
+        throw new Error("Unsupported data type sir or ma'am");
+      }else if(typeof array[i] === "string"){
+        totalSum += array[i].length ;
+      }else if(array[i] === true){
+        totalSum += 1;
+      }else if(array[i] === false){
+        continue ;
+      }else{
+        totalSum += array[i]
+      }
+    }
   }
-  return sumTotal;
-}
+  return totalSum ;
+};
+
 
 function avg(array){
-  if(array.length === 0){
-    return null
+  let count = 0
+  if(array.length===0){
+    return null;
   }else{
-  return sum(array)/array.length
-  }
+    for(let i=0 ; i<array.length ; i++){
+      if(typeof array[i] ==="object"||typeof array ==="array"){
+        throw new Error("Unsupported data type sir or ma'am");
+      }else{
+        count +=1
+      } ;
+    }
+  } return Math.round((sum(array)/count)*100)/100;
 }
 
 
