@@ -1,19 +1,22 @@
-// Iteration #1: Find the maximum
+/// just my lazy trick since consol.log doesn't "tab out" to check along the way quicker 👹..and as you can see spell wrong easier lol^
+function print(...param){
+  console.log(...param)
+}
+///////////////////
 
+// Iteration #1: Find the maximum
 
 function maxOfTwoNumbers(num1, num2){
   return num1 > num2 ? num1 : num2
  }
- //console.log(maxOfTwoNumbers(10,2))
+ print(maxOfTwoNumbers(10,2))
 
 // Iteration #2: Find longest word
 // Declare a function named `findLongestWord` that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
 
-//this one does not return the first occurrence when tested with a longer word after crocodile...
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']
-//this is to text 1st occurrence shows as answer 
-// meaning added crocodilA  after crocodile which  =  length of eacheother...
-// const words2 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crocodilA'];
+//this is to test 1st occurrence shows as answer...
+const words2 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'Crocodile'];
 
 
 
@@ -30,8 +33,8 @@ function findLongestWord(arr){
     }
     return lword
 }
-console.log(findLongestWord(words))
-//console.log(findLongestWord(words2))
+print(findLongestWord(words))
+print(findLongestWord(words2))
 
 // cleaned up the syntax from above and used else. see which one we want to use? if else or 2 ifs? 
 function findLongestWord(arr){
@@ -48,7 +51,7 @@ function findLongestWord(arr){
     }
   }
   console.log(findLongestWord(words))
-  //console.log(findLongestWord(words2))
+  console.log(findLongestWord(words2))
 
 
 
