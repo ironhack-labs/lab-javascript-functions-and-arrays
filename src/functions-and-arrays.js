@@ -26,18 +26,98 @@ const findLongestWord = (list) => {
   }
 
 };
-console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = (arr) => {
+    let sum = 0
+    arr.forEach(num =>{
+        sum += num
+    })
+    return sum
+};
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+const sum = (arr) => {
+  let totSum = 0;
+  if (arr.length === 0){
+    return totSum
+  }else{
+    for (let i=0; i < arr.length; i++){
+        if (typeof (arr[i]) === 'boolean'){
+            let boolToNum = arr[i] ? 1 : 0;
+            totSum += boolToNum;
+
+        }else if (typeof (arr[i]) === 'string'){
+            let stringLength = arr[i].length;
+            totSum += stringLength;
+
+        }else if (typeof (arr[i]) === 'number'){
+          totSum += arr[i];
+
+        }else{
+          throw new Error('Unsupported data type');
+        }
+    }
+  } return totSum;
+  };
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (arr) =>{
+  if (arr.length ===0){
+      return null
+  }else{
+    let average = sumNumbers(arr)/arr.length;
+    return average
+}
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (arr) =>{
+  if (arr.length ===0){
+      return null
+  }else{
+      let sum = 0
+      let averageLength = 0
+  arr.forEach(word =>{ sum += word.length })
+       averageLength = sum/arr.length;
+       return averageLength;
+  }
+};
+
+//   ALTERNATIVE SOLUTION ==> reuse sum() function
+// const averageWordLength = (arr) =>{
+//   if (arr.length ===0){
+//       return null
+//   }else{
+//       let average = sum(arr)/arr.length;
+//       return average
+//   }
+// }
+
+//Bonus - Iteration #4.1: A generic avg() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+const avg = (arr) =>{
+  if (arr.length ===0){
+      return null
+  }else{
+      let averageOfArray = sum(arr)/arr.length;
+      return averageOfArray
+  }
+}
+
+avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
