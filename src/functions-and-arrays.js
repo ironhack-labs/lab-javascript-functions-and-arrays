@@ -109,6 +109,10 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(arr, str) {
+  return arr.includes(str);
+}
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -124,14 +128,23 @@ const wordsCount = [
   'matter'
 ];
 
-// Iteration #8: Bonus
+function howManyTimes(arr, str) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === str) {
+      count++;
+    }
+  }
+  return count;
+}
 
+// Iteration #8: Bonus
 const matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+  [8, 2, 22, 97, 38, 15, 0, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
   [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
-  [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
+  [22, 31, 16, 71, 51, 67, 63, 89, 40, 0, 75, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
   [24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
   [32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70],
   [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21],
@@ -148,3 +161,17 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let count = 0;
+  for (let j = 0; j < matrix.length; j++) {
+      for (let i = 0; i < matrix[0].length; i ++) {
+        let temp = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[0][i + 3];
+          if (temp > count) {
+            count = temp;
+          }
+    }
+  }
+
+  return count;
+}
