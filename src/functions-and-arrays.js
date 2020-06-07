@@ -32,7 +32,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(array){
   if(array.length === 0){
     return 0
-  } else {
+  }else{
     let sumTotal = 0;
       for(let i=0 ; i<array.length ; i++){
         sumTotal += array[i];
@@ -47,7 +47,7 @@ function sum(array){
   let sumTotal = 0;
   for(let i=0 ; i<array.length ; i++){
     if(typeof array[i] === "object" ||typeof array[i] === "array"){
-      return 'Object or array';
+      throw new Error("Unsupported data type sir or ma'am");
      }else if(typeof array[i] === "string"){
       sumTotal += array[i].length ;
      }else if(array[i]===true){
@@ -180,7 +180,7 @@ function doesWordExist(array,word){
       if(array[i]===word){
         return true ;
       } else{
-        return false
+        return false ;
       }
     }
   }
@@ -243,4 +243,163 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+function greatestVerticalProduct(mat){
+  if(mat.length === 0){
+    return null;
+  }else{
+    let greatestVertProduct = 0;
+    for(let i=0 ; i<mat.length ; i++){
+      for(let j=0 ; j<mat[i].length ; j++){
+        let prod = 0
+        if(mat[i+1] === undefined){
+            prod = mat[i][j];
+            if(prod > greatestVertProduct){greatestVertProduct = prod} else{continue};
+        }else if(mat[i+2] === undefined){
+            prod = mat[i][j] * mat[i+1][j];
+            if(prod > greatestVertProduct){greatestVertProduct = prod} else{continue};
+        }else if(mat[i+3] === undefined){
+            prod = mat[i][j] * mat[i+1][j] * mat[i+2][j];
+            if(prod > greatestVertProduct){greatestVertProduct = prod} else{continue};
+        }else{
+            prod = mat[i][j] * mat[i+1][j] * mat[i+2][j] * mat[i+3][j];
+            if(prod > greatestVertProduct){greatestVertProduct = prod}else{continue};
+        } 
+      }
+    }return greatestVertProduct;
+  }
+} 
 
+function greatestHorizontalProduct(mat){//function that iterates through the array adding the four subsecuent numbers
+  if(mat.length === 0){
+    return null;
+  }else{
+    greatestHorProd = 0;
+    for(let i=0 ; i<mat.length ; i++){ //loop that iterates through each line
+      for(let j=0 ; j<mat[i].length ; j++){ // loopt that iterates through each value in the line
+        let product = 0
+        if(mat[j+1] === undefined){ //once the iteration arrives to the edge, it sums the numbers left to get to the edge
+            product = mat[i][j];
+            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+        }else if(mat[j+2] === undefined){
+            product = mat[i][j] * mat[i][j+1];
+            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+        }else if(mat[j+3] === undefined){
+            product = mat[i][j] * mat[i][j+1] * mat[i][j+2];
+            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+        }else{
+            product = mat[i][j] * mat[i][j+1] * mat[i][j+2] * mat[i][j+3]; // factor of the [j] times the three values to the right
+            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+        } 
+      }
+    } return greatestHorProd;
+  }
+} 
+
+function greatestProduct(mat){
+  if(greatestHorizontalProduct(mat)>greatestVerticalProduct(mat)){
+    return greatestHorizontalProduct(mat)
+  } else{
+    return greatestVerticalProduct(mat)
+  }
+}
+
+//Iteration #8.1 Diagonal Bonus
+
+function greatestDiagRightProduct(mat){ //function that iterates through the matrix calculating the greatest product in a diagonal right direction
+  if(mat.length === 0){
+    return null;
+  }else{
+    let greatestDiagonalProduct = 0; //variable that stores the greatest product at any given iteration
+    let greatestDiagonalCoordinates = [] //variable that stores the coordinates of the values that make the greatest product
+    for(let i=0 ; i<mat.length ; i++){//loop that iterates through each line of the matrix (coordinate y)
+      for(let j=0 ; j<mat[i].length ; j++){//loop that iterates through each value in the line (coordinate x)
+        let prod = 0 //each iteration is going to calculate a product. This restores it to 0 in each iteration
+        if(mat[i+1] === undefined || mat[j+1] === undefined){//if iteration reaches to an edge of the matrix, it calculates the product of the values before that edge
+            prod = mat[i][j];//the closest you can get to the edge is 1. right in the edge
+            if(prod > greatestDiagonalProduct){//if the product of this iteration is greater than the greatest, this now becomes the greatest
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j]];//given this is the new greatest product, its coordinates are stored
+              }else{continue};
+        }else if(mat[i+2] === undefined || mat[j+2] === undefined){
+            prod = mat[i][j] * mat[i+1][j+1];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j],[i+1,j+1]];
+              }else{continue};
+        }else if(mat[i+3] === undefined || mat[j+3] === undefined){
+            prod = mat[i][j] * mat[i+1][j+1] * mat[i+2][j+2];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j],[i+1,j+1],[i+2,j+2]];
+              }else{continue};
+        }else{
+            prod = mat[i][j] * mat[i+1][j+1] * mat[i+2][j+2] * mat[i+3][j+3];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j],[i+1,j+1],[i+2,j+2],[i+3,j+3]];
+              }else{continue};
+        } 
+      }
+    }return [greatestDiagonalProduct , greatestDiagonalCoordinates];//given that a function can only return one value, this returns an array that contains the greatest value and the coordinates that came up w/ that number
+  }
+} 
+
+function greatestDiagLeftProduct(mat){//same calculation as the Diagonal right but to the left
+  if(mat.length === 0){
+    return null;
+  }else{
+    let greatestDiagonalProduct = 0;
+    let greatestDiagonalCoordinates = [];
+    for(let i=0 ; i<mat.length ; i++){
+      for(let j=0 ; j<mat[i].length ; j++){
+        let prod = 0
+        if(mat[i+1] === undefined || mat[j-1] === undefined){
+            prod = mat[i][j];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j]];
+              }else{continue};
+        }else if(mat[i+2] === undefined || mat[j-2] === undefined){
+            prod = mat[i][j] * mat[i+1][j-1];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j],[i+1,j-1]];
+              }else{continue};
+        }else if(mat[i+3] === undefined || mat[j-3] === undefined){
+            prod = mat[i][j] * mat[i+1][j-1] * mat[i+2][j-2];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod;
+              greatestDiagonalCoordinates = [[i,j],[i+1,j-1],[i+2,j-2]];
+              }else{continue};
+        }else{
+            prod = mat[i][j] * mat[i+1][j-1] * mat[i+2][j-2] * mat[i+3][j-3];
+            if(prod > greatestDiagonalProduct){
+              greatestDiagonalProduct = prod
+              greatestDiagonalCoordinates = [[i,j],[i+1,j-1],[i+2,j-2],[i+3,j-3]];
+              }else{continue};
+        } 
+      }
+    }return [greatestDiagonalProduct, greatestDiagonalCoordinates];
+  }
+}
+
+function greatestProductOfDiagonals(mat){//compares the greatest product of the diagonal right and the diagonal left and returns the greatest of all w/its coordinates
+  if(greatestDiagRightProduct(mat)[0] > greatestDiagLeftProduct(mat)[0]){
+    return [greatestDiagRightProduct(mat)[0],greatestDiagRightProduct(mat)[1]];
+  } else{
+    return [greatestDiagLeftProduct(mat)[0],greatestDiagLeftProduct(mat)[1]];
+  }
+}
+
+
+function greatestProductAndLocationOfDiagonals(mat){
+  let newArr = [...mat] ;//copy of the original matrix array
+  let productAndLocation = greatestProductOfDiagonals(mat) //convertion of the function to a variable so that's easier to break it down
+  newArr[productAndLocation[1][0][0]].splice(productAndLocation[1][0][1],1,`*${newArr[productAndLocation[1][0][0]][productAndLocation[1][0][1]]}*`);//takes the first value in the coordinates and highligts it in the array
+  [...newArr][productAndLocation[1][1][0]].splice(productAndLocation[1][1][1],1,`*${newArr[productAndLocation[1][1][0]][productAndLocation[1][1][1]]}*`);
+  [...newArr][productAndLocation[1][2][0]].splice(productAndLocation[1][2][1],1,`*${newArr[productAndLocation[1][2][0]][productAndLocation[1][2][1]]}*`);
+  [...newArr][productAndLocation[1][3][0]].splice(productAndLocation[1][3][1],1,`*${newArr[productAndLocation[1][3][0]][productAndLocation[1][3][1]]}*`);
+  return [`The greatest product is ${productAndLocation[0]}`,newArr] ;
+}
+
+greatestProductAndLocationOfDiagonals(matrix)
