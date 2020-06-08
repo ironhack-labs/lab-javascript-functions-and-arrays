@@ -42,6 +42,21 @@ function sumNumbers(nums) {
 	return sum;
 }
 console.log(sumNumbers(numbers));
+//Iteration 3.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArray) {
+	let total = 0; 
+	mixedArray.forEach((item) => {
+		if (typeof item === "string") {
+			total += item.length;
+		} else if (typeof item === "number" || typeof item === "boolean") {
+		total += item; 
+		}
+	})
+	return total;
+}
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
