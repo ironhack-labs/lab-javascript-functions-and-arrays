@@ -37,7 +37,7 @@ const sumNumbers = (arr) => {
   } 
   return result
 };
-console.log(sumNumbers(numbers));
+// console.log(sumNumbers(numbers));
 
 
 // Bonus - Iteration #3.1: A generic sum() function
@@ -239,44 +239,44 @@ const matrix = [
 
 
 // What is the greatest product of four adjacent numbers? We consider adjacent any four numbers that are next to each other horizontally or vertically.
-  
+ 
 /*
-  Approach:
-  1. Group 4 elements which are adjacent to each other in each row and calculate their maximum result.
-  2. Group 4 elements which are adjacent to each other in each column and calculate their maximum results.
-  3. Group 4 elements which are adjacent to each other in diagonal and calculate their maximum results.
-  4. Group 4 elements which are adjacent to each other in anti diagonal and calculate their maximum results.
-  5. Compare of all calculated maximum results.
+Approach:
+1. Group 4 elements which are adjacent to each other in each row and calculate their maximum result.
+2. Group 4 elements which are adjacent to each other in each column and calculate their maximum results.
+3. Group 4 elements which are adjacent to each other in diagonal and calculate their maximum results.
+4. Group 4 elements which are adjacent to each other in anti diagonal and calculate their maximum results.
+5. Compare of all calculated maximum results.
 */
-  
-  const greatestProduct = (arr) => {
-  let result = 0;
-  let max = 0;
-  for(i=0;i<arr.length;i++) {
-    for(j=0;j<arr.length;j++) {
-      if((j-3) >=0){
-        result = (arr[i][j] * arr[i][j-1] * arr[i][j-2] * arr[i][j-3]);
-        // console.log(arr[i][j],arr[i][j-1],arr[i][j-2],arr[i][j-3])
-          //console.log(result);
-      }
-        if(max<result){
-          max=result;
-        } 
 
-        if((i-3) >=0){
-        result = (arr[i][j] * arr[i-1][j] * arr[i-2][j] * arr[i-3][j]);
-              console.log(result)
-              console.log(arr[i][j],arr[i-1][j],arr[i-2][j],arr[i-3][j])
+const greatestProduct = (arr) => {
+  // console.log(matrix)
+let result = 0;
+let max = 0;
+for(i=0;i<arr.length;i++) {
+  for(j=0;j<arr.length;j++) {
+    if((j-3) >=0){
+      result = (arr[i][j] * arr[i][j-1] * arr[i][j-2] * arr[i][j-3]);
+      // console.log(arr[i][j],arr[i][j-1],arr[i][j-2],arr[i][j-3])
+        //console.log(result);
+    }
+      if(max<result){
+        max=result;
+      } 
+
+      if((i-3) >=0){
+      result = (arr[i][j] * arr[i-1][j] * arr[i-2][j] * arr[i-3][j]);
+            //console.log(result)
+      }
+      
+      if(max<result){
+        max=result;
         }
-        
-        if(max<result){
-          max=result;
-          }
-  }
-  }
-  return max;
-  };
-  
-  greatestProduct(matrix)
-  // greatestProductOfDiagonals(matrix)
-  
+}
+}
+console.log(max)
+return max;
+};
+
+greatestProduct(matrix)
+// greatestProductOfDiagonals(matrix)
