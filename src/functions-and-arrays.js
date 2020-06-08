@@ -14,14 +14,17 @@ function maxOfTwoNumbers (a,b){
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-let longest = '';
-for (let i = 0; i < words.length; i++) {
-    if (words[i].length > longest.length)
-    longest = words[i];
+  let longest = '';
+  if (words.length === 0){
+    longest = null;
+    }
+  for (let i = 0; i < words.length; i++) {
+      if (words[i].length > longest.length)
+      longest = words[i];
+    }
+    return longest;
   }
-  return longest;
-}
-console.log(findLongestWord(words));
+  console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
@@ -84,8 +87,36 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  let a = [];
+
+  for (var i=0, l=wordsUnique.length; i<l; i++)
+      if (a.indexOf(wordsUnique[i]) === -1 && wordsUnique[i] !== '')
+          a.push(wordsUnique[i]);
+  return a;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordsFind,searched){
+
+  var exists=0;
+  for (i=0;i < wordsFind.length;i++){
+    if(wordsFind[i]===searched){
+      exists=1;
+    }
+  }
+  if(exists===1){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+console.log(doesWordExist(wordsFind,'machine'));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -101,6 +132,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount,searched){
+  var exists=0;
+  for (let i=0; i < wordsCount.length; i++){
+    if(wordsCount[i] === searched){
+      exists += 1;
+    } else {
+      exists = exists;
+    }
+  }
+  return exists;
+}
+console.log(howManyTimes(wordsCount,'machine'));
 
 // Iteration #8: Bonus
 
