@@ -65,7 +65,7 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+var newWordsUnique = wordsUnique.concat()
 function uniquifyArray(words){
   return words.filter((value, index) => words.indexOf(value) === index);
 }
