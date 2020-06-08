@@ -274,3 +274,37 @@ const greatestProduct = (matrix) => {
   }
   
   console.log(greatestProduct(matr))
+
+
+  const greatestProductOfDiagonals = matrix =>{
+    let max = 0;
+    //1. iterate the rows;
+        for (i=0; i<matrix.length; i++){ 
+    
+            //2. iterate the columns; 
+            for (j=0; j<matrix.length; j++){ 
+                
+ // check the maximum product in diagonal going through down - right  
+                if (((i - 3) >= 0) && ((j - 3) >= 0)){ 
+                    result = (matrix[i][j] * matrix[i - 1][j - 1] *
+                              matrix[i - 2][j - 2] * matrix[i - 3][j - 3]) 
+                      
+                    if (max < result){ 
+                        max = result }
+                    }
+      
+//check the maximum product in diagonal going through up - right 
+                if (((i - 3) >= 0 ) && ((j - 1) <= 0)){ 
+                    result = (matrix[i][j] * matrix[i - 1][j + 1] *
+                              matrix[i - 2][j + 2] * matrix[i - 3][j + 3]) 
+      
+                    if (max < result){
+                        max = result }
+                    }
+
+
+        }return max
+    }
+}
+
+greatestProductOfDiagonals (matr)
