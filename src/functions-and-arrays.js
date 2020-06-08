@@ -1,3 +1,7 @@
+/* Hi Agus! I don't understand why the final test for "Bonus: Calculate the sum" and for "Bonus: Calculate the average of a mixed elements array" don't work.
+When I tested them on CodePen, they seemed fine. Could you explain it to me?
+*/
+
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(x, y) {
   return x > y ? x : y;
