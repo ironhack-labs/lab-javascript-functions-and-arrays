@@ -19,35 +19,35 @@ const maxOfTwoNumbers = (num1, num2) => {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// ES5
-// function findLongestWord(arr) {
-//   if(!arr.length) { // check if array is empty
-//     return null; // if so return null 
-//   } 
-
-//   let word = ''; // create variable for word
-//   for (let i = 0; i < arr.length; i++) { // loop over array
-//     if (word.length < arr[i].length) { // if length of word is shorter than index word =>
-//       word = arr[i]; // change word into index word. longest word will stay
-//     }
-//   }
-//   return word; // return the longest word
-// }
-
-// ES6 + forEach
-const findLongestWord = arr => {
+// ES5 + for loop
+function findLongestWord(arr) {
   if(!arr.length) { // check if array is empty
     return null; // if so return null 
   } 
-  
-  let longestWord = '';
-  arr.forEach(word => {
-    if(word.length > longestWord.length) {
-      longestWord = word;
+
+  let longestWord = ''; // create variable for word
+  for(let i = 0; i < arr.length; i++){ // loop over array
+    if(arr[i].length > longestWord.length){ // if length of index word is longer than current stored word
+    longestWord = arr[i]; // change word into index word. longest word will stay
     }
-  })
+  }
   return longestWord; // return the longest word
-};
+}
+
+// ES6 + forEach
+// const findLongestWord = arr => {
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   } 
+  
+//   let longestWord = ''; // create variable for longest word
+//   arr.forEach(word => {
+//     if(word.length > longestWord.length) { // if length of word is shorter than index word =>
+//       longestWord = word; // change word into index word. longest word will stay
+//     }
+//   })
+//   return longestWord; // return the longest word
+// };
 
 
 
@@ -55,7 +55,7 @@ const findLongestWord = arr => {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// ES5
+// ES5 = for loop
 // function sumNumbers(arr){
 //   let sum = 0; // sum starts at 0
 //   for(let i = 0; i < arr.length; i++) { // loop over array
@@ -122,9 +122,48 @@ const averageWordLength = arr => {
   let sumWords = 0;
   arr.forEach(word => {
     sumWords += word.length; // add number of characters of word in array to sumWords
-  });
+  })
   return sumWords / arr.length; // total of sumWords divided by length of array
 };
+
+
+// Bonus - Iteration #4.1: A generic avg() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+const sum = arr => {
+  if(!arr.length) { // check if array is empty
+    return 0; // if so return null 
+  }
+
+  let sum = 0; // create variable to store total of sum
+  let chartsOfWord = 0; // create variable to store length of string as numbers
+  arr.forEach(num => {
+    if (typeof num === 'object') { // if num is array or object (array = object)
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    if (typeof num === 'number'){ // if num is a number
+      sum += num; // add number to sum
+    }
+    if (num === true) { // if num is boolean true
+      sum++; // add 1 to sum
+    }
+    if (typeof num === 'string'){ // if num is a string
+      chartsOfWord = num.length; // store length of string as a number into chartsOfWord variable
+      sum += chartsOfWord; // add value of chartsOfWord to sum
+    }
+  });
+
+  return sum; // return total of sum
+};
+
+const avg = arr => {
+  if(!arr.length) { // check if array is empty
+    return null; // if so return null 
+  }
+
+  return sum(arr) / arr.length; // returns avarage number of array elements
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -141,38 +180,84 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(arr){
+// ES5 + for loop + indexOf()
+// function uniquifyArray(arr){
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   } 
+
+//   let newArr = []; // new empty array
+//   for (let i = 0; i < arr.length; i++) { // loop over array
+//     if (newArr.indexOf(arr[i]) === -1) { // checks if word does not exist in newArr
+//       newArr.push(arr[i]); // if not already in newArr, store it into array
+//     }
+//   }
+//   return newArr; // return newArr
+// };
+
+// ES6 + forEach + indexOf()
+const uniquifyArray = arr => {
   if(!arr.length) { // check if array is empty
     return null; // if so return null 
   } 
 
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (newArr.indexOf(arr[i]) === -1) {
-      newArr.push(arr[i]);
+  let newArr = []; // new empty array
+  arr.forEach(word => {
+    if(newArr.indexOf(word) === -1) { // checks if word does not exist in newArr
+      newArr.push(word); // if not already in newArr, store it into array
     }
-  }
-  return newArr;
-}
+  })
+  return newArr; // return newArr
+};
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr, word) {
+// ES5 + for loop
+// function doesWordExist(arr, word) {
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   } 
+
+//   for (var i = 0; i < arr.length; i++) { // loop over array
+//     if (arr[i] === word) { // check if specific word is in array
+//       return true; // if so, return true
+//     }
+//   }
+//   return false; // word is not in array, return false
+// };
+
+
+// ES6 #1 
+const doesWordExist = (arr, word) => {
   if(!arr.length) { // check if array is empty
     return null; // if so return null 
   } 
-
-  for (var i = 0; i < arr.length; i++) { // loop over array
-    if (arr[i] === word) { // check if specific word is in array
-      return true; // if so, return true
+  
+  let result = false; // create result variable and set default to false
+  arr.forEach(element => {
+    if (element.includes(word)) { // if word is in the array
+      result = true; // change result to true
     }
-  }
-  return false; // word is not in array, return false
-}
+  })
+  return result; // return result (true/false)
+};
 
-// doesWordExist(wordsFind, 'ajax'); //=> false
-// doesWordExist(wordsFind, 'trouble'); //=> true
+
+// ES6 #2 With Ternary
+// const doesWordExist = (arr, word) => {
+//   if(!arr.length) { // check if array is empty
+//     return null; // if so return null 
+//   }
+
+//   let result = false;
+//   arr.forEach(element => {
+//     element.includes(word) ? result = true : result; // check conditions with ternary operator
+//   });
+//   return result;
+// }
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -189,22 +274,35 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr, word) {
+// ES5 + for loop
+// function howManyTimes(arr, word) {
+//   if(!arr.length) { // check if array is empty
+//     return 0; // if so return null 
+//   } 
+
+//   let countWord = 0; // create new variable to count amount
+//   for (var i = 0; i < arr.length; i++) { // loop over array
+//     if(arr[i] === word){ // if specific word is in array =>
+//       countWord++; // add 1 to countWord variable
+//     }
+//   }
+//   return countWord; // return total of countWord
+// }
+
+// ES6 + forEach
+const howManyTimes = (arr, word) => {
   if(!arr.length) { // check if array is empty
     return 0; // if so return null 
   } 
 
   let countWord = 0; // create new variable to count amount
-  for (var i = 0; i < arr.length; i++) { // loop over array
-    if(arr[i] === word){ // if specific word is in array =>
+  arr.forEach(element =>{
+    if(element === word){ // if specific word is in array =>
       countWord++; // add 1 to countWord variable
     }
-  }
+  }); 
   return countWord; // return total of countWord
-}
-
-howManyTimes(wordsCount, 'matter'); //==> 4
-howManyTimes(wordsCount, 'ajax'); //==> 0
+} 
 
 // Iteration #8: Bonus
 
