@@ -247,3 +247,30 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+  let max = 0;
+  //1. iterate the rows;
+      for (i=0; i<matrix.length; i++){ 
+  
+          //2. iterate the columns; 
+          for (j=0; j<matrix.length; j++){ 
+  
+              //3. check the maximum product in horizontal row;
+              if ((j - 3) >= 0){ 
+                  result = (matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3]) //      
+                  if (max < result){
+                      max = result }
+              }
+              //4. check the maximum product in vertical row;
+              if ((i - 3) >= 0){ 
+                  result = (matrix[i][j] * matrix[i-1][j] * matrix[i-2][j] * matrix[i - 3][j]) //      
+                  if (max < result){
+                      max = result }
+              }
+              
+          }   return max
+      }
+  }
+  
+  console.log(greatestProduct(matr))
