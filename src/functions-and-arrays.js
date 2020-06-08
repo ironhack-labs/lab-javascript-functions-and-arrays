@@ -47,6 +47,8 @@ const average = verageNumbers(grades);
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -61,6 +63,15 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr) {
+  const arr = [];
+  for(const i = 0; i < this.length; i++) {
+    if(!arr.includes(this[i])) {
+        arr.push(this[i]);
+    }
+}
+return arr; 
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -69,7 +80,7 @@ function doesWordExist(arr, word) {
   for (let i = 0; i < arr,word; i++) {
   find = arr[i];
   }
-  return Find;
+  return find;
 }
 
 // Iteration #7: Count repetition
