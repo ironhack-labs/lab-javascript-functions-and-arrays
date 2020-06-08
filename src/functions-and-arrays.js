@@ -33,8 +33,11 @@ function sumNumbers(arr){
 
 function sum(arr){
   let sum = 0;
+  errorCount = 0;
   arr.forEach(function(i){
-    if (typeof i == "string"){
+    if (typeof i == "object" || typeof i == "array"){
+      errorCount++;
+    } else if (typeof i == "string"){
       sum += i.length;
     } else if (typeof i == "boolean"){
       if (i === true){
@@ -46,7 +49,12 @@ function sum(arr){
       sum += i;
     } 
   })
-  return sum;
+  if (errorCount > 0){
+    throw new Error("Unsupported data type sir or ma'am");
+    return;
+  } else {
+    return sum;
+  }
 }
 
 // Iteration #4: Calculate the average
@@ -82,20 +90,26 @@ function averageWordLength(arr){
 
 function avg(arr){
   let sum = null;
-  arr.forEach(function(elem){
-    if (typeof elem == "string"){
-      sum += elem.length;
-    } else if (typeof elem == "boolean"){
-      if (elem == true){
+  let errorCount = 0;
+  for (elem in arr){
+    if (typeof arr[elem] == "object" || typeof arr[elem] == "array"){
+      errorCount++;
+    } else if (typeof arr[elem] == "string"){
+      sum += arr[elem].length;
+    } else if (typeof arr[elem] == "boolean"){
+      if (arr[elem] == true){
         sum += 1;
       } else {
         sum += 0;
       }
     } else {
-    sum += elem;
+    sum += arr[elem];
     }
-  })
-  if (sum > 0){
+  }
+  if (errorCount > 0){
+    throw new Error("Unsupported data type sir or ma'am");
+    return;
+  } else if (sum > 0){
     let result = (sum / arr.length)
     return Math.floor(result* 100) / 100;
   } else {
@@ -199,14 +213,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// function greatestProduct(matrix){
-//   biggestFive = [];
-//   while (biggestFive < 5){
-//     for (row in matrix){
-//       for (number in row){
-
-//       }
-//     }
-//   }
-// }
+function greatestProduct(matrix){
+  biggestValue
+}
 
