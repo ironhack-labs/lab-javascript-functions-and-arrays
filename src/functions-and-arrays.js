@@ -213,7 +213,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix){
-  biggestValue
-}
+// ATTEMPT AT BONUS. FIRST PART WORKS, BUT SECOND PART DOESN'T, EVEN THOUGH IT'S THE EXACT SAME CODE/LOGIC
 
+// function greatestProduct(matrix){
+//   let biggestHorizontal = 0;
+//   let biggestVertical = 0;
+
+//   for (let row in matrix){
+//     for (let number in matrix[row]){
+//       if ((matrix[row][number]*matrix[row][number+1]*matrix[row][number+2]*matrix[row][number+3]*matrix[row][number+4]) > biggestHorizontal){
+//         biggestHorizontal = (matrix[row][number]*matrix[row][number+1]*matrix[row][number+2]*matrix[row][number+3]*matrix[row][number+4])
+//       }
+//     }
+//   }
+
+//   for (let row in matrix){
+//     for (let number in matrix[row]){
+//       if ((matrix[row][number]*matrix[row+1][number]*matrix[row+2][number]*matrix[row+3][number]*matrix[row+4][number]) > biggestVertical){
+//         biggestVertical = (matrix[row][number]*matrix[row+1][number]*matrix[row+2][number]*matrix[row+3][number]*matrix[row+4][number]);
+//       }
+//     }
+//   }
+
+//   if (biggestHorizontal > biggestVertical){
+//     return biggestHorizontal;
+//   } else {
+//     return biggestVertical;
+//   }
+// }
