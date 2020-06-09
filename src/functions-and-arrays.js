@@ -13,6 +13,9 @@ function maxOfTwoNumbers (a,b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord (arrayTest) {
+  if (arrayTest.length == 0) {
+    return null
+  }
   let str = ''
   for (let i= 0; i<arrayTest.length; i++) {
 if (arrayTest[i].length>str.length) {
@@ -61,6 +64,9 @@ function sum(arrayMix) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayAvg) {
+  if (arrayAvg.length == 0) {
+    return null
+  }
   let total = 0;
    for (i=0; i<arrayAvg.length; i++) {
    total += arrayAvg[i]
@@ -68,12 +74,14 @@ function averageNumbers(arrayAvg) {
   return total/arrayAvg.length
 }
 
-console.log (averageNumbers(numbersAvg))
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength (arrayWords) {
+  if (arrayWords.length == 0) {
+    return null
+  }
   let str = 0
     for (let i= 0; i<arrayWords.length; i++) {
     str += arrayWords[i].length;
@@ -86,6 +94,9 @@ function averageWordLength (arrayWords) {
 const mixedArrX = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(arr) {
+  if (arr.length == 0) {
+    return null
+  }
   let sumTotal = 0;
    for (i=0; i<arr.length; i+=1) {
      if (typeof arr[i] === 'number') {
@@ -121,6 +132,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray (mixedArray) {
+  if (mixedArray.length == 0) {
+    return null
+  }
   let unique = []
   for (i=0; i<mixedArray.length; i++) {
     if (mixedArray.indexOf (mixedArray[i]) === i) {
@@ -136,6 +150,9 @@ console.log (uniquifyArray(wordsUnique))
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist (wordsArray, word) {
+  if (wordsArray.length == 0) {
+    return null
+  }
   let wordy = wordsArray.includes (word)
   return wordy
 }
@@ -155,6 +172,18 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes (arrayWords,singleWord) {
+  if (arrayWords.length == 0) {
+    return 0
+  }
+  let countWord = 0;
+  for (let i=0; i<arrayWords.length; i++) {
+    if (arrayWords[i] == singleWord) {
+      countWord ++
+    }
+  }
+  return countWord
+}
 
 // Iteration #8: Bonus
 
