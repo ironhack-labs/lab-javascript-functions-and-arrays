@@ -46,7 +46,10 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixedArray) {
 	let total = 0; 
 	mixedArray.forEach((item) => {
-		if (typeof item === "string") {
+		if(typeof item === "object") {
+			throw new Error("Unsupported data type sir or ma'am") 
+		}
+		else if (typeof item === "string") {
 			total += item.length;
 		} else if (typeof item === "number" || typeof item === "boolean") {
 		total += item; 
