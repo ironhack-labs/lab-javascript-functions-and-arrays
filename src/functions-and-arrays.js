@@ -44,14 +44,12 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixedArr){
     var total=0;
     if (mixedArr.length === 0){
-      return null;
-      }
+    return 0;
+    }
     for(var i in mixedArr) { 
-      if (mixedArr[i] = ""){
-        total += mixedArr[i].length;
-      }
-
-  
+       if (mixedArr.length === 1){
+    return mixedArr[i];
+    }
         total += mixedArr[i];
     }
     return total;
