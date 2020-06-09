@@ -100,16 +100,16 @@ function avg(arr) {
   let sumTotal = 0;
    for (i=0; i<arr.length; i+=1) {
      if (typeof arr[i] === 'number') {
-         total += arr[i]
+         sumTotal += arr[i]
      }
      else if (typeof arr[i] === 'string') {
-       total += arr[i].length
+       sumTotal += arr[i].length
      }
      else if (arr [i] === true) {
-       total += 1
+       sumTotal += 1
      }
      else if (arr[i] === false) {
-       continue
+       sumTotal += 0
      }
   }
   return sumTotal/arr.length
