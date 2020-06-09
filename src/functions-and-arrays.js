@@ -184,33 +184,21 @@ function greatestProduct(matrix){
 	let maxProduct = 0;
 	let testProduct = 1;
   
-	function maxHorizontal(){
-  
-	  for (let y = 0; y < matrix.length; y++){
-		for (let x = 0; x < matrix[y].length - 3; x++){
-		  testProduct = matrix[y][x] * matrix[y][x + 1] * matrix[y][x + 2] * matrix[y][x + 3];
-		  maxProduct = Math.max(maxProduct, testProduct);
+	for (let y = 0; y < matrix.length; y++){
+		for (let x = 0; x < matrix[y].length; x++){
+			if (x < matrix.length - 3){
+				testProduct = matrix[y][x] * matrix[y][x + 1] * matrix[y][x + 2] * matrix[y][x + 3];
+				maxProduct = Math.max(maxProduct, testProduct);
+			}
+			if (y < matrix.length - 3){
+				testProduct = matrix[y][x] * matrix[y + 1][x] * matrix[y + 2][x] * matrix[y + 3][x];
+				maxProduct = Math.max(maxProduct, testProduct);
+			}
 		}
-	  }
-	//   console.log(`Max horizontal product is ${maxProduct}`);
-	  return maxProduct;
 	}
-  
-	function maxVirtical(){
-	  for (let x = 0; x < matrix[0].length; x++){
-		for (let y = 0; y < matrix[x].length - 3; y++){
-		  testProduct = matrix[y][x] * matrix[y + 1][x] * matrix[y + 2][x] * matrix[y + 3][x];
-		  maxProduct = Math.max(maxProduct, testProduct);
-		}
-	  }
-	//   console.log(`Max vertical product is ${maxProduct}`);
-	  return maxProduct;
-	}
-	
-
-	maxProduct = Math.max(maxHorizontal(), maxVirtical());
 	return maxProduct;
-  }
+}
+
   
   console.log(greatestProduct(matrix));
   
