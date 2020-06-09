@@ -116,10 +116,14 @@ function avg (anyData) {
     }
   });
 if (unSupportedFlag) return "Invalid data type";
-  else return (Number(sumOfElements / anyData.length).toFixed(2)); 
+  else {
+    let x = +((sumOfElements / anyData.length).toFixed(2));
+    console.log(typeof x, typeof sumOfElements);
+    
+    return x; 
+  }
   // For some reasons 2 tests didn't work
 }
-
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
