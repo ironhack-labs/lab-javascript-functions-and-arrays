@@ -15,17 +15,15 @@ function findLongestWord(wordArray) {
 
 	if (wordArray.length === 0) {
 		return null;
-	} else {
-		wordArray.forEach((word) => {
-			if (word.length === longestWord.length) {
-			} else if (word.length > longestWord.length) {
-				longestWord = word;
-			}
-		});
-
-		return longestWord;
 	}
+	wordArray.forEach((word) => {
+		if (word.length > longestWord.length) {
+			longestWord = word;
+		}
+	});
+	return longestWord;
 }
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
