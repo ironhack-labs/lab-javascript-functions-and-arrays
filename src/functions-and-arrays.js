@@ -27,6 +27,31 @@ function sumNumbers(array) {
   }
   return total;
 }
+//Bonus - Iteration 3.1: A Generic sum() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum (array) {
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
+    let value = array[i];
+    switch (typeof value) {
+      case 'number':
+      total += value;
+      break;
+      case 'boolean':
+      if (value === true) {
+        total ++;
+      } else {
+        continue;
+      }
+      break;
+      case 'string':
+      total += value.length;
+      break;
+      default:
+      throw new Error (`Unsupported data type sir or ma'am`);
+      }}
+    return total;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -51,6 +76,16 @@ function averageWordLength (array){
   let average = total / array.length;
   return average;
 }}
+// Bonus - Iteration 4.1: A generic avg () function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg(arr){
+  if (arr.length === 0){
+    return null;
+  } else {
+    let average = sum(arr) / arr.length;
+    return average;
+  }
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -138,9 +173,7 @@ if (array.length === 0){
   return answer;
 }
 }
-
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -163,3 +196,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix) {
+
+}
