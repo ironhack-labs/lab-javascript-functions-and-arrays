@@ -34,16 +34,20 @@ function sumNumbers(arr) {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function sumNumbers(numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-  sum += numbers[i];
-  }
-  return sum;
-  } 
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+  function averageNumbers(numbersAvg){
+   let sum = null;
+   numbersAvg.forEach(function(number){
+     sum += number;
+   })
+   if (sum > 0){
+     return sum / numbersAvg.length;
+   } else {
+     return sum;
+   }
+ }
 
-console.log(sumNumbers(numbers))
+console.log(averageNumbers(numbersAvg))
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
