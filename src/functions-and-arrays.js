@@ -1,30 +1,27 @@
 // Iteration #1: Find the maximum
 const maxOfTwoNumbers = (num1,num2) => {
- if (num1>num2) {
-   return num1
- } else {
-   return num2
- }
+  if (num1>num2) {
+    return num1
+      } else {
+    return num2
+  }
 };
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 const findLongestWord = (arr) => {
-
-  let lgth = 0;
-  let longest;
-  if (arr.length>0) {
-  for(var i=0; i < arr.length; i++){
-      if(arr[i].length > lgth){
-          lgth = arr[i].length;
+  let longest = arr[0];
+    if (arr.length>0) {
+      for(var i=0; i < arr.length; i++){
+        if(arr[i].length > longest.length){
           longest = arr[i];
-      }      
-  } return longest
-  } else {
-    return null
-  }
-  }
+            }      
+      } return longest
+    } else {
+      return null
+    } 
+  };
   findLongestWord(words)
 
 
@@ -32,36 +29,35 @@ const findLongestWord = (arr) => {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const sumNumbers = (arr) => {
   let result = 0;
-  for(i=0;i<arr.length;i++){
-    result += arr[i]
-  } 
-  return result
-};
+    for(i=0;i<arr.length;i++){
+      result += arr[i]
+    } 
+    return result
+  };
 // console.log(sumNumbers(numbers));
 
 
 // Bonus - Iteration #3.1: A generic sum() function
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,];
-
 // should return: 57
 const sum = (arr) => {
-  let result = 0;
+let result = 0;
   for(i=0;i<arr.length;i++){
     switch (typeof arr[i]) {
-  case ('number'):
-      result += arr[i]
-  break;
-    case ('boolean'):
-      if (arr[i] === true) {
-        result += 1
-      } 
-  break;
-    case ('string'):
-      result += arr[i].length
-  break;
-  default:
-  throw new Error("Unsupported data type sir or ma'am")
-}
+      case ('number'):
+        result += arr[i]
+        break;
+      case ('boolean'):
+        if (arr[i] === true) {
+          result += 1
+          } 
+        break;
+      case ('string'):
+        result += arr[i].length
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am")
+    }
   } 
   return result;
 };
@@ -74,12 +70,11 @@ sum(mixedArr)
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 const averageNumbers = (arr) => {
-  let sum = 0;
-
+let sum = 0;
   if (arr.length > 0) {
     for(i=0;i<arr.length;i++){
-  sum += arr[i]
-}
+      sum += arr[i]
+    }
   } else {
     return null
   }
@@ -93,12 +88,11 @@ averageNumbers(numbersAvg);
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 const averageWordLength = (arr) => {
-  let sum = 0;
-
+let sum = 0;
   if (arr.length > 0) {
     for(i=0;i<arr.length;i++){
-  sum += arr[i].length
-}
+      sum += arr[i].length
+    }
   } else {
     return null
   }
@@ -108,29 +102,29 @@ return sum/arr.length
 
 // Bonus - Iteration #4.1: A generic avg() function
 const avg = (arr) => {
-  let result = 0;
+let result = 0;
   if (arr.length>0){
-  for(i=0;i<arr.length;i++){
-    switch (typeof arr[i]) {
-  case ('number'):
-      result += arr[i]
-  break;
-    case ('boolean'):
-      if (arr[i] === true) {
-        result += 1
-      } 
-  break;
-    case ('string'):
-      result += arr[i].length
-  break;
-  default:
-  throw new Error('data type not valid')
-}
-  } 
-  return Math.round((result/arr.length)*1e2) / 1e2;
-} else {
-  return null;
-}
+    for(i=0;i<arr.length;i++){
+      switch (typeof arr[i]) {
+        case ('number'):
+          result += arr[i]
+          break;
+        case ('boolean'):
+          if (arr[i] === true) {
+            result += 1
+          } 
+          break;
+        case ('string'):
+          result += arr[i].length
+          break;
+        default:
+          throw new Error('data type not valid')
+      }
+    } 
+    return Math.round((result/arr.length)*1e2) / 1e2;
+  } else {
+    return null;
+  }
 };
 avg(mixedArr);
 
@@ -152,11 +146,11 @@ const wordsUnique = [
 
 const uniquifyArray = (arr) => {
   if (arr.length > 0) {
-  const newArr = [...new Set(arr)];
-  return newArr
-} else {
-  return null;
-}
+    const newArr = [...new Set(arr)];
+      return newArr
+  } else {
+      return null;
+  }
 };
 
 uniquifyArray(wordsUnique);
@@ -196,7 +190,7 @@ const wordsCount = [
 ];
 
 const howManyTimes = (arr,searchForWord) => {
-  let counter = 0;
+let counter = 0;
   if (arr.length > 0) {
     for(i=0;i<arr.length;i++){
       if (arr[i] === searchForWord) {
@@ -250,30 +244,28 @@ Approach:
 */
 
 const greatestProduct = (arr) => {
-  // console.log(matrix)
+// console.log(matrix)
 let result = 0;
 let max = 0;
-for(i=0;i<arr.length;i++) {
-  for(j=0;j<arr.length;j++) {
-    if((j-3) >=0){
-      result = (arr[i][j] * arr[i][j-1] * arr[i][j-2] * arr[i][j-3]);
+  for(i=0;i<arr.length;i++) {
+    for(j=0;j<arr.length;j++) {
+      if((j-3) >=0){
+        result = (arr[i][j] * arr[i][j-1] * arr[i][j-2] * arr[i][j-3]);
       // console.log(arr[i][j],arr[i][j-1],arr[i][j-2],arr[i][j-3])
         //console.log(result);
-    }
-      if(max<result){
-        max=result;
-      } 
-
+      }
+        if(max<result){
+          max=result;
+        } 
       if((i-3) >=0){
-      result = (arr[i][j] * arr[i-1][j] * arr[i-2][j] * arr[i-3][j]);
+        result = (arr[i][j] * arr[i-1][j] * arr[i-2][j] * arr[i-3][j]);
             //console.log(result)
       }
-      
-      if(max<result){
-        max=result;
+        if(max<result){
+          max=result;
         }
-}
-}
+    }
+  }
 console.log(max)
 return max;
 };
