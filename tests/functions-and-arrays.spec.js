@@ -144,43 +144,48 @@ describe('Calculate the average of an array of numbers', () => {
   });
 });
 
+
 describe('Calculate the average of an array of strings', () => {
   it('should create a function named averageWordLength', () => {
     expect(typeof averageWordLength).toBe('function');
   });
-
+  
   it('should return null if receives an empty array when called', () => {
     expect(averageWordLength([])).toBe(null);
   });
-
+  
   it('should return the average of a one-element array', () => {
     expect(averageWordLength(['ironhack'])).toBe(8);
   });
-
+  
   it('should return the average of a the array', () => {
     expect(
       averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])
-    ).toBe(7);
+      ).toBe(7);
+    });
   });
-});
-
-describe('Bonus: Calculate the average of a mixed elements array', () => {
-  it('should create a function named avg', () => {
-    expect(typeof avg).toBe('function');
+  
+  // --------------------------------------
+  
+  
+  describe('Bonus: Calculate the average of a mixed elements array', () => {
+    it('should create a function named avg', () => {
+      expect(typeof avg).toBe('function');
+    });
+    
+    it('should return null if receives an empty array when called', () => {
+      expect(avg([])).toBe(null);
+    });
+    
+    it('should return the average of the array', () => {
+      // false is counted as 0
+      expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(5.11);
+      // true is counted as 1
+      expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(5.22);
+    });
   });
-
-  it('should return null if receives an empty array when called', () => {
-    expect(avg([])).toBe(null);
-  });
-
-  it('should return the average of the array', () => {
-    // false is counted as 0
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(5.11);
-    // true is counted as 1
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(5.22);
-  });
-});
-
+  
+  // -------------------------------------
 describe('Unique array', () => {
   it('should create a function named uniquifyArray', () => {
     expect(typeof uniquifyArray).toBe('function');
