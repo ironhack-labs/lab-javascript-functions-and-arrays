@@ -255,3 +255,61 @@ function greatestProduct(array) {
     return 16;
   }
 }
+
+// Product of adjacent numbers
+
+function greatestProduct(matrix) {
+  let greatestProduct = 0;
+  let adjacentNumber = 4;
+
+  for (let i = 0; i < matrix.length - adjacentNumber; i++) {
+    for (let j = 0; j < matrix[i].length - adjacentNumber; j++) {
+      let productHoriz = matrix[i][j];
+      let productVert = matrix[i][j];
+      for (let k = 1; k < adjacentNumber; k++) {
+        productHoriz *= matrix[i][j+k];
+        productVert *= matrix[i+k][j];
+      }
+    
+
+      if (productVert > productHoriz) {
+        productHoriz = productVert;
+      }
+
+      if (productHoriz > greatestProduct) {
+        greatestProduct = productHoriz;
+      }
+    }
+  }
+
+  return greatestProduct;
+}
+
+// Product of diagonals
+
+function greatestProductOfDiagonals(matrix) {
+  let greatestProduct = 0;
+  let adjacentNumber = 4;
+
+  for (let i = adjacentNumber - 1; i < matrix.length - adjacentNumber; i++) {
+    for (let j = adjacentNumber - 1; j < matrix[i].length - adjacentNumber; j++) {
+      let productDiagRight = matrix[i][j];
+      let productDiagLeft = matrix[i][j];
+      for (let k = 1; k < adjacentNumber; k++) {
+        productDiagRight *= matrix[i+k][j+k];
+        productDiagLeft *= matrix[i-k][j-k];
+      }
+
+
+      if (productDiagRight > productDiagLeft) {
+        productDiagLeft = productDiagRight;
+      }
+
+      if (productDiagLeft > greatestProduct) {
+        greatestProduct = productDiagLeft;
+      }
+    }
+  }
+
+  return greatestProduct;
+}
