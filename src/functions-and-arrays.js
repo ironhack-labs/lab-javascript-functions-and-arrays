@@ -98,7 +98,7 @@ let wordUn = ["un"];
 let testWordAv = averageWordLength(wordUn);
 console.log(testWordAv);
 
-// --------------------------------------
+// bonus it 4 level 2
 
 function avg(mixedArr) {
   let sumOfArr = sum(mixedArr);
@@ -131,6 +131,23 @@ const wordsUnique = [
   "bring",
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (!newArr.includes(arr[i])) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+  }
+}
+
+let testUniq = uniquifyArray(wordsUnique);
+console.log(testUniq);
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -142,6 +159,12 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.length ===0) return null;
+  if (arr.includes(word)) return true;
+  else return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -157,6 +180,14 @@ const wordsCount = [
   "disobedience",
   "matter",
 ];
+
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) count += 1;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
