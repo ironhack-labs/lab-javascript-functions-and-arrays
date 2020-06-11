@@ -1,10 +1,11 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a,b){
-  if(a>b){
-    return a;
-  } else {
-    return b;
-  }
+  // if(a>b){
+  //   return a;
+  // } else {
+  //   return b;
+  // }
+  return a > b ? a : b ;
 }
 
 // Iteration #2: Find longest word
@@ -43,7 +44,7 @@ function sumNumbers(array){
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(array){
-  if(array.length === 0){
+  if(!array.length){
     return 0;
   }else{
     let sumTotal = 0;
@@ -53,12 +54,12 @@ function sum(array){
       }else if(typeof array[i] === "string"){
         sumTotal += array[i].length ;
       }else if(array[i]===true){
-        sumTotal += 1;
+        sumTotal += array[i];
       }else if(array[i]===false){
-        continue; 
+        sumTotal += array[i];
       }else{sumTotal += array[i]};
-    }
-  }return sumTotal;
+    }return sumTotal;
+  }
 }
 
 
@@ -118,7 +119,7 @@ function averageWordLength(array){
 
 //4.1 Bonus
 
-function sum(array){
+function sum1(array){
   let totalSum = 0
   if(array.length===0){
     return null;
@@ -153,7 +154,7 @@ function avg(array){
         count +=1
       } ;
     }
-  } return Math.round((sum(array)/count)*100)/100;
+  } return Math.round((sum1(array)/count)*100)/100;
 }
 
 
@@ -197,10 +198,8 @@ function doesWordExist(array,word){
     for(let i=0 ; i<array.length ; i++){
       if(array[i]===word){
         return true ;
-      } else{
-        return false ;
       }
-    }
+    } return false;
   }
 }
 
@@ -271,21 +270,18 @@ function greatestVerticalProduct(mat){
         let prod = 0
         if(mat[i+1] === undefined){
             prod = mat[i][j];
-            if(prod > greatestVertProduct){greatestVertProduct = prod} else{continue};
         }else if(mat[i+2] === undefined){
             prod = mat[i][j] * mat[i+1][j];
-            if(prod > greatestVertProduct){greatestVertProduct = prod} else{continue};
         }else if(mat[i+3] === undefined){
             prod = mat[i][j] * mat[i+1][j] * mat[i+2][j];
-            if(prod > greatestVertProduct){greatestVertProduct = prod} else{continue};
         }else{
             prod = mat[i][j] * mat[i+1][j] * mat[i+2][j] * mat[i+3][j];
-            if(prod > greatestVertProduct){greatestVertProduct = prod}else{continue};
         } 
+        prod > greatestVertProduct? greatestVertProduct = prod :'';
       }
     }return greatestVertProduct;
   }
-} 
+}
 
 function greatestHorizontalProduct(mat){//function that iterates through the array adding the four subsecuent numbers
   if(mat.length === 0){
@@ -296,31 +292,22 @@ function greatestHorizontalProduct(mat){//function that iterates through the arr
       for(let j=0 ; j<mat[i].length ; j++){ // loopt that iterates through each value in the line
         let product = 0
         if(mat[j+1] === undefined){ //once the iteration arrives to the edge, it sums the numbers left to get to the edge
-            product = mat[i][j];
-            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+          product = mat[i][j];
         }else if(mat[j+2] === undefined){
-            product = mat[i][j] * mat[i][j+1];
-            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+          product = mat[i][j] * mat[i][j+1];
         }else if(mat[j+3] === undefined){
-            product = mat[i][j] * mat[i][j+1] * mat[i][j+2];
-            if(product>greatestHorProd){greatestHorProd=product}else{continue};
+          product = mat[i][j] * mat[i][j+1] * mat[i][j+2];
         }else{
-            product = mat[i][j] * mat[i][j+1] * mat[i][j+2] * mat[i][j+3]; // factor of the [j] times the three values to the right
-            if(product>greatestHorProd){greatestHorProd=product}else{continue};
-        } 
+          product = mat[i][j] * mat[i][j+1] * mat[i][j+2] * mat[i][j+3]; // factor of the [j] times the three values to the right
+        } product > greatestHorProd ? greatestHorProd = product : "";
       }
     } return greatestHorProd;
   }
 } 
 
-function greatestProduct(mat){
-  if(greatestHorizontalProduct(mat)>greatestVerticalProduct(mat)){
-    return greatestHorizontalProduct(mat)
-  } else{
-    return greatestVerticalProduct(mat)
-  }
-}
+function greatestProduct(mat){return greatestHorizontalProduct(mat)>greatestVerticalProduct(mat)? greatestHorizontalProduct(mat) : greatestVerticalProduct(mat)}
 
+greatestProduct(matrix)
 //Iteration #8.1 Diagonal Bonus
 
 function greatestDiagRightProduct(mat){ //function that iterates through the matrix calculating the greatest product in a diagonal right direction
