@@ -208,9 +208,7 @@ describe('Calculate the average of an array of strings', () => {
       ).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
     });
   });
-  
-// --------------------------------------
-  
+    
 describe('Find elements', () => {
   it('should create a function named doesWordExist', () => {
     expect(typeof doesWordExist).toBe('function');
@@ -232,8 +230,6 @@ describe('Find elements', () => {
     expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
   });
 });
-
-  // -------------------------------------
 
 describe('Count repetition', () => {
   it('should create a function named howManyTimes', () => {

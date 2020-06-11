@@ -161,7 +161,7 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word) {
-  if (arr.length ===0) return null;
+  if (arr.length === 0) return null;
   if (arr.includes(word)) return true;
   else return false;
 }
@@ -507,3 +507,7 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct (arr) {
+  
+}
