@@ -158,5 +158,17 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  
+  let result = 0;
+  let number = 0;
+  for (let i = 0; i < 16; i++) {
+    for (let j = 0; j < 16; j++) {
+      if (matrix[i + 1][j + 1] && matrix[i + 2][j + 2] && matrix[i + 3][j + 3] !== undefined) {
+        number = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      }
+      if (number > result) {
+        result = number;
+      }
+    }
+  }
+  return result;
 }
