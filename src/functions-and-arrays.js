@@ -1,5 +1,5 @@
 // Iteration #1: Find the maximum
-let maxOfTwoNumbers = (num1, num2) => {
+const maxOfTwoNumbers = (num1, num2) => {
   if(num1 > num2)
     return num1
   else
@@ -7,8 +7,7 @@ let maxOfTwoNumbers = (num1, num2) => {
 }
 
 // Iteration #2: Find longest word
-// const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-let findLongestWord = (arr) => {
+const findLongestWord = (arr) => {
   if (arr.length === 0) { return null }
   let longest = arr[0]
   for (word of arr) {
@@ -19,9 +18,7 @@ let findLongestWord = (arr) => {
 }
 
 // Iteration #3: Calculate the sum
-//const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-let sumNumbers = (arr) => {
+const sumNumbers = (arr) => {
   if (arr.length === 0) { return 0 }
   let tot = arr.reduce((acc,val) => {
     return acc + val
@@ -29,7 +26,7 @@ let sumNumbers = (arr) => {
   return tot
 }
 
-let sum = (arr) => {
+const sum = (arr) => {
   let tot = 0
   for(thing of arr) {
     if (typeof thing === 'number')
@@ -46,26 +43,26 @@ let sum = (arr) => {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-let averageNumbers = (arr) => {
+
+const averageNumbers = (arr) => {
   if (arr.length === 0) { return null }
   return (sumNumbers(arr)) / arr.length
 }
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-let averageWordLength = (arr) => {
+
+const averageWordLength = (arr) => {
   if (arr.length === 0) { return null }
   return (sum(arr)) / arr.length
 }
 
-let avg = (arr) => {
+const avg = (arr) => {
   if (arr.length === 0) { return null }
   return parseFloat(((sum(arr)) / arr.length).toFixed(2))
 }
 
 // Iteration #5: Unique arrays
-let uniquifyArray = (arr) => {
+const uniquifyArray = (arr) => {
   if (arr.length === 0) { return null }
   let uniq = []
   arr.map(x => {
@@ -77,13 +74,13 @@ let uniquifyArray = (arr) => {
 }
 
 // Iteration #6: Find elements
-let doesWordExist = (arr, word) => {
+const doesWordExist = (arr, word) => {
   if (arr.length === 0) { return null }
   return arr.includes(word)
 }
 
 // Iteration #7: Count repetition
-let howManyTimes = (arr, word) => {
+const howManyTimes = (arr, word) => {
   if (arr.length === 0) { return 0 }
   let count = arr.reduce((acc, curr) => {
     if (curr === word) {
@@ -119,6 +116,34 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-let greatestProduct = (arr) => {
-  
+const greatestProduct = (arr) => {
+  let bigProduct = 0
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (j - 3 >= 0) {
+        let product = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
+        if (product > bigProduct) {
+          bigProduct = product
+          console.log(arr[i][j] ,arr[i][j - 1] ,arr[i][j - 2] , arr[i][j - 3])
+        }
+      }
+      if (i - 3 >= 0) {
+        let product = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+        if (product > bigProduct)  {
+          bigProduct = product
+          console.log(arr[i][j] , arr[i - 1][j] , arr[i - 2][j] , arr[i - 3][j])
+        }
+      }
+      if ((i - 3) >= 0 && (j - 3) >= 0) {
+        let product = arr[i][j] * arr[i - 1][j -1] * arr[i - 2][j - 2] * arr[i - 3][j -3];
+        if (product > bigProduct)  {
+          bigProduct = product
+          console.log(arr[i][j] , arr[i - 1][j - 1] , arr[i - 2][j - 2] , arr[i - 3][j - 3])
+        }
+      }
+    }
+  }
+  return bigProduct
 }
+
+console.log(greatestProduct(matrix))
