@@ -1,18 +1,53 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (n1, n2) => Math.max(n1,n2)
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const findLongestWord = words => {
+
+	if (words.length == 0){
+		return null
+	}
+
+	words.sort((a,b) => {return b.length - a.length})
+	return words[0]
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = numbers => numbers.reduce((acc, val) => {return acc += val},0)
+
+/*const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];*/
+
+const sum = mixedArr => mixedArr.reduce((acc, val) => {
+	if(typeof val == 'string'){
+		return acc += val.length
+	}
+	else if(typeof val == 'object'){
+		throw new Error("Unsupported data type sir or ma'am")	
+	}
+	return acc += val},0)
+
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = numbersAvg => sumNumbers(numbersAvg)/numbersAvg.length || null
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = wordsArr => {
+	let sum = wordsArr.reduce((acc, val) => {return acc += val.length},0)
+	return sum/wordsArr.length || null
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +64,24 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) { if (wordsUnique.length === 0) return null; return wordsUnique.filter((x, i) => wordsUnique.indexOf(x) === i); }
+
+
+
+/*const uniquifyArray = wordsUnique => {
+	let a = []
+	a = wordsUnique.map(function(word) {
+		console.log(word)
+		if (a.includes(word)){}else{return word}
+	})
+	return a}*/
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (wordsFind, word) => {
+	if (wordsFind.length == 0){return null}
+	return wordsFind.includes(word)}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +97,8 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (wordsCount, word) => wordsCount.reduce((acc, value) => {return acc+(value==word)},0)
 
 // Iteration #8: Bonus
 
@@ -71,3 +124,42 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+
+
+const greatestProduct = matrix => {
+
+let largest = 0
+let currentProduct = 0
+for(let j = 0; j<matrix.length-3; j++){
+	for (let i=0; i<matrix.length-3; i++){
+		currentProduct = matrix[j][i] * matrix[j][i+1] * matrix[j][i+2] * matrix[j][i+3]
+		if (currentProduct > largest){
+			largest = currentProduct
+		}
+}
+}
+
+let vertLargest = 0
+let vertProduct = 0
+for(let j = 0; j<matrix.length-3; j++){
+	for (let i=0; i<matrix.length-3; i++){
+		vertProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+		if (vertProduct > vertLargest){
+			vertLargest = vertProduct
+		}
+}
+}
+
+return Math.max(largest, vertLargest)
+}
+
+const smallMatrix = [[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5]]
+
+console.log(greatestProduct(smallMatrix))
