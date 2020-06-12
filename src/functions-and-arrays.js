@@ -181,13 +181,31 @@ const matrix = [
 
 
 function greatestProduct(matrix){
-    var greatestMultiply = 0;
+    var greatestMultiplyVertical = 0;
+    var greatestMultiplyHoriz = 0;
+//Horizontaly
     for(var i=0;i<matrix.length-4;i++){
-        if(matrix[i]*matrix[i+1]*matrix[i+2]*matrix[i+3] > greatestMultiply){
-          greatestMultiply = matrix[i]*matrix[i+1]*matrix[i+2]*matrix[i+3];
-        }
+      for (let j = 0; j < matrix[j].length-4; j++) {
+        if((matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]) > greatestMultiplyHoriz){
+          greatestMultiplyHoriz = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+        }        
+      } 
     }
-  return greatestMultiply;
+//Vertically
+for(var i=0;i<matrix.length-4;i++){
+  for (let j = 0; j < matrix[j].length-4; j++) {
+    if((matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]) > greatestMultiplyVertical){
+      greatestMultiplyVertical = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+  }
 }
+}
+
+if (greatestMultiplyHoriz < greatestMultiplyVertical){
+  return greatestMultiplyVertical
+} else{
+  return greatestMultiplyVertical
+}
+}
+
 
 console.log(greatestProduct(matrix));
