@@ -93,26 +93,13 @@ function averageWordLength (arrayWords) {
 
 const mixedArrX = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function avg(arr) {
-  if (arr.length == 0) {
+function avg(arrayMix) {
+  if (arrayMix.length == 0) {
     return null
+  } else {
+    let totalAvg = (sum(arrayMix)/arrayMix.length).toFixed(2);
+    return parseFloat(totalAvg)
   }
-  let sumTotal = 0;
-   for (i=0; i<arr.length; i+=1) {
-     if (typeof arr[i] === 'number') {
-         sumTotal += arr[i]
-     }
-     else if (typeof arr[i] === 'string') {
-       sumTotal += arr[i].length
-     }
-     else if (arr [i] === true) {
-       sumTotal += 1
-     }
-     else if (arr[i] === false) {
-       sumTotal += 0
-     }
-  }
-  return sumTotal/arr.length
 }
 
 
