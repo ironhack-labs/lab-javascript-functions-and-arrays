@@ -134,13 +134,13 @@ const greatestProduct = (arr) => {
           console.log(arr[i][j] , arr[i - 1][j] , arr[i - 2][j] , arr[i - 3][j])
         }
       }
-      if ((i - 3) >= 0 && (j - 3) >= 0) {
-        let product = arr[i][j] * arr[i - 1][j -1] * arr[i - 2][j - 2] * arr[i - 3][j -3];
-        if (product > bigProduct)  {
-          bigProduct = product
-          console.log(arr[i][j] , arr[i - 1][j - 1] , arr[i - 2][j - 2] , arr[i - 3][j - 3])
-        }
-      }
+      // if ((i - 3) >= 0 && (j - 3) >= 0) {
+      //   let product = arr[i][j] * arr[i - 1][j -1] * arr[i - 2][j - 2] * arr[i - 3][j -3];
+      //   if (product > bigProduct)  {
+      //     bigProduct = product
+      //     console.log(arr[i][j] , arr[i - 1][j - 1] , arr[i - 2][j - 2] , arr[i - 3][j - 3])
+      //   }
+      // }
     }
   }
   return bigProduct
