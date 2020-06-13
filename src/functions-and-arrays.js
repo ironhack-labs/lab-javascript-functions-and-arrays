@@ -51,10 +51,10 @@ function sum(arrayMix) {
        total += 1
      }
      else if (arrayMix[i] === false) {
-       continue
+       total +=0
      }
-     else {
-      return null   }
+     else if (typeof arrayMix === 'object') {
+      throw new Error (`Unsupported data type sir or ma'am`) }
   }
   return total
 }
