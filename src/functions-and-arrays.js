@@ -234,14 +234,6 @@ const matrix = [
 
 // What is the greatest product of four adjacent numbers? We consider adjacent any four numbers that are next to each other horizontally or vertically.
  
-/*
-Approach:
-1. Group 4 elements which are adjacent to each other in each row and calculate their maximum result.
-2. Group 4 elements which are adjacent to each other in each column and calculate their maximum results.
-3. Group 4 elements which are adjacent to each other in diagonal and calculate their maximum results.
-4. Group 4 elements which are adjacent to each other in anti diagonal and calculate their maximum results.
-5. Compare of all calculated maximum results.
-*/
 
 const greatestProduct = (arr) => {
 // console.log(matrix)
