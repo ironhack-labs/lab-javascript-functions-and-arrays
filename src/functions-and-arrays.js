@@ -47,6 +47,30 @@ let sumNumbers = (numbers) => {
   return sum
 }
 
+//Bonus - Iteration #3.1: A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+let sum = (mixedArr) => {
+  if (mixedArr.length == 0) {
+    return 0
+  }
+  let sumTotal = 0
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === "number") {
+      sumTotal += mixedArr[i]
+    } else if (typeof mixedArr[i] === "string") {
+      sumTotal += mixedArr[i].length
+    } else if (typeof mixedArr[i] === "boolean") {
+      sumTotal += Number(mixedArr[i])
+    } else if (typeof mixedArr[i] === "object") {
+      return
+    }
+  }
+  return sumTotal
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -55,8 +79,8 @@ let averageNumbers = (numbersAvg) => {
   if (numbersAvg.length == 0) {
     return null
   }
-  let avg = sumNumbers(numbersAvg) / numbersAvg.length
-  return avg;
+  let average = sumNumbers(numbersAvg) / numbersAvg.length
+  return average;
 }
 
 // averageNumbers(numbersAvg)
@@ -74,9 +98,16 @@ let averageWordLength = (wordsArr) => {
     sumaLet += wordsArr[i].length;
   }
   return sumaLet / wordsArr.length
-
 }
 
+//Bonus - Iteration #4.1: A generic avg() function
+
+let avg = (mixedArr) => {
+  if (mixedArr.length == 0) {
+    return null
+  };
+  return sum(mixedArr) / mixedArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
