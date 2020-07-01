@@ -1,18 +1,138 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2) {
+    return num1
+  }else if(num2 > num1){
+    return num2
+  } else {
+    return num1
+  }
+}
+
+maxOfTwoNumbers(2,4)
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = [
+  "mystery",
+  "brother",
+  "crocodile1",
+  "crocodile2",
+  "pearl",
+  "orchard",
+  "crackpot",
+];
+
+function findLongestWord(array) {
+  if (array.length === 0) {
+    return null;
+  }
+
+  let longestWord = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length > longestWord.length) {
+      longestWord = array[i];
+    }
+  }
+  return longestWord;
+}
+
+findLongestWord(words);
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array){
+
+  let sum = 0;
+
+  if (array.length === 0) {
+    return 0;
+  } else if(array.length === 1){
+    return array[0];
+  }
+
+  for(let i=0; i<array.length; i++){
+    sum += array[i];
+    console.log(sum);
+  }
+
+  return sum;
+
+}
+
+/* Bonus track */
+function sum(array){
+
+  if (array.length === 0) {
+    return 0;
+  } else if(array.length === 1){
+    return array[0];
+  }
+
+  let hasNumbers = false;
+  let hasStrings = false;
+  let hasBoolean = false;
+  let hasDataError = false;
+
+  for (let i = 0; i < array.length; i++){
+    switch(typeof(array[i])){
+      case 'string':
+        hasStrings = true;
+        break;
+
+      case 'number':
+        hasNumbers = true;
+        break;
+
+      case 'boolean':
+        hasBoolean = true;
+        break;
+
+      default:
+        hasDataError = true;
+    }
+  }
+  
+  let sum = 0;
+
+  for(let i=0; i<array.length;i++){
+    if( hasNumbers && !hasStrings && !hasBoolean && !hasDataError ){
+      sum += array[i]
+    } else if( !hasNumbers && hasStrings && !hasBoolean && !hasDataError){
+      sum += array[i].length
+    } else if( hasNumbers && hasStrings && !hasBoolean && !hasDataError){
+      if(typeof(array[i]) === 'string'){
+        sum += array[i].length
+      } else{
+        sum += array[i]
+      }
+    } else if( hasNumbers && hasStrings && hasBoolean && !hasDataError){
+      if(typeof(array[i]) === 'string'){
+        sum += array[i].length
+      } else{
+        sum += array[i]
+      }
+    } else if( hasDataError ){
+      console.log(`Unsupported data type sir or ma'am`);
+    }
+  }
+  
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
