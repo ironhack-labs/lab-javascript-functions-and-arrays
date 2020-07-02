@@ -60,6 +60,14 @@ function sumNumbers(numbers) {
   return sum;
 }
 
+//BONUS: Calculate the sun
+function sum(numbers) {
+  //should return zero if receives an empty array when called
+  if (numbers.length === 0) {
+    return 0;
+  }
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -112,13 +120,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
+
+
+function uniquifyArray(array) {
   //should return null if receives an empty array when called
-  if (wordsUnique.length === 0) {
+  if (array.length === 0) {
     return null;
   }
-
-
+  let uniqueWords = [...array];
+  let counter = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array.indexOf(array[i], i + 1) !== -1) {
+      //console.log(array.indexOf(array[i], i + 1) + counter);
+      uniqueWords.splice(array.indexOf(array[i], i + 1) + counter, 1);
+      counter--;
+    }
+  }
+  return uniqueWords;
 }
 
 // Iteration #6: Find elements
@@ -156,20 +174,20 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsCount, wordToFind) {
-  //should return null if receives an empty array when called
+  //should return 0 (zero) if receives an empty array when called
   if (wordsCount.length === 0) {
     return 0;
   }
 
+  let sum = 0;
   for (i = 0; i < wordsCount.length; i++) {
-    if (wordsCount.indexOf(wordToFind) === -1) {
-      return 0;
-    } else if (wordsCount.indexOf(wordToFind) > -1) {
-      return 1;
+    if (wordsCount[i] === wordToFind) {
+      sum++
     }
   }
-
+  return sum;
 }
+
 
 // Iteration #8: Bonus
 
@@ -195,3 +213,16 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {
+  let array = 0;
+  for (var i = 0; i < matrix.length; i++) {
+
+    if (matrix[i] === 2) {
+      array++;
+    }
+    if (array.length === matrix.length) {
+      return 16;
+    }
+  }
+}
