@@ -32,6 +32,20 @@ function findLongestWord(array) {
   return null;
 };
 
+// function findLongestWord(array) {
+//   if (array.length > 1) {
+//     let words = [];
+//     array.forEach(data => words.push(data));
+//     words.shift();
+//     const wordLongest = array.filter((word,index) => index>words.length ? word.length > words[index].length : word.length > word[0]);
+//     return wordLongest;
+//   } else if (array.length === 1) {
+//     return array[0];
+//   }
+//   return null;
+// }
+
+// console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -133,15 +147,12 @@ const wordsCount = [
 ];
 
 function howManyTimes(array, word) {
-  if (array.length === 0) {
-    return 0;
-  }
   let counter = 0;
-  array.forEach((element) => {
+  array.length !== 0 ? array.forEach((element) => {
     if (word.includes(element)) {
       counter++;
     }
-  });
+  }) : counter = 0;
   return counter;
 }
 
