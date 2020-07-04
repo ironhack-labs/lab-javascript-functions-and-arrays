@@ -48,7 +48,7 @@ function averageNumbers(arrNum) {
 averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel','palace'];
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(arrWords) {
   let arrLength = arrWords.length;
   let numOfLetters = 0;
