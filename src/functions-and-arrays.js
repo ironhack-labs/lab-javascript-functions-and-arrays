@@ -26,6 +26,7 @@ function findLongestWord(arr) {
       findLongestWord(words);
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(arrNum) {
   let currentSum = 0;
@@ -110,7 +111,7 @@ doesWordExist(wordsFind, "machine");
 doesWordExist(wordsFind, "car");
 
 // Iteration #7: Count repetition
-const words = [
+const wordsCount = [
   'machine',
   'matter',
   'subset',
