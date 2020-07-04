@@ -107,8 +107,8 @@ function doesWordExist(arrayOfWords, wordToSearch) {
   }
   return false;
 }
-doesWordExist(wordsFind, "machine");
-doesWordExist(wordsFind, "car");
+doesWordExist(wordsFind, 'machine');
+doesWordExist(wordsFind, 'car');
 
 // Iteration #7: Count repetition
 const wordsCount = [
