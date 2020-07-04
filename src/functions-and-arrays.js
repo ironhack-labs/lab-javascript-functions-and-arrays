@@ -111,17 +111,17 @@ doesWordExist(wordsFind, "car");
 
 // Iteration #7: Count repetition
 const wordsCount = [
- 'machine',
- 'matter',
- 'subset',
- 'trouble',
- 'starting',
- 'matter',
- 'eating',
- 'matter',
- 'truth',
- 'disobedience',
- 'matter'
+    'machine',
+    'matter',
+    'subset',
+    'trouble',
+    'starting',
+    'matter',
+    'eating',
+    'matter',
+    'truth',
+    'disobedience',
+    'matter'
 ];
 function howManyTimes(arrayOfWords, wordToSearch) {
   let numCount = 0;
