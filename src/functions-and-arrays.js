@@ -14,7 +14,7 @@ console.log(maxOfTwoNumbers(3, 3))
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 //case Expected '' to be null. doesn't work
-function findLongestWord(array) {
+/* function findLongestWord(array) {
   let base = '';
   if (array !== []) {
     for (let i in array) {
@@ -25,6 +25,23 @@ function findLongestWord(array) {
   } else {
     base = 0;
   }
+  return base;
+} 
+console.log(findLongestWord(words)) 
+ */
+
+
+function findLongestWord(array) {
+  
+  let base = null;
+  if (array.length) {
+    base = array[0];
+    for (let i in array) {
+      if (base.length < array[i].length) {
+        base = array[i]
+      } 
+    }
+  } 
   return base;
 } 
 console.log(findLongestWord(words)) 
