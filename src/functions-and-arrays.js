@@ -79,7 +79,7 @@ console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 
-//case item.length === 0 doesn't workf
+//case item.length === 0 doesn't work
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(item) {
   if (item.length === 0) {
