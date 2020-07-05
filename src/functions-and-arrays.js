@@ -12,18 +12,8 @@ function maxOfTwoNumbers(firstNumber, secondNumber)  {
 console.log(maxOfTwoNumbers(3, 3))
 
 // Iteration #2: Find longest word
-/* const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-function findLongestWord(array) {
-  let base = '';
-  for (let i in array) {
-      if (base.length < array[i].length) {
-        base = array[i]
-      } 
-  }
-  return base;
-}
-   */
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+//case Expected '' to be null. doesn't work
 function findLongestWord(array) {
   let base = '';
   if (array !== []) {
@@ -32,15 +22,12 @@ function findLongestWord(array) {
         base = array[i]
       } 
     }
-    return base;
   } else {
-    return null;
+    base = 0;
   }
-  
-}
-
-
-console.log(findLongestWord(words))
+  return base;
+} 
+console.log(findLongestWord(words)) 
 
 // Iteration #3: Calculate the sum
 
@@ -73,40 +60,44 @@ console.log(sum(mixedArr))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
+//case "Calculate the average of an array of numbers should return null if receives an empty array when called" doesnt work
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers (numArrayAver) {
   let sumForAverage = 0;
-  for (let z = 0; z < numArrayAver.length; z++) {
-    sumForAverage += numArrayAver[z] 
-  }
-  if(numArrayAver.length > 1) {
-    let result = (sumForAverage / (numArrayAver.length - 1)).toFixed(0)
-    return result;
+  if (numArrayAver.length === 1) {
+    sumForAverage = numArrayAver[0];
   } else {
-    return sumForAverage
+    for (let z = 0; z < numArrayAver.length; z++) {
+      sumForAverage += numArrayAver[z];
+    }
+    sumForAverage /= numArrayAver.length;
   }
-  
+  return Number(sumForAverage.toFixed(0)) 
 }
 console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
+
+//case item.length === 0 doesn't workf
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(item) {
-  let sumLength = 0;
-  for (let b = 0; b < item.length; b++) {
-    if (item.length > 1) {
-      sumLength += item[b].length;
-      return sumLength
-    } else if (item.length === 1) {
-      return item[b].length;
-    } else {
-      return null;
-    }
+  if (item.length === 0) {
+    return null;
+  } else { 
+    let sumLength = 0;
+    for (let b = 0; b < item.length; b++) {
+      if (item.length > 1) {
+        sumLength += item[b].length;
+      
+      } else if (item.length === 1) {
+        return item[0].length;
+      } 
+    } return sumLength / item.length
   }
-  
 }
-
 console.log(averageWordLength(wordsArr))
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
