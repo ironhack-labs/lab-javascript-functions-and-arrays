@@ -13,26 +13,7 @@ console.log(maxOfTwoNumbers(3, 3))
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-//case Expected '' to be null. doesn't work
-/* function findLongestWord(array) {
-  let base = '';
-  if (array !== []) {
-    for (let i in array) {
-      if (base.length < array[i].length) {
-        base = array[i]
-      } 
-    }
-  } else {
-    base = 0;
-  }
-  return base;
-} 
-console.log(findLongestWord(words)) 
- */
-
-
 function findLongestWord(array) {
-  
   let base = null;
   if (array.length) {
     base = array[0];
@@ -48,13 +29,20 @@ console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [4, 6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numberArray) {
   let sum = 0;
-  for (let j = 0; j < numberArray.length; j++) {
-    sum += numberArray[j];
+  if (numberArray.length) {
+    for (let j in numberArray) {
+      if (numberArray.length === 1) {
+        sum = numberArray[0]; 
+      } else {
+        sum += numberArray[j];
+      }
+    }
+  
   }
-  return sum
+  return sum;
 }
 console.log(sumNumbers(numbers))
 
@@ -78,25 +66,27 @@ console.log(sum(mixedArr))
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
-//case "Calculate the average of an array of numbers should return null if receives an empty array when called" doesnt work
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers (numArrayAver) {
-  let sumForAverage = 0;
-  if (numArrayAver.length === 1) {
-    sumForAverage = numArrayAver[0];
-  } else {
-    for (let z = 0; z < numArrayAver.length; z++) {
-      sumForAverage += numArrayAver[z];
+  let sumForAverage = null;
+    if (numArrayAver.length) {
+      sumForAverage = numArrayAver[0];
+      for (let z in numArrayAver) {
+        sumForAverage += numArrayAver[z]
+      }
+      sumForAverage -= numArrayAver[0]
+      sumForAverage /= numArrayAver.length;
+      sumForAverage = Number(sumForAverage.toFixed(0))
     }
-    sumForAverage /= numArrayAver.length;
-  }
-  return Number(sumForAverage.toFixed(0)) 
+    return sumForAverage
 }
+
 console.log(averageNumbers(numbersAvg));
+
+
 
 // Level 2: Array of strings
 
-//case item.length === 0 doesn't work
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(item) {
   if (item.length === 0) {
