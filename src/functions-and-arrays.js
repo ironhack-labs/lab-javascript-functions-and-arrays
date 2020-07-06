@@ -5,7 +5,7 @@ function maxOfTwoNumbers (num1, num2) {
   } else if (num2 > num1){
     return num2
   } else {
-    return num1
+    return num1 || num2
   }
 }
 
@@ -124,7 +124,7 @@ function averageWordLength (wordArray){
 // console.log(averageWordLength(wordsArr))
 
 // //Iteration #4: Bonus - A generic avg() function
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg (mixedArray) {
   let sumNum = 0
@@ -133,8 +133,11 @@ function avg (mixedArray) {
   let sumAllElements = 0
   let avgAllElements = 0
 
+  if (mixedArray.length === 0){
+    return null
+  }
 
-  for(let i = 0; i < mixedArray.length; i++) {
+  for (let i = 0; i < mixedArray.length; i++) {
     if (typeof mixedArray[i] === 'number'){
       sumNum += mixedArray[i]
     } else if (typeof mixedArray[i] === 'string'){
@@ -151,48 +154,56 @@ function avg (mixedArray) {
     }
   }
   sumAllElements = sumNum + sumWords + sumBoolean
-  return avgAllElements = sumAllElements / mixedArray.length
+  avgAllElements = sumAllElements / mixedArray.length
+  return Number(avgAllElements.toFixed(2))
 }
 
 // console.log(avg(mixedArr))
 
 // // Iteration #5: Unique arrays
-// const wordsUnique = [
-//   'crab',
-//   'poison',
-//   'contagious',
-//   'simple',
-//   'bring',
-//   'sharp',
-//   'playground',
-//   'poison',
-//   'communion',
-//   'simple',
-//   'bring'
-// ];
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
 
-// function uniquifyArray (wordArr){
-  
-//   for (let i = 0; i < wordArr.length; i++){
-//     const isNotUnique = wordArr.indexOf(wordArr[i], i+1 )
-//     if (isNotUnique !== -1) {
-//       wordArr.splice(i, 1)
-//     }
-//   }
-//   return wordArr
-// }
+function uniquifyArray (wordArr){
+  if (wordArr.length === 0){
+    return null
+  }
+
+  for (let i = 0; i < wordArr.length; i++){
+    const isNotUnique = wordArr.indexOf(wordArr[i], i+1 )
+    if (isNotUnique !== -1) {
+      wordArr.splice(i, 1)
+    }
+  }
+  return wordArr
+}
 
 // // Iteration #6: Find elements
 // const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-// function doesWordExist (wordArr, searchWord) {
-//   for (let i = 0; i < wordArr.length; i++) {
-//     if (wordArr[i] === searchWord) {
-//       return true
-//     }  
-//   }
-//   return false
-// }
+function doesWordExist (wordArr, searchWord) {
+  if (wordArr.length === 0){
+    return null
+  }
+  
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i] === searchWord) {
+      return true
+    }  
+  }
+  return false
+}
 
 // console.log(doesWordExist(wordsFind, 'trouble'))
 
@@ -212,17 +223,17 @@ function avg (mixedArray) {
 //   'matter'
 // ];
 
-// function howManyTimes (wordArr, searchWord){
+function howManyTimes (wordArr, searchWord){
 
-//   let count = 0
+  let count = 0
 
-//   wordArr.forEach(function (element) {
-//     if (element === searchWord) {
-//       count++
-//     }
-//   })
-//   return count
-// }
+  wordArr.forEach(function (element) {
+    if (element === searchWord) {
+      count++
+    }
+  })
+  return count
+}
 
 // console.log(howManyTimes(words, 'matter'))
 
