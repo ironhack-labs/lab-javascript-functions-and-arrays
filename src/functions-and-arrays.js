@@ -12,14 +12,14 @@ function maxOfTwoNumbers(num1, num2) {
 };
 
 // Iteration #2: Find longest word
-function findLongestWord(arr) {
+function findLongestWord(arrItTwo) {
   let word = "";
-  if (arr.length == 0) {
+  if (arrItTwo.length == 0) {
     return null;
   }
-  for (let i = 0; i < arr.length; i++) {
-    if (word.length < arr[i].length) {
-      word = arr[i];
+  for (let i = 0; i < arrItTwo.length; i++) {
+    if (word.length < arrItTwo[i].length) {
+      word = arrItTwo[i];
     }
   }
     return word;
@@ -41,6 +41,27 @@ function sumNumbers(numberArr) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 sumNumbers(numbers);
+
+// Iteration #3.1: A generic sum() function
+function sum(arrMixed) {
+  let sum = 0;
+  for (let i = 0; i < arrMixed.length; i++) {
+    if (typeof arrMixed[i] === 'number') {
+      sum += arrMixed[i];
+    } else if (typeof arrMixed[i] === 'string') {
+      sum += arrMixed[i].length;
+    } else if (arrMixed[i] === true) {
+      sum += 1;
+    } else if (typeof arrMixed[i] === 'object' || typeof arrMixed[i] === 'array') {
+      throw Error('Unsupported data type sir or ma\'am');
+    }
+  }
+  return sum;
+}
+
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+sum(mixedArr);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -76,6 +97,29 @@ function averageWordLength(wordArr) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 averageWordLength(wordsArr);
+
+// Bonus #4.1: A generic avg() function
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let avgSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      avgSum += arr[i];
+    } else if (typeof arr[i] === 'string') {
+      avgSum += arr[i].length;
+    } else if (arr[i] === true) {
+      avgSum += 1;
+    } 
+  }
+  avgSum /= arr.length;
+  return Number(avgSum.toFixed(2));
+}
+
+const mixedArrTwo = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+avg(mixedArrTwo);
 
 // Iteration #5: Unique arrays
 function uniquifyArray(arrWords) {
@@ -156,6 +200,9 @@ const wordsCount = [
 howManyTimes(wordsCount, 'matter');
 
 // Iteration #8: Bonus
+function greatestProduct(matrix) {
+ 
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -179,3 +226,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
