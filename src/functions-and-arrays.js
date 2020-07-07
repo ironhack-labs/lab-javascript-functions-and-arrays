@@ -1,19 +1,86 @@
 // Iteration #1: Find the maximum
-
+const maxOfTwoNumbers = (numOne, numTwo) => {
+  if(numOne > numTwo){
+    return numOne
+  }
+  if(numTwo > numOne){
+    return numTwo
+  }
+  else{return numOne}
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+const findLongestWord = (words) =>{
+  if(words.length==0){
+    return null
+  }
+  else{
+  let biggestOne ="";
+  words.forEach((element, index) => {
+    if(element.length > biggestOne.length ){
+      biggestOne = element; }
+  });
+  return biggestOne
+}
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers =(arr) =>{
+  let total = 0;
+  arr.forEach((summ) =>{
+    total += summ;
+  });
+  return total
+}
+
+//Itineration #3.1 :A generic sum() function
+const sum =(arr) =>{
+  let total = 0;
+  let unsupportedArr = false;
+  arr.forEach((summ) =>{
+    switch(typeof summ){
+      case 'string': total += summ.length; break;
+      case 'number': total += summ; break;
+      case 'boolean': if(summ){total += 1;} break;
+      default: unsupportedArr = true;
+    }
+  }); 
+  if(!unsupportedArr) {return total;}
+  else{throw new Error(`Unsupported data type sir or ma'am`)}
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+const averageNumbers = (arr) =>{
+  let avrg;
+  if(arr==0){return null}
+  else{
+   avrg = sumNumbers(arr)/arr.length;
+   return avrg;
+  }
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+const averageWordLength = (arr) => {
+  if(arr==0){return null;}
+  else{
+  let total = 0;
+  arr.forEach((summ) =>{
+  total += summ.length;
+  });
+  return total/arr.length;
+  }
+}
+//Itineration #4.1: A generic avg() function
+const avg = (arr) =>{
+  let avrg;
+  if(arr==0){return null}
+  else{ avrg = sumNumbers(arr)/arr.length;
+  return parseFloat(avrg.toFixed(2)); //I don´t know how to fix it
+  }
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -28,10 +95,35 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+const uniquifyArray = (arr) =>{
+  if(arr == 0){return null;}
+  else{
+  for(let i=0; i< arr.length; i++){
+    let prevpost = 1;
+    let idx = arr.indexOf(arr[i], i + prevpost);
+    while(idx != -1){
+      arr.splice(idx,1);
+      prevpost ++;
+      idx = arr.indexOf(arr[i], i + prevpost);
+    }
+  }
+  return arr;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+const doesWordExist = (arr, word) => {
+  if(arr==0){return null;}
+  else{
+  let theWordExist;
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] == word){theWordExist = true;}
+  }
+  if(theWordExist){return true;}
+  else{return false;}
+  }
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,9 +138,38 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+const howManyTimes = (arr, word) => {
+  let sumOfReps = 0;
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] ==word){sumOfReps ++;}
+  }
+  return sumOfReps;
+}
 // Iteration #8: Bonus
-
+const greatestProduct = (matrix) =>{
+  let horizotalProduct;
+  let verticalProduct;
+  let temporaryGreatestProduct = 0;
+  for(i=0; i< matrix.length; i++){
+    for(j=0; j < matrix[i].length; j++){
+      if(j < matrix[i].length - 3){
+        horizotalProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2]*matrix[i][j+3];
+        if(horizotalProduct > temporaryGreatestProduct){
+          temporaryGreatestProduct = horizotalProduct;
+        }
+        //console.log(`horiz ${horizotalProduct}`)
+      }
+      if(i < matrix.length - 3){
+        verticalProduct = matrix[i][j]* matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        if(verticalProduct > temporaryGreatestProduct){
+          temporaryGreatestProduct = verticalProduct;
+        }
+        //console.log(`vertic ${verticalProduct}`)
+      }
+    }
+  }
+  return temporaryGreatestProduct;
+}
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -71,3 +192,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//Bonus Iteration #8.1: Product of diagonals
+const gratestProductOfDiagonals = (matrix) =>{
+  let diagonalProduct;
+  let reverseDiagonalProduct;
+  let temporaryGreatestProduct = 0;
+  for(let i=0; i< matrix.length; i++){
+    for(let j=0; j < matrix[i].length; j++){
+      if(j < matrix[i].length - 3 && i < matrix.length - 3){
+        diagonalProduct = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2]*matrix[i+3][j+3];
+        if(diagonalProduct > temporaryGreatestProduct){
+          temporaryGreatestProduct = diagonalProduct;
+        }
+      }
+    }
+  }
+  for(let i=0; i< matrix.length; i++){
+    for(let j=matrix.length-1; j >=0; j--){
+      if(j > matrix[i].length - 3 && i < matrix.length - 3){
+        reverseDiagonalProduct = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2]*matrix[i+3][j-3];
+        if(reverseDiagonalProduct > temporaryGreatestProduct){
+          temporaryGreatestProduct = reverseDiagonalProduct;
+        }
+      }
+    }
+  }
+  return temporaryGreatestProduct;
+}
