@@ -1,18 +1,83 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b) {
+  if (a > b) { return a}
+  if (b > a) { return b}
+  else return a
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (theWords) {
+  if (theWords.length==0) {return null}
+  if (theWords.length==1) {return theWords[0]}
+
+  let longestWord="";
+
+  for (let theWord of theWords) {
+
+    console.log('The wordwe are checking is:' + theWord);
+
+    if (theWord.length > longestWord.length) {
+
+      console.log('This is now the longest word: ' + theWord);
+      longestWord=theWord;
+
+    }
+
+  }
+
+  return longestWord;
+
+}
+findLongestWord(words) 
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(theNumbers) {
+  if (theNumbers.length==0) {return 0};
+  if (theNumbers.length==1) {return theNumbers[0]};
+
+  let sum = 0; 
+    for (let theNumber of theNumbers) {
+        sum += theNumber; 
+  
+    }
+    return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(aNumbers) {
+  if (aNumbers.length==0) {return null};
+  if (aNumbers.length==1) {return aNumbers[0]};
+  
+  let sum=0;
+    for (let aNumber of aNumbers) {
+      sum += aNumber;
+    }
+    return sum/aNumbers.length;
+}
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength (words) {
+  if (words.length==0)  {return null};
+  if (words.length==1)  {return words[0].length};
+  
+  let sum=0;
+  for (let word of words) {
+    sum += word.length
+  }
+  return sum/words.length;
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,6 +94,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(uniArray) {
+  if (uniArray.length==0) {return null};
+  
+  let special = [];
+  for (let xtraSpecial of uniArray) {
+    if (special.indexOf(xtraSpecial) > -1) {
+      continue;
+    }
+
+    special.push(xtraSpecial);
+  }
+  return special;
+
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
