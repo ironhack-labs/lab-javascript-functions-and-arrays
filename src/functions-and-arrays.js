@@ -1,18 +1,70 @@
 // Iteration #1: Find the maximum
+const maxOfTwoNumbers = (a, b) =>{
+  if (a>b){ return a;}
+  else {return b;}
+}
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+//So I managed to fix this, but more out of elimination than because I understand it. Something about longest being a global variable?
+
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpota'];
+const findLongestWord = (str) =>{
+  let longest='';
+  if (str == '') {return null;}
+  str.forEach((ele) => {console.log (ele.length); if (ele.length > longest.length){longest = ele}})
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = (allnum) =>{
+  let sum=0;
+  for (i=0; i<allnum.length; i++){
+    sum+=allnum[i]
+  }
+  return sum;
+}
+
+//Bonus 3.1
+
+const sum = (all)=>{
+  let result = 0;
+  all.forEach ((ele)=>{
+    if (typeof ele === 'boolean' && ele==true){result++;}
+    if (typeof ele === 'string') {result+=ele.length;}
+    if (typeof ele === 'number') {result+=ele;}
+      })
+  return result;
+    }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = (avgnum) =>{
+  let avg=0;
+  if (avgnum == ''){ return null;}
+  for (i=0; i<avgnum.length; i++){
+    avg+=avgnum[i]
+  }
+  avg /=avgnum.length;
+  return avg;
+}
+
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = (avgword) =>{
+  let avg=0;
+  if (avgword == ''){ return null;}
+  for (i=0; i<avgword.length; i++){
+    avg+=avgword[i].length
+  }
+  avg /=avgword.length;
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,10 +80,30 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+const uniquifyArray = (arr) =>{
+  let newarr = [];
+  if (arr == ''){ return null;}
+  arr.forEach((ele, ind) =>{
+    if (arr.indexOf(ele)==ind){newarr.push(ele);}
+  })
+    if (arr==newarr){return arr;}
+    else {return newarr;}
+}
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+//Had to use bool variable because trying to return true and/or false directly returned undefined
+
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (list, search) =>{
+  if (list == ''){ return null;}
+let bool = false;
+list.forEach((ele) =>{
+  if (ele==search){
+    bool = true;}
+})
+return bool;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,6 +118,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (list, search) =>{
+  if (list == ''){ return 0;}
+let repe =0;
+list.forEach((ele) =>{
+  if (ele==search){
+    repe++;}
+})
+return repe;
+}
 
 // Iteration #8: Bonus
 
