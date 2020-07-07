@@ -1,18 +1,103 @@
 // Iteration #1: Find the maximum
-
+const maxOfTwoNumbers = function(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  } else {
+    return num1;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+const findLongestWord = function(arrayOfWords){
+  let longestWord = ""
+  if (arrayOfWords.length === 0){
+    return null;
+  };
+  arrayOfWords.forEach(elmt => {
+    if (elmt.length > longestWord.length){
+      longestWord = elmt;
+    };
+  })
+  return longestWord;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = (arrayOfNumbers) => {
+  let finalSum = 0;
+  if (arrayOfNumbers.length === 0) {
+    return 0;
+  };
+  arrayOfNumbers.forEach(elmt => {
+    finalSum += elmt;
+  })
+  return finalSum;
+}
+
+const sum = (anArray) => {
+  let finalSum = 0;
+  if (anArray.length === 0) {
+    return 0;
+  };
+  anArray.forEach(elmt => {
+    switch (typeof elmt) {
+      case "number":
+        finalSum += elmt;
+        break;
+      case "string":
+        finalSum += elmt.length;
+        break;
+      case "boolean":
+        if (elmt === true) {
+          finalSum += 1;
+        } else {
+          finalSum += 0;
+        }
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+        break;   
+    }
+  })
+  return finalSum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = (arrayOfNumbers) => {
+  if (arrayOfNumbers.length === 0) {
+    return null;
+  };
+  let sumOfNumbers = sumNumbers(arrayOfNumbers);
+  let average = sumOfNumbers / arrayOfNumbers.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = (wordsArr) => {
+  if (wordsArr.length === 0) {
+    return null;
+  };
+  let sumOfLength = sum(wordsArr);
+  let averageLength = sumOfLength / wordsArr.length;
+  return averageLength;
+}
+
+const avg = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  };
+  let sumOfArr = sum(arr);
+  let avOfArr = sumOfArr / arr.length;
+  avOfArr = avOfArr.toFixed(2);
+  avOfArr = Number.parseFloat(avOfArr);
+  return avOfArr;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +114,28 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = (arrayOfWords) => {
+  if (arrayOfWords.length === 0) {
+    return null;
+  };
+  let unicArr = arrayOfWords.filter((word, index, array) => array.indexOf(word) === index);
+  return unicArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (arrayOfWords, wordToSearchFor) => {
+  if (arrayOfWords.length === 0) {
+    return null;
+  };
+  let doesExist = false;
+  arrayOfWords.forEach(elmt => {
+    if (elmt === wordToSearchFor) {
+      doesExist = true;
+    }
+  })
+  return doesExist;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +151,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arrayOfWords, wordToSearchFor) => {
+  if (arrayOfWords.length === 0) {
+    return 0;
+  };
+  let numberOfTime = 0;
+  arrayOfWords.forEach(elmt => {
+    if (elmt === wordToSearchFor) {
+      numberOfTime++;
+    }
+  })
+  return numberOfTime;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +189,20 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+  let maxProduct = 0;
+  // For the lines
+  for (let i=0; i < matrix.length; i++){
+    matrix[i].forEach((elmt, index) => {
+      let productLine = elmt * matrix[i][index+1] * matrix[i][index+2] * matrix[i][index+3];
+      if (productLine > maxProduct) {
+        maxProduct = productLine;
+      }
+    })
+  }
+  // I DID NOT MANAGE TO DO THE COLUMNS AND DIAGONALS
+  
+  return maxProduct;
+
+}
