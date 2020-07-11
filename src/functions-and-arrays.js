@@ -122,8 +122,40 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsInArray) {
+  let nonDupArray = [];
+  if (wordsInArray.length === 0) {
+    return null;
+  }
+  for (i = 0; i < wordsInArray.length; i++) {
+    console.log(wordsInArray.indexOf(wordsInArray[i]));
+    if (i === wordsInArray.indexOf(wordsInArray[i])) {
+      nonDupArray.push(wordsInArray[i]);
+    }
+  }
+  return nonDupArray;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayToSearchFor, wordToSearchFor) {
+  if (arrayToSearchFor.length === 0) {
+    return null;
+  }
+  console.log(wordToSearchFor);
+  for (i = 0; i < arrayToSearchFor.length; i++) {
+    console.log(arrayToSearchFor[i]);
+    if (arrayToSearchFor[i] === wordToSearchFor) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(doesWordExist(wordsFind, "trouble"));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -139,6 +171,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayToCount, wordToCount) {
+  let wordsRepeated = 0;
+  if (arrayToCount.length === 0) {
+    return 0;
+  }
+  console.log(wordToCount);
+  for (i = 0; i < arrayToCount.length; i++) {
+    console.log(arrayToCount[i]);
+    if (arrayToCount[i] === wordToCount) {
+      wordsRepeated++;
+    }
+  }
+  return wordsRepeated
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
 
 // Iteration #8: Bonus
 
@@ -164,3 +213,54 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+console.log(matrix.length);
+
+//console.log(typeof matrix[20][1]);
+
+function greatestProduct(matrixToProduct) {
+  let grtProd = 0;
+  let higherProd = 0;
+  let horizProd = 1;
+  let vertiProd = 1;
+  for (y = 0; y < matrixToProduct.length; y++) {
+    for (x = 0; x < matrixToProduct[y].length; x++) {
+      for (z = 0; z < 4; z++) {
+        if (matrixToProduct[y][x + z] != undefined) {
+          horizProd = horizProd * matrixToProduct[y][x + z];
+        }
+        if (y < matrixToProduct.length - 3) {
+          vertiProd = vertiProd * matrixToProduct[y + z][x];
+        }
+      }
+      if (y === matrixToProduct.length - 3) {
+        vertiProd = vertiProd * matrixToProduct[y][x] * matrixToProduct[y + 1][x] * matrixToProduct[y + 2][x];
+      } else if (y === matrixToProduct.length - 2) {
+        vertiProd = vertiProd * matrixToProduct[y][x] * matrixToProduct[y + 1][x];
+      } else if (y === matrixToProduct.length - 1) {
+        vertiProd = vertiProd * matrixToProduct[y][x];
+      }
+      if (horizProd > vertiProd) {
+        higherProd = horizProd;
+      } else {
+        higherProd = vertiProd;
+      }
+      if (grtProd < higherProd) {
+        grtProd = higherProd;
+      }
+      horizProd = 1;
+      vertiProd = 1;
+    }
+  }
+  return grtProd;
+}
+
+console.log(greatestProduct(matrix));
+
+// Bonus 8.1
+
+function greatestProductOfDiagonals(matrixDiagToProduct) {
+  
+}
+
+console.log(greatestProductOfDiagonals(matrix));
