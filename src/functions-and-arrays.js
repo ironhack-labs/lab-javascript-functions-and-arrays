@@ -1,18 +1,98 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(number1, number2) {
+  if (number1> number2){
+    return number1
 
+  }
+  return number2
+  
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(array1) {
+  if(array1.length === 0 ){
+    return null;
+  }
+  let longestWord = '';
+  for (i=0; i< array1.length;i++){
+    if(longestWord.length< array1[i].length){
+      longestWord = array1[i];
+     
+    }
+  }
+  return longestWord;
+  
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(array1) {
+  let somaVal = 0;
+  if(array1.length === 0 ){
+    return somaVal;
+  }
+  for (i=0; i< array1.length;i++){
+    somaVal += array1[i];
+  }
+  return somaVal;
+}
+function sum(array1) {
+  let somaVal = 0;
+  let tamanho = 0;
+  if(array1.length === 0 ){
+    return somaVal;
+  }
+  for (i=0; i< array1.length;i++){
+    if (typeof array1[i] === "boolean"){
+      if (array1[i]=== true){
+        somaVal += 1;
+      }
+    } else if (typeof array1[i] === 'number' ){
+      somaVal += array1[i];
+    } else if (typeof array1[i] === 'string' ){
+      tamanho = array1[i].length;
+        somaVal += tamanho;
+      } else{
+        throw new Error(`Unsupported data type sir or ma'am`);
+      }
+    }
+  
+    return somaVal;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(array) {
+  if (array.length == 0){
+    return null
+  }
+  let varMedia = 0;
+  varMedia = sumNumbers(array) / array.length;
+  return varMedia;
+}
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(array) {
+  if (array.length == 0){
+    return null
+  }
+  let varMedia = 0;
+  varMedia = sum(array) / array.length;
+  return varMedia;
+}
+
+function avg(array) {
+  if (array.length == 0){
+    return null
+  }
+  let varMedia = 0;
+  varMedia = sum(array) / array.length;
+  return +varMedia.toFixed(2); // o simbolo de + altera o string para número
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,10 +108,37 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(array) {
+  if(array.length == 0) {
+    return null
+  }
+  let newArray = []
+  for(i=0; i<array.length; i++){
+    if(i == array.indexOf(array[i])){
+      newArray.push(array[i])
+    } 
+ 
+  } 
+  return newArray  
+}
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(array,string) {
+  if(array.length == 0 || string.length == 0) {
+    return null
+  }
+  return array.includes(string);
+  /*for(i=0; i<array.length; i++){
+    if(array[i] == string){
+      return true;
+    } 
+  }  
+  return false;*/
+ 
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,6 +153,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, string) {
+  if(array.length == 0 || string.length == 0) {
+    return 0
+  }
+  let numeroRepeticao = 0;
+  for(i=0; i<array.length; i++){
+    if(array[i] == string){
+     numeroRepeticao++;
+    } 
+  }  
+  return numeroRepeticao;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +190,181 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix) {
+  let produtoTot = 0;
+  let produtoMax = 0;
+  //linha
+  for (i=0; i<matrix.length; i++){
+    switch (i) {
+      case i== 0:
+        produtoTot = matrix[i] * matrix[i+1]* matrix[i+2] *matrix[i+3];
+          if( produtoTot > produtoMax){
+          produtoMax = produtoTot;
+        }
+        break;
+    
+      case i== 1:
+        produtoTot = matrix[i] * matrix[i+1]* matrix[i+2]* matrix[i+3];
+          if( produtoTot > produtoMax){
+            produtoMax = produtoTot;
+          }
+          produtoTot = matrix[i] * matrix[i-1];
+          if( produtoTot > produtoMax){
+            produtoMax = produtoTot;
+          } 
+          break;
+      case i== 2:
+        produtoTot = matrix[i] * matrix[i+1]* matrix[i+2]* matrix[i+3];
+          if( produtoTot > produtoMax){
+            produtoMax = produtoTot;
+          }
+          produtoTot = matrix[i] * matrix[i-1] * matrix[i-2];
+          if( produtoTot > produtoMax){
+            produtoMax = produtoTot;
+          }
+
+            break;
+
+          // xxxxxxxxxxxxxx
+            case i== matrix.length -1:
+              produtoTot = matrix[i] * matrix[i-1]* matrix[i-2] *matrix[i-3];
+                if( produtoTot > produtoMax){
+                produtoMax = produtoTot;
+              }
+              break;
+          
+            case i== matrix.length -2:
+              produtoTot = matrix[i] * matrix[i+1];
+                if( produtoTot > produtoMax){
+                  produtoMax = produtoTot;
+                }
+                produtoTot = matrix[i] * matrix[i-1]* matrix[i-2] *matrix[i-3];
+                if( produtoTot > produtoMax){
+                  produtoMax = produtoTot;
+                } 
+                break;
+
+            case i== matrix.length -3:
+              produtoTot = matrix[i] * matrix[i+1]* matrix[i+2];
+                if( produtoTot > produtoMax){
+                  produtoMax = produtoTot;
+                }
+                produtoTot = matrix[i] * matrix[i-1] * matrix[i-2]* matrix[i-3];
+                if( produtoTot > produtoMax){
+                  produtoMax = produtoTot;
+                }
+      
+                  break;
+
+            default :
+              produtoTot = matrix[i] * matrix[i+1]* matrix[i+2]* matrix[i+3];
+                if( produtoTot > produtoMax){
+                  produtoMax = produtoTot;
+                }
+                produtoTot = matrix[i] * matrix[i-1] * matrix[i-2]* matrix[i-3];
+                if( produtoTot > produtoMax){
+                  produtoMax = produtoTot;
+                }
+                  break;
+    }
+   //coluna
+    for (j=0; j<matrix[i].length; j++){ 
+      switch (j) {
+        case j== 0:
+          produtoTot = matrix[i][j] * matrix[i][j+1]* matrix[i][j+2] *matrix[i][j+3];
+            if( produtoTot > produtoMax){
+            produtoMax = produtoTot;
+          }
+          break;
+      
+        case j== 1:
+          produtoTot = matrix[i][j] * matrix[i][j+1]* matrix[i][j+2]* matrix[i][j+3];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+            produtoTot = matrix[i][j] * matrix[i][j-1];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            } 
+            break;
+        case j== 2:
+          produtoTot = matrix[i][j] * matrix[i][j+1]* matrix[i][j+2]* matrix[i][j+3];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+            produtoTot = matrix[i][j] * matrix[i][j-1] * matrix[i][j-2];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+  
+              break;
+              
+            // xxxxxxxxxxxxxx
+        case j== matrix[i].length -1:
+          produtoTot = matrix[i][j] * matrix[i][j-1]* matrix[i][j-2] *matrix[i][j-3];
+            if( produtoTot > produtoMax){
+            produtoMax = produtoTot;
+                }
+                break;
+            
+        case j== matrix[i].length -2:
+          produtoTot = matrix[i][j] * matrix[i][j+1];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+            produtoTot = matrix[i][j] * matrix[i][j-1]* matrix[i][j-2] *matrix[i][j-3];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            } 
+            break;
+  
+        case j== matrix[i].length -3:
+          produtoTot = matrix[i][j] * matrix[i][j+1]* matrix[i][j+2];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+            produtoTot = matrix[i][j] * matrix[i][j-1] * matrix[i][j-2]* matrix[i][j-3];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+  
+             break;
+  
+        default :
+          produtoTot = matrix[i][j] * matrix[i][j+1]* matrix[i][j+2]* matrix[i][j+3];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+            produtoTot = matrix[i][j] * matrix[i][j-1] * matrix[i][j-2]* matrix[i][j-3];
+            if( produtoTot > produtoMax){
+              produtoMax = produtoTot;
+            }
+              break;
+      }
+    } 
+  } 
+  return produtoMax;
+}
+let matrix2 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+console.log(greatestProduct(matrix2));
