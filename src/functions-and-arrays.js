@@ -1,18 +1,111 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+}
+
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'awqasfasdasd'];
+
+console.log(words.length);
+
+function findLongestWord(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+  let indexLongestWord = 0;
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    console.log(arrayOfWords[i].length);
+    if (arrayOfWords[i].length > arrayOfWords[indexLongestWord].length) {
+      indexLongestWord = i;
+    }
+  }
+  return arrayOfWords[indexLongestWord];
+}
+
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arrayOfNumbers) {
+  let cumulativeSum = 0;
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    cumulativeSum += arrayOfNumbers[i];
+  }
+  return cumulativeSum;
+}
+
+// Bonus 3.1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const fromJasmine = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}];
+
+function sum(arrayOfAny) {
+  let polymorphSum = 0;
+  for (let i = 0; i < arrayOfAny.length; i++) {
+    console.log(typeof (arrayOfAny[i]));
+    switch (typeof (arrayOfAny[i])) {
+      case "string":
+        polymorphSum += arrayOfAny[i].length;
+        break;
+      case "number":
+        polymorphSum += arrayOfAny[i];
+        break;
+      case "boolean":
+        polymorphSum += Number(arrayOfAny[i]);
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return polymorphSum;
+}
+
+console.log(sum(mixedArr));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersToAvg) {
+  if (numbersToAvg.length === 0) {
+    return null;
+  }
+  return sum(numbersToAvg) / numbersToAvg.length;
+}
+
+console.log(averageNumbers(numbersAvg));
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsToAvg) {
+  if (wordsToAvg.length === 0) {
+    return null;
+  }
+  return sum(wordsToAvg) / wordsToAvg.length;
+}
+
+console.log(averageWordLength(wordsArr));
+
+// Bonus 4.1
+
+const arrayJasmine1 = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
+const arrayJasmine2 = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true];
+
+function avg(anyArray) {
+  if (anyArray.length === 0) {
+    return null;
+  }
+  return Number((sum(anyArray) / anyArray.length).toFixed(2));
+}
+
+console.log(avg(arrayJasmine2));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
