@@ -1,4 +1,5 @@
-Iteration #1: Find the maximum
+
+// Iteration #1: Find the maximum
 
 function maxOfTwoNumbers(number1, number2) {
     return Math.max(number1, number2);
@@ -8,9 +9,7 @@ function maxOfTwoNumbers(number1, number2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arrayOfWords) {
-    const arrayOfNumbers = arrayOfWords.map(word => {
-        word.length;
-    });
+    const arrayOfNumbers = arrayOfWords.map(word => word.length);
     return Math.max(...arrayOfNumbers);
 }
 
