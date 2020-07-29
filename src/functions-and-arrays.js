@@ -249,40 +249,116 @@ const matrix = [
 ];
 
 function compare(a, b) {
+
   const reducer =  ( accumulator, currentValue ) => accumulator + currentValue;
-  if (Array.isArray(a)) {
-    a = a.reduce(reducer);
-  }
-  if (Array.isArray(b)) {
-    b = b.reduce(reducer);
-  }
+
+  if (Array.isArray(a)) { a = a.reduce(reducer) }
+  if (Array.isArray(b)) { b = b.reduce(reducer) }
+  if (Number.isNaN(a)) { a = 0 }
+  if (Number.isNaN(b)) { b = 0 }
+
   const result = (a > b) ? a : b;
   return result;
+
 }
 
 function hLookup(array) {
-  debugger;
-  let valueGroupA = [];
-  let valueGroupB = [];
-  let highScore = 0;
+
+  let score = [];
+
   for (i = 0; i < array.length; i++) {
-    for (j = 0; j < array[i].length; j++) {
+    let groupSum = [];
+
+    for (j = 0; j < array[i].length; j++ ) {
+      let groupA = [];
+      let groupB = [];
+
+      groupA.push(
+        array[i][`${j}`], 
+        array[i][`${j + 1}`], 
+        array[i][`${j + 2}`], 
+        array[i][`${j + 3}`]
+      );
+
+      groupB.push(
+        array[i][`${j + 1}`], 
+        array[i][`${j + 2}`], 
+        array[i][`${j + 3}`], 
+        array[i][`${j + 4}`]
+      );
       
-      if (valueGroupA.length < 4) {
-        valueGroupA.push(array[i][j]);
-      } else if (valueGroupB.length < 4) {
-        valueGroupB.push(array[i][j]);
-      }
-      if (valueGroupA.length && valueGroupB.length === 4) {
-        let result = compare(valueGroupA, valueGroupB);
-        highScore = compare (highScore, result);
-        valueGroupA = [];
-        valueGroupB = [];
-      }
+      groupSum.push(compare(groupA, groupB));
     }
+
+    score.push(groupSum);
+    groupSum = [];
+    
   }
-  return highScore;
+
+  score = score.flat();
+
+  score = score.reduce((a, b) => {
+    return Math.max(a, b);
+  });
+
+  return score;
+
 }
 
+function vLookup(array) {
 
-hLookup(matrix);
+  let score = [];
+
+  for (i = 0; i < array.length; i++) {
+    let groupSum = [];
+
+    for (j = 0; j < array[i].length; j++ ) {
+
+      let groupA = [];
+      let groupB = [];
+
+      groupA.push(
+        array[`${j}`][i], 
+        array[`${j + 1}`][i], 
+        array[`${j + 2}`][i], 
+        array[`${j + 3}`][i]
+      );
+
+      groupB.push(
+        array[`${j + 1}`][i], 
+        array[`${j + 2}`][i], 
+        array[`${j + 3}`][i], 
+        array[`${j + 4}`][i]
+      );
+
+      console.log(groupA);
+
+      groupSum.push(compare(groupA, groupB));
+    }
+
+    score.push(groupSum);
+
+    groupSum = [];
+    
+  }
+
+  score = score.flat();
+
+  score = score.reduce((a, b) => {
+    return Math.max(a, b);
+  });
+
+  return score;
+  
+}
+
+function lookup(array) {
+
+  horizontalSum = hLookup(array);
+  verticalSum = vLookup(array);
+  return compare(horizontalSum, verticalSum);
+
+}
+
+console.log(lookup(matrix));
+
