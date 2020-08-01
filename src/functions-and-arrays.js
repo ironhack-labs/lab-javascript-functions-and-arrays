@@ -137,6 +137,8 @@ function avg(array) {
 
   sum /= array.length;
 
+  sum = Number(sum.toFixed(2))
+
   return sum;
 
 }
@@ -223,7 +225,8 @@ function howManyTimes(array, searchWord) {
 
 }
 
-// Iteration #8: Bonus
+// // Iteration #8: Bonus
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -248,117 +251,66 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function compare(a, b) {
 
-  const reducer =  ( accumulator, currentValue ) => accumulator + currentValue;
-
-  if (Array.isArray(a)) { a = a.reduce(reducer) }
-  if (Array.isArray(b)) { b = b.reduce(reducer) }
-  if (Number.isNaN(a)) { a = 0 }
-  if (Number.isNaN(b)) { b = 0 }
-
-  const result = (a > b) ? a : b;
-  return result;
-
-}
-
-function hLookup(array) {
-
-  let score = [];
-
-  for (i = 0; i < array.length; i++) {
-    let groupSum = [];
-
-    for (j = 0; j < array[i].length; j++ ) {
-      let groupA = [];
-      let groupB = [];
-
-      groupA.push(
-        array[i][`${j}`], 
-        array[i][`${j + 1}`], 
-        array[i][`${j + 2}`], 
-        array[i][`${j + 3}`]
-      );
-
-      groupB.push(
-        array[i][`${j + 1}`], 
-        array[i][`${j + 2}`], 
-        array[i][`${j + 3}`], 
-        array[i][`${j + 4}`]
-      );
-      
-      groupSum.push(compare(groupA, groupB));
-    }
-
-    score.push(groupSum);
-    groupSum = [];
-    
-  }
-
-  score = score.flat();
-
-  score = score.reduce((a, b) => {
-    return Math.max(a, b);
-  });
-
-  return score;
-
-}
-
-function vLookup(array) {
-
-  let score = [];
-
-  for (i = 0; i < array.length; i++) {
-    let groupSum = [];
-
-    for (j = 0; j < array[i].length; j++ ) {
-
-      let groupA = [];
-      let groupB = [];
-
-      groupA.push(
-        array[`${j}`][i], 
-        array[`${j + 1}`][i], 
-        array[`${j + 2}`][i], 
-        array[`${j + 3}`][i]
-      );
-
-      groupB.push(
-        array[`${j + 1}`][i], 
-        array[`${j + 2}`][i], 
-        array[`${j + 3}`][i], 
-        array[`${j + 4}`][i]
-      );
-
-      console.log(groupA);
-
-      groupSum.push(compare(groupA, groupB));
-    }
-
-    score.push(groupSum);
-
-    groupSum = [];
-    
-  }
-
-  score = score.flat();
-
-  score = score.reduce((a, b) => {
-    return Math.max(a, b);
-  });
-
-  return score;
+const mini = [
+  [ 1, 1, 1, 1],
+  [ 1, 1, 1, 1],
+  [ 1, 1, 1, 1],
+  [ 1, 1, 1, 1],
+  [ 1, 1, 1, 1]
+  ];
   
+const mini2 = [
+    [ 2, 2, 2, 2],
+    [ 2, 2, 2, 2],
+    [ 2, 2, 2, 2],
+    [ 2, 2, 2, 2],
+    [ 2, 2, 2, 2]
+  ];
+
+  const mini3 = [
+    [ 1, 2, 3, 4],
+    [ 2, 3, 4, 5],
+    [ 6, 7, 8, 9],
+    [ 10, 11, 12, 13],
+    [ 14, 15, 16, 17]
+  ];
+
+const lookup = (arrays, direction = 0) => {
+
+  let highScore = 0;
+
+  if (direction === 1) {
+    arrays = arrays[0].map((_, colIndex) => arrays.map(row => row[colIndex]));
+  }
+
+  arrays.forEach((rowArray, rowIndex) => {
+  
+    let rowScore = 0;
+
+    rowArray.forEach((columnValue, columnIndex) => {
+
+      let comparator = rowArray
+      .slice(columnIndex, columnIndex + 4)
+      .reduce((a,b) => a * b);
+
+      rowScore = (comparator > rowScore) ? comparator : rowScore;
+
+    });
+    
+    highScore = (rowScore > highScore) ? rowScore : highScore;
+    
+  })
+  
+  return highScore;
+
+};
+
+const greatestProduct = (array) => {
+
+  const horizontal = lookup(array);
+  const vertical = lookup(array, 1);
+
+  return (horizontal > vertical) ? horizontal : vertical
+
 }
-
-function lookup(array) {
-
-  horizontalSum = hLookup(array);
-  verticalSum = vLookup(array);
-  return compare(horizontalSum, verticalSum);
-
-}
-
-console.log(lookup(matrix));
-
