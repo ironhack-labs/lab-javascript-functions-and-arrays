@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:100,300,700');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  text-font: Roboto;
+  font-size: 10px;
+  line-height: 3.5em;
+  font-weight: 300;
+  
+}
+
+#general-information{
+ display: flex;
+ justify-content: space-evenly;
+}
+
+#general-information .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+}
+
+#structure>div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;  
+}
+
+#team{
+  margin-top: 20px;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+
+}
+
+#schedule{
+  
+}
+
+h1 {
+  font-size:9em;
+  text-align:center;
+  text-transform:uppercase;
+}
+h2 {
+  font-size: 5em;
+  text-align:center;
+  text-transform: uppercase;
+  line-height: 4em;
+  text-shadow: #020819 8px -20px 9px;
+  color: white;
+}
+h3 {
+  font-size:4.2em;
+  text-align: center;
+  line-height: 1em;
+}
+h4 {
+  font-size: 1.5em;
+  letter-spacing:0.4px;
+  line-height: 1em;
+  margin-bottom: 15px;
+}
+h5 {
+  font-size: 1.2em;
+  line-heigth: 1em;
+    
+}
+
+.quote-class{
+  font-size: 2.5em;
+  position: absolute;
+  left: 10%;
+  bottom: 100px;
+}
+
+.nav-bar {
+  background-color: rgb(23,33, 41); 
+ 
+  padding: 14px 0;
+} 
+.nav-bar a{
+  color: #fff;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.nav-bar-ul {
+  width: 1200px;
+  margin: 0 auto; 
+  display: flex;
+  justify-content: space-evenly;
+}
+.nav-bar-ul li{
+  list-style-type: none;
+  text-align: center
+}
+
+
+
+.header{
+  position: relative;
+  repeat: no-repeat;
+  size: cover;
+  heigth: 650px;
+  padding-top: 50px;
+  background: url("https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/ironhack-skydive-background.jpg");
+
+  background-size: cover;
+}
+
+.footer{
+  padding: 40px 100px 40px 100px;
+  margin-bottom: 25px;
+  text-align: center;
+  align-items: center;
+  font-size: 1.9em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dark-background{
+  background-color: rgb(25, 33, 41);
+  color: white;
+  
+}
+
+.text{
+  font-size: 2em;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 75px 0;
+  
+}
+#container{
+ width: 820px;
+  margin: 0 auto;
+  padding: 75px 0.;
+  align-items: center;
+  width:850px; 
+}
+
+
+.link-btn {
+  background-color: blue;
+  color: white;
+  font-family: roboto condensed;
+  font-size: 2em;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 30px;
+}
+.service-box {
+  font-size: 1.7em;
+  text-align: center;
+  border-width: 2px;
+  border-color: #eee;
+  border-style: solid;
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 #eee;
+  margin-top: 50px;
+  margin-right: 5%;
+  margin-bottom: 0%;
+  margin-left: 5%;
+  padding: 20px 20px 20px 20px;
+  width: 40%;
+   
+}
+
+.service-box img{
+  width: 125px;
+}
+.section-text{
+  font-size: 1.9em;
+  text-align: center;
+}
+.member-name{
+  font-size: 1.5em;
+  font-weigth: 700;
+  text-align: center;
+}
+.teamImg {
+  height: 180px;
+  width: 250px;
+  padding: 30px 50px 30px 50px;
+  
+}
+
+
+
+.address{
+  font-style: normal;
+  font-size: 0.8em;
+  margin-bottom: 30px;
+ 
+}
+  
+.teamImg img {
+  width: 100%;
+  heigth: 100%;
+ 
+}
+
+.schedule-table{
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  font-size: 1.5em;
+  border-style: solid;
+  border-weight: 1px;
+  border-color: black;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  cellpadding: 0;
+  cellspacing: 0; 
+}
+
+.schedule-table th{
+  border-botom: 1px;
+  color: solid-black;
+}
+
+.schedule-table td{
+  border-botom: 1px;
+  color: solid-black;
+}
+
+.slot-form-container {
+  width: 40%;
+  margin: 18px auto 0 auto;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.slot-form-container input, select {
+  height: 20px;
+  outline: none;
+  padding: 3px;
+  width: 100%; 
+}
+
+.slot-form-container label {
+  line-height: 15px;
+  margin: 5px;
+}
+.footer a{
+  text-decoration: none;
+  color: #43a3e6;
+}
+
+.footer ul {
+  list-style:none;
+  text-align: inherit;
+  padding: 0;
+}
+
+.map-frame{
+  height: 375px;
+  width: 60%;
+}
+
+#button{
+border: 1px solid;
+  border-color: black;
+  color: black;
+  background-color: white;
+  padding: 9px 9px 9px 9px;
+  margin: 15px;
+  
+}
