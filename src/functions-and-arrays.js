@@ -73,10 +73,10 @@ function avg(arr) {
   if(!arr.length){
     return null
   }
-  return sum(arr)/arr.length;
+  return parseFloat((sum(arr)/arr.length).toFixed(2));
 }
 
-const mixedArr = [6, 12, 'miami', 1, false, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
 console.log(avg(mixedArr))
 
 // Level 2: Array of strings
