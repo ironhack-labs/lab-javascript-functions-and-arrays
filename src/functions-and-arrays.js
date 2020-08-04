@@ -52,7 +52,7 @@ function sum(arr){
         }
         break
       default:
-        return null // no sabemos que debemos retornar en caso de tipo invalido
+        throw new Error("Unsupported data type sir or ma'am")
     }
   })
   return suma
