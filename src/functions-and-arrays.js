@@ -258,31 +258,33 @@ function greatestProduct(matrix)
 {
   let maxSum = -1
   let sumDown = 1;
-  let sumRight = 1;
-  
-  for (let i = 0; i < matrix.length - 4; i++) {
+  let numberToAdd = 4
 
-    for (let j = 0; j < matrix[0].length - 4; j++) {
+  for (let i = 0; i < matrix.length - numberToAdd; i++) {
+    for (let j = 0; j < matrix.length; j++) {
       
       sumDown = 1;
-      sumRight = 1;
 
-      //Down
-      for (let k = i; k < i+4; k++) {   
+      for (let k = i; k < i + numberToAdd; k++) {   
+        sumDown *= matrix[j][k]; 
+        //console.log(`matriz ${k},${j}`)
+      }
+      maxSum = Math.max(sumDown, maxSum);
+    }
+  }
+  
+ 
+  for (let i = 0; i < matrix.length - numberToAdd; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+      
+      sumDown = 1;
+
+      for (let k = i; k < i + numberToAdd; k++) {   
         sumDown *= matrix[k][j]; 
         //console.log(`matriz ${k},${j}`)
       }
-
-      //Right
-      for (let k = j; k < j+4; k++) {   
-        sumRight *= matrix[i][k];
-        //console.log(`matriz ${i},${k}`)
-      }
-
-
-      maxSum = Math.max(sumRight, sumDown, maxSum);
-    }  
-    console.log(sumRight, sumDown, maxSum)
+      maxSum = Math.max(sumDown, maxSum);
+    }
   }
 
   return maxSum;
