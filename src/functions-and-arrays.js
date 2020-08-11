@@ -103,6 +103,35 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (array) {
+  if (array.length === 0) {
+    return null
+  }
+
+  let unique_list = [];
+  let duplicate_list = [];
+  
+  function check_insert_unique(item){
+    if(unique_list.includes(item)){
+      if(duplicate_list.indexOf(item) == -1){
+          duplicate_list.push(item)
+      }
+    } else {
+      if(unique_list.indexOf(item) == -1){
+          unique_list.push(item)
+      }
+    }
+  
+  }
+  
+  for(let i = 0; i < array.length; i++){
+    check_insert_unique(array[i]);
+  }
+  let endArray = unique_list;
+  return endArray
+};
+uniquifyArray(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
