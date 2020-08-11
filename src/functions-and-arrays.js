@@ -20,8 +20,8 @@ if (Array.length === 0)  {
   return Array [0];
 } else {
 let longestWord = ""
-for (let i = 0; i < Array.length -1; i++) {
-  if (Array.length[i] > longestWord.length){
+for (let i = 0; i < Array.length; i++) {
+  if (Array[i].length > longestWord.length){
     longestWord = Array[i];
   }
 }
@@ -30,23 +30,50 @@ return longestWord;
 }
 
 
-
 // Iteration #3: Calculate the sum
-function sumNumbers(){}
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(Array){
+  sum1 = 0
+if (Array.length === 0){
+return 0
+} else if (Array.length === 1) {
+  return Array[0];
+} else { 
+  for (let i = 0; i < Array.length; i++) {
+  sum1 = sum1 + Array[i]
+}
+return sum1
+}
+} 
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-function averageNumbers() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(Array) {
+
+  if (Array.length === 0){
+    return null
+}
+}
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(Array) {
+  if (Array.length === 0){
+    return null
+}
+  
+}
+
+
 // Iteration #5: Unique arrays
 
-function averageWordLength() {}
 const wordsUnique = [
   'crab',
   'poison',
