@@ -1,20 +1,52 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(firstNum, secondNum) {
+
+  if (firstNum > secondNum) { 
+    return firstNum;
+  } else { 
+    return secondNum;
+  }
+} 
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(Array) {
+if (Array.length === 0)  {
+  return null;
+} else if  (Array.length === 1) {
+  return Array [0];
+} else {
+let longestWord = ""
+for (let i = 0; i < Array.length -1; i++) {
+  if (Array.length[i] > longestWord.length){
+    longestWord = Array[i];
+  }
+}
+return longestWord;
+}
+}
+
+
+
 // Iteration #3: Calculate the sum
+function sumNumbers(){}
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+function averageNumbers() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 // Iteration #5: Unique arrays
+
+function averageWordLength() {}
 const wordsUnique = [
   'crab',
   'poison',
@@ -30,6 +62,8 @@ const wordsUnique = [
 ];
 
 // Iteration #6: Find elements
+
+function doesWordExist() {}
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 // Iteration #7: Count repetition
