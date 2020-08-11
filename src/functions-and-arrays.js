@@ -37,20 +37,18 @@ function sumNumbers(numbers) {
 		return 0
 	}
 
+	if (numbers.every((number) => number === 0)) {
+		return 0
+	}
+
 	if (numbers.length === 1) {
 		return numbers[0]
 	}
-	if (numbers.construct() === Int16Array) {
+	if (!numbers.some(isNaN)) {
 		numbers.forEach((number) => {
 			sum += number
 		})
-		if (sum === 0) {
-			return 0
-		}
-	}
-
-	if (sum === 0) {
-		return 0
+		return sum
 	}
 }
 
@@ -58,7 +56,7 @@ function sumNumbers(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]
 function averageWordLength(numbers) {
-  let sum = 0
+	let sum = 0
 
 	if (numbers.length === 1) {
 		return numbers[0] / 1
@@ -103,7 +101,6 @@ const wordsUnique = [
 	"simple",
 	"bring",
 ]
-
 
 // Iteration #6: Find elements
 const wordsFind = [
