@@ -1,18 +1,79 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1
+  } else {
+    return number2
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr) {
+  if (arr.length == 0) {
+    return null
+  }
+  let longest = ""
+  for (let i = 0; i <= arr.length - 1; i++) {
+    if (longest.length < arr[i].length) {
+      longest = arr[i];
+    }
+  }
+  return longest
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arr) {
+  if (arr == "") {
+    return 0
+  }
+  let total = 0
+  for (let i = 0; i < arr.length; i++) {
+    total += Number(arr[i]);
+  }
+  return total
+}
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  if (arr == "") {
+    return null
+  }
+  let total = 0
+  for (let i = 0; i < arr.length; i++) {
+    total += Number(arr[i]);
+  }
+  let avg = total / arr.length;
+  return avg
+}
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(str) {
+  if (str == "") {
+    return null
+  }
+  let total = 0
+  for (let i = 0; i < str.length; i++) {
+    total += Number(str[i].length);
+  }
+  let avg = total / str.length;
+  return avg
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +90,30 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr == "") {
+    return null
+  }
+  let i,
+    len = arr.length,
+    out = [],
+    obj = {};
+
+  for (i = 0; i < len; i++) {
+    obj[arr[i]] = 0;
+  }
+  for (i in obj) {
+    out.push(i);
+  }
+  return out;
+}
+
+console.log(uniquifyArray(words))
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
