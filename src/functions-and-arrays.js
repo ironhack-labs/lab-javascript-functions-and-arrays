@@ -190,3 +190,25 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+  console.log(matrix);
+
+  let greatestProductSoFar = 0;
+
+  for(let row=0; row<matrix.length; row++){
+    for(let col=0; col<matrix[row].length-4; col++){
+      let productHor = matrix[row][col] * matrix[row][col+1] * matrix[row][col+2] * matrix[row][col+3];
+      if (greatestProductSoFar<productHor) greatestProductSoFar=productHor;
+    }
+  }
+
+  for(let col=0; col<matrix[0].length; col++){
+    for(let row=0; row<matrix[col].length-4; row++){
+      let productVer = matrix[row][col] * matrix[row+1][col] * matrix[row+2][col] * matrix[row+3][col];
+      if (greatestProductSoFar<productVer) greatestProductSoFar=productVer;
+    }
+  }
+
+  return greatestProductSoFar;
+};
