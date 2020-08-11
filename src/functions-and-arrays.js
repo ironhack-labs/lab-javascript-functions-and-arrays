@@ -24,7 +24,6 @@ function findLongestWord (words) {
 
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers (numbers){
   let sum = 0;
@@ -39,9 +38,7 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum (arr){
   if (arr.length === 0){
-    null
   }
-  
   let sum = 0;
     for (let element of arr) {
       if (typeof element === "number"){
@@ -88,6 +85,28 @@ function averageWordLength(arr){
   return sum / arr.length;
 }
 
+function avg (arr){
+  if (arr.length === 0){
+    return null
+  }
+  let sum = 0;
+    for (let element of arr) {
+      if (typeof element === "number"){
+        sum += element
+      } else if (typeof element === "string"){
+        sum += element.length
+      } else if (typeof element === "boolean"){
+            if (element === true){
+              sum += 1
+            } else {
+              sum += 0
+            }
+      } 
+    }
+    const average = sum / arr.length;
+    return +average.toFixed(2);
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -106,11 +125,22 @@ function uniquifyArray (arr) {
   if (arr.length === 0){
     return null;
   }
-
+  let unique = arr.filter((item, index) => arr.indexOf(item) == index)
+  return unique;
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist (arr, word) {
+  if (arr.length === 0){
+    return null;
+  }
+  if (arr.filter((item, index) => arr.indexOf(item) == index)) {
+    return true
+  }else if (arr.filter((item, index) => arr.indexOf(item) != index)) {
+    return false
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -126,6 +156,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount, element) {
+  let newArray = [];
+  let idx = wordsCount.indexOf(element);
+  while (idx != -1) {
+    newArray.push(idx);
+    idx = wordsCount.indexOf(element, idx + 1);
+  }
+  return newArray.length;
+} 
 
 // Iteration #8: Bonus
 
@@ -151,3 +191,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct () {
+
+}
