@@ -130,7 +130,7 @@ function uniquifyArray (array) {
   let endArray = unique_list;
   return endArray
 };
-uniquifyArray(wordsUnique);
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -166,6 +166,28 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (array, word){
+  if (array.length === 0) {
+    return 0
+  }
+
+    let counter = 0
+    for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      counter++
+    }
+  }
+  if (counter === 1) {
+    return 1
+  } else if (counter === 0) {
+    return 0;
+  } else {
+    return counter
+  }
+    }
+  
+
 
 // Iteration #8: Bonus
 
