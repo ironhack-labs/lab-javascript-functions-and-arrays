@@ -19,7 +19,7 @@ function findLongestWord(array) {
     return array[0]
   } else {
   let longestWord = ""
-  for (let i = 0; i < array.length - 1; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i].length > longestWord.length) {
       longestWord = array[i]
       } 
@@ -32,15 +32,21 @@ function findLongestWord(array) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// function sumNumbers(array) {
-//   if (array.length === 0) {
-//     return 0
-//   } else if (array.length === 1) {
-//     return array[0]
-//   }
-//   for ()
+function sumNumbers(array) {
+  sum1 = 0
+  if (array.length === 0) {
+    return 0
+  } else if (array.length === 1) {
+    return array[0]
+  } else {
+    for (let i = 0; i < array.length; i++) {
+    sum1 += array[i]
+  }
+  return sum1;
+}
+}
 
-// }
+sumNumbers(numbers);
 
 
 // Iteration #4: Calculate the average
