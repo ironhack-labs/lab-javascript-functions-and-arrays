@@ -96,7 +96,8 @@ const avg = (items) => {
     if(typeof item === 'number' || typeof item === 'string' || typeof item === 'boolean') {items_count++;}
   }
   const items_length_average = items_length_sum / items_count;
-  return items_length_average;
+  
+  return Math.round((items_length_average + Number.EPSILON) * 100) / 100;
 };
 
 // Iteration #5: Unique arrays
@@ -192,7 +193,6 @@ const matrix = [
 ];
 
 const greatestProduct = (matrix) => {
-  console.log(matrix);
 
   let greatestProductSoFar = 0;
 
