@@ -1,18 +1,70 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(firstNumber, secondNumber) {
+  if (firstNumber > secondNumber) {
+    return firstNumber;
+  } 
+  return secondNumber;
+};
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+// let longestWords = 0;
+function findLongestWord(word) {
+  
+  for(let i = 0; i < words.length; i++){
+    if (words[i].length > 0) {
+      
+    }
+  }
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(number) {
+  let totalSum = 0;
+
+  if(number.length === 0) {
+    return 0;
+  };
+  
+  for (let i = 0; i < number.length; i++) {
+    totalSum += number[i];
+    
+  }
+  return totalSum;
+}
+sumNumbers(numbers);
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(arrayNum) {
+  if (arrayNum.length === 0){
+    return null;
+  }
+  let sum = sumNumbers(arrayNum);
+   let average = sum / arrayNum.length;
+  console.log(average);
+  return average;
+}
+averageNumbers(numbersAvg);
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  
+  let words = 0;
+  let characters = 0;
+ for (let i = 0; i < array.length; i++) {
+    words += 1;
+    characters += array[i].length;
+   }
+  let averageWord = characters / words;
+  return averageWord;
+ }
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -71,3 +123,124 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+// // Iteration #3: Calculate the sum
+
+// // const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// // function sumNumbers(number) {
+// //   let totalSum = 0;
+
+// //   if(number.length === 0) {
+// //     return 0;
+// //   };
+  
+// //   for (let i = 0; i < number.length; i++) {
+// //     totalSum += number[i];
+    
+// //   }
+// //   return totalSum;
+// // }
+// // // Level 1: Array of numbers
+// // const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// // function averageNumbers(arrayNum) {
+// //   if (arrayNum.length === 0){
+// //     return null;
+// //   }
+// //   let sum = sumNumbers(arrayNum);
+// //    let average = sum / arrayNum.length;
+// //   // console.log(average);
+// //   return average;
+// }
+// // averageNumbers(numbersAvg);
+// // Level 2: Array of strings
+
+// // const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+// // function averageWordLength(array) {
+// //   if (array.length === 0) {
+// //     return null;
+// //   }
+  
+// //   let words = 0;
+// //   let characters = 0;
+// //  for (let i = 0; i < array.length; i++) {
+// //     words += 1;
+// //     characters += array[i].length;
+// //    }
+// //   let averageWord = characters / words;
+// //   console.log(averageWord)
+// //  }
+// // averageWordLength(wordsArr);
+// // 1 Find the sum as we did in the first exercise (or how about reusing that the sumNumbers()?)
+// // 2 Take that sum and divide it by the number of elements in the list.
+// //   returns the average length of the words:
+
+// // Iteration #5: Unique arrays
+// // Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the indexOf Array method.
+
+// // Do this in the form of a function uniquifyArray that receives an array of words as a argument.
+// const wordsUnique = [
+//   'crab',
+//   'poison',
+//   'contagious',
+//   'simple',
+//   'bring',
+//   'sharp',
+//   'playground',
+//   'poison',
+//   'communion',
+//   'simple',
+//   'bring'
+// ];
+
+// function uniquifyArray(array) {
+//   if (array.length === 0) {
+//     return null;
+//   }
+  
+//   for (let i = 0; i < array.length; i++) {
+//     if(array.indexOf(array[i]) === array[i]) {
+//       array.splice(array[i], 1);
+//     }
+    
+//   }
+//   uniquifyArray(wordsUnique);
+// //   remove the duplicates, and return a new array.
+  
+  
+  
+  
+  
+  
+  
+  
+// // Iteration #6: Find elements
+// // Let's create a simple array search.
+
+// // Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+
+// // You can use the following array to test your solution:
+
+// // const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+// // Iteration #7: Count repetition
+// // Declare a function named howManyTimes that will take in an array of words as the first argument, and a word to search for as the second argument. The function will return the number of times that word appears in the array.
+
+// // You can use the following array to test your solution:
+
+// // const words = [
+// //   'machine',
+// //   'matter',
+// //   'subset',
+// //   'trouble',
+// //   'starting',
+// //   'matter',
+// //   'eating',
+// //   'matter',
+// //   'truth',
+// //   'disobedience',
+// //   'matter'
+// // ];
+
+
