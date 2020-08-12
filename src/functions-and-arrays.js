@@ -84,27 +84,29 @@ const wordsUnique = [
 ];
 
 function uniquifyArray (wordsUnique){ 
+  let uniqResult=[];
   if (wordsUnique.length == 0){
     return null;  
   }
-  for (let i=0; i<wordsUnique.length;i++){
-    let examWord=wordsUnique[i];
-    if (wordsUnique.indexOf(wordsUnique[i],i+1)>=0){
-      wordsUnique.splice(wordsUnique.indexOf(wordsUnique[i],i+1),1);
-      }
-      }
-      return wordsUnique;
+  for (let word of wordsUnique){
+    if (uniqResult.indexOf(uniqResult)<0) {
+      uniqResult.push(word);
+    }
+  }
+    return uniqResult;
     }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist (wordsCount, wordSearch){
-  let wordToSearch = 'matter';
-  for (let i=0; i<doesWordExist.length; i++){
-    if (wordSearch==wordsCount[i]){
-      return true;
-    }
+function doesWordExist (wordsFind, word){
+  if (wordsFind.length == 0){
+    return null;
+  }
+  if (wordsFind.indexOf(word)>=0){
+    return true;
+  } else if (wordsFind.indexOf(word)<0){
+    return false;
   }
   }
 
