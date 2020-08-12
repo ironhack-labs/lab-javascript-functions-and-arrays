@@ -9,12 +9,11 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 const findLongestWord = (words) => {
   let longestWordSoFar = '';
 
-  if(!words || words.length === 0) return null;
   for(let word of words){
     if(word.length > longestWordSoFar.length) longestWordSoFar = word;
   }
 
-  return longestWordSoFar;
+  return longestWordSoFar || null;
 };
 
 // Iteration #3: Calculate the sum
@@ -24,21 +23,17 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const sumNumbers = (numbers) => {
   let outcome = 0;
 
-  if(!numbers || numbers.length===0) return 0;
-
   for(let number of numbers){
     if(typeof number === 'number') outcome += number;
   }
 
-  return outcome;
+  return outcome || 0;
 };
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 const sum = (mixedArray) => {
   let output = 0;
-
-  if(!mixedArray || mixedArray.length === 0) return 0;
 
   for(let item of mixedArray){
     switch(typeof item){
@@ -56,7 +51,7 @@ const sum = (mixedArray) => {
     }
   }
 
-  return output;
+  return output || 0;
 };
 
 // Iteration #4: Calculate the average
@@ -64,11 +59,7 @@ const sum = (mixedArray) => {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 const averageNumbers = (numbers) => {
-  let output = 0;
-
-  if(!numbers || numbers.length === 0) return null;
-
-  return sumNumbers(numbers)/numbers.length;
+  return sumNumbers(numbers)/numbers.length || null;
 };
 
 
@@ -120,9 +111,9 @@ const uniquifyArray = (words) => {
   if(!words || words.length === 0) return null;
 
   let unique_words = [];
-  for(let idx in words){
-    if(words.indexOf(words[idx]) >= idx){
-      unique_words.push(words[idx]);
+  for(let word of words){
+    if(unique_words.indexOf(word) < 0) {
+      unique_words.push(word);
     }
   }
 
