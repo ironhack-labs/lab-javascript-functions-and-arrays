@@ -7,15 +7,18 @@ function maxOfTwoNumbers(firstNumber, secondNumber) {
 };
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-// let longestWords = 0;
+
 function findLongestWord(word) {
+  let longestWords = '';
   
-  for(let i = 0; i < words.length; i++){
-    if (words[i].length > 0) {
-      
+  for(let i = 0; i < words.length; i++){ 
+      if (word[i].length > longestWords.length)  {
+        longestWords = word[i];
+      }
     }
+   return longestWords || null
   }
-}
+findLongestWord(words);
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -47,6 +50,13 @@ function averageNumbers(arrayNum) {
   return average;
 }
 averageNumbers(numbersAvg);
+
+// alternative
+// function averageNumbers(array) {
+//   return sumNumbers(array) / array.length;
+//   }
+// }
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -64,6 +74,8 @@ function averageWordLength(array) {
   let averageWord = characters / words;
   return averageWord;
  }
+
+ 
 averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
