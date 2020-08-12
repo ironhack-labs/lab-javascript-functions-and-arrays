@@ -131,16 +131,17 @@ function uniquifyArray (arr) {
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-function doesWordExist (arr, word) {
-  if (arr.length === 0){
-    return null;
+  function doesWordExist (arr, word) {
+    if (arr.length === 0) {
+      return null
+    } else {
+      if (arr.includes(word)) {
+        return true
+      } else {
+        return false
+      }
+    }
   }
-  if (arr.filter((item, index) => arr.indexOf(item) == index)) {
-    return true
-  }else if (arr.filter((item, index) => arr.indexOf(item) != index)) {
-    return false
-  }
-}
 
 // Iteration #7: Count repetition
 const wordsCount = [
