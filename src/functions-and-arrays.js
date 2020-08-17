@@ -86,22 +86,28 @@ const wordsUnique = [
   'bring'
 ];
 
-const uniquifyArray = function (wordsUnique) {
-  if (wordsUnique.length === 0) {
-    return null;
-  } 
+const uniquifyArray = function (ar) {
+  if (ar.length === 0) return null;
+  let unique = [];
+  for (let word of ar) {
+    if (unique.indexOf(word) === -1) {
+      unique.push(word)
+    }
+  }
+  return unique;
 };
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-const doesWordExist = function (wordsFind) {
-  if (wordsFind.length === 0) {
-    return null;
-  } 
-  if ('trouble' in wordsFind) {
-    return true;
+function doesWordExist (ar, word) {
+  if (ar.length === 0) return null;
+  for (let el of ar) {
+    if (el === word) {
+      return true;
+    }
   }
+  return false;
 }
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -118,6 +124,15 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes (haystack, needle) {
+  let count = 0;
+  for (let word of haystack) {
+    if (word === needle) {
+      count++;
+    }
+  }
+  return count;
+}
 // Iteration #8: Bonus
 
 const matrix = [
