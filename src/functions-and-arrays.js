@@ -63,7 +63,7 @@ let sum = 0
 
 function sumNumbers(num) {
 
- // If the array is empty, make sum 0
+  // If the array is empty, make sum 0
   if (num.length == 0) {
 
     return sum
@@ -76,7 +76,7 @@ function sumNumbers(num) {
   }
   // Return the sum
   return sum
- 
+
 }
 
 /* Iteration 3.1 
@@ -128,7 +128,7 @@ function averageNumbers(arr) {
   if (arr.length == 0) {
 
     return null
-  // In case the array have one value, the average is this value
+    // In case the array have one value, the average is this value
   } else if (arr.length == 1) {
 
     return arr[0]
@@ -148,21 +148,21 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 let avgWords = 0
 function averageWordLength(arr) {
- // In case the array is empty return
+  // In case the array is empty return
   if (arr.length == 0) {
     return null
   } else if (arr.length == 1) {
-// In case the array have one value, the average is this lenght of the array
-  return arr[0].length
-}
+    // In case the array have one value, the average is this lenght of the array
+    return arr[0].length
+  }
   // First, sum of the lenght of each element in the array
   for (let i = 0; i < arr.length; i++) {
 
     avgWords += arr[i].length
   }
-// Obtain the average with sum/(number of elements)
+  // Obtain the average with sum/(number of elements)
   avgWords /= arr.length
-  
+
   return Math.floor(avgWords)
 }
 
@@ -189,18 +189,18 @@ function uniquifyArray(arr) {
   // In case the array is empty return
   if (arr.length == 0) {
     return null
-  } else 
+  } else
     // Check if a string is repat inside the array. First, obtain the string to search, then check if appear again.
-   for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
 
-    for (let j = 1; j < arr.length; j++) {
-      //If the string appear, and is not the same index, the string is remove
-      if (arr[i] == arr[j] && i != j) {
+      for (let j = 1; j < arr.length; j++) {
+        //If the string appear, and is not the same index, the string is remove
+        if (arr[i] == arr[j] && i != j) {
           arr.splice(j, 1)
-         }
+        }
       }
- 
-   }
+
+    }
   return arr
 }
 
@@ -226,7 +226,7 @@ function doesWordExist(word, wordToFind) {
     }
 
   return search
-} 
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -246,13 +246,13 @@ const wordsCount = [
 let count = 0;
 function howManyTimes(word, wordToFind) {
 
- // In case the array is empty return
+  // In case the array is empty return
   if (word.length == 0) {
 
     count = 0
   } else
 
-  // Check in the array if the string appears. In this case, count it
+    // Check in the array if the string appears. In this case, count it
 
     for (let i = 0; i < word.length; i++) {
 
@@ -262,7 +262,7 @@ function howManyTimes(word, wordToFind) {
     }
 
   return count
-} 
+}
 // Iteration #8: Bonus
 
 
