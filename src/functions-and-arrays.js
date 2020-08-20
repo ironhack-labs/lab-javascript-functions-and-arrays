@@ -50,6 +50,23 @@ result+=number;
 }
 
 
+//BONUS Iteration #3.1; A generic sum() function
+
+
+function sum(arr){
+  let result=0;
+  arr.forEach(elem => {
+ 
+    if(typeof elem === 'object' || typeof elem=== 'array') throw new Error("Unsupported data type sir or ma\'am")
+    else if(typeof elem === 'string') result+=(elem.length)
+    else result+=elem;
+   });
+  
+   return result;
+}
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -88,6 +105,15 @@ function averageWordLength(arr){
 
   return wordSize/arr.length;
 }
+
+
+//BONUS Iteration #4.1; A generic avg() function
+
+function avg(arr){
+  if(arr.length===0) return null;
+  else return parseFloat((sum(arr)/arr.length).toFixed(2))
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -482,3 +508,32 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(arr) {
+  let cont = 4;
+  let compare = 0;
+  let sum = 1;
+  for (let i = 0; i <= arr.length - 1; i++) {
+      let j = 0;
+      cont = 4;
+      sum=1;
+      for (j; j <= arr.length; j++) {
+          if (cont > 0) {
+              sum *= arr[i][j];
+              cont--;
+          } else {
+              cont = 4;
+              if (sum > compare) {
+                  compare = sum;
+
+                  j -= 4;
+                  console.log(compare);
+              }
+              sum = 1;
+          }
+      }
+  }
+  return compare;
+}
+
+console.log(greatestProduct(matrix));
