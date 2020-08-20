@@ -172,7 +172,7 @@ const wordsFind = [
   "matter",
   "eating",
   "truth",
-  "disobedience",
+  "disobedience",    
 ];
 function doesWordExist(words, word) {
   if (words.length === 0) {
@@ -550,3 +550,28 @@ function greatestProduct(matrix) {
   }
   return greatest;
 }
+
+function greatestProductOfDiagonals(matrix) {
+  let greatest = 1;
+  let product;
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      product =
+        matrix[i][j] * matrix[i+1][j + 1] * matrix[i+2][j + 2] * matrix[i+3][j + 3];
+      if (product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = matrix[i].length - 1; j > 2; j--) {
+      product =
+        matrix[i][j] * matrix[i + 1][j-1] * matrix[i + 2][j-2] * matrix[i + 3][j-3];
+      if (product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+  return greatest;
+}
+
