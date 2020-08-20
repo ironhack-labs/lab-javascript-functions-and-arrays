@@ -559,15 +559,18 @@ function greatestProduct(matrix) {
   return maxNumber;
 }
 
+// WORK IN PROGRESS
 function greatestProductOfDiagonals(matrix) {
   let buffer = 1;
   let maxNumber = 0;
 
   // INVERTED DIAGONAL
-  for (let i = 0; i < matrix.length; i++) {
+  for (let i = 0; i < 2 * matrix.length - 4; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      if (i + j > 2 && i + j < 2 * (m.length - 1)) {
-        buffer = buffer * matrix[i - j][j];
+      if (i + j > 2 && i + j < 2 * (matrix.length - 2)) {
+        if (i - j >= 0) {
+          buffer = buffer * matrix[i - j][j];
+        }
         if (buffer > maxNumber) {
           maxNumber = buffer;
         }
@@ -578,7 +581,7 @@ function greatestProductOfDiagonals(matrix) {
   }
 
   // NORMAL DIAGONAL
-  for (let i = matrix.length - 1; i >= 0; i--) {
+  for (let i = matrix.length - 1; i >= 4 - matrix.length; i--) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (j - i > matrix.length - 3 || i - j > matrix.length - 3) {
         buffer = buffer * matrix[i + j][j];
