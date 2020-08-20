@@ -526,6 +526,7 @@ const matrix = [
     48,
   ],
 ];
+
 function greatestProduct(matrix) {
   let buffer = 1;
   let maxNumber = 0;
@@ -577,8 +578,6 @@ function greatestProductOfDiagonals(matrix) {
   }
 
   // NORMAL DIAGONAL
-  let buffer = 1;
-  let maxNumber = 0;
   for (let i = matrix.length - 1; i >= 0; i--) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (j - i > matrix.length - 3 || i - j > matrix.length - 3) {
