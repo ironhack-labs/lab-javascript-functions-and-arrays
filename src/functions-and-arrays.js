@@ -533,10 +533,10 @@ function greatestProduct(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
       buffer = buffer * matrix[i][j];
+      if (buffer > maxNumber) {
+        maxNumber = buffer;
+      }
       if (j > 2) {
-        if (buffer > maxNumber) {
-          maxNumber = buffer;
-        }
         buffer = buffer / matrix[i][j - 3];
       }
     }
@@ -546,11 +546,48 @@ function greatestProduct(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
       buffer = buffer * matrix[j][i];
+      if (buffer > maxNumber) {
+        maxNumber = buffer;
+      }
       if (j > 2) {
+        buffer = buffer / matrix[j - 3][i];
+      }
+    }
+    buffer = 1;
+  }
+  return maxNumber;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let buffer = 1;
+  let maxNumber = 0;
+
+  // INVERTED DIAGONAL
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (i + j > 2 && i + j < 2 * (m.length - 1)) {
+        buffer = buffer * matrix[i - j][j];
         if (buffer > maxNumber) {
           maxNumber = buffer;
         }
-        buffer = buffer / matrix[j][i - 3];
+        buffer = buffer / matrix[i + 3][j - 3];
+      }
+    }
+    buffer = 1;
+  }
+
+  // NORMAL DIAGONAL
+  let buffer = 1;
+  let maxNumber = 0;
+  for (let i = matrix.length - 1; i >= 0; i--) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j - i > matrix.length - 3 || i - j > matrix.length - 3) {
+        buffer = buffer * matrix[i + j][j];
+
+        if (buffer > maxNumber) {
+          maxNumber = buffer;
+        }
+        buffer = buffer / matrix[i + 3][j + 3];
       }
     }
     buffer = 1;
@@ -558,3 +595,50 @@ function greatestProduct(matrix) {
 
   return maxNumber;
 }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//   let matrix = [
+// [1,1,2,2,2],
+// [1,1,1,2,2],
+// [2,1,1,1,2],
+// [2,2,1,1,1],
+// [2,2,2,1,1]
+
+//   ];
+
+// let buffer = 1;
+// let maxNumber =0
+//   for (let i = 0; i < matrix.length; i++) {
+//     for (let j = 0; j < matrix[i].length; j++) {
+//       if (i-j >= 0) {
+//         if (i > 2 || i < matrix.length-3) {
+//         buffer = buffer * matrix[i-j][j];
+
+//           if (buffer > maxNumber) {
+//             maxNumber = buffer;
+//           }
+//           // buffer = buffer / matrix[i][j - 3];
+//         }
+//       }
+//     }
+//     buffer = 1;
+//   }
