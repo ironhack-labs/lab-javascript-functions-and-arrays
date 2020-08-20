@@ -253,6 +253,7 @@ function howManyTimes(word, wordToFind) {
   } else
 
   // Check in the array if the string appears. In this case, count it
+
     for (let i = 0; i < word.length; i++) {
 
       if (wordToFind == word[i]) {
@@ -263,6 +264,7 @@ function howManyTimes(word, wordToFind) {
   return count
 } 
 // Iteration #8: Bonus
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
