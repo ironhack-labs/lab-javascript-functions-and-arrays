@@ -1,18 +1,92 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNum(primerNumero, segundoNumero) {
+  if (primerNumero > segundoNumero) {
+    return (primerNumero);
+  }
+  else if (segundoNumero > primerNumero) {
+    return (segundoNumero)
+  }
+}
+
+
+let numero1 = 3;
+let numero2 = 5;
+
+// Llamada a la función
+console.log(maxOfTwoNum(numero1, numero2));
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(palabras) {
+  let longest = 0;
+  let word = null;
+  palabras.forEach(function (palabra) {
+
+    if (palabra.length > longest) {
+      longest = palabra.length;
+      word = palabra;
+    }
+  })
+  return word + "(" + longest + ")";
+}
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers) {
+  let total = 0;
+  numbers.forEach(function (valor) {
+    total = total + valor;
+  })
+  console.log(total);
+}
+sumNumbers(numbers);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function sumNumbers(vector) {
+  let total = 0;
+  vector.forEach(function (valor) {
+    total = total + valor;
+  })
+  return (total)
+}
+
+function averageNumbers(vector) {
+  let result = 0;
+  let numbers = vector.length;
+  console.log("Tamaño: ", numbers)
+  let sum = sumNumbers(vector);
+  console.log("Suma: ", sum)
+  result = sum / numbers;
+  return (result);
+}
+
+console.log(averageNumbers(numbers));
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(vector) {
+  let sum = 0;
+  vector.forEach(function (valor) {
+    console.log(valor);
+    console.log(valor.length);
+    sum = sum + valor.length;
+  })
+  console.log("Suma: ", sum)
+  avg = sum / vector.length;
+  console.log("Promedio: ", avg)
+}
+
+averageWordLength(words);
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,9 +103,43 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(vector) {
+  vector_noduplicate = vector;
+  vector_duplicate = [];
+
+  for (i = 1; i <= vector.length; i++) {
+    for (j = i + 1; j <= vector.length; j++) {
+      if (vector[i] == vector[j]) {
+        vector_duplicate.push(vector[j])
+      }
+    }
+  }
+
+  for (i = 0; i < vector_duplicate.length; i++) {
+    console.log(vector_duplicate[i]);
+    element = vector_noduplicate.indexOf(vector_duplicate[i]) + 1;
+    console.log(element);
+    vector_noduplicate.splice(element, 1);
+  }
+  console.log(vector_noduplicate);
+}
+uniquifyArray(words);
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(vector, word) {
+  for (i = 0; i <= vector.length; i++) {
+    if (vector[i] == word) {
+      console.log(i)
+      return true;
+    }
+  }
+  return false;
+}
+
+doesWordExist(words, "disobedience");
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,6 +154,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(vector, word) {
+  let sum = 0;
+  for (i = 0; i <= vector.length; i++) {
+    if (vector[i] == word) {
+      sum = sum + 1;
+      console.log(i)
+    }
+  }
+  console.log("suma: ", sum);
+}
+howManyTimes(words, "matter");
 
 // Iteration #8: Bonus
 
