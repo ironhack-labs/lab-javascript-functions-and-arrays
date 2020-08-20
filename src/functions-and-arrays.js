@@ -116,14 +116,14 @@ function uniquifyArray(vector) {
   }
 
   for (i = 0; i < vector_duplicate.length; i++) {
-    console.log(vector_duplicate[i]);
-    element = vector_noduplicate.indexOf(vector_duplicate[i]) + 1;
-    console.log(element);
+    element = vector_noduplicate.indexOf(vector_duplicate[i]);
     vector_noduplicate.splice(element, 1);
   }
-  console.log(vector_noduplicate);
+  return (vector_noduplicate);
 }
+
 uniquifyArray(words);
+
 
 
 // Iteration #6: Find elements
