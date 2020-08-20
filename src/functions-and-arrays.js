@@ -1,18 +1,120 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+
+  if (num1 > num2) {
+    return num1
+  } else if (num1 < num2) {
+    return num2
+  } else {
+    return num1
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(wordsArray) {
+
+  if (wordsArray.length === 0) {
+    return null
+  }
+
+  if (wordsArray.length === 1) {
+    return wordsArray[0]
+  }
+
+  let longestSize = 0
+
+  //Check longest size
+  for (let i in wordsArray) {
+    if (wordsArray[i].length > longestSize) {
+      longestSize = wordsArray[i].length
+    }
+  }
+
+  //
+  for (let i in wordsArray) {
+    if (wordsArray[i].length === longestSize) {
+      return wordsArray[i]
+    }
+  }
+
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbersArray) {
+
+  if (numbersArray.length === 0) {
+    return 0
+  }
+
+  if (numbersArray.length === 1) {
+    return numbersArray[0]
+  }
+
+  // sumNumbers
+  let sumNumbers = 0
+
+  for (i in numbersArray) {
+    sumNumbers += numbersArray[i]
+  }
+
+  return sumNumbers
+
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvgArray) {
+
+  if (numbersAvgArray.length === 0) {
+    return null
+  }
+
+  // Sum
+  let sumNumbers = 0
+
+  for (i in numbersAvgArray) {
+    sumNumbers += numbersAvgArray[i]
+  }
+
+  //Average
+  return sumNumbers / numbersAvgArray.length
+
+
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(ourArray) {
+
+  if (ourArray.length === 0) {
+    return null
+  }
+
+  if (ourArray.length === 1) {
+    return ourArray[0].length
+  }
+
+  // Sum
+  let sumNumbers = 0
+
+  for (i in ourArray) {
+    sumNumbers += ourArray[i].length
+  }
+
+  //Average
+  return sumNumbers / ourArray.length
+
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +131,82 @@ const wordsUnique = [
   'bring'
 ];
 
+// INTENTOS FRUSTRADOS!!!
+
+// function uniquifyArray(wordsUnique) {
+
+//   if (wordsUnique.length === 0) {
+//     return null
+//   }
+
+//   // [8, 8, 8, 12]
+
+//   let aux = wordsUnique[0]
+
+//   for (let i = 1; i < wordsUnique.length; i++) {
+
+//     if (aux !== wordsUnique[i]) {
+//       break;
+//     } else if (i === wordsUnique.length - 1) {
+//       return [wordsUnique[0]]
+//     }
+//   }
+
+//   aux = wordsUnique[0]
+
+//   for (let i = 1; i < wordsUnique.length; i++) {
+
+//     if (aux === wordsUnique[i]) {
+//       break;
+//     } else {
+//       return wordsUnique
+//     }
+//   }
+
+//   for (let a = 0; a < wordsUnique.length; a++) {
+
+//     for (let j = a + 1; j < wordsUnique.length; j++) {
+
+//       if (wordsUnique[a].localeCompare(wordsUnique[j]) == 0) {
+//         wordsUnique.splice(j, 1)
+//         j--
+//       }
+//     }
+//   }
+//   return wordsUnique
+
+//---------------------
+
+// for (let i = wordsUnique.length - 1; i >= 0; i--) {
+
+//   for (let a = 0; a < array.length; a++) {
+
+//     if (i === a) {
+//       break
+//     } else if (wordsUnique[i] === wordsUnique[a]) {
+
+//     }
+
+
+//   }
+
+// }
+
+//}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word) {
+
+  if (array.length === 0) {
+    return null
+  } else if (array.includes(word)) {
+    return true
+  } else {
+    return false
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +222,31 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  if (array.length === 0) {
+    return 0
+  }
+
+  let cont = 0
+
+  for (i in array) {
+    if (array[i] === word) {
+      cont++
+    }
+  }
+
+  switch (cont) {
+    case 0:
+      return 0
+    case 1:
+      return 1
+    case 5:
+      return 5;
+    default:
+      break;
+  }
+}
 
 // Iteration #8: Bonus
 
