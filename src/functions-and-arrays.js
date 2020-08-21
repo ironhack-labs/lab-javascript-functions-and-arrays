@@ -9,22 +9,19 @@ function maxOfTwoNumbers(numOne, numTwo) {
 
 // Iteration #2: Find longest word
 
-function findLongestWord(arrayOfWords) {
-  let longestWord = arrayOfWords[0];
-  if (arrayOfWords.length < 1) {
+function findLongestWord(wordArray) {
+  if (!wordArray || wordArray.length == 0) {
     return null;
   }
-  if (arrayOfWords.length === 1) {
-    return arrayOfWords[0];
-  }
-  for (let i = 0; i < arrayOfWords.length - 1; i++) {
-    if (arrayOfWords[i].length >= arrayOfWords[i + 1].length) {
-      longestWord = arrayOfWords[i];
-    }
-    if (longestWord.length < arrayOfWords[arrayOfWords.length - 1].length) {
-      longestWord = arrayOfWords[arrayOfWords.length - 1];
+
+  let longestWord = wordArray[0];
+
+  for (let i = 1; i < wordArray.length; i++) {
+    if (wordArray[i].length > longestWord.length) {
+      longestWord = wordArray[i];
     }
   }
+
   return longestWord;
 }
 
@@ -50,6 +47,30 @@ function sumNumbers(numbers) {
   return totalNum;
 }
 
+//Bonus: Calculate the sum
+
+function sum(randomArray) {
+  if (randomArray == 0) {
+    return 0;
+  }
+
+  let count = 0;
+  let dataType;
+
+  for (let i = 0; i < randomArray.length; i++) {
+    dataType = typeof randomArray[i];
+    if (dataType == "number" || dataType == "boolean") {
+      count += randomArray[i];
+    } else if (dataType == "string") {
+      count += randomArray[i].length;
+    } else {
+      throw Error("Unsupported data type sir or ma'am");
+    }
+  }
+
+  return count;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -59,6 +80,15 @@ function averageNumbers(arrayOfNumbers) {
     return null;
   }
   return sumNumbers(arrayOfNumbers) / arrayOfNumbers.length;
+}
+
+//Bonus: Calculate the average of a mixed elements array
+
+function avg(randomArray) {
+  if (randomArray == 0) {
+    return null;
+  }
+  return Math.floor((sum(randomArray) / randomArray.length) * 100) / 100;
 }
 
 // Level 2: Array of strings
@@ -101,17 +131,20 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray(array) {
-  if (array.length < 1) {
+function uniquifyArray(wordArray) {
+  if (wordArray.length == 0) {
     return null;
   }
-  let uniqArray = [];
-  for (let i = 0; i < array.lenght; i++) {
-    if (uniqArray.indexOf(array[i]) < 0) {
-      uniqArray.push(array[i]);
+
+  let uniqueArray = [];
+
+  for (let i = 0; i < wordArray.length; i++) {
+    if (!uniqueArray.includes(wordArray[i])) {
+      uniqueArray.push(wordArray[i]);
     }
   }
-  return uniqArray;
+
+  return uniqueArray;
 }
 
 // Iteration #6: Find elements
@@ -476,3 +509,66 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(matrix) {
+  let prodi = 1;
+  let prodj = 1;
+  let maxProd = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      prodi =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (prodi > maxProd) {
+        maxProd = prodi;
+      }
+    }
+  }
+
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      prodj =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (prodj > maxProd) {
+        maxProd = prodj;
+      }
+    }
+  }
+
+  return maxProd;
+}
+
+// Bonus: Product of diagonals
+function greatestProductOfDiagonals(matrix) {
+  let prodi = 1;
+  let prodj = 1;
+  let maxProd = 0;
+
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      prodi =
+        matrix[i][j] *
+        matrix[i + 1][j + 1] *
+        matrix[i + 2][j + 2] *
+        matrix[i + 3][j + 3];
+      if (prodi > maxProd) {
+        maxProd = prodi;
+      }
+    }
+  }
+
+  for (let i = matrix.length; i > 3; i--) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      prodj =
+        matrix[i][j] *
+        matrix[i - 1][j + 1] *
+        matrix[i - 2][j + 2] *
+        matrix[i - 3][j + 3];
+      if (prodj > maxProd) {
+        maxProd = prodj;
+      }
+    }
+  }
+
+  return maxProd;
+}
