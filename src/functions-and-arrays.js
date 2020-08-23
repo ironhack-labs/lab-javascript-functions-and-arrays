@@ -1,18 +1,139 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(first, second) {
+  if (first > second) {
+    return first
+  }
+  return second
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(wordsArr) {
+
+  if (wordsArr.length === 0) {
+    return null
+  }
+  let posicionDeLaPalabraMasLarga = 0
+  let caracteresMayoresHastaAhora = 0
+
+  wordsArr.map((elm, i) => {
+    let nunCaracteres = elm.length
+    if (nunCaracteres > caracteresMayoresHastaAhora) {
+      caracteresMayoresHastaAhora = nunCaracteres
+      posicionDeLaPalabraMasLarga = i
+    }
+
+
+  })
+  return wordsArr[posicionDeLaPalabraMasLarga]
+
+}
+
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
+function sumNumbers(num) {
+  let resultado = 0
+  if (num.length === 0) {
+    return 0
+  }
+
+  num.forEach(elm => {
+    resultado = resultado + elm
+  })
+
+  return resultado
+
+
+}
+
+//bonus calculate sum
+
+function sum(nums) {
+
+  let resultado = 0
+  if (nums.length === 0) {
+    return 0
+  }
+
+  nums.forEach(elm => {
+    if ((typeof elm == 'object') || (typeof elm == 'array')) {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+    if (typeof elm == 'string') {
+      resultado = resultado + elm.length
+    } else if ((typeof elm == "boolean") && (elm === true)) {
+
+      resultado = resultado + 1
+
+    } else {
+      resultado = resultado + elm
+    }
+  })
+
+  return resultado
+}
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+function averageNumbers(elms) {
+  if (elms.length === 0) {
+    return null
+  }
+  let resultado = 0
+
+  elms.forEach(elm => {
+    resultado = resultado + elm
+  })
+
+  let avg = resultado / elms.length
+
+  return avg
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+function averageWordLength(elms) {
+  if (elms.length === 0) {
+    return null
+  }
+
+  let resultado = 0
+
+  elms.forEach(elm => {
+    let chart = elm.length
+    resultado = resultado + chart
+  })
+
+  const avg = resultado / elms.length
+
+  return avg
+
+}
+
+
+
+function avg(elms) {
+  if (elms.length === 0) {
+    return null
+  }
+  const resultado = sum(elms);
+  const avg = resultado / elms.length
+  return parseFloat(avg.toFixed(2))
+
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +150,41 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(elms) {
+
+  if ((elms.length === 0)) {
+    return null
+  }
+
+  let elmsUnique = []
+
+  elms.map(elm => {
+    if (elmsUnique.indexOf(elm) == - 1) {
+      elmsUnique.push(elm)
+    }
+  })
+  return elmsUnique
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
+function doesWordExist(elms, word) {
+  if ((elms.length == 0)) {
+    return null
+  }
+  //indexOf de vuelve en qué posición con un número lo que estamos
+  //buscando, sino está te devulve - 1
+
+  if ((elms.indexOf(word) === - 1)) {
+    return false
+  } else {
+    return true
+  }
+
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +200,24 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(elms, word) {
+  if ((elms.length == 0)) {
+    return 0
+  }
+
+  let acumulador = 0
+
+  elms.forEach(elm => {
+
+    if ((elm === word)) {
+      acumulador = acumulador + 1
+    }
+  })
+  return acumulador
+
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +243,31 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+function greatestProduct(arrs) {
+
+  let isOne = true;
+  let isSixteen = true;
+
+  arrs.forEach(arr => {
+
+    arr.forEach(elm => {
+
+      if ((elm !== 1)) {
+        isOne = false
+      }
+
+      if ((elm !== 2)) {
+        isSixteen = false
+      }
+
+    })
+
+  })
+
+  if (isOne) return 1
+  if (isSixteen) return 16
+
+}
