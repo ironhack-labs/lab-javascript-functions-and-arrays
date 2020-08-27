@@ -79,6 +79,12 @@ return unique;
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(array, word) {
+  if(!array.length) return null;
+  return array.indexOf(word) !== -1 ? true : false;
+};
+
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
