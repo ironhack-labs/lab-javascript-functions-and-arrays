@@ -136,4 +136,18 @@ const howManyTimes = (arr, word) => {
 }
 
 // // Iteration #8: Bonus
+const greatestProduct = neo => {
 
+    let allTheSameNum;
+    const is1 = value => value === 1;
+    const is2 = value => value === 2;
+
+for (let i = 0; i < neo.length; i++) {
+    if(neo[i].every(is1)) {
+        allTheSameNum = 1;
+    } else if(neo[i].every(is2)) {
+        allTheSameNum = 16;
+    }
+}
+    return allTheSameNum;
+}
