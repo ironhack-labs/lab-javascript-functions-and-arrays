@@ -100,6 +100,15 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(array, word) {
+  if(!array.length) return 0;
+  if(array.indexOf(word) === -1) return 0;
+  let count = array.filter(el=> el === word);
+  return count.length;
+};
+
+
+
 // Iteration #8: Bonus
 
 const matrix = [
