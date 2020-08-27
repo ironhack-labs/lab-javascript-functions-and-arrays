@@ -119,9 +119,21 @@ const uniquifyArray = arr => {
     return transformedArray;
 };
 // Iteration #6: Find elements
+const doesWordExist = (arr , word) => {
+    let result;
+    arr.length === 0 ? result = null : arr.includes(word) ? result = true : result = false; 
+    return result;
+};
+
 
 // Iteration #7: Count repetition
-
+const howManyTimes = (arr, word) => {
+    let repetitions = 0;
+    if(doesWordExist(arr ,word)) {
+        arr.forEach(element => element === word ? repetitions++ : null)
+    }
+    return repetitions;
+}
 
 // // Iteration #8: Bonus
 
