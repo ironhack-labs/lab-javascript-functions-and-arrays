@@ -28,6 +28,28 @@ function sumNumbers(nums) {
   return nums.reduce((a,c)=>a+c);
 };
 
+function sum(nums) {
+  if(!nums.length) return 0;
+  let total = 0;
+  for(let i = 0; i < nums.length; i++) {
+    switch(typeof nums[i]) {
+      case 'number':
+        total += nums[i];
+        break;
+      case 'string':
+        total += nums[i].length;
+        break;
+      case 'boolean':
+        nums[i] === true ? total += 1 : total += 0;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am")
+        break;
+    }
+  }
+  return total;
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -48,6 +70,33 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
     }
     return total/words.length;
  };
+
+ function avg(array) {
+  if(!array.length) return null;
+  let total = 0;
+  for(let i = 0; i < array.length; i++) {
+    switch(typeof array[i]) {
+      case 'number':
+        total += array[i];
+        break;
+      case 'string':
+        total += array[i].length;
+        break;
+      case 'boolean':
+        array[i] === true ? total += 1 : total += 0;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+        break;
+    }
+    
+  }
+  total = (total/array.length).toFixed(2);
+  return parseFloat(total);
+ };
+
+ console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]));
+ avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]);
 
 
 // Iteration #5: Unique arrays
@@ -107,8 +156,6 @@ function howManyTimes(array, word) {
   return count.length;
 };
 
-
-
 // Iteration #8: Bonus
 
 const matrix = [
@@ -133,3 +180,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {
+
+};
