@@ -50,7 +50,6 @@ function sumNumbers (arr2) {
   } else if (arr2.length > 1) {
     for (i=0; i<arr2.length; i++) {
       sum += parseInt( arr2[i]);
-      console.log(sum)
     } if (sum === 0) {
       return 0;
     } else if (sum > 0) {
@@ -63,8 +62,22 @@ function sumNumbers (arr2) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-
+let arr4 = [];
+let sumIte4 = 0;
+let averageIte4 = 0;
+function averageNumbers(arr4) {
+  if(arr4.length === 0) {
+    return null;
+  } else if(arr4.length === 1) {
+    return arr4[0];
+  } else if (arr4.length > 1) {
+    for (i=0; i<arr4.length; i++) {
+      sumIte4 += parseInt( arr4[i]);
+      averageIte4 = sumIte4/arr4.length;
+    }
+    return averageIte4;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
