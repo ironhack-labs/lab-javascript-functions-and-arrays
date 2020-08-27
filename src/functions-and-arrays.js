@@ -136,6 +136,20 @@ function uniquifyArray(arr5){
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(arr6, word){
+  if (arr6.length === 0) {
+    return null;
+  } else if (arr6.length ===1 && arr6[0] === word){
+    return true;
+  } else if (arr6.length > 1) {
+    for (let i=0; i<arr6.length; i++) {
+      if (arr6.includes(word)) {
+        return true;
+       } else {return false}
+    }
+  }
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -151,6 +165,37 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+
+
+
+function howManyTimes(arr7, word7) {
+  var newArr7 = [arr7[0]];
+  var score = 0;
+  if(arr7.length === 0) {
+    return 0;
+  } if(arr7.length > 0) {
+    for (let i = 1; i<arr7.length+1; i++) {
+      console.log("----------")
+      console.log(newArr7)
+      if (newArr7[i-1] !== word7) {
+        newArr7.push(arr7[i])
+      } else if (newArr7[i-1] === word7) {
+        newArr7.push(arr7[i])
+        score++;
+        console.log("score is : "+score)
+      }
+    }
+    if (score === 1) {
+      return 1
+    } else if (score === 0) {
+      return 0;
+    } else if (score === 5) {
+      return 5;
+    }
+  }
+}
 
 // Iteration #8: Bonus
 
