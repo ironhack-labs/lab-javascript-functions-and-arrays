@@ -55,8 +55,6 @@ const sum = (arr) => {
 
 const sumNumbers = (arr) => sum(arr);
 
-console.log(typeof ['helo']);
-
 // Iteration #4: Calculate the average
 const averageNumbers = (arr) => {
     let averageNum = '';
@@ -71,7 +69,7 @@ const averageNumbers = (arr) => {
             averageNum = sum(arr)/arr.length;
     }
     return averageNum;
-} 
+};
 
 // Level 1: Array of numbers
 const averageWordLength = (arr) => {
@@ -87,7 +85,7 @@ const averageWordLength = (arr) => {
             averageLength = sum(arr)/arr.length;
     }
     return averageLength;
-} 
+};
 
 // Level 2: Array of strings
 const avg = (arr) => {
@@ -101,18 +99,29 @@ const avg = (arr) => {
             break;
         default:
             avgMixData = sum(arr)/arr.length;
-            avgMixData = Math.floor(avgMixData)
+            avgMixData = Number(avgMixData.toFixed(2));
     }
-    
     return avgMixData;
-} 
+};
 
 // Iteration #5: Unique arrays
-
+const uniquifyArray = arr => {
+    let transformedArray = [];
+    switch (arr.length) {
+        case 0:
+            transformedArray = null;
+            break;
+        default:
+            for (let word of arr) {
+                !transformedArray.includes(word) ? transformedArray.push(word) : null;
+            }
+    }
+    return transformedArray;
+};
 // Iteration #6: Find elements
 
 // Iteration #7: Count repetition
 
 
-// Iteration #8: Bonus
+// // Iteration #8: Bonus
 
