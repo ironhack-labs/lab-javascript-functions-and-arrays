@@ -72,17 +72,33 @@ const wordsUnique = [
   'bring'
 ];
 const uniquifyArray = (wordsUnique) => {
-  if (wordsUnique.length == 0) {return null} else {
-  for (let i=0; i < wordsUnique.length; i++) {
-    if (wordsUnique.include(wordsUnique[i])) {wordsUnique.splice([i], 1)} else break;
+  let newTab = [];
+  if (wordsUnique.length == 0) {return null} else 
+    {
+      for (let i = 0 ; i < wordsUnique.length ; i++) 
+        {if (newTab.includes(wordsUnique[i]))
+            { continue} 
+            else {newTab.push(wordsUnique[i])}
+        } 
+    }
+  return newTab
   }
-  return wordsUnique}
-}
 
 console.log(uniquifyArray([1, 2, 3, 1, 2, 3]))  
-/* 
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (wordsFind, word) => {
+  let boolean = undefined
+  if (wordsFind.length == 0) {return null} 
+  else 
+  { 
+    if (wordsFind.includes(word)) {return true} else {return false}
+  }
+  return boolean
+}
+console.log(doesWordExist)
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -98,6 +114,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (wordsCount, word) => {
+  let time = 0; 
+  if (wordsCount.length == 0) {return 0} else {
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] == word) {time++} else continue
+    }
+  }
+  return time
+}
 
 // Iteration #8: Bonus
 
@@ -123,4 +149,3 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-*/
