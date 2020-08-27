@@ -1,55 +1,105 @@
 // Iteration #1: Find the maximum
-
+const maxOfTwoNumbers = (a, b) => a > b ? a : b
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const findLongestWord = words => {
+  if (words.length == 0) return null
+  if (words.length == 1) return words[0]
+  let longest = ''
+  
+  for (let i = 0; i < words.length; i++) {
+    if(words[i].length > longest.length) {
+      longest = words[i]
+    }
+  }
+  return longest
+}
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = numbers => {
+  if (numbers.length == 0) return 0
+  let sum = 0
+  numbers.forEach(n => sum += n)
+  return sum
+}
 
+//Iteration Bonus: Calculate the sum
+
+const sum = things  => {
+  if (things.length == 0) return 0
+  let res = 0
+  things.forEach(t => {
+    if(typeof t == 'number' || typeof t == 'boolean'){
+      res += t
+    }else if(typeof t == 'string'){
+      res += t.length
+    }else {
+      throw(new Error("Unsupported data type sir or ma'am")) 
+    }
+  })
+  return res
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = numbers => {
+  let sumN = sumNumbers(numbers)
+  if (sumN == 0) return null
+  return sumN/numbers.length
+}
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = words => {
+  if(words.length == 0) return null
+  let sumW = 0
+  words.forEach(w => sumW += w.length)
+  return sumW/words.length
+  
+}
+
+//Bonus: Calculate the average of a mixed elements array 
+const avg = things => {
+  let sumT = sum(things)
+  if (sumT == 0) return null
+  return Math.floor((sumT/things.length)*100)/100
+}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
-
+const uniquifyArray = words => {
+  if (words.length == 0) return null
+  const finalArray = []
+  const fixedLength = words.length -1
+  for(let i = fixedLength; i >= 0; i--) {
+    let isToBePushed = true
+    for(let k = i - 1; k >= 0; k--){
+        if (words[i] == words[k]) isToBePushed = false
+    }
+    if (isToBePushed) finalArray.unshift(words[i]) 
+  } 
+  
+  return finalArray
+}
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (words, wordToFind) => {
+  if (words.length == 0) return null
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === wordToFind) return true
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+const howManyTimes = (words, wordToBeCounted) => {
+  if (words.length == 0) return 0
+  let res = 0
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === wordToBeCounted) res++
+  }  
+  return res
+}
 
 // Iteration #8: Bonus
 
-const matrix = [
+/*const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -70,4 +120,34 @@ const matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+];*/
+
+const greatestProduct = matrix => {
+  const multiply = (a, b, c, d) => a*b*c*d
+  let gP = 1
+  for (let i = 0; i < matrix.length; i++){
+    for (let k = 0; k < matrix[i].length - 3; k++){
+      let temp = multiply(matrix[i][k], matrix[i][k + 1], matrix[i][k + 2], matrix[i][k + 3])
+      if (temp > gP) gP = temp
+    }
+  }
+  for (let i = 0; i < matrix.length - 3; i++){
+    for (let k = 0; k < matrix[i].length; k++){
+      let temp = multiply(matrix[i][k], matrix[i + 1][k], matrix[i + 2][k], matrix[i + 3][k])
+      if (temp > gP) gP = temp
+    }
+  }
+  for (let i = 0; i < matrix.length - 3; i++){
+    for (let k = 0; k < matrix[i].length - 3; k++){
+      let temp = multiply(matrix[i][k], matrix[i + 1][k + 1], matrix[i + 2][k + 2], matrix[i + 3][k + 3])
+      if (temp > gP) gP = temp
+    }
+  }
+  for (let i = 3; i < matrix.length; i++){
+    for (let k = 0; k < matrix[i].length - 3; k++){
+      let temp = multiply(matrix[i][k], matrix[i - 1][k + 1], matrix[i - 2][k + 2], matrix[i - 3][k + 3])
+      if (temp > gP) gP = temp    }
+  }
+  console.log(gP)
+  return gP
+}
