@@ -2,7 +2,8 @@
 const maxOfTwoNumbers = (a, b) => a > b ? a : b;
 
 // Iteration #2: Find longest word
-//const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
 function findLongestWord(words) {
     if (words.length > 0) {
         var size = 0;
@@ -32,6 +33,30 @@ function sumNumbers(numbers) {
 
 //sumNumbers(numberz);
 
+//bonus!!!!
+function sum(numbers) {
+    let result = 0;
+    for (let number of numbers) {
+        switch (typeof(number)) {
+            case "string":
+                result += number.length;
+                break;
+            case "number":
+                result += Number(number);
+                break;
+            case "boolean":
+                result += number;
+                break;
+            default:
+                throw new Error("Unsupported data type sir or ma'am");
+        }
+    }
+    //console.log(`current number : ${number} -- size of string is : ${stringsize}`);
+    return result;
+}
+
+sum(words);
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -45,6 +70,10 @@ const averageNumbers = (numbers) => numbers.length > 0 ? sumNumbers(numbers) / n
 
 // Level 2: Array of strings
 //const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = (words) => words.length > 0 ? sum(words) / words.length : null;
+
+const avg = (array) => array.length > 0 ? Number((sum(array) / array.length).toFixed(2)) : null;
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -124,3 +153,23 @@ function howManyTimes(words, wordToFind) {
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];*/
+
+function greatestProduct(matrix) {
+    let result = 0;
+    let horiz = 0;
+    let verti = 0;
+    for (let i = 0; i < matrix.length - 3; i++) {
+        for (let j = 0; j < matrix[i].length - 3; j++) {
+            //horizontal
+            horiz = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+            verti = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+            if (result < horiz) {
+                result = horiz;
+            }
+            if (result < verti) {
+                result = verti;
+            }
+        }
+    }
+    return result;
+}
