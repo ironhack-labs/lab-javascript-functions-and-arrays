@@ -147,17 +147,17 @@ const wordsCount = [
 ];
 
 function howManyTimes(array, word) {
-  let sum = 0
+  let sumWord = 0
   if (array.length == 0) {
     return 0;
   }
   for (let i = 0; i < array.length ; i++) {
     if (array[i]==word) {
-        sum += 1;
+        sumWord += 1;
     }
-    sum += 0;
+    sumWord += 0;
   }
-  return sum;
+  return sumWord;
 }
 // Iteration #8: Bonus
 
