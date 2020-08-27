@@ -1,18 +1,124 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a,b) {
+  if (a>b) {
+    return a
+  }
+  else return b
+}
+
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array) {
+  let words ="";
+  if (array == 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    if (words.length < array[i].length) {
+      words = array[i];
+    }
+  }
+return words;
+}
+
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers (array) {
+  let sum=0;
+  if (array.length == 0) {
+    return 0;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    sum = sum + array[i];
+  }
+  return sum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function sum (array) {
+  let sumnum = 0;
+  let sumstr = 0;
+  let sumbool = 0;
+  if (array.length == 0) {
+    return 0;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    if (typeof array[i] == 'object') {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+   else if (typeof array[i] === 'number') {
+    sumnum = sumnum + array[i];
+  }
+   else if (typeof array[i] === 'string') {
+     sumstr = sumstr + array[i].length;
+   }
+   else {
+     sumbool = sumbool + Number(array[i]);
+   }
+   total=sumstr+sumnum+sumbool;
+}
+return total
+}
+
+function averageNumbers (array) {
+  let sum = 0 ;
+  let average = 0;
+  if (array.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    sum = sum + array[i];
+  }
+  average = sum / array.length;
+  return average
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (array) {
+  let sum = 0 ;
+  let average = 0;
+  if (array.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    sum = sum + array[i].length;
+  }
+  average = sum / array.length;
+  return average
+}
+
+function avg (array) {
+  let sumnum = 0;
+  let sumstr = 0;
+  let sumbool = 0;
+  let total = 0;
+  let totalavg = 0;
+  if (array.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    if (typeof array[i] === 'number') {
+    sumnum = sumnum + array[i];
+  }
+   else if (typeof array[i] === 'string') {
+     sumstr = sumstr + array[i].length;
+   }
+   else {
+     sumbool = sumbool + Number(array[i]);
+   }
+}
+total=sumstr+sumnum+sumbool;
+totalavg=total/array.length;
+n= totalavg.toFixed(2)
+return Number(n);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +135,38 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  result = [];
+  if (array.length == 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length ; i++) {
+      if (!result.includes(array[i])) {
+        result.push(array[i]);
+      }
+    }
+return result;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, search) {
+  let result = ''
+  if (array.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    if (array[i]==search) {
+        result = true
+        break
+    }
+    result = false
+  }
+  console.log(result)
+  return result
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,8 +183,26 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(array, str) {
+  let incr = 0
+  if (array.length == 0) {
+    return 0;
+  }
+  for (let i = 0; i < array.length ; i++) {
+    if (array[i]==str) {
+        incr = incr + 1
+    }
+    incr = incr + 0
+  }
+  console.log(incr)
+  return incr
+}
+
 // Iteration #8: Bonus
 
+function greatestProduct (arr) {
+
+}
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
