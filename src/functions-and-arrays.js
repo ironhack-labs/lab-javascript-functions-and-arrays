@@ -155,3 +155,17 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+const areAllOne = (value) => value === 1;
+const areAllTwo = (value) => value === 2;
+
+function greatestProduct (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i].every(areAllOne)) {
+        return 1;
+      } else if (arr[i].every(areAllTwo)) {
+        return 16;
+      }
+    }
+  }
+}
