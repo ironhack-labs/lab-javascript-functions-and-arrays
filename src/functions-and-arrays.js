@@ -171,6 +171,28 @@ function greatestProduct(matrix) {
             }
         }
     }
+
+
+    //there is vertical for the last 3 column and horizontal for the last 3 row
+    for (let i = (matrix.length - 3 - 1); i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length - 3; j++) {
+            verti = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+            if (result < verti) {
+                result = verti;
+            }
+        }
+    }
+
+    for (let i = 0; i < matrix.length - 3; i++) {
+        for (let j = (matrix.length - 3 - 1); j < matrix.length; j++) {
+            horiz = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+            if (result < horiz) {
+                result = horiz;
+            }
+        }
+    }
+
+
     return result;
 }
 
