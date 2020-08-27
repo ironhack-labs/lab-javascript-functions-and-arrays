@@ -153,11 +153,11 @@ function howManyTimes(array, word) {
   }
   for (let i = 0; i < array.length ; i++) {
     if (array[i]==word) {
-        sum += 1
+        sum += 1;
     }
-    sum += 0
+    sum += 0;
   }
-  return sum
+  return sum;
 }
 // Iteration #8: Bonus
 
