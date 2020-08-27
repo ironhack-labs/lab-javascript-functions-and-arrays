@@ -181,6 +181,51 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
 
+function greatestProduct(matrix) {
+
+//Make array from vertical columns 
+  let vertical =[];
+  let m = 0 
+  while(m < matrix.length) {
+    for(let l = 0; l < matrix.length; l ++) {
+      vertical.push(matrix[l][m])
+    }
+    m++;
+  }
+
+//Slice giant array
+  let slicedArray = [];
+    for (let i = 0; i < vertical.length; i+= matrix[0].length){
+      slicedArray.push(vertical.slice(i,i+matrix[0].length));
+      }
+    //console.log(slicedArray);
+
+//Concat the vertical and horizontal arrays 
+  let superMatrix = matrix.concat(slicedArray);
+  //console.log(superMatrix);
+
+//Loop to find greatest product horizontally
+  let horizontal = []; //Array of all possible groups of 4 horizontally
+  for(let i = 0; i < superMatrix.length; i++) {
+    for(let j = 0; j < matrix.length-3; j++) {
+      horizontal.push(superMatrix[i].slice(j,j+4));
+    }
+  }
+//console.log(horizontal);
+
+//Array of groups of 4 after multiplication
+let horizontalTotals = []; 
+  for(let i = 0; i < horizontal.length; i++) {
+    horizontalTotals.push(horizontal[i].reduce((a,c) => a*c)); 
+  };
+//console.log(horizontalTotals); 
+  
+let product = Math.max(...horizontalTotals);
+  console.log(product);
+  return product;        
+        
+  
 };
+
+greatestProduct(matrix);
