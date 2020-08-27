@@ -24,17 +24,88 @@ const findLongestWord = (arr) => {
     return longestWord;
 }
 
-let foo = ['hol', 'dater', 'ploppppppp'];
-console.log(findLongestWord(foo));
-
 // Iteration #3: Calculate the sum
+const sum = (arr) => {
+    let totalSum = '';
+    switch (arr.length) {
+        case 0:
+            totalSum = 0;
+            break;
+        default:
+            let newArr = [];
+            for(let value of arr) {
+
+                if(typeof value === 'string') {
+                    newArr.push(value.length)
+                } 
+                else if(typeof value === 'bolean') {
+                    value === true ? newArr.push(1) : newArr.push(0);
+                }
+                else if (typeof value === 'object') {
+                    throw new Error("Unsupported data type sir or ma'am")
+                }
+                else {
+                    newArr.push(value);
+                }
+            }
+            totalSum = newArr.reduce((accumulator, num) =>  accumulator + num, 0);
+    }
+    return totalSum;
+} 
+
+const sumNumbers = (arr) => sum(arr);
+
+console.log(typeof ['helo']);
 
 // Iteration #4: Calculate the average
+const averageNumbers = (arr) => {
+    let averageNum = '';
+    switch (arr.length) {
+        case 0:
+            averageNum = null;
+            break;
+        case 1:
+            averageNum = arr[0];
+            break;
+        default:
+            averageNum = sum(arr)/arr.length;
+    }
+    return averageNum;
+} 
 
 // Level 1: Array of numbers
+const averageWordLength = (arr) => {
+    let averageLength; 
+    switch (arr.length) {
+        case 0:
+            averageLength = null;
+            break;
+        case 1:
+            averageLength = arr[0].length;
+            break;
+        default:
+            averageLength = sum(arr)/arr.length;
+    }
+    return averageLength;
+} 
 
 // Level 2: Array of strings
-
+const avg = (arr) => {
+    let avgMixData; 
+    switch (arr.length) {
+        case 0:
+            avgMixData = null;
+            break;
+        case 1:
+            avgMixData = arr[0].length;
+            break;
+        default:
+            avgMixData = sum(arr)/arr.length;
+            avgMixData = Math.floor(avgMixData)
+    }
+    
+    return avgMixData;
+} 
 
 // Iteration #5: Unique arrays
 
