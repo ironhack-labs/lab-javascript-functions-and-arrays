@@ -65,6 +65,12 @@ function averageNumbers (arr) {
   }
 }
 
+function avg (arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
