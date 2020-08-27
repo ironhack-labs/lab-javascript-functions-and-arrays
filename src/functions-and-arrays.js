@@ -41,6 +41,32 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3: Bonus
+function sum(arr) {
+  var customSum = 0;
+  var wordSumLength = 0;
+  var wordSumLengthTable = [];
+  try {
+    if (arr == 0) {
+      return 0;
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] == "number") {
+          wordSumLengthTable.push(arr[i]);
+        } else if (typeof arr[i] == "boolean") {
+          wordSumLengthTable.push(Number(arr[i]));
+        } else if (typeof arr[i] == "string") {
+          wordSumLengthTable.push(arr[i].length);
+        } else {
+          throw new Error("Unsupported data type sir or ma'am");
+        }
+        customSum = sumNumbers(wordSumLengthTable);
+      }
+      return customSum;
+    }
+  } catch (err) {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -69,6 +95,17 @@ function averageWordLength(arr) {
     averageWord = averageNumbers(wordLengthTable);
   }
   return averageWord;
+}
+
+// Iteration #4: Bonus
+function avg(arr) {
+  var avgMixedArray = 0;
+  if (arr == 0) {
+    return null;
+  } else {
+    avgMixedArray = sum(arr) / arr.length;
+  }
+  return Math.round(avgMixedArray * 100) / 100;
 }
 
 // Iteration #5: Unique arrays
