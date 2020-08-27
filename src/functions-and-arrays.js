@@ -173,3 +173,31 @@ function greatestProduct(matrix) {
     }
     return result;
 }
+
+
+function greatestProductOfDiagonals(matrix) {
+    let result = 0;
+    let botright = 0;
+    let botleft = 0;
+
+    //calculate for bottom right diagonal
+    for (let i = 0; i < matrix.length - 3; i++) {
+        for (let j = 0; j < matrix[i].length - 3; j++) {
+            botright = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+            if (result < botright) {
+                result = botright;
+            }
+        }
+    }
+
+    //calculate for bottom left diagonal
+    for (let i = 3; i < matrix.length; i++) {
+        for (let j = 3; j < matrix[i].length; j++) {
+            botright = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i + 3][j + 3];
+            if (result < botleft) {
+                result = botleft;
+            }
+        }
+    }
+    return result;
+}
