@@ -39,6 +39,18 @@ function sumNumbers(arr) {
   }
 }
 
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  } else if (arr.length === 1 && isNaN(arr[0]) === false) {
+    return arr[0];
+  } else if (arr.every(areAllZero)) {
+    return 0;
+  } else {
+    return arr.reduce((a, b) => a + b, 0);
+  }
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
