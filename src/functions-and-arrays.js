@@ -17,24 +17,37 @@ const findLongestWord = (words) => {
   let res = [];
   if (words.length == 0) {
     res = null;
-
   } else {
     if (words.length == 1) {
       res = words[0];
     } else {
-      res = words[0];
-      for (let i = 1; i < words.length; i += 1) {
-        if (res.length === words.length) {
-          let tabWords = [];
-          tabWords.push(res, words[i]);
-          //res = tabWords.find(n => n.length == res.length);
-        } else {
-          if (res.length < words.length) {
-            res = words[i];
-          }
-        }
+      console.log('start:',words);
+      //let copyWords = [...words];
+      let testTab= [];
+      testTab.push(words[0]);
+      let result = [];
+      words.shift();
+      console.log('after unshift',words);
+      //console.log('copy', copyWords);
+      
+      for(i = 0; i < words.length; i++) {
+        console.log(words[i]);
 
+        if(testTab[0].length === words[i].length) {
+          console.log('valeur ds testTab: ', testTab + ' test value', words[i] );
+          testTab.push(words[i]);
+          console.log('new testTab contiens:', testTab);
+        } else {
+          console.log(testTab[0].length);
+          if(testTab[0].length < words[i].length) {
+            console.log(`${testTab[0]} est inférieur ${words[i]}`);
+            testTab = [];
+            testTab.push(words[i]);
+          } 
+        }
       }
+      console.log(testTab);
+      res = testTab[0];
     }
   }
   return res;
