@@ -478,3 +478,86 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(matrix) {
+  var maxHorizontalTable = [];
+  var maxVerticalTable = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    var cube = matrix[i];
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j + 3 <= 19) {
+        maxHorizontalTable.push(
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+        );
+      }
+      if (i + 3 <= 19) {
+        maxVerticalTable.push(
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j]
+        );
+      }
+    }
+  }
+  maxHorizontalTable.sort((a, b) => a - b);
+  maxVerticalTable.sort((a, b) => a - b);
+  var highestHorizontalIndex = maxHorizontalTable.length - 1;
+  var highestHorizontal = maxHorizontalTable[highestHorizontalIndex];
+
+  var highestVerticalIndex = maxVerticalTable.length - 1;
+  var highestVertical = maxVerticalTable[highestVerticalIndex];
+
+  return maxOfTwoNumbers(highestHorizontal, highestVertical);
+  console.log(maxOfTwoNumbers(highestHorizontal, highestVertical));
+}
+
+// Iteration #8.1: Bonus
+
+function greatestProductOfDiagonals(matrix) {
+  var maxHorizontalTable = [];
+  var maxVerticalTable = [];
+  var maxDiagonalTable = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    var cube = matrix[i];
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j + 3 <= 19) {
+        maxHorizontalTable.push(
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+        );
+      }
+      if (i + 3 <= 19) {
+        maxVerticalTable.push(
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j]
+        );
+      }
+      if (i + 3 <= 19 && j + 3 <= 19) {
+        maxDiagonalTable.push(
+          matrix[i][j] *
+            matrix[i + 1][j + 1] *
+            matrix[i + 2][j + 2] *
+            matrix[i + 3][j + 3]
+        );
+      }
+    }
+  }
+  maxHorizontalTable.sort((a, b) => a - b);
+  maxVerticalTable.sort((a, b) => a - b);
+  maxDiagonalTable.sort((a, b) => a - b);
+
+  var highestHorizontalIndex = maxHorizontalTable.length - 1;
+  var highestHorizontal = maxHorizontalTable[highestHorizontalIndex];
+
+  var highestVerticalIndex = maxVerticalTable.length - 1;
+  var highestVertical = maxVerticalTable[highestVerticalIndex];
+
+  var highestDiagonalIndex = maxDiagonalTable.length - 1;
+  var highestDiagonal = maxDiagonalTable[highestDiagonalIndex];
+
+  var maxHorizontalVertical = maxOfTwoNumbers(highestHorizontal, highestVertical);
+  var maxAllDirections = maxOfTwoNumbers(maxHorizontalVertical, highestDiagonal);
+
+  //console.log(maxAllDirections)
+  
+}
+
+greatestProductOfDiagonals(matrix);
