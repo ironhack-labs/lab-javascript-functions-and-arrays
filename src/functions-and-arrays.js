@@ -122,15 +122,15 @@ const wordsUnique = [
 
 function uniquifyArray(arr5){
   var word5 = "";
-  var arrTwo = [];
+  var arrTwo = [arr5[0]];
+  var arrThree = [];
   if (arr5.length === 0) return null;
   else if (arr5.length > 0) {
-    for (i=0; i<arr5.length; i++) {
-      if (arrTwo.includes(arr5[i]) === false) {
-        arrTwo.push(arr5[i]);
-        return arrTwo;
-      }
-    }
+    for (i=1; i<arr5.length; i++) {
+      if (arrTwo.includes(arr5[i])) {
+      } else {arrTwo.push(arr5[i]); }
+      };
+    return arrTwo;
   }
 }
 
