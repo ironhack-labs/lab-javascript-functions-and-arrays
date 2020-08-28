@@ -6,9 +6,7 @@ function findLongestWord(array){
   if (array.length == 0){
     return null;
   } else if (array.length == 1){
-    for (let i = 0; i<array.length; i++){
-      return array[i];
-    }
+    return array[0];
   } else {
     var longestWord = "";
         for (let i= 0; i < array.length; i++){
@@ -24,10 +22,7 @@ function findLongestWord(array){
 function sumNumbers(array){
 const isEqualToZero = (currentValue) => currentValue == 0;
 let isAllZero = array.every(isEqualToZero);
-  if (array.length == 0){
-    array = 0;
-    return array;
-  }  else if (isAllZero == true){
+  if (array.length == 0 || isAllZero == true){
     array = 0;
     return array;
   } else {
@@ -91,9 +86,7 @@ function uniquifyArray(array){
   if (array.length == 0){
     return null
   }  else {
-    const distinctWords = [...new Set(array)];
-    console.log(distinctWords);
-    return distinctWords;
+    return [...new Set(array)];;
     } 
 }
 
@@ -102,8 +95,6 @@ function doesWordExist(array, searching){
   var checkingWord = false;
   if (array.length == 0){
     return null;
-  } else if (array.length == 1){
-    return array.includes(searching);
   } else {
     return array.includes(searching);
   }
