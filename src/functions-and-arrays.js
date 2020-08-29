@@ -146,7 +146,7 @@ const wordsUnique = [
 
 function doesWordExist(arr, word) {
 
-  let wordExists = false
+  //let wordExists = false
 
   if (arr.length === 0) {
     return null
@@ -154,18 +154,35 @@ function doesWordExist(arr, word) {
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === word) {
-      wordExists = true
-      break
+      return true
     }
   }
-  return wordExists
+  return false
 }
-
-
 
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 // Iteration #7: Count repetition
+
+function howManyTimes(arr, word) {
+
+  let wordCount = 0
+
+  if (arr.length === 0) {
+    return 0
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] === word) {
+      wordCount += 1
+    } else {
+      continue
+    }
+  }
+  return wordCount
+}
+
+
 const wordsCount = [
   'machine',
   'matter',
