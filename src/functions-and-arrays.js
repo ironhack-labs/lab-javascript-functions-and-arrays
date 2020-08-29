@@ -1,18 +1,63 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1
+  }
+  else if (number2 > number1) {
+    return number2
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(someArray) { 
+  if(someArray.length === 0 ){
+    return null
+  }
+  let longestWord = ""
+  for (i = 0; i < someArray.length; i++) {
+    if (someArray[i].length > longestWord.length) {
+      longestWord = someArray[i]
+    }
+  }
+  return longestWord
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(someNumberArray) {
+  let sum = 0
+  for (i = 0; i < someNumberArray.length; i++) {
+    sum = sum + someNumberArray[i]
+  }
+  return sum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(someNumberArray) {
+  if(someNumberArray.length === 0 ){
+    return null
+  }
+  return average = sumNumbers(someNumberArray)/someNumberArray.length
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(someWordsArr) {
+  if(someWordsArr.length === 0) {
+    return null
+  }
+  let lengthOfWords = 0
+  for (i = 0; i < someWordsArr.length; i++) {
+      lengthOfWords = lengthOfWords + someWordsArr[i].length
+    }
+  return average = lengthOfWords/someWordsArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +73,15 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(someArray) {
+let uniqueArray = [ ];
+  for (i = 0; i < someArray.length; i++) {
+    if (uniqueArray.indexOf(someArray[i]) === -1) {
+      uniqueArray.push(someArray[i]) }
+    }
+  return uniqueArray
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
