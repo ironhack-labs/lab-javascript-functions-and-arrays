@@ -120,16 +120,20 @@ return uniqueArray
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let word = 'machine'
 
 function doesWordExist(wordsFind,word) {
 
   if (wordsFind.length === 0) {
     return null
   }
+  if(wordsFind.includes(word)){
+    return true
+  }
   for (let i = 0; i < wordsFind.length; i++) {
     if(word === wordsFind[i]){
       return true
-    } else {
+    } if(word != wordsFind[i]) {
       return false
     }
 
@@ -153,6 +157,22 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(wordsCount, words)
+{ if(wordsCount.length === 0) 
+  {
+    return 0
+  }
+  let CountArray = []
+
+  for (let i = 0; i < wordsCount.length; i++)
+  { 
+   if(wordsCount[i] === words ){
+    CountArray.push(wordsCount[i])
+   }
+  }
+  return CountArray.length
+}
+getWordCount(wordsCount)
 // Iteration #8: Bonus
 
 const matrix = [
