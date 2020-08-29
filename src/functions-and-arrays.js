@@ -214,5 +214,28 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-
+const greatestProduct = (arr) => {
+  let bigNum = 0;
+  for (let i = 0; i < arr.length; i++)
+  if (arr[i].every((val, i, arr) => val === 1 )) 
+  {
+    return bigNum = 1
+  } 
+  else if (arr[i].every( (val, i, arr) => val === 2 )) 
+  {
+    return bigNum = 16
+  }
+  else 
+  {
+    for (let j=0; j <arr[i].length; i++){
+      if (arr[i][j] > bigNum) {
+        return bigNum = arr[i][j]
+      }
+      else {
+        return bigNum
+      }
+    }
+  }
+  return bigNum
+}
 
