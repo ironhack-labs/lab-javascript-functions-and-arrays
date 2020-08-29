@@ -23,7 +23,7 @@ console.log(findLongestWord(words))
 console.log('-------------------------------------')
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10, true, false, 'str'];
 console.log(numbers.length)
 const sumNumbers = (numbers) => {
   let sumNum = 0;
@@ -39,11 +39,11 @@ console.log('-------------------------------------')
 const sum = (numbers) => {
   let sumNum = 0;
   for (let i = 0 ; i < numbers.length; i++) {
-    if (typeof numbers[i] == String) 
+    if (typeof numbers[i] === String) 
     {
-      let str = numbers[i].length; sumNum += str
+      sumNum += numbers[i].length
     } 
-    else if (typeof numbers[i] === false) 
+    else if (typeof numbers[i] === false || numbers[i] == NaN || numbers[i] === undefined || numbers[i] === null) 
     {
        sumNum += 0
     }
@@ -54,7 +54,7 @@ const sum = (numbers) => {
   }
   return sumNum
 }
-
+console.log(sum(numbers))
 console.log('-------------------------------------')
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
