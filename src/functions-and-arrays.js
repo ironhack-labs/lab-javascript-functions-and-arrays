@@ -39,9 +39,9 @@ console.log('-------------------------------------')
 const sum = (numbers) => {
   let sumNum = 0;
   for (let i = 0 ; i < numbers.length; i++) {
-    if (typeof numbers[i] === String) 
+    if (typeof numbers[i] === "string") 
     {
-      sumNum += numbers[i].length
+      sumNum += numbers[i].length;
     } 
     else if (typeof numbers[i] === false || numbers[i] == NaN || numbers[i] === undefined || numbers[i] === null) 
     {
@@ -80,6 +80,13 @@ const averageWordLength = (wordsArr) => {
 }}
 console.log(averageWordLength)
 console.log('-------------------------------------')
+
+// Iteration 4 Bonus
+
+
+
+console.log('-------------------------------------')
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
