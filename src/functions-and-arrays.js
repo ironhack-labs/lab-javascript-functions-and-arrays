@@ -86,7 +86,37 @@ console.log(averageWordLength)
 console.log('-------------------------------------')
 
 // Iteration 4 Bonus
-
+const avg = (arr) => {
+  let sumArr = 0;
+  if (arr.length === 0) {return null} 
+  else 
+  {
+    for (let i = 0 ; i < arr.length; i++) {
+      if (typeof arr[i] === "string") 
+        {
+          sumArr += arr[i].length
+        } 
+      else if (typeof arr[i] === false || arr[i] == NaN || arr[i] === undefined ||    arr[i] === null) 
+        {
+           sumArr += 0
+        }
+      else if (typeof arr[i] === "object")
+        {
+          throw new Error("Unsupported data type sir or ma'am");
+        }
+      else 
+        {
+        sumArr += arr[i]
+        }
+    }
+    sumArr = sumArr/(arr.length);
+    // I wanted to return : 
+    // return Number(sumArr.tofixed(2))
+    // but it returned an error
+    return sumArr
+  }
+}
+console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
 
 
 console.log('-------------------------------------')
@@ -183,4 +213,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
 
