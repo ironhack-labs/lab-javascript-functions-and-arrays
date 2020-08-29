@@ -47,6 +47,10 @@ const sum = (numbers) => {
     {
        sumNum += 0
     }
+    else if (typeof numbers[i] === "object")
+    {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
     else 
     {
       sumNum += numbers[i]
