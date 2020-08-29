@@ -49,10 +49,32 @@ function sumNumbers(arrayNumbers) {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arrayNumbers) {
+  if (arrayNumbers.length === 0) {
+    return null
+  }
+  let sum = sumNumbers(arrayNumbers)
+
+  return sum/arrayNumbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+function averageWordLength(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null
+  }
+  let emptyString = ""
+  
+  for (let i = 0; i < arrayOfWords.length; i++){
+    emptyString += arrayOfWords[i]
+}
+  return emptyString.length / arrayOfWords.length;  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
