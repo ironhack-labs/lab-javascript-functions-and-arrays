@@ -35,10 +35,22 @@ sum += numbers[i]
 return sum
 }
 
-function sum (numbers) {
-  if (numbers.length === 0) {
+function sum (array) {
+  if (array.length === 0) {
     return 0
   }
+  let total = 0;
+  for (let element of array){
+    if (typeof element === `string`){
+      total += element.length
+    } else
+    if (typeof element === `object`){
+      throw new Error (`Unsupported data type sir or ma'am`)
+    } else {
+      total += element
+    }
+  }
+  return total
 }
 
 // Iteration #4: Calculate the average
@@ -52,9 +64,8 @@ function averageNumbers (numbersAvg) {
   let total = 0;
   for (let i=0; i<numbersAvg.length; i++) {
     total += numbersAvg[i];
-    avg = total / numbersAvg.length;
   }
-  return avg
+  return total / numbersAvg.length;
 }
 
 // Level 2: Array of strings
@@ -71,9 +82,23 @@ function averageWordLength (wordsArr) {
   let total = 0;
   for (let i=0; i<lengths.length; i++){
   total += lengths[i];
-    avg = total / lengths.length;
   }
-  return avg
+  return total / lengths.length
+}
+
+function avg (arr){
+  if (arr.length === 0){
+    return null
+  }
+  let total = 0;
+  for (let element of arr){
+    if (typeof element === `string`){
+      total += element.length
+    } else {
+      total += element
+    }
+  }
+  return total/arr.length;
 }
 
 // Iteration #5: Unique arrays
@@ -102,13 +127,17 @@ function uniquifyArray (wordsUnique){
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist (arr, element) {
-  if (wordsFind.length === 0) {
-    return null
-  } else if (wordsFind.includes(`machine`)) {
-    return true
-  } 
-}
+function doesWordExist (ar, word) {
+  if (ar.length === 0) {
+    return null;
+  }
+    for (let el of ar) {
+      if (el === word) {
+        return true;
+      }
+    } 
+    return false;
+  }
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -125,10 +154,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes (wordsCount) {
-  if (wordsCount.length === 0) {
-    return 0
+function howManyTimes (haystack, needle) {
+  let count = 0;
+  for (let word of haystack) {
+    if (word === needle) {
+      count++
+    }
   }
+  return count;
 }
 
 // Iteration #8: Bonus
@@ -155,3 +188,8 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct (matrix){
+  
+}
