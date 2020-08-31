@@ -10,7 +10,6 @@ function maxOfTwoNumbers (num1 , num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-
 function findLongestWord (words) {
   let longestWord = ""
   if (words.length === 0) {
@@ -55,7 +54,6 @@ function averageNumbers(numbersAvg) {
   }
   return avg
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -107,14 +105,18 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(words) {
-  if(doesWordExist.length === 0) {
-  return null
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null
   }
-  for (let i = 0; i < words.length; i++) {
-    
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind.includes(word)) {
+      return true
     }
+    return false
+  }
 }
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -130,6 +132,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordsCount, word) {
+  let numberOfTimes = [];
+  if (wordsCount.length === 0) {
+  return 0
+  }
+  for (let i = 0; i < wordsCount.length; i ++) {
+    if (word === wordsCount[i]) {
+     numberOfTimes.push(wordsCount[i])
+    }
+    
+  }
+  return numberOfTimes.length
+}
+
 
 // Iteration #8: Bonus
 
