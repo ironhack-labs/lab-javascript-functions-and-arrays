@@ -83,21 +83,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(listOfWords) {
-  let result = [];
-  for (i=0; i < listOfWords.length; i++)  {
-    if (listOfWords[i] != result[0]) {
-      result.unshift(listOfWords[i]);
-      }
-  }
-   return result;
-
+let indices = [];
+let element = wordsUnique[0];
+let idx = wordsUnique.indexOf(element);
+while (idx != -1) {
+  indices.push(idx);
+  idx = wordsUnique.indexOf(element, idx + 1);
 }
-
-console.log(uniquifyArray(wordsUnique))
+}
+console.log(indices);
+// [0, 2, 4]
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doeswordExist (listOfWords, wordToSearch) {
+  for (let i = 0; i < listOfWords.length; i++) {
+     if (listOfWords[i] === wordToSearch) {
+         return true;
+     }
+     else {
+         return false;
+          }
+    }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
