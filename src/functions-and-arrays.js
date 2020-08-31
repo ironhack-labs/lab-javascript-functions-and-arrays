@@ -36,19 +36,24 @@ const sum = (mixedArray) => {
   let output = 0;
 
   for(let item of mixedArray){
-    switch(typeof item){
-      case 'number':
-        output+= item;
-        break;
-      case 'string':
-        output+= item.length;
-        break;
-      case 'boolean':
-        output+= item ? 1 : 0;
-        break;
-      default:
-        throw new Error("Unsupported data type sir or ma'am");
-    }
+  //   switch(typeof item){
+  //     case 'number':
+  //       output+= item;
+  //       break;
+  //     case 'string':
+  //       output+= item.length;
+  //       break;
+  //     case 'boolean':
+  //       output+= item ? 1 : 0;
+  //       break;
+  //     default:
+  //       throw new Error("Unsupported data type sir or ma'am");
+  //   }
+  
+      let element_type = typeof item;
+      if (element_type === 'object') throw new Error(`Unsupported data type sir or ma'am`);
+      if (element_type === 'string') output += item.length;
+      if (element_type !== 'string') output += item; 
   }
 
   return output || 0;
@@ -117,6 +122,8 @@ const uniquifyArray = (words) => {
     }
   }
 
+  // let unique_words = [...Set(words)];
+
   return unique_words;
 };
 
@@ -131,6 +138,8 @@ const doesWordExist = (words, search_word) => {
       return true;
     }
   }
+
+  // return words.includes(search_word);
 
   return false;
 };
@@ -155,6 +164,8 @@ const howManyTimes = (words, search_word) => {
   for( let word of words){
     if(word === search_word) counter++;
   }
+
+  // return words.filter(word_filter => word_filter === search_word).length;
   return counter;
 };
 
@@ -186,18 +197,14 @@ const matrix = [
 const greatestProduct = (matrix) => {
 
   let greatestProductSoFar = 0;
+  let productHor;
+  let productVer;
 
-  for(let row=0; row<matrix.length; row++){
-    for(let col=0; col<matrix[row].length-4; col++){
-      let productHor = matrix[row][col] * matrix[row][col+1] * matrix[row][col+2] * matrix[row][col+3];
-      if (greatestProductSoFar<productHor) greatestProductSoFar=productHor;
-    }
-  }
-
-  for(let col=0; col<matrix[0].length; col++){
-    for(let row=0; row<matrix[col].length-4; row++){
-      let productVer = matrix[row][col] * matrix[row+1][col] * matrix[row+2][col] * matrix[row+3][col];
-      if (greatestProductSoFar<productVer) greatestProductSoFar=productVer;
+  for(let i=0; i<matrix.length; i++){
+    for(let j=0; j<matrix[i].length-4; j++){
+      productHor = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      productVer = matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i];
+      greatestProductSoFar=Math.max(productHor, productVer, greatestProductSoFar);
     }
   }
 
