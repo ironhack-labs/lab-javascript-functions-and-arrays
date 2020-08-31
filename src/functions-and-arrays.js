@@ -83,19 +83,22 @@ const wordsUnique = [
   'bring'
 ];
 
-let indices = [];
-let element = wordsUnique[0];
-let idx = wordsUnique.indexOf(element);
-while (idx != -1) {
-  indices.push(idx);
-  idx = wordsUnique.indexOf(element, idx + 1);
-}
-}
-console.log(indices);
 // [0, 2, 4]
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (listOfWords) {
+  for (let i = 0; i < listOfWords.length; i++) {
+     if (listOfWords.includes(listOfWords[i])) {
+         return true;
+     }
+     else {
+         return false;
+          }
+    }
+}
+
 
 function doeswordExist (listOfWords, wordToSearch) {
   for (let i = 0; i < listOfWords.length; i++) {
@@ -122,6 +125,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (listOfWords, wordToSearch) {
+  let result = 0;
+  for (let i = 0; i < listOfWords.length; i++) {
+    if (listOfWords[i] === wordToSearch) {
+      result += 1
+    }
+  }
+  return result;
+}
 
 // Iteration #8: Bonus
 
