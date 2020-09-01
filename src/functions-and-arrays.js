@@ -4,12 +4,9 @@ function maxOfTwoNumbers(num1, num2) {
 
   if (num1 > num2) {
     return num1
-  } else if (num1 < num2) {
-    return num2
   } else {
-    return num1, num2
+    return num2
   }
-
 }
 
 // Iteration #2: Find longest word
@@ -55,22 +52,42 @@ function sumNumbers(arr) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+// Bonus iteration #3.1 A generich sum function
+
+function sum(arr) {
+
+  let sum = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      sum += arr[i]
+    } else if (typeof arr[i] === "string") {
+      sum += arr[i].length
+    } else if (typeof arr[i] === "boolean") {
+      if (arr[i] === true) {
+        sum += 1
+      } else {
+        continue
+      }
+    } else {
+      throw TypeError("Unsupported data type sir or ma'am")
+    }
+    
+  }
+
+  return sum
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
 function averageNumbers(arr) {
-
   if (arr.length === 0) {
-
     return null
-
-  } else {
-
-    let average = 0
-    average = sumNumbers(arr) / arr.length
-    return average
-
-  }
+  } 
+  return sumNumbers(arr) / arr.length
 }
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -103,7 +120,22 @@ function averageWordLength(arr) {
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// Bonus 4.1 generic avg function
+// Bonus 4.1 A generic avg function
+
+function avg(arr) {
+
+if (arr.length === 0) {
+
+  return null
+
+} else {
+
+  let arrAvg = 0
+  arrAvg = Math.round((sum(arr) / arr.length)*100)/100
+  return arrAvg
+}
+}
+
 
 
 // Iteration #5: Unique arrays
@@ -198,6 +230,15 @@ const wordsCount = [
 ];
 
 // Iteration #8: Bonus
+
+function greatestProduct(matrix) {
+  let result = 0
+
+
+
+
+  return result
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
