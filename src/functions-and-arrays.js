@@ -101,10 +101,6 @@ console.log(averageWordLength(wordsArr))
 
 
 
-
-
-
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -120,8 +116,26 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(array) {
+
+  if (array.length === 0) {
+    return null
+  }
+
+ return array.filter((value, index) => array.indexOf(value) === index)
+
+}
+console.log(uniquifyArray(wordsUnique));
+
+
+
+
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -137,6 +151,9 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+
 
 // Iteration #8: Bonus
 
