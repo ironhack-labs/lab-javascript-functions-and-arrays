@@ -173,21 +173,19 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
-/* Find elements
-should create a function named doesWordExist
-should return null if receives an empty array when called
-should return true if the word we are looking for is the only one in the array
-should return false if the word we are looking for is not in the array
-should return true if the word we are looking for is in the array */
+
 const doesWordExist = (words, word) => {
   switch (words.length) {
     case 0:
       return null;
 
-    case 1:
-      if (word === words[0]) {
-        return true;
+    default:
+      for (let i of words) {
+        if (i === word) {
+          return true;
+        }
       }
+      return false;
   }
 };
 
