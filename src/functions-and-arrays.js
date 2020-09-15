@@ -84,7 +84,7 @@ const averageNumbers = (numbers) => {
   }
 };
 
-// Level 2: Array of strings
+// Level 2: Array of strings.
 const wordsArr = [
   "seat",
   "correspond",
@@ -98,7 +98,40 @@ const wordsArr = [
   "palace",
 ];
 
-// Iteration #5: Unique arrays
+const averageWordLength = (words) => {
+  switch (words.length) {
+    case 0:
+      return null;
+    default:
+      total = 0;
+      for (let word of words) {
+        total += word.length;
+      }
+      return total / words.length;
+  }
+};
+
+// Iteration #4 Bonus.
+const avg = (array) => {
+  switch (array.length) {
+    case 0:
+      return null;
+
+    default:
+      total = 0;
+      for (let i of array) {
+        if (typeof i === "string") {
+          total += i.length;
+        } else {
+          total += i;
+        }
+      }
+      // Jasmine likes it better when rounded to the hundredths place.
+      return Math.round(100 * (total/array.length)) / 100;
+  }
+};
+
+/*  Iteration #5: Unique arrays.  */
 const wordsUnique = [
   "crab",
   "poison",
@@ -113,7 +146,7 @@ const wordsUnique = [
   "bring",
 ];
 
-// Iteration #6: Find elements
+/*  Iteration #6: Find elements  */
 const wordsFind = [
   "machine",
   "subset",
@@ -125,7 +158,7 @@ const wordsFind = [
   "disobedience",
 ];
 
-// Iteration #7: Count repetition
+/*  Iteration #7: Count repetition  */
 const wordsCount = [
   "machine",
   "matter",
@@ -140,8 +173,7 @@ const wordsCount = [
   "matter",
 ];
 
-// Iteration #8: Bonus
-
+/*  Iteration #8: Bonus  */
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [
