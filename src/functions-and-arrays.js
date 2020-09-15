@@ -1,18 +1,70 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a,b){
+  if (a >b) {
+    return a
+  } else {
+    return b
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(words){
+    if (words.length ==0 ) {
+      return null
+    } else if (words.length==1) {
+      return words[0]
+    }  
+    let longestWord=""; //not coming up with 4th & 5th
+    for (i=0; i<=words.length ;i++){
+      let currentWord= words[i];
+      if (currentWord.length>longestWord.length){
+        longestWord=currentWord;
+      }
+    } 
+      return longestWord;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(number){
+  if (number.length==0){
+    return 0
+  } else if (number.length==1) {
+    return number[0]
+  }
+  let element="";
+  for (i=0; i<=number;i++){
+    let currentElement=number[i];
+  } if (currentElement.length>element.length){
+    element=currentElement;
+  }
+  return element;
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(average){
+if (average.length==0){
+  return null
+} else if (average.length==1){
+  return average [0]
+  }
+}
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(avgString){
+  if(avgString.length==0){
+    return null
+  } else if (avgString.string.length==1) {
+    return avgString[0]
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,10 +80,27 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+function uniquifyArray(specialWord){
+  if (specialWord.length==0){
+    return null
+  } else if (specialWord.length==1){
+    return specialWord[0]
+  }
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(word){
+  if (word.length==0){
+    return null
+  } else if (word.length==1){
+    return true
+  } else if (wordsFind.indexOf(word)>=0){
+    return true
+  } else {
+    return false
+  }
+}
+  
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -47,6 +116,24 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(times){
+ 
+  let counter=0;
+  if (times.length==0){
+    return 0
+  } else if (times.length==1) {
+    return 1
+  } 
+  
+  for (let i=0; i<=wordsCount.length;i++){
+    let currentElement=wordsCount[i];
+    if (currentElement==times){
+      counter++;
+    }
+  }
+
+  return counter;
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -71,3 +158,9 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+//let howManyTimes=0;
+//for (i=0; i<=5; i++) {
+//console.log(1);
+//console.log(5;)
+//}
