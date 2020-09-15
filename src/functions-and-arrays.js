@@ -1,4 +1,4 @@
-// Iteration #1: Find the maximum
+/*  Iteration #1: Find the maximum.  */
 const maxOfTwoNumbers = (a, b) => {
   if (a > b) {
     return a;
@@ -7,7 +7,7 @@ const maxOfTwoNumbers = (a, b) => {
   }
 };
 
-// Iteration #2: Find longest word
+/*  Iteration #2: Find longest word.  */
 const words = [
   "mystery",
   "brother",
@@ -37,33 +37,52 @@ const findLongestWord = (array) => {
   }
 };
 
-// Iteration #3: Calculate the sum
+/*  Iteration #3: Calculate the sum.  */
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-const sumNumbers = (array) => {
-  switch (array.length) {
+const sumNumbers = (numbers) => {
+  switch (numbers.length) {
     case 0:
       return 0;
 
     case 1:
-      return array[0] + 0;
+      return numbers[0] + 0;
 
     default:
       let sum = 0;
-      for (let i in array) {
-        if (array[i] != array[i + 1] && array[i] === 0) {
+      for (let n in numbers) {
+        if (numbers[n] != numbers[n + 1] && numbers[n] === 0) {
           return 0;
         } else {
-          sum += array[i]
+          sum += numbers[n];
         }
       }
-      return sum
+      return sum;
   }
 };
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// Iteration #3 Bonus.
+const sum = () => {};
+
+/*  Iteration #4: Calculate the average.  */
+
+// Level 1: Array of numbers.
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = (numbers) => {
+  switch (numbers.length) {
+    case 0:
+      return null;
+
+    default:
+      let total = 0;
+      for (let n in numbers) {
+        total += numbers[n];
+      }
+
+      return total / numbers.length;
+  }
+};
 
 // Level 2: Array of strings
 const wordsArr = [
