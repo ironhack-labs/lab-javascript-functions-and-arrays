@@ -18,9 +18,30 @@ const words = [
   "crackpot",
 ];
 
-// Iteration #3: Calculate the sum
+const findLongestWord = (array) => {
+  switch (array.length) {
+    case 0:
+      return null;
 
+    case 1:
+      return array[0];
+
+    default:
+      longest = "";
+      for (let word of array) {
+        if (word.length > longest.length && word !== longest) {
+          longest = word;
+        }
+      }
+      return longest;
+  }
+};
+
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumNumbers = () => {};
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
