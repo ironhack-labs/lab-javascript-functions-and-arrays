@@ -62,7 +62,7 @@ const sumNumbers = (numbers) => {
 };
 
 // Iteration #3 Bonus.
-const sum = () => {};
+
 
 /*  Iteration #4: Calculate the average.  */
 
@@ -146,19 +146,19 @@ const wordsUnique = [
   "bring",
 ];
 
-/* Unique array
-should create a function named uniquifyArray
-should return null if receives an empty array when called
-should return the correct uniqified array when an array of the same elements passed as argument
-should return the same array when no element is repeated
-should return the uniquified array */
-
-const uniquifyArray = (array) => {
-  switch (array.length) {
+const uniquifyArray = (words) => {
+  switch (words.length) {
     case 0:
       return null;
 
     default:
+      let unique = [];
+      for (let word of words) {
+        if (unique.indexOf(word) === -1) {
+          unique.push(word);
+        }
+      }
+      return unique;
   }
 };
 
