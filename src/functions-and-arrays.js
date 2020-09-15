@@ -40,8 +40,26 @@ const findLongestWord = (array) => {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-const sumNumbers = () => {};
+const sumNumbers = (array) => {
+  switch (array.length) {
+    case 0:
+      return 0;
 
+    case 1:
+      return array[0] + 0;
+
+    default:
+      let sum = 0;
+      for (let i in array) {
+        if (array[i] != array[i + 1] && array[i] === 0) {
+          return 0;
+        } else {
+          sum += array[i]
+        }
+      }
+      return sum
+  }
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
