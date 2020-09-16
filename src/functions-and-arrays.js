@@ -41,6 +41,28 @@ function sumNumbers(numArr) {
   }
   return sum
 }
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixArr) {
+  let sum = 0
+  if (mixArr.length === 0) {
+    return sum 
+  }
+  for (let i = 0; i < mixArr.length; i++) {
+     if (mixArr[i] !== Number) {
+      sum = sum + Number(mixArr[i])
+    } else if (mixArr[i] !== Boolean)  {
+      sum = sum + Number(mixArr[i])
+    } else if (mixArr[i].length !== String){
+      let length = mixArr[i].length
+      sum = sum + length
+    } else if (mixArr[i] !== Array || mixArr[i] !== Object) {
+      return
+    }
+  }
+  console.log(sum)
+  return sum
+}
+sum(mixedArr)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
