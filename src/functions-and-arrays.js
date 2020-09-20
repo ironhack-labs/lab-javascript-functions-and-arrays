@@ -177,37 +177,47 @@ const matrix = [
 ];
 
 
-/*
 function greatestProductInArray(list) {
   let greatestProduct = 0;
   for (let i = 0; i <list.length - 3; i++) {
     let product = list[i] * list[i+1] * list[i+2] * list[i+3];
-    if ( product < greatestProduct) {
-      greatestProduct += product;
+    if ( product > greatestProduct) {
+      greatestProduct = product;
     }
   } 
   return greatestProduct;
 }
 
-function makeNewMatrix(matrix) {
+function makeVerticalArrays(matrix) {
   let verticalArrays = [];
+  let verticalArray = [];
+  
   for (let y = 0; y < matrix.length; y++) { 
-    for (let x = 0; x < matrix.length; x++) {     
-      verticalArrays[x].push(matrix[x][y]);
+    for (let x = 0; x < matrix.length; x++) {
+      verticalArray.push(matrix[x][y]);
     }  
+    verticalArrays.push(verticalArray);
+    verticalArray = [];
   }
-  return matrix.push(verticalArrays);
+  return verticalArrays;
 }
 
 
 function greatestProduct(matrix) {
   let greatestProduct = 0;
-  let newMatrix = makeNewMatrix(matrix);
-  for (let i= 0; i < newMatrix.length; i++) {
-    if (greatestProductInArray(newMatrix[i]) > greatestProduct) {
-      greatestProduct = greatestProductInArray(newMatrix[i]);
+  for (let i = 0; i < matrix.length; i++) {
+    const greatestHorizontal = greatestProductInArray(matrix[i])
+    if (greatestHorizontal > greatestProduct) {
+      greatestProduct = greatestHorizontal;
+    }
+  }
+  const verticalMatrix = makeVerticalArrays(matrix)
+  for (let i = 0; i < verticalMatrix.length; i++) {
+    const greatestVertical = greatestProductInArray(verticalMatrix[i])
+    if (greatestVertical > greatestProduct) {
+      greatestProduct = greatestVertical;
     }
   }
   return greatestProduct;
 }
-*/
+
