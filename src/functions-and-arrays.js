@@ -37,6 +37,30 @@ function sumNumbers(numberList) {
   return sum;
 } 
 
+// Bonus 3.1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(list) {
+  let sum = 0;
+  list.forEach(function (element){
+    switch (typeof element) {
+      case 'number':
+        sum += element;
+        break;
+      case 'boolean':
+        sum += Number(element);
+        break;
+      case 'string':
+        sum += element.length;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -151,3 +175,39 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+/*
+function greatestProductInArray(list) {
+  let greatestProduct = 0;
+  for (let i = 0; i <list.length - 3; i++) {
+    let product = list[i] * list[i+1] * list[i+2] * list[i+3];
+    if ( product < greatestProduct) {
+      greatestProduct += product;
+    }
+  } 
+  return greatestProduct;
+}
+
+function makeNewMatrix(matrix) {
+  let verticalArrays = [];
+  for (let y = 0; y < matrix.length; y++) { 
+    for (let x = 0; x < matrix.length; x++) {     
+      verticalArrays[x].push(matrix[x][y]);
+    }  
+  }
+  return matrix.push(verticalArrays);
+}
+
+
+function greatestProduct(matrix) {
+  let greatestProduct = 0;
+  let newMatrix = makeNewMatrix(matrix);
+  for (let i= 0; i < newMatrix.length; i++) {
+    if (greatestProductInArray(newMatrix[i]) > greatestProduct) {
+      greatestProduct = greatestProductInArray(newMatrix[i]);
+    }
+  }
+  return greatestProduct;
+}
+*/
