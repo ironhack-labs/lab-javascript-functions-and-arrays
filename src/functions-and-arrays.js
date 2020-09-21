@@ -41,9 +41,9 @@ function sumNumbers(numberList) {
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum(list) {
+function sum(arr) {
   let sum = 0;
-  list.forEach(function (element){
+  arr.forEach(function (element){
     switch (typeof element) {
       case 'number':
         sum += element;
@@ -81,6 +81,16 @@ function averageWordLength(wordList){
     wordLengthList.push(word.length);
   })
   return averageNumbers(wordLengthList);
+}
+
+// Bonus 4.1 generic average function
+
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let average = sum(arr) / arr.length;
+  return average;
 }
 
 // Iteration #5: Unique arrays
@@ -153,7 +163,7 @@ function howManyTimes(wordList, wordToSearch) {
 
 // Iteration #8: Bonus
 
-const matrix = [
+/* const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -174,7 +184,7 @@ const matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+]; */
 
 
 function greatestProductInArray(list) {
@@ -221,3 +231,67 @@ function greatestProduct(matrix) {
   return greatestProduct;
 }
 
+// Bonus 8.1
+
+function makeDiagonalArrays(matrix) {
+  let diagonalArray = [];
+  let diagonalArrays = [];
+ 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let y = i, x = 0; y < matrix.length && x < matrix.length; y++, x++) {
+      diagonalArray.push(matrix[x][y]);
+    }
+
+    if (diagonalArray.length > 3) {
+      diagonalArrays.push(diagonalArray);
+    }
+    diagonalArray = [];
+  }
+
+  for (let i = 1; i < matrix.length; i++) {
+    for (let x = i, y = 0; x < matrix.length && y < matrix.length; x++, y++) {
+      diagonalArray.push(matrix[x][y]);
+    }
+    
+    if (diagonalArray.length > 3) {
+      diagonalArrays.push(diagonalArray);
+    }
+    diagonalArray = [];
+  }
+
+  for (let i = matrix.length - 1; i >= 0; i--) {
+    for (let y = i, x = 0; y >= 0 && x < matrix.length; y--, x++) {
+      diagonalArray.push(matrix[x][y]);
+    }
+
+    if (diagonalArray.length > 3) {
+      diagonalArrays.push(diagonalArray);
+    }
+    diagonalArray = [];
+  }
+
+  for (let i = 1; i < matrix.length; i++) {
+    for (let x = i, y = matrix.length - 1; y >= 0 && x < matrix.length; x++, y--) {
+      diagonalArray.push(matrix[x][y]);
+    }
+
+    if (diagonalArray.length > 3) {
+      diagonalArrays.push(diagonalArray);
+    }
+    diagonalArray = [];
+  }
+
+  return diagonalArrays;    
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let greatestProduct = 0;
+  const diagonalArrays = makeDiagonalArrays(matrix)
+  for (let i = 0; i < diagonalArrays.length; i++) {
+    const greatestProductOfDiagonals = greatestProductInArray(diagonalArrays[i])
+    if (greatestProductOfDiagonals > greatestProduct) {
+      greatestProduct = greatestProductOfDiagonals;
+    }
+  }
+  return greatestProduct;
+}
