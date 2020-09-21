@@ -207,6 +207,7 @@ let greatestProduct = someMatrix => {
   let product = 0;
   let horizontalProduct = 0;
   let verticalProduct = 0;
+  // loop for horizontal product
   for (let y = 0; y<someMatrix.length; y++){
     for (let x=0; x<someMatrix[1].length -4; x++){
       horizontalProduct = someMatrix[y][x]*someMatrix[y][x+1]*someMatrix[y][x+2]*someMatrix[y][x+3];
@@ -215,6 +216,7 @@ let greatestProduct = someMatrix => {
       }
     }
 }
+  // Loop for Vertical Product
   for (let xx=0; xx<someMatrix[1].length; xx++) {
     for (let yy=0; yy<someMatrix.length-4; yy++){
       verticalProduct = someMatrix[yy][xx]*someMatrix[yy+1][xx]*someMatrix[yy+2][xx]*someMatrix[yy+3][xx];
@@ -226,3 +228,54 @@ let greatestProduct = someMatrix => {
   return product;
 }
 console.log(greatestProduct(matrix));
+
+let greatestProductOfDiagonal = someMatrix2 => {
+  let product = 0;
+  let leftToRight = 1;
+  let rightToLeft = 1;
+  // loop for left to right diagonal
+
+    for (let x = 0; x < someMatrix2[1].length; x++){
+      for (let i = 0; i < someMatrix2.length - x; i++){
+        leftToRight = leftToRight*someMatrix2[i][i+x];
+        if(leftToRight > product){
+          product = leftToRight
+        }
+      }
+    
+  }
+  
+    for (let y = 0; y < someMatrix2.length; y++){
+      for (let i = 0; i < someMatrix2.length - y; i++){
+        leftToRight = leftToRight*someMatrix2[i+y][i];
+        if(leftToRight > product){
+          product = leftToRight
+        }
+      }
+    
+  }
+
+  // loop for right to left diagonal
+  
+    for (let x = someMatrix2[1].length - 1; x <= 0; x--){
+      for (let i = 0; i <= x; i--){
+        rightToLeft = rightToLeft*someMatrix2[i][x-i];
+        if(rightToLeft > product){
+          product = rightToLeft
+        }
+      }
+    
+  }
+  
+    for (let y = someMatrix2.length -1; y <= 0; y--){
+      for (let i = 0; i <= y; i--){
+        rightToLeft = rightToLeft*someMatrix2[y-i][i];
+        if(rightToLeft > product){
+          product = rightToLeft
+        }
+      }
+    
+  }
+return product;
+}
+console.log(greatestProductOfDiagonal(matrix));
