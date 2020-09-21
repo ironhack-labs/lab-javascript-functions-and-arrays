@@ -1,18 +1,59 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(number1, number2) {
+  return (number1 > number2) ? number1 : number2;
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  let 
+  for (let i = 0; i < words.length; i++) {
+    
+  }
+
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+function sumNumbers(numbers) {
+  let total = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+  return total;
+}
+
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  let average = 0;
+  for (let i = 0; i < array.length; i++) {
+    average += array[i];
+  }
+  return average / array.length; 
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) {
+  let averageWord = 0;
+  for (let i = 0; i < array.length; i++) {
+    averageWord += array[i].length;
+  }
+  return averageWord / array.length; 
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +70,30 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrayOfWords) {
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (i === -1) {
+      continue
+    } else {
+      let uniqueWords = []
+      uniqueWords = arrayOfWords.push[i]
+    }
+  }
+  return uniqueWords
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayOfWords, wordToSearch) {
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (wordToSearch == arrayOfWords[i]) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +109,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayOfWords, wordToSearch) {
+  let wordsCount = 0
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (wordToSearch == arrayOfWords[i]) {
+      wordsCount += 1
+    } 
+  }
+  return wordsCount
+}
 
 // Iteration #8: Bonus
 
