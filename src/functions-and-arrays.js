@@ -131,6 +131,7 @@ function avg(elements) {
     }
   }
   average = total/elements.length; 
+  average = Math.round(average*100)/100;
   return average;
 }
 
