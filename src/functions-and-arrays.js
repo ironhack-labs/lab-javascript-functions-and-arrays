@@ -48,7 +48,7 @@ function sumNumbers (numbers){
   }
   
 }
-
+// BONUS!
 function sum(numbers){
   let total = 0;
   if(numbers.length==0){
@@ -84,6 +84,44 @@ function averageNumbers (numbersAvg){
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(wordsArr){
+  if(wordsArr.length == 0){
+    return null
+  }
+  let totalNumChars = 0;
+  const arrLength = wordsArr.length
+  for(x=0; x<arrLength; x++){
+    let wordLength = wordsArr[x].length
+    totalNumChars += wordLength
+  }
+  return totalNumChars / arrLength
+}
+
+// BONUS
+function avg(arr){
+  let total = 0;
+  let arrLength = arr.length
+  if(arr.length==0){
+    return null
+  }else{
+    for (x=0; x<arr.length; x++){
+      if(typeof arr[x] === 'object'){
+        throw new Error("Unsupported data type sir or ma'am")
+      }else if(typeof arr[x] === 'number'){
+        total += arr[x]
+      }else if(arr[x] === true){
+        total += 1
+      }else if(arr[x] === false){
+        total += 0
+      }else {
+        total += arr[x].length
+      }
+    }
+    return Math.floor((total / arrLength)*100)/100
+  }
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -100,8 +138,36 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  if(wordsUnique.length == 0){
+    return null
+  }else{
+    let uniqueArray = []
+    wordsUnique.forEach(function(el){
+      if(uniqueArray.indexOf(el)<0){
+        uniqueArray.push(el)
+      }
+    })
+    return uniqueArray
+  }
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(wordsFind, wordToSearch){
+  if(wordsFind.length == 0){
+    return null
+  }else if (wordsFind.length == 1 && wordsFind[0] === wordToSearch){
+    return true
+  }else if(wordsFind.indexOf(wordToSearch)>0){
+    return true
+  }else{
+    return false
+  }
+}
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -117,6 +183,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(wordsCount, word){
+  if(wordsCount.length == 0 ){
+    return 0
+  }else{
+    let count = 0;
+    for (x=0; x<wordsCount.length; x++){
+      if(wordsCount[x]==word){
+        count ++
+      }
+    }
+    return count
+  }
+}
 
 // Iteration #8: Bonus
 
@@ -142,3 +221,63 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  const n = 20;
+  const arr = matrix
+  let max = 0
+  let result = 0
+
+  for (i = 0; i < n; i++){ 
+    // iterate the columns. 
+    for (c= 0; c < n; c++){ 
+      // iterate rows
+      for (r = 0; r < n; r++){  
+        // check the maximum product 
+        // in horizontal row. 
+        if ((c - 3) >= 0){ 
+          result = arr[r][c] * arr[r][c - 1] * arr[r][c - 2] * arr[r][c - 3]; 
+          if (max < result){
+            max = result; 
+          }  
+        } 
+        // check the maximum product 
+        // in vertical row. 
+        if ((r - 3) >= 0){ 
+          result = arr[r][c] * arr[r - 1][c] * arr[r - 2][c] * arr[r - 3][c]; 
+          if (max < result){
+            max = result; 
+          }   
+        } 
+      }
+    }
+  }
+  return max
+}
+
+
+
+function greatestProductOfDiagonals(matrix){
+  const n = 20;
+  const arr = matrix
+  let max = 0
+  let result = 0
+
+  for (i = 0; i < n; i++){ 
+    // iterate the columns. 
+    for (c= 0; c < n; c++){ 
+      // iterate rows
+      for (r = 0; r < n; r++){ 
+        // // check the maximum product in 
+        // // diagonal and anti - diagonal 
+        if ((r - 3) >= 0 && (c - 3) >= 0){ 
+          result = arr[r][c] * arr[r - 1][c - 1] * arr[r - 2][c - 2] * arr[r - 3][c - 3];
+          if (max < result) 
+              max = result; 
+          }
+      }
+    }
+  } 
+  return max  
+}
+console.log(greatestProductOfDiagonals(matrix))
