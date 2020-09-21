@@ -44,16 +44,18 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixedArr) {
   let sum = 0;
   for (let i = 0; i < mixedArr.length; i++) {
-    if (typeof mixedArr[i] === "string") {
+    if (typeof mixedArr[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else if (typeof mixedArr[i] === "array") {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else if (typeof mixedArr[i] === "string") {
       sum += mixedArr[i].length;
     } else if (typeof mixedArr[i] === "boolean" && mixedArr[i] === true) {
       sum += 1;
     } else if (typeof mixedArr[i] === "boolean" && mixedArr[i] === false) {
       sum+= 0;
-    } else if (typeof mixedArr[i] === "number") {
-      sum += mixedArr[i];
     } else {
-      throw new error('Unsupported data type present in the array');
+      sum += mixedArr[i];
     }
   } return sum;
 }
