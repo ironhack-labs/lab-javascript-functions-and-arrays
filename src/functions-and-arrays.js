@@ -1,11 +1,40 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1,num2){
+  return Math.max(num1,num2)
+  }
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord (words){
+let contador = ""; //aca guardo la palabra mas larga
+if (!words.length){ //si el arreglo no tiene longitud (vacio) me da 0
+  return null;
+}
+  words.forEach((word) =>{
+  if (contador.length < word.length){
+  contador = word 
+  }
+  }) 
+  return contador;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers (numbers){
+  let theSum = 0;
+  if (!numbers.length){
+    return theSum;
+  }
+   
+}
+
+//Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+
+//Declare a function named sumNumbers that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array. Later in the course we will learn how to do this by using the reduce array method, which will make your work significantly easier. For now, let's practice "declarative" way adding values, using loops.
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -49,6 +78,7 @@ const wordsCount = [
 
 // Iteration #8: Bonus
 
+/*
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -71,3 +101,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+*/
+
