@@ -28,7 +28,6 @@ function findLongestWord(arrayOfWords) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-
 function sumNumbers(numbers) {
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
@@ -82,11 +81,9 @@ const wordsUnique = [
 function uniquifyArray(arrayOfWords) {
   let uniqueWords = []
   for (let i = 0; i < arrayOfWords.length; i++) {
-    if (arrayOfWords.indexOf() === -1) {
-      continue
-    } else {
-      uniqueWords = arrayOfWords.push[i]
-    }
+    if ( uniqueWords.indexOf(arrayOfWords[i]) === -1 ) {
+      uniqueWords.push(arrayOfWords[i])
+     } 
   }
   return uniqueWords
 }
