@@ -1,18 +1,98 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(num1, num2){
+  if(num1>num2){
+    return num1;
+  }else{
+    return num2;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(wordArr){
+  if(wordArr.length === 0){
+    return null;
+  }
+
+  let longestWord = wordArr[0]
+  for(let i = 1; i < wordArr.length; i++){
+    if(wordArr[i].length > longestWord.length){
+      longestWord = wordArr[i];
+    }
+  }
+  return longestWord;
+}
+
+findLongestWord([]);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numArr){
+  let sum = 0;
+  for(let number of numArr){
+    sum += number;
+  }
+
+  return sum;
+}
+
+function sum(mixedArr){
+  let sum = 0;
+  let elType;
+  for(let element of mixedArr){
+    elType = typeof element;
+    switch(elType){
+      case "number":
+        sum += element;
+        break;
+      case "string":
+        sum += element.length;
+        break;
+      case "boolean":
+        if(element){
+          sum++
+        }
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+        break;
+    }
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numArr){
+  if(numArr.length === 0){
+    return null;
+  }
+
+  return sumNumbers(numArr)/numArr.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordArr){
+  if(wordArr.length === 0){
+    return null;
+  }
+
+  return sum(wordArr)/wordArr.length;
+}
+
+function avg(wordArr){
+  if(wordArr.length === 0){
+    return null;
+  }
+
+  return Number((sum(wordArr)/wordArr.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +109,36 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr){
+  if(arr.length === 0){
+    return null;
+  }
+  let uniqueArr = arr.slice();
+  let repetedIndex;
+  for(let i = 0; i < uniqueArr.length; i++){
+    repetedIndex = uniqueArr.indexOf(uniqueArr[i], i+1)
+    while(repetedIndex !== -1){
+      uniqueArr.splice(repetedIndex, 1);
+      repetedIndex = uniqueArr.indexOf(uniqueArr[i], i+1);
+    }
+  }
+  return uniqueArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordArr, word){
+  if(wordArr.length === 0){
+    return null;
+  }
+  for(let element of wordArr){
+    if(word === element){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +154,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArr, word){
+  let count = 0;
+  for(let element of wordArr){
+    if(element === word){
+      count++;
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +189,53 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function linearizeByRow(matrix){
+  let linearArr = [];
+  for (let arr of matrix){
+    linearArr = linearArr.concat(arr);
+  }
+  return linearArr;
+}
+
+function linearizeByColumn(matrix){
+  let linearArr = [];
+  for(let j = 0; j < matrix[0].length; j++){
+    for(let i = 0; i < matrix.length; i++){
+      linearArr.push(matrix[i][j]);
+    }
+  }
+
+  return linearArr;
+}
+
+function groupByFour(arr){
+  let matrix = []
+  for(let i = 0; i <= arr.length-4; i++){
+    matrix.push([]);
+    matrix[i].push(arr[i], arr[i+1], arr[i+2], arr[i+3]);
+  }
+  return matrix;
+}
+
+function multiplyNumbers(arr){
+  let result = 1;
+  for(let number of arr){
+    result *= number;
+  }
+  return result;
+}
+
+function greatestProduct(matrix){
+  let groupedBy4HorArr = groupByFour(linearizeByRow(matrix)), groupedBy4VerArr = groupByFour(linearizeByColumn(matrix));
+  let productArrHor = [], productArrVer = [];
+  for(let arr of groupedBy4HorArr){
+    productArrHor.push(multiplyNumbers(arr));
+  }
+  let horizontalMaximum = Math.max(...productArrHor);
+  for(let arr of groupedBy4VerArr){
+    productArrVer.push(multiplyNumbers(arr));
+  }
+  let verticalMaximum = Math.max(...productArrVer);
+  return Math.max(horizontalMaximum, verticalMaximum);
+}
