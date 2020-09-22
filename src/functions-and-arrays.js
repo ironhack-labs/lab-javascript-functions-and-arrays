@@ -7,13 +7,22 @@ function maxOfTwoNumbers(number1, number2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  let 
-  for (let i = 0; i < words.length; i++) {
-    
+function findLongestWord(arrayOfWords) {
+  let maxLength = 0;
+  let longestWord = null;
+
+  for (i = 0; i < arrayOfWords.length; i++) {
+    currentLength = arrayOfWords[i].length;
+
+    if (currentLength > maxLength) {
+      longestWord = arrayOfWords[i];
+      maxLength = currentLength;
+    }
   }
 
+  return longestWord;
 }
+
 
 // Iteration #3: Calculate the sum
 
@@ -21,11 +30,11 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 
 function sumNumbers(numbers) {
-  let total = 0;
+  let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
-    total += numbers[i];
+    sum += numbers[i];
   }
-  return total;
+  return sum;
 }
 
 
@@ -71,11 +80,11 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arrayOfWords) {
+  let uniqueWords = []
   for (let i = 0; i < arrayOfWords.length; i++) {
-    if (i === -1) {
+    if (arrayOfWords.indexOf() === -1) {
       continue
     } else {
-      let uniqueWords = []
       uniqueWords = arrayOfWords.push[i]
     }
   }
