@@ -1,18 +1,116 @@
 // Iteration #1: Find the maximum
 
+let maxOfTwoNumbers = function (numOne,numTwo) {
+  if (numOne > numTwo) {
+  console.log(`El número mayor es ${numOne}!`);
+  return numOne
+} else if (numTwo > numOne) {
+  console.log(`El número mayor es ${numTwo}!`);
+  return numTwo
+} else {
+  console.log(`Los números ingresados son iguales`);
+  return numOne && numTwo;
+}
+}
+maxOfTwoNumbers(4,3);
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+let findLongestWord = function (cadenaTexto) {
+  let longestWord = cadenaTexto[0];
+  if (cadenaTexto.length === 0) {
+    return null;
+  }
+  for(let i = 1; i < cadenaTexto.length; i++){
+    if(cadenaTexto[i].length > longestWord.length){
+      longestWord = cadenaTexto[i];
+    }
+  }
+  return longestWord;
+}
+
+findLongestWord(words);
+
+
+
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [];
+function sumNumbers(cadenaSum){
+let suma = 0;
+  for(let number of cadenaSum){
+        suma += number;
+      }
+    
+      return suma;
+}  
+sumNumbers(numbers);
+
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr){
+  let sumaAlt = 0;
+  let elType;
+  for(let element of mixedArr){
+    elType = typeof element;
+    switch(elType){
+      case "number":
+        sumaAlt += element;
+        break;
+      case "string":
+        sumaAlt += element.length;
+        break;
+      case "boolean":
+        if(element){
+          sumaAlt++
+        }
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+        break;
+    }
+  }
+  return sumaAlt;
+}
+
+sum(mixedArr);
+
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numArr){
+  if(numArr.length === 0){
+    return null;
+  }
+
+  return sumNumbers(numArr)/numArr.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordArr){
+  if(wordArr.length === 0){
+    return null;
+  }
+
+  return sum(wordArr)/wordArr.length;
+}
+
+function avg(wordArr){
+  if(wordArr.length === 0){
+    return null;
+  }
+
+  return Number((sum(wordArr)/wordArr.length).toFixed(2));
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,12 +126,43 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr){
+  if(arr.length === 0){
+    return null;
+  }
+  let uniqueArr = arr.slice();
+  let repetedIndex;
+  for(let i = 0; i < uniqueArr.length; i++){
+    repetedIndex = uniqueArr.indexOf(uniqueArr[i], i+1)
+    while(repetedIndex !== -1){
+      uniqueArr.splice(repetedIndex, 1);
+      repetedIndex = uniqueArr.indexOf(uniqueArr[i], i+1);
+    }
+  }
+  return uniqueArr;
+}
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(wordArr, word){
+  if(wordArr.length === 0){
+    return null;
+  }
+  for(let element of wordArr){
+    if(word === element){
+      return true;
+    }
+  }
+  return false;
+}
+
 // Iteration #7: Count repetition
-const wordsCount = [
+
+//const wordArrNew = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience']; //Matriz One
+
+const words = [
   'machine',
   'matter',
   'subset',
@@ -45,7 +174,25 @@ const wordsCount = [
   'truth',
   'disobedience',
   'matter'
-];
+]; //Matriz Two
+
+// debo comparar los elementos de la matriz 2 con los de la matriz 1
+
+function howManyTimes(matrizOne, matrizTwo){
+  let countMatch = 0;
+    for (let elements of matrizOne){
+      console.log(elements);
+          for(let element of matrizTwo){
+            
+            if(element === elements){
+            countMatch++;
+            }
+          }
+    }
+  return countMatch;
+}
+howManyTimes(wordsFind,words);
+
 
 // Iteration #8: Bonus
 
