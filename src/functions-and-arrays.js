@@ -94,7 +94,7 @@ let avg = mixedArray => {
           break;
       };
     };
-    result = sumNumbers(mixedArray)/mixedArray.length;
+    result = averageNumbers(mixedArray);
   };
   return result;
 };
@@ -122,13 +122,26 @@ let uniquifyArray = duplicateArray => {
         duplicateArray.splice(indexOf(duplicaArray[i],i+1),1);
       };
     };
-    result = duplicateArray
+    result = duplicateArray;
   };
   return result;
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+let doesWordExist = (findArray, findWord) => {
+  let result = null;
+  if (findArray.length !== 0) {
+    result = false;
+    for (i=0; i<findArray.length; i++) {
+      if (findWord === findArray[i]) {
+        result = true;
+      };
+    };
+  };
+  return result;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -144,6 +157,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (countArray, countWord) => {
+  let result = 0;
+  if (countArray.length !== 0) {
+    for (i=0; i<countArray.length; i++) {
+      if (countWord === countArray[i]) {
+        result += 1;
+      };
+    };
+  };
+  return result;
+};
 
 // Iteration #8: Bonus
 
@@ -169,3 +194,23 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let greatestProduct = matrix => {
+  let result = 0;
+  let horizontalCalculation = 0;
+  let verticalCalculation = 0;
+  for (x=0; x<matrix.length; x++) {
+    for (y=0; y<matrix[1].length; y++) {
+      horizontalCalculation = matrix[x][y]*matrix[x][y+1]*matrix[x][y+2]*matrix[x][y+3];
+      verticalCalculation = matrix[x][y]*matrix[x+1][y]*matrix[x+2][y]*matrix[x+3][y];
+      if (horizontalCalculation > result || verticalCalculation > result) {
+        if (horizontalCalculation > verticalCalculation) {
+          result = horizontalCalculation;
+        } else {
+          result = verticalCalculation;
+        };
+      };
+    };
+  };
+  return result;
+};
