@@ -223,5 +223,3 @@ const greatestProduct = function (givenMatrix) {
   return maxProduct;
 
 }
-
-greatestProduct(matrix);
