@@ -49,7 +49,7 @@ let sum = (mixedArr) => {
         mixedArr[i] *= 1;
         break;
     };
-  };
+  }; 
   return sumNumbers(mixedArr);
 };
 
