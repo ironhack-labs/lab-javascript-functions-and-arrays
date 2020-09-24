@@ -277,4 +277,3 @@ function greatestProductOfDiagonals(matrix){
   } 
   return max  
 }
-console.log(greatestProductOfDiagonals(matrix))
