@@ -1,19 +1,62 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (num1, num2){
+  if (num1>num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (words){}
+
+  let longestWord = words[0]
+  //FOR
+words.forEach(function(word){
+  if (word.length[0] >= word.length[1]){
+   result = longestWord=word.length[0];
+  } else{
+    result = "null";
+  };
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumNumbers (numbers) {
+  for (let i=0;i[0]+i[1];i++);
+  return sumNumbers;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function sumNumbers1 (numbersAvg){
+  for (let i=0;i[0]+i[1];i++);
+  return sumNumbers1;
+function averageNumbers (sumNumbers1){
+  for (let average;
+    average = sumNumbers1/numbersAvg.indexOf;
+  return average;)
+     
+  // for(let i=0;i/i(sumNumbers1);
+
+}            
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength (wordsArr){
+  for (let i = 0; i= wordsArr.length; i++) 
+  return i/wordsArr.indexOf;{
+    
+    
+  }
+  
+    
 
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -28,10 +71,14 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+function uniquifyArray (wordsUnique){}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+// function doesExist (wordFind){
+//   if wordFind = true
+//   else 
+  
+// }
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,7 +93,9 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes (wordsCount) {
 
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -70,4 +119,4 @@ const matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+]}
