@@ -214,21 +214,21 @@ function greatestProduct(matrix){
   }
   return maxProd;
 }
-
+console.log(greatestProductDiag(matrix));
 function greatestProductDiag(matrix){
-  let maxProd = 0;
+  let maxProdDiag = 0;
   let numRows = matrix.length;
   let numCols = matrix[0].length;
 
   for (i=0;i<numCols;i++){
-    for (j=3;i<numRows-3;i++){
-      let cProd = currentMultiply(i,j,matrix);
-      if (maxProd<cProd){
-        maxProd = cProd;
+    for (j=0;i<numRows;i++){
+      let cProdDiag = currentMultiply(i,j,matrix);
+      if (maxProdDiag<cProdDiag){
+        maxProdDiag = cProdDiag;
       }
     }
   }
-  return maxProd;
+  return maxProdDiag;
 }
 
 function currentProd(row,column,matrix){
@@ -237,11 +237,36 @@ function currentProd(row,column,matrix){
   return Math.max(rowProd, colProd);
 }
 
-function currentMultiply(row,column,matrix){
-  if (row===1){
-    
-  }
-  let prod1=matrix[row][column] *  matrix[row+1][column+1] * matrix[row+2][column+2] * matrix[row+3][column+3];
-  let prod2=matrix[row][column] *  matrix[row-1][column-1] * matrix[row-2][column-2] * matrix[row-3][column-3];
+function currentMultiply(cRow,cColumn,matrix){
+  let row=parseFloat(cRow);
+  let column= parseFloat(cColumn);
+  let e1=0;
+  let e2=0;
+  let e3=0;
+  let e4=0;
+  let e5=0;
+  let e6=0;
+  let numRows = matrix.length;
+  let numCols = matrix[0].length;
+  let varx=row+3;
+  console.log(column,"fdfged");
+  console.log("Number of Rows: " + numRows + " | Number or Columns: " + numCols + " | Current Row: " + row + " | Current Column: " + column);
+  // console.log("Row+3: " + row+3 + " | Row Data Type: " + typeof row + " | 3 Data Type: " + typeof 3 + " | " + typeof row + " | " + typeof + row + 3 );
+  // console.log(row, "frgg");
+  // console.log(row);
+  // console.log("Current Row: " + row + " | Current Column: " + column)
+  if (row+1>numRows||column+1>numCols){if (matrix[row+1][column+1]!==undefined){e1=matrix[row+1][column+1];}else{e1=1;}} else {e1=1;}
+  if (row+2>numRows||column+2>numCols){if (matrix[row+2][column+2]!==undefined){e2=matrix[row+2][column+2];}else{e2=1;}} else {e2=1;}
+  if (row+3>numRows||column+3>numCols){if (matrix[row+3][column+3]!==undefined){e3=matrix[row+3][column+3];}else{e3=1;}} else {e3=1;}
+
+  if (column-1>0){if (matrix[row+1][column-1]!==undefined){e4=matrix[row+1][column-1];}else{e4=1;}} else {e4=1;}
+  if (column-2>0){if (matrix[row+2][column-2]!==undefined){e4=matrix[row+2][column-2];}else{e5=1;}} else {e5=1;}
+  if (column-3>0){if (matrix[row+3][column-3]!==undefined){e4=matrix[row+3][column-3];}else{e6=1;}} else {e6=1;}
+
+  // if (matrix[row+2][column-2]!==undefined){e5=matrix[row+2][column-2];}else{e5=1;}
+  // if (matrix[row+3][column-3]!==undefined){e6=matrix[row+3][column-3];}else{e6=1;}
+
+  let prod1=matrix[row][column] *  e1 * e2 * e3;
+  let prod2=matrix[row][column] *  e4 * e5 * e6;
   return Math.max(prod1,prod2);  
 }
