@@ -187,7 +187,7 @@ const words = [
   'bring'
 ];
 ```
-
+  
 ### Iteration #6: Find elements
 
 Let's create a simple array search.
