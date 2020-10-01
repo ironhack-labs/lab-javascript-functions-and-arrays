@@ -77,6 +77,13 @@ function averageWordLength(array) {
   return sum/array.length
 }
 
+function avg(arr) {
+  if(arr.length === 0){
+    return null
+  }
+  return sum(arr)/arr.length
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
