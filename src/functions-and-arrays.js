@@ -197,16 +197,17 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// console.log(greatestProduct(matrix));
-//Perque no cal fer numCols-3???
+//Greates Product
+console.log("Greatest Product is " +greatestProduct(matrix).toLocaleString());
+
 function greatestProduct(matrix){
   let maxProd = 0;
   let numRows = matrix.length;
   let numCols = matrix[0].length;
 
-  for (i=0;i<numCols;i++){
-    for (j=0;i<numRows-3;i++){
-      let cProd = currentProd(i,j,matrix);
+  for (i=0;i<numCols-3;i++){
+    for (j=0;j<numRows-3;j++){
+      let cProd = currentProd(i,j,matrix,maxProd);
       if (maxProd<cProd){
         maxProd = cProd;
       }
@@ -214,8 +215,16 @@ function greatestProduct(matrix){
   }
   return maxProd;
 }
+function currentProd(row,column,matrix,currMax){
+  let rowProd = matrix[row][column] *  matrix[row][column+1] * matrix[row][column+2] * matrix[row][column+3];
+  let colProd = matrix[row][column] *  matrix[row+1][column] * matrix[row+2][column] * matrix[row+3][column];
+  // console.log( "Row: " + row +" | Column: " + column +" | Horizontal Prod: " + rowProd+" | Vertical Prod: " + colProd + " | CurrMaxProd: "+Math.max(rowProd, colProd)+" | CurrMax: " + currMax );
+  return Math.max(rowProd, colProd);
+}
 
-console.log(greatestProductDiag(matrix));
+//Greates Product in Diagonal
+console.log("Greatest Product in Diagonal is " + greatestProductDiag(matrix).toLocaleString());
+
 function greatestProductDiag(matrix){
   let maxProdDiag = 0;
   let numRows = matrix.length;
@@ -223,7 +232,7 @@ function greatestProductDiag(matrix){
 
   for (i=0;i<numCols;i++){
     for (j=0;j<numRows;j++){
-      let cProdDiag = currentMultiply(i,j,matrix);
+      let cProdDiag = currentMultiply(i,j,matrix,maxProdDiag);
       if (maxProdDiag<cProdDiag){
         maxProdDiag = cProdDiag;
       }
@@ -231,84 +240,100 @@ function greatestProductDiag(matrix){
   }
   return maxProdDiag;
 }
+function currentMultiply(cRow,cColumn,matrix,currMax){
 
-function currentProd(row,column,matrix){
-  let rowProd = matrix[row][column] *  matrix[row][column+1] * matrix[row][column+2] * matrix[row][column+3];
-  let colProd = matrix[row][column] *  matrix[row+1][column] * matrix[row+2][column] * matrix[row+3][column];
-  return Math.max(rowProd, colProd);
-}
-
-function currentMultiply(cRow,cColumn,matrix){
-  //Variables
   let row=parseFloat(cRow);
   let column= parseFloat(cColumn);
-  let e1=0;
-  let e2=0;
-  let e3=0;
-  let e4=0;
-  let e5=0;
-  let e6=0;
+
   let numRows = matrix.length;
   let numCols = matrix[0].length; 
 
-  // console.log(column,"fdfged");
-  // console.log("Number of Rows: " + numRows +"(" +typeof numRows +")"+ " | Number or Columns: " + numCols +"(" +typeof numCols +")"+ " | Current Row: " + row +"(" +typeof row +")"+ " | Current Column: " + column +"("+ typeof column +")");
-  // console.log("Row+3: " + row+3 + " | Row Data Type: " + typeof row + " | 3 Data Type: " + typeof 3 + " | " + typeof row + " | " + typeof + row + 3 );
-  // console.log(row, "frgg");
-  // console.log(row);
-  // console.log("Current Row: " + row + " | Current Column: " + column)
-
-  // console.log("NumRows: " + numRows + "(" + typeof numRows + ") | NumCols: " + numCols + "(" + typeof numCols + ")  | CurrRow: " + row + "(" + typeof row + ")  | CurrCol: " + column + "(" + typeof column + ")");
-  // if (row+1>numRows||column+1>numCols){
-  //   console.log("1rst Conditional OK (TRUE)")
-  //   if (matrix[row+1][column+1]!==undefined){
-  //     console.log("2nd Conditional OK (TRUE)")
-  //     e1=matrix[row+1][column+1];
-  //   }else{
-  //     e1=1;
-  //     console.log("2nd Conditional OK (FALSE)")
-  //   }
-  // } else {
-  //   console.log("1rst Conditional OK (FALSE)")
-  //   e1=1;
-  // }
-
   let valores=[0,0,0,0,0,0];
-  // let i = 1;
 
   for (let i = 1;i<=3;i++){
-    // console.log(i);
     try{if(matrix[row+i][column+i]===undefined){valores[i-1]=1;}else{valores[i-1]=matrix[row+i][column+i];}}catch{valores[i-1]=1;}
-    try{if(matrix[row+i][column-i]===undefined){valores[i+2]=1;}else{valores[i+2]=matrix[row+i][column+i];}}catch{valores[i+2]=1;}
-}
-  // // //Valores Diagonal Abajo y Derecha (Rows Mayores que 'Row Máxima' y Columnas Menores que 'Número de Columnas'))
-  // try{if(matrix[row+1][column+1]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
-  // try{if(matrix[row+2][column+2]===undefined){e2=1;}else{e2=matrix[row+2][column+2];}}catch{e2=1;}
-  // try{if(matrix[row+3][column+3]===undefined){e3=1;}else{e3=matrix[row+3][column+3];}}catch{e3=1;}
-
-  // try{e2=matrix[row+2][column+2];}catch{e2=1;}
-  // try{e3=matrix[row+3][column+3];}catch{e3=1;}
-  // // if (row+1>numRows||column+1>numCols){if (matrix[row+1][column+1]!==undefined){e1=matrix[row+1][column+1];}else{e1=1;}} else {e1=1;}
-  // // if (row+2>numRows||column+2>numCols){if (matrix[row+2][column+2]!==undefined){e2=matrix[row+2][column+2];}else{e2=1;}} else {e2=1;}
-  // // if (row+3>numRows||column+3>numCols){if (matrix[row+3][column+3]!==undefined){e3=matrix[row+3][column+3];}else{e3=1;}} else {e3=1;}
-
-  // //Valores Diagonal Abajo y Izquierda (Rows Mayores que 'Row Máxima' y Columnas Mayores que Cero))
-  // try{if(matrix[row+1][column-1]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
-  // try{if(matrix[row+2][column-2]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
-  // try{if(matrix[row+3][column-3]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
-
-  // try{e4=matrix[row+1][column-1];}catch{e4=1;}
-  // try{e5=matrix[row+2][column-2];}catch{e5=1;}
-  // try{e6=matrix[row+3][column-3];}catch{e6=1;}
-  // // if (row+1>numRows||column-1>0){if (matrix[row+1][column-1]!==undefined){e4=matrix[row+1][column-1];}else{e4=1;}} else {e4=1;}
-  // // if (row+2>numRows||column-2>0){if (matrix[row+2][column-2]!==undefined){e4=matrix[row+2][column-2];}else{e5=1;}} else {e5=1;}
-  // // if (row+3>numRows||column-3>0){if (matrix[row+3][column-3]!==undefined){e4=matrix[row+3][column-3];}else{e6=1;}} else {e6=1;}
-
-  //
+    try{if(matrix[row+i][column-i]===undefined){valores[i+2]=1;}else{valores[i+2]=matrix[row+i][column-i];}}catch{valores[i+2]=1;}
+  }
   let prod1=matrix[row][column] *  valores[0] * valores[1] * valores[2];
   let prod2=matrix[row][column] *  valores[3] * valores[4] * valores[5];
   // console.log("E1: " + valores[0] +" | E2: " + valores[1] +" | E3: " + valores[2] +" | E4: " + valores[3] +" | E5: " + valores[4] +" | E6: " + valores[5])
-  console.log("NumRows: " + numRows +"(" +typeof numRows +") | NumCols: " + numCols +"(" +typeof numCols +") | CurRow: " + row +"(" +typeof row +") | CurColumn: " + column +"("+ typeof column +") | Prod DR: " + prod1+"("+ typeof prod1 +") | Product DL: "+prod2+"("+ typeof prod1 +")");
+  // console.log("NumRows: " + numRows +"(" +typeof numRows +") | NumCols: " + numCols +"(" +typeof numCols +") | CurRow: " + row +"(" +typeof row +") | CurColumn: " + column +"("+ typeof column +") | Prod DR: " + prod1+"("+ typeof prod1 + ") | Product DL: " + prod2 + "("+ typeof prod2 +") | CurrMaxProd: "+Math.max(prod1,prod2)+ "(" + typeof Math.max(prod1,prod2) + ") | CurrMax: " + currMax + " ("+ typeof currMax + ")");
+  // console.log("NumRows: " + numRows +" | NumCols: " + numCols +" | Row: " + row +" | Column: " + column +" | Prod DR: " + prod1+" | Product DL: " + prod2 + " | CurrMaxProd: "+Math.max(prod1,prod2)+" | CurrMax: " + currMax );
 
   return Math.max(prod1,prod2);  
 }
+
+// function currentMultiply2(cRow,cColumn,matrix){
+//   //Variables
+//   let row=parseFloat(cRow);
+//   let column= parseFloat(cColumn);
+//   let e1=0;
+//   let e2=0;
+//   let e3=0;
+//   let e4=0;
+//   let e5=0;
+//   let e6=0;
+//   let numRows = matrix.length;
+//   let numCols = matrix[0].length; 
+
+//   // console.log(column,"fdfged");
+//   // console.log("Number of Rows: " + numRows +"(" +typeof numRows +")"+ " | Number or Columns: " + numCols +"(" +typeof numCols +")"+ " | Current Row: " + row +"(" +typeof row +")"+ " | Current Column: " + column +"("+ typeof column +")");
+//   // console.log("Row+3: " + row+3 + " | Row Data Type: " + typeof row + " | 3 Data Type: " + typeof 3 + " | " + typeof row + " | " + typeof + row + 3 );
+//   // console.log(row, "frgg");
+//   // console.log(row);
+//   // console.log("Current Row: " + row + " | Current Column: " + column)
+
+//   // console.log("NumRows: " + numRows + "(" + typeof numRows + ") | NumCols: " + numCols + "(" + typeof numCols + ")  | CurrRow: " + row + "(" + typeof row + ")  | CurrCol: " + column + "(" + typeof column + ")");
+//   // if (row+1>numRows||column+1>numCols){
+//   //   console.log("1rst Conditional OK (TRUE)")
+//   //   if (matrix[row+1][column+1]!==undefined){
+//   //     console.log("2nd Conditional OK (TRUE)")
+//   //     e1=matrix[row+1][column+1];
+//   //   }else{
+//   //     e1=1;
+//   //     console.log("2nd Conditional OK (FALSE)")
+//   //   }
+//   // } else {
+//   //   console.log("1rst Conditional OK (FALSE)")
+//   //   e1=1;
+//   // }
+
+//   let valores=[0,0,0,0,0,0];
+//   // let i = 1;
+
+//   for (let i = 1;i<=3;i++){
+//     // console.log(i);
+//     try{if(matrix[row+i][column+i]===undefined){valores[i-1]=1;}else{valores[i-1]=matrix[row+i][column+i];}}catch{valores[i-1]=1;}
+//     try{if(matrix[row+i][column-i]===undefined){valores[i+2]=1;}else{valores[i+2]=matrix[row+i][column+i];}}catch{valores[i+2]=1;}
+// }
+//   // // //Valores Diagonal Abajo y Derecha (Rows Mayores que 'Row Máxima' y Columnas Menores que 'Número de Columnas'))
+//   // try{if(matrix[row+1][column+1]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
+//   // try{if(matrix[row+2][column+2]===undefined){e2=1;}else{e2=matrix[row+2][column+2];}}catch{e2=1;}
+//   // try{if(matrix[row+3][column+3]===undefined){e3=1;}else{e3=matrix[row+3][column+3];}}catch{e3=1;}
+
+//   // try{e2=matrix[row+2][column+2];}catch{e2=1;}
+//   // try{e3=matrix[row+3][column+3];}catch{e3=1;}
+//   // // if (row+1>numRows||column+1>numCols){if (matrix[row+1][column+1]!==undefined){e1=matrix[row+1][column+1];}else{e1=1;}} else {e1=1;}
+//   // // if (row+2>numRows||column+2>numCols){if (matrix[row+2][column+2]!==undefined){e2=matrix[row+2][column+2];}else{e2=1;}} else {e2=1;}
+//   // // if (row+3>numRows||column+3>numCols){if (matrix[row+3][column+3]!==undefined){e3=matrix[row+3][column+3];}else{e3=1;}} else {e3=1;}
+
+//   // //Valores Diagonal Abajo y Izquierda (Rows Mayores que 'Row Máxima' y Columnas Mayores que Cero))
+//   // try{if(matrix[row+1][column-1]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
+//   // try{if(matrix[row+2][column-2]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
+//   // try{if(matrix[row+3][column-3]===undefined){e1=1;}else{e1=matrix[row+1][column+1];}}catch{e1=1;}
+
+//   // try{e4=matrix[row+1][column-1];}catch{e4=1;}
+//   // try{e5=matrix[row+2][column-2];}catch{e5=1;}
+//   // try{e6=matrix[row+3][column-3];}catch{e6=1;}
+//   // // if (row+1>numRows||column-1>0){if (matrix[row+1][column-1]!==undefined){e4=matrix[row+1][column-1];}else{e4=1;}} else {e4=1;}
+//   // // if (row+2>numRows||column-2>0){if (matrix[row+2][column-2]!==undefined){e4=matrix[row+2][column-2];}else{e5=1;}} else {e5=1;}
+//   // // if (row+3>numRows||column-3>0){if (matrix[row+3][column-3]!==undefined){e4=matrix[row+3][column-3];}else{e6=1;}} else {e6=1;}
+
+//   //
+//   let prod1=matrix[row][column] *  valores[0] * valores[1] * valores[2];
+//   let prod2=matrix[row][column] *  valores[3] * valores[4] * valores[5];
+//   // console.log("E1: " + valores[0] +" | E2: " + valores[1] +" | E3: " + valores[2] +" | E4: " + valores[3] +" | E5: " + valores[4] +" | E6: " + valores[5])
+//   // console.log("NumRows: " + numRows +"(" +typeof numRows +") | NumCols: " + numCols +"(" +typeof numCols +") | CurRow: " + row +"(" +typeof row +") | CurColumn: " + column +"("+ typeof column +") | Prod DR: " + prod1+"("+ typeof prod1 +") | Product DL: "+prod2+"("+ typeof prod1 +")");
+
+//   return Math.max(prod1,prod2);  
+// }
