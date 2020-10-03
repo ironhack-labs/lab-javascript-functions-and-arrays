@@ -43,40 +43,66 @@ function sumNumbers(array){
   }
 } 
 
+function sum(array){
+  if(array.length===0) return 0;
+  else if(array.length===1)return array[0];
+  else{
+  let sume = 0;
+  for(let i=0;i<array.length;i++){
+     switch(typeof array[i]){
+      case  "number":
+        sume += array[i];
+        break;
+      case  "string":
+        sume += array[i].length;  
+        break;
+      case "boolean":
+        if(array[i])sume += 1;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    } 
+    
+  }
+  return sume;
+}
+
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function sum(array){
-    if(array.length===0) return 0;
-    else if(array.length===1)return array[0];
-    else{
-    let sume = 0;
-    for(let i=0;i<array.length;i++){
-       switch(typeof array[i]){
-        case  "number":
-          sume += array[i];
-          break;
-        case  "string":
-          sume += array[i].length;  
-          break;
-        case "boolean":
-          if(array[i])sume += 1;
-          break;
-        default:
-          throw new Error("Unsupported data type sir or ma'am");
-      } 
-
-      
-      
-    }
-    return sume;
+function averageNumbers(array){
+  if(array.length===0) return null; //array vacía
+  else if(array.length===1)return array[0]; //solo un parámetro
+  else{
+    let avr = 0;
+    array.forEach((value,indice,arr)=> {
+      avr +=value;
+    })
+    return avr/array.length;
   }
-
 }
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array){
+  if(array.length===0) return null; //array vacía
+  else if(array.length===1)return array[0].length; //solo un parámetro
+  else{
+    let avr = 0;
+    array.forEach((value,indice,arr)=> {
+      avr +=value.length; //suma de todas las longitudes de los strings
+    })
+    return avr/array.length;
+  }
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
