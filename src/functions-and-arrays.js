@@ -103,6 +103,32 @@ function averageWordLength(array){
   }
 }
 
+function avg(array){
+  if(array.length===0) return null;
+  else if(array.length===1)return array[0];
+  else{
+    let sume = 0;
+    for(let i=0;i<array.length;i++){
+      switch(typeof array[i]){
+        case  "number":
+          sume += array[i];
+          break;
+        case  "string":
+          sume += array[i].length;  
+          break;
+        case "boolean":
+          if(array[i])sume += 1;
+          break;
+        default:
+          throw new Error("Unsupported data type sir or ma'am");
+      } 
+      
+    }
+    return Number.parseFloat((sume/array.length).toFixed(2));//los tests parece que exigen dos decimales por lo que me obliga a realizar estas conversiones
+  }
+
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -121,6 +147,15 @@ const wordsUnique = [
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function uniquifyArray(array){
+  if(array.length===0) return null;
+  let arrayUnique = [];
+  array.forEach((value,indice,arr)=> {
+    if(arrayUnique.indexOf(value) ===-1)arrayUnique.push(value);//introducimos el valor en arrayUnique siempre que no esté ya presente
+  })
+  return arrayUnique;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
