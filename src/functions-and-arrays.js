@@ -1,8 +1,5 @@
 // Iteration #1: Find the maximum
 
-let num1 = 4;
-let num2 = 5;
-
 function maxOfTwoNumbers(num1, num2) {
   let maxNumber;
   if (num1 > num2) {
@@ -120,9 +117,26 @@ const wordsUnique = [
   "bring",
 ];
 
+const uniquifiedOne = [];
+let totalDif = -1;
+
+function lookForTheRepeatOnes(value, index, arr) {
+  let indexElement = arr.indexOf(value);
+  let itsNotRepeated = index === indexElement;
+  if (itsNotRepeated) {
+    uniquifiedOne.push(arr[index]);
+    totalDif++;
+  }
+}
+
 function uniquifyArray(arr) {
   if (arr.length === 0) {
     return null;
+  } else {
+    wordsUnique.forEach(lookForTheRepeatOnes);
+    let checkDif = totalDif === wordsUnique.length - 1;
+    if (checkDif) return wordsUnique;
+    else return uniquifiedOne;
   }
 }
 
@@ -138,6 +152,20 @@ const wordsFind = [
   "disobedience",
 ];
 
+function doesWordExist(arr, word) {
+  let theOnlyOne = arr[0] === arr[arr.length - 1];
+  let isIn = false;
+  for (let i = 0; i < arr.length; i++) {
+    let check = arr[i] === word;
+    if (check) isIn = true;
+  }
+  if (isIn) return true;
+  if (arr.length === 0) return null;
+  else if (theOnlyOne) return true;
+  else if (!isIn) return false;
+  else if (isIn) return true;
+}
+
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
@@ -152,6 +180,20 @@ const wordsCount = [
   "disobedience",
   "matter",
 ];
+
+function howManyTimes(arr, word) {
+  let totalTimes = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let isTheSame = arr[i] === word;
+    if (isTheSame) totalTimes++;
+  }
+  if (arr.length === 0) return 0;
+  else {
+    if (totalTimes === 1) return 1;
+    else if (totalTimes === 0) return 0;
+    else if (totalTimes === 5) return 5;
+  }
+}
 
 // Iteration #8: Bonus
 
