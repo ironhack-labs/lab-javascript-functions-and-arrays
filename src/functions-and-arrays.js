@@ -145,9 +145,6 @@ const wordsUnique = [
   'bring'
 ];
 
-// Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
 function uniquifyArray(array){
   if(array.length===0) return null;
   let arrayUnique = [];
@@ -155,6 +152,14 @@ function uniquifyArray(array){
     if(arrayUnique.indexOf(value) ===-1)arrayUnique.push(value);//introducimos el valor en arrayUnique siempre que no esté ya presente
   })
   return arrayUnique;
+}
+
+// Iteration #6: Find elements
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word){
+  if(array.length===0) return null;
+  return array.includes(word);
 }
 
 // Iteration #7: Count repetition
@@ -171,6 +176,14 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array,word){
+  if(array.length===0) return 0;
+  let count = 0;
+  array.forEach(value=> {if(word ===value) count++;} )
+  return count;
+}
+
 
 // Iteration #8: Bonus
 
