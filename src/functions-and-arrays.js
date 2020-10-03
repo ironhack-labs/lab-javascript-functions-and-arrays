@@ -12,16 +12,19 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(array){
 
-  if(array.length===0) return null;
-  else if(array.length===1)return array[0];
-  else {
-  let longestWord = array[0]; 
-  for(let i=1;i<array.length;i++){
-    if(longestWord.length<array[i].length)longestWord = array[i];
+    if(array.length===0) return null;
+    else if(array.length===1)return array[0];
+    else {
+      let longestWord = array[0]; 
+
+      array.forEach((value,indice,array)=> {
+        if(longestWord.length<value.length)longestWord = value;
+      })
+    return longestWord;
   }
-  return longestWord;
-}
-  //array.forEach((value,indice,array)=> )
+
+
+
 }
 
 // Iteration #3: Calculate the sum
@@ -33,9 +36,9 @@ function sumNumbers(array){
     else if(array.length===1)return array[0];
     else{
     let sume = 0;
-    for(let i=0;i<array.length;i++){
-      sume += array[i];
-    }
+
+    array.forEach((value,indice,array)=> sume+= value);
+
     return sume;
   }
 } 
@@ -57,6 +60,11 @@ function sum(array){
         case  "string":
           sume += array[i].length;  
           break;
+        case "boolean":
+          if(array[i])sume += 1;
+          break;
+        default:
+          throw new Error("Unsupported data type sir or ma'am");
       } 
 
       
