@@ -36,6 +36,56 @@ let sumNumbers=array=>{
 })
   return sum}
 console.log(sumNumbers(numbers))
+
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// let sum = arr => {
+//   if(arr.length == 0) {
+//     return 0
+//   }
+//   let result = 0
+//   arr.forEach(element => { 
+//     switch (element) {
+//      case typeof element === "number":
+//        result += element
+//        break;
+//       case typeof element === "string":
+//         result += element.length
+//         break;
+//       case typeof element === "boolean" && element === true:
+//         result += 1
+//         break;
+//     }
+// })
+//   return result
+
+// }
+
+let sum = arr => {
+  if(arr.length == 0) {
+    return 0
+  }
+  let result = 0
+  arr.forEach(element => { 
+    if (typeof element === "number") {
+       result += element
+    }
+    else if (typeof element === "string") {
+      result += element.length
+    }
+    else if (typeof element === "boolean" && element === true) {
+        result += 1
+    }
+    else if (typeof element === "object") {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+})
+  return result
+
+}
+console.log("And the result is " + sum(mixedArr))
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -64,6 +114,16 @@ let averageWordLength=array=>{
 })
   return sum/array.length}
 console.log(averageWordLength(wordsArr))
+
+let avg = arr => {
+  if (arr.length === 0) {
+    return null }
+
+  return Math.round(sum(arr) / arr.length *100) /100
+  }
+
+console.log("The average of the array is " + avg(wordsArr))
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -93,25 +153,22 @@ console.log(uniquifyArray(wordsUnique))
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-let doesWordExist = (array, word) => {
-  if (array.length == 0) {
+let doesWordExist = (arr, word) => {
+  if (arr.length === 0) {
     return null
   }
-  let boolean = true 
-  array.forEach(element => {
-    if (element == word) {
-      console.log(word)
-      boolean = true
+  let findWord = false 
+  arr.forEach(element => {
+    if (element === word) {
+      findWord = true;
+      return true
     }
-    else {
-      boolean = false
-    }
-    return boolean
   }
-  )   
+  )  
+  return findWord 
 }
 
-console.log(doesWordExist(wordsFind, "matter"))
+console.log(doesWordExist(wordsFind, 'patata'))
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -127,6 +184,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (arr,word) => {
+  let counter = 0
+  if (arr.length === 0) {
+    return counter
+  }
+  arr.forEach(element => {
+    if (element === word) {
+      counter ++
+    }
+  })
+  return counter
+}
+
+console.log(howManyTimes(wordsCount, "matter"))
+
+
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
