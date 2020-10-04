@@ -265,14 +265,14 @@ let greatestProductVer = arr => {
     return greatestProductTemp2
 }
 
-let compareProduct = (prod1, prod2) => {
-  if (prod1 > prod2) {
-    return prod1
+let greatestProduct= (arr) => {
+  if (greatestProductVer(arr) > greatestProductHor(arr)) {
+    return greatestProductVer(arr)
   }
   else { 
-    return prod2
+    return greatestProductHor(arr)
   }
 }
 
 
-console.log(compareProduct(greatestProductVer(matrix), greatestProductHor(matrix)))
+console.log(greatestProduct(matrix))
