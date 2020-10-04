@@ -59,6 +59,50 @@ function sumNumbers(numbers) {
   }
 }
 
+// Bonus #3.1: Calculate the sum
+
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(arr) {
+  let totalZero = 0;
+  let allZero = false;
+  let totalSum = 0;
+  let totalNum = 0;
+  let allNum = false;
+  let totalString = 0;
+  let notValid = false;
+  let allString = false;
+  let oneNumberArr = typeof arr[0] === "number" && arr.length === 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    let isNumber = typeof arr[i] === "number";
+    let isString = typeof arr[i] === "string";
+    let isBoolean = typeof arr[i] === "boolean";
+    if (arr[i] === 0) {
+      totalZero++;
+      if (totalZero === arr.length) allZero = true;
+    } else if (isNumber) {
+      totalSum += arr[i];
+      totalNum++;
+      if (totalNum === arr.length) allNum = true;
+    } else if (isString) {
+      totalSum += arr[i].length;
+      totalString++;
+      if (totalString === arr.length) allString = true;
+    } else if (isBoolean) {
+      if (arr[i]) totalSum += 1;
+    } else {
+      notValid = true;
+    }
+  }
+
+  if (arr.length === 0 || allZero) return 0;
+  else if (oneNumberArr) return arr[0];
+  else if (allNum || allString) return totalSum;
+  else if (notValid) return "Ups, it's seems you introduced an invalid one";
+  else return totalSum;
+}
+
 // Iteration #4: Calculate the average
 
 // Level 1: Array of numbers
@@ -100,6 +144,34 @@ function averageWordLength(arr) {
     let average = total / arr.length;
     return average;
   }
+}
+
+//Bonus #4.1: Calculate the average of a mixed elements array
+
+const mixedArray = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function avg(arr) {
+  let totalSum = 0;
+  let allNum = false;
+  let notValid = false;
+
+  for (let i = 0; i < arr.length; i++) {
+    let isNumber = typeof arr[i] === "number";
+    let isString = typeof arr[i] === "string";
+    let isBoolean = typeof arr[i] === "boolean";
+    if (isNumber) {
+      totalSum += arr[i];
+    } else if (isString) {
+      totalSum += arr[i].length;
+    } else if (isBoolean) {
+      if (arr[i]) totalSum += 1;
+    } else {
+      notValid = true;
+    }
+  }
+  if (arr.length === 0) return null;
+  else if (!notValid) return totalSum / arr.length;
+  else return "Ups, it's seems you introduced an invalid one";
 }
 
 // Iteration #5: Unique arrays
