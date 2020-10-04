@@ -209,3 +209,28 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrix){
+
+  let productMax = 0;
+  let aux = 0;
+  for(let i=0;i<matrix.length;i++){
+      for(j=0;j<matrix[0].length;j++){
+        
+        if((i+4)<matrix.length){//comprobamos que hay todavía 3 elementos para multiplicar en i sin salirnos de la matriz
+          aux = matrix[i][j]* matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]; //calculamos el producto en vertical
+          if(productMax<aux)productMax = aux; //actualizamos si el producto calculado es mayor que el actual
+        }
+        
+        if((j+4)<matrix[0].length){//comprobamos que hay todavía 3 elementos para multiplicar en j sin salirnos de la matriz
+          aux = matrix[i][j]* matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]; //calculamos el producto en horizontal
+          if(productMax<aux)productMax = aux; //actualizamos si el producto calculado es mayor que el actual
+        }
+
+      }
+  }
+
+  return productMax;
+}
+
