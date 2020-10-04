@@ -224,3 +224,55 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let smallmatrix = [
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5]
+]
+
+
+let horProdResult = (arr, i = 0, j= 0) => arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3]
+let verProdResult = (arr,i = 0, j = 0)  => arr[i][j] * arr[i+1][j] * arr[i+2][j] * arr[i+3][j]
+
+
+let greatestProductHor = arr => {
+  let greatestProductTemp1 = 0
+  for (let y = 0; y < arr.length ; y++) {
+    for (let x = 0; x < arr.length -3; x++) {
+      if (horProdResult(arr,y, x) > greatestProductTemp1) {
+        greatestProductTemp1 = horProdResult(arr,y, x)
+        console.log("New great Product found, it is now " + greatestProductTemp1)
+    }
+}
+}
+return greatestProductTemp1
+}
+
+
+let greatestProductVer = arr => {
+  let greatestProductTemp2 = 0
+  for (let x = 0; x < arr.length -3; x ++) {
+    for (let y= 0; y < arr.length; y ++) {
+      if (verProdResult(arr,x,y) > greatestProductTemp2) {
+      greatestProductTemp2 = verProdResult(arr,x,y)
+      console.log("New great Product found, it is now " + greatestProductTemp2)
+    }
+    
+    }}
+    return greatestProductTemp2
+}
+
+let compareProduct = (prod1, prod2) => {
+  if (prod1 > prod2) {
+    return prod1
+  }
+  else { 
+    return prod2
+  }
+}
+
+
+console.log(compareProduct(greatestProductVer(matrix), greatestProductHor(matrix)))
