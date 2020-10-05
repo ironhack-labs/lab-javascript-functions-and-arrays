@@ -34,6 +34,36 @@ function sumNumbers(arr){
   })
   return result;
 }
+//Bonus #3.1: Calculate de sum of array
+
+const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ;
+
+function sum(arr){
+  let result = 0;
+  for (let i = 0; i < arr.length; i++){
+    switch (typeof arr[i]){
+      case "number":
+      result += arr[i]
+      break;
+      case "boolean":
+        if (arr[i] === true){
+          result +=1
+        }else {
+          result +=0
+        }
+      break;
+      case "string":
+      result += arr[i].length
+      break;
+      case "object":
+      return "Unsupported data type sir or ma'am"
+      break;
+      default:
+      break;
+    }
+  }
+  return result
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -58,7 +88,14 @@ function averageWordLength(arr){
   })
   return result/arr.length;
 }
-
+//**
+//Bonus average mixed array
+function avg(arr){
+  if (arr.length === 0){
+    return null;
+  }
+  return sum(arr)/arr.length;
+}
 // function sumWords(arr){
 //   var result = 0;
 //   arr.forEach(function(element){
@@ -113,7 +150,7 @@ function doesWordExist(arr,word){
     } 
   } 
   return false;
- }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -138,7 +175,7 @@ function howManyTimes(arr,word){
     } 
   } 
   return count
- }
+}
 
 // Iteration #8: Bonus
 
@@ -164,3 +201,27 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(grid){
+  var maxProduct = 0;
+  for (var i = 0; i < grid.length; i++) {
+      var row = grid[i];
+      for (var j = 0; j < row.length; j++) {
+          //check the left-to-right sum
+          if (j < row.length - 3) {
+              var product = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+              if (product > maxProduct) {
+                  maxProduct = product;
+              }
+          }
+          //check the top-to-bottom sum
+          if (i < grid.length - 3) {
+              var product = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j];
+              if (product > maxProduct) {
+                  maxProduct = product;
+              }
+          }
+      } 
+  }
+  return maxProduct
+}
