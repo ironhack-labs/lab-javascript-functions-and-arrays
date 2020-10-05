@@ -32,6 +32,8 @@ function findLongestWord(words) {
   }
 }
 
+//No entiendo lo que pide en los specs 8 y 9
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -116,6 +118,8 @@ function averageNumbers(numbersAvg) {
     return numbersAvg[0];
   }
 }
+
+// No entiendo los specs 27 y 28
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -585,3 +589,24 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(matrix) {
+  let totalTotalOnes = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    let totalOnes = 0;
+    let allOnes = false;
+    for (let x = 0; x < matrix[i].length; x++) {
+      let itsOne = matrix[i][x] === 1;
+      if (itsOne) {
+        totalOnes++;
+        if (totalOnes === matrix[i][x].length) allOnes = true;
+      }
+    }
+    if (allOnes) {
+      totalTotalOnes++;
+      allOnes = false;
+      totalOnes = 0;
+      if (totalTotalOnes === matrix.length) return 1;
+    }
+  }
+}
