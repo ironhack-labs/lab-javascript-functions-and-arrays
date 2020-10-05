@@ -1,18 +1,62 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(number1,number2){
+  if(number1 > number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr){
+  let longestWord = "";
+  for (let word of words){
+    if (word.length > longestWord.length) {
+      longestWord = word;
+      }
+    }
+    return longestWord;
+}
+
+ findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(a){
+  let total=0;
+  for(let i in a) { 
+      total += a[i];
+  }
+  return total;
+}
+
+sumNumbers(numbers);
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+// Reutilzamos la función de la iteración anterior para calcular el average. No hemos sabido usar una función para calcular el average
+let sumTotal = sumNumbers(numbers);
+let arrayLength = numbers.length
+
+let averageTotal = sumTotal / arrayLength;
+console.log(averageTotal);
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arr) {
+  sumWordsLength = 0;
+  arr.forEach(x => sumWordsLength += x.length);
+  return sumWordsLength / words.length;
+}
+
+averageWordLength(words);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +73,42 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  let newArr = [];
+  for (let i=0, word=arr.length; i<word ; i++)
+  if(newArr.indexOf(arr[i]) === -1 && arr[i] !== '')
+  newArr.push(arr[i]);
+  return newArr;
+}
+uniquifyArray(words)
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+// Función que definimos pero que cuando la pasamos por Repl.it no funciona. ¿Nos podrías indicar que estaría fallando?
+function doesWordExist(arr, word){
+  words.forEach(function(x) {
+    if(words[x] === word) {
+      return "si"
+    } else {
+      return false;
+    }
+  })
+  }
+
+  // Esta función sí que funciona correctamente:
+    
+  const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+  function doesWordExist(arr, word) {
+    for (let i=0 ; i<arr.length; i++) {
+      if (arr[i] === word) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  doesWordExist(wordsFind, "machine");
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +124,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let sumWords = 0;
+  for (let i=0; i<arr.length; i++) {
+    if (words[i] === word) {
+      sumWords = sumWords + 1; 
+    }
+  }
+  return sumWords;
+}
+
+howManyTimes(words, "matter");
+
 
 // Iteration #8: Bonus
 
