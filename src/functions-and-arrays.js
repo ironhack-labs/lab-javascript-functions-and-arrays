@@ -61,7 +61,7 @@ function sum(arr){
     currentValue = 1
   }
   else if(typeof currentValue == 'boolean' && currentValue == false){
-    currentValue = -1
+    currentValue = 0
   }
   total+=currentValue
   }
@@ -91,7 +91,7 @@ function avg(arr){
     return null
   }
   let average = sum(arr) / arr.length
-   return average
+   return Number(average.toFixed(2))
   }
   avg(numbersAvg)
 
