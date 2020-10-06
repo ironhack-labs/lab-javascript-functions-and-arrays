@@ -40,7 +40,6 @@ const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'li
 
 function sum(arr){
   let result = 0;
-  let error = "Unsupported data type sir or ma'am"
   for (let i = 0; i < arr.length; i++){
     switch (typeof arr[i]){
       case "number":
@@ -57,7 +56,7 @@ function sum(arr){
       result += arr[i].length
       break;
       case "object":
-      throw "Unsupported data type sir or ma'am";
+      throw new Error(`Unsupported data type sir or ma'am`);
       break;
       default:
       break;
