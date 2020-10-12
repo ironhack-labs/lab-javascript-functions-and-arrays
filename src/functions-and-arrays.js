@@ -1,15 +1,205 @@
+function cl(...params){
+  console.log(...params)
+}
+
+//sanitize number arrays
+function checkNumbersArr(numArr){
+  let results = true
+  numArr.forEach(e => {
+    if(typeof e !== "number") results = false
+  })
+  return results 
+}
+
+function notNumber(){
+   return "enter numbers ONLY"
+}
+
+function nullArrayNumbers(array){
+  return !array || Array.isArray(array) === false 
+ }
+
+//sanitize string arrays
+function checkStingsArr(stringArr){
+  let results = true
+  stringArr.forEach(e => {
+    if(typeof e !== "string") results = false
+  })
+  return results 
+}
+
+
+function notStrings(){
+   return "enter words ONLY"
+}
+
+function nullArrayStrings(array){
+  return !array || array.length ===  0 || Array.isArray(array) === false 
+ }
 // Iteration #1: Find the maximum
+// Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest.
+
+function maxOfTwoNumbers(num1, num2){
+  const maxNumber = Math.max(num1, num2);
+  if(typeof num1 !== "number" && typeof num2 !== "number"){
+    return notNumber()
+  } else {
+    if (isNaN(maxNumber)){
+      return `Enter TWO numbers `
+    } else {
+      return  maxNumber
+    }
+  }
+     
+}
+  
+  
+
+
+cl("~~~ maxOfTwoNumbers(num1, num2) ~~~")
+cl(`maxOfTwoNumbers(3,15) should ==> 15:`)
+cl(maxOfTwoNumbers(3,15)) // 15
+cl(`maxOfTwoNumbers(3,3) should ==> 3:`)
+cl(maxOfTwoNumbers(3,3)) //3
+cl(`maxOfTwoNumbers(3) should ==> "Enter TWO numbers:"`)
+cl(maxOfTwoNumbers(3)) // Enter TWO numbers
+cl(`maxOfTwoNumbers()should => "enter numbers only:"`)
+cl(maxOfTwoNumbers()) //enter numbers only
+cl(`maxOfTwoNumbers("3",3) should ==> "enter numbers only":`)
+cl(maxOfTwoNumbers("3",3))// enter numbers only
+cl('----------------------')
+
+
+
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+const words2 = ['mystery', false , 'aviator'];
+
+
+function findLongestWord(array){
+  if(nullArrayStrings(array)) return null; 
+  if(checkStingsArr(array) === false) return notStrings()
+  let longestWord = array[0]
+  for(elem of array){
+    if(longestWord.length < elem.length)
+    longestWord = elem
+  }
+  return longestWord;  
+} 
+
+cl('~~~ findLongestWord(array) ~~~')
+cl(`[${words}] should ==> "crocodile:"`)
+cl(findLongestWord(words))
+cl(`[${words2}] should ==> "enter words ONLY:"`)
+cl(findLongestWord(words2))
+cl(`findLongestWord(["hey"]) should ==> "hey":`)
+cl(findLongestWord(["hey"]))
+cl(`findLongestWord([]) should ==> "null":`)
+cl(findLongestWord([]))
+cl('----------------------')
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers2 = [6, "12", 1, 18];
+const numbers3 = []
+function sumNumbers(array){
+  if(nullArrayNumbers(array)) return null;
+  if(checkNumbersArr(array)=== false) return notNumber();
+  let sumOfArray = array.reduce((acc, num) => {
+   return acc + num
+  },0)
+  return sumOfArray
+}
+
+//or
+// function sumNumbers(array){
+//   if(nullArrayNumbers(array)) return null;
+//   if(checkNumbersArr(array)=== false) return notNumber();
+//   let total = 0;
+//   for(let elem of array){
+//     total += elem 
+//   }
+//   return total
+// }
+
+
+
+cl(`~~~ sumNumbers(array) ~~~`)
+cl(`[${numbers}] should ==> 87:`); 
+cl(sumNumbers(numbers))//==> 87
+
+cl(`[${numbers2}] should ==> "enter numbers only":`); 
+cl(sumNumbers(numbers2)); // ==> enter numbers only
+
+cl(`[${numbers3}] should ==> 0:`)
+cl(sumNumbers(numbers3)); // ==> 0
+cl('----------------------')
+
+
+
+// #### Bonus - Iteration #3.1: A generic `sum()` function
+
+// **The goal: Learn how to refactor your code.** :muscle:
+
+// In the iteration 3, you created a function that returns the sum of an array of numbers. But what if we wanted to know how much is the sum of the length of all of the words in an array? What if we wanted to add _boolean_ values to the mix? We wouldn't be able to use the same function as above, or better saying, we would have to _tweak_ it a little bit so that it can be reused no matter what is in the array that is passed as argument when function `sumNumbers()` is called.
+
+// Here we are applying a concept we call **polymorphism**, that is, dealing with a functions' input independently of the types they are passed as.
+
+// Let's create a new function `sum()` that calculates the sum for array filled with (_almost_) any type of data. Note that strings should have their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
+
+//****GOOOOOOOGLE!********Bonus: Calculate the sum should throw an error when unsupported data type (object or array) present in the array
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+function sum(array){
+  nullArrayStrings(array)
+  let sumArray = 0
+  for(let i = 0; i < array.length; i++){ 
+    switch(typeof array[i]){
+      case "string":
+        sumArray += array[i].length
+        break;
+      case "boolean": 
+        sumArray += Number(array[i])
+        break;
+      case  "number": 
+        sumArray += array[i]
+        break;
+      //default:
+        //...throw error stuff
+        
+    }
+      
+  }
+  return sumArray
+}
+
+cl(`sum(mixedArr) should ===> 57:`)
+cl(sum(mixedArr))
+
+cl('----------------------')
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// sum - 48  avg - 6
+function averageNumbers(array){
+  if(nullArrayStrings(array)) return null;
+  return sum(array)/ array.length  
+}
+cl('~~~ averageNumbers(array) ~~~')
+cl(`[${numbersAvg}] should ==> 6:`)
+cl(averageNumbers(numbersAvg))
+cl("empty array should ==> null:")
+cl(averageNumbers([]))
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
