@@ -1,5 +1,14 @@
 // Iteration #1: Find the maximum
 
+let number1 =  3;
+let number2 = 9;
+
+function maxOfTwoNumbers() {
+  Math.max(number1 , number2);
+}
+
+maxOfTwoNumbers()
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
