@@ -51,32 +51,22 @@ sumNumbers(numbers);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [];
-let sumTotal = sumTotaler(numbersAvg);
-
-function sumTotaler(arr) {
-  let total = 0;
-  if (arr.length === 0) {
-    return null;
-  } else {
-    for (let i = 0; i < arr.length; i++) {
-      total += arr[i];
-    }
-    return total;
-  }
-}
-
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(num) {
-  if (sumTotal === null) {
+  if (num.length === 0) {
     return null;
-  } else if (numbersAvg.length === 1) {
-    return numbersAvg[0];
+  } else if (num.length === 1) {
+    return num[0];
   } else {
-    return sumTotal / numbersAvg.length;
+    let total = 0;
+    for (let i = 0; i < num.length; i++) {
+      total += num[i];
+    }
+    return total / num.length;
   }
 }
 
-averageNumbers(sumTotal);
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -91,6 +81,21 @@ const wordsArr = [
   "fuel",
   "palace",
 ];
+function averageWordLength(arr) {
+  console.log(arr.length);
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let charCount = 0;
+    arr.forEach(function (word) {
+      charCount += word.length;
+    });
+    console.log(charCount);
+    console.log(charCount / arr.length);
+    return charCount / arr.length;
+  }
+}
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
