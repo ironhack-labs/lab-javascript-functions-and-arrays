@@ -17,7 +17,7 @@ function findLongestWord(arr) {
     if (word.length < arr[i].length) {
       word = arr[i];
     }
-  }if (!arr.length){
+  }if (arr.length === 0){
       return null;
     } 
 return word;
