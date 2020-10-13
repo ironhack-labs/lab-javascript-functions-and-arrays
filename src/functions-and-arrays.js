@@ -219,6 +219,23 @@ const wordsCount = [
   'matter'
 ];
 
+const howManyTimes = (arrayOfStrings, searchWord) => {
+  counter = 0;
+
+  for(let i = 0; i < arrayOfStrings.length; i++ ) {
+    if(searchWord === arrayOfStrings[i]) {
+      counter += 1;
+    }
+  }
+  if (searchWord === undefined) {
+    return 'You must write a word to search for in the array'
+  }
+
+  return `The word ${searchWord} appears ${counter} times in the array.`
+}
+
+howManyTimes(wordsCount)
+
 // Iteration #8: Bonus
 
 const matrix = [
