@@ -95,6 +95,31 @@ function averageWordLength (arr){
 };
 
 
+  function avg(mixedArr){
+    let sum = 0;
+    //console.log("array length",mixedArr.length)
+    if (!mixedArr.length){
+      return null;
+    }
+    for (let i = 0 ; i < mixedArr.length ; i++){
+      if (typeof mixedArr[i] === "number"){
+        //console.log(sum)
+      sum += mixedArr[i]
+      //console.log("number",sum)
+      } else if ((typeof mixedArr[i] === "boolean") && (mixedArr[i] = "true")) {
+        sum += 1;
+       // console.log("boolean",sum)
+      }  else if (typeof mixedArr[i] === "string") {
+      sum += mixedArr[i].length;
+     // console.log("string",sum)
+       }
+    }
+    avg = sum/mixedArr.length
+     return avg
+  }
+avg(mixedArr)
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -151,6 +176,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(arr, word){
+  let output = [];
+  for (let i = 0; i < arr.length; i++){
+    if (word === arr[i]){
+      output.push(word);
+    }
+  }
+  return output.length
+};
 
 // Iteration #8: Bonus
 
