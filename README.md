@@ -221,11 +221,6 @@ const words = [
   'matter'
 ];
 ```
-function howManyTimes(wordsArray, search) {
-  let count = 0;
-  wordsArray.forEach((i) => (i === search && count++));
-  return count
-} 
 
 ### Bonus - Iteration #8: Product of adjacent numbers
 

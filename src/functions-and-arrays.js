@@ -29,7 +29,7 @@ function findLongestWord(words){
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-const sumNumbers = numbers => {
+function sumNumbers (numbers)  {
   if (numbers.length === 0) { return 0 }
   let sum = 0;
   numbers.forEach(number => {
@@ -41,7 +41,7 @@ const sumNumbers = numbers => {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-const averageNumbers = array => {
+function averageNumbers (array) {
   if (array.length === 0) { return null 
   } else {
     let sum = 0
