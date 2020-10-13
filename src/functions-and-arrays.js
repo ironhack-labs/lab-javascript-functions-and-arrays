@@ -138,7 +138,7 @@ const avg = arr => {
     }
   }
 
-  return Math.round((total / arr.length) * 10) / 10;
+  return total;
 }
 
 avg(mixedArr2);
@@ -231,7 +231,7 @@ const howManyTimes = (arrayOfStrings, searchWord) => {
     return 'You must write a word to search for in the array';
   }
 
-  return `The word ${searchWord} appears ${counter} times in the array.`;
+  return counter;
 }
 
 howManyTimes(wordsCount);
