@@ -1,18 +1,95 @@
 // Iteration #1: Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const findLongestWord = words => {
+  if (!words.length) {return null;}
+  let longestWord = "";
+  words.forEach(word => {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  })
+  return longestWord;
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = numbers => {
+  if (!numbers.length) { return 0 }
+  let sum = 0;
+  numbers.forEach(number => {
+    sum += number;
+  })
+  return sum;
+}
+
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = numbers => {
+  if (!numbers.length) {return null;}
+  return sumNumbers(numbers) / numbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const sumOfWords = wordsArr => {
+  if (!wordsArr.length) {return null;}
+  let sum = 0;
+  wordsArr.forEach(element => {
+    sum += element.length;
+  })
+  return sum;
+}
+
+const averageWordLength = wordsArr => {
+  if (!wordsArr.length) {return null;}
+  return sumOfWords(wordsArr) / wordsArr.length;
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const sum = mixedArr => {
+  let sum = 0;
+  mixedArr.forEach(element => {
+    switch (typeof element) {
+      case "number":
+        sum += element;
+        break;
+      case "string":
+        sum += element.length;
+        break;
+      case "boolean":
+        if (element) sum += 1;
+        break;
+      case "object":
+      case "array":
+        throw Error("Unsupported data type sir or ma'am");
+      case "default":
+        break;
+    }
+  })
+  console.log("TEST ", sum)
+  return sum;
+}
+
+sum(mixedArr);
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +105,9 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+const uniquifyArray = wordsUnique => {
+  wordsUnique.forEach
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
