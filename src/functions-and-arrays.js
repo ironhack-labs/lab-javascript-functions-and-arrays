@@ -39,6 +39,7 @@ function nullArrayStrings(array){
  }
 
 
+
 // Iteration #1: Find the maximum
 // Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest.
 
@@ -179,7 +180,7 @@ const mixedArr2 = [6, [], 12, 'miami', 1, true, {}, 'barca', '200', 'lisboa', 8,
 
 
 ////OR...with REDUCE():
-
+// ****trow error  
 function sum(array){
   if(nullArrayStrings(array)) return null;
   return array.reduce((acc, curr)=>{
@@ -191,6 +192,8 @@ function sum(array){
 
 cl(`sum(mixedArr) should ===> 57:`)
 cl(sum(mixedArr))
+// cl(`sum(mixedArr2) errors should ===> show errors:`)
+// cl(sum(mixedArr2))
 
 cl('----------------------')
 
@@ -216,10 +219,15 @@ cl(averageNumbers([]))
 cl('----------------------------------')
 // #### Bonus - Iteration #4.1: A generic `avg()` function
 
-// Create function `avg(arr)` that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or strings and/or booleans. We are following a similar logic to the one applied on the bonus iteration 4.1.
-// // should return: 5.7
+function avg(array){
+  return sum(array)/ array.length
+}
 
-
+cl(`avg(mixedArr) should ===> 5.7:`)
+cl(avg(mixedArr)) //5.7
+// cl(`avg(mixedArr2) errors should ===> ?:`)
+// cl((mixedArr2))
+cl('----------------------')
 
 
 // #### Level 2: Array of strings
@@ -230,14 +238,26 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 
 function averageWordLength(array){
+  if(nullArrayStrings(array)) return null;
+  if(checkStingsArr(array) === false) return notStrings()
+  return array.reduce((acc, curr)=>{
+    return acc +  curr.length 
+  },0) / array.length
 
 }
 
 
 
+cl(`averageWordLength(array) should ==> 5.3`)
+cl(averageWordLength(wordsArr)) // 5.3
+
 cl('----------------------------------')
 
 // Iteration #5: Unique arrays
+// Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the [`indexOf`]method.
+
+// Do this in the form of a function `uniquifyArray` that receives an array of words as a argument.
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -252,9 +272,20 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  if(nullArrayStrings(array)) return null;
+  if(checkStingsArr(array) === false) return notStrings()
+  let newArr = []
+  for(word of array){
+    if(newArr.indexOf(word)=== -1) newArr.push(word)
+  }
+  return newArr
+}
 
 
 
+cl(`uniquifyArray(array) should ==> ['crab','poison','contagious','simple','bring','sharp','playground','communion']:`)
+cl(uniquifyArray(wordsUnique))
 
 
 
@@ -266,6 +297,7 @@ cl('----------------------------------')
 // ### Iteration #6: Find elements
 // Let's create a simple array search.
 // Declare a function named `doesWordExist` that will take in an array of words as one argument, and a word to search for as the other. Return `true` if it exists, otherwise, return `false`. **Don't** use `indexOf` for this one.
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 
