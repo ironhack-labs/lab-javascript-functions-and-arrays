@@ -56,23 +56,26 @@ function sum(array) {
   let sum = 0
 
   for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === 'number') {
+    if (
+      !(typeof array[i] === 'number' ||
+        typeof array[i] === "string" ||
+        typeof array[i] === 'boolean')
+    ) {
+      throw new Error("Unsupported data type sir or ma'am")
+
+    } else if (typeof array[i] === 'number') {
       sum = sum + array[i]
 
     } else if (typeof array[i] === "string") {
       sum = sum + array[i].length
 
     } else if (typeof array[i] === 'boolean') {
-      if (true) {
-        sum++
-      }
-      if (false) {
+      if (array[i] === true) {
+        sum++;
+      } else {
         continue;
       }
-    } else {
-      return error
     }
-
   }
   return sum;
 
@@ -123,27 +126,30 @@ function avg(arr) {
   }
 
   for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === 'number') {
+    if (
+      !(typeof arr[i] === 'number' ||
+        typeof arr[i] === "string" ||
+        typeof arr[i] === 'boolean')
+    ) {
+      throw new Error("Unsupported data type sir or ma'am")
+    } else if (typeof arr[i] === 'number') {
       sum = sum + arr[i]
 
     } else if (typeof arr[i] === "string") {
       sum = sum + arr[i].length
 
     } else if (typeof arr[i] === 'boolean') {
-      if (true) {
-        sum = sum + 1
-      }
-      if (false) {
+      if (arr[i] === true) {
+        sum++;
+      } else {
         continue;
       }
 
-    } else {
-      return error
     }
 
   }
-  let average = sum / arr.length
-  return average
+  let average = (sum / arr.length)
+  return parseFloat(average.toFixed(2))
 
 }
 
@@ -251,24 +257,24 @@ function greatestProduct(matrix) {
   let product = 0
   for (let i = 0; i < matrix.length; i++) {
 
-    let test = matrix[i] * matrix[i + 1] * matrix[i + 2] * matrix[i + 3]
+    let horPlus = matrix[i] * matrix[i + 1] * matrix[i + 2] * matrix[i + 3]
 
-    if (product < test) {
-      product = test
+    if (product < horPlus) {
+      product = horPlus
     } else {
-      let test2 = matrix[i] * matrix[i - 1] * matrix[i - 2] * matrix[i - 3]
+      let horMin = matrix[i] * matrix[i - 1] * matrix[i - 2] * matrix[i - 3]
 
-      if (product < test2) {
-        product = test2
+      if (product < horMin) {
+        product = horMin
       } else {
         for (let j = 0; j < matrix[i].length; j++) {
-          let test3 = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
-          if (product < test3) {
-            product = test3
+          let verPlus = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+          if (product < verPlus) {
+            product = verPlus
           } else {
-            let test4 = matrix[i] * matrix[i - 1] * matrix[i - 2] * matrix[i - 3]
-            if (product < test4) {
-              product = test4
+            let verMin = matrix[i] * matrix[i - 1] * matrix[i - 2] * matrix[i - 3]
+            if (product < verMin) {
+              product = verMin
             }
           }
 
