@@ -81,6 +81,7 @@ function averageWordLength (arr){
   //console.log(wordLength)
   return sum / wordLength.length
 };
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
