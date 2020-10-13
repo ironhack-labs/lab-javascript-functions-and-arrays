@@ -12,6 +12,7 @@ function maxOfTwoNumbers(num1,num2){
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words){
+  if (!words.length) return null;
 
   let longestWord = words[0]
   for(let i=0; i<words.length; i++){
@@ -24,7 +25,7 @@ function findLongestWord(words){
 
 findLongestWord(words)
 
-// Iteration #3: Calculate the sum KLAAR
+// Iteration #3: Calculate the sum 
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -42,6 +43,7 @@ function sumNumbers(array){
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (array){
+  if (!array.length) return null;
   return sumNumbers(array)/array.length;
 }
 
@@ -49,6 +51,18 @@ averageNumbers(numbers)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array){
+  if(!array.length) return null;
+  
+  
+  let total=0;
+  for(let i=0; i<array.length; i++){
+  total = total + array[i].length
+  }
+  
+  return total/array.length;
+  }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -65,8 +79,45 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+if(!array.length){
+  return null;
+}
+
+let newArray= [ ];
+for(i=0; i<array.length; i++){
+
+if(newArray.indexOf(array[i])=== -1 ){
+  newArray.push(array[i])
+}
+
+}
+return newArray;
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word){
+  if (!array.length) {
+     return null;}
+     else{
+ 
+   for(let i=0; i<array.length; i++){
+ 
+ if(array[i]===word){
+   return true
+ }else{
+   return false
+ }
+     
+   }} 
+ }
+ 
+ doesWordExist(words, 'machine')
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -82,6 +133,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word){
+  let count =0
+  for(let i=0; i<array.length; i++){
+if (array[i]===word){
+  count++
+}
+
+  }
+  return count
+}
 
 // Iteration #8: Bonus
 
