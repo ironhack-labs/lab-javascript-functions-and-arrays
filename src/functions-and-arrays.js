@@ -90,6 +90,11 @@ const sum = mixedArr => {
 sum(mixedArr);
 
 
+const avg = mixedArr => {
+  if (!mixedArr.length) {return null;}
+  return parseFloat((sum(mixedArr) / mixedArr.length).toFixed(2));
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -106,11 +111,37 @@ const wordsUnique = [
   'bring'
 ];
 const uniquifyArray = wordsUnique => {
-  wordsUnique.forEach
+  if (!wordsUnique.length) { return null; }
+  let cleanedArray = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (isWordPresent(cleanedArray, wordsUnique[i])) {
+      continue;
+    } else {
+      cleanedArray.push(wordsUnique[i]);
+    }
+  }
+  return cleanedArray;
 }
+
+const isWordPresent = (cleanedArray, word) => {
+  if (cleanedArray.indexOf(word) === -1) { return false }
+  else { return true; }
+}
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (wordsFind, word) => {
+  if (!wordsFind.length) {return null;}
+  let found = false;
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === word) {
+      found = true;
+    }
+  }
+  if (found === true) { return true; } else { return false; }
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -126,6 +157,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const howManyTimes = (wordsCount, wordToCheck) => {
+  if (!wordsCount.length) { return 0; }
+  let counter = 0;
+  wordsCount.forEach(word => {
+    if (word === wordToCheck) {
+      counter++
+    }
+  })
+  return counter;
+}
 
 // Iteration #8: Bonus
 
@@ -151,3 +192,41 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = matrix => {
+  let horizontalMatrix = matrix;
+  let verticalMatrix;
+  verticalMatrix = createVerticalMatrix(matrix); // Creating a copy of the matrix rotated by 90 degrees for better looping
+  let masterMatrix = [...horizontalMatrix, ...verticalMatrix]; // Joining the 2 matrix
+  let whichNumbers;
+  let maxSum = 0;
+  for (let x = 0; x < masterMatrix.length; x++) { // Just cycle and check only horizontally
+    for (let y = 0; y < masterMatrix.length; y++) {
+      if (y + 4 < masterMatrix[x].length) {
+        let temporarySum = masterMatrix[x][y] * masterMatrix[x][y+1] * masterMatrix[x][y+2] * masterMatrix[x][y+3];
+        if (temporarySum > maxSum) {
+          maxSum = temporarySum;
+          whichNumbers = [masterMatrix[x][y], masterMatrix[x][y+1], masterMatrix[x][y+2], masterMatrix[x][y+3]];
+        }
+      } else {
+        continue;
+      }
+    }
+    return maxSum;
+  }
+  console.log(maxSum)
+  console.log("NUMBERS ", whichNumbers);
+}
+
+const createVerticalMatrix = matrix => {
+  let verticalMatrix = [];
+  for (let x = 0; x < matrix.length; x++) {
+    verticalMatrix.push([]);
+    for (let y = 0; y < matrix.length; y++) {
+      verticalMatrix[x].push(matrix[y][x]);
+    }
+  }
+  return verticalMatrix;
+}
+
+greatestProduct(matrix)
