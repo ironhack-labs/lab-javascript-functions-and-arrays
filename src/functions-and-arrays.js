@@ -50,6 +50,23 @@ const averageNumbers = numbers => {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+const countWords = wordsArr => {
+  if (!wordsArr.length) {
+    return null;
+  }
+  let sum = 0;
+  wordsArr.forEach(characters => {
+    sum += characters.length;
+  })
+  return sum;
+}
+
+const averageWordLength = wordsArr => {
+  if (!wordsArr.length) {
+    return null;
+  }
+  return countWords(wordsArr) / wordsArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
