@@ -27,8 +27,7 @@ return longestWord;
 }
 
 findLongestWord(words);
-  
-}
+
 
 // Iteration #3: Calculate the sum
 
