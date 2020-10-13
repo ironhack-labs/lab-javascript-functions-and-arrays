@@ -19,15 +19,16 @@ function findLongestWord(array1) {
   } else if (array1.length === 1) {
     return array1[0]
   } else if (array1.length > 1) {
-    let longest = " ";
+    let longest = "";
 
     array1.forEach(function(word) {
           if (word.length > longest.length) {
-            word = longest;
+            longest = word;
           }
-          console.log(word);
       }
     );
+    console.log(longest);
+    return longest;
   }
 }
 
