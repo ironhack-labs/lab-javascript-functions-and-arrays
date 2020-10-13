@@ -228,13 +228,13 @@ const howManyTimes = (arrayOfStrings, searchWord) => {
     }
   }
   if (searchWord === undefined) {
-    return 'You must write a word to search for in the array'
+    return 'You must write a word to search for in the array';
   }
 
-  return `The word ${searchWord} appears ${counter} times in the array.`
+  return `The word ${searchWord} appears ${counter} times in the array.`;
 }
 
-howManyTimes(wordsCount)
+howManyTimes(wordsCount);
 
 // Iteration #8: Bonus
 
