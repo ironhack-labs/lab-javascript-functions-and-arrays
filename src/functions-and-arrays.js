@@ -1,28 +1,86 @@
 // Iteration #1: Find the maximum
 
-let number1 =  3;
-let number2 = 9;
-
-function maxOfTwoNumbers() {
-  Math.max(number1 , number2);
+function maxOfTwoNumbers(number1 , number2) {
+  return Math.max(number1,number2)
 }
 
-maxOfTwoNumbers()
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(words) {
+  let word = '';
+  if (!words.length){
+    return null;
+  } else for (let i = 0; i < words.length; i++) {
+    if (word.length < words[i].length) {
+      word = words[i];
+    }
+  }
+  return word;
+};
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers (arr){
+  let sum = 0;
+  for (let i = 0 ; i < arr.length ; i++){
+    sum += arr[i]
+  }
+  return sum
+};
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+  function sum (mixedArr){
+    let sum = 0;
+    //console.log("array length",mixedArr.length)
+    for (let i = 0 ; i < mixedArr.length ; i++){
+      if (typeof mixedArr[i] === "number"){
+        console.log(sum)
+      sum += mixedArr[i]
+      //console.log("number",sum)
+      } else if ((typeof mixedArr[i] === "boolean") && (mixedArr[i] = "true")) {
+        sum += 1;
+       // console.log("boolean",sum)
+      }  else if (typeof mixedArr[i] === "string") {
+      sum += mixedArr[i].length;
+     // console.log("string",sum)
+       }
+    }
+     return sum
+  }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (arr){
+  let sum = 0;
+  if (!arr.length){
+    return null;
+  }
+  for (let i = 0 ; i < arr.length ; i++){
+    sum += arr[i]
+  }
+  return sum / arr.length
+};
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength (arr){
+  let sum = 0;
+  let wordLength = [];
+    if (!arr.length){
+      return null;
+    }
+    for (let i = 0 ; i < arr.length ; i++){
+      wordLength.push(arr[i].length)
+    }for (let j = 0; j < wordLength.length ; j++){
+      sum += wordLength[j]
+    }
+  //console.log(wordLength)
+  return sum / wordLength.length
+};
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -37,6 +95,8 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
