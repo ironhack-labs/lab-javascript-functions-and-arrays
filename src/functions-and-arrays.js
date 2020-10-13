@@ -36,6 +36,15 @@ findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
+function sumNumbers(ary) {
+  result = NaN;
+  if (ary.length===0){
+    result = 0
+  }
+
+  return result
+}
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
