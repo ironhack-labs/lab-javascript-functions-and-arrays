@@ -62,6 +62,7 @@ let sum = (arr) => {
         arr[i] = 0;
       } else if (typeof arr[i] === "object" || typeof arr[i] === "array") {
         return "Error: Objects and arrays are not valid input.";
+        // I think 'throwing' errors is a JS function we haven't learned yet
       }
     }
   }
@@ -139,7 +140,7 @@ const wordsUnique = [
   "simple",
   "bring",
 ];
-let uniquifyArray = (arr) => {
+function uniquifyArray(arr) {
   let newWords = [];
   if (arr.length === 0) {
     return null;
@@ -152,8 +153,7 @@ let uniquifyArray = (arr) => {
   }
   console.log(newWords);
   return newWords;
-};
-uniquifyArray(wordsUnique);
+}
 
 // Iteration #6: Find elements
 const it6Words = [
@@ -167,13 +167,13 @@ const it6Words = [
   "disobedience",
 ];
 
-let doesWordExist = (arr, word) => {
+function doesWordExist(arr, word) {
   if (arr.length === 0) {
     return null;
   } else {
     return arr.includes(word);
   }
-};
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -189,7 +189,7 @@ const wordsCount = [
   "disobedience",
   "matter",
 ];
-let howManyTimes = (wordsArr, word) => {
+function howManyTimes(wordsArr, word) {
   let wordCount = 0;
   if (wordsArr.length === 0) {
     return 0;
@@ -201,7 +201,7 @@ let howManyTimes = (wordsArr, word) => {
     }
     return wordCount;
   }
-};
+}
 // Iteration #8: Bonus
 
 const matrix = [
