@@ -4,19 +4,34 @@ function maxOfTwoNumbers(num1, num2) {
   let caja=[num1,num2]
  caja.sort()
  let bigger=caja[1]
- return  console.log(bigger)
+ return  bigger
 }
   return num2;
 
 }
-maxOfTwoNumbers(1,3);
+maxOfTwoNumbers(5,2);
 // Iteration #2: Find longest word
-/*const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-function findLongestWord(array1){
-  typeof array1 === ‘null’;
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-}
-findLongestWord(Array)*/
+let long1=0
+
+function findLongestWord(array1){
+  if(array1.length==0){
+    return null;
+  } else if (array1.length===1){
+    return array1[0] 
+  }
+    else if (array1.length>1) {
+      for (i=0; i<array1.length; i++){
+        if (array1[i].length > long1){
+          long1= array1[i].length;
+        }
+    }
+      return array1[0]
+    }
+
+  }
+findLongestWord([""])
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
