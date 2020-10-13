@@ -1,18 +1,147 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (number1, number2) => {
+  if (typeof number1 !== 'number' || typeof number2 !== 'number') {
+    return 'Please introduce 2 numbers';
+  }
+  
+  if (number1 > number2) {
+    return number1
+  } else {
+    return number2;
+  }
+};
+
+maxOfTwoNumbers();
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const findLongestWord = arrayOfWords => {
+  let characters = 0;
+  let longestWord = '';
+
+  for(let i = 0; i < arrayOfWords.length; i++) {
+    if (arrayOfWords[i].length > characters){
+      characters = arrayOfWords[i].length;
+      longestWord = i;
+    }
+  }
+
+  return arrayOfWords[longestWord];
+}
+
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = arrayOfNumbers => {
+  let total = 0;
+
+  for(let i = 0; i < arrayOfNumbers.length; i++) {
+    total += arrayOfNumbers[i];
+  }
+
+  return total;
+}
+
+sumNumbers(numbers);
+
+//#### Bonus - Iteration #3.1: A generic `sum()` function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+const sum = anyArray => {
+  let total = 0;
+
+  for(let i = 0; i < anyArray.length; i++) {
+
+    switch (typeof anyArray[i]) {
+      case 'string':
+        total += anyArray[i].length;
+        break;
+      case 'number':
+        total += anyArray[i];
+        break;
+      case 'boolean':
+        total += anyArray[i];
+        break;
+      default:
+        return 'Objects or Arrays inside the Array are not permited, only numbers, strings and boolean.';
+    }
+  }
+
+  return total;
+}
+
+sum(mixedArr);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = arrayOfNumbers => {
+  let total = 0;
+
+  for(let i = 0; i < arrayOfNumbers.length; i++) {
+    total += arrayOfNumbers[i];
+  }
+
+  return Math.round((total / arrayOfNumbers.length) * 10) / 10;
+}
+
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = arrayOfWords => {
+  if (arrayOfWords.length === 0) {
+    return 'The Array is empty!';
+  }
+
+  let averageNumber = 0;
+
+  for(let i = 0; i < arrayOfWords.length; i++) {
+    averageNumber += arrayOfWords[i].length;
+  }
+
+  return averageNumber / arrayOfWords.length;
+}
+
+averageWordLength(wordsArr);
+
+// #### Bonus - Iteration #4.1: A generic `avg()` function
+
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+const avg = arr => {
+  let total = 0;
+
+  for(let i = 0; i < arr.length; i++) {
+
+    switch (typeof arr[i]) {
+      case 'string':
+        total += arr[i].length;
+        break;
+      case 'number':
+        total += arr[i];
+        break;
+      case 'boolean':
+        total += arr[i];
+        break;
+      default:
+        return 'Objects or Arrays inside the Array are not permited, only numbers, strings and boolean.';
+    }
+  }
+
+  return Math.round((total / arr.length) * 10) / 10;
+}
+
+avg(mixedArr2);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +158,51 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = listOfWords => {
+  if (listOfWords.length === 0) {
+    return 'The Array is empty!'
+  }
+
+  let word = '';
+  let wordPosition = '';
+
+  for( let i = 0; i < listOfWords.length; i++) {
+    word = listOfWords[i];
+    for( let n = 0; n < listOfWords.length; n++) {
+      if ( i === n ) {
+          continue;
+      } else {
+        if (listOfWords[n] === word) {
+          listOfWords.splice(n, 1);
+        }
+      }
+    }
+  }
+  
+  return listOfWords;
+}
+
+uniquifyArray(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (wordsArray, wordToSearchFor) => {
+  let itIs = false;
+
+  if (wordToSearchFor === undefined) {
+    return 'You must type a word to search for.'
+  }
+
+  for(let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToSearchFor) {
+      itIs = true;
+    }
+  }
+  return itIs;
+}
+
+doesWordExist(wordsFind);
 
 // Iteration #7: Count repetition
 const wordsCount = [
