@@ -17,7 +17,9 @@ function findLongestWord(arrayOfWords) {
     if (word.length < arrayOfWords[i].length) {
       word = arrayOfWords[i];
     }
-  }if (!arrayOfWords.length) return null;
+  }if (!arrayOfWords.length) {
+    return null
+  };
     
 return word;
 }
@@ -38,8 +40,16 @@ return sum;
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = numbers => {
+  if (!numbers.length) {
+    return null;
+  }
+  return sumNumbers(numbers) / numbers.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
