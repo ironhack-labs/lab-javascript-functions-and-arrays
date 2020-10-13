@@ -128,7 +128,7 @@ let uniquifyArray = (arr) => {
 uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
-const wordsFind = [
+const it6Words = [
   "machine",
   "subset",
   "trouble",
@@ -138,6 +138,14 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
+
+let doesWordExist = (arr, word) => {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return arr.includes(word);
+  }
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
