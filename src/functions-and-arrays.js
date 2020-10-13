@@ -23,14 +23,34 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 // Iteration #3: Calculate the sum
 function sumNumbers (nums) {
-  let sum = 0;
+  let sumOfNums = 0;
   for (let i = 0; i < nums.length; i++){
-      sum += nums[i]
+    sumOfNums += nums[i]
   }
-  return(sum)
+  return(sumOfNums)
 }
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+//Bonus - Iteration #3.1
+function sum(mixedDataArray){
+  if (mixedDataArray.length === 0){
+    return 0;
+  }
+  let sumOfMixed = 0;
+  for (let i = 0; i < mixedDataArray.length; i++){
+    sumOfMixed += mixedDataArray[i];
+    if (typeof(mixedDataArray[i]) === 'string'){
+      sumOfMixed += mixedDataArray[i].length;
+    }
+    if (typeof(mixedDataArray[i]) === 'boolean' && mixedDataArray[i] === true){
+      sumOfMixed += 1;
+    }
+  }
+  return sumOfMixed;
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(sum(mixedArr))
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 function averageNumbers(numsArray){
@@ -49,7 +69,6 @@ function averageNumbers(numsArray){
 }
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-console.log(averageNumbers(numbersAvg))
 // Level 2: Array of strings
 
 function averageWordLength(wordsArray){
@@ -68,6 +87,14 @@ function averageWordLength(wordsArray){
 }
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+//Bonus - Iteration #4.1
+function avg(avgArr){
+  if(avgArr.length === 0){
+    return null;
+  }
+
+}
 
 // Iteration #5: Unique arrays
 function uniquifyArray(wordsArr){
@@ -141,6 +168,9 @@ const wordsCount = [
 ];
 
 // Iteration #8: Bonus
+function greatestProduct(){
+
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
