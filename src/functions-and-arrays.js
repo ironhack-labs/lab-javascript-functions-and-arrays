@@ -24,14 +24,70 @@ function findLongestWord(array) {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array) {
+  let sum = 0
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] != 'number') {
+      continue;
+
+    } else {
+      sum = sum + array[i]
+
+    }
+
+  }
+  return sum;
+
+}
+
+function sum(array) {
+  let sum = 0
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'number') {
+      sum = sum + array[i]
+
+    } else if (typeof array[i] === "string") {
+      sum = sum + array[i].length
+
+    } else if (typeof array[i] === 'boolean') {
+      if (true) {
+        sum++
+      } else {
+        sum
+      }
+
+    }
+  }
+  return sum;
+
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+
+  if (!array || array === []) {
+    return null;
+  } else {
+    let sum = 0
+    for (let i = 0; i < array.length; i++) {
+      sum = sum + array[i]
+    }
+    let average = sum / array.length
+    return average
+  }
+
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
