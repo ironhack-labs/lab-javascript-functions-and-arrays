@@ -1,18 +1,82 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (number1, number2) => {
+  if (number1 > number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+  };
+
+
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+/* Declare a function named `findLongestWord` that takes as an argument an array of words
+and returns the longest one. If there are 2 with the same length,
+it should return the first occurrence. */
+
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'icecreama', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr) {
+  let longestWord = "";
+  if (arr === null || arr.length === 0) {
+    return null;
+  }
+  for (var i = 0; i < arr.length; i++){
+    if(arr[i].length > longestWord.length){
+        longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
+
+
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+//const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+ 
+function sumNumbers(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++){
+      sum = arr[i] + sum;
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  if (arr.length === 0)
+  return null;
+  else
+  return sumNumbers(arr)/arr.length;
+} 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+// const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+
+/* Calculating an average is an extremely common task. Let's practice it a bit.
+
+**The logic behind this:**
+
+1. Find the sum as we did in the first exercise (or how about reusing that the _sumNumbers()_?)
+2. Take that sum and divide it by the number of elements in the list.
+
+#### Level 1: Array of numbers
+
+Declare a function named `averageNumbers` that expects an array of numbers and returns the average of the numbers:
+
+You can use the following array to test your solution:
+
+```javascript
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+```
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -71,3 +135,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+*/
