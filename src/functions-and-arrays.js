@@ -2,15 +2,22 @@
 
 function maxOfTwoNumbers(num1, num2){
   if (num1 > num2) {
-    return (`Number 1: ${num1} is larger than Number 2: ${num2}`);
+    return num1;
   }
-  else if (num2 > num1){return (`Number 2 (${num2}) is larger than Number 1 (${num1}).`);
-  }
-  else {(`Numbers are equal (${num1}`)}
+  return num2;
+  // else if (num2 > num1){return num2;
+  // }
+  // // else {
+  //   return num1
+  // }
 }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array){
+  
+}
 
 // Iteration #3: Calculate the sum
 
