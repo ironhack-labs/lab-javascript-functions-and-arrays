@@ -35,11 +35,12 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
     let sum = 0;
     //console.log("array length",mixedArr.length)
     for (let i = 0 ; i < mixedArr.length ; i++){
+      
       if (typeof mixedArr[i] === "number"){
         console.log(sum)
       sum += mixedArr[i]
       //console.log("number",sum)
-      } else if ((typeof mixedArr[i] === "boolean") && (mixedArr[i] = "true")) {
+      } else if ((typeof mixedArr[i] === "boolean") && (mixedArr[i] = true)) {
         sum += 1;
        // console.log("boolean",sum)
       }  else if (typeof mixedArr[i] === "string") {
@@ -82,6 +83,31 @@ function averageWordLength (arr){
   return sum / wordLength.length
 };
 
+  function avg(mixedArr){
+    if (!mixedArr.length){
+      return null;}
+    let sum = 0;
+    if (!arr.length){
+      return null;}
+    //console.log("array length",mixedArr.length)
+    for (let i = 0 ; i < mixedArr.length ; i++){
+      if (typeof mixedArr[i] === "number"){
+        //console.log(sum)
+      sum += mixedArr[i]
+      //console.log("number",sum)
+      } else if ((typeof mixedArr[i] === "boolean") && (mixedArr[i] = "true")) {
+        sum += 1;
+       // console.log("boolean",sum)
+      }  else if (typeof mixedArr[i] === "string") {
+      sum += mixedArr[i].length;
+     // console.log("string",sum)
+       }
+    }
+      avg = sum/mixedArr.length
+      return avg
+  }
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -98,9 +124,29 @@ const wordsUnique = [
 ];
 
 
+function uniquifyArray (arr){
+  if (!arr.length){
+    return null;
+  }
+  return arr.reduce((acc, curr) => acc.includes(curr) ? acc : [...acc, curr], []);
+}
+
+uniquifyArray(wordsUnique)
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (arr, word){
+  if (!arr.length){
+    return null;
+  }
+  if (arr.includes(word)){
+    return true
+  }else{
+    return false
+  }
+ };
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -116,6 +162,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word){
+  let output = [];
+  for (let i = 0; i < arr.length; i++){
+    if (word === arr[i]){
+      output.push(word);
+    }
+  }
+  return output.length
+};
 
 // Iteration #8: Bonus
 
@@ -141,3 +197,33 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function get(arr, y, x) {
+if (0 <= y && y < arr.length && 0 <= x && x < arr[y].length) {
+  return arr[y][x];
+}
+return 0;
+}
+
+
+function greatestProduct(arr, k) {
+
+let max = 0;
+
+let dx = [1, 0, 1,-1];
+let dy = [0, 1, 1, 1];
+
+for (let y = 0; y < arr.length; y++) {
+  for (let x = 0; x < arr[y].length; x++) {
+    for (let d = 0; d < 4; d++) {
+      let p = 1;
+      for (let i = 0; i < k; i++) {
+        p*= get(arr, y + i * dy[d], x + i * dx[d]);
+      }
+      max = Math.max(p, max);
+    }
+  }
+}
+return max;
+
+}
