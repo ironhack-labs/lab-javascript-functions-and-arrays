@@ -9,12 +9,14 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 
 
-function findLongestWord(arr) {
-  let word = "";
-  for (let i = 0; i < arr.length; i++) {
-    if (word.length < arr[i].length) {
-      word = arr[i];
-    }
+function findLongestWord(words) {
+  let word = " ";
+  if (!words.length){
+    return null;
+  } else for (let i = 0; i < words.length; i++) {
+    if (word.length < words[i].length) {
+      word = words[i];
+    } 
   }
   return word;
 };
@@ -27,12 +29,30 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers (arr){
   let sum = 0;
   for (let i = 0 ; i < arr.length ; i++){
-    sum += arr[i]
+    sum += arr[i];
   }
   return sum
 };
 
 
+function sum (mixedArr){
+  let sum = 0;
+  //console.log("array length",mixedArr.length)
+  for (let i = 0 ; i < mixedArr.length ; i++){
+    if (typeof mixedArr[i] === "number"){
+      console.log(sum)
+    sum += mixedArr[i]
+    //console.log("number",sum)
+    } else if ((typeof mixedArr[i] === "boolean") && (mixedArr[i] = "true")) {
+      sum += 1;
+     // console.log("boolean",sum)
+    }  else if (typeof mixedArr[i] === "string") {
+    sum += mixedArr[i].length;
+   // console.log("string",sum)
+     }
+  }
+   return sum
+}
 
 
 
@@ -44,6 +64,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (arr){
   let sum = 0;
+  if (!arr.length){
+    return null;
+  }
   for (let i = 0 ; i < arr.length ; i++){
     sum += arr[i]
   }
@@ -58,13 +81,16 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength (arr){
   let sum = 0;
   let wordLength = [];
-  for (let i = 0 ; i < arr.length ; i++){
-    wordLength.push(arr[i].length)
-    
-  }for (let j = 0; j < wordLength.length ; j++){
-    sum += wordLength[j]
-  }
-  console.log(wordLength)
+    if (!arr.length){
+      return null;
+    }
+    for (let i = 0 ; i < arr.length ; i++){
+      wordLength.push(arr[i].length)
+      
+    }for (let j = 0; j < wordLength.length ; j++){
+      sum += wordLength[j]
+    }
+  //console.log(wordLength)
   return sum / wordLength.length
 };
 
@@ -87,8 +113,10 @@ const wordsUnique = [
 
 
 function uniquifyArray (arr){
+  if (!arr.length){
+    return null;
+  }
   return arr.filter((value, index) => arr.indexOf(value) === index  )
- 
  };
 
 
@@ -98,6 +126,9 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 
 function doesWordExist (arr, word){
+  if (!arr.length){
+    return null;
+  }
   if (arr.includes(word)){
     return true
   }else{
