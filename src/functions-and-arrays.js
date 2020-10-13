@@ -48,7 +48,27 @@ let sumNumbers = (arr) => {
   return total;
 };
 sumNumbers(numbers);
-
+// Iteration #3.1 BONUS
+let sum = (arr) => {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "string") {
+        arr[i] = arr[i].length;
+      } else if (arr[i] === true) {
+        arr[i] = 1;
+      } else if (arr[i] === false) {
+        arr[i] = 0;
+      } else if (typeof arr[i] === "object" || typeof arr[i] === "array") {
+        return "Error: Objects and arrays are not valid input.";
+      }
+    }
+  }
+  let summedArr = arr.reduce((total, amount) => total + amount);
+  return summedArr;
+};
+sum(mixedArr);
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -161,7 +181,19 @@ const wordsCount = [
   "disobedience",
   "matter",
 ];
-
+let howManyTimes = (wordsArr, word) => {
+  let wordCount = 0;
+  if (wordsArr.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < wordsArr.length; i++) {
+      if (wordsArr[i].includes(word)) {
+        wordCount++;
+      }
+    }
+    return wordCount;
+  }
+};
 // Iteration #8: Bonus
 
 const matrix = [
