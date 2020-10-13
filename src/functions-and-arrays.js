@@ -182,7 +182,7 @@ const mixedArr2 = [6, [], 12, 'miami', 1, true, {}, 'barca', '200', 'lisboa', 8,
 ////OR...with REDUCE():
 // ****trow error  
 function sum(array){
-  if(nullArrayStrings(array)) return null;
+  if(nullArrayNumbers(array)) return null;
   return array.reduce((acc, curr)=>{
     return acc + (typeof curr === "string" ?  curr.length  : typeof curr === "boolean" ? Number(curr) : typeof curr ==="number" ? curr : 0)
   },0)    
@@ -220,7 +220,9 @@ cl('----------------------------------')
 // #### Bonus - Iteration #4.1: A generic `avg()` function
 
 function avg(array){
-  return sum(array)/ array.length
+  if(nullArrayStrings(array)) return null;
+  let avg = sum(array)/ array.length
+  return avg.toFixed(2)
 }
 
 cl(`avg(mixedArr) should ===> 5.7:`)
@@ -250,6 +252,18 @@ function averageWordLength(array){
 
 cl(`averageWordLength(array) should ==> 5.3`)
 cl(averageWordLength(wordsArr)) // 5.3
+
+function avgW(words) {
+  let all = 0;
+  for(let ws of words) {
+    all = all + ws.length
+  }
+  let avg = all / words.length
+  return avg.toFixed(2)
+}
+
+cl(`avgW(wordsArr) for of:`)
+cl(avgW(wordsArr))
 
 cl('----------------------------------')
 
@@ -301,12 +315,26 @@ cl('----------------------------------')
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 
+function doesWordExist(array, word){
+  if(nullArrayStrings(array)) return null;
+  if(checkStingsArr(array) === false) return notStrings()
+  let result = false
+  for(wrd of array){
+    if(word === wrd) result = true
+   
+  }
+  return result
+
+}
 
 
 
-
-
+cl(`doesWordExist(wordsFind, 'truth') should ==> true`)
+cl(doesWordExist(wordsFind, 'truth' ))
+cl(`doesWordExist(array) should ==> false`)
+cl(doesWordExist(wordsFind, 'heyyyyy' ))
 cl('----------------------------------')
+
 
 // ### Iteration #7: Count repetition
 // Declare a function named `howManyTimes` that will take in an array of words as the first argument, and a word to search for as the second argument. The function will return the number of times that word appears in the array.
@@ -327,8 +355,28 @@ const wordsCount = [
 ];
 
 
+function howManyTimes(array, word){
+  if(nullArrayNumbers(array)) return null;
+  if(checkStingsArr(array) === false) return notStrings()
+  let result = 0
+  for(wrd of array){
+    if(word === wrd) result++
+   
+  }
+  return result
+}
 
+
+
+
+cl(`howManyTimes(wordsCount,'matter') should ==> 4:`)
+cl(howManyTimes(wordsCount,'matter' ))
+cl(`howManyTimes(wordsCount,'wahhh') should ==> 0:`)
+cl(howManyTimes(wordsCount,'wahh' ))
 cl('----------------------------------')
+
+
+
 
 // ### Bonus - Iteration #8: Product of adjacent numbers
 
