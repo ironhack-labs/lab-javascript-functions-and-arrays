@@ -83,7 +83,6 @@ const sum = mixedArr => {
         break;
     }
   })
-  console.log("TEST ", sum)
   return sum;
 }
 
@@ -212,10 +211,10 @@ const greatestProduct = matrix => {
         continue;
       }
     }
-    return maxSum;
   }
-  console.log(maxSum)
-  console.log("NUMBERS ", whichNumbers);
+  //console.log(maxSum);
+  //console.log("NUMBERS ", whichNumbers);
+  return maxSum;
 }
 
 const createVerticalMatrix = matrix => {
@@ -229,4 +228,4 @@ const createVerticalMatrix = matrix => {
   return verticalMatrix;
 }
 
-greatestProduct(matrix)
+greatestProduct(matrix);
