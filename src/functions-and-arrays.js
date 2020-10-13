@@ -12,12 +12,23 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array) {
-  array = array.sort()
+  let longestWord = ""
   if (!array.length) {
     return null;
-  } else {
-    return array[0]
   }
+
+  for (let i = 0; i < array.length; i++) {
+    if (longestWord.length < array[i].length) {
+      longestWord = array[i]
+    } else {
+      continue;
+    }
+
+
+
+
+  }
+  return longestWord
 }
 
 // Iteration #3: Calculate the sum
@@ -54,11 +65,14 @@ function sum(array) {
     } else if (typeof array[i] === 'boolean') {
       if (true) {
         sum++
-      } else {
-        sum
       }
-
+      if (false) {
+        continue;
+      }
+    } else {
+      return error
     }
+
   }
   return sum;
 
@@ -71,7 +85,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
 
-  if (!array || array === []) {
+  if (!array.length) {
     return null;
   } else {
     let sum = 0
@@ -88,6 +102,50 @@ function averageNumbers(array) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 
+function averageWordLength(array) {
+  if (!array.length) {
+    return null;
+  } else {
+    let sum = 0
+    for (let i = 0; i < array.length; i++) {
+      sum = sum + array[i].length
+    }
+    let average = sum / array.length
+    return average
+  }
+
+}
+
+function avg(arr) {
+  let sum = 0
+  if (!arr.length) {
+    return null
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sum = sum + arr[i]
+
+    } else if (typeof arr[i] === "string") {
+      sum = sum + arr[i].length
+
+    } else if (typeof arr[i] === 'boolean') {
+      if (true) {
+        sum = sum + 1
+      }
+      if (false) {
+        continue;
+      }
+
+    } else {
+      return error
+    }
+
+  }
+  let average = sum / arr.length
+  return average
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -104,8 +162,37 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  if (!array.length) {
+    return null;
+
+  } else {
+    array = Array.from(new Set(array));
+
+  }
+
+  return array
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word) {
+  if (!array.length) {
+    return null;
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+        return true
+      } else {
+        continue;
+      }
+
+    }
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -121,6 +208,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      sum++
+    } else {
+      continue;
+    }
+
+  }
+  return sum
+}
 
 // Iteration #8: Bonus
 
@@ -146,3 +246,36 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let product = 0
+  for (let i = 0; i < matrix.length; i++) {
+
+    let test = matrix[i] * matrix[i + 1] * matrix[i + 2] * matrix[i + 3]
+
+    if (product < test) {
+      product = test
+    } else {
+      let test2 = matrix[i] * matrix[i - 1] * matrix[i - 2] * matrix[i - 3]
+
+      if (product < test2) {
+        product = test2
+      } else {
+        for (let j = 0; j < matrix[i].length; j++) {
+          let test3 = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+          if (product < test3) {
+            product = test3
+          } else {
+            let test4 = matrix[i] * matrix[i - 1] * matrix[i - 2] * matrix[i - 3]
+            if (product < test4) {
+              product = test4
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+  return product
+}
