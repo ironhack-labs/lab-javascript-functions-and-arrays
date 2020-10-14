@@ -153,7 +153,7 @@ cl('----------------------')
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]; // should return: 57
 
-const mixedArr2 = [6, [], 12, 'miami', 1, true, {}, 'barca', '200', 'lisboa', 8, 10]; // 12 - 2 errors [] {}
+// const mixedArr2 = [6, [], 12, 'miami', 1, true, {}, 'barca', '200', 'lisboa', 8, 10]; // 12 - 2 errors [] {}
 
 // function sum(array){
 //   nullArrayStrings(array)
@@ -192,6 +192,16 @@ function sum(array){
 
 cl(`sum(mixedArr) should ===> 57:`)
 cl(sum(mixedArr))
+cl(`[${numbers}] should ==> 87:`); 
+cl(sum(numbers))//==> 87
+
+cl(`[${numbers2}] should ==> "enter numbers only":`); 
+cl(sum(numbers2)); // ==> enter numbers only
+
+cl(`[${numbers3}] should ==> 0:`)
+cl(sum(numbers3)); // ==> 0
+cl('----------------------')
+
 // cl(`sum(mixedArr2) errors should ===> show errors:`)
 // cl(sum(mixedArr2))
 
@@ -222,7 +232,8 @@ cl('----------------------------------')
 function avg(array){
   if(nullArrayStrings(array)) return null;
   let avg = sum(array)/ array.length
-  return avg.toFixed(2)
+  return Number(avg.toFixed(2))
+
 }
 
 cl(`avg(mixedArr) should ===> 5.7:`)
@@ -253,19 +264,24 @@ function averageWordLength(array){
 cl(`averageWordLength(array) should ==> 5.3`)
 cl(averageWordLength(wordsArr)) // 5.3
 
-function avgW(words) {
-  let all = 0;
-  for(let ws of words) {
-    all = all + ws.length
-  }
-  let avg = all / words.length
-  return avg.toFixed(2)
-}
 
-cl(`avgW(wordsArr) for of:`)
-cl(avgW(wordsArr))
+//OR///
 
-cl('----------------------------------')
+// function avgW(words) {
+  // if(nullArrayStrings(array)) return null;
+  // if(checkStingsArr(array) === false) return notStrings()
+//   let all = 0;
+//   for(let ws of words) {
+//     all = all + ws.length
+//   }
+//   let avg = all / words.length
+//   return avg.toFixed(2)
+// }
+
+// cl(`avgW(wordsArr) for of:`)
+// cl(avgW(wordsArr))
+
+//cl('----------------------------------')
 
 // Iteration #5: Unique arrays
 // Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the [`indexOf`]method.
@@ -416,11 +432,11 @@ const matrix = [
 
 ///....code REFACTOR for bigger grid
 
-// function greatestProduct(matrix){
+function greatestProduct(matrix){
   
 
 
-// }
+}
   
 
 //cl(`~~greatestProduct(matrix)~~ should be 51267216: --->`)
@@ -431,9 +447,9 @@ const matrix = [
 
 
 
- // function greatestProductOfDiagonals(matrix){
+ function greatestProductOfDiagonals(matrix){
   
-// }
+}
 
 
 //cl(`~~`greatestProductOfDiagonals(matrix)`~~ should be : --->`)
