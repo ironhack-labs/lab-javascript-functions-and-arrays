@@ -27,9 +27,7 @@ function findLongestWord(array) {
   for (let i = 0; i < array.length; i++) {
     if (longestWord.length < array[i].length) {
       longestWord = array[i];
-    } else {
-      continue;
-    }
+    } 
   }
   return longestWord;
 }
@@ -67,12 +65,8 @@ function sum(array) {
       sum = sum + array[i];
     } else if (typeof array[i] === "string") {
       sum = sum + array[i].length;
-    } else if (typeof array[i] === "boolean") {
-      if (array[i] === true) {
-        sum++;
-      } else {
-        continue;
-      }
+    } else if (typeof array[i] === "boolean" && array[i] === true) {
+      sum++ 
     }
   }
   return sum;
@@ -86,9 +80,8 @@ function averageNumbers(array) {
   if (!array.length) {
     return null;
   }
-  let sum = sumNumbers(array);
-  let average = sum / array.length;
-  return average;
+  
+  return sumNumbers(array)/ array.length;
 }
 
 // Level 2: Array of strings
@@ -122,10 +115,8 @@ function avg(arr) {
   if (!arr.length) {
     return null;
   }
-  let total = sum(arr);
-
-  let average = total / arr.length;
-  return parseFloat(average.toFixed(2));
+  
+  return parseFloat((sum(arr)/arr.length).toFixed(2));
 }
 
 // Iteration #5: Unique arrays
@@ -169,12 +160,10 @@ function doesWordExist(array, word) {
   if (!array.length) {
     return null;
   } else {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] === word) {
+    for (let el of array) {
+      if (el === word) {
         return true;
-      } else {
-        continue;
-      }
+      } 
     }
   }
   return false;
