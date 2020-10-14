@@ -138,7 +138,7 @@ const doesWordExist = (wordsFind, word) => {
       found = true;
     }
   }
-  if (found === true) { return true; } else { return false; }
+  return found;
 }
 
 
@@ -198,13 +198,13 @@ const greatestProduct = matrix => {
   verticalMatrix = createVerticalMatrix(matrix); // Creating a copy of the matrix rotated by 90 degrees for better looping
   let masterMatrix = [...horizontalMatrix, ...verticalMatrix]; // Joining the 2 matrix
   let whichNumbers;
-  let maxSum = 0;
+  let maxProduct = 0;
   for (let x = 0; x < masterMatrix.length; x++) { // Just cycle and check only horizontally
     for (let y = 0; y < masterMatrix.length; y++) {
       if (y + 4 < masterMatrix[x].length) {
         let temporarySum = masterMatrix[x][y] * masterMatrix[x][y+1] * masterMatrix[x][y+2] * masterMatrix[x][y+3];
-        if (temporarySum > maxSum) {
-          maxSum = temporarySum;
+        if (temporarySum > maxProduct) {
+          maxProduct = temporarySum;
           whichNumbers = [masterMatrix[x][y], masterMatrix[x][y+1], masterMatrix[x][y+2], masterMatrix[x][y+3]];
         }
       } else {
@@ -212,9 +212,9 @@ const greatestProduct = matrix => {
       }
     }
   }
-  //console.log(maxSum);
-  //console.log("NUMBERS ", whichNumbers);
-  return maxSum;
+  console.log(maxProduct); 
+  console.log("NUMBERS ", whichNumbers); // It tells you which numbers provide the maximum product
+  return maxProduct;
 }
 
 const createVerticalMatrix = matrix => {
