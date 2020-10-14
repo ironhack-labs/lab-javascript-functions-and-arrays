@@ -12,7 +12,7 @@ maxOfTwoNumbers (1, 2);
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pear'];
 function findLongestWord (arr){
-  let count= 0, findAWord="";
+  let count= 0, findAWord= null;
   for (word of arr){
     if (word.length> count){
       count = word.length;
@@ -42,6 +42,9 @@ return counter;
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 function averageNumbers(nums){
+  if (nums.length===0){
+    return null;
+  }
   return sumNumbers(nums)/nums.length;
   }
   const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -51,9 +54,13 @@ function averageNumbers(nums){
 const words2 = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(word){
   let counter=0;
+  if (word.length===0){
+    return null;
+  }
   for(palabra of word){
     counter += palabra.length;
   }
+
   return counter/word.length;
 }
 
@@ -75,20 +82,31 @@ const words3 = [
 ];
 
 function uniquifyArray(arr){
-  for(i=0; i<arr.length; i++ ){
-    let abc= arr[arr.indexOf(arr[i],arr.indexOf(arr[i])+1)]
-    if (arr[i]===abc){
-      delete arr[i];
-    } 
+  if (arr.length===0){
+    console.log(arr);
+    return null;
   }
-    return arr;
+  let arrOut =[]
+  let index= 0;
+  for (i=0; i<arr.length; i++ ){
+    
+    if (!Boolean(arrOut.indexOf(arr[i])+1)){
+      arrOut[index]=arr[i];
+      index++
+    }
   }
+  console.log(arrOut)
+  return arrOut;
+}
 uniquifyArray(words3);
 
 // Iteration #6: Find elements
 const words4 = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, word){
+  if (arr.length===0){
+    return null;
+  }
   for(otrasPalabras of arr){
     if (otrasPalabras=== word){
       return true;
