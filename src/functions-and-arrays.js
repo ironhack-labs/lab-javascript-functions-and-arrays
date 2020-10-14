@@ -49,10 +49,8 @@ function sumNumbers(ary) {
       sums = sums + num;
       result = sums
     });
-    console.log(`${result}  `);
     return result
   }
-  console.log("result: "+result)
   return result;
 }
 sumNumbers(numbers)
