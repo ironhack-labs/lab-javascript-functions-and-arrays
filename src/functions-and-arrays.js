@@ -85,14 +85,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   if (!array.length) {
     return null;
-  } else {
-    let sum = 0;
-    for (let i = 0; i < array.length; i++) {
-      sum = sum + array[i];
-    }
-    let average = sum / array.length;
-    return average;
   }
+  let sum = sumNumbers(array);
+  let average = sum / array.length;
+  return average;
 }
 
 // Level 2: Array of strings
@@ -123,33 +119,12 @@ function averageWordLength(array) {
 }
 
 function avg(arr) {
-  let sum = 0;
   if (!arr.length) {
     return null;
   }
+  let total = sum(arr);
 
-  for (let i = 0; i < arr.length; i++) {
-    if (
-      !(
-        typeof arr[i] === "number" ||
-        typeof arr[i] === "string" ||
-        typeof arr[i] === "boolean"
-      )
-    ) {
-      throw new Error("Unsupported data type sir or ma'am");
-    } else if (typeof arr[i] === "number") {
-      sum = sum + arr[i];
-    } else if (typeof arr[i] === "string") {
-      sum = sum + arr[i].length;
-    } else if (typeof arr[i] === "boolean") {
-      if (arr[i] === true) {
-        sum++;
-      } else {
-        continue;
-      }
-    }
-  }
-  let average = sum / arr.length;
+  let average = total / arr.length;
   return parseFloat(average.toFixed(2));
 }
 
