@@ -22,30 +22,42 @@ function findLongestWord(array1) {
     let longest = "";
 
     array1.forEach(function(word) {
-          if (word.length > longest.length) {
-            longest = word;
-          }
+      if (word.length > longest.length) {
+        longest = word;
       }
-    );
+    });
     console.log(longest);
     return longest;
   }
 }
 
-findLongestWord(words);
+// findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
+const numbers = [0, 4, 2, 0, 0]
+
 function sumNumbers(ary) {
   result = NaN;
-  if (ary.length===0){
-    result = 0
+  if (ary.length === 0) {
+    result = 0;
+  } else if (ary.length === 1) {
+    result = ary[0]
+  } else if (ary.length > 1) {
+    let sums = 0;
+    ary.forEach(function(num) {
+      sums = sums + num;
+      result = sums
+    });
+    console.log(`${result}  `);
+    return result
   }
-
-  return result
+  console.log("result: "+result)
+  return result;
 }
+sumNumbers(numbers)
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
