@@ -1,19 +1,63 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+      return num1
+  } else if (num1 < num2) {
+      return num2
+  } else {
+      return num1
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(phrase) {
+  if (phrase.length === 0) {
+      return null
+  } else if (phrase.length === 1) {
+      return phrase[0]
+  } else if (phrase.length > 1) {
+      let wordLength = []
+      phrase.forEach(function(word) {
+          wordLength.push(word.length)
+      })
+      const maxNumber = Math.max(wordLength)
+      return phrase[maxNumber]
+  }
+}
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumNumbers(conjNumeros) {
+  if (conjNumeros.length === 0) {
+      return 0
+  } else if (conjNumeros.length === 1) {
+      return conjNumeros[0]
+  } else {
+      suma = 0
+      conjNumeros.forEach((numero) => {
+          suma += numero
+      })
+      return suma
+  }
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(avgArray) {
+  if (avgArray.length === 0) {
+      return null
+  } else if (avgArray.length === 1) {
+      return avgArray[0]
+  } else {
+      suma = 0
+      avgArray.forEach(numero => {
+          suma += numero
+      })
+      const averageWordLength = suma / avgArray.length
+      return averageWordLength
+  }
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -28,10 +72,8 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,9 +88,7 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
