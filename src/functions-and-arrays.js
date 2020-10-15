@@ -94,6 +94,8 @@ function findLongestWord(array){
   return longestWord;  
 } 
 
+
+
 cl('~~~ findLongestWord(array) ~~~')
 cl(`[${words}] should ==> "crocodile:"`)
 cl(findLongestWord(words))
@@ -153,40 +155,38 @@ cl('----------------------')
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]; // should return: 57
 
-// const mixedArr2 = [6, [], 12, 'miami', 1, true, {}, 'barca', '200', 'lisboa', 8, 10]; // 12 - 2 errors [] {}
+ const mixedArr2 = [6, [1,2], 12, 'miami', 1, true, {}, 'barca', '200', 'lisboa', 8, 10]; // 12 - 2 errors [] {}
 
-// function sum(array){
-//   nullArrayStrings(array)
-//   let sumArray = 0
-//   for(let i = 0; i < array.length; i++){ 
-//     switch(typeof array[i]){
-//       case "string":
-//         sumArray += array[i].length
-//         break;
-//       case "boolean": 
-//         sumArray += Number(array[i])
-//         break;
-//       case  "number": 
-//         sumArray += array[i]
-//         break;
-//       //default:
-//         //...throw error stuff
-        
-//     }
+function sum(array){
+  nullArrayStrings(array)
+  let sumArray = 0
+  for(let i = 0; i < array.length; i++){ 
+    switch(typeof array[i]){
+      case "string":
+        sumArray += array[i].length
+        break;
+      case "boolean": 
+        sumArray += Number(array[i])
+        break;
+      case  "number": 
+        sumArray += array[i]
+        break;
+      case "object": throw new Error("Unsupported data type sir or ma'am")
+   } 
       
-//   }
-//   return sumArray
-// }
+  }
+  return sumArray
+}
 
 
 ////OR...with REDUCE():
 // ****trow error  
-function sum(array){
-  if(nullArrayNumbers(array)) return null;
-  return array.reduce((acc, curr)=>{
-    return acc + (typeof curr === "string" ?  curr.length  : typeof curr === "boolean" ? Number(curr) : typeof curr ==="number" ? curr : 0)
-  },0)    
-}
+// function sum(array){
+//   if(nullArrayNumbers(array)) return null;
+//   return array.reduce((acc, curr)=>{
+//     return acc + (typeof curr === "string" ?  curr.length  : typeof curr === "boolean" ? Number(curr) : typeof curr ==="number" ? curr : typeof curr === "object" ?  Error("Unsupported data type sir or ma'am"):0)
+//   },0)    
+// }
 
 
 
@@ -202,8 +202,8 @@ cl(`[${numbers3}] should ==> 0:`)
 cl(sum(numbers3)); // ==> 0
 cl('----------------------')
 
-// cl(`sum(mixedArr2) errors should ===> show errors:`)
-// cl(sum(mixedArr2))
+cl(`sum(mixedArr2) errors should ===> show errors:`)
+cl(sum(mixedArr2))
 
 cl('----------------------')
 
