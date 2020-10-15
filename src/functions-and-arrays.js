@@ -393,7 +393,6 @@ cl('----------------------------------')
 
 
 
-
 // ### Bonus - Iteration #8: Product of adjacent numbers
 
 // What is the greatest product of four adjacent numbers? We consider adjacent any four numbers that are next to each other horizontally or vertically.
@@ -430,44 +429,14 @@ const matrix = [
 ];
 
 
-///....code REFACTOR for bigger grid
 
-function greatestProduct(matrix){
-  
-
-
-}
-  
-
-//cl(`~~greatestProduct(matrix)~~ should be 51267216: --->`)
-//cl(greatestProduct(matrix)) //51267216
-
-//// ~~~ NOTES ~~~~  // 1. Product of adjacent numbers
-
-
-
-
- function greatestProductOfDiagonals(matrix){
-  
-}
-
-
-//cl(`~~`greatestProductOfDiagonals(matrix)`~~ should be : --->`)
-//cl(greatestProductOfDiagonals(matrix)) //
-//cl('-------------------------------')
-
-
-
-// /////////////////////////////////
-
-//// notes
-// if(i<2){
-//   cl(sx[i][i] * sx[i][i+1] * sx[i][i+2]*sx[i][i+3])
-//   }
-//first row [0][0]  1,2,3,4, & 2nd row [1][1] 20,3,4,5 stops might be useful for diagonally not this(adj)!
-
-
-
+let smx = [
+  [ 1,  2, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1,  4, 3, 4, 5],
+  ]
 
 
 
@@ -475,237 +444,148 @@ function greatestProduct(matrix){
 // Iteration #8: Bonus
 
 // 1. Product of adjacent numbers
+/// nested if's 
+function greatestProduct(mx){
+  let results = 0
+  for(let i = 0 ; i < mx.length-1; i++){
+    for(let j = 0; j < mx.length-1; j++){
+      if(i < mx.length -3){
+        tempResults = mx[i][j]*mx[i+1][j]*mx[i+2][j]*mx[i+3][j]  
+        if(tempResults > results){
+          results = tempResults
+        }
+      }
+      if(j < mx[i].length-3){
+        tempResults = mx[i][j]*mx[i][j+1]*mx[i][j+2]*mx[i][j+3]  
+        if(tempResults > results){
+          results = tempResults
+        }
+      }
+    } 
+  }
+  return results
+}
+
+cl(`~~greatestProduct(smx)~~ should be 3200: --->`)
+cl(greatestProduct(smx)) //32000
+
+cl(`~~greatestProduct(matrix)~~ should be 51267216: --->`)
+cl(greatestProduct(matrix)) //51267216
+cl('-------------------------------')
+
+
+///ternary 
+// function greatestProduct(mx){
+//   let results = 0
+//   for(let i = 0 ; i < mx.length-1; i++){
+//     for( let j= 0; j < mx.length-1; j++){
+//       if(i < mx.length -3){
+//         tempResults = mx[i][j]*mx[i+1][j]*mx[i+2][j]*mx[i+3][j]
+//         results = tempResults > results ? tempResults : results
+//       }
+//       if(j < mx[i].length-3){
+//         tempResults = mx[i][j]*mx[i][j+1]*mx[i][j+2]*mx[i][j+3] 
+//         results = tempResults > results ? tempResults : results
+//       }
+//     } 
+//   }
+//   return results
+// }
+
+// cl(`~~greatestProduct(smx)~~ should be 3200: --->`)
+// cl(greatestProduct(smx)) //32000
+
+// cl(`~~greatestProduct(matrix)~~ should be 51267216: --->`)
+// cl(greatestProduct(matrix)) //51267216
+// cl('-------------------------------')
+  
+
+
+//// ~~~ NOTES 1. Product of adjacent numbers~~~~  // 
+// nested loops 1. for 1st[index] stay at same until 2 iterations(stop index 2) 2. for 2nd[index]and conditions for each 
+//itterate vertically n horizontally
+//if hor[i][2] ver [2][i] need stop if less than 4 nums (stop index 2 horizontally & vertically)
+//using smx.length -3 whole i rowand smx[0].length -3 columns j
+//hor smx[i][j] [i][j+1]
+//vert smx[i][j] * smx[i+1][j].....
+
+
+// nested ifs
+// let results = 0
+//   for(let i = 0 ; i < mx.length-1; i++){
+//     for(let j = 0; j < mx.length-1; j++){
+//       if(i < mx.length -3){
+//         tempResults = mx[i][j]*mx[i+1][j]*mx[i+2][j]*mx[i+3][j]  
+//         if(tempResults > results){
+//           results = tempResults
+//         }
+//       }
+//       if(j < mx[i].length-3){
+//         tempResults = mx[i][j]*mx[i][j+1]*mx[i][j+2]*mx[i][j+3]  
+//         if(tempResults > results){
+//           results = tempResults
+//         }
+//       }
+//     } 
+//   }
+
+///ternary 
+// let results = 0
+// for(let i = 0 ; i < smx.length-1; i++){
+//   for( let j= 0; j < smx.length-1; j++){
+//     if(i < smx.length -3){
+//       tempResults = smx[i][j]*smx[i+1][j]*smx[i+2][j]*smx[i+3][j]
+//       results = tempResults > results ? tempResults : results
+//     }
+//     if(j < smx[i].length-3){
+//       tempResults = smx[i][j]*smx[i][j+1]*smx[i][j+2]*smx[i][j+3] 
+//       results = tempResults > results ? tempResults : results
+//     }
+//   } 
+// }
+     
+//console.log(results)
+
+/// twerns (two terns)
+
+  // tempResults > results ? results = tempResults : results = results
+   //results = tempResults > results ? tempResults : results
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 2. Iteration #8.1: Product of diagonals
-// Declare a function named `greatestProduct(matrix)` to find it in the 20×20 grid below!
-// The greatest product will be the `20`x`20`x`20`x`4` = `32000`.
 
-// let smx = [
-//   [ 1,  2, 3, 4, 5], 
-//   [ 1, 20, 3, 4, 5], 
-//   [ 1, 20, 3, 4, 5],
-//   [ 1, 20, 3, 4, 5],
-//   [ 1,  4, 3, 4, 5],
-//   ]
+ function greatestProductOfDiagonals(matrix){
   
-  
-  // function greatestProduct(smx){
-  
-  // }
-  
-//cl(`~~greatestProduct(smx)~~ should be 3200: --->`)
-//cl(greatestProduct(smx)) //32000
+}
 
- // function greatestProductOfDiagonals(smx){
-  
-  // }
+
 
 
 //cl(`~~`greatestProductOfDiagonals(smx)`~~ should be : --->`)
 //cl(greatestProductOfDiagonals(smx)) //
 
-
-//// ~~~ NOTES ~~~~  // 1. Product of adjacent numbers
-// nested loops 1. for 1st[index] stay at same until 2 iterations(stop index 2) 2. for 2nd[index]and conditions for each 
-//itterate vertically n horizontally
-//if hor[i][2] ver [2][i] need stop if less than 4 nums (stop index 2 horizontally & vertically)
-//using smx.length whole and smx[0].length rows
-//hor smx[j][i]?
-//vert smx[i][j] * smx[i+1][j].....
+//cl(`~~`greatestProductOfDiagonals(matrix)`~~ should be : --->`)
+//cl(greatestProductOfDiagonals(matrix)) //
 
 
-// let results = 0 
-// // let tempResults =  example =>
-// smx[0][i]*smx[0][i+1]*smx[i+2][]*smx[i+3]
-//  if(tempResults > results) results = tempResults 
 
 
-//TEST LOOPS
+//// ~~~ NOTES ~~~~  //
 
-// let j=0
-// let i=0
-// for(; i < smx.length-1; i++){
-//   if(i>= 0 && i<2)
-//     cl(`i ${i} : [i]: ${smx[i]}`)
-//   cl(smx[j][i] * smx[j][i+1] * smx[j][i+2]* smx[j][i+3]) // does each row
-//   for(j; j < smx.length-1; j++) {
-//     if( j>=0 && j<2)
-//    cl(smx[j][i] * smx[j][i+1] * smx[j][i+2]* smx[j][i+3])
-//    cl([smx[j][i] , smx[j][i+1] , smx[j][i+2], smx[j][i+3]]) 
-//   cl(smx[i][j] * smx[i][j+1] * smx[i][j+2]* smx[i][j+3]) 
-//   cl([smx[i][j] , smx[i][j+1] , smx[i][j+2], smx[i][j+3]]) 
-//   cl(`j ${j} : [j]: ${smx[j]}`)
-//    }
-  
+//// notes
+// if(i<2){
+//   cl(sx[i][i] * sx[i][i+1] * sx[i][i+2]*sx[i][i+3])
 //   }
+//first row [0][0]  1,2,3,4, & 2nd row [1][1] 20,3,4,5 stops might be useful for diagonally not this(adj)!
 
-// cl('----------------------------------')
-
-
-// for(let i=0; i < smx.length-1; i++){
-//   if(i>= 0 && i<2)
-//   cl(`OUTTER i: index- ${i} : [i]- ${smx[i]}`)
-//   cl(`OUTTER j: index- ${j} : [j]- ${smx[j]}`)
-  
-//  cl(`OUTTER[i][j]: [${smx[i][j]} ,${smx[i][j+1]}, ${smx[i][j+2]}, ${smx[i][j+3]}] --->`)
-//  cl(smx[i][j] * smx[i][j+1] * smx[i][j+2]* smx[i][j+3])
-
-//   cl(`OUTTER[j][i]:[${smx[j][i]} ,${smx[j][i+1]}, ${smx[j][i+2]}, ${smx[j][i+3]}] --->`)
-//   cl(smx[j][i] * smx[j][i+1] * smx[j][i+2]* smx[j][i+3]) // does each row
-  
-  
-//   for(let j=0; j < smx.length-1; j++) {
-//     if( j>=0 && j<2)
-    
-//   cl(`INNER[j][i]: [${smx[j][i]} , ${smx[j][i+1]} , ${smx[j][i+2]}, ${smx[j][i+3]}] --> `) 
-//   cl(smx[j][i] * smx[j][i+1] * smx[j][i+2]* smx[j][i+3])
-   
-//  cl(`INNER[i][j]: [${smx[i][j]} , ${smx[i][j+1]} , ${smx[i][j+2]}, ${smx[i][j+3]}] --->`) 
-//   cl(smx[i][j] * smx[i][j+1] * smx[i][j+2]* smx[i][j+3]) 
- 
-//   cl(`INNER i: index- ${i} : [i]- ${smx[i]}`)
-//   cl(`INNER j: index- ${j} : [j]- ${smx[j]}`)
-
-//    }
-  
-//   } 
-
-
-
-
-// RESULTS
-// ----------------------------------
-// i 0 : [i]: 1,2,3,4,5
-// 24
-// 24
-// [ 1, 2, 3, 4 ]
-// 24
-// [ 1, 2, 3, 4 ]
-// j 0 : [j]: 1,2,3,4,5
-// 240
-// [ 1, 20, 3, 4 ]
-// 120
-// [ 2, 3, 4, 5 ]
-// j 1 : [j]: 1,20,3,4,5
-// [ 1, 20, 3, 4 ]
-// NaN
-// [ 3, 4, 5, undefined ]
-// j 2 : [j]: 1,20,3,4,5
-// [ 1, 20, 3, 4 ]
-// NaN
-// [ 4, 5, undefined, undefined ]
-// j 3 : [j]: 1,20,3,4,5
-// i 1 : [i]: 1,20,3,4,5
-// 240
-// NaN
-// NaN
-// ----------------------------------
-// OUTTER i: index- 0 : [i]- 1,2,3,4,5
-// OUTTER j: index- 4 : [j]- 1,4,3,4,5
-// OUTTER[i][j]: [5 ,undefined, undefined, undefined] --->
-// NaN
-// OUTTER[j][i]:[1 ,4, 3, 4] --->
-// 48
-// INNER[j][i]: [1 , 2 , 3, 4] --> 
-// 24
-// INNER[i][j]: [1 , 2 , 3, 4] --->
-// 24
-// INNER i: index- 0 : [i]- 1,2,3,4,5
-// INNER j: index- 0 : [j]- 1,2,3,4,5
-// INNER[j][i]: [1 , 20 , 3, 4] --> 
-// 240
-// INNER[i][j]: [2 , 3 , 4, 5] --->
-// 120
-// INNER i: index- 0 : [i]- 1,2,3,4,5
-// INNER j: index- 1 : [j]- 1,20,3,4,5
-// 240
-// INNER[i][j]: [3 , 4 , 5, undefined] --->
-// NaN
-// INNER i: index- 0 : [i]- 1,2,3,4,5
-// INNER j: index- 2 : [j]- 1,20,3,4,5
-// 240
-// INNER[i][j]: [4 , 5 , undefined, undefined] --->
-// NaN
-// INNER i: index- 0 : [i]- 1,2,3,4,5
-// INNER j: index- 3 : [j]- 1,20,3,4,5
-// OUTTER i: index- 1 : [i]- 1,20,3,4,5
-// OUTTER j: index- 4 : [j]- 1,4,3,4,5
-// OUTTER[i][j]: [5 ,undefined, undefined, undefined] --->
-// NaN
-// OUTTER[j][i]:[4 ,3, 4, 5] --->
-// 240
-// INNER[j][i]: [2 , 3 , 4, 5] --> 
-// 120
-// INNER[i][j]: [1 , 20 , 3, 4] --->
-// 240
-// INNER i: index- 1 : [i]- 1,20,3,4,5
-// INNER j: index- 0 : [j]- 1,2,3,4,5
-// INNER[j][i]: [20 , 3 , 4, 5] --> 
-// 1200
-// INNER[i][j]: [20 , 3 , 4, 5] --->
-// 1200
-// INNER i: index- 1 : [i]- 1,20,3,4,5
-// INNER j: index- 1 : [j]- 1,20,3,4,5
-// 1200
-// INNER[i][j]: [3 , 4 , 5, undefined] --->
-// NaN
-// INNER i: index- 1 : [i]- 1,20,3,4,5
-// INNER j: index- 2 : [j]- 1,20,3,4,5
-// 1200
-// INNER[i][j]: [4 , 5 , undefined, undefined] --->
-// NaN
-// INNER i: index- 1 : [i]- 1,20,3,4,5
-// INNER j: index- 3 : [j]- 1,20,3,4,5
-// OUTTER j: index- 4 : [j]- 1,4,3,4,5
-// OUTTER[i][j]: [5 ,undefined, undefined, undefined] --->
-// NaN
-// OUTTER[j][i]:[3 ,4, 5, undefined] --->
-// NaN
-// INNER[j][i]: [3 , 4 , 5, undefined] --> 
-// NaN
-// INNER[i][j]: [1 , 20 , 3, 4] --->
-// 240
-// INNER i: index- 2 : [i]- 1,20,3,4,5
-// INNER j: index- 0 : [j]- 1,2,3,4,5
-// INNER[j][i]: [3 , 4 , 5, undefined] --> 
-// NaN
-// INNER[i][j]: [20 , 3 , 4, 5] --->
-// 1200
-// INNER i: index- 2 : [i]- 1,20,3,4,5
-// INNER j: index- 1 : [j]- 1,20,3,4,5
-// NaN
-// INNER[i][j]: [3 , 4 , 5, undefined] --->
-// NaN
-// INNER i: index- 2 : [i]- 1,20,3,4,5
-// INNER j: index- 2 : [j]- 1,20,3,4,5
-// NaN
-// INNER[i][j]: [4 , 5 , undefined, undefined] --->
-// NaN
-// INNER i: index- 2 : [i]- 1,20,3,4,5
-// INNER j: index- 3 : [j]- 1,20,3,4,5
-// OUTTER j: index- 4 : [j]- 1,4,3,4,5
-// OUTTER[i][j]: [5 ,undefined, undefined, undefined] --->
-// NaN
-// OUTTER[j][i]:[4 ,5, undefined, undefined] --->
-// NaN
-// INNER[j][i]: [4 , 5 , undefined, undefined] --> 
-// NaN
-// INNER[i][j]: [1 , 20 , 3, 4] --->
-// 240
-// INNER i: index- 3 : [i]- 1,20,3,4,5
-// INNER j: index- 0 : [j]- 1,2,3,4,5
-// INNER[j][i]: [4 , 5 , undefined, undefined] --> 
-// NaN
-// INNER[i][j]: [20 , 3 , 4, 5] --->
-// 1200
-// INNER i: index- 3 : [i]- 1,20,3,4,5
-// INNER j: index- 1 : [j]- 1,20,3,4,5
-// NaN
-// INNER[i][j]: [3 , 4 , 5, undefined] --->
-// NaN
-// INNER i: index- 3 : [i]- 1,20,3,4,5
-// INNER j: index- 2 : [j]- 1,20,3,4,5
-// NaN
-// INNER[i][j]: [4 , 5 , undefined, undefined] --->
-// NaN
-// INNER i: index- 3 : [i]- 1,20,3,4,5
-// INNER j: index- 3 : [j]- 1,20,3,4,5
