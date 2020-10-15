@@ -47,37 +47,30 @@ function sumNumbers(arr) {
 // Level 1: Array of numbers
 //const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arr) {
-  if (arr.length === 0)
+function averageNumbers(arrNumbers) {
+  if (arrNumbers.length === 0)
   return null;
   else
-  return sumNumbers(arr)/arr.length;
+  return sumNumbers(arrNumbers)/arrNumbers.length;
 } 
 
 // Level 2: Array of strings
-// const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+console.log(averageWordLength(wordsArr));
+function averageWordLength(arrWords) {
+  console.log(arrWords.length);
+  if (arrWords.length === 0)
+    return null;
+  let sum = 0;
+  for (let i = 0; i < arrWords.length; i++){
+    console.log(i);
+    sum = arrWords[i].length + sum;
+  }
+  console.log(sum);
+return sum /arrWords.length
+}
 
-
-
-/* Calculating an average is an extremely common task. Let's practice it a bit.
-
-**The logic behind this:**
-
-1. Find the sum as we did in the first exercise (or how about reusing that the _sumNumbers()_?)
-2. Take that sum and divide it by the number of elements in the list.
-
-#### Level 1: Array of numbers
-
-Declare a function named `averageNumbers` that expects an array of numbers and returns the average of the numbers:
-
-You can use the following array to test your solution:
-
-```javascript
-const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
-```
-
-
-
+ 
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -91,8 +84,25 @@ const wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
+];   
 
+function uniquifyArray(newArray) {
+  let uniqueArray = [];
+    for (let i = 0; i < newArray.length; i++){
+    thisWord = newArray[i];
+    console.log(thisWord);
+    firstOccurence = newArray.indexOf(thisWord);
+    console.log(firstOccurence);
+    console.log(i);
+    console.log("--");
+    if (firstOccurence === i) {
+      tttttttt--- I stopped here ----ttttttttttt
+    }
+  }
+
+}
+console.log(uniquifyArray(wordsUnique))
+/*
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
