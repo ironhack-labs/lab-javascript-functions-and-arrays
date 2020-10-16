@@ -88,14 +88,10 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers (arr){
-  let sum = 0;
   if (!arr.length){
     return null;
   }
-  for (let i = 0 ; i < arr.length ; i++){
-    sum += arr[i]
-  }
-  return sum / arr.length
+  return sumNumbers(arr)/arr.length
 };
 
 
