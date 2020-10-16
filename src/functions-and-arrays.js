@@ -135,16 +135,15 @@ const wordsCount = [
     'matter'
 ];
 
-function getWordCount() {
-    if (wordsCount.length === 0 || wordsCount === [])
-        return null
+function howManyTimes() {
+    if (wordsCount.length === 0 || wordsCount == [])
+        return "0"
     else
         for (let i = 0; i < wordsCount.length; i++) {
             let result = 0;
-            if (wordsCount[i] === "machine") {
+            if (wordsCount[i] === "matter") {
                 result++;
             }
-            console.log(result);
             return result;
         }
 }
