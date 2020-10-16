@@ -60,6 +60,8 @@ let sumNumbers = (arr) => {
 sumNumbers(numbers);
 
 
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
@@ -90,9 +92,8 @@ function averageWordLength(wordsArr) {
     return null
   } else {
     let total = 0;
-    for (let i = 0; i < wordsArr.length; i++) {
+    for (let i = 0; i < wordsArr.length; i++)
       total += wordsArr[i];
-    }
     let avgLength = total / wordsArr.length;
     return avgLength
   }
@@ -130,19 +131,25 @@ const wordsUnique = [
     }
   }
   
-  const unitedWords = uniquifyArray(wordsUnique);
-  console.log(unitedWords);
+  uniquifyArray(wordsUnique);
+
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 doesWordExist = (Array, x) => {
-  console.log(Array.includes(x)); 
+  if (Array.length === 0) {
+    return null
+  } else { 
+    if (Array.includes(x)) {
+    return true
+    }
+    return false
+  }
 } 
 
-doesWordExist(wordsFind, "machine");
-
+doesWordExist(wordsFind, "starting");
 
 /* const array1 = [1, 2, 3];
 console.log(array1.includes(2));
@@ -165,13 +172,13 @@ const wordsCount = [
 ];
 
 
-function howManyTimes(wordsCount, searchWord) {
+/* function howManyTimes(wordsCount, searchWord) {
   let counter = 0;
   words.forEach(howManyTimes(i) { count[i] = (count[i]|| 0) +1});
 }
 
 
-howManyTimes(words) 
+howManyTimes(words)  */
 
 // Iteration #8: Bonus
 

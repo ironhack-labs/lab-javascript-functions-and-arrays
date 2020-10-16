@@ -186,7 +186,8 @@ const words = [
   'simple',
   'bring'
 ];
-```
+
+
 
 ### Iteration #6: Find elements
 
