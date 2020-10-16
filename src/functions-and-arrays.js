@@ -474,6 +474,22 @@ cl(greatestProduct(matrix)) //51267216
 cl('-------------------------------')
 
 
+// 2. Iteration #8.1: Product of diagonals
+
+function greatestProductOfDiagonals(matrix){
+  
+}
+
+
+
+
+//cl(`~~`greatestProductOfDiagonals(smx)`~~ should be : --->`)
+//cl(greatestProductOfDiagonals(smx)) //
+
+//cl(`~~`greatestProductOfDiagonals(matrix)`~~ should be : --->`)
+//cl(greatestProductOfDiagonals(matrix)) //
+
+
 ///ternary 
 // function greatestProduct(mx){
 //   let results = 0
