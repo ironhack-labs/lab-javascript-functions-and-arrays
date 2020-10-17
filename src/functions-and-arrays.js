@@ -222,17 +222,14 @@ const matrix = [
 
 function greatestProduct(matrix) {
   let productArr = []
-  for (let i = 3; i < matrix.length; i++) {
-    for (let j = 3; j < matrix[i].length; j++) {
-      if (j >= matrix[i].length - 3 || i >= matrix.length - 3) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j + 3 >= matrix[i].length || i + 3 >= matrix.length) {
         continue;
       }
 
-      productArr.push(matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j])
       productArr.push(matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j])
-      productArr.push(matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3])
       productArr.push(matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3])
-
 
     }
 
@@ -240,31 +237,27 @@ function greatestProduct(matrix) {
   productArr = productArr.sort(function (a, b) {
     return b - a
   })
+
   return productArr[0]
 }
 console.log(greatestProduct(matrix));
 
 function greatestProductOfDiagonals(matrix) {
   let productArr = []
-  for (let i = 3; i < matrix.length; i++) {
-    for (let j = 3; j < matrix[i].length; j++) {
-      if (j >= matrix[i].length - 3 || i >= matrix.length - 3) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j + 3 >= matrix.length || i + 3 >= matrix.length || j - 3 < 0) {
         continue;
       }
-
-      productArr.push(matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3])
       productArr.push(matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3])
       productArr.push(matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3])
-      productArr.push(matrix[i][j] * matrix[i - 1][j + 1] * matrix[i - 2][j + 2] * matrix[i - 3][j + 3])
-
-
-
     }
 
   }
   productArr = productArr.sort(function (a, b) {
     return b - a
   })
+
   return productArr[0]
 }
 
