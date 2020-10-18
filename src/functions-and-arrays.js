@@ -29,6 +29,29 @@ for (let i = 0; i < arr.length; i ++){
 
 return sum
 }
+
+
+function sum(arr) {
+  if (arr.length === 0) return 0;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    switch (typeof arr[i]) {
+      case "number":
+        sum += arr[i];
+        break;
+      case "string":
+        sum += arr[i].length;
+        break;
+      case "boolean":
+        sum += arr[i];
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+
+  return sum;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
@@ -66,14 +89,15 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray (arr){
-  if (!arr.length){
-    return null
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+  let uniqueArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(i) === uniqueArr.indexOf(arr[i])) {
+      uniqueArr.push(arr[i]);
+    }
   }
-let newArr = words.filter((elem, index) => {
-  return words.indexOf(elem) === index;
-})
-return newArr
+  return uniqueArr;
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
