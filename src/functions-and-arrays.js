@@ -1,20 +1,113 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2;
+  } else {
+    return num1; 
+  }
+}
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord (arr) {
+  if (!arr.length) { return null; }
+  let word = ""; 
+  arr.forEach((element) => {
+    if (word.length < element.length) {
+      word = element;
+    }
+  })
+  return word; 
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers (arr) {
+  if (!arr.length) { return 0; }
+  let sum = 0; 
+  arr.forEach((element) => {
+    sum += element; 
+  })
+  return sum; 
+}
+
+// Bonus - Iteration #3.1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum (arr) {
+  if (!arr.length) { return 0; }
+  let sum = 0;
+  arr.forEach((element) => {
+    if (typeof element === "number") {
+      sum += element; 
+    } else if (typeof element === "string") {
+      sum += element.length; 
+    } else if (element === true) {
+      sum += 1; 
+    } else if (typeof element === "object" || typeof element === "array") {
+      throw new Error("Unsupported data type sir or ma'am"); 
+    }
+  })
+  return sum; 
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (arr) {
+  if (!arr.length) { return null; }
+  let sum = 0; 
+  arr.forEach((element) => {
+    sum += element; 
+  })
+  return sum / arr.length; 
+}
+
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength (arr) {
+  if (!arr.length) { return null; }
+  let sum = 0;
+  arr.forEach((element) => {
+    sum += element.length; 
+  })
+  return sum / arr.length; 
+}
+
+// Bonus - Iteration #4.1
+
+function avg (arr) {
+  if (!arr.length) { return null; }
+  let sum = 0;
+  arr.forEach((element) => {
+    if (typeof element === "number") {
+      sum += element; 
+    } else if (typeof element === "string") {
+      sum += element.length; 
+    } else if (element === true) {
+      sum += 1; 
+    } else if (typeof element === "object" || typeof element === "array") {
+      throw new Error("Unsupported data type sir or ma'am"); 
+    }
+  })
+  const average = sum / arr.length; 
+  return Number(average.toFixed(2)); 
+}
+
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -29,10 +122,27 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arr) {
+  if (!arr.length) { return null; }
+  const results = arr.filter((element, index) => {
+    if (arr.indexOf(element) === index) {
+      return element; 
+    }
+  })
+  return results; 
+}
+
 // Iteration #6: Find elements
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist (arr, word) {
+  if (!arr.length) { return null; }
+  return arr.includes(word); 
+}
+
 // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -46,6 +156,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arr, word) {
+  if (!arr.length) { return 0; }
+  let count = 0;
+  arr.forEach((element) => {
+    if (word === element) {
+      count++; 
+    }
+  })
+  return count; 
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +192,74 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix) {
+  const productsOfFourNumbers = []; 
+
+  // pushing all products into the array productsOfFourNumbers
+  matrix.forEach((arr, index) => {
+    // vertical products 
+    for (let i=0; i<arr.length; i++) {
+      if (arr[i+3]) {
+        let product = arr[i] * arr[i+1] * arr[i+2] * arr[i+3]; 
+        productsOfFourNumbers.push(product); 
+      }
+    }
+    // horizontal products
+    for (let i=0; i<arr.length; i++) {
+      if (matrix[index+3] && matrix[index+3][i]) {
+        let product = matrix[index][i] * matrix[index+1][i] * matrix[index+2][i] * matrix[index+3][i];
+        productsOfFourNumbers.push(product);
+      }
+    }
+  })
+  
+  // finding the greatest number in the array productOfFourNumbers
+  let result = 0; 
+  productsOfFourNumbers.forEach((num) => {
+    if (num > result) {
+      result = num; 
+    }
+  })
+  return result; 
+}
+
+// Iteration #8.1: Bonus
+
+function greatestProductOfDiagonals (matrix) {
+  const productsOfFourNumbers = []; 
+
+  // pushing all products into the array productsOfFourNumbers
+  matrix.forEach((arr, index) => {
+    // vertical products 
+    for (let i=0; i<arr.length; i++) {
+      if (arr[i+3]) {
+        let product = arr[i] * arr[i+1] * arr[i+2] * arr[i+3]; 
+        productsOfFourNumbers.push(product); 
+      }
+    }
+    // horizontal products
+    for (let i=0; i<arr.length; i++) {
+      if (matrix[index+3] && matrix[index+3][i]) {
+        let product = matrix[index][i] * matrix[index+1][i] * matrix[index+2][i] * matrix[index+3][i];
+        productsOfFourNumbers.push(product);
+      }
+    }
+    // diagonal products
+    for (let i=0; i<arr.length; i++) {
+      if (matrix[index+3] && matrix[index+3][i+3]) {
+        let product = matrix[index][i] * matrix[index+1][i+1] * matrix[index+2][i+2] * matrix[index+3][i+3];
+        productsOfFourNumbers.push(product);
+      }
+    }
+  })
+  
+  // finding the greatest number in the array productOfFourNumbers
+  let result = 0; 
+  productsOfFourNumbers.forEach((num) => {
+    if (num > result) {
+      result = num; 
+    }
+  })
+  return result; 
+}
