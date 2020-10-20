@@ -139,8 +139,6 @@ function howManyTimes(arr, word){
   }else if(counter === 5){
     return 5;
   }
-
-  console.log(repetidos);
   
 }
 /*
