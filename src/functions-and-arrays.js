@@ -1,18 +1,100 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a , b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(wordArray) {
+  if (wordArray.length == 0) {
+    return null;
+  } 
+     let longestWord = '' 
+     let longest = 0
+      for (let i = 0; i < wordArray.length; i++) {
+        if (wordArray[i].length > longestWord.length) {
+        longestWord = wordArray[i];
+        longest = wordArray[i].length;
+       }
+      }  return longestWord;
+}
+//findLongestWord(words);
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(numberList) {
+
+  
+  let runningTotal = 0;
+  for (let i = 0; i < numberList.length; i++) {
+    runningTotal = runningTotal + numberList[i];
+  }  
+  return runningTotal;
+}
+//sumNumbers(numbers);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+
+
+
+ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+ function averageNumbers(numberList) {
+
+  if (numberList.length < 1) {
+    return null;
+  }
+  if (numberList.length == 1) {
+    return numberList[0];
+  }
+  let runningTotal = 0;
+  for (let i = 0; i < numberList.length; i++) {
+    runningTotal = runningTotal + numberList[i];
+  }  
+  let runningAverage = runningTotal / numberList.length;
+  return runningAverage;
+}
+
+// function averageNumbers(numberList) {
+//   if (numberList.length < 1) {
+//     return null;
+//   }
+//   if (numberList.length = 1) {
+//     return numberList[0];
+//   }
+//   let runningTotal = 0;
+//   for (let i = 0; i < numberList.length; i++) {
+//     runningTotal = runningTotal + numberList[i];
+//   }  
+//   runningAverage = runningTotal/ (numberList.length );
+//   return runningAverage;
+// }
+//averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordList){
+  if (wordList.length = 0) {
+    return null;
+  }
+valueBelow = wordList.length;
+let valueAbove = 0
+for (let i = 0; i < wordList.length; i++) {
+  valueAbove = valueAbove + wordList[i].length;
+  
+return valueAbove/valueBelow;
+}
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
