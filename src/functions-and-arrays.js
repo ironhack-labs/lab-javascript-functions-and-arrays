@@ -184,6 +184,20 @@ const wordsCount = [
   "matter",
 ];
 
+function howManyTimes(arr, searchWord) {
+  let count = 0;
+  if (arr.length === 0) {
+    return count;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === searchWord) {
+        count += 1;
+      }
+    }
+    return count;
+  }
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
