@@ -56,7 +56,7 @@ function sum(arr) {
       total += arr[i]
     }
     if (typeof arr[i] === "object") {
-      throw new Error ("ooops")
+      throw new Error ("Unsupported data type sir or ma'am")
     }
   }
   return total;
@@ -98,7 +98,8 @@ function avg(arr) {
     return null
   }
   const sumOfThings = sum(arr);
-  return sumOfThings/arr.length;
+  const average = sumOfThings/arr.length;
+  return Math.round(average*100)/100;
 }
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -122,9 +123,21 @@ function uniquifyArray(arr) {
   const filter = arr.filter((value,index) => arr.indexOf(value) === index);
   return filter;
 
-} ///whaaat
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, word) {
+  if(!arr.length) {
+    return null;
+  }
+  for(let i= 0; i < arr.length; i++){
+    if(arr[i] === word){
+      return true;
+    }
+  }
+  return false;
+  }
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -140,7 +153,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes(arr, word) {
+  // if (!arr.length) {
+  //   return 0;
+  // }
+  let count = 0;
+  for(let i= 0; i < arr.length; i++){
+    if(arr[i] === word){
+      count++;
+    }
+  }
+  return count;
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -165,3 +189,15 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+console.clear()
+function greatestProduct(arr){
+ let result = 0;
+ console.log(arr)
+  for(let row = 0; row < arr.length; row++){
+    console.log(arr[row])
+    for (let column = 0; column< arr[row].length; column++){
+
+    }
+  }
+ return result;
+}
