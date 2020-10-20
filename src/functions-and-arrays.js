@@ -191,3 +191,29 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let product=1;
+  let maxLateralProd=0;
+  let maxHorizProd=0;
+  let lateralProd=1;
+  for (i=0; i<matrix.length; i++){
+    let horizProd=0;
+
+    for (k=0; k< matrix[i].length; k++){
+      horizProd*=matrix[i][k];
+    }
+    if (horizProd>maxHorizProd){
+      maxHorizProd=horizProd;
+    }
+    lateralProd*=matrix[i][i];
+  }
+  if (lateralProd>maxLateralProd){
+    maxLateralProd=lateralProd;
+  }
+  if (maxLateralProd>maxHorizProd){
+    return maxLateralProd 
+  }else{
+    return maxHorizProd;
+  } 
+}
