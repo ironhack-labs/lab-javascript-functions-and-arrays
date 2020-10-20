@@ -1,11 +1,69 @@
 // Iteration #1: Find the maximum
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+  return a
+} else {
+  return b
+}
+}
 
-// Iteration #3: Calculate the sum
+maxOfTwoNumbers(4, 2);
+
+// Iteration #2: Find longest word
+
+/*Declare a function named findLongestWord that takes as an argument an array of words and returns the longest one. 
+If there are 2 with the same length, it should return the first occurrence.
+You can use the following array to test your solution:
+
+*/
+function findLongestWord (words) {
+  let longestWord = '';
+  for (let i = 0; i < words.length; i++) {
+  console.log(words[i].length)
+  if (words[i].length > longestWord.length) {
+  let longestWord = ''
+  } else {
+
+  }
+    return longestWord.length
+  }
+} 
+
+// 1. iteration über 7 elemente im array 
+// ausgeben, wie lang jeder String words[i] ist (string.length)
+// sortieren nach words[i].length
+// return den längsten string
+
+
+
+// arr.sort (function findLongestWord (words)) {
+//   for (let i = 0; i < words.length; i++);
+//   return words.length[i]
+
+/* arr.sort(function(a, b){
+  // ASC  -> a.length - b.length
+  // DESC -> b.length - a.length
+  return b.length - a.length;
+});
+*/
+
+// Iteration #3: Calculate the sumIteration #3: Calculate the sum
+/*Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+
+Declare a function named sumNumbers that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array. Later in the course we will learn how to do this by using the reduce array method, which will make your work significantly easier. For now, let's practice "declarative" way adding values, using loops.
+
+You can use the following array to test your solution:*/
+
+
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// function sumNumbers (numbers) {
+//   for (let i = 0; i > numbers.length; i++){}
+//   return 
+  
+// }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
