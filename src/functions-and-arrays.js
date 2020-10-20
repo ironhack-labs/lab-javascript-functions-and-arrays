@@ -56,6 +56,14 @@ function averageNumbers(someArray) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(someArray) {
+  let counter = 0
+  for (i=0; i<someArray.length; i++) {
+    counter = counter + someArray[i].length
+  }
+  return counter/someArray.length
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
