@@ -102,6 +102,21 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(wordsArray, word) {
+  let counter = 0
+  if(wordsArray.length === 0 ) {
+    return null
+  } else {
+  for (let i = 0; i < wordsArray.length; i++) {
+       if (wordsArray[i] === word) {
+         counter++ 
+       }
+  }
+  return counter
+}
+}
+
+
 // Iteration #8: Bonus
 
 const matrix = [
