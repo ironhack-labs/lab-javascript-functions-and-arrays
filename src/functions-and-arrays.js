@@ -47,9 +47,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(someArray) {
   let finalAverage = 0
   for (i=0; i<someArray.length; i++) {
-    finalAverage = (finalAverage + someArray[i]) / someArray.length
+    finalAverage = finalAverage + someArray[i]
   }
-  return finalAverage
+  let lastResult= finalAverage/someArray.length
+  return lastResult
 }
 
 // Level 2: Array of strings
