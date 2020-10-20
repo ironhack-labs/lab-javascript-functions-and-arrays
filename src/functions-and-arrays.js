@@ -1,18 +1,68 @@
 // Iteration #1: Find the maximum
+var maxOfTwoNumbers = function(num1, num2){
+  if (num1 > num2){
+    return num1;
+  } else {
+    return num2;
+  }
+}
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+var findLongestWord = function(array){
+  if (array.length === 0){
+    return null
+  }
+  var longestWord = "";
+  for (i=0; i<=array.length-1; i++){
+    if (array[i].length > longestWord.length){
+      longestWord = array[i];
+        }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+var sumNumbers = function(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+  var sum = 0;
+  for (i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+var averageNumbers = function(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  var average = sumNumbers(array) / array.length;
+  return average;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+var averageWordLength = function(array){
+  if (array.length === 0) {
+    return null;
+  }
+  var totalLength = 0;
+  for (i = 0; i < array.length; i++) {
+    totalLength += array[i].length;
+  }
+  return totalLength / array.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +78,22 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+
+var uniquifyArray = function(array){
+  //var storedLength = array.length;
+  if (array.length === 0) {
+    return null;
+  }
+  for (i = 0; i < array.length; i++) {
+    for (j = i+1; j < array.length; j++) {
+       if( array[i]===array[j] ){
+          array.splice(j,1);
+       }
+    }
+  }
+  return array;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -71,3 +137,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
