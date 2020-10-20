@@ -74,6 +74,9 @@ const wordsUnique = [
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsArray, word) {
+  if(word === 0) {
+    return null
+  } else {
   for (let i = 0; i < wordsArray.length; i++) {
        if (wordsArray[i] === word) {
          return true;
