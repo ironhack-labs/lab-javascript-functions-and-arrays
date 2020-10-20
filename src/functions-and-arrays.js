@@ -64,6 +64,18 @@ var averageWordLength = function(array){
   return totalLength / array.length;
 }
 
+//Bonus
+mixedArr = ["hi", 5, {fruit1: 'lemon', fruit2: 'orange'}, null];
+var avg =(array) =>{
+  if (array.length === 0) {
+    return null;
+  }
+  var totalLength = 0;
+  for (i = 0; i < array.length; i++) {
+    totalLength += array[i].length;
+  }
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -174,4 +186,20 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
+var greatestProduct = (mtx) =>{
+  var isOne;
+  var isTwo;
+  for (i = 0; i < mtx.length; i++) {
+    for (j = 0; j < mtx[i].length; j++) {
+       if (mtx[i][j] == 1){
+         isOne = true;
+       } else {
+         isOne = false;
+         return;
+       }
+    }
+  }
+  if (isOne === true){
+    return 1;
+  }
+}
