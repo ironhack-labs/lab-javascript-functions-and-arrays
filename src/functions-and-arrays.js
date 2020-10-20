@@ -15,6 +15,7 @@ function maxOfTwoNumbers(num1, num2) {
 }
 
 // Iteration #2: Find longest word
+//If there are 2 with the same length, return the first occurrence.
 const words = [
   "mystery",
   "brother",
@@ -24,6 +25,21 @@ const words = [
   "orchard",
   "crackpot",
 ];
+
+function findLongestWord(arr) {
+  let longestWord = "";
+  if (arr.length === 0) {
+    return null;
+  } else {
+    arr.forEach(function (word) {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    });
+  }
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
