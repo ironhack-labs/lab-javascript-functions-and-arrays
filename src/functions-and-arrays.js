@@ -1,18 +1,125 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (num1,num2){
+  if(num1>num2){
+    return num1;
+  }
+  return num2;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord (arrayIn){
+
+  if(arrayIn.length===0){
+    return null;
+  }
+
+  let longestLength=0;
+  let longestWord='';
+  for(let i =0; i<arrayIn.length;i++){
+    if(arrayIn[i].length>longestLength){
+      longestLength=arrayIn[i].length;
+      longestWord=arrayIn[i];
+    }
+  }
+  return longestWord;
+}
+
+//console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arrayNum){
+  let sum=0;
+  for (let num of arrayNum){
+    sum+=num;
+  }
+  return sum;
+}
+
+//bonus 3.1
+function sum(arrayIn){
+  let sum=0;
+  for (let element of arrayIn){
+    switch(typeof element){
+      case 'number':
+        sum+=element;
+        break;
+      case 'string':
+        sum+=element.length;
+        break;
+      case 'boolean':
+        sum+=element===true?1:0;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+  }
+
+
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// console.log(sum(mixedArr));
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrayNum){
+  if (arrayNum.length===0){
+    return null;
+  }
+  return sumNumbers(arrayNum)/arrayNum.length;
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (wordArray){
+  if (wordArray.length===0){
+    return null;
+  }
+  let sum=0;
+  for (let word of wordArray){
+    sum+=word.length;
+  }
+  return sum/wordArray.length;
+}
+
+
+//bonus 4.1
+function avg(arr){
+
+  if (arr.length===0){
+    return null;
+  }
+
+  let sum=0;
+
+  for (let element of arr){
+    switch(typeof element){
+      case 'number':
+        sum+=element;
+        break;
+      case 'string':
+        sum+=element.length;
+        break;
+      case 'boolean':
+        sum+=element===true?1:0;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return Math.floor(sum/arr.length*100)/100;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +136,42 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordArr){
+  if(wordArr.length===0){
+    return null;
+  }
+
+  let uniqueArr=[];
+  uniqueArr.push(wordArr[0]);
+
+
+  for (let i=1; i<wordArr.length;i++){
+    if(uniqueArr.indexOf(wordArr[i])===-1){
+      uniqueArr.push(wordArr[i]);
+    }
+  }
+
+  return uniqueArr;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordArr, searchWord){
+
+  if(wordArr.length===0){
+    return null;
+  }
+
+  for (let word of wordArr){
+    if(word===searchWord){
+      return true;
+    }
+  }
+  return false;
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +187,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArr, searchWord){
+
+  if(wordArr.length===0){
+    return 0;
+  }
+
+  let sum=0;
+  for (let word of wordArr){
+    if(word===searchWord){
+      sum++;
+    }
+  }
+  return sum;
+}
+
 
 // Iteration #8: Bonus
 
@@ -71,3 +228,35 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let n=4;
+  let maxHorizontalProduct=0;
+  let maxVerticalProduct=0;
+  
+
+  //just when each row is larger or equal to "n", find the max horizontal product within the rows
+  if(n<=matrix[0].length){
+    for(let j=0;j<matrix.length;j++){
+      for (let i=0;i<matrix[j].length-n;i++){
+        if(maxHorizontalProduct<matrix[j][i]*matrix[j][i+1]*matrix[j][i+2]*matrix[j][i+3]){
+          maxHorizontalProduct=matrix[j][i]*matrix[j][i+1]*matrix[j][i+2]*matrix[j][i+3];
+        }
+      }
+    }
+  }
+
+  //just when each column is larger or equal to "n", find the max vertical product within the columns
+  if(n<=matrix.length){
+    for(let j=0;j<matrix.length;j++){
+      for (let i=0;i<matrix.length-n;i++){
+        if(maxVerticalProduct<matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]){
+          maxVerticalProduct=matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+        }
+      }
+    }
+  }
+
+  
+  return Math.max(maxHorizontalProduct,maxVerticalProduct);
+}
