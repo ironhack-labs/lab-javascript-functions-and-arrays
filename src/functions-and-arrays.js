@@ -2,16 +2,26 @@
 
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
-    console.log(num1)
+    return num1
   } else if (num1 < num2) {
-    console.log(num2)
+    return num2
   } else {
-    console.log("Both numbers are equal")
+    return num1 , num2
   }
 }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(someArray) {
+  let longest = "";
+  for (i = 0; i<someArray.length; i++) {
+    if (someArray[i].length > longest.length)
+      longest = someArray[i];
+  }
+return longest;
+}
+
 
 // Iteration #3: Calculate the sum
 
