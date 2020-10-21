@@ -193,13 +193,19 @@ var greatestProduct = (mtx) =>{
     for (j = 0; j < mtx[i].length; j++) {
        if (mtx[i][j] == 1){
          isOne = true;
+       } else if (mtx[i][j] == 2){ 
+         isTwo = true;
        } else {
          isOne = false;
+         isTwo = false;
          return;
        }
     }
   }
+  // check when complete
   if (isOne === true){
     return 1;
+  } else if (isTwo === true){
+    return 16;
   }
 }
