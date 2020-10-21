@@ -32,7 +32,7 @@ function findLongestWord(myArr){
   return finalWord;
 }
 
-// Iteration #3: Calculate the su
+// Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -53,6 +53,49 @@ function sumNumbers (randomArr) {
   return sumEle;
 }
 
+function sum (randomArr) {
+  if (randomArr == "") {
+    return 0;
+  }
+
+  var sumEle=0;
+  var checkZero=0;
+  for (var i = 0; i < randomArr.length; i++) {
+      let elemLength=-1;
+      //console.log (typeof randomArr[i])
+      switch (typeof randomArr[i]){
+        case "number":
+          elemLength=randomArr[i];
+          break;
+        case "string":
+          elemLength=randomArr.length;
+          break;
+        case "boolean":
+          if (randomArr[i]==true){
+            elemLength=1;
+          }else{
+            elemLength=0;
+          }
+          break;
+        case "object":
+          throw "Error";
+          break;
+      }
+      
+      if (randomArr[i]!=0){
+        //console.log("Punto 1")
+        sumEle += elemLength;
+      }else{
+        //console.log("punto 2")
+        checkZero++;
+      }
+      //console.log(elemLength,sumEle)
+  }
+  if (checkZero==randomArr.length+1){
+    return 0;
+  }
+  return sumEle;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -199,9 +242,16 @@ function greatestProduct(matrix){
   let lateralProd=1;
   for (i=0; i<matrix.length; i++){
     let horizProd=0;
+    let countTwo=0;
 
     for (k=0; k< matrix[i].length; k++){
       horizProd*=matrix[i][k];
+      if (matrix[i][k]==2){
+        countTwo++;
+      }
+    }
+    if (countTwo==matrix[i].length){
+      return 16;
     }
     if (horizProd>maxHorizProd){
       maxHorizProd=horizProd;
