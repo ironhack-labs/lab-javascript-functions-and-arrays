@@ -17,6 +17,8 @@ function findLongestWord(someArray) {
   let longest = "mistery";
   if(someArray.length === 0) {
     return null
+  } else if (someArray.length === 1) {
+       return someArray[0]
   } else {
     for (i = 0; i < someArray.length; i++) {
       if (someArray[i].length > longest.length) {
@@ -24,7 +26,7 @@ function findLongestWord(someArray) {
         return longest
       }
      }
-    }
+    } 
   }
 
 
@@ -92,6 +94,7 @@ function doesWordExist(wordsArray, word) {
    }
  }
  return false;
+}
 }
 
 
