@@ -46,11 +46,11 @@ console.log(sumNumbers(numbers));
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === 'object' || typeof arr[i] === 'array') {
+/*   for (let element in arr) {
+    if (typeof element === 'object' || typeof element === 'array') {
       throw new Error('Unsupported data type (object or array) present in the array');
     }
-  }
+  } */
 
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -62,7 +62,9 @@ function sum(arr) {
       } 
     } else if (typeof arr[i] === 'number') {
       total += arr[i];
-    } 
+    } else if (typeof arr[i] === 'object' || typeof arr[i] === 'array') {
+        throw new Error("Unsupported data type sir or ma'am");
+    }
   }
   return total;
 }
@@ -105,7 +107,32 @@ function averageWordLength (words) {
   return average;
 }
 
-console.log(averageWordLength(wordsArr));
+// Bonus
+function avg (arr) {
+  if (arr.length === 0) {
+    return null;
+  };
+
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'string') {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      if (arr[i] === true) {
+        sum += 1;
+      } 
+    } else if (typeof arr[i] === 'number') {
+      sum += arr[i];
+    } 
+  }
+  let average = sum / arr.length;
+  average = average.toFixed(2)
+  average = Number(average);
+
+  return average;
+}
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -215,3 +242,14 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct (matrix) {
+
+}
+
+/* function greatestProductOfDiagonals (matrix) {
+
+  let specific 
+  let diagonal = 
+  
+}; */
