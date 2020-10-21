@@ -58,9 +58,7 @@ const sum = (array) => {
   
   let total = 0;
 
-  //if (typeof array[i] === "object") {
-  //  throw new Error("unsupported");
-  //}  
+ 
 
   for (let i = 0; i < array.length; i++) {
 
@@ -78,6 +76,9 @@ const sum = (array) => {
         } else {
           continue;
         };
+        break;
+      case "object":
+        throw new Error("Unsupported data type sir or ma'am");
         break;
       default:
         break;
@@ -125,7 +126,7 @@ function avg(arr) {
     return null;
   }
   
-  let total = sum(arr);
+  let total = sum(arr);   //arr.forEach( function(num) {result += num;})
 
   let average = total / arr.length;
   return Math.floor(average * 100) / 100;
@@ -151,18 +152,17 @@ const wordsUnique = [
 
 
 const uniquifyArray = (array) => {
-  if (array.length === 0) {
+  if (array.length === 0) { //alternatively: if (!array.length) {}
     return null;
   }
 
   let uniqueArray = [];
 
-  for (let i = 0; i < array.length; i++){
-    let word = array[i];
-    if (array.indexOf(word, i+1) === -1) {
-      uniqueArray.push(word);
-    } 
-  };
+  array.forEach(function (word) {
+    if (!uniqueArray.includes(word)) {
+    uniqueArray.push(word)
+    };
+  })
 
   return uniqueArray;
 };
@@ -220,6 +220,40 @@ const howManyTimes = (array, word) => {
 }
 
 // Iteration #8: Bonus
+
+const greatestProduct = matrix => {
+  let product = 0;
+
+  const numberOfRows = matrix.length;
+  const numberOfColumns = matrix[0].length;
+
+  // console.log(numberOfRows);
+  // console.log(numberOfColumns)
+
+  for (let i = 0; i < numberOfRows; i++) {
+    let row = matrix[i];
+    for (let e = 0; e < numberOfColumns - 3; e++) {
+      // 0 - 1 - 2 - 3
+      // 1 - 2 - 3 - 4
+      let rowProduct = row[e] * row[e + 1] * row[e + 2] * row[e + 3];
+      if (rowProduct > product) {
+        product = rowProduct;
+      }
+    }
+  }
+
+  for (let i = 0; i < numberOfColumns; i++) {
+    for (let e = 0; e < numberOfRows - 3; e++) {
+      let columnProduct =
+        matrix[e][i] * matrix[e + 1][i] * matrix[e + 2][i] * matrix[e + 3][i];
+      if (columnProduct > product) {
+        product = columnProduct;
+      }
+    }
+  }
+
+  return product;
+};
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
