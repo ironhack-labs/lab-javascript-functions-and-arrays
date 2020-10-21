@@ -4,13 +4,10 @@ function maxOfTwoNumbers(num1, num2) {
   switch (typeof num1 === "number" && typeof num2 === "number") {
     case num1 > num2:
       return num1;
-      break;
     case num1 < num2:
       return num2;
-      break;
     default:
       return num1 || num2;
-      break;
   }
 }
 
@@ -26,20 +23,35 @@ const words = [
   "crackpot",
 ];
 
+// with forEach:
+// function findLongestWord(arr) {
+//   let longestWord = "";
+//   if (arr.length === 0) {
+//     return null;
+//   } else {
+//     arr.forEach(function (word) {
+//       if (word.length > longestWord.length) {
+//         longestWord = word;
+//       }
+//     });
+//   }
+//   return longestWord;
+// }
+
+//with for loop:
 function findLongestWord(arr) {
   let longestWord = "";
-  if (arr.length === 0) {
-    return null;
-  } else {
-    arr.forEach(function (word) {
-      if (word.length > longestWord.length) {
-        longestWord = word;
-      }
-    });
-  }
+  if (arr.length === 0) return null;
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
   return longestWord;
 }
+
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
@@ -54,6 +66,20 @@ function sumNumbers(arrOfNums) {
   return sum;
 }
 
+//or with for of loop:
+
+// function sumNumbers(arrOfNums) {
+//   let sum = 0;
+//   for (let number of numbers) {
+//     // console.log("---number", number);
+//     sum = +number;
+//   }
+//   return sum;
+// }
+
+
+
+
 sumNumbers(numbers);
 
 // Iteration #4: Calculate the average
@@ -61,9 +87,7 @@ sumNumbers(numbers);
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNums) {
-  if (arrOfNums.length === 0) {
-    return null;
-  } else {
+  if (arrOfNums.length === 0) return null;
     let sum = 0;
     let average;
     for (let i = 0; i < arrOfNums.length; i++) {
@@ -71,7 +95,6 @@ function averageNumbers(arrOfNums) {
       average = sum / arrOfNums.length;
     }
     return average;
-  }
 }
 
 averageNumbers(numbersAvg);
@@ -91,10 +114,9 @@ const wordsArr = [
 ];
 
 function averageWordLength(arrOfWords) {
-  if (arrOfWords.length === 0) {
-    return null;
-  } else {
-    let total = 0;
+  if (arrOfWords.length === 0) return null;
+  
+  let total = 0;
     for (let i = 0; i < arrOfWords.length; i++) {
       let word = arrOfWords[i];
       total += word.length;
@@ -102,7 +124,7 @@ function averageWordLength(arrOfWords) {
     }
     let average = total / arrOfWords.length;
     return average;
-  }
+  
 }
 
 averageWordLength(wordsArr);
@@ -123,10 +145,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
-  if (array.length === 0) {
-    return null;
-  } else {
-    let newArr = [];
+  if (array.length === 0) return null;
+    
+  let newArr = [];
     for (let i = 0; i < array.length; i++) {
       let currentWord = array[i];
       console.log("currentWord", currentWord);
@@ -135,7 +156,6 @@ function uniquifyArray(array) {
       }
     }
     return newArr;
-  }
 }
 
 uniquifyArray(wordsUnique);
@@ -153,11 +173,9 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, searchWord) {
-  if (arr.length === 0) {
-    return null;
-  } else {
-    let match = false;
-
+  if (arr.length === 0) return null;
+    
+  let match = false;
     for (let i = 0; (i < arr.length) & !match; i++) {
       if (arr[i] === searchWord) {
         match = true;
@@ -165,7 +183,7 @@ function doesWordExist(arr, searchWord) {
       }
     }
     return match;
-  }
+  
 }
 doesWordExist(wordsFind, "truth");
 
@@ -186,16 +204,14 @@ const wordsCount = [
 
 function howManyTimes(arr, searchWord) {
   let count = 0;
-  if (arr.length === 0) {
-    return count;
-  } else {
+  if (arr.length === 0) return count;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === searchWord) {
         count += 1;
       }
     }
     return count;
-  }
+  
 }
 
 // Iteration #8: Bonus
