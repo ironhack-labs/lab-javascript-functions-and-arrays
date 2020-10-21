@@ -38,6 +38,42 @@ var sumNumbers = function(array) {
   return sum;
 }
 
+// Bonus: Calculate the sum
+var sum = function (array) {
+  if (!array || array.length === 0) {
+    return 0;
+  }
+  var str = false;
+  var numb = false;
+  var bool = false;
+  var obj = false;
+  for (var i = 0; i < array.length; i++) {
+    if (typeof(array[i]) === "string") {
+      str = true;
+    } 
+    if (typeof(array[i]) === "number") {
+      numb = true;
+    }
+    if (typeof(array[i]) === "object") {
+      return ("error");
+    }
+    if (typeof(array[i]) === "boolean") {
+      bool = true;
+    }  
+    if (i== array.length-1){
+      if ((numb && !str && !bool) || 
+    (!numb && str && !bool)  || 
+    (numb && str && !bool) ||
+    (numb && str && bool)
+    ) {
+        return sumNumbers(array);  
+      }
+    }
+  }
+
+}
+
+
 // Iteration #4: Calculate the average
 
 // Level 1: Array of numbers
