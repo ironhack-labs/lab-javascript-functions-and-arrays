@@ -37,12 +37,26 @@ function sumNumbers(numberList) {
   }  
   return runningTotal;
 }
-//sumNumbers(numbers);
+//3.1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(valueList){
+
+  let runningTotal = 0;
+  
+  for (let i = 0; i < valueList.length; i++) {
+      if (!Number(valueList[i])){
+        runningTotal = runningTotal + valueList[i].length;
+      } else  {
+        runningTotal = runningTotal + valueList[i];
+      }
+  }  
+  return runningTotal;
+ }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-
-
 
 
 
@@ -78,13 +92,13 @@ function sumNumbers(numberList) {
 //   runningAverage = runningTotal/ (numberList.length );
 //   return runningAverage;
 // }
-//averageNumbers(numbersAvg);
+// averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordList){
-  if (wordList.length = 0) {
+  if (wordList.length < 1) {
     return null;
   }
 valueBelow = wordList.length;
@@ -95,6 +109,28 @@ for (let i = 0; i < wordList.length; i++) {
 return valueAbove/valueBelow;
 }
 }
+
+//4.1
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(valueList) {
+  if (valueList.length < 1) {
+    return null;
+  }
+
+  let runningTotal = 0;
+  valueBelow = valueList.length
+  
+  for (let i = 0; i < valueList.length; i++) {
+      if (!Number(valueList[i])){
+        runningTotal = runningTotal + valueList[i].length;
+      } else  {
+        runningTotal = runningTotal + valueList[i];
+      }
+  }  
+  return runningTotal/valueBelow;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -111,8 +147,40 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(repeatingArray) {
+  if (repeatingArray.length < 1) {
+    return null;
+  }
+
+ const cleanArray = [];
+  
+  for (let i = 0; i < repeatingArray.length; i++) {
+    let valueToTest = repeatingArray[i];
+      if ((repeatingArray.indexOf(valueToTest))== i) {
+       cleanArray.push(valueToTest);
+      }
+  }  
+  return cleanArray;
+ 
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayToSearch, searchTerm) {
+let searchResult = null;
+  for (let i = 0; i < arrayToSearch.length; i++) {
+    let valueToTest = arrayToSearch[i];
+    
+      if (valueToTest == searchTerm) {
+       searchResult = true;
+       break;
+      } else {
+      searchResult = false;
+      }
+  }  
+  return searchResult;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
