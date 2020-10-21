@@ -24,7 +24,7 @@ function findLongestWord(someArray) {
       if (someArray[i].length > longest.length) {
         longest = someArray[i];
         return longest
-      } break;
+      } 
      }
     } 
   }
@@ -48,11 +48,15 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(someArray) {
   let finalAverage = 0
+  if(someArray.length === 0) {
+    return null
+  } else {
   for (i=0; i<someArray.length; i++) {
     finalAverage = finalAverage + someArray[i]
   }
   let lastResult= finalAverage/someArray.length
   return lastResult
+}
 }
 
 // Level 2: Array of strings
@@ -60,10 +64,14 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(someArray) {
   let counter = 0
+  if(someArray.length === 0) {
+    return null
+  } else {
   for (i=0; i<someArray.length; i++) {
     counter = counter + someArray[i].length
   }
   return counter/someArray.length
+}
 }
 
 // Iteration #5: Unique arrays
