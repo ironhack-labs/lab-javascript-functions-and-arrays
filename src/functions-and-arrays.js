@@ -1,18 +1,82 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 >= n2) return n1;
+  return n2;
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arr) {
+  if (arr.length == 0) return null;
+  let longest = arr[0];
+  arr.forEach(function (word) {
+    if (word.length > longest.length) longest = word;
+  });
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arr) {
+  let sum = 0;
+  arr.forEach(function (number) {
+    sum += number;
+  })
+  return sum;
+}
+
+function sum(arr) {
+  let value = 0;
+  arr.forEach(function (number) {
+    if (typeof number == 'string') number = number.length;
+    if (typeof number == ('object' || 'array')) {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    value += number;
+  });
+  return value;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  if (arr.length == 0) return null;
+  return (sumNumbers(arr) / arr.length);
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arr) {
+  if (arr.length == 0) return null;
+  let sumLength = 0;
+  for (let word of arr) {
+    sumLength += word.length;
+  }
+  return sumLength / arr.length;
+}
+
+function avg(arr) {
+  if (arr.length == 0) return null;
+  let sum = 0;
+  arr.forEach(function (element) {
+    if (typeof element == 'string') element = element.length;
+    if (typeof element == ('object' || 'array')) {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    sum += element;
+  })
+  let average = ((Math.round((sum * 100) / arr.length)) / 100)
+  return average;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +93,25 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arr) {
+  if (arr.length == 0) return null;
+  let newArray = []
+  for (i = 0; i < arr.length; i++) {
+    if (newArray.includes(arr[i]) == false) newArray.push(arr[i]);
+  }
+  return newArray;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, word) {
+  if (arr.length == 0) return null;
+  if (arr.includes(word)) return true;
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +127,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (i = 0; i < arr.length; i++) {
+    console.log(arr[i])
+    if (arr[i] == word) count++;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +161,41 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+console.log(`greatestProduct ${greatestProduct}`)
+
+function greatestProduct(matrix) {
+  let result = 0;
+  let multiplier1 = 0;
+  let multiplier2 = 0;
+  let multiplier3 = 0;
+  let multiplier4 = 0;
+  let newResult
+
+  // for (i = 0; i < matrix.length; i++) {
+  //   for (j = 0; j < matrix[1].length; i++) {
+  //     // calculate horizontal line
+  //     // multiplier1 = (matrix[i][j] || 0);
+  //     // multiplier2 = (matrix[i][j + 1] || 0);
+  //     // multiplier3 = (matrix[i][j + 2] || 0);
+  //     // multiplier4 = (matrix[i][j + 3] || 0);
+  //     // newResult = multiplier1 * multiplier2 * multiplier3 * multiplier4;
+  //     console.log(`new result [${i}][${j}] horizontal ${newResult}`);
+  //     if (newResult > result) result = newResult;
+
+  //     // calculate vertical line
+  //     // multiplier1 = (matrix[i][j] || 0);
+  //     // multiplier2 = (matrix[i + 1][j] || 0);
+  //     // multiplier3 = (matrix[i + 2][j] || 0);
+  //     // multiplier4 = (matrix[i + 3][j] || 0);
+  //     // newResult = multiplier1 * multiplier2 * multiplier3 * multiplier4;
+  //     console.log(`new result [${i}][${j}] vertical ${newResult}`);
+  //     if (newResult > result) result = newResult;
+  //   }
+  // }
+  return result;
+}
+
+function greatestProductOfDiagonals(matrix) {
+
+}
