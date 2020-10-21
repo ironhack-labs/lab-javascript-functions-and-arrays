@@ -16,7 +16,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 //era un tema de capital letters de variables
 function findLongestWord(myArr){
-  if (myArr == "") {
+  if (!myArr.length) {
     return null;
   }
   let maxLength=0;
@@ -37,7 +37,7 @@ function findLongestWord(myArr){
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (randomArr) {
-  if (randomArr == "") {
+  if (!randomArr.length) {
     return 0;
   }
 
@@ -54,10 +54,10 @@ function sumNumbers (randomArr) {
 }
 
 function sum (randomArr) {
-  if (randomArr == "") {
+  if (!randomArr.length) {
     return 0;
   }
-
+  let errorVal = "Unsupported data type sir or ma'am";
   var sumEle=0;
   var checkZero=0;
   for (var i = 0; i < randomArr.length; i++) {
@@ -68,7 +68,7 @@ function sum (randomArr) {
           elemLength=randomArr[i];
           break;
         case "string":
-          elemLength=randomArr.length;
+          elemLength=randomArr[i].length;
           break;
         case "boolean":
           if (randomArr[i]==true){
@@ -77,8 +77,8 @@ function sum (randomArr) {
             elemLength=0;
           }
           break;
-        case "object":
-          throw "Error";
+        default:
+          throw new Error(errorVal)
           break;
       }
       
@@ -101,7 +101,7 @@ function sum (randomArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numArr){
-  if (numArr == "") {
+  if (!numArr.length) {
     return null;
   }
   let sum=0;
@@ -116,7 +116,7 @@ function averageNumbers(numArr){
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength (lengthArr) {  
-  if (lengthArr == "") {
+  if (!lengthArr.length) {
     return null;
   }
   let sum = 0;
@@ -142,7 +142,7 @@ const wordsUnique = [
 ];
 
 function uniquifyArray (myArray) {
-  if (myArray == ""){
+  if (!myArray.length){
     return null;
   }
   let tempArray=myArray;
@@ -164,7 +164,7 @@ function uniquifyArray (myArray) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 function doesWordExist(myArr, myWord){
-  if (myArr==""){
+  if (!myArr.length){
     return null;
   }
   let count=0;
@@ -198,7 +198,7 @@ const wordsCount = [
   'matter'
 ];
 function howManyTimes(myArr, myWord){
-  if (myArr==""){
+  if (!myArr.length){
     return 0;
   }
   let count=0;
@@ -266,4 +266,27 @@ function greatestProduct(matrix){
   }else{
     return maxHorizProd;
   } 
+}
+
+function greatestProductOfDiagonals(matrix){
+  let prod1 = 1;
+  let prod2 = 1;
+  let counterPos = 0;
+  for (let i=0; i<matrix.length; i++){
+    prod1*=matrix[i][counterPos];
+    //console.log(i,counterPos)
+    counterPos++;
+  }
+  counterPos=19;
+  for (let i=19; i > 0; i--){
+    let counterPos = 0;
+    prod2 *= matrix[i][counterPos];
+    //console.log(i,counterPos)
+    counterPos--;
+  }
+  if (prod1>prod2){
+    return prod1;
+  }else{
+    return prod2;
+  }
 }
