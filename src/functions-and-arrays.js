@@ -24,7 +24,7 @@ function findLongestWord(someArray) {
       if (someArray[i].length > longest.length) {
         longest = someArray[i];
         return longest
-      }
+      } break;
      }
     } 
   }
