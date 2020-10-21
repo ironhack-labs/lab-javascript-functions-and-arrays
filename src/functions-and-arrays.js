@@ -111,6 +111,36 @@ function averageNumbers(numArr){
   return sum/numArr.length;
 }
 
+function avg(arr){
+  if (!arr.length) {
+    return null;
+  }
+  let totalSum=0;
+  for (let i=0; i<arr.length; i++){
+    let elemLength=-1;
+    switch (typeof arr[i]){
+      case "number":
+        elemLength=arr[i];
+        break;
+      case "string":
+        elemLength=arr[i].length;
+        break;
+      case "boolean":
+        if (arr[i]==true){
+          elemLength=1;
+        }else{
+          elemLength=0;
+        }
+        break;
+      default:
+        throw new Error(errorVal)
+        break;
+      }
+      totalSum+=elemLength;
+  }
+  return totalSum/arr.length;
+}
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
