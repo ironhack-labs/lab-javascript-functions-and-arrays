@@ -10,9 +10,9 @@ function findLongestWord(arr){
   let longestWordIndex
   if(arr.length == 0){
     return null
-  } else if (arr.length == 1){
+  } /*else if (arr.length == 1){
     return arr
-  } else {
+  }*/ else {
     for(let i = 0; i < arr.length; i++){
       if(arr[i].length > longestWord){
         longestWord = arr[i].length
@@ -70,8 +70,8 @@ function averageWordLength(arr){
     let sum = 0
     for (let i = 0; i < arr.length; i++){
       sum += arr[i].length
-      return sum/arr.length
     }
+    return sum/arr.length
   }
 }
 
