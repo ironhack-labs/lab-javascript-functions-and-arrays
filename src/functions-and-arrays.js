@@ -201,3 +201,25 @@ function sum (arr) {
     } return count;
   } 
 };
+
+//Bonus 4.1
+
+function avg (arr) {
+  count = 0;
+  if (arr.length === 0) {
+    return null; 
+  } 
+  else {
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'number' || typeof arr[i] === 'boolean') {
+        count += arr[i];
+      }
+      else if (typeof arr[i] === 'string') {
+        count += arr[i].length;
+      }
+      else if (Array.isArray(arr[i]) ||typeof arr[i] === 'object') {
+        throw new Error ('Unsupported data type sir or ma\'am');
+      }
+    } return Math.round(count / arr.length * 100) / 100;
+  } 
+};
