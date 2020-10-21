@@ -48,6 +48,7 @@ function averageNumbers(array) {
 }
 
 console.log(averageNumbers(numbersAvg));
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -85,20 +86,42 @@ function uniquifyArray(array){
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(array, searchWord)
-{
- for (var i=0; i<array.length; i++) {
-  if(searchWord === array[i])
-  {
-    return true;
-  }
-  else{
-    return false;}
+function doesWordExist (arr, searchWord) {
+  if (arr.length === 0) {
+    return null;
+  };
 
- } 
-}
-var word = "trouble";
-doesWordExist(wordsFind, word);
+  let exists = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === searchWord) {
+      exists = true;
+    }
+  }
+  if (exists) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(doesWordExist(wordsFind, 'trouble'));
+
+// const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+// function doesWordExist(array, searchWord)
+// {
+//  for (var i=0; i<array.length; i++) {
+//   if(searchWord == array[i])
+//   {
+//     return true;
+//   }
+//   else {
+//     return false};
+
+//  } 
+// }
+// var word = "trouble";
+// doesWordExist(wordsFind, word);
 
 // Iteration #7: Count repetition
 const wordsCount = [
