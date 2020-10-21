@@ -18,17 +18,15 @@ const words = [
   "orchard",
   "crackpot",
 ];
-let longest = "";
 
 function findLongestWord(words) {
+  let longest = words[0];
   if (words.length == 0) {
     return null;
   } else {
     for (i = 0; i < words.length; i++) {
       if (words[i].length > longest.length) {
         longest = words[i];
-      } else {
-        continue;
       }
     }
     return longest;
@@ -50,9 +48,10 @@ function sumNumbers(sum) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-let soma = 0;
-let avg = 0;
+
 function averageNumbers(numbersAvg) {
+  let soma = 0;
+  let avg = 0;
   if (numbersAvg.length == 0) {
     return null;
   } else {
@@ -159,8 +158,9 @@ const wordsCount = [
   "disobedience",
   "matter",
 ];
-let cont = 0;
+
 function howManyTimes(wordsCount, wordfu) {
+  let cont = 0;
   if (wordsCount.length === 0) {
     return 0;
   } else {
