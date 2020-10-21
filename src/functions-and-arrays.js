@@ -66,11 +66,14 @@ function sum(mixedArr) {
       case 'boolean':
         if (i === true){
           suma +=1
+        } else if (i === false){
+          suma +=0
         }
         break;
 
-      default:
-        throw new Error ("Error! unsupported data type (object or array) present in the array")   
+      case 'object':
+      case 'array':
+        throw new Error ("Unsupported data type sir or ma'am") 
     }
   });
   return suma;
@@ -108,6 +111,52 @@ function averageWordLength(wordsArr) {
  
  averageWordLength(wordsArr)
 
+ // Iteration 4: Bonus
+
+ function avg(array) {
+  if (array.length === 0){
+    return null;
+  }
+  let total = sum(array);
+  let average = total / array.length;
+  return (average);
+}
+
+avg(mixedArr)
+
+/* Other way:
+function avg (arr){
+  if (arr.length === 0){
+    return null;
+  }
+  let sum=0;
+  arr.forEach(function (i){
+    switch (typeof i) {
+      case 'number':
+        sum += i
+        break;
+      
+      case 'string':
+        sum += i.length
+        break;
+      
+      case 'boolean':
+        if (i === true){
+          sum +=1 
+        }
+        break;
+
+      case 'object':
+      case 'array':
+        throw new Error ("Unsupported data type sir or ma'am") 
+    } 
+  });
+  return sum / arr.length
+  }
+
+  avg(mixedArr)
+*/
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -122,21 +171,33 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-const emptyArray = [];
 
+function uniquifyArray(array){
+  if (array.length === 0)
+    return null
+  let a = []
+  for(let i = 0; i < array.length; i++){
+    if(i === array.indexOf(array[i])){
+    a.push(array[i])
+    }
+  }
+  return a
+}
+uniquifyArray(wordsUnique)
+
+/* Other option:
 function uniquifyArray (wordsUnique){
-  if (wordsUnique.length === 0){
-    return null;
-  } 
+  if (wordsUnique.length === 0)
+    return null
+  const emptyArray = [];
   for(let i = 0; i < wordsUnique.length; i++){
     if (!emptyArray.includes(wordsUnique[i])){
-      emptyArray.push(wordsUnique[i])
-    } 
+      emptyArray.push(wordsUnique[i]) 
+      } 
     }
     return emptyArray;
   }
-
-uniquifyArray(wordsUnique)
+*/
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
