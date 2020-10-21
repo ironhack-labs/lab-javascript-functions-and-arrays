@@ -11,14 +11,16 @@ function maxOfTwoNumbers(a, b){
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  let solution = '';
-  if (words == null || words.length == 0){
+function findLongestWord(words){
+  if (words.length === 0){
   return null
-  } 
-  for (i = 0; i < words.length; i++){
-  if (words[i].length > solution.length){
-  solution = words[i]
+  }
+  let solution = '';
+  for (word of words){
+  if (word.length > solution.length){
+  solution = word;
+  } else{
+  continue
   }
   }
   return solution
@@ -94,6 +96,7 @@ function uniquifyArray(words){
   }
   return newArray
   }
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
@@ -135,6 +138,25 @@ function howManyTimes(array, word){
 
 // Iteration #8: Bonus
 
+
+function greatestProduct(matrix) {
+  let result = 0;
+  let horizontal = 0;
+  let vertical = 0;
+  for (let j = 0; j < 20; j++) {
+    for (let i = 0; i < 17; i++) {
+      horizontal = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      vertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      result = Math.max(horizontal, vertical, result);
+    }
+  }
+  return result;
+}
+
+
+
+
+
 function sum(array){
   let sum = 0;
   if (array.length == 0){
@@ -151,15 +173,16 @@ function sum(array){
     sum = sum + array[i];
     break;
     case 'number':
-    sum = sum + array[i]
+    sum = sum + array[i];
     break;
     case 'object':
-    return console.log('error message')
+    throw new Error (`Unsupported data type sir or ma\'am`);
     }
   }
   }
     return sum;
   }
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
