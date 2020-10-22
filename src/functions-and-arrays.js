@@ -3,13 +3,11 @@
 
 function maxOfTwoNumbers(num1, num2) {
 
-  if (num1 > num2)
-  {
+  if (num1 > num2) {
     return num1
   }
 
-  else if (num2 > num1)
-  {
+  else if (num2 > num1) {
     return num2
   }
 
@@ -34,7 +32,7 @@ function findLongestWord(array) {
     return null
   }
   else {
-    
+
     let compare = 0
     for (let i = 0; i < array.length; i++)
       if (array[i].length > compare) {
@@ -56,7 +54,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
 
-let suma = 0
+  let suma = 0
 
   if (array.length === 0) {
     return 0
@@ -67,8 +65,8 @@ let suma = 0
       suma += array[i]
   }
 
-return suma
-  
+  return suma
+
 
 }
 
@@ -87,7 +85,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
 
 
-  
+
   if (array.length === 0) {
     return null
   }
@@ -110,7 +108,7 @@ averageNumber(numbersAvg)
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arrayWords) {
-  
+
   if (arrayWords.length === 0) {
     return null
   }
@@ -119,8 +117,8 @@ function averageWordLength(arrayWords) {
     return arrayWords.length[0] / arrayWords.length
   }
   else {
-      let variable = sumNumbers(arrayWords) / arrayWords.length
-      return variable
+    let variable = sumNumbers(arrayWords) / arrayWords.length
+    return variable
   }
 }
 
@@ -143,20 +141,20 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(unique) {
-  
+
   if (unique.length === 0) {
     return null
   }
 
   let palabra = [""]
 
-  for (let i = 0; i < unique.length; i++)  
+  for (let i = 0; i < unique.length; i++)
     unique.length[i] = palabra;
-    if (unique[i] === palabra) {
-      unique[i].splice
-    }
-      return palabra
-  
+  if (unique[i] === palabra) {
+    unique[i].splice
+  }
+  return palabra
+
 }
 
 uniquifyArray(wordsUnique)
@@ -166,16 +164,23 @@ uniquifyArray(wordsUnique)
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(coincidencia) {
-  
+function doesWordExist(coincidencia, string) {
+
   if (coincidencia.length === 0) {
     return null
   }
 
+  else if (coincidencia.includes(string)) {
+    return true
+  }
+  else {
+    return false
+  }
 
 }
 
-doesWordExist(wordsFind)
+doesWordExist(wordsFind, array)
+
 
 
 // Iteration #7: Count repetition
@@ -193,14 +198,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(repeticion) {
-  
+function howManyTimes(repeticion, numero) {
+
   if (repeticion.length === 0) {
     return 0
   }
+
+  else if (repeticion.includes(numero)) {
+    return 1
+  }
+  else {
+    return 0
+  }
+    
 }
 
-howManyTimes(wordsCount)
+howManyTimes(wordsCount, array)
 
 // Iteration #8: Bonus
 
