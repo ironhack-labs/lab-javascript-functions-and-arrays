@@ -1,50 +1,79 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNum(primerNumero, segundoNumero) {
-  if (primerNumero > segundoNumero) {
-    return (primerNumero);
+function maxOfTwoNumbers(numero1, numero2) {
+  if (numero1 > numero2) {
+    return numero1
   }
-  else if (segundoNumero > primerNumero) {
-    return (segundoNumero)
+  else if (numero1 < numero2) {
+    return numero2
   }
+  else {
+    return numero1
+  }
+
 }
 
-
-let numero1 = 3;
-let numero2 = 5;
-
 // Llamada a la función
-console.log(maxOfTwoNum(numero1, numero2));
+console.log(maxOfTwoNum(5, 7));
 
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(palabras) {
-  let longest = 0;
-  let word = null;
-  palabras.forEach(function (palabra) {
+function findLongestWord(words) {
+  let longes = 0;
+  let word = "";
+  let long = 0;
 
-    if (palabra.length > longest) {
-      longest = palabra.length;
-      word = palabra;
+  for (let i = 0; i < words.length; i++) {
+    word = words[i]
+
+    if (long < word.length) {
+      long = word.length;
+      longes = i;
     }
-  })
-  return word + "(" + longest + ")";
+  }
+  let letter = words[longes]
+  return letter
 }
-console.log(findLongestWord(words));
+findLongestWord(words)
+
+
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumNumbers(numbers) {
   let total = 0;
+
   numbers.forEach(function (valor) {
     total = total + valor;
   })
   console.log(total);
 }
+
 sumNumbers(numbers);
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(numbers) {
+  let suma = 0
+  let charLength = 0
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] == 'number') {
+      suma += numbers[i];
+    } else if (typeof numbers[i] == 'string') {
+      charLength = numbers[i];
+      suma += charLength.length;
+    } else if (numbers[i] == true) {
+      suma++;
+    }
+  }
+  return suma;
+}
+
+sum(mixedArr)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -71,21 +100,10 @@ function averageNumbers(vector) {
 console.log(averageNumbers(numbers));
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(vector) {
-  let sum = 0;
-  vector.forEach(function (valor) {
-    console.log(valor);
-    console.log(valor.length);
-    sum = sum + valor.length;
-  })
-  console.log("Suma: ", sum)
-  avg = sum / vector.length;
-  console.log("Promedio: ", avg)
-}
 
-averageWordLength(words);
+
+
 
 
 // Iteration #5: Unique arrays
@@ -154,17 +172,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-function howManyTimes(vector, word) {
-  let sum = 0;
-  for (i = 0; i <= vector.length; i++) {
-    if (vector[i] == word) {
-      sum = sum + 1;
-      console.log(i)
+
+function howManyTimes(words, Count) {
+  let word = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (Count == words[i]) {
+      word++
     }
   }
-  console.log("suma: ", sum);
+  return word;
 }
-howManyTimes(words, "matter");
+
+howManyTimes(words, 'matter')
 
 // Iteration #8: Bonus
 
@@ -190,3 +209,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let sumaRow = 0
+  let sumaCol = 0
+  let superSumaRow = 0
+  let superSumaCol = 0
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix.length - 3; j++) {
+      sumaRow = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+      if (superSumaRow < sumaRow) {
+        superSumaRow = sumaRow
+      }
+    }
+  }
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix.length - 3; j++) {
+      sumaCol = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i]
+      if (superSumaCol < sumaCol) {
+        superSumaCol = sumaCol
+      }
+    }
+  }
+  if (superSumaCol < superSumaRow) {
+    return superSumaRow
+  } else {
+    return superSumaCol
+  }
+}
+
