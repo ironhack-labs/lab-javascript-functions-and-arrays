@@ -4,11 +4,11 @@ function maxOfTwoNumbers (num1, num2) {
   if (num1 > num2) {
     return num1;
   } else if (num1 < num2) {
-    return num2
+    return num2;
   } else {
     return num1;
-  }
-}
+  };
+};
 
 
 
@@ -48,8 +48,8 @@ function sumNumbers (arr) {
       sum += arr[i];
     }
     return sum;
-  }
-}
+  };
+};
 
 //BONUS 1
 
@@ -94,9 +94,9 @@ function averageNumbers (arr){
   } else {
     sum=0;
     for (i = 0;i<arr.length;i++){
-    sum+=arr[i]
+    sum+=arr[i];
     }
-    return sum /arr.length
+    return sum /arr.length;
     };
 }
     
@@ -110,9 +110,9 @@ function averageWordLength (arr){
   } else {
     sum=0;
     for (i = 0;i<arr.length;i++){
-    sum+=arr[i].length
+    sum+=arr[i].length;
     }
-    return sum /arr.length
+    return sum /arr.length;
     };
 };
 
@@ -171,7 +171,7 @@ function uniquifyArray(arr) {
   } else {
     for (let i=0; i<arr.length; i++) {
       if (uniqueArray.includes(arr[i]) === false) {
-        uniqueArray.push(arr[i])
+        uniqueArray.push(arr[i]);
       } else {
         continue;
       };
@@ -198,7 +198,7 @@ function doesWordExist(word, arr) {
         wordExists = false;
       }
     };
-    return wordExists
+    return wordExists;
   };
 };
 
@@ -226,10 +226,10 @@ function howManyTimes(arr, word) {
       if (arr[i] === word) {
         count++;
       }
-    }
+    };
     return count;
-  }
-}
+  };
+};
 
 // Iteration #8: Bonus
 
