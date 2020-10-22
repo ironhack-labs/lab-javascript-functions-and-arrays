@@ -89,7 +89,7 @@ const sum = (array) => {
           break;
         }
       default:
-        throw `Error: Unsupported data type sir or ma'am`;
+        throw new Error(`Unsupported data type sir or ma'am`);
     }
   }
   return sumNumbers(onlyNumbersArray);
