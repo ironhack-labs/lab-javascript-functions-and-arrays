@@ -177,6 +177,16 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arr, string) {
+  if (arr.length === 0) {
+    return 0
+  } else if (arr.includes(string)) {
+    return 1
+  } else {
+    return 0
+  }
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
