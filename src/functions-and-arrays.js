@@ -1,62 +1,102 @@
 // Iteration #1: Find the maximum
 
+// function maxOfTwoNumbers (num1, num2) {
+//   if (num1 > num2) {
+//     return num1;
+//   } else if (num1 < num2) {
+//     return num2;
+//   } else {
+//     return num1; 
+//   }
+// }
+
 function maxOfTwoNumbers (num1, num2) {
-  if (num1 > num2) {
-    return num1;
-  } else if (num1 < num2) {
-    return num2;
-  } else {
-    return num1; 
-  }
+  return Math.max(num1, num2);
 }
 
 // Iteration #2: Find longest word
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+// function findLongestWord (arr) {
+//   if (!arr.length) { return null; }
+//   let word = ""; 
+//   arr.forEach((element) => {
+//     if (word.length < element.length) {
+//       word = element;
+//     }
+//   })
+//   return word; 
+// }
+
 function findLongestWord (arr) {
   if (!arr.length) { return null; }
-  let word = ""; 
-  arr.forEach((element) => {
-    if (word.length < element.length) {
-      word = element;
+
+  const longestWord = arr.reduce((longest, currentWord) => {
+    if (currentWord.length > longest.length) {
+      return currentWord; 
+    } else {
+      return longest; 
     }
-  })
-  return word; 
+  }, "");
+
+  return longestWord; 
 }
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// function sumNumbers (arr) {
+//   if (!arr.length) { return 0; }
+//   let sum = 0; 
+//   arr.forEach((element) => {
+//     sum += element; 
+//   })
+//   return sum; 
+// }
+
 function sumNumbers (arr) {
-  if (!arr.length) { return 0; }
-  let sum = 0; 
-  arr.forEach((element) => {
-    sum += element; 
-  })
-  return sum; 
+  return arr.reduce((acc, cur) => {
+    return acc + cur; 
+  }, 0); 
 }
 
 // Bonus - Iteration #3.1
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+// function sum (arr) {
+//   if (!arr.length) { return 0; }
+//   let sum = 0;
+//   arr.forEach((element) => {
+//     if (typeof element === "number") {
+//       sum += element; 
+//     } else if (typeof element === "string") {
+//       sum += element.length; 
+//     } else if (element === true) {
+//       sum += 1; 
+//     } else if (typeof element === "object") {
+//       throw new Error("Unsupported data type sir or ma'am"); 
+//     }
+//   })
+//   return sum; 
+// }
+
 function sum (arr) {
-  if (!arr.length) { return 0; }
-  let sum = 0;
-  arr.forEach((element) => {
-    if (typeof element === "number") {
-      sum += element; 
-    } else if (typeof element === "string") {
-      sum += element.length; 
-    } else if (element === true) {
-      sum += 1; 
-    } else if (typeof element === "object" || typeof element === "array") {
+  return arr.reduce((acc, cur) => {
+    if (typeof cur === "number") {
+      return acc + cur;
+    } else if (typeof cur === "string") {
+      return acc + cur.length; 
+    } else if (typeof cur === "boolean") {
+      return acc + Number(cur);
+    } else if (typeof cur === "object") {
       throw new Error("Unsupported data type sir or ma'am"); 
+    } else {
+      return acc + 0; 
     }
-  })
-  return sum; 
+  }, 0); 
 }
 
 // Iteration #4: Calculate the average
@@ -64,45 +104,67 @@ function sum (arr) {
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+// function averageNumbers (arr) {
+//   if (!arr.length) { return null; }
+//   let sum = 0; 
+//   arr.forEach((element) => {
+//     sum += element; 
+//   })
+//   return sum / arr.length; 
+// }
+
 function averageNumbers (arr) {
   if (!arr.length) { return null; }
-  let sum = 0; 
-  arr.forEach((element) => {
-    sum += element; 
-  })
-  return sum / arr.length; 
+  const total = arr.reduce((acc, cur) => {
+    return acc + cur; 
+  }, 0); 
+  return total / arr.length; 
 }
 
 // Level 2: Array of strings
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+// function averageWordLength (arr) {
+//   if (!arr.length) { return null; }
+//   let sum = 0;
+//   arr.forEach((element) => {
+//     sum += element.length; 
+//   })
+//   return sum / arr.length; 
+// }
+
 function averageWordLength (arr) {
   if (!arr.length) { return null; }
-  let sum = 0;
-  arr.forEach((element) => {
-    sum += element.length; 
-  })
-  return sum / arr.length; 
+  const total = arr.reduce((acc, cur) => {
+    return acc + cur.length; 
+  }, 0); 
+  return total / arr.length; 
 }
 
 // Bonus - Iteration #4.1
 
+// function avg (arr) {
+//   if (!arr.length) { return null; }
+//   let sum = 0;
+//   arr.forEach((element) => {
+//     if (typeof element === "number") {
+//       sum += element; 
+//     } else if (typeof element === "string") {
+//       sum += element.length; 
+//     } else if (element === true) {
+//       sum += 1; 
+//     } else if (typeof element === "object" || typeof element === "array") {
+//       throw new Error("Unsupported data type sir or ma'am"); 
+//     }
+//   })
+//   const average = sum / arr.length; 
+//   return Number(average.toFixed(2)); 
+// }
+
 function avg (arr) {
   if (!arr.length) { return null; }
-  let sum = 0;
-  arr.forEach((element) => {
-    if (typeof element === "number") {
-      sum += element; 
-    } else if (typeof element === "string") {
-      sum += element.length; 
-    } else if (element === true) {
-      sum += 1; 
-    } else if (typeof element === "object" || typeof element === "array") {
-      throw new Error("Unsupported data type sir or ma'am"); 
-    }
-  })
-  const average = sum / arr.length; 
+  const average = sum(arr) / arr.length; 
   return Number(average.toFixed(2)); 
 }
 
@@ -132,6 +194,7 @@ function uniquifyArray (arr) {
   return results; 
 }
 
+
 // Iteration #6: Find elements
 
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -157,15 +220,26 @@ const wordsCount = [
   'matter'
 ];
 
+// function howManyTimes (arr, word) {
+//   if (!arr.length) { return 0; }
+//   let count = 0;
+//   arr.forEach((element) => {
+//     if (word === element) {
+//       count++; 
+//     }
+//   })
+//   return count; 
+// }
+
 function howManyTimes (arr, word) {
   if (!arr.length) { return 0; }
-  let count = 0;
-  arr.forEach((element) => {
-    if (word === element) {
-      count++; 
+  return arr.reduce((acc, cur) => {
+    if (word === cur) {
+      return acc + 1;
+    } else {
+      return acc; 
     }
-  })
-  return count; 
+  }, 0); 
 }
 
 // Iteration #8: Bonus
