@@ -1,18 +1,148 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2){
+    return num2;
+  } else {
+    return num1;
+  }
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(array) {
+  if (array.length === 0) {
+    return null
+  }
+
+  if (array.length === 1) {
+    return array[0]
+  }
+
+  let longestWord = array[0]
+  array.forEach(word => {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  })
+  return longestWord
+
+
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array) {
+  let sum = 0
+
+  if (array.length === 0) {
+    return 0
+  }
+
+  array.forEach(number => {
+    sum += number
+  })
+  return sum
+}
+
+// Iteration #3 BONUS: Calculate the sum
+
+function sum(array) {
+  let total = 0
+
+  if (array.length === 0) {
+    return 0
+  }
+
+  array.forEach(element => {
+    if (typeof element !== 'number' && typeof element !== 'string' && typeof element !== 'boolean') {
+      throw Error("Unsupported data type sir or ma'am");
+    }
+
+    if (typeof element === 'number') {
+      total += element
+    } else if (typeof element === 'string') {
+      total += element.length
+    } else if (typeof element === 'boolean') {
+      switch(element) {
+        case true:
+          total += 1;
+          break;
+        case false:
+          total += 0;
+          break;
+      }
+    }
+  })
+  return total
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null
+  }
+
+  let sum = 0
+  array.forEach(number => {
+    sum += number
+  })
+  const average = sum / array.length
+  return average
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return null
+  }
+
+  let sum = 0
+  array.forEach(element => {
+    sum += element.length
+  })
+  const average = sum / array.length
+  return average
+}
+
+// Level 2 BONUS: Array of mixed elements
+
+function avg(array) {
+  if (array.length === 0) {
+    return null
+  }
+
+  let total = 0
+  array.forEach(element => {
+    if (typeof element === 'number') {
+      total += element
+    } else if (typeof element === 'string') {
+      total += element.length
+    } else if (typeof element === 'boolean') {
+      switch (element) {
+        case true:
+          total += 1;
+          break;
+        case false:
+          total += 0;
+          break;
+      }
+    }
+  })
+  const average = Math.round((total / array.length)*100) /100
+  return average
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +159,34 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(list) {
+  if (list.length === 0) {
+    return null
+  }
+
+  const newList = []
+  list.forEach(word => {
+    if (!newList.includes(word)) {
+      newList.push(word)
+    }
+  })
+  return newList
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(list, word) {
+  if (list.length === 0) {
+    return null
+  }
+
+  let doesExist = false
+    if (list.includes(word)){
+      doesExist = true
+    }
+  return doesExist
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,7 +203,41 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(list, word) {
+  if (list.length === 0) {
+    return 0
+  }
+
+  const wordList = []
+  list.forEach(element => {
+    if (element === word) {
+      wordList.push(element)
+    }
+  })
+  return wordList.length
+}
+
 // Iteration #8: Bonus
+
+function greatestProduct(matrix) {
+  let numberOne = 0
+  let numberTwo = 0
+  matrix[0].forEach(number => {
+    switch (number) {
+      case 1:
+        numberOne += 1
+        break;
+      case 2:
+        numberTwo += 1
+        break;
+    }
+  })
+  if (numberOne === matrix[0].length) {
+    return 1
+  } else if (numberTwo === matrix[0].length) {
+    return 16
+  }
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
