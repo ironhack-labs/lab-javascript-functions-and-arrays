@@ -153,3 +153,37 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  function multiply (array) {
+    var sum=1;
+    for (var i=0; i<array.length; i++) {
+        sum = sum * array[i];
+    } 
+    return sum;
+}
+  if (matrix.length === 0) {
+  return null;
+  }
+  let biggestProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+  console.log(matrix[i]);
+  
+  for (let y = 0; y < matrix[i].length-3; y++) {
+   console.log(matrix[i][y]);
+
+console.log(matrix[i].slice(y,y+4));
+   let currentProduct = multiply(matrix[i].slice(y,y+4));
+   console.log(`Linie ${i} currentProduct ist ${currentProduct}`);
+   if (currentProduct > biggestProduct) {
+     biggestProduct = currentProduct;
+   }
+   console.log(`biggestProduct ist ${biggestProduct}`);
+  } 
+  }
+
+return biggestProduct;
+  }
+  
+  console.log(greatestProduct(matrix));
