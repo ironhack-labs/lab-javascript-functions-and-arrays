@@ -89,14 +89,7 @@ const sum = (array) => {
           break;
         }
       default:
-        let message = `Error: `;
-        try {
-          if (typeof array[i] === "object" || typeof array[i] === "array")
-            throw `Unsupported data type sir or ma'am`;
-        } catch (err) {
-          message + err;
-        }
-        break;
+        throw `Error: Unsupported data type sir or ma'am`;
     }
   }
   return sumNumbers(onlyNumbersArray);
@@ -566,3 +559,64 @@ const matrix = [
     48,
   ],
 ];
+
+const greatestProduct = (matrix) => {
+  let n = matrix.length;
+  let max = 0;
+  let result;
+
+  //n = the order of the matrix
+  //iterate through rows
+  for (let i = 0; i < n; i++) {
+    //iterate through columns
+    for (let j = 0; j < n; j++) {
+      //check the maximum product in rows
+      if (j - 3 >= 0) {
+        result =
+          matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+        if (max < result) max = result;
+      }
+
+      //check the maximum product in columns
+      if (i - 3 >= 0) {
+        result =
+          matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j];
+        if (max < result) max = result;
+      }
+    }
+  }
+  return max;
+};
+
+const greatestProductOfDiagonals = (matrix) => {
+  let n = matrix.length;
+  let max = 0;
+  let result;
+
+  //n = the order of the matrix
+  //iterate through rows
+  for (let i = 0; i < n; i++) {
+    //iterate through columns
+    for (let j = 0; j < n; j++) {
+      //for the main diagonal
+      if (i - 3 >= 0 && j - 3 >= 0) {
+        result =
+          matrix[i][j] *
+          matrix[i - 1][j - 1] *
+          matrix[i - 2][j - 2] *
+          matrix[i - 3][j - 3];
+        if (max < result) max = result;
+      }
+
+      //for the secondary
+      if (i - 3 >= 0 && j - 1 <= 0) {
+        result =
+          matrix[i][j] *
+          matrix[i - 1][j + 1] *
+          matrix[i - 2][j + 2] *
+          matrix[i - 3][j + 3];
+        if (max < result) max = result;
+      }
+    }
+  }
+};
