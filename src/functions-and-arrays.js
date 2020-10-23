@@ -3,10 +3,13 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1
+  } else if (num1 === num2) {
+    return num1 && num2
   } else {
     return num2
   }
 }
+
 maxOfTwoNumbers(2, 5)
 
 // Iteration #2: Find longest word
@@ -40,6 +43,15 @@ function sumNumbers(arr) {
   return sum
 }
 
+// Bonus 3:
+function sum(array) {
+  let suma = 0
+  for (let i = 0; i < array.length; i++) {
+      suma += array[i]
+    }
+  return suma
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -63,7 +75,18 @@ function averageWordLength(array) {
     for (let i = 0; i < array.length; i++) {
       sum += array[i.length]
     }
-  }return sum / array.length
+  }return sum / array[i.length]
+}
+
+// Bonus 4.2:
+
+function avg(array) {
+  let sum = 0
+  if (array.length === 0) {
+    return null
+  } else {
+    return sumNumbers(array) / array.length
+  }
 }
 
 // Iteration #5: Unique arrays
