@@ -300,8 +300,15 @@ function howManyTimes(arr) {
       }
 
     }
+  }
 
+  if (arr.includes != words) {
 
+    return 0
+
+  } else if (arr.includes(words) == 5) {
+
+    return 5
 
   }
 
