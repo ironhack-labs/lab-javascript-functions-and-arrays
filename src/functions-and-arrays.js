@@ -113,49 +113,13 @@ function averageWordLength(wordsArr) {
 
  // Iteration 4: Bonus
 
- function avg(array) {
-  if (array.length === 0){
-    return null;
-  }
-  let total = sum(array);
-  let average = total / array.length;
-  return (average);
-}
-
-avg(mixedArr)
-
-/* Other way:
-function avg (arr){
+ const avg = (arr) => {
   if (arr.length === 0){
-    return null;
+    return null
   }
-  let sum=0;
-  arr.forEach(function (i){
-    switch (typeof i) {
-      case 'number':
-        sum += i
-        break;
-      
-      case 'string':
-        sum += i.length
-        break;
-      
-      case 'boolean':
-        if (i === true){
-          sum +=1 
-        }
-        break;
-
-      case 'object':
-      case 'array':
-        throw new Error ("Unsupported data type sir or ma'am") 
-    } 
-  });
-  return sum / arr.length
-  }
-
-  avg(mixedArr)
-*/
+  const newArr = sum(arr)
+  return newArr/arr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -268,3 +232,32 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrix){
+  let greatestProduct = 0;
+  for (let i = 0; i < matrix.length - 4; i++) {
+    for (let j = 0; j < matrix[i].length - 4; j++) {
+      let horizontalProduct = 1;
+      for (let k = j; k < (j + 4); k++) {
+        horizontalProduct *= matrix[i][k];
+      }
+
+      if (horizontalProduct > greatestProduct) {
+        greatestProduct = horizontalProduct;
+      }
+
+      let verticalProduct = 1;
+      for (let k = i; k < (i + 4); k++) {
+        verticalProduct *= matrix[k][j];
+      }
+
+      if (verticalProduct > greatestProduct) {
+        greatestProduct = verticalProduct;
+      }
+    }
+  }
+  return greatestProduct;
+}
+
+
