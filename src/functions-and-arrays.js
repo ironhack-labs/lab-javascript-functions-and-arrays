@@ -66,6 +66,8 @@ function sumNumbers(arrOfNums) {
   return sum;
 }
 
+sumNumbers(numbers);
+
 //or with for of loop:
 
 // function sumNumbers(arrOfNums) {
@@ -77,10 +79,35 @@ function sumNumbers(arrOfNums) {
 //   return sum;
 // }
 
+//Iteration #3 BONUS:
 
-
-
-sumNumbers(numbers);
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+      let element = arr[i];
+      console.log(element);
+      if (element === 0) {
+        return 0;
+      } else if (typeof element === "number") {
+        total += element;
+      } else if (typeof element === "string") {
+        total += element.length;
+      } else if (typeof element === "boolean") {
+        total += Number(element);
+      } else {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    }
+    //   for (let i = 0; i < arr.length; i++) {
+    //     total += arr[i];
+    //     console.log(total);
+    //   }
+    return total;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -88,13 +115,13 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNums) {
   if (arrOfNums.length === 0) return null;
-    let sum = 0;
-    let average;
-    for (let i = 0; i < arrOfNums.length; i++) {
-      sum += arrOfNums[i];
-      average = sum / arrOfNums.length;
-    }
-    return average;
+  let sum = 0;
+  let average;
+  for (let i = 0; i < arrOfNums.length; i++) {
+    sum += arrOfNums[i];
+    average = sum / arrOfNums.length;
+  }
+  return average;
 }
 
 averageNumbers(numbersAvg);
@@ -115,16 +142,15 @@ const wordsArr = [
 
 function averageWordLength(arrOfWords) {
   if (arrOfWords.length === 0) return null;
-  
+
   let total = 0;
-    for (let i = 0; i < arrOfWords.length; i++) {
-      let word = arrOfWords[i];
-      total += word.length;
-      console.log("total", total);
-    }
-    let average = total / arrOfWords.length;
-    return average;
-  
+  for (let i = 0; i < arrOfWords.length; i++) {
+    let word = arrOfWords[i];
+    total += word.length;
+    console.log("total", total);
+  }
+  let average = total / arrOfWords.length;
+  return average;
 }
 
 averageWordLength(wordsArr);
@@ -146,16 +172,16 @@ const wordsUnique = [
 
 function uniquifyArray(array) {
   if (array.length === 0) return null;
-    
+
   let newArr = [];
-    for (let i = 0; i < array.length; i++) {
-      let currentWord = array[i];
-      console.log("currentWord", currentWord);
-      if (newArr.indexOf(currentWord) < 0) {
-        newArr.push(currentWord);
-      }
+  for (let i = 0; i < array.length; i++) {
+    let currentWord = array[i];
+    console.log("currentWord", currentWord);
+    if (newArr.indexOf(currentWord) < 0) {
+      newArr.push(currentWord);
     }
-    return newArr;
+  }
+  return newArr;
 }
 
 uniquifyArray(wordsUnique);
@@ -174,16 +200,15 @@ const wordsFind = [
 
 function doesWordExist(arr, searchWord) {
   if (arr.length === 0) return null;
-    
+
   let match = false;
-    for (let i = 0; (i < arr.length) & !match; i++) {
-      if (arr[i] === searchWord) {
-        match = true;
-        break;
-      }
+  for (let i = 0; (i < arr.length) & !match; i++) {
+    if (arr[i] === searchWord) {
+      match = true;
+      break;
     }
-    return match;
-  
+  }
+  return match;
 }
 doesWordExist(wordsFind, "truth");
 
@@ -205,13 +230,12 @@ const wordsCount = [
 function howManyTimes(arr, searchWord) {
   let count = 0;
   if (arr.length === 0) return count;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === searchWord) {
-        count += 1;
-      }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === searchWord) {
+      count += 1;
     }
-    return count;
-  
+  }
+  return count;
 }
 
 // Iteration #8: Bonus
