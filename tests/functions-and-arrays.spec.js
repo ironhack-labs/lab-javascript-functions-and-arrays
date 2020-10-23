@@ -237,11 +237,11 @@ describe('Count repetition', () => {
   });
 
   it('should return 1 (one) when the word appears only one time in the array', () => {
-    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
+    expect(howManyTimes(['basketball', 'football', 'tennis']'tennis')).toBe(1);
   });
 
   it("should return 0 (zero) when the word doesn't appear in the array", () => {
-    expect(howManyTimes(['basketball', 'football', 'tennis'], 'rugby')).toBe(0);
+    expect(howManyTimes(['basketball', 'football', 'tennis']'rugby')).toBe(0);
   });
 
   it('should return 5 (five) when the word appears 5 times in the array', () => {
@@ -259,8 +259,7 @@ describe('Count repetition', () => {
           'rugby',
           'handball',
           'rugby'
-        ],
-        'rugby'
+        ]'rugby'
       )
     ).toBe(5);
   });
