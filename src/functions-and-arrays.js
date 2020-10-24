@@ -17,7 +17,7 @@ function findLongestWord (array) {
    }
    return longestWord;
 }
-findLongestWord (words);
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -28,8 +28,8 @@ function sumNumbers (array) {
   }
   return total;
 }
-sumNumbers(numbers);
 
+// Bonus 3.1
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(array) {
   for (let item of array) {
@@ -52,9 +52,8 @@ function sum(array) {
       }
     } console.log(total);
     return total;
-}
+};
 
-sum(mixedArr);
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -68,8 +67,7 @@ function averageNumbers (array) {
   } else {
     return total/array.length;
   }
-}
-averageNumbers(numbersAvg)
+};
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -83,8 +81,7 @@ function averageWordLength (array) {
   } else {
     return total/array.length;
   }
-}
-averageWordLength(wordsArr)
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -116,9 +113,7 @@ function uniquifyArray (array) {
   } else {
     return null;
   }
-}
-
-uniquifyArray(wordsUnique);
+};
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -130,9 +125,7 @@ function doesWordExist (array, word) {
         return true;
     }    
   } return false;
-}
-
-doesWordExist(wordsFind, "machine");
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
