@@ -7,8 +7,6 @@ function maxOfTwoNumbers(n1, n2) {
   }
 }
 
-maxOfTwoNumbers(5, 5);
-
 // Finding Longest Word
 var words = [
   'mystery',
