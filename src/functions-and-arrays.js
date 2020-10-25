@@ -21,8 +21,8 @@ function findLongestWord (arr) {
   } return longestWord;
   }
 
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-console.log(findLongestWord(words));
+// const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
@@ -38,7 +38,7 @@ function sumNumbers (arr) {
 }
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-console.log(sumNumbers(numbers));
+// console.log(sumNumbers(numbers));
 
 function sum(arr) {
   let total = 0;
@@ -189,15 +189,29 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-console.clear()
-function greatestProduct(arr){
- let result = 0;
- console.log(arr)
-  for(let row = 0; row < arr.length; row++){
-    console.log(arr[row])
-    for (let column = 0; column< arr[row].length; column++){
 
+function greatestProduct(matrix){
+  let result = 0;
+  // console.table(matrix)
+  for(let column = 0; column < matrix.length - 4; column++){
+    for (let row = 0; row < matrix[column].length - 4; row++){
+      let lineProduct = matrix[column][row] *
+                        matrix[column][row + 1] *
+                        matrix[column][row + 2] *
+                        matrix[column][row + 3]
+      let columnProduct = matrix[column][row] *
+                          matrix[column + 1][row] *
+                          matrix[column + 2][row] *
+                          matrix[column + 3][row]
+      if (lineProduct > result) {
+        result = lineProduct
+      }
+      if (columnProduct > result) {
+        result = columnProduct
+      }
     }
   }
- return result;
+  return result;
 }
+
+greatestProduct(matrix);
