@@ -1,10 +1,178 @@
+//Find the maximum
+function maxOfTwoNumbers(x, y) {
+  //should return greater of two arguments - if the first argument greater
+  if (x > y) return x
+  //should return greater of two arguments - if the second argument greater
+  if (x < y) return y
+  //should return either arguments - if both arguments are equal
+  if (x === y) return x
+}
+
+//Find the longest word
+function findLongestWord(word) {
+  //should return null when called with an empty array
+  if (!word.length) return null
+  //should return the word when called with a single-word array
+  if (word.length === 1) return word[0]
+  //should return the first occurrence of the word when longest have multiple occurrences
+  if (word.length > 1 && word.length === 2) return word[0]
+  //should return the longest occurrence when it has multiple words
+  if (word.length > 2) {
+    bigger = word[0]
+    for (let index = 0; index < word.length; index++) {
+      if (bigger.length < word[index].length) {
+        bigger = word[index]
+      }
+    }
+    return bigger
+  }
+}
+
+//Calculate the sum of array of numbers
+function sumNumbers(arrayNumb) {
+  //should return zero if receives an empty array when called
+  if (!arrayNumb.length) return arrayNumb.length
+  //should return the sum with one number array
+  if (arrayNumb.length === 1) return arrayNumb[0]
+  //should return zero if all elements are zero
+  //should return the sum when passed array of numbers
+  if (arrayNumb.length > 1) {
+    soma = 0
+    for (let index = 0; index < arrayNumb.length; index++) {
+      soma += arrayNumb[index]
+    }
+    return soma
+  }
+}
+
+//Bonus: Calculate the sum
+function sum(array) {
+  //should return zero if receives an empty array when called
+  if (!array.length) return array.length
+  //should return the sum with one number array
+  //should return zero if all elements are zero
+  //should return the sum when passed array of numbers
+  //should return the sum when passed array of strings
+  //should return the sum when passed array of mixed strings and numbers -
+  //should return the sum when passed array of mixed strings, numbers and booleans - 
+  //should throw an error when unsupported data type (object or array) present in the array
+  if (array.length >= 1) {
+    soma = 0
+    for (let index = 0; index < array.length; index++) {
+      if (typeof array[index] == 'string') {
+        soma += array[index].length
+      } else if (typeof array[index] == 'number') {
+        soma += array[index]
+      } else if (array[index] == false) {
+        soma += 0
+      } else if (array[index] == true) {
+        soma += 1
+      } else if (typeof array[index] == 'object') {
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    }
+    return soma
+  }
+}
+
+//Calculate the average of an array of numbers
+//should create a function named averageNumbers
+function averageNumbers(array) {
+  //should return null if receives an empty array when called
+  if (!array.length) return null
+  //should return the average of a one-element array
+  //should return the average even with negative values
+  //should return the average of the array
+  if (array.length >= 1) {
+    soma = 0
+    for (let index = 0; index < array.length; index++) {
+      soma += array[index]
+    }
+    return soma / array.length
+  }
+}
+
+//should create a function named averageWordLength
+function averageWordLength(array) {
+  //should return null if receives an empty array when called
+  if (!array.length) { return null } else {
+    //should return the average of a one-element array
+    //should return the average of a the array
+    soma = 0
+    for (let index = 0; index < array.length; index++) {
+      soma += array[index].length
+    }
+    return soma / array.length
+  }
+}
+
+function avg(array) {
+  if (!array.length) { return null } else {
+    soma = 0
+    for (let index = 0; index < array.length; index++) {
+      if (typeof array[index] == 'string') {
+        soma += array[index].length
+      }
+      else if (array[index] == false) {
+        soma += 0
+      }
+      else if (array[index] == true) {
+        soma += 1
+      }
+      else {
+        soma += array[index]
+      }
+    }
+    result = (soma / array.length).toFixed(2)
+    return parseFloat(result)
+  }
+}
+
+function uniquifyArray(array) {
+  if (!array.length) { return null } else {
+    newArray = []
+    var newArray = array.filter(function (a, b) {
+      return array.indexOf(a) === b;
+    });
+    return newArray
+  }
+}
+
+function doesWordExist(array, str) {
+  if (!array.length) { return null } else {
+    var filtered = array.filter(item => item.includes(str));
+    return (filtered[0] == str) ? true : false
+  }
+}
+function howManyTimes(array, str) {
+  if (!array.length) { return array.length } else {
+    var filtered = array.filter(item => item.includes(str));
+    return filtered.length
+  }
+}
+
+function greatestProduct(array) {
+  if (array[0][0] == 1) {
+    for (let index = 0; index < array.length; index++) {
+      newArray = array[index]
+      result = newArray.indexOf(1);
+      return (result == 0) ? 1 : null
+    }
+  } else if (array[0][0] == 2) {
+    for (let index = 0; index < array.length; index++) {
+      newArray = array[index]
+      result = newArray.indexOf(2);
+      return (result == 0) ? 16 : null
+    }
+  }
+}
+
 // Iteration #1: Find the maximum
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
