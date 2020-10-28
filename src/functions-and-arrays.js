@@ -21,6 +21,7 @@ function findLongestWord(words) {
 
   if (words.length === 0) {
     return null;
+    // ou ---  if (!words.length) return null;
   }
   if (words.length === 1) {
     return words[0];
@@ -33,25 +34,68 @@ function findLongestWord(words) {
     if (wordLength > lastwordLength) {
       lastwordLength = wordLength;
       longestWord = words[i];
+
+      /* ou --- for (let word of arrOfWords) {
+        if (longestWord.length < word.length) {
+          longestWord = word
+        } */
+      }
     }
+    console.log(longestWord);
+    return longestWord;
   }
-  console.log(longestWord);
-  return longestWord;
-}
+ 
+
 findLongestWord(['bar', 'foo'])
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sum (numbers) {
+  let sum = 0
+  if (!numbers.length) {
+     returnsum = 0;
+  }
+  else if (numbers.length === 1 ) {
+    sum = numbers[0];
+  }
+  else {
+
+  for (let i=0; i<numbers.length; i+=1) {
+    if (numbers[i] === 0) {
+       sum += 0;
+    }
+    if (typeof numbers[i] == 'number'){
+     sum += numbers[i];
+    }
+    else if (typeof numbers[i] == 'string') {
+      sum += numbers[i].length;
+    }
+    else if (numbers[i] == false) {
+      sum += 0
+    } else if (numbers[i] == true) {
+      sum += 1
+    } else if (typeof numbers[i] == 'object') {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+  } 
+}
+return sum;
+}
+
 
 function sumNumbers (numbers) {
   let sum = 0;
   if (numbers.length === 0) {
-    return 0
+    return 0;
   } else {
   for (let i=0; i<numbers.length; i+=1) {
     sum += numbers[i];
+    /* ou ---- for (num of numbers) {
+      sum += num
+    }
+    */
   }
   return sum;
 }
@@ -62,6 +106,19 @@ function sumNumbers (numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function avg (numbersAvg) {
+  let avgResult = 0;
+  if (numbersAvg.length === 0) {
+    return null
+  }
+  avgResult = sum(numbersAvg) / numbersAvg.length;
+  avgResult = avgResult.toFixed(2);
+  avgResult = parseFloat(avgResult);
+ return avgResult;
+}
+
+
+
 function averageNumbers (numbersAvg) {
 
 if (numbersAvg.length === 0) {
@@ -71,7 +128,7 @@ else if (numbersAvg.length === 1) {
   return numbersAvg[0]
 }
 else {
-  let average = sumNumbers(numbersAvg) / numbersAvg.length
+  let average = sum(numbersAvg) / numbersAvg.length
   return average
 }
 }
@@ -85,7 +142,7 @@ function averageWordLength(stringArray) {
     return null;
   }
   else if (stringArray.length === 1) {
-    return stringArray[i].length;
+    return stringArray[0].length;
   }
   else {
     for (i = 0; i < stringArray.length; i+=1){
@@ -204,3 +261,12 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// function greatestProducts(matrix) {
+//   let result1 = 0;
+//   for (let i = 0; i<matrix.length; i+=1){
+//     if (matrix[i] === 1) {
+//        result1 = 
+//     }
+//   }
+// }
