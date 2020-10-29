@@ -1,18 +1,107 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 == number2) {
+    return number2;
+  } else {
+    if (number2 > number1) {
+      return number2;
+    } else {
+      return number1;
+    }
+  }
+
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(words) {
+  
+   let longestWord = null;
+   let maior = 0;
+   words.forEach( function(element){
+       if(maior < element.length){
+     maior = element.length;
+     longestWord = element;
+   }
+   });
+   return longestWord;
+ }
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+ 
+  if(numbers.length == 0){
+    return 0;
+  }
+  
+  let soma = 0;
+  ResuladoSomaMatriz=[];
+  for (let i = 0; i < numbers.length; i += 1){
+    soma += numbers[i];
+    
+  }
+  
+  return soma;
+}
+
+// Iteration #3.1: Calculate the sum gerenic
+const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ;
+
+function sum(numbers){
+  if(numbers.length == 0){
+    return 0;
+  }
+    let sum = 0;
+    for(let i =0; i < numbers.length; i += 1){
+      sum  += numbers[i];
+    }
+    return sum;
+
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(listArr){
+  if(listArr.length == 0) return null;
+  return sum(listArr)/listArr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(listArr){
+
+  if(listArr.length == 0) return null;
+let receiveWord = [];
+  let sizeWord = [];
+for(let i = 0; i < listArr.length; i += 1){
+  
+  receiveWord = listArr[i].length;
+  sizeWord.push(receiveWord);
+  
+}
+ return averageNumbers(sizeWord);
+
+}
+
+function avg(listArr){
+  if(listArr.length == 0) return null;
+  let novaArr = [];  
+  for(let i = 0; i < listArr.length; i += 1){
+  if(listArr[i] == true){
+    listArr[i] = 1;
+  }else{ 
+    if(listArr[i]== false){
+    listArr[i] = 0;
+  }}
+  novaArr.push(listArr);
+  }
+return averageWordLength(novaArr);
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
