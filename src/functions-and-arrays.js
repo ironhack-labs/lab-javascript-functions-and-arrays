@@ -1,36 +1,115 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1;
+  } else {
+    return n2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(words) {
+  let theLongest = null;
+  for (let i = 0; i < words.length; i++) {
+    if (!theLongest || words[i].length > theLongest.length) {
+      theLongest = words[i];
+    }
+  }
+  return theLongest;
+}
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i]; 
+  }
+  return result; 
+}
+
+// Bonus - Iteration #3.1: A generic sum() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, ['asddas']];
+function sum(mixedArr) {
+  let result = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'number') {
+      result += mixedArr[i];
+    } else if (typeof mixedArr[i] === 'boolean' && mixedArr[i] === true ) {
+      result += 1;
+    } else if (typeof mixedArr[i] === 'boolean' && mixedArr[i] === false ) {
+      result += 0;
+    } else if (typeof mixedArr[i] === 'string') {
+      result += mixedArr[i].length;
+    } else {
+      throw "Unsupported data type";
+    }
+  }
+  return result;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (numbersAvg) {
+  let avgNum = sumNumbers(numbersAvg) / numbersAvg.length;
+  if (numbersAvg.length === 0) {
+    return null;
+  } else {
+    return avgNum;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength (wordsArr) {
+  let sumOfCharacters = 0;
+  let sumOfWords = wordsArr.length;
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    for ( let i = 0; i < wordsArr.length; i++ ) {
+      sumOfCharacters += wordsArr[i].length;
+    }
+  }
+  return sumOfCharacters / sumOfWords;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+
 ];
+
+function uniquifyArray(words) {
+  let uniques = [];
+  if (words.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < words.length; i++) {
+      if (uniques.indexOf(words[i]) === -1 ) {
+        uniques.push(words[i]);
+      }
+    }
+  return uniques;
+  }
+};
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordFind, wordSearch) {
+  if (wordFind.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordFind.length; i++) {
+      while (wordFind[i] === wordSearch) {
+        return true;
+      }
+    }
+    return false;
+  }
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +125,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordFind, wordSearch) {
+  let timesWordsRepeat = 0;
+  for (let i = 0; i < wordFind.length; i++) {
+    if (wordSearch === wordFind[i]) {
+      timesWordsRepeat += 1;
+    }
+  }
+  return timesWordsRepeat;
+};
 
 // Iteration #8: Bonus
 
@@ -71,3 +160,27 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/*
+function greatestProduct(matrix) {
+  let result = 0;
+  for (i = 0; i < matrix.length - 1; i++) {
+    for (j = 0; j < matrix[i].length - 1; i++){
+      if (matrix[i] === undefined || matrix[i][j] === undefined) {
+        result += 0;
+        result2 += 0;
+        result3 += 0;
+        result4 += 0;
+      } else {
+        result = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+        result2 = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        result3 = matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j];
+        result4 = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      }
+    }
+  }
+  return result;
+};
+
+console.log(greatestProduct(matrix));
+*/
