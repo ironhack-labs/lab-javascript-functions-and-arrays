@@ -55,19 +55,22 @@ function averageNumbers(numbersAvg) {
     if (numbersAvg.length === 0 ) {
     return null;
   }
-  return sumNumbers(numbersAvg) / numbersAvg.length;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    suma += numbersAvg[i];
+   let result = suma / numbersAvg.length;
+    return result;
+ }
 }
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
-  if(wordsArr !== undefined){
+  if(wordsArr.length !== undefined){
     return null;
   }
-  for (const element of wordsArr) {
-    return averageNumbers(wordsArr[element]);
-  } 
+    return averageNumbers(wordsArr/wordsArr.length);
+   
   
   
 }
@@ -93,36 +96,33 @@ function uniquifyArray(unique){
 if (unique.length !== undefined){
   return null;
 }
-for (let i; i < unique.length ; i++ ){
+ 
+for (let i; i < wordsUnique.length ; i++ ){
   
   if (repit.indexOf(unique[i]) === -1) {
      repit.push(unique[i]);
     }
-    return repit;
-  }
     
+  }
+  return repit;
 
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 let pal;
-function doesWordExist(pal) {
-  
-  for (let i = 0; i < wordsFind.length ; i++){
-    if (wordsFind[i] === pal) {
-      return 1;
-    }else if (pal.length === 0) {
+function doesWordExist(wordsFind, wordIn) {
+ 
+    if (wordsFind.length === 0) {
       return null;
-    }else if (pal.length !== undefined) {
-      return 0;
-    }else if( wordsFind.includes(pal)){
+    }
+
+    if( wordsFind.includes(wordIn)){
         return true;
     }else {
         return false;
     }
-
-  }
+  
 }
 
 
@@ -144,13 +144,17 @@ count = 1;
 function howManyTimes(found){
   found  = doesWordExist(wordsCount);
   
-    if (wordsCount.length === 0 || found === 0){
+    if (wordsCount.length === 0 ){
         return 0;
     }
 
-    for(let i = 0; i < wordsCount ; i++){
- 
+    for(let element of wordsCount){
+      if (element === found){
+        count ++;
+
+      } 
     }
+    return count;
 }
 
 
