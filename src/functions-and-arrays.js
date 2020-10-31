@@ -9,7 +9,6 @@ function maxOfTwoNumbers(number1, number2) {
   }
 }
 
-
 maxOfTwoNumbers(2,2);
 
 // Iteration #2: Find longest word
@@ -44,6 +43,10 @@ function sumNumbers(numbersToSum) {
 }
 
 sumNumbers(numbers);
+
+// Bonus - Iteration #3.1: A generic sum() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, ['asddas']];
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -85,6 +88,10 @@ function averageWordLength(wordsArr) {
 
 averageWordLength(wordsArr);
 
+//Bonus - Iteration #4.1: A generic avg() function
+  
+  
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -100,8 +107,39 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+  if(!array.length) {
+    return null;
+  }else{
+    var uniqueArray = [];
+    
+    // Loop through array values
+    for(i=0; i < array.length; i++){
+        if(uniqueArray.indexOf(array[i]) === -1) {
+            uniqueArray.push(array[i]);
+        }
+    }
+    return uniqueArray;
+  }
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, obj) {
+  if(!arr.length) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] == obj) {
+        return true;
+      }  
+    }
+    return false;
+  }
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -117,6 +155,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(newWordsArray, word) { 
+  if(!newWordsArray.length) {
+    return 0;
+  } else {
+
+    let repeat = 0;
+    for(i = 0; i < newWordsArray.length; i += 1) {
+      if(newWordsArray[i] === word) {
+        repeat += 1;
+      }
+    } return repeat;
+  }
+}
 
 // Iteration #8: Bonus
 
@@ -142,3 +195,5 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
