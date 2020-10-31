@@ -1,4 +1,4 @@
-const shuffle = currentArray => {
+const shuffle = (currentArray) => {
   const array = [...currentArray];
   let counter = array.length;
 
@@ -111,14 +111,18 @@ describe('Bonus: Calculate the sum', () => {
   });
   it('should return the sum when passed array of mixed strings, numbers and booleans - ', () => {
     // false is counted as 0
-    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46);
+    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(
+      46
+    );
     // true is counted as 1
-    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47);
+    expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(
+      47
+    );
   });
   it('should throw an error when unsupported data type (object or array) present in the array', () => {
-    expect(() => sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])).toThrow(
-      new Error("Unsupported data type sir or ma'am")
-    );
+    expect(() =>
+      sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])
+    ).toThrow(new Error("Unsupported data type sir or ma'am"));
   });
 });
 
@@ -159,7 +163,16 @@ describe('Calculate the average of an array of strings', () => {
 
   it('should return the average of a the array', () => {
     expect(
-      averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers'])
+      averageWordLength([
+        'Ironhack',
+        'Madrid',
+        'Barcelona',
+        'Paris',
+        'Miami',
+        'Mexico',
+        'Berlin',
+        'Programmers'
+      ])
     ).toBe(7);
   });
 });
@@ -175,9 +188,13 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
 
   it('should return the average of the array', () => {
     // false is counted as 0
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(5.11);
+    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(
+      5.11
+    );
     // true is counted as 1
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(5.22);
+    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(
+      5.22
+    );
   });
 });
 
@@ -191,7 +208,9 @@ describe('Unique array', () => {
   });
 
   it('should return the correct uniqified array when an array of the same elements passed as argument', () => {
-    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual([
+      'Ironhack'
+    ]);
   });
 
   it('should return the same array when no element is repeated', () => {
@@ -200,7 +219,17 @@ describe('Unique array', () => {
 
   it('should return the uniquified array', () => {
     expect(
-      uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])
+      uniquifyArray([
+        'iPhone',
+        'Samsung',
+        'Android',
+        'iOS',
+        'iPhone',
+        'Samsung',
+        'Nokia',
+        'Blackberry',
+        'Android'
+      ])
     ).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
   });
 });
@@ -219,11 +248,21 @@ describe('Find elements', () => {
   });
 
   it('should return false if the word we are looking for is not in the array', () => {
-    expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
+    expect(
+      doesWordExist(
+        ['machine', 'poison', 'eat', 'apple', 'horse'],
+        'ratatouille'
+      )
+    ).toBe(false);
   });
 
   it('should return true if the word we are looking for is in the array', () => {
-    expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
+    expect(
+      doesWordExist(
+        ['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'],
+        'book'
+      )
+    ).toBe(true);
   });
 });
 
@@ -237,7 +276,9 @@ describe('Count repetition', () => {
   });
 
   it('should return 1 (one) when the word appears only one time in the array', () => {
-    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(
+      1
+    );
   });
 
   it("should return 0 (zero) when the word doesn't appear in the array", () => {
