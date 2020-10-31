@@ -99,7 +99,8 @@ function averageWordLength(wordsArr) {
 function avg(anyArr) {
   if (!anyArr.length) return null;
 
-  return sum(anyArr) / anyArr.length;
+  return Math.floor((sum(anyArr) / anyArr.length) * 100) / 100;
+  // return parseFloat((sum(anyArr) / anyArr.length).toFixed(2));
 }
 
 // Iteration #5: Unique arrays
@@ -144,13 +145,10 @@ const wordsFind = [
 ];
 
 function doesWordExist(wordsFind, wordsSearch) {
-  if (!wordsFind.length) return null;
-  for (let i = 0; i < wordsFind.length; i += 1) {
-    if (wordsFind.contains) {
-      return true;
-    } else {
-      return false;
-    }
+  if (wordsFind && wordsFind.length) {
+    return wordsFind.includes(wordsSearch);
+  } else {
+    return null;
   }
 }
 
@@ -170,16 +168,14 @@ const wordsCount = [
 ];
 
 function howManyTimes(words, wordsToSearch) {
-  if (!words.length) return 0;
-  let wordsToSearh = uniquifyArray;
+  // if (!words.length) return 0;
+  let times = 0;
   for (let i = 0; i < words.length; i += 1) {
-    if (wordsToSearch) {
-      return 1;
-    }
-    if (words !== words.contains) {
-      return 0;
+    if (wordsToSearch === words[i]) {
+      times += 1;
     }
   }
+  return times;
 }
 
 // Iteration #8: Bonus
@@ -501,6 +497,14 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {
-
+function greatestProduct(matrix) {
+  let line = matrix.length;
+  let column = matrix[0].length;
+  for (let i = 0; i < line; i += 1) {
+    for (let j = 0; j < column; j += 1) {
+ 
+    }
+  }
+  
 }
+
