@@ -47,6 +47,22 @@ sumNumbers(numbers);
 // Bonus - Iteration #3.1: A generic sum() function
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, ['asddas']];
 
+function sum(arr) {
+  if(!arr.length) return 0;
+  let sum = 0;
+  for(let elemento of arr) {
+    if(typeof elemento === 'number') {
+      sum += elemento;
+    }else if(typeof elemento === 'string') {
+      sum += elemento.length;
+    }else if(typeof elemento === 'boolean') {
+      sum += elemento;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -61,8 +77,6 @@ function averageNumbers(numbersToSum) {
     return average; 
   }
 }
-
-averageNumbers(numbersAvg);
 
 
 // Level 2: Array of strings
@@ -86,12 +100,15 @@ function averageWordLength(wordsArr) {
     
 }
 
-averageWordLength(wordsArr);
-
 //Bonus - Iteration #4.1: A generic avg() function
+function avg(arr) {
+  if(!arr.length) return null;
+  let sumBonus = sum(arr);
+  let average = sumBonus / arr.length;
+  //return parseFloat(average.toFixed(2));
+  return Math.round(average * 100) / 100 ;
+}
   
-  
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -196,4 +213,10 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+function greatestProduct(matrix){
+  return matrix[0];
+}
 
+console.log(greatestProduct(matrix));
+const test = [1,2,3,4,5]
+console.log(test[2]);
