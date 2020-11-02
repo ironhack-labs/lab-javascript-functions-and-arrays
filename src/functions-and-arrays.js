@@ -1,18 +1,90 @@
+
 // Iteration #1: Find the maximum
+const maxOfTwoNumbers = function (num1, num2) {
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+const findLongestWord = function (wordList) {
+  if ( wordList.length === 0 ) {
+    return null;
+  } else {
+    wordList.sort((a, b) => b.length - a.length);
+    return wordList[0];
+  }
+}
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumNumbers = function (numList) {
+  let sum = 0;
+  numList.forEach(function(number){
+    sum += number;
+  });
+  return sum;
+}
+
+
+const sum = function (mixList) {
+
+  let sum = 0;
+
+  mixList.forEach(function(value){
+
+    let valType = typeof value;
+
+    switch (valType) {
+      case 'number':
+      case 'boolean':
+        sum += value;
+        break;
+
+      case 'string':
+        sum += value.length;
+        break;
+    
+      default:
+        throw new Error(`Unsupported data type sir or ma'am`);
+    }
+
+  });
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = function (numArray) {
+  if ( numArray.length === 0 ) {
+    return null;    
+  } else {
+    return sumNumbers(numArray) / numArray.length;
+  }
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = function (wordArray) {
+  if ( wordArray.length === 0 ) {
+    return null;
+  } else {
+    return sum(wordArray) / wordArray.length;
+  }
+}
+
+const avg = function (mixArray) {
+  if ( mixArray.length === 0 ) {
+    return null;    
+  } else {
+    avgDirty = sum(mixArray) / mixArray.length;
+    return Number(avgDirty.toFixed(2));
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +101,30 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = function (repArray) {
+  if ( repArray.length === 0 ) {
+    return null;
+  } else {
+    arrayClean = [];
+    repArray.forEach(function(value) {
+      if ( !arrayClean.includes(value) ) {
+        arrayClean.push(value);
+      }
+    });
+    return arrayClean;
+  }
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = function (wordArray, searchedWord) {
+  if ( wordArray.length === 0 ) {
+    return null;
+  } else {
+    return wordArray.includes(searchedWord);
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +140,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = function (wordArray, searchedWord) {
+  resultsCount = 0;
+  wordArray.forEach(function(value) {
+    if ( searchedWord === value ) {
+      resultsCount ++;
+    }
+  });
+  return resultsCount;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +175,52 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = function (givenMatrix) {
+
+  let maxProduct = 0;
+  let matrixSize = givenMatrix.length;
+  let biggestFour = 0;
+  let productHorizontal = 0;
+  let productVertical = 0;
+
+  givenMatrix.forEach(function(row) {
+
+    biggestFour = row.sort((a,b)=>b-a).slice(0, 4);
+
+    productHorizontal = biggestFour.reduce( (a, b) => a * b );
+
+    if ( productHorizontal > maxProduct ) {
+
+      maxProduct = productHorizontal;
+
+    }
+    
+  });
+
+  let column = [];
+  for (let i = 0; i < matrixSize; i++) {
+
+    column = [];
+    
+    for (let j = 0; j < matrixSize; j++) {
+
+      column.push(givenMatrix[j][i]);
+      
+    }
+
+    biggestFour = column.sort((a,b)=>b-a).slice(0, 4);
+
+    productVertical = biggestFour.reduce( (a, b) => a * b );
+
+    if ( productVertical > maxProduct ) {
+
+      maxProduct = productVertical;
+
+    }
+
+  }
+
+  return maxProduct;
+
+}
