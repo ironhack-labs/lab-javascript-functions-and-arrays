@@ -21,9 +21,16 @@ $ git commit -m "done"
 $ git push origin master
 ```
 
-Create Pull Request so your TAs can check up your work.
-
-## Automated Testing Introduction
+￼
+￼
+￼
+￼
+￼
+15 h 41
+Hey ￼
+￼￼
+Milande.Teisserenc WDFT NOV2020  15 h 47
+I took the room 14on
 
 ### What is automated testing?
 
