@@ -21,24 +21,6 @@ const words = [
   "crackpote",
 ];
 
-// var findLongestWord = words.reduce(function (longName, maybeLongerName) {
-//   return maybeLongerName.length > longName.length
-//   ? maybeLongerName
-//   : longName;
-// }, "");
-
-// var longestWord = words.reduce(function (longWord, possibleLongerWord) {
-//   return possibleLongerWord.length > longWord.length
-//     ? possibleLongerWord
-//     : longWord;
-// }, "");
-
-// function findLongestWord (toto) {
-//   if toto ="" {
-//     return null
-//   } else if words.length
-
-// }
 function findLongestWord(str) {
   var longestWord = 0;
   var word = null;
@@ -95,14 +77,7 @@ const wordsArr = [
   "fuel",
   "palace",
 ];
-// function averageWordLength(wordsArr) {
-//   if (wordsArr.length === 0) {
-//     return null;
-//   }
-//   const total = wordsArr.reduce((acc, c) => acc + c, 0);
-//   return total / wordsArr.length;
-// }
-// console.log(averageWordLength(wordsArr))
+
 function averageWordLength(wordsArray) {
   if (wordsArray.length === 0) {
     return null;
@@ -188,13 +163,20 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes(array, value) {
-  var count = 0;
-  array.forEach((i) => i === value && count++);
-  return count;
-}
-console.log(howManyTimes(wordsCount, "matter"));
 
+function howManyTimes (words, toto) {
+if (words.length === 0) {
+  return 0;
+}
+let manyTimes = 0;
+for (let i=0; i<words.length; i++) {
+  if (toto === words[i]) {
+    manyTimes += 1;
+  }
+}
+return manyTimes;
+}
+console.log(howManyTimes(wordsCount, "matter"))
 // Iteration #8: Bonus
 
 const matrix = [
