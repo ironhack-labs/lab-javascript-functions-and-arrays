@@ -171,7 +171,8 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist (array, word) {
   return array.includes (word);
 }
-console.log(doesWordExist (wordsFind,`machine`));
+
+//console.log(doesWordExist (wordsFind,`machine`));
 
 
 // Iteration #7: Count repetition
@@ -199,7 +200,9 @@ function howManyTimes (array, word){
 }
 return indices.length
 }
-console.log(howManyTimes(wordsCount, `subset`) );
+
+
+//console.log(howManyTimes(wordsCount, `subset`) );
 
 
 
@@ -241,11 +244,11 @@ const test =[
 function greatestProduct(matrix){
       var highestNum = 0;
       var multi= 0;
-      for (let i=0; i < matrix[0].length-3; i++){
+      for (let i=0; i < matrix.length-3; i++){
     
-          console.log(matrix[i]);
-          for (let j=0; j < matrix[0].length-3; j++){
-            console.log("j======>", j);
+          //console.log(matrix[i]);
+          for (let j=0; j < matrix[i].length-3; j++){
+            //console.log("j======>", j);
 
                 multi =  matrix[i][j] * matrix[i][j+1] * matrix [i][j+2] * matrix [i][j+3];
                 highestNum = Math.max(highestNum, multi);
@@ -253,11 +256,11 @@ function greatestProduct(matrix){
                 //console.log("maxtrixlength-3= ---->>", matrix[i].length-3);
           }
 
-        console.log("higest for the row check is ", highestNum);
+        //console.log("higest for the row check is ", highestNum);
 
         for (let j=0; j < matrix[0].length-3; j++){
             for (let i=0; i < matrix[0].length-3; i++){
-            console.log("i======>", i);
+            //console.log("i======>", i);
                 multi = matrix[i][j] * matrix[i+1][j] * matrix [i+2][j] * matrix [i+3][j]; 
                 highestNum = Math.max(highestNum, multi);  
                 //console.log("multi 2 ------>",multi);
