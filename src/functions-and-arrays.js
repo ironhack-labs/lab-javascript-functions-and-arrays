@@ -91,6 +91,7 @@ function averageWordLength(wordsArray) {
   }
   return averageNumbers(wordLength);
 }
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -106,6 +107,22 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(list) {
+  if (!list.length) {
+    return null;
+  }
+  // if (!list.length) return null;
+  const uniquifiedList = [];
+  for (let item of list) {
+    if (uniquifiedList.indexOf(item) === -1) {
+      uniquifiedList.push(item);
+    }
+    // if (!uniquifiedList.includes(item)) {
+    //   uniquifiedList.push(item);
+    // }
+  }
+  return uniquifiedList;
+}
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -117,6 +134,18 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(array, searchFor) {
+  if (!array.length) {
+    return null;
+  }
+  for (let word of array) {
+    if (word === searchFor) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -132,6 +161,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (array, searchFor) => {
+  if (!array.length) {
+    return 0;
+  }
+  let count = 0;
+  for (let word of array) {
+    if (word === searchFor) {
+      count++;
+    }
+  }
+  return count;
+};
 
 // Iteration #8: Bonus
 
@@ -430,3 +472,70 @@ const matrix = [
   ],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/*
+my solution -- works!! 
+
+//calculates the max value in an array with a combination of 4 numbers from the array
+const calcMaxOfArray = (matrix) => {
+  let sum = 0
+  let arrayToMaximize = []
+  for (let i = 0; i < matrix.length-3; i++) {
+    sum = matrix[i] * matrix[i+1] * matrix[i+2] * matrix[i+3]
+    arrayToMaximize.push(sum)
+  }
+  return Math.max(... arrayToMaximize)
+ // return greatestProduct
+}
+
+//define max from the horizontal combinations
+
+const horizontalCombinations = (matrix) => {
+  let theHorizontalMaximum = [];
+  for (let array of matrix) {
+    theHorizontalMaximum.push(calcMaxOfArray(array))
+  }
+  return Math.max(... theHorizontalMaximum)
+}
+
+const verticalCombinations = (matrix) => {
+  let verticalMax = [];
+  for (let i =0; i<matrix.length; i++) {
+    let newArray = [];
+    for (let element of matrix) {
+      newArray.push(element[i])
+    } verticalMax.push(newArray)
+  } return horizontalCombinations(verticalMax)
+}
+
+const maxOfTwo = (matrix) => {
+  return Math.max(verticalCombinations(matrix), horizontalCombinations(matrix))
+}
+
+*/
+
+function greatestProduct(matrix) {
+  let greatest;
+
+  // CHECK COMBINATIONS HORIZONTALY
+  for (let r = 0; r < matrix.length; r++) {
+    for (let i = 0; i < matrix[r].length - 4 + 1; i++) {
+      const product = matrix[r][i] * matrix[r][i + 1] * matrix[r][i + 2] * matrix[r][i + 3];
+      if (typeof greatest === "undefined" || product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+
+  // CHECK COMBINATIONS VERTICALY
+  for (let c = 0; c < matrix[0].length; c++) {
+    for (let i = 0; i < matrix.length - 4 + 1; i++) {
+      const product = matrix[i][c] * matrix[i + 1][c] * matrix[i + 2][c] * matrix[i + 3][c];
+      if (typeof greatest === "undefined" || product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+
+  return greatest;
+}
