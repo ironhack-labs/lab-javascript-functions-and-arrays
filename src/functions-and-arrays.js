@@ -1,22 +1,142 @@
 // Iteration #1: Find the maximum
 
+
+function maxOfTwoNumbers (a,b){
+
+  return(a>=b? a : b )
+}
+// console.log("------Iteration #1: Find the maximum------");
+// console.log(maxOfTwoNumbers(3,4));
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord (str){
+  if (str[0]!==undefined){
+    let longest = str[0];
+    let count =0;
+
+    for (let i=0; i<(str.length-1); i++){
+      console.log(i);
+
+      let word =str[i];
+      if (word.length > longest.length){
+        longest = str[i];
+      } else if(word.length = longest.length){
+        count++;
+      }
+
+    }
+      return longest;
+    }
+    return null;
+  }
+
+
+// console.log("-----Iteration #2: Find longest word------");
+
+// console.log(findLongestWord (words));
+// console.log(findLongestWord([]));
+// console.log(findLongestWord (['bebe']));
+
+
+
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers (str) {
+  let totalNumbers = 0;
+   for (let i = 0; i < str.length; i++) {
+           totalNumbers += str[i] }
+   if (typeof totalNumbers !== "number") {throw new Error("not a number");
+  };
+   return totalNumbers ;
+} 
+
+//console.log("-----Iteration #3: Calculate the sum------");
+//console.log(sumNumbers(numbers));
+//console.log(sumNumbers([6, 12, 1, "bug", 13, 16, 2, 1, 8, 10]));
+
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+function sum(array){
+  let count = 0;
+
+  for(let i=0; i<array.length; i++){
+      if(typeof array[i] === "boolean"){
+          count+=Number(array[i]); 
+      }else if(typeof array[i] === "string"){
+          count+=array[i].length;
+      }else if(typeof array[i] === "number"){
+          count+=array[i];
+     }else if(typeof array[i]==="object"){throw new Error ("wrong type")}
+  }
+  return count;
+}
+
+// console.log("---Bonus - Iteration #3.1: A generic sum() function----");
+// // console.log(sum(mixedArr));
+// console.log(sum("[6, 12, ['miami', 1], true, 'barca', '200', 'lisboa', 8, 10]"));
+// console.log(sum("[null]"))
+// console.log(typeof ['miami', 1]);
+
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers (str) {
+
+    let sumNumbers = str[0];
+    if (sumNumbers !==undefined ){
+
+      for (let i = 1; i < str.length; i++) {
+          sumNumbers += str[i];
+        }
+      let average = str.length;
+      return sumNumbers / average 
+    }
+      return null;
+};   
+
+
+
+// console.log("-----Iteration #4: Calculate the average-----");
+// console.log("----Level 1: Array of numbers----")
+// console.log(averageNumbers([2, 6, 9, 10, 7, 4, 1, 9]));
+// console.log(averageNumbers([1,3]));
+// console.log(averageNumbers([]));
+
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength (str){
+    let totalLength = 0;
+    for(let i=0; i<str.length; i++){
+        totalLength += str[i].length;
+    }
+      let wordCount = str.length;
+      return totalLength/wordCount;
+}
+//  console.log(averageWordLength ("----Level 2: Array of strings----");
+// console.log(averageWordLength (wordsArr));
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
+  'crab',//!!!
   'poison',
   'contagious',
   'simple',
@@ -29,8 +149,30 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array){
+   for (let i=0; i<array.length; i++){
+     let idx = array.indexOf(array[i]);
+          while (idx != -1) {
+            idx = array.indexOf(array[i], idx + 1); 
+          }
+     array.splice(idx,1);     
+   }
+   return array
+}
+
+// console.log("Iteration #5: Unique arrays");
+//console.log(uniquifyArray(wordsUnique));
+
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (array, word) {
+  return array.includes (word);
+}
+console.log(doesWordExist (wordsFind,`machine`));
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,7 +189,22 @@ const wordsCount = [
   'matter'
 ];
 
+
+function howManyTimes (array, word){
+  var indices = [];
+  var idx = array.indexOf(word);
+  while (idx != -1) {
+    indices.push(idx);
+    idx = array.indexOf(word, idx + 1);
+}
+return indices.length
+}
+console.log(howManyTimes(wordsCount, `subset`) );
+
+
+
 // Iteration #8: Bonus
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -71,3 +228,47 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+const test =[
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5],
+]
+
+function greatestProduct(matrix){
+      var highestNum = 0;
+      var multi= 0;
+      for (let i=0; i < matrix[0].length-3; i++){
+    
+          console.log(matrix[i]);
+          for (let j=0; j < matrix[0].length-3; j++){
+            console.log("j======>", j);
+
+                multi =  matrix[i][j] * matrix[i][j+1] * matrix [i][j+2] * matrix [i][j+3];
+                highestNum = Math.max(highestNum, multi);
+                //console.log("i==>>>",i)
+                //console.log("maxtrixlength-3= ---->>", matrix[i].length-3);
+          }
+
+        console.log("higest for the row check is ", highestNum);
+
+        for (let j=0; j < matrix[0].length-3; j++){
+            for (let i=0; i < matrix[0].length-3; i++){
+            console.log("i======>", i);
+                multi = matrix[i][j] * matrix[i+1][j] * matrix [i+2][j] * matrix [i+3][j]; 
+                highestNum = Math.max(highestNum, multi);  
+                //console.log("multi 2 ------>",multi);
+                //the order of i and j cant be shifted, as they represent different 
+                //location matrix[1][2] is the 3rd element of line 2, but the matrix[2][1] is the 2nd element of line 3
+          }
+        }
+        return highestNum;
+    }
+}
+
+// console.log("----- Iteration #8: Bonus --------");
+// console.log(greatestProduct(matrix)); // it will cash a bit the laptop
+// console.log(greatestProduct(test)); //test this 
