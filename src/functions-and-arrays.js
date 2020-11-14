@@ -1,18 +1,85 @@
 // Iteration #1: Find the maximum
 
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1
+  } else if (num1 < num2) {
+    return num2
+  } else {
+    return num1, num2
+  }
+};
+
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodila', 'pearl', 'orchard', 'crackpot', 'crocodile'];
+
+const findLongestWord = (wordsArray) => {
+  if (wordsArray.length === 0) {
+    return null
+  } else if (wordsArray.length === 1) {
+    return wordsArray[0]
+  } else {
+    let longestWinner = '';
+    for (i = 0; i < wordsArray.length; i++) {
+      if (wordsArray[i].length === longestWinner.length) {
+        continue
+      } else if (wordsArray[i].length > longestWinner.length) {
+        longestWinner = wordsArray[i]
+      }
+    }
+    return wordsArray[wordsArray.indexOf(longestWinner)]
+  }
+};
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = (arrayNum) => {
+  let sum = 0;
+  for (i = 0; i < arrayNum.length; i++) {
+    sum += arrayNum[i]
+  }
+  return sum
+}
+
+const sum = (arrayNum) => {
+  let sum = 0;
+  for (i = 0; i < arrayNum.length; i++) {
+    if (typeof arrayNum[i] === 'string' || typeof arrayNum[i] === 'number' || typeof arrayNum[i] === 'boolean') {
+      if (typeof arrayNum[i] === 'string') {
+        sum += arrayNum[i].length
+      } else {
+        sum += arrayNum[i]
+      }
+    } else {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+  }
+  return sum
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (arrayNum) => {
+  if (arrayNum.length === 0) {
+    return null
+  } else {
+    const sumNumber = sumNumbers(arrayNum);
+    return sumNumber / arrayNum.length
+  }
+}
+
+console.log(averageNumbers(numbersAvg))
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (arratStr) => {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
