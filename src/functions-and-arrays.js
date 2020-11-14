@@ -33,7 +33,7 @@ function sumNumbers(arr){
   return total
 }
 
-//bonus #3.1
+// Bonus #3.1
 function sum(arr) {
   let total = 0;
   if (arr.length === 0) {
@@ -79,6 +79,27 @@ function averageWordLength(arr) {
     });
   }
   return totalLength / arr.length
+}
+
+// Bonus #4.1
+function avg(arr) {
+  let totalLength = 0;
+  if (arr.length === 0) {
+      return null
+    } else {
+      arr.forEach(element => {
+        if (typeof element == 'number') {
+        totalLength = totalLength + element
+      } else if (typeof element === 'string') {
+        totalLength = totalLength + element.length
+      } else if (element === true) {
+        totalLength = totalLength + 1
+      } else if (typeof element == ('object' || 'array')) {
+        throw new Error ("Unsupported data type")
+      }
+      });
+    }
+    return totalLength / arr.length
 }
 
 // Iteration #5: Unique arrays
@@ -155,7 +176,6 @@ function howManyTimes(arr,word) {
 }
 
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -178,3 +198,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  
+}
