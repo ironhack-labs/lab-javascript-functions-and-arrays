@@ -109,8 +109,8 @@ let avg = function (array) {
 			}
 		}
 	}
-
-	return sum2 / array.length
+	let averageCalculate = sum2 / array.length
+	return parseFloat(averageCalculate.toFixed(2))
 
 }
 avg(mixedArr);
@@ -129,6 +129,25 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+let uniquifyArray = function (wordsArr) {
+
+  if ( wordsArr.length === 0 ){
+    return null;
+  }
+
+	newArr = [];
+	for (let i = 0; i < wordsArr.length; i++){
+		if ( wordsArr.indexOf(wordsArr[i]) !== wordsArr.lastIndexOf(wordsArr[i]) && newArr.indexOf(wordsArr[i]) === -1 ) {
+				newArr.push(wordsArr[i]);
+		} else if (wordsArr.indexOf(wordsArr[i]) === wordsArr.lastIndexOf(wordsArr[i])) {
+			 newArr.push(wordsArr[i]);
+		}
+	}
+return newArr;
+}
+
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
