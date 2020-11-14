@@ -14,7 +14,8 @@ console.log(maxOfTwoNumbers(2,35))
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(word){
-
+  if(word.length===0) 
+    return null
   for(let i=0; i<word.length;i++){
     for(let j=0; j<word.length-1-i;j++){
       if(word[j].length < word[j+1].length){
@@ -22,8 +23,7 @@ function findLongestWord(word){
       }
     }
   }
-  if(word.length===0) 
-    return null
+  
   return word[0]
 }
 console.log(findLongestWord(words))
@@ -31,7 +31,26 @@ console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 
+
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(numArray){
+  
+  let result = 0;
+ 
+  if(numArray.length===0){
+    return 0
+  }
+  
+  numArray.forEach(number => result+=number)
+
+  
+  return result
+};
+
+
+console.log(sumNumbers(numbers))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
