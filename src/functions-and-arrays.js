@@ -89,6 +89,19 @@ console.log(sum(mixedArr))
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(nAvg){
+  let media = 0;
+
+  if(nAvg.length===0) 
+    return null
+
+  nAvg.forEach(numberAvg => media+=numberAvg)
+  return media/nAvg.length
+}
+
+console.log(averageNumbers(numbersAvg))
+
+
 // Level 2: Array of stringsclear
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
