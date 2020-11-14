@@ -48,6 +48,43 @@ function sumNumbers(numbers) {
   })
   return sum
 }
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arrayMix){
+  let error = false
+  let arrayResult = 0
+  if (arrayMix.length === 0) {
+    return 0
+  }
+ 
+  arrayMix.forEach(element => {
+    switch (typeof element) {
+      case 'string':
+         arrayResult += element.length
+        break
+      case 'number':
+      case 'boolean':
+         arrayResult += element
+        break
+      default:
+        error = true
+        break
+       
+    }
+
+  })
+  if (error) {
+
+    return "Unsupported data type sir or ma'am"
+
+  } else {
+    return arrayResult
+}
+
+
+}
+  
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -74,6 +111,46 @@ function averageWordLength(wordsArray) {
   return lengthWords / wordsArray.length
 
 }
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg(arrMixed) {
+  let error = false
+  let arrayResult = 0
+  let arraySum =[]
+  if (arrMixed.length === 0) {
+    return null
+  }
+
+  arrMixed.forEach(element => {
+    switch (typeof element) {
+      case 'string':
+        arrayResult += element.length
+        arraySum.push(element)
+        break
+      case 'number':
+      case 'boolean':
+        arraySum.push(element)
+        arrayResult += element
+        break
+      default:
+        error = true
+        break
+
+    }
+
+  })
+ 
+  if (error) {
+
+    return "Unsupported data type sir or ma'am"
+
+  } else {
+    return arrayResult / arraySum.length
+  }
+
+
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
