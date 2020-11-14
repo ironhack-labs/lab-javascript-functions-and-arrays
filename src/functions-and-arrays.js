@@ -1,15 +1,64 @@
 // Iteration #1: Find the maximum
 
 let maxOfTwoNumbers = function (num1, num2) {
-  
+  if (num1 > num2){
+    return num1
+  }
+  return num2
 }
+maxOfTwoNumbers(34, 98);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+// Iteration #2: Find longest word
+let findLongestWord = function (wordsArray) {
+  longestWord = '';
+  if (wordsArray.length === 0){
+      return null;
+  }
+	for (let i = 0; i < wordsArray.length; i++){
+		if (wordsArray[i].length > longestWord.length){
+				longestWord = wordsArray[i];
+		}
+	}
+	return longestWord;
+}
+findLongestWord(words);
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+let sumNumbers = function (nums) {
+  suma = 0;
+  for (let i = 0; i < nums.length; i++){
+    suma += nums[i];
+  }
+  return suma;
+}
+sumNumbers(numbers);
+
+// ITERARION 3 BONUSES
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+let sum = function (mixed) {
+  suma = 0;
+  for (let i = 0; i < mixed.length; i++){
+    if (typeof(mixed[i]) === 'number'){
+			suma += mixed[i];
+		} else if (typeof(mixed[i]) === 'string'){
+			suma += mixed[i].length;
+		} else if (typeof(mixed[i]) === 'boolean'){
+			if (mixed[i] === true){
+				suma += 1;
+			}
+		} else {
+      throw new Error("Unsupported data type sir or ma'am")
+		}
+  }
+  return suma;
+}
+sum(mixedArr);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
