@@ -36,20 +36,21 @@ return word;
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(num){
-  if(num.length===0){
+
+let result = 0;
+
+if(num.length===0){
     return 0;
-  }else if(num.length===1){
-  return num[0];
-
-  }else {
-    for(let i = 0 ; i<num.length; i++){
-      if(num[i]===0){
-      return 0;
-    }
   }
+
+  num.forEach(number => result+=number)
+  return result
+  
+  console.log(sumNumbers(numbers))
 }
 
-}
+//Iteration 3 bonus
+
 
 
 
