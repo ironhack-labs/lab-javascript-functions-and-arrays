@@ -38,18 +38,19 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(num){
   if(num.length===0){
     return 0;
-}else if(num.length===1){
+  }else if(num.length===1){
   return num[0];
 
-}else {
-  for(let i = 0 ; i<num.length; i++){
-    if(num[i]===0){
+  }else {
+    for(let i = 0 ; i<num.length; i++){
+      if(num[i]===0){
       return 0;
     }
   }
 }
 
 }
+
 
 
 // Iteration #4: Calculate the average
