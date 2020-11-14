@@ -31,8 +31,6 @@ console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 
-
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numArray){
@@ -47,10 +45,45 @@ function sumNumbers(numArray){
 
   
   return result
-};
-
+}
 
 console.log(sumNumbers(numbers))
+
+// Iteration #3.1: Calculate the sum
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(myMixedArr){
+
+  let globalResult = 0;
+  let error=false;
+  if(myMixedArr===[]){
+    return 0
+  }
+  
+
+  myMixedArr.forEach((generalNumber) => {
+    if(typeof generalNumber === "number")
+      globalResult+=generalNumber
+
+    else if(typeof generalNumber === "string")
+      globalResult+=generalNumber.length
+
+    else if(typeof generalNumber === "boolean"){
+      if(generalNumber===true)
+        globalResult+=1
+    }
+    else
+      error=true
+    
+  })
+  if(error)
+    new Error("Unsupported data type sir or ma'am")
+  return globalResult
+}
+
+
+console.log(sum(mixedArr))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
