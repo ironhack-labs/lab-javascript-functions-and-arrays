@@ -33,6 +33,27 @@ function sumNumbers(arr){
   return total
 }
 
+//bonus #3.1
+function sum(arr) {
+  let total = 0;
+  if (arr.length === 0) {
+    return 0
+  } else {
+    arr.forEach(element => {
+      if (typeof element == 'number') {
+        total = total + element
+      } else if (typeof element === 'string') {
+        total = total + element.length
+      } else if (element === true) {
+        total = total + 1
+      } else if (typeof element == ('object' || 'array')) {
+        throw new Error ("Unsupported data type")
+      }
+  });
+}
+return total
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
