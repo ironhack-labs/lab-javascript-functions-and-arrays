@@ -1,18 +1,65 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {return a}
+  if ( b > a) {return b}
+  if (a===b) {return a}
+}
 
+console.log(maxOfTwoNumbers (10,5));
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (array) {
+  // if (array.length === 0) {return null}
+  // if (array.length === 1) {return array[0]}
+  // let longestWord=0;
+  // for (let i=0; i<array.length; i++)
+  // { if (array[i].length > longestWord) {
+  //   longestWord=array[i];
+  //   return longestWord;
+  // }
+  // }
+//   //not sure what's the problem here....
+  
+// console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(array) {
+  for (let sum = 0, i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum}
+
+console.log(sumNumbers(numbers))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function avg (array) {
+  if (array.length===0) return;
+  else return sumNumbers(array)/array.length
+}
+
+console.log(avg(numbersAvg))
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) {
+  if (array.length===0) {return}
+  else {
+    let wordLengthSum=0
+    for (let i = 0, i < array.length, i++) {
+wordLengthSum+= array[i].length
+return wodLengthSum/array.length
+    }
+  }
+}
+console.log(averageWordLength(wordsArr))
+// Not sure I understand the mistake here... --> it states that i has already been declared
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,10 +76,35 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  let uniqueArray = [...new Set(array)];
+  return uniqueArray
+  }
+
+  console.log(uniqueArray(wordsUnique))
+  // I know that in the exercise they wanted to use indexOf method but this one looks much easier :)
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(array,term) {
+
+  if(typeof array.includes == 'undefined'){
+    let arrLength = arr.length;
+    for (let i = 0; i < arrLength; i++) {
+        if (array[i] === term) {
+            return true;
+        }
+    }
+    return false;
+}
+return array.includes(term);
+}
+
+console.log (doesWordExist(words, 'machine'))
 // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -46,6 +118,9 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  
 
 // Iteration #8: Bonus
 
@@ -70,4 +145,3 @@ const matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
