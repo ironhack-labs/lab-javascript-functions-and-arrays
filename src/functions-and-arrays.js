@@ -95,7 +95,7 @@ function averageNumbers(nAvg){
   if(nAvg.length===0) 
     return null
 
-  nAvg.forEach(numberAvg => media+=numberAvg)
+  nAvg.forEach(numberAvg => {media+=numberAvg})
   return media/nAvg.length
 }
 
@@ -104,6 +104,34 @@ console.log(averageNumbers(numbersAvg))
 
 // Level 2: Array of stringsclear
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+let averageWordLength = (myWordsArr) => {
+  let myWordsArrSum = 0;
+
+  if(myWordsArr.length===0) 
+    return null
+
+  myWordsArr.forEach(element =>{
+    myWordsArrSum+=element.length
+  })
+  return myWordsArrSum/myWordsArr.length
+}
+
+console.log(averageWordLength(wordsArr))
+
+//Bonus - Iteration #4.1: A generic avg() function
+
+
+let avg =(myMixedArr)=>{
+  let mixedArrAverage = 0;
+  if(myMixedArr.length===0) 
+    return null
+  mixedArrAverage = sum(mixedArr)/myMixedArr.length
+  return parseFloat(mixedArrAverage.toFixed(2))
+}
+
+console.log(avg(mixedArr))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -120,8 +148,30 @@ const wordsUnique = [
   'bring'
 ];
 
+let uniquifyArray = (myWordsUnique)=>{
+  if(myWordsUnique.length===0) 
+    return null
+  let arrayUnique =[]
+  myWordsUnique.forEach(element=>{
+    if(!(arrayUnique.includes(element))){
+      arrayUnique.push(element)
+    }
+  })
+return arrayUnique
+}
+console.log(uniquifyArray(wordsUnique))
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const word = 'trouble'
+
+let doesWordExist = (myWordsFind,myWord) =>{
+  if(myWordsFind.length===0) 
+    return null
+  return myWordsFind.includes(myWord)
+}
+console.log(doesWordExist(wordsFind,word))
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -137,7 +187,21 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const wordToFind = 'matter'
 
+let howManyTimes = (myWordsCount,myWordToFind)=>{
+  let counterWord = 0;
+
+  if(myWordsCount.length===0) 
+    return 0
+  myWordsCount.forEach(element=>{
+    if(element===myWordToFind)
+      counterWord++
+  })
+  return counterWord
+}
+
+console.log(howManyTimes(wordsCount,wordToFind))
 // Iteration #8: Bonus
 
 const matrix = [
