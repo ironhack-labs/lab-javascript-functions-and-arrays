@@ -51,12 +51,39 @@ if(num.length===0){
 
 //Iteration 3 bonus
 
+function sum(num){
 
+  result = 0;
+  if(num.length===0){
+    return 0;
+  }else if(num.length===1){
+    return num[0]
+  }
+  for(let i = 0; i<num.length; i++){
+    if(num[i]===0){
+      return 0;
+    }
+  }
+  num.forEach(number => result += number)
+  return result;
+
+  
+  
+
+}
 
 
 // Iteration #4: Calculate the average
+
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numero){
+  if(numero.length===0){
+    return null; //no funciona esta parte
+}
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
