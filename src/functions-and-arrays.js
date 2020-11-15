@@ -48,9 +48,26 @@ function sumNumbers(num){
 
 // Bono 3.1: Una sum()función genérica
 
-function sum(){
-  return 0;   
+const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ; 
 
+// debe devolver: 57
+
+function sum(mixedArr){
+  let sum = 0;
+  for(let i=0; i < mixedArr.length; i++){
+    if(typeof(mixedArr[i])=== "number"){
+      sum = sum + mixedArr[i]
+    }
+    if(typeof(mixedArr[i])=== "string"){
+      sum = sum + mixedArr[i].length
+    }
+    if(typeof(mixedArr[i])=== "boolean" && mixedArr[i]=== true) sum = sum +1
+    if(typeof(mixedArr[i])=== "object" || typeof(mixedArr[i])=== "array"){
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  
+  return sum;
 }
 
 // Iteration #4: Calculate the average
@@ -76,6 +93,25 @@ function averageNumbers(numbers){
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr){
+  if(wordsArr.length === 0) return null
+  let total = 0;
+
+  for(let i = 0; i < wordsArr.length; i++){
+    total += wordsArr[i].length
+  }
+  return total / wordsArr.length;
+}
+
+
+// debería devolver: 5.7
+
+function avg(mixedArr){
+  if(mixedArr.length === 0) return null
+  const total = sum(mixedArr);
+  return +((total / mixedArr.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
