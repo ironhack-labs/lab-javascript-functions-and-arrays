@@ -152,6 +152,16 @@ const wordsCount = [
   'matter'
 ];
 
+const howManyTimes = (wordsArray, query) => {
+  countRepeat = 0
+  for (i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === query) {
+      countRepeat++
+    }
+  }
+  return countRepeat
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
@@ -176,3 +186,93 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+matrix2 = [
+  [ 1,  2, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1,  4, 3, 4, 5],
+];
+
+const findGreatestAdjacent = (matrix,i,j,counter) => {
+  if (counter === 4) {
+    counter--
+    return matrix[i][j] * findGreatestAdjacent(matrix,i,j,counter)
+  } else if (counter === 0) {
+    return 1
+  } else {
+    //Find adjadent positions
+  let left = null
+  let right = null
+  //let up = null
+  let down = null
+
+  if (j === 0) {
+    left = 0;
+  } else {
+    left = matrix[i][j-1]
+  }
+
+  if (j === matrix[0].length - 1) {
+    right = 0;
+  } else {
+    right = matrix[i][j+1]
+  }
+
+  /*if (i === 0) {
+    up = 0;
+  } else {
+    up = matrix[i -1][j]
+  }*/
+
+  if (i === matrix.length - 1) {
+    down = 0;
+  } else {
+    down = matrix[i+1][j]
+  }
+
+  //Determine max adjacent
+
+  maxAdjadent = Math.max(left, right, down)
+  maxAdjadentPosition = [left, right, down].indexOf(maxAdjadent)
+
+  const directions = ['left', 'right', 'down']
+
+  //console.log(i, j, directions[maxAdjadentPosition],  "=>", maxAdjadent, counter);
+
+  //Move to next position
+  switch(maxAdjadentPosition) {
+    case 0:
+      j = j-1
+      break;
+    case 1:
+      j = j +1
+      break;
+    case 2:
+      i = i + 1
+      break;
+    default:
+      i = i
+      j = j
+  }
+
+  counter--
+
+  return maxAdjadent * findGreatestAdjacent(matrix,i,j,counter);
+
+  }
+}
+
+
+
+const greatestProduct = (matrix) => {
+  for (i = 0; i < matrix.length; i++) {
+    for (j = 0; j < matrix[1].length; j++)
+    console.log(i, j)
+    multiply4 = findGreatestAdjacent(matrix,i,j,4)
+    console.log(i, j, multiply4)
+  }
+}
+
+greatestProduct(matrix2)
