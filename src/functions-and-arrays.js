@@ -226,3 +226,71 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+let greatestProduct = (myMatrix) => {
+  let matrixProduct = []
+  let product = 1;
+  let productNums = []
+  let eachProduct = []
+  let maxMatrix = [0,0]
+  let oneCounter = 0;
+  let twoCounter = 0;
+
+  for(let i=0;i<20;i++){
+    for(let j=0;j<20;j++){
+      if(myMatrix[j][i]===1){
+        oneCounter++
+        if(oneCounter===400)
+          return 1
+      }
+      else if(myMatrix[j][i]===2){
+        twoCounter++
+        if(twoCounter===400)
+          return 16
+      }
+    }
+  }
+  
+ 
+  for(let iteration=0;iteration<2;iteration++){
+    for(let i=0;i<17;i++){
+      for(let j=0;j<17;j++){
+        for(let k=0;k<4;k++){
+          if(iteration===0){
+            product*=myMatrix[i][j+k]
+            productNums.push(myMatrix[i][j+k])
+            if(k===3){
+              matrixProduct.push(product)
+              eachProduct.push(productNums)
+              product=1
+              productNums = []
+            }
+          }
+          else{
+            product*=myMatrix[i+k][j]
+            productNums.push(myMatrix[i+k][j])
+            if(k===3){
+              matrixProduct.push(product)
+              eachProduct.push(productNums)
+              product=1
+              productNums = []
+            }
+          }
+        }
+      }
+    }
+  }
+    
+  for(let i=0;i<matrixProduct.length;i++){
+    if(matrixProduct[i]>maxMatrix[0]){        
+      maxMatrix[0]=matrixProduct[i]
+      maxMatrix[1]=i
+    }
+  }
+
+  return `The greatest product will be the ${eachProduct[maxMatrix[1]][0]} X ${eachProduct[maxMatrix[1]][1]} X ${eachProduct[maxMatrix[1]][2]} X ${eachProduct[maxMatrix[1]][3]} = ${maxMatrix[0]}`
+}
+
+
+console.log(greatestProduct(matrix))
