@@ -46,12 +46,43 @@ function sumNumbers (numArr) {
 
 sumNumbers (numbers);
 
+// Bonus (3.1) - A generic sum() function
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (numArr) {
+  if (numArr.length === 0) {
+    return null;
+  }
+  let sumArrNum = sumNumbers (numArr);
+  return sumArrNum/(numArr.length);
+}
+
+averageNumbers (numbersAvg);
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (wordArr) {
+  wordsLength = [];
+  wordArr.forEach (function(word) {
+    wordsLength.push(word.length);
+  })
+  let avgLength = averageNumbers (wordsLength);
+  return avgLength;
+}
+
+averageWordLength (wordsArr);
+
+// Bonus (4.1) - A generic avg() function
+
+function avg(arr) {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -68,8 +99,33 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let uniqueArr = [];
+  arr.forEach(function(element) {
+    if (uniqueArr.indexOf(element) === -1) {
+      uniqueArr.push(element)
+    }
+  })
+  return uniqueArr; 
+}
+
+uniquifyArray (wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (wordArr, str) {
+  if (wordArr.length === 0){
+    return null
+  }
+  return wordArr.includes(str);
+}
+
+doesWordExist (wordsFind, 'machine');
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -85,6 +141,26 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (wordArr, str) {
+  /* let strRepCount = [];
+  wordArr.forEach (function (element, idx){
+    if (wordArr.includes(str)) {
+      strRepCount.push(element);
+    } 
+  }) */
+
+  let strRepCount = [];
+  let idx = wordArr.indexOf(str);
+  while (idx != -1) {
+  strRepCount.push(str);
+  idx = wordArr.indexOf(str, idx + 1);
+  }
+
+  return strRepCount.length;
+}
+
+howManyTimes (wordsCount, 'matter');
 
 // Iteration #8: Bonus
 
