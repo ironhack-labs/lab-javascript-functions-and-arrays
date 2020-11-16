@@ -39,11 +39,11 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 57
 
 
-function sum(array){    
+function sum(array){ 
+  
   if (typeof array === "object" || typeof array === "array"){
-    let element;
-  let sum = 0; 
- 
+  let element;
+  let sum = 0;  
   for (i = 0; i < array.length; i++) {
     element = array[i]
     switch (typeof element){
@@ -60,11 +60,10 @@ function sum(array){
         break;
         default:
         sum = null;        
-    }}  
-    return sum;
-  } else {
-    return new Error("Unsupported data type sir or ma'am");
-  }
+    }
+  } return sum; 
+} else {    
+    throw new Error("Unsupported data type sir or ma'am");}
  }
   
  
