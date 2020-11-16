@@ -188,91 +188,107 @@ const matrix = [
 ];
 
 matrix2 = [
-  [ 1,  2, 3, 4, 5],
-  [ 1, 20, 3, 4, 5],
-  [ 1, 20, 3, 4, 5],
-  [ 1, 20, 3, 4, 5],
-  [ 1,  4, 3, 4, 5],
+  [4, 2, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 20, 4, 5],
+  [1, 20, 3, 20, 5],
+  [1, 4, 3, 4, 5],
 ];
 
-const findGreatestAdjacent = (matrix,i,j,counter) => {
-  if (counter === 4) {
-    counter--
-    return matrix[i][j] * findGreatestAdjacent(matrix,i,j,counter)
-  } else if (counter === 0) {
+const findGreatestAdjacent = (matrix, i, j, counter) => {
+  if (counter === 0) {
     return 1
   } else {
     //Find adjadent positions
-  let left = null
-  let right = null
-  //let up = null
-  let down = null
+    let left = null
+    let right = null
+    //let up = null
+    let down = null
 
-  if (j === 0) {
-    left = 0;
-  } else {
-    left = matrix[i][j-1]
-  }
+    if (j === 0) {
+      left = 0;
+    } else {
+      left = matrix[i][j - 1]
+    }
 
-  if (j === matrix[0].length - 1) {
-    right = 0;
-  } else {
-    right = matrix[i][j+1]
-  }
+    if (j === matrix[0].length - 1) {
+      right = 0;
+    } else {
+      right = matrix[i][j + 1]
+    }
+    //Avoid moving up intentionally to avoid up-down bouncing
+    /*if (i === 0) {
+      up = 0;
+    } else {
+      up = matrix[i -1][j]
+    }*/
 
-  /*if (i === 0) {
-    up = 0;
-  } else {
-    up = matrix[i -1][j]
-  }*/
+    if (i === matrix.length - 1) {
+      down = 0;
+    } else {
+      down = matrix[i + 1][j]
+    }
 
-  if (i === matrix.length - 1) {
-    down = 0;
-  } else {
-    down = matrix[i+1][j]
-  }
+    //Determine max adjacent
+    maxAdjadent = Math.max(left, right, down)
+    maxAdjadentPosition = [left, right, down].indexOf(maxAdjadent)
 
-  //Determine max adjacent
-
-  maxAdjadent = Math.max(left, right, down)
-  maxAdjadentPosition = [left, right, down].indexOf(maxAdjadent)
-
-  const directions = ['left', 'right', 'down']
-
-  //console.log(i, j, directions[maxAdjadentPosition],  "=>", maxAdjadent, counter);
-
-  //Move to next position
-  switch(maxAdjadentPosition) {
-    case 0:
-      j = j-1
-      break;
-    case 1:
-      j = j +1
-      break;
-    case 2:
-      i = i + 1
-      break;
-    default:
-      i = i
-      j = j
-  }
-
-  counter--
-
-  return maxAdjadent * findGreatestAdjacent(matrix,i,j,counter);
-
+    //Move to next position depeending on the max value posiiton
+    switch (maxAdjadentPosition) {
+      case 0:
+        j = j - 1
+        break;
+      case 1:
+        j = j + 1
+        break;
+      case 2:
+        i = i + 1
+        break;
+      default:
+        i = i
+        j = j
+    }
+    return maxAdjadent * findGreatestAdjacent(matrix, i, j, counter - 1);
   }
 }
-
 
 
 const greatestProduct = (matrix) => {
+  const multiplyArray = []
   for (i = 0; i < matrix.length; i++) {
-    for (j = 0; j < matrix[1].length; j++)
-    console.log(i, j)
-    multiply4 = findGreatestAdjacent(matrix,i,j,4)
-    console.log(i, j, multiply4)
+    for (j = 0; j < matrix[i].length; j++) {
+      multiplyArray.push(findGreatestAdjacent(matrix, i, j, 4))
+    }
   }
+  return Math.max(...multiplyArray)
 }
 
-greatestProduct(matrix2)
+
+// Iteration #8.1: Bonus
+
+const greatestProductOfDiagonals = (matrix) => {
+  multiplyDiagonalRight = [];
+  multiplyDiagonalLeft = [];
+  for (i = 0; i < matrix.length; i++) {
+    for (j = 0; j < matrix[i].length; j++) {
+      //Make sure there will be a full diagonal with no undefined elements
+      if ((i + 4 <= matrix.length) && (j + 4 <= matrix[i].length)) {
+        multiplyDiagonalRight.push([matrix[i][j], matrix[i + 1][j + 1], matrix[i + 2][j + 2], matrix[i + 3][j + 3]])
+      } else if ((i + 4 <= matrix.length) && (j - 3 >= 0)) {
+        multiplyDiagonalLeft.push([matrix[i][j], matrix[i + 1][j - 1], matrix[i + 2][j - 2], matrix[i + 3][j - 3]])
+      }
+    }
+  }
+  //Concat all diagonals
+  const allDiagonals = [...multiplyDiagonalRight, ...multiplyDiagonalLeft]
+  //Multiply all element in each diagonal with map
+  const multipliedDiagonals = allDiagonals.map(element => {
+    let multipliedElements = 1;
+    for (i = 0; i < element.length; i++) {
+      multipliedElements *= element[i]
+    }
+    return multipliedElements
+  })
+
+  return Math.max(...multipliedDiagonals)
+}
