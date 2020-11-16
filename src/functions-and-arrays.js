@@ -46,9 +46,9 @@ function sum(arr) {
         total = total + element.length
       } else if (element === true) {
         total = total + 1
-      } else if (typeof element == ('object' || 'array')) {
-        throw new Error ("Unsupported data type")
-      }
+      } else if (typeof element === ('object' || 'array')) {
+        new Error("Unsupported data type sir or ma'am")
+      } 
   });
 }
 return total
@@ -99,7 +99,8 @@ function avg(arr) {
       }
       });
     }
-    return totalLength / arr.length
+    let averageCalc = totalLength / arr.length
+    return parseFloat(averageCalc.toFixed(2))
 }
 
 // Iteration #5: Unique arrays
@@ -200,5 +201,20 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  
+  let highestNum = 0
+  for (z=0; z<20; z++) {
+    for (i=0; i<17; i++) {
+        if (matrix[z][i]*matrix[z][i+2]*matrix[z][i+2]*matrix[z][i+3] > highestNum) {
+          highestNum = matrix[z][i]*matrix[z][i+1]*matrix[z][i+2]*matrix[z][i+3]
+          }
+    }
+  }
+  for (y=0; y<20; y++) {
+    for (x=0; x<17; x++) {
+        if (matrix[y][x]*matrix[y][x+1]*matrix[y][x+2]*matrix[y][x+3] > highestNum) {
+          highestNum = matrix[y][x]*matrix[y][x+1]*matrix[y][x+2]*matrix[y][x+3]
+        }
+    }
+  }
+  return highestNum
 }
