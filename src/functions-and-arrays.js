@@ -316,7 +316,7 @@ let greatestProductOfDiagonals =(myDiagonalMatrix)=>{
           productDiagonalNums.forEach(element=>diagonalProduct*=element)
           matrixDiagonalProduct.push(diagonalProduct)
           eachDiagonalProduct.push(productDiagonalNums)
-          diagonalproduct=1
+          diagonalProduct=1
           productDiagonalNums = []
         }
       }
@@ -331,7 +331,7 @@ let greatestProductOfDiagonals =(myDiagonalMatrix)=>{
           productDiagonalNums.forEach(element=>diagonalProduct*=element)
           matrixDiagonalProduct.push(diagonalProduct)
           eachDiagonalProduct.push(productDiagonalNums)
-          diagonalproduct=1
+          diagonalProduct=1
           productDiagonalNums = []
         }
       }
@@ -344,13 +344,6 @@ let greatestProductOfDiagonals =(myDiagonalMatrix)=>{
       maxDiagonalMatrix[1]=i
     }
   }
-
-  console.log(eachDiagonalProduct.length)
-  console.log(eachDiagonalProduct[289])
-  console.log(eachDiagonalProduct[290])
-  console.log(eachDiagonalProduct[295])
-  
-
 
   return `The greatest product will be the ${eachDiagonalProduct[maxDiagonalMatrix[1]][0]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][1]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][2]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][3]} = ${maxDiagonalMatrix[0]}`
 
