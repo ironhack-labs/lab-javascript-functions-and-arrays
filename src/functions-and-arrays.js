@@ -49,28 +49,28 @@ if(num.length===0){
   console.log(sumNumbers(numbers))
 }
 
-//Iteration 3 bonus
+// Bono 3.1: Una sum()función genérica
+const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ; 
+// debe devolver: 57
 
 function sum(num){
-
-  result = 0;
-  if(num.length===0){
-    return 0;
-  }else if(num.length===1){
-    return num[0]
-  }
-  for(let i = 0; i<num.length; i++){
-    if(num[i]===0){
-      return 0;
+  let sum = 0;
+  for(let i=0; i < num.length; i++){
+    if(typeof(num[i])=== "number"){
+      sum = sum + num[i]
+    }
+    if(typeof(num[i])=== "string"){
+      sum = sum + num[i].length
+    }
+    if(typeof(num[i])=== "boolean" && num[i]=== true) sum = sum +1
+    if(typeof(num[i])=== "object" || typeof(num[i])=== "array"){
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
-  num.forEach(number => result += number)
-  return result;
-
-  
-  
-
+  return sum;
 }
+
+
 
 
 // Iteration #4: Calculate the average
@@ -80,14 +80,45 @@ function sum(num){
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numero){
-  if(numero.length===0){
-    return null; //no funciona esta parte
+  if(numero.length === 0){
+    return null;
+  }
+  let total= 0;
+  for(let i = 0 ; i< numero.length; i++){
+    total += numero[i];
+  }
+  return total /numero.length;
 }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+
+function averageWordLength(words){
+if(words.length === 0){
+  return null;
+}
+let total= 0;
+
+for(let i =0; i<words.length; i++){
+  total += words[i].length
+}
+return total /words.length;
+}
+
+//bonus 4.1
+
+function avg(arr){
+  if(arr.length === 0){
+    return null;
+}
+const total = sum(arr);
+
+return + ((total/arr.length).toFixed(2));
+
+
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -120,6 +151,8 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
 
 // Iteration #8: Bonus
 
