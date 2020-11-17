@@ -115,7 +115,7 @@ function avg(arr){
 }
 const total = sum(arr);
 
-return + ((total/arr.length).toFixed(2));
+return Number ((total/arr.length).toFixed(2));
 
 
 }
@@ -134,8 +134,40 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordArr){
+  if(wordArr.length === 0){
+    return null;
+}
+let newArr = [];
+
+for (let i = 0; i< wordArr.length; i++){
+  if(wordArr.indexOf(wordArr[i]) !== wordArr.lastIndexOf(wordArr[i]) && newArr.indexOf(wordArr[i]) === -1){
+    newArr.push(wordArr[i]);
+  }else if (wordArr.indexOf(wordArr[i]) === wordArr.lastIndexOf(wordArr[i])) {
+    newArr.push(wordArr[i]);
+ }
+}
+return newArr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr,str){
+
+  if(arr.length===0){
+    return null;
+  }
+  if(str.length=== 0 || str ===''){
+    return null;
+  }
+    for(let i = 0;i<arr.length;i++){
+    if(arr[i]=== str){
+      return true;
+    }
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -151,6 +183,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr,str){
+
+  if(arr.length=== 0  || str=== 0){
+    return 0;
+  }
+
+
+}
 
 
 
