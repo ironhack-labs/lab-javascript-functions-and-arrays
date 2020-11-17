@@ -251,43 +251,46 @@ let greatestProduct = (myMatrix) => {
       }
     }
   }
-  
- 
-  for(let iteration=0;iteration<2;iteration++){
-    for(let i=0;i<17;i++){
-      for(let j=0;j<17;j++){
-        for(let k=0;k<4;k++){
-          if(iteration===0){
-            productNums.push(myMatrix[i][j+k])
-            if(k===3){
-              productNums.forEach(element=>product*=element)
-              matrixProduct.push(product)
-              eachProduct.push(productNums)
-              product=1
-              productNums = []
-            }
-          }
-          else{
-            productNums.push(myMatrix[i+k][j])
-            if(k===3){
-              productNums.forEach(element=>product*=element)
-              matrixProduct.push(product)
-              eachProduct.push(productNums)
-              product=1
-              productNums = []
-            }
-          }
+
+
+  for(let i=0;i<20;i++){
+    for(let j=0;j<17;j++){
+      for(let k=0;k<4;k++){
+        productNums.push(myMatrix[i][j+k])
+        if(k===3){
+          productNums.forEach(element=>product*=element)
+          matrixProduct.push(product)
+          eachProduct.push(productNums)
+          product=1
+          productNums = []
         }
       }
     }
   }
-    
+
+  for(let i=0;i<17;i++){
+    for(let j=0;j<20;j++){
+      for(let k=0;k<4;k++){
+        productNums.push(myMatrix[i+k][j])
+        if(k===3){
+          productNums.forEach(element=>product*=element)
+          matrixProduct.push(product)
+          eachProduct.push(productNums)
+          product=1
+          productNums = []
+        }
+      }
+    }
+  }
+  
+  
   for(let i=0;i<matrixProduct.length;i++){
     if(matrixProduct[i]>maxMatrix[0]){        
       maxMatrix[0]=matrixProduct[i]
       maxMatrix[1]=i
     }
   }
+
   return `The greatest product will be the ${eachProduct[maxMatrix[1]][0]} X ${eachProduct[maxMatrix[1]][1]} X ${eachProduct[maxMatrix[1]][2]} X ${eachProduct[maxMatrix[1]][3]} = ${maxMatrix[0]}`
 }
 
@@ -324,7 +327,7 @@ let greatestProductOfDiagonals =(myDiagonalMatrix)=>{
   }
 
   for(let i=0;i<17;i++){
-    for(let j=19;j>3;j--){
+    for(let j=19;j>2;j--){
       for(let k=0;k<4;k++){
         productDiagonalNums.push(myDiagonalMatrix[i+k][j-k])
         if(k===3){
