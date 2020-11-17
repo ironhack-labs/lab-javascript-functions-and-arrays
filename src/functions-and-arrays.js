@@ -258,9 +258,9 @@ let greatestProduct = (myMatrix) => {
       for(let j=0;j<17;j++){
         for(let k=0;k<4;k++){
           if(iteration===0){
-            product*=myMatrix[i][j+k]
             productNums.push(myMatrix[i][j+k])
             if(k===3){
+              productNums.forEach(element=>product*=element)
               matrixProduct.push(product)
               eachProduct.push(productNums)
               product=1
@@ -268,9 +268,9 @@ let greatestProduct = (myMatrix) => {
             }
           }
           else{
-            product*=myMatrix[i+k][j]
             productNums.push(myMatrix[i+k][j])
             if(k===3){
+              productNums.forEach(element=>product*=element)
               matrixProduct.push(product)
               eachProduct.push(productNums)
               product=1
@@ -288,9 +288,74 @@ let greatestProduct = (myMatrix) => {
       maxMatrix[1]=i
     }
   }
-
   return `The greatest product will be the ${eachProduct[maxMatrix[1]][0]} X ${eachProduct[maxMatrix[1]][1]} X ${eachProduct[maxMatrix[1]][2]} X ${eachProduct[maxMatrix[1]][3]} = ${maxMatrix[0]}`
 }
 
 
 console.log(greatestProduct(matrix))
+
+
+
+
+// Iteration #8.1: Bonus
+
+let greatestProductOfDiagonals =(myDiagonalMatrix)=>{
+  let matrixDiagonalProduct = []
+  let diagonalProduct = 1;
+  let productDiagonalNums = []
+  let eachDiagonalProduct = []
+  let maxDiagonalMatrix = [0,0]
+
+  
+
+  for(let i=0;i<17;i++){
+    for(let j=0;j<17;j++){
+      for(let k=0;k<4;k++){
+        productDiagonalNums.push(myDiagonalMatrix[i+k][j+k])
+        if(k===3){
+          productDiagonalNums.forEach(element=>diagonalProduct*=element)
+          matrixDiagonalProduct.push(diagonalProduct)
+          eachDiagonalProduct.push(productDiagonalNums)
+          diagonalproduct=1
+          productDiagonalNums = []
+        }
+      }
+    }
+  }
+
+  for(let i=0;i<17;i++){
+    for(let j=19;j>3;j--){
+      for(let k=0;k<4;k++){
+        productDiagonalNums.push(myDiagonalMatrix[i+k][j-k])
+        if(k===3){
+          productDiagonalNums.forEach(element=>diagonalProduct*=element)
+          matrixDiagonalProduct.push(diagonalProduct)
+          eachDiagonalProduct.push(productDiagonalNums)
+          diagonalproduct=1
+          productDiagonalNums = []
+        }
+      }
+    }
+  }
+
+  for(let i=0;i<matrixDiagonalProduct.length;i++){
+    if(matrixDiagonalProduct[i]>maxDiagonalMatrix[0]){        
+      maxDiagonalMatrix[0]=matrixDiagonalProduct[i]
+      maxDiagonalMatrix[1]=i
+    }
+  }
+
+  console.log(eachDiagonalProduct.length)
+  console.log(eachDiagonalProduct[289])
+  console.log(eachDiagonalProduct[290])
+  console.log(eachDiagonalProduct[295])
+  
+
+
+  return `The greatest product will be the ${eachDiagonalProduct[maxDiagonalMatrix[1]][0]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][1]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][2]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][3]} = ${maxDiagonalMatrix[0]}`
+
+}
+
+console.log(greatestProductOfDiagonals(matrix))
+
+
