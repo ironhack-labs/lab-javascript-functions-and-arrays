@@ -37,6 +37,44 @@ function sumNumbers(myArr) {
   
 }
 
+// Bonus 3.1 A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+
+  let result = 0
+  let error = false
+
+  if (arr.length === 0) {
+    return 0
+  }
+
+  arr.forEach(elm => {
+    switch (typeof elm) {
+     
+      case 'string':
+        result += elm.length
+        break
+      case 'number':
+        result += elm
+        break
+      case 'boolean':
+        result += elm
+        break
+      default:
+        error = true
+      
+   }
+  })
+
+  if (error) {
+    return "Unsupported data type sir or ma'am"
+  } else {
+    return result
+  }
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -72,6 +110,43 @@ function averageWordLength(arr) {
   return average
 }
 
+// Bonus - Iteration #4.1 Generic Average Function
+
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function avg(arrMixed) {
+
+  let result2 = 0
+  let error = false
+  if (arrMixed.length === 0) {
+    return null
+  }
+
+  
+  arr.forEach(elm => {
+    switch (typeof elm) {
+
+      case 'string':
+        result2 += elm.length
+        break
+      case 'number':
+        result2 += elm
+        break
+      case 'boolean':
+        result2 += elm
+        break
+      default:
+        error = true
+
+    }
+  })
+
+  let average2 = result2 / arrMixed.length
+
+  
+  return parseFloat(average2).toFixed(2)
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -109,11 +184,13 @@ function doesWordExist(arr, word) {
     return null
   } else {
     arr.forEach(elm=> {
-      if (word === arr[elm]) {
+      if (elm === word) {
         return true
-      } 
+      } else {
+        return false
+      }
     })
-    return false
+    return true
   }
 }
 // Iteration #7: Count repetition
@@ -130,6 +207,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word) {
+  let count = 0
+  if (arr.length === 0) {
+    return 0
+  } else {
+    arr.forEach(elm => {
+      if (elm === word) {
+        count ++
+      }
+    })
+    return count
+  }
+
+
+}
 
 // Iteration #8: Bonus
 
