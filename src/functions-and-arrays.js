@@ -43,6 +43,23 @@ function sumNumbers (array) {
 };
 console.log(sumNumbers(numbers));
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum (array) {
+  let acumulator = 0
+  for (i=0; i<array.length; i++) {
+    if (typeof array[i] === 'number') {
+      acumulator = array[i] + acumulator
+    } else if (typeof array[i] === 'string') {
+      acumulator = array[i].length + acumulator
+    } else if (array[i] === true) {
+      acumulator = acumulator + 1
+    } 
+  }
+  return acumulator
+}
+console.log(sum(mixedArr))
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -73,6 +90,27 @@ function averageWordLength (array) {
   }
 };
 console.log(averageWordLength(words))
+
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  let acumulator = 0
+  if (arr.length>0) {
+  for (i=0; i<arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      acumulator = arr[i] + acumulator
+    } else if (typeof arr[i] === 'string') {
+      acumulator = arr[i].length + acumulator
+    } else if (arr[i] === true) {
+      acumulator = acumulator + 1
+    } 
+  }
+  return acumulator/arr.length
+  } else if (arr.length === 0) {
+    return null
+  }
+}
+console.log(avg(mixedArr2))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
