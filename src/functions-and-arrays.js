@@ -40,15 +40,30 @@ function sumNumbers (numArr) {
   numArr.forEach(function(number){
     sumArrNum += number;
   })
-
   return sumArrNum;
 }
 
 sumNumbers (numbers);
 
-// Bonus (3.1) - A generic sum() function
+// (REVISAR) Bonus (3.1) - A generic sum() function
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum (anyArr) { 
+  let sumAnyArrNum = 0;
+  anyArr.forEach(function(element) {
+    if (typeof element === 'object') {
+      return "Unsupported data type sir or ma'am"; // REVISAR
+    } else if (typeof element  === 'string') {
+      sumAnyArrNum += element.length;
+    } else {
+      sumAnyArrNum += +element;
+    }
+  })
+  return sumAnyArrNum;
+}
+
+sum (mixedArr);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -59,7 +74,7 @@ function averageNumbers (numArr) {
     return null;
   }
   let sumArrNum = sumNumbers (numArr);
-  return sumArrNum/(numArr.length);
+  return sumArrNum/numArr.length;
 }
 
 averageNumbers (numbersAvg);
@@ -68,12 +83,12 @@ averageNumbers (numbersAvg);
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength (wordArr) {
-  wordsLength = [];
+  wordArrLength = [];
   wordArr.forEach (function(word) {
-    wordsLength.push(word.length);
+    wordArrLength.push(word.length);
   })
-  let avgLength = averageNumbers (wordsLength);
-  return avgLength;
+  let wordArrAvgLength = averageNumbers (wordArrLength);
+  return wordArrAvgLength;
 }
 
 averageWordLength (wordsArr);
@@ -81,8 +96,14 @@ averageWordLength (wordsArr);
 // Bonus (4.1) - A generic avg() function
 
 function avg(arr) {
-
+  if (arr.length === 0) {
+    return null;
+  }
+  let avgMixArr = +(sum(arr)/arr.length).toFixed(2) // El método .toFixed exige ser aplicado sobre un número (por eso el +)
+  return avgMixArr;
 }
+
+avg (mixedArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -127,7 +148,7 @@ function doesWordExist (wordArr, str) {
 
 doesWordExist (wordsFind, 'machine');
 
-// Iteration #7: Count repetition
+// (REFACTORIZAR) Iteration #7: Count repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -149,14 +170,12 @@ function howManyTimes (wordArr, str) {
       strRepCount.push(element);
     } 
   }) */
-
   let strRepCount = [];
   let idx = wordArr.indexOf(str);
   while (idx != -1) {
   strRepCount.push(str);
   idx = wordArr.indexOf(str, idx + 1);
   }
-
   return strRepCount.length;
 }
 
@@ -186,3 +205,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+
+}
