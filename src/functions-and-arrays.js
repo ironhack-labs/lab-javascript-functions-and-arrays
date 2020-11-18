@@ -133,6 +133,7 @@ console.log(averageWordLength(wordsArr));
 //BONUS Iteration 4.1
 
 
+
 function avg(arr){
   let result=0;
   let error= false;
@@ -148,8 +149,8 @@ function avg(arr){
           }
         }
         else if(typeof element === 'string'){
-          result += element.length
-        }
+          result += element.length}
+        
         else if(typeof element === 'number'){
           result += element
         }else{
@@ -161,7 +162,7 @@ function avg(arr){
     return new Error("Unsupported data type sir or ma'am")
   }
   result= result/arr.length
-  return parseFloat(result.toFixed(2));
+  return result;
 }
 
 console.log(avg(mixedArr));
@@ -275,3 +276,43 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+let greatestProduct = (arr) =>{
+  let result=1;
+  let matrixResult=[];
+  let numbers=[];
+  let subNumbers=[];
+  //Bucle horizontal
+  for(let i=0;i<20;i++){
+    for(let j=0;j<17;j++){
+      for(let k=0;k<4;k++){
+        result*=arr[i][j+k];
+        subNumbers.push(arr[i][j+k]);
+      }
+      numbers.push(subNumbers);
+      subNumbers=[];//Limpio array para volver a usarlo
+      matrixResult.push(result);
+      result=1;//Limpio result
+    }
+  }
+  //Bucle vertical
+  for(let i=0;i<17;i++){
+    for(let j=0;j<20;j++){
+      for(let k=0;k<4;k++){
+        result*=arr[i+k][j];
+        subNumbers.push(arr[i+k][j])
+      }
+      numbers.push(subNumbers);
+      subNumbers=[];
+      matrixResult.push(result);
+      result=1;
+    }
+  }
+
+  return numbers;
+}
+
+
+
+console.log(greatestProduct(matrix));
