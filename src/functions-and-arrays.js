@@ -86,7 +86,7 @@ let error=false;
        
     }
     });
-if(error===true){return new Error("Unsupported data type sir or ma'am")};
+if(error===true){throw new Error("Unsupported data type sir or ma'am")};
 return sumResult;
 }
 
@@ -161,7 +161,7 @@ function avg(arr){
       })
 
   if(error===true){
-    return new Error("Unsupported data type sir or ma'am")
+    throw new Error("Unsupported data type sir or ma'am")
   }
   result= parseFloat((result/arr.length).toFixed(2));
   return result;
