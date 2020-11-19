@@ -47,7 +47,7 @@ function sum(arr) {
       } else if (element === true) {
         total = total + 1
       } else if (typeof element === ('object' || 'array')) {
-        new Error("Unsupported data type sir or ma'am")
+        throw new Error("Unsupported data type sir or ma'am")
       } 
   });
 }
