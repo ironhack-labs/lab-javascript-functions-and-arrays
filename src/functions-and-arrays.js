@@ -237,21 +237,6 @@ let greatestProduct = (myMatrix) => {
   let oneCounter = 0;
   let twoCounter = 0;
 
-  for(let i=0;i<20;i++){
-    for(let j=0;j<20;j++){
-      if(myMatrix[j][i]===1){
-        oneCounter++
-        if(oneCounter===400)
-          return 1
-      }
-      else if(myMatrix[j][i]===2){
-        twoCounter++
-        if(twoCounter===400)
-          return 16
-      }
-    }
-  }
-
 
   for(let i=0;i<20;i++){
     for(let j=0;j<17;j++){
@@ -290,8 +275,9 @@ let greatestProduct = (myMatrix) => {
       maxMatrix[1]=i
     }
   }
-
-  return `The greatest product will be the ${eachProduct[maxMatrix[1]][0]} X ${eachProduct[maxMatrix[1]][1]} X ${eachProduct[maxMatrix[1]][2]} X ${eachProduct[maxMatrix[1]][3]} = ${maxMatrix[0]}`
+  
+  console.log(`The greatest product will be the ${eachProduct[maxMatrix[1]][0]} X ${eachProduct[maxMatrix[1]][1]} X ${eachProduct[maxMatrix[1]][2]} X ${eachProduct[maxMatrix[1]][3]} = ${maxMatrix[0]}`)
+  return maxMatrix[0]
 }
 
 
@@ -348,8 +334,9 @@ let greatestProductOfDiagonals =(myDiagonalMatrix)=>{
     }
   }
 
-  return `The greatest product will be the ${eachDiagonalProduct[maxDiagonalMatrix[1]][0]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][1]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][2]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][3]} = ${maxDiagonalMatrix[0]}`
+  console.log(`The greatest product will be the ${eachDiagonalProduct[maxDiagonalMatrix[1]][0]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][1]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][2]} X ${eachDiagonalProduct[maxDiagonalMatrix[1]][3]} = ${maxDiagonalMatrix[0]}`)
 
+  return maxDiagonalMatrix[0]
 }
 
 console.log(greatestProductOfDiagonals(matrix))
