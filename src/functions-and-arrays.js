@@ -113,8 +113,9 @@ function avg(arr){
   if(arr.length === 0){
     return null;
 }
+// Utilizamos la función que hicimos antes
 const total = sum(arr);
-
+//Utilizamos el toFixed(2 para sacar dos decimales)
 return Number ((total/arr.length).toFixed(2));
 
 
@@ -141,6 +142,7 @@ function uniquifyArray(wordArr){
 let newArr = [];
 
 for (let i = 0; i< wordArr.length; i++){
+  
   if(wordArr.indexOf(wordArr[i]) !== wordArr.lastIndexOf(wordArr[i]) && newArr.indexOf(wordArr[i]) === -1){
     newArr.push(wordArr[i]);
   }else if (wordArr.indexOf(wordArr[i]) === wordArr.lastIndexOf(wordArr[i])) {
@@ -184,14 +186,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr,str){
-
-  if(arr.length=== 0  || str=== 0){
-    return 0;
+function howManyTimes (arr, str) {
+	if ( arr.length === 0 || str === '' ) {
+		return 0;
   }
-
+  //Declaramos la variable para ir sumandole las reps
+	let reps = 0;
+	for ( let i = 0; i <  arr.length; i++){
+		if ( str ===  arr[i] ){
+			reps++
+		}
+	}
+	return reps;
 
 }
+
+
+
+
 
 
 
