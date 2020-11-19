@@ -153,8 +153,8 @@ function avg(arr){
         
         else if(typeof element === 'number'){
           result += element
-        }else{
-          error= true;
+        }else {
+          return new Error("Unsupported data type sir or ma'am");
         }
       })
 
@@ -278,7 +278,6 @@ const matrix = [
 ];
 
 
-let prueba;
 
 function greatestProduct(arr){
   let result=1;
@@ -288,22 +287,22 @@ function greatestProduct(arr){
   let maxNumber;
   let fourNumbers;
   
-  //Bucle horizontal
-  for(let i=0;i<20;i++){
-    for(let j=0;j<17;j++){
+  //Horizontal loop (rows)
+  for(let i=0;i<arr.length;i++){
+    for(let j=0;j<arr.length-3;j++){ //I substract 3 to the length of the array because j init must be followed by 3 more numbers to compelte the block iteration.
       for(let k=0;k<4;k++){
-        result*=arr[i][j+k];
+        result*=arr[i][j+k]; 
         subNumbers.push(arr[i][j+k]);
       }
       numbers.push(subNumbers);
-      subNumbers=[];//Limpio array para volver a usarlo
+      subNumbers=[];//I clean the array to reuse it
       matrixResult.push(result);
-      result=1;//Limpio result
+      result=1;//I clean the result variable to start multiplying another block of numbers. 
     }
   }
-  //Bucle vertical
-  for(let i=0;i<17;i++){
-    for(let j=0;j<20;j++){
+  //Vertical loop (columns)
+  for(let i=0;i<arr.length-3;i++){
+    for(let j=0;j<arr.length;j++){
       for(let k=0;k<4;k++){
         result*=arr[i+k][j];
         subNumbers.push(arr[i+k][j])
@@ -317,9 +316,53 @@ function greatestProduct(arr){
 
   maxNumber= Math.max(...matrixResult);
   fourNumbers=numbers[matrixResult.indexOf(maxNumber)];
-  prueba=fourNumbers;
-  console.log(`The product of numbers ${prueba} is ${maxNumber} and it's the greatest product of the selected array`); //To know which four numbers were multiplied to get the greatest result
+  console.log(`The product of numbers ${fourNumbers} is ${maxNumber} and it's the greatest product of the selected array`); //To know which four numbers were multiplied to get the greatest result
   return maxNumber;
 }
 
-console.log(greatestProduct(matrix));
+greatestProduct(matrix);
+
+//BONUS 8.1 Product of diagonals
+
+function greatestProductOfDiagonals(arr){
+  let result=1;
+  let matrixResult=[]; 
+  let numbers=[]; 
+  let subNumbers=[];
+  let maxNumber;
+  let fourNumbers;
+  
+  //Right-down diagonals
+  for(let i=0;i<arr.length-3;i++){
+    for(let j=0;j<arr.length-3;j++){ 
+      for(let k=0;k<4;k++){
+        result*=arr[i+k][j+k]; 
+        subNumbers.push(arr[i+k][j+k]);
+      }
+      numbers.push(subNumbers);
+      subNumbers=[];
+      matrixResult.push(result);
+      result=1;
+    }
+  }
+  //Left-down diagonals
+  for(let i=0;i<arr.length-3;i++){
+    for(let j=arr.length-1;j>2;j--){
+      for(let k=0;k<4;k++){
+        result*=arr[i+k][j-k];
+        subNumbers.push(arr[i+k][j-k])
+      }
+      numbers.push(subNumbers);
+      subNumbers=[];
+      matrixResult.push(result);
+      result=1;
+    }
+  }
+
+  maxNumber= Math.max(...matrixResult);
+  fourNumbers=numbers[matrixResult.indexOf(maxNumber)];
+  console.log(`The product of numbers ${fourNumbers} is ${maxNumber} and it's the greatest product of the selected array`); 
+  return maxNumber;
+}
+
+greatestProductOfDiagonals(matrix);
