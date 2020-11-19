@@ -72,6 +72,8 @@ function sum(mixedArr){
 
 // Iteration #4: Calculate the average
 
+// Level 1: Array of numbers
+
 function averageNumbers(numbers){
     
   if(numbers.length === 0){
@@ -92,6 +94,7 @@ function averageNumbers(numbers){
 
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr){
@@ -107,10 +110,12 @@ function averageWordLength(wordsArr){
 
 // debería devolver: 5.7
 
+// BONO 4.1: 
+
 function avg(mixedArr){
   if(mixedArr.length === 0) return null
   const total = sum(mixedArr);
-  return +((total / mixedArr.length).toFixed(2));
+  return +((total / mixedArr.length ).toFixed(2));
 }
 
 // Iteration #5: Unique arrays
@@ -128,8 +133,42 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (wordsUnique){
+  
+  if(wordsUnique.length === 0) return null;
+  
+  newarr = [];
+  for (let i = 0; i < wordsUnique.length; i++){
+    if(wordsUnique.indexOf(wordsUnique[i]) !== wordsUnique.lastIndexOf(wordsUnique[i]) && newarr.indexOf(wordsUnique[i]) === -1){
+      newarr.push(wordsUnique[i]);
+   
+    }
+    else if(wordsUnique.indexOf(wordsUnique[i]) === wordsUnique.lastIndexOf(wordsUnique[i])) {
+      newarr.push(wordsUnique[i]);
+
+  }
+}
+
+  
+return newarr;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordsFind,word){
+
+  if (wordsFind.length === 0){
+  return null;
+  }
+  if (wordsFind.includes(word)){
+    return true;
+  }
+  else {
+    return false;
+  }
+  
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -145,6 +184,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word){
+
+  if (arr.length === 0){
+    return 0;
+  }
+  counter=0;
+  arr.forEach(function(element){
+    if (element===word) {
+    counter +=1
+    }
+  })
+  return counter;
+}
 
 // Iteration #8: Bonus
 
