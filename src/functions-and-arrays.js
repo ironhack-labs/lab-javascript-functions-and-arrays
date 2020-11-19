@@ -44,12 +44,15 @@ function sumNumbers (array) {
 console.log(sumNumbers(numbers));
 
 const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, 10];
+const mixedArrFalse = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
+const mixedArrTrue = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true];
+const mixedArrObj = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}];
 
 function sum (array) {
   let acumulator = 0
   for (i=0; i<array.length; i++) {
     if (typeof array[i] === 'object') {
-      return new Error("Unsupported data type sir or ma'am")
+      throw new Error("Unsupported data type sir or ma'am")
     } else {
         if (typeof array[i] === 'number') {
         acumulator = array[i] + acumulator
@@ -63,6 +66,9 @@ function sum (array) {
   return acumulator
 }
 console.log(sum(mixedArr))
+console.log(sum(mixedArrFalse))
+console.log(sum(mixedArrTrue))
+console.log(sum(mixedArrObj))
 
 
 // Iteration #4: Calculate the average
