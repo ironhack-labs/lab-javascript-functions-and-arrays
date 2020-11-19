@@ -278,11 +278,16 @@ const matrix = [
 ];
 
 
-let greatestProduct = (arr) =>{
+let prueba;
+
+function greatestProduct(arr){
   let result=1;
-  let matrixResult=[];
-  let numbers=[];
-  let subNumbers=[];
+  let matrixResult=[]; //Array with multiplication results
+  let numbers=[]; //Array that contents more arrays with the numbers that conform the multiplication
+  let subNumbers=[];//Array that content 4 numbers to do the operations.
+  let maxNumber;
+  let fourNumbers;
+  
   //Bucle horizontal
   for(let i=0;i<20;i++){
     for(let j=0;j<17;j++){
@@ -310,9 +315,11 @@ let greatestProduct = (arr) =>{
     }
   }
 
-  return numbers;
+  maxNumber= Math.max(...matrixResult);
+  fourNumbers=numbers[matrixResult.indexOf(maxNumber)];
+  prueba=fourNumbers;
+  console.log(`The product of numbers ${prueba} is ${maxNumber} and it's the greatest product of the selected array`); //To know which four numbers were multiplied to get the greatest result
+  return maxNumber;
 }
-
-
 
 console.log(greatestProduct(matrix));
