@@ -62,7 +62,8 @@ function sumNumbers(arr){
 console.log(sumNumbers(numbers));
 
 //Iteration 3.1 Bonus
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,/*[]*/];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,];
+let arrayTest=[6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}];
 
 function sum(arr){
 let sumResult=0;
@@ -85,11 +86,12 @@ let error=false;
        
     }
     });
-if(error===true){return new Error("Unsupported data type sir or ma'am")}
+if(error===true){return new Error("Unsupported data type sir or ma'am")};
 return sumResult;
 }
 
 console.log(sum(mixedArr));
+console.log(sum(arrayTest));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -154,18 +156,19 @@ function avg(arr){
         else if(typeof element === 'number'){
           result += element
         }else {
-          return new Error("Unsupported data type sir or ma'am");
+          error=true;
         }
       })
 
   if(error===true){
     return new Error("Unsupported data type sir or ma'am")
   }
-  result= result/arr.length
+  result= parseFloat((result/arr.length).toFixed(2));
   return result;
 }
 
 console.log(avg(mixedArr));
+
 
 
 // Iteration #5: Unique arrays
@@ -316,7 +319,7 @@ function greatestProduct(arr){
 
   maxNumber= Math.max(...matrixResult);
   fourNumbers=numbers[matrixResult.indexOf(maxNumber)];
-  console.log(`The product of numbers ${fourNumbers} is ${maxNumber} and it's the greatest product of the selected array`); //To know which four numbers were multiplied to get the greatest result
+  console.log(`The product of numbers ${fourNumbers} is ${maxNumber} and it's the greatest product of the array`); //To know which four numbers were multiplied to get the greatest result
   return maxNumber;
 }
 
@@ -361,7 +364,7 @@ function greatestProductOfDiagonals(arr){
 
   maxNumber= Math.max(...matrixResult);
   fourNumbers=numbers[matrixResult.indexOf(maxNumber)];
-  console.log(`The product of numbers ${fourNumbers} is ${maxNumber} and it's the greatest product of the selected array`); 
+  console.log(`The product of numbers ${fourNumbers} is ${maxNumber} and it's the greatest product of Diagonals`); 
   return maxNumber;
 }
 
