@@ -225,27 +225,44 @@ const matrix = [
 ];
 
 function greatestProduct(arr){
-  let oneCounter = 0;
-  let twoCounter = 0;
+  let result = 1;
+  let resultList = [];
+  let maxNumber = 0;
+  let combinations = [];
+  /* let combinationsList = []; */
+
+  if (greatestProduct)
   
   for(i = 0; i < arr.length; i++){
-    for (j = 0; j < arr.length; j++){
-      if(arr[j][i]===1){
-        return 1;
+    for (j = 0; j < arr.length-3; j++){
+      for(k = 0; k < 4; k++){
+        result *= arr[i][j+k]
+        /* combinations.push(arr[i][j+k]) */
       }
-      else if(arr[j][i]===2){
-        return 16;
-      }
-
+      resultList.push(result)
+      /* combinationsList.push(combinations) */
+      combinations = [];
+      result = 1;
     }
-
   }
 
+  for(i = 0; i < arr.length-3; i++){
+    for (j = 0; j < arr.length; j++){
+      for(k = 0; k < 4; k++){
+        result *= arr[i+k][j]
+        /* combinations.push(arr[i+k][j]) */
+      }
+      resultList.push(result)
+      /* combinationsList.push(combinations) */
+      combinations = [];
+      result = 1;
+    }
+  }
   
+  maxNumber = Math.max(...resultList)
+  /* console.log(resultList.indexOf(maxNumber)); */
+  console.log(maxNumber);
+  return maxNumber
+} 
 
-
-
-
-
-
-}
+greatestProduct(matrix);
