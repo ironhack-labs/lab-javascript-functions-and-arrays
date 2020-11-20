@@ -207,5 +207,45 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+  let matrixMaxProduct = maxProduct(matrix);
+  let turnedToHorizontalMaxProduct = maxProduct(turnVerticalToHorizontal(matrix));
+  if (turnedToHorizontalMaxProduct>matrixMaxProduct) {
+    return turnedToHorizontalMaxProduct;
+  }
+  return matrixMaxProduct;
+}
 
+greatestProduct(matrix);
+
+// Calcula el máximo producto de una matriz dada
+function maxProduct(matrix) {
+  let productsOf4Arr = []; // Este array acumulará el resultado de todos los productos de 4 números de las iteraciones.
+  matrix.forEach(function(subArr, idx) { // Itera sobre los elementos de la matriz general (matrix)
+    for (i=0; i<matrix[idx].length; i++) { // Itera sobre los elementos de cada subarray (matrix[i])
+      if (matrix[idx].slice(i,i+4).length<4) { // Elimina todos los grupos de menos de 4 números dentro del subarray.
+        break;
+      }
+      let sliceOf4 = matrix[idx].slice(i,i+4); // El método arr.slice() crea arrays de grupos de 4 números anexos, que se añaden a la variable sliceOf4.
+      let productOf4 = 1; // Producto de los 4 números.
+      sliceOf4.forEach(function(number, idx) { // Itera sobre el array de 4 números.
+      productOf4 *= sliceOf4[idx];  // Añade cada número del sliceOf4 al producto   
+      })
+      productsOf4Arr.push(productOf4); // Añade al array productsOf4Arr el resultado de los productos de 4 números.
+    }
+  })
+  let maxProduct = Math.max(...productsOf4Arr); // Se almacena en una variable el máximo del total de productos de 4 números.
+  return maxProduct;
+}
+
+// Transforma las columnas de una matriz en filas creando una nueva matriz horizontal
+function turnVerticalToHorizontal (matrix) {
+  let matrixTurnedToHorizontal = []; // Se crea un array vacío para almacenar los subArrays. Será un 2D array.
+  matrix.forEach (function(subArr, idx) { // Itera sobre los elementos de la matriz general (matrix)
+    let subArrTurnedToHorizontal = [] // Se crea un array vacío para almacenar los subArrays.
+    for (i=0; i<matrix[idx].length;i++) {
+    subArrTurnedToHorizontal.push(matrix[i][idx]); // Esta posición [i][idx] permite iterar sobre un único elemento del subArr que se añade a subArrTurnedToHorizontal creando el nuevo subArray con los valores de vertical a horizontal.
+    }
+    matrixTurnedToHorizontal.push(subArrTurnedToHorizontal); // Cada vez que se completa una columna se añade el subArrTurnedToHorizontal al 2D array. 
+  })
+  return matrixTurnedToHorizontal; // matrixTurnedToHorizontal es ahora un 2D array compuesto por los subarrays subArrTurnedToHorizontal.
 }
