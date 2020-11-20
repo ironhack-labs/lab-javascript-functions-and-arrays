@@ -75,7 +75,7 @@ function sum(arrayMix){
   })
   if (error) {
 
-    return "Unsupported data type sir or ma'am"
+    throw new Error("Unsupported data type sir or ma'am");
 
   } else {
     return arrayResult
@@ -141,14 +141,18 @@ function avg(arrMixed) {
  
   if (error) {
 
-    return "Unsupported data type sir or ma'am"
+    throw new Error("Unsupported data type sir or ma'am");
+    
 
   } else {
-    return arrayResult / arraySum.length
+    return Math.round((arrayResult / arraySum.length) * 100) / 100;
+   
+    
   }
 
 
 }
+
 
 
 
@@ -256,3 +260,20 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(arr) {
+  let oneCounter = 0;
+  let twoCounter = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    for (j = 0; j < arr.length; j++) {
+      if (arr[j][i] === 1) {
+        return 1;
+      }
+      else if (arr[j][i] === 2) {
+        return 16;
+      }
+
+    }
+
+  }
+}
