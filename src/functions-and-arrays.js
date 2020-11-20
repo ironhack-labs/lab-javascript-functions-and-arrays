@@ -51,28 +51,25 @@ function sumNumbers (num){
 //Bonus - Iteration #3.1: A generic sum() function
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-let arrSum = 0
 
 function sum (arr){
- if (arr.length === 0){
-   return 0
- }else if (arr.length === 1){
-   return arr[0]
- }else{
-   for (let i = 0; i < arr.length; i++){
-     if (arr[i] === 0){
-       return 0
-     }else if (typeof arr[i] === 'number'){
-        arrSum += arr[i]
-      }else if (typeof arr[i] === 'string'){
-        //arrSum += arr[i].length
-      }
-      
-    }
-    return arrSum
-  }
+  if (arr.length === 0)
+    return 0
+    
+  let arrSum = 0
   
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i]===0){
+      return 0
+    }else{
+      if (typeof arr[i] === 'number') arrSum+= arr[i]
+      if (typeof arr[i] === 'string') arrSum+= arr[i].length
+      if (typeof arr[i] === 'boolean') arrSum+= arr[i]
+    }
+    if (typeof arr[i] === 'object') throw Error `Unsupported data type sir or ma'am`
   }
+  return arrSum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -104,6 +101,19 @@ function averageWordLength(arr){
     arrAvg = arrAvg / arr.length
   }
   return arrAvg
+}
+
+//Bonus - Iteration #4.1: A generic avg() function
+function avg(arr){ 
+  let arrAvg = 0
+  if (arr.length === 0){
+    return null
+  }else{
+    for (let i = 0; i < arr.length; i++){
+      arrAvg += arr[i].length
+    }
+    arrAvg = arrAvg / arr.length
+  }
 }
 
 // Iteration #5: Unique arrays
@@ -169,7 +179,7 @@ function howManyTimes (arr, word){
   }else{
     for (let i = 0; i < arr.length; i++){
       if (word === arr[i]){
-        arrCount.push(arr[i])
+        arrCount.push (arr[i])
       }
     }
   }
