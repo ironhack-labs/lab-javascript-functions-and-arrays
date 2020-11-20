@@ -121,7 +121,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arr, word) {
   if (arr.length === 0) return null
 
-   if (arr.indexOf(word) !== -1) {
+  if (arr.indexOf(word) !== -1) {
     return true
   } else {
     return false
@@ -142,8 +142,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr) {
-if (arr.length===0) return 0
+function howManyTimes(arr, word) {
+  if (arr.length === 0) return 0
+  let count = 0;
+  arr.forEach(function (element) {
+      if (element === word)
+        count += 1
+    })
+     return count;
+
 
 
 }
@@ -173,4 +180,9 @@ const matrix = [
 ];
 
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let number1= 1
+  for (i=0;i<arr.length; i++){
+
+  }
+}
