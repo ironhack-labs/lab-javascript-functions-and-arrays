@@ -105,6 +105,8 @@ function averageWordLength(arr){
 
 //Bonus - Iteration #4.1: A generic avg() function
 function avg(arr){ 
+
+  
   let arrAvg = 0
   if (arr.length === 0){
     return null
