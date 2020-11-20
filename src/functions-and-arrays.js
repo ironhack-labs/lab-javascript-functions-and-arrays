@@ -53,7 +53,7 @@ function sum (anyArr) {
   let sumAnyArrNum = 0;
   anyArr.forEach(function(element) {
     if (typeof element === 'object') {
-      return "Unsupported data type sir or ma'am"; // REVISAR
+      throw Error ("Unsupported data type sir or ma'am"); // REVISAR
     } else if (typeof element  === 'string') {
       sumAnyArrNum += element.length;
     } else {
