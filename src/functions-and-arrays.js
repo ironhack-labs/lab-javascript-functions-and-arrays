@@ -102,20 +102,21 @@ function averageWordLength(arr){
   }
   return arrAvg
 }
-
 //Bonus - Iteration #4.1: A generic avg() function
 function avg(arr){ 
 
-  
   let arrAvg = 0
   if (arr.length === 0){
     return null
   }else{
     for (let i = 0; i < arr.length; i++){
-      arrAvg += arr[i].length
+      if (typeof arr[i] === 'number') arrAvg+= arr[i]
+      if (typeof arr[i] === 'string') arrAvg+= arr[i].length
+      if (typeof arr[i] === 'boolean') arrAvg+= arr[i]
     }
     arrAvg = arrAvg / arr.length
   }
+  return +arrAvg.toFixed(2)
 }
 
 // Iteration #5: Unique arrays
@@ -212,3 +213,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(){
+  
+}
