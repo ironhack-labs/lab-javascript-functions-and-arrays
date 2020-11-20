@@ -20,8 +20,6 @@ function findLongestWord (wordArr) {
   return longestWord
 }
 
-findLongestWord (words);
-
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -33,8 +31,6 @@ function sumNumbers (numArr) {
   })
   return sumArrNum;
 }
-
-sumNumbers (numbers);
 
 
 // Bonus (3.1) - A generic sum() function
@@ -54,8 +50,6 @@ function sum (anyArr) {
   return sumAnyArrNum;
 }
 
-sum (mixedArr);
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -69,8 +63,6 @@ function averageNumbers (numArr) {
   return sumArrNum/numArr.length;
 }
 
-averageNumbers (numbersAvg);
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -83,7 +75,6 @@ function averageWordLength (wordArr) {
   return wordArrAvgLength;
 }
 
-averageWordLength (wordsArr);
 
 // Bonus (4.1) - A generic avg() function
 function avg(arr) {
@@ -93,8 +84,6 @@ function avg(arr) {
   let avgMixArr = +(sum(arr)/arr.length).toFixed(2) // El método .toFixed exige ser aplicado sobre un número (por eso el +)
   return avgMixArr;
 }
-
-avg (mixedArr);
 
 
 // Iteration #5: Unique arrays
@@ -125,8 +114,6 @@ function uniquifyArray (arr) {
   return uniqueArr; 
 }
 
-uniquifyArray (wordsUnique);
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -137,8 +124,6 @@ function doesWordExist (wordArr, str) {
   }
   return wordArr.includes(str);
 }
-
-doesWordExist (wordsFind, 'machine');
 
 
 // Iteration #7: Count repetition
@@ -165,9 +150,6 @@ function howManyTimes (wordArr, str) {
   })
   return numberOfTimes.length;
 }
-
-howManyTimes (wordsCount, 'matter');
-
 
 // Iteration #8: Bonus
 const matrix = [
