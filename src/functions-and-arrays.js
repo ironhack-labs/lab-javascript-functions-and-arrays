@@ -50,26 +50,26 @@ function sumNumbers(numbers) {
 }
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum(arrayMix){
+function sum(arrayMix) {
   let error = false
   let arrayResult = 0
   if (arrayMix.length === 0) {
     return 0
   }
- 
+
   arrayMix.forEach(element => {
     switch (typeof element) {
       case 'string':
-         arrayResult += element.length
+        arrayResult += element.length
         break
       case 'number':
       case 'boolean':
-         arrayResult += element
+        arrayResult += element
         break
       default:
         error = true
         break
-       
+
     }
 
   })
@@ -79,11 +79,11 @@ function sum(arrayMix){
 
   } else {
     return arrayResult
-}
+  }
 
 
 }
-  
+
 
 
 // Iteration #4: Calculate the average
@@ -115,7 +115,7 @@ function averageWordLength(wordsArray) {
 function avg(arrMixed) {
   let error = false
   let arrayResult = 0
-  let arraySum =[]
+  let arraySum = []
   if (arrMixed.length === 0) {
     return null
   }
@@ -138,16 +138,16 @@ function avg(arrMixed) {
     }
 
   })
- 
+
   if (error) {
 
     throw new Error("Unsupported data type sir or ma'am");
-    
+
 
   } else {
     return Math.round((arrayResult / arraySum.length) * 100) / 100;
-   
-    
+
+
   }
 
 
@@ -264,16 +264,86 @@ function greatestProduct(arr) {
   let oneCounter = 0;
   let twoCounter = 0;
 
+  let positionIni, product = 1, greatestProduct = 0
+  let numberArray = []
+  let greatestArray
+  // recorro filas
   for (i = 0; i < arr.length; i++) {
-    for (j = 0; j < arr.length; j++) {
-      if (arr[j][i] === 1) {
-        return 1;
+    //    console.log(`Entro en recorro filas matriz`)
+    positionIni = i;
+    // recorro columnas de la fila 
+    for (let colIni = 0; (colIni + 3) < arr[positionIni].length; colIni++) {
+
+      colFin = colIni + 3;
+      //        console.log(`Entro en recorro columnas ${colIni} ${colFin} ${positionIni}`)
+      numberArray = []
+      product = 1
+      // recorro las siguientes 4 posiciones de la fila y multiplico
+      for (let col = colIni; col <= colFin; col++) {
+        product *= arr[positionIni][col];
+        numberArray.push(arr[positionIni][col])
+        //      console.log(`Entro en multiplicacion ${arr[positionIni][col]} ${product}`)
+
       }
-      else if (arr[j][i] === 2) {
-        return 16;
+
+      if (product > greatestProduct) {
+        greatestProduct = product;
+        greatestArray = numberArray;
+        //        console.log(`grabo greatesProduct ${product}`)
       }
+
 
     }
-
   }
+  // recorro columnas 
+  for (i = 0; i < arr.length; i++) {
+    //    console.log(`Entro en recorro columnas matriz`)
+    positionIni = i;
+
+    // recorro filas de la columna 
+    for (let colIni = 0; (colIni + 3) < arr.length; colIni++) {
+
+      colFin = colIni + 3;
+      //        console.log(`Entro en recorro columnas ${colIni} ${colFin} ${positionIni}`)
+      numberArray = []
+      product = 1
+      // recorro las siguientes 4 posiciones de la fila y multiplico
+      for (let row = colIni; row <= colFin; row++) {
+        product *= arr[row][positionIni];
+        numberArray.push(arr[row][positionIni])
+        //      console.log(`Entro en multiplicacion columnas ${arr[row][positionIni]} ${product}`)
+
+      }
+
+      if (product > greatestProduct) {
+        greatestProduct = product;
+        greatestArray = numberArray;
+        //        console.log(`grabo greatesProduct ${product}`)
+      }
+
+
+    }
+  }
+
+  /*
+    for (j = 0; j < arr.length; j++) {
+     if (arr[j][i] === 1) {
+       return 1;
+     }
+     else if (arr[j][i] === 2) {
+       return 16;
+     }
+    
+    }
+    */
+
+//  console.log(greatestArray)
+  return greatestProduct
 }
+console.log(greatestProduct(matrix))
+
+
+
+
+
+
