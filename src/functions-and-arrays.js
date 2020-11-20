@@ -1,25 +1,17 @@
 // Iteration #1: Find the maximum
-
 function maxOfTwoNumbers (num1, num2) {
   return Math.max(num1, num2);
 }
 
 
 // Iteration #2: Find longest word
-
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord (wordArr) {
   if (wordArr.length === 0) {
-    return null; // ¿Qué sentido tiene hacer esto?
+    return null;
   }
-
   let longestWord = '';
-  /* for (i=0; i<someArr.length; i++) {
-    if (someArr[i].length>longestWord.length) {
-      longestWord = someArr[i];
-    }
-  } */
   wordArr.forEach(function(word) {
     if (word.length > longestWord.length) {
       longestWord = word;
@@ -32,7 +24,6 @@ findLongestWord (words);
 
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (numArr) {
@@ -45,15 +36,15 @@ function sumNumbers (numArr) {
 
 sumNumbers (numbers);
 
-// (REVISAR) Bonus (3.1) - A generic sum() function
 
+// Bonus (3.1) - A generic sum() function
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum (anyArr) { 
   let sumAnyArrNum = 0;
   anyArr.forEach(function(element) {
     if (typeof element === 'object') {
-      throw Error ("Unsupported data type sir or ma'am"); // REVISAR
+      throw Error ("Unsupported data type sir or ma'am");
     } else if (typeof element  === 'string') {
       sumAnyArrNum += element.length;
     } else {
@@ -65,6 +56,7 @@ function sum (anyArr) {
 
 sum (mixedArr);
 
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -73,7 +65,7 @@ function averageNumbers (numArr) {
   if (numArr.length === 0) {
     return null;
   }
-  let sumArrNum = sumNumbers (numArr);
+  let sumArrNum = sumNumbers(numArr);
   return sumArrNum/numArr.length;
 }
 
@@ -87,14 +79,13 @@ function averageWordLength (wordArr) {
   wordArr.forEach (function(word) {
     wordArrLength.push(word.length);
   })
-  let wordArrAvgLength = averageNumbers (wordArrLength);
+  let wordArrAvgLength = averageNumbers(wordArrLength);
   return wordArrAvgLength;
 }
 
 averageWordLength (wordsArr);
 
 // Bonus (4.1) - A generic avg() function
-
 function avg(arr) {
   if (arr.length === 0) {
     return null;
@@ -104,6 +95,7 @@ function avg(arr) {
 }
 
 avg (mixedArr);
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -124,7 +116,6 @@ function uniquifyArray (arr) {
   if (arr.length === 0) {
     return null;
   }
-
   let uniqueArr = [];
   arr.forEach(function(element) {
     if (uniqueArr.indexOf(element) === -1) {
@@ -135,6 +126,7 @@ function uniquifyArray (arr) {
 }
 
 uniquifyArray (wordsUnique);
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -148,7 +140,8 @@ function doesWordExist (wordArr, str) {
 
 doesWordExist (wordsFind, 'machine');
 
-// (REFACTORIZAR) Iteration #7: Count repetition
+
+// Iteration #7: Count repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -164,25 +157,19 @@ const wordsCount = [
 ];
 
 function howManyTimes (wordArr, str) {
-  /* let strRepCount = [];
-  wordArr.forEach (function (element, idx){
-    if (wordArr.includes(str)) {
-      strRepCount.push(element);
-    } 
-  }) */
-  let strRepCount = [];
-  let idx = wordArr.indexOf(str);
-  while (idx != -1) {
-  strRepCount.push(str);
-  idx = wordArr.indexOf(str, idx + 1);
-  }
-  return strRepCount.length;
+  let numberOfTimes = [];
+  wordArr.forEach(function(element){
+    if (element === str) {
+      numberOfTimes.push(str);
+    }
+  })
+  return numberOfTimes.length;
 }
 
 howManyTimes (wordsCount, 'matter');
 
-// Iteration #8: Bonus
 
+// Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -249,3 +236,5 @@ function turnVerticalToHorizontal (matrix) {
   })
   return matrixTurnedToHorizontal; // matrixTurnedToHorizontal es ahora un 2D array compuesto por los subarrays subArrTurnedToHorizontal.
 }
+
+// 8.1 Product of Diagonals
