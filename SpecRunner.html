@@ -20,3 +20,30 @@
 
   <body></body>
 </html>
+
+
+
+function sum(arr){
+
+  let numSum = 0
+  let error = false
+  
+  arr.forEach(function(element){
+    if (typeof element === 'boolean'){
+      if (element === true){
+        numSum += 1;
+      }else{
+        numSum += 0
+      }
+    }
+    else if (typeof element === 'string'){
+      numSum += element.length
+    } else if (typeof element === 'number'){
+      numSum += element
+    }
+    else{
+      error=true
+    }
+    
+  });
+  }
