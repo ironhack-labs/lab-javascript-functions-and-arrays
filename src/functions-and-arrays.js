@@ -192,6 +192,21 @@ function howManyTimes(arr, word) {
   return ans;
 }
 // Iteration #8: Bonus
+function greatestProduct(matrix) {
+  const newArr = [];
+
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix.length - 3; j++) {
+      newArr.push(
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+      );
+      newArr.push(
+        matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i]
+      );
+    }
+  }
+  return Math.max(...newArr);
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
