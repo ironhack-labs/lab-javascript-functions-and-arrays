@@ -79,6 +79,17 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr1) {
+  let wordCount=[];
+  for (i=0; i < arr1.length; i++){
+    if (wordCount.includes(arr1[i])===false) {
+      wordCount.push(arr1[i]);      
+    }   
+  }
+  return wordCount;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 function doesWordExist(findWord, wordToFind){
