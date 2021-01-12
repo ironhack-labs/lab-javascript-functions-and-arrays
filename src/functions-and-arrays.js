@@ -117,6 +117,19 @@ function doesWordExist(array, word) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 doesWordExist(wordsFind, 'eating')
 // Iteration #7: Count repetition
+function howManyTimes(array, word) {
+  let wordCount = 0;
+  if (array.length == 0) {
+    return wordCount;
+  } else {
+    for(i = 0; i<array.length; i++) {
+      if (array[i] === word) {
+        wordCount += 1;
+      }
+    }
+  }
+  return wordCount;
+}
 const wordsCount = [
   'machine',
   'matter',
@@ -130,7 +143,7 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+howManyTimes(wordsCount, 'matter')
 // Iteration #8: Bonus
 
 const matrix = [
