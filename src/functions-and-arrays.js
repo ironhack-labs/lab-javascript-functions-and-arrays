@@ -81,6 +81,12 @@ const wordsUnique = [
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(findWord, wordToFind){
+  let n = findWord.includes(wordToFind);
+    return n;
+  }
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
