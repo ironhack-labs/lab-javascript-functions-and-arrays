@@ -40,6 +40,31 @@ function sumNumbers(array) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 sumNumbers(numbers);
 
+// Bonus 3.1
+function sum(array) {
+  let newSum = 0;
+  if (array.length == 0) {
+    return newSum;
+  } 
+  else {
+    for(i = 0; i<array.length; i++) {
+      if  (array[i] === true ){
+        newSum += 1;
+      }
+      else if (typeof(array[i]) === 'string') {
+        newSum += array[i].length;
+      }
+      else if (typeof(array[i]) === 'number') { 
+        newSum += array[i];
+      }
+      else if (typeof(array[i]) === 'object') {
+        console.log('error')
+      }
+    }
+  }
+  return newSum;
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
