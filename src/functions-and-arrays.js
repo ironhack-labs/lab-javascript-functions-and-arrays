@@ -1,18 +1,124 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a, b) {
+  if(a > b) 
+    return a
+  else
+  return b
+}
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+const findLongestWord = (arr) => {
+  let temp = 0;
+  let longest;
+  if(arr.length == 0) {
+    return null
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > temp) {
+      temp = arr[i].length;
+      longest = arr[i]
+    }
+  }
+  return longest
+}
 
+
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumNumbers = (arr) => {
+  if(arr.length == 0) {
+    return 0
+  }
+  const reducer = (accumulator, currentValue) => accumulator + currentValue
+
+  return arr.reduce(reducer)
+}
+
+
+
+// Bonus interation #3.1  (jasmine doesn't think I'm throwing an error...)
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', [8, 10]];
+
+const sum = (arr) => {
+    let sum = 0
+    if(arr.length == 0) {
+      return 0
+    }
+      try {
+        for (let i = 0; i < arr.length; i++) {
+          if (typeof arr[i] == "array" || typeof arr[i] == "object") {
+            throw new TypeError('unsupported data type')
+          }
+        }
+      }
+      catch (err) {
+        console.log(err)
+        return
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        if(typeof arr[i] == "string") {
+          sum += arr[i].length
+        }
+        else if (typeof arr[i] == "number") {
+          sum += arr[i]
+        }
+        else if (typeof arr[i] == "boolean") {
+          if(arr[i] == true) {
+          sum += 1
+        }
+      }
+    }
+    return sum
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+const averageNumbers = (arr) => {
+
+  if(arr.length == 0) {
+    return null
+  }
+  let sum = sumNumbers(arr)
+  return sum / arr.length
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+const averageWordLength = (arr) => {
+
+  if(arr.length == 0) {
+    return null
+  }
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length
+  }
+  return sum / arr.length
+}
+
+// Bonus iteration #4.1 (seems to work in devtools console and codepen, not passing though)
+
+const avg = (arr) => {
+  if(arr.length == 0) {
+    return null
+  }
+  let total = sum(arr)
+  return total / arr.length
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +135,30 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = (arr) => {
+  let uniques = []
+  if(arr.length == 0) {
+    return null
+  }
+  for (let i = 0; i < arr.length; i++) {
+      if(!uniques.includes(arr[i])) {
+        uniques.push(arr[i])
+      }
+    }
+    return uniques
+  }
+  
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (arr, str) => {
+  if(arr.length == 0) {
+    return null
+  }
+  if(arr.includes(str))  return true
+  else return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +174,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, str) => {
+  let count = 0;
+  if(arr.length == 0) {
+    return 0
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] == str) {
+      count++
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
