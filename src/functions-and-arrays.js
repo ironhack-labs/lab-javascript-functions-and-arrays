@@ -1,19 +1,54 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a,b) {
+  return Math.max(a,b);
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(words) {
+  let word = "";
+  if (words != '') {
+  for (let i = 0; i < words.length; i++) {
+    if (word.length < words[i].length) {
+      word = words[i];
+    }
+  }
+  return word; } else return null;
+}
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+  if (numbers !== '') {
+    let sum = 0
+    numbers.forEach(element => {
+    sum += element});
+    return sum
+  }
+  else {
+    return 0
+    
+  } 
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg) {
+  if (numbersAvg != '') {
+    let totalSum = 0;
+    for(let i in numbersAvg) {
+      totalSum += numbersAvg[i];
+    }
+    return totalSum / numbersAvg.length
 
+  } else return null
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength(wordsArr) {
+  if(wordsArr != '') {
+    
+  } else return null;
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -29,9 +64,28 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique != '') {
+    let unique = {};
+    wordsUnique.forEach(function(i) {
+    if(!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  return Object.keys(unique);
+  } else return null;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(wordsFind) {
+  if (wordsFind != '') {
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] == "machine") {
+      return true
+    } else return false
+  } } else return null
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
