@@ -1,18 +1,97 @@
 // Iteration #1: Find the maximum
 
-// Iteration #2: Find longest word
+function maxOfTwoNumbers(a,b) {
+if (a>b) return a
+return b
+}
+
+// // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  let longestWord = words[0]
+  if (words.length == 0) return null
+  else {
+  for (let i = 0; i<words.length; i++) {
+  if (words[i].length > longestWord.length) {
+    longestWord = words[i]
+  }
+  }
+  return longestWord 
+  }
+  }
+findLongestWord(words);
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(array) {
+  if (array.length == 0) return 0
+  else {
+  let sumArray = 0
+  for (let i = 0; i<array.length; i++) {
+  sumArray = sumArray + array[i]
+  }
+  return sumArray
+  }
+  }
+
+// Iteration #3: Calculate the sum
+// actually the test passes in RunJs with the example mixedArr
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(array) {
+  if (array.length == 0) return 0
+  else {
+  let sumArray = 0 
+  for (let i = 0; i<array.length; i++) {
+  if (Number.isFinite(array[i]) == true) {
+  sumArray = sumArray + array[i]
+  }
+  }
+  return sumArray
+  }
+  }
+
+sumNumbers(mixedArr)
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  if (array.length == 0) return null
+  else {
+  let avgArray = 0
+  let sumArray = sumNumbers(array)
+  avgArray = sumArray / (array.length)
+  return avgArray
+  }
+  }
+sumNumbers(numbersAvg)
+averageNumbers(numbersAvg)
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(array) {
+  if (array.length == 0) return null
+  else {
+  let sumArray = 0
+  for (let i = 0; i<array.length; i++) {
+  sumArray = sumArray + array[i].length
+  }
+  avgArray = sumArray / (array.length)
+  return avgArray
+  }
+  }
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +108,34 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  let uniqArray = [];
+  if (array.length == 0) return null
+  else {
+    for (let i = 0; i<array.length; i++) {
+    console.log(array[i])
+      if (uniqArray.indexOf(array[i]) == -1) {
+        uniqArray.push(array[i])
+      }
+    }
+  }
+  return uniqArray
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array,word) {
+   if (array.length == 0 || word == '') return null
+  else {
+      for (let i = 0; i<array.length; i++) {
+  if(array[i]==word) return true
+      }
+return false
+}
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +151,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array,word) {
+  if (array.length == 0 || word == '') return 0
+ else {
+   count = 0;  
+   for (let i = 0; i<array.length; i++) {
+ if(array[i]==word) 
+   count = count +1 
+     }
+return count;
+}
+}
+
 
 // Iteration #8: Bonus
 
@@ -71,3 +189,49 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// function greatestProduct(matrix) {
+//   if (matrix.length == 0) return null
+//  else {
+//    temp = 0;  
+//    result = 0;
+//    for (let i=0; i<matrix.length; i++) {
+//      for (let j = 0; j<matrix[i].length-3; j++) {
+//        temp = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]
+//        if(temp>result) result = temp
+//      }
+//    }
+//    return result;
+//    }
+//    }
+
+// greatestProduct(matrix)
+
+function greatestProduct(matrix) {
+  if (matrix.length == 0) return null
+ else {
+   tempx = 0;
+   tempy = 0;
+   resultx = 0;
+   resulty = 0;
+   //we check horizontally
+   for (let i=0; i<matrix.length; i++) {
+     for (let j = 0; j<matrix[i].length-3; j++) {
+       tempx = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]
+       if(tempx>resultx) resultx = tempx
+     }
+   }
+     //we check vertically
+ for (let j=0; j<matrix[0].length; j++) {
+   for (let i = 0; i<matrix[0].length-3; i++) {
+       tempy = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]
+       if(tempy>resulty) resulty = tempy
+     }
+   }
+    //we compare both results
+   if (resultx>resulty) return resultx
+   return resulty;
+   }
+   }
+
+greatestProduct(matrix)
