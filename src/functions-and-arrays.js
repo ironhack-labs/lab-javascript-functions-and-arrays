@@ -29,26 +29,22 @@ return longestword;
 }
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let sum = 0;
 
 function sumNumbers(numberArr) {
-  let total = 0;
-  let count = 0;
+  let sum = 0;
 
-  numberArr.forEach(function (item) { total += item; count++ });
-  if (numberArr.length > 0) {
-    return total / count;
-  } else if (numberArr.length <= 0) {
-    return null;
-  }
+  for (let i = 0; i < numberArr.length; i++) {
+    sum += numberArr[i];
+ }
+return sum;
 }
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
