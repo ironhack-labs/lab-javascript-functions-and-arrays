@@ -42,6 +42,32 @@ function sumNumbers(arr) {
 
 }
 
+// Iteration #3.1:  A generic sum() function
+
+function sum(arr) {
+  let sumOfArr = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    for (i = 0; i < arr.length; i++) {
+      if (typeof arr[i] == 'number') {
+        sumOfArr = sumOfArr + arr[i];
+      } else if (typeof arr[i] == 'string') {
+        sumOfArr = sumOfArr + arr[i].length;
+      } else if (typeof arr[i] == 'boolean') {
+        if (arr[i] === true) {
+          sumOfArr = sumOfArr + 1;
+        } else {
+          sumOfArr = sumOfArr + 0;
+        }
+      } else {
+       throw new Error("Unsupported data type sir or ma'am");
+      }
+    }
+    return sumOfArr;
+  }
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -67,6 +93,33 @@ function averageWordLength(arr) {
     wordLengthArr.push(arr[i].length);
   }
   return averageNumbers(wordLengthArr)
+}
+
+// Bonus - Iteration #4.1: A generic avg() function
+
+function avg(arr) {
+  let sumOfArr = 0;
+  if (arr.length !== 0) {
+    for (i = 0; i < arr.length; i++) {
+      if (typeof arr[i] == 'number') {
+        sumOfArr = sumOfArr + arr[i];
+      } else if (typeof arr[i] == 'string') {
+        sumOfArr = sumOfArr + arr[i].length;
+      } else if (typeof arr[i] == 'boolean') {
+        if (arr[i] === true) {
+          sumOfArr = sumOfArr + 1;
+        } else {
+          sumOfArr = sumOfArr + 0;
+        }
+      } else {
+       sumOfArr = sumOfArr + 0;
+      }
+    }
+    let average = sumOfArr / (arr.length)
+    return Number(average.toFixed(2));
+  } else {
+    return null;
+  }
 }
 
 // Iteration #5: Unique arrays
