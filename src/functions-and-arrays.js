@@ -79,6 +79,7 @@ const sum = (arr) => {
 }
 
 
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
@@ -92,6 +93,7 @@ const averageNumbers = (arr) => {
   let sum = sumNumbers(arr)
   return sum / arr.length
 }
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -108,6 +110,8 @@ const averageWordLength = (arr) => {
   }
   return sum / arr.length
 }
+
+
 
 // Bonus iteration #4.1 (seems to work in devtools console and codepen, not passing though)
 
@@ -149,6 +153,7 @@ const uniquifyArray = (arr) => {
   }
   
 
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
@@ -159,6 +164,8 @@ const doesWordExist = (arr, str) => {
   if(arr.includes(str))  return true
   else return false
 }
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -187,6 +194,8 @@ const howManyTimes = (arr, str) => {
   }
   return count;
 }
+
+
 
 // Iteration #8: Bonus
 
