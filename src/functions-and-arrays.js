@@ -39,13 +39,11 @@ sumNumbers (numbers);
 const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 
  
-function sumNumbers (arr) {
-  let sum = 0
-  for (let i = 0; i < arr.length; i++) {
-  sum += arr[i];
-  }
-    return sum
+function averageNumbers (arr) {
+  return average = (sumNumbers(arr) / arr.length)
 }
+
+averageNumbers (numbers2)
 
 // Level 2: Array of strings
 
@@ -118,7 +116,7 @@ function howManyTimes (arr, input) {
   return (compare.length);
 }
 
-howManyTimes (words, 'matter')
+
 
 // Iteration #8: Bonus
 
