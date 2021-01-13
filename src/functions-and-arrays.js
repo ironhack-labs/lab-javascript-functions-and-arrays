@@ -38,6 +38,20 @@ function sumNumbers(numbers1) {
  console.log(suma1)
 }
 
+// BONUS: Calculate the Sum
+
+const numbers2 = [1, 2, 3, 4, 5]
+
+function sum(numbers2) {
+  if(!numbers2.length) {return 0}
+  
+  let bonus = 0
+  for(i=0; i<numbers2.length;i++) {
+    bonus = bonus + numbers2[i]
+  }
+  return bonus
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -86,8 +100,41 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+
+  let wordsNoRepeat = [wordsUnique[0]]
+
+  if(!wordsUnique.length) {return null}
+
+  for(i=0;i<wordsUnique.length;i++) {
+
+    for(j=0;i<wordsNoRepeat.length;i++) {
+      
+      if (wordsUnique[i]!==wordsNoRepeat[j]) {
+        wordsNoRepeat.push(wordsUnique[j])
+      }
+    }
+  }
+  return wordsNoRepeat
+}
+uniquiryArray(wordsUnique)
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(palabra) {
+  let isThere=false
+  if(!wordsFind.length) {return null}
+  for(i=0;i<wordsFind.length;i++) {
+    if(palabra===wordsFind[i]) {
+      isThere = true
+    }
+  }
+  return isThere 
+}
+doesWordExist(palabra)
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
