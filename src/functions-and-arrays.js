@@ -1,20 +1,102 @@
+/* (array.length === 0) {return null}*/ 
+
+
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1>num2) {
+    return num1
+  }
+  else if(num1<num2) {
+    return num2
+  }
+  else if(num1 === num2) {
+    return num2
+  }
+}
+console.log(maxOfTwoNumbers(2, 1)) //.toBe(2);
+console.log(maxOfTwoNumbers(5, -7))
+
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+function findLongestWord(arr) {
+  
+  if (arr.length === 0) {
+       return null; 
+     } 
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.length < arr[i].length) {
+      arr = arr[i];
+    }
+  } 
+  return arr
+  
+  } 
+        
+   
+//console.log(findLongestWord([]))                        //X
+//console.log(findLongestWord(['foo']))
+//console.log(findLongestWord(['a', 'zab', '12abc', '$$abcd', 'abcde', 'ironhack']))
+//console.log(findLongestWord(words))
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sum = 0;
+
+function sumNumbers (ar) {
+  for (var i  = 0; i < ar.length; i++){
+    sum  += ar[i];  
+   }
+   return sum
+}
+
+//console.log(sumNumbers([]))
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Level 2: Array of strings
+let sum2 = 0;
+
+function averageNumbers (ar) {
+  
+  if (ar.length === 0) {
+       return null; 
+     } else {
+       for (var i  = 0; i < ar.length; i++){
+    sum2  += ar[i];  
+   }
+    
+     }
+  return sum2 / ar.length;
+}
+
+console.log(averageNumbers([]))
+
+// Level 2: Calculate the average / Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// Iteration #5: Unique arrays
+let sum3  = 0;
+
+function averageWordLength (ar) {
+  for (var i  = 0; i < ar.length; i++){
+    sum3  += i ;  
+   }
+   return sum3 / ar.length
+}
+ //console.log(averageWordLength (wordsArr))
+
+// Iteration #5: Unique arrays  funcitionname 
 const wordsUnique = [
   'crab',
   'poison',
@@ -27,12 +109,39 @@ const wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
+];  
 
-// Iteration #6: Find elements
+function uniquifyArray(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
+let unique = wordsUnique.filter(uniquifyArray);
+
+console.log(unique);
+
+
+
+// Iteration #6: Find elements   completed
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist (arr, word) {
+  
+  if (arr.includes(word)) {
+      console.log(true);
+      } else {
+        console.log(0);
+      }
+}
+
+//doesWordExist( wordsFind , 'machine')
+//doesWordExist([]);
+//doesWordExist(['machine'], 'machine')
+//doesWordExist( wordsFind , 'machine')
+//doesWordExist( ['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')
+//doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')
+
 // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -46,6 +155,24 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+let count = {};
+wordsCount.forEach(function(i) { count[i] = (count[i]||0) + 1;});
+console.log(count);
+
+
+//console.log(unique);
+
+/*
+The native method filter will loop through the array and leave only those entries that pass the given callback function onlyUnique.
+
+onlyUnique checks, if the given value is the first occurring. If not, it must be a duplicate and will not be copied.
+
+This solution works without any extra library like jQuery or prototype.js.
+
+It works for arrays with mixed value types too.*/ 
+
 
 // Iteration #8: Bonus
 

@@ -41,6 +41,8 @@ describe('Find the longest word', () => {
     expect(findLongestWord([])).toBe(null);
   });
 
+  
+
   it('should return the word when called with a single-word array', () => {
     expect(findLongestWord(['foo'])).toBe('foo');
   });
@@ -209,6 +211,8 @@ describe('Find elements', () => {
   it('should create a function named doesWordExist', () => {
     expect(typeof doesWordExist).toBe('function');
   });
+
+  
 
   it('should return null if receives an empty array when called', () => {
     expect(doesWordExist([])).toBe(null);
