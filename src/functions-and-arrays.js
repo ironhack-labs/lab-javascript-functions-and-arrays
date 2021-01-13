@@ -243,3 +243,24 @@ function greatestProduct(matrix) {
   return highestNum;
 }
 
+// Bonus - Iteration #8.1: Product of diagonals
+
+function greatestProductOfDiagonals(matrix) {
+  const arrOfProducts = [];
+  for (i = 0; i < matrix.length; i++) {
+    for (j = 0; j < matrix[i].length; j++) {
+        if (i-2>0 && j-2>0) {
+        let resultOne = matrix[i][j]*matrix[i-1][j-1]*matrix[i-2][j-2]*matrix[i-3][j-3];
+        arrOfProducts.push(resultOne);
+        }
+        if (i-2>0 && j+3 < matrix[i].length) {
+        let resultTwo = matrix[i][j]*matrix[i-1][j+1]*matrix[i-2][j+2]*matrix[i-3][j+3];
+        arrOfProducts.push(resultTwo);
+        }
+      }
+    }
+  let highestNum = Math.max.apply(null, arrOfProducts);
+  return highestNum;
+}
+
+
