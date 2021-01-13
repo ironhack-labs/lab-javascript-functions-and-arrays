@@ -82,7 +82,6 @@ function averageNumbers(arr) {
             sum += arr[i];
         }
         const avgNum = sum / arr.length;
-        console.log('sum', sum);
         console.log('avgNumbers: ', avgNum);
         return avgNum;
     } else {
@@ -112,8 +111,7 @@ function averageWordLength(arr) {
         for (let i = 0; i < arr.length; i++) {
             sum += arr[i].length;
         }
-        const avgWordLength = sum / arr.length;
-        console.log('sum', sum);
+        const avgWordLength = Number((sum / arr.length).toFixed(2));
         console.log('avgWorldLenght', avgWordLength);
         return avgWordLength;
     } else {
@@ -125,23 +123,26 @@ averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1: A generic avg() function
 function avg(arr) {
-    if (arr.length) {
-        let sum = 0;
-        for (let i = 0; i < arr.length; i++) {
-            if (typeof arr[i] === 'string') {
-                sum += arr[i].length;
-            } else if (typeof arr[i] === 'number') {
-                sum += arr[i];
-            }
-        }
-        const avgMix = (sum / arr.length).toI;
-        console.log('avgMix: ', avgMix);
-        return avgMix;
-    } else {
+    if (!arr.length) {
         return null;
     }
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === 'string') {
+            sum += arr[i].length;
+        } else if (typeof arr[i] === 'number') {
+            sum += arr[i];
+        } else if (typeof arr[i] === 'boolean') {
+            if (arr[i]) {
+                sum += 1;
+            }
+        }
+    }
+    const avgMix = Number((sum / arr.length).toFixed(2));
+    console.log('avgMix: ', avgMix);
+    return avgMix;
 }
-sum(mixedArr);
+avg(mixedArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -158,6 +159,21 @@ const wordsUnique = [
     'bring',
 ];
 
+function uniquifyArray(words) {
+    const unique = [];
+    if (!words.length) {
+        return null;
+    }
+    for (let el of words) {
+        if (words.indexOf(el) === -1) {
+            words.push(el);
+        }
+    }
+    return unique;
+}
+
+uniquifyArray(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = [
     'machine',
@@ -169,16 +185,19 @@ const wordsFind = [
     'truth',
     'disobedience',
 ];
-function doesWordExist(word) {
-    for (let i = 0; i < wordsFind.length; i++) {
-        if ((wordsFind[i] = word)) {
+function doesWordExist(arr, word) {
+    if (!arr.length) {
+        return null;
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if ((arr[i] = word)) {
             console.log(`${word} word found at index ${i}`);
-            return;
+            return true;
         }
     }
-    return;
+    return false;
 }
-doesWordExist('matter');
+doesWordExist(wordsFind, 'matter');
 
 // Iteration #7: Count repetition
 const wordsCount = [
