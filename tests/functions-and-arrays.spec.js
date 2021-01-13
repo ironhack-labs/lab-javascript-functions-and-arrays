@@ -191,7 +191,7 @@ describe('Unique array', () => {
   });
 
   it('should return the correct uniqified array when an array of the same elements passed as argument', () => {
-    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual([ 'Ironhack' ]);
   });
 
   it('should return the same array when no element is repeated', () => {
