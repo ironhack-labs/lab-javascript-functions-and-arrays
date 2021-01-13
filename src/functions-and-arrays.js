@@ -83,8 +83,8 @@ function doesWordExist(wordsFind) {
   for (let i = 0; i < wordsFind.length; i++) {
     if (wordsFind[i] == "machine") {
       return true
-    } else return false
-  } } else return null
+    } else return false } 
+  } else return null
 }
 // Iteration #7: Count repetition
 const wordsCount = [
