@@ -40,7 +40,7 @@ function sumNumbers(array) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 sumNumbers(numbers);
 
-// Bonus 3.1
+// #3.1 Bonus
 function sum(array) {
   let newSum = 0;
   if (array.length == 0) {
@@ -48,17 +48,19 @@ function sum(array) {
   } 
   else {
     for(i = 0; i<array.length; i++) {
-      if  (array[i] === true ){
-        newSum += 1;
-      }
-      else if (typeof(array[i]) === 'string') {
-        newSum += array[i].length;
-      }
-      else if (typeof(array[i]) === 'number') { 
-        newSum += array[i];
-      }
-      else if (typeof(array[i]) === 'object') {
-        console.log('error')
+      if (typeof(array[i]) === 'object') {
+                console.log('error')
+              } 
+      else {
+        if  (array[i] === true ){
+          newSum += 1;
+        }
+        else if (typeof(array[i]) === 'string') {
+          newSum += array[i].length;
+        }
+        else if (typeof(array[i]) === 'number') { 
+          newSum += array[i];
+        }
       }
     }
   }
@@ -94,6 +96,8 @@ function averageWordLength(array) {
   }
 }
 averageWordLength(wordsArr);
+
+// #4.1 Bonus
 
 
 
@@ -141,6 +145,8 @@ function doesWordExist(array, word) {
 }
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 doesWordExist(wordsFind, 'eating')
+
+
 // Iteration #7: Count repetition
 function howManyTimes(array, word) {
   let wordCount = 0;
@@ -169,7 +175,31 @@ const wordsCount = [
   'matter'
 ];
 howManyTimes(wordsCount, 'matter')
+
+
 // Iteration #8: Bonus
+
+function greatestProduct(matrix) {
+  let max = 0;
+  let temp = 0;
+  for (i = 0; i < matrix.length; i++) {
+    for (j = 0; j < matrix[i].length; j++) {
+      if ((j - 3) >= 0) { 
+        temp = matrix[i][j] * matrix[i][j-1] * matrix[i][j-2] * matrix[i][j-3];
+        if (temp > max) {
+          max = temp;
+        }
+      }
+      if ((i - 3) >= 0) {
+        temp = matrix[i][j] * matrix[i-1][j] * matrix[i-2][j] * matrix[i-3][j];
+        if (temp > max) {
+          max = temp;
+        }
+      }
+    }
+  }
+  return max;
+}
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -193,3 +223,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+greatestProduct(matrix);
