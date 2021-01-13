@@ -49,14 +49,14 @@ function sum(array) {
   else {
     for(i = 0; i<array.length; i++) {
       if (typeof(array[i]) === 'object') {
-                throw new Error('unsupported data');
-              } 
+          throw new Error("Unsupported data type sir or ma'am");
+      } 
       else if (typeof(array[i]) === 'string') {
           newSum += array[i].length;
-        }
+      }
       else { 
           newSum += array[i];
-        }
+      }
     }
   }
   return newSum;
@@ -93,8 +93,26 @@ function averageWordLength(array) {
 averageWordLength(wordsArr);
 
 // #4.1 Bonus
-
-
+function avg(array) {
+  let newSum = 0;
+  if (array.length == 0) {
+    return newSum = null;
+  } 
+  else {
+    for(i = 0; i<array.length; i++) {
+      if (typeof(array[i]) === 'string') {
+          newSum += array[i].length;
+      }
+      else { 
+          newSum += array[i];
+      }
+    }
+  }
+  let avgOfArray = newSum/array.length;
+  return avgOfArray;
+}
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(avg(mixedArr1));
 
 // Iteration #5: Unique arrays
 function uniquifyArray(array) {
