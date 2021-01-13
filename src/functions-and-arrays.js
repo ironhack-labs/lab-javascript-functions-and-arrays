@@ -49,19 +49,14 @@ function sum(array) {
   else {
     for(i = 0; i<array.length; i++) {
       if (typeof(array[i]) === 'object') {
-                console.log('error')
+                throw new Error('unsupported data');
               } 
-      else {
-        if  (array[i] === true ){
-          newSum += 1;
-        }
-        else if (typeof(array[i]) === 'string') {
+      else if (typeof(array[i]) === 'string') {
           newSum += array[i].length;
         }
-        else if (typeof(array[i]) === 'number') { 
+      else { 
           newSum += array[i];
         }
-      }
     }
   }
   return newSum;
@@ -138,6 +133,9 @@ function doesWordExist(array, word) {
     for(i = 0; i<array.length; i++) {
       if (array[i] === word) {
         doesWordExist = true;
+      }  
+      if (doesWordExist === true) { 
+        return doesWordExist;
       }
     }
   }
