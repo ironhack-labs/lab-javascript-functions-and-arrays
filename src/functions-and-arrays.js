@@ -23,6 +23,15 @@ function findLongestWord(words) {
     }
   }
   return words[indexOfLongestWord];
+
+  // alternative - shorter
+  // let longestWord = '';
+  // for (let word of words) {
+  //   if (word.length > longestWord.length) {
+  //     longestWord = word;
+  //   }
+  // }
+  // return longestWord;
 }
 
 // Iteration #3: Calculate the sum
@@ -119,13 +128,19 @@ function uniquifyArray(words) {
   }
 
   let uniqArr = [];
-  for (word of words) {
+  for (let word of words) {
     if (!uniqArr.includes(word)) {
       uniqArr.push(word);
     }
   }
+  // for (let word of words) {
+  //   if (words.indexOf(word) < 0) {
+  //     uniqArr.push(word);
+  //   }
+  // }
 
   return uniqArr;
+  
 }
 
 // Iteration #6: Find elements
