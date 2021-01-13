@@ -1,18 +1,96 @@
 // Iteration #1: Find the maximum
+let num1 = 6
+let num2 = 10
+
+function maxOfTwoNumbers (num1,num2) {
+    if (num1 > num2) {
+      return num1
+    } else if (num2 > num1) {
+      return num2
+    } else {
+      return num1
+    }
+}
+
+console.log(maxOfTwoNumbers(num1,num2))
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function  findLongestWord (array) {
+  let largo = 0
+  let palabra = null
+  for (i=0; i<array.length; i++) {
+   if(largo < array[i].length) {
+     largo = array[i].length
+     palabra = array[i]
+
+   }
+  }
+  return palabra
+} 
+
+console.log(findLongestWord(words))
+
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  function sumNumbers(numbers) {
+    sumN=0
+      for(let i=0 ; i < numbers.length; i++){
+          sumN += numbers[i]
+          
+      }
+      return sumN
+  }
+
+console.log(sumNumbers(numbers))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+    let sumAv=0
+    
+    if (!Array.isArray(numbersAvg) || !numbersAvg.length) {
+      return null
+    } 
+    else {
+      for(let i=0 ; i < numbersAvg.length; i++){
+          sumAv += numbersAvg[i] / numbersAvg.length
+          
+      }
+      }
+      return Math.round(sumAv)
+  }
+
+console.log(averageNumbers(numbersAvg))
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+    let largo = []
+    if (!Array.isArray(wordsArr) || !wordsArr.length) {
+      return null
+    } 
+    else {
+  for (i=0; i<wordsArr.length; i++) {
+     largo.push(wordsArr[i].length)
+  }
+   sumP=0
+      for(let i=0 ; i < largo.length; i++){
+          sumP += largo[i] / largo.length
+          
+      }}
+      return sumP
+} 
+
+console.log(averageWordLength(wordsArr))
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +107,41 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  let newArray= [] 
+  if (!Array.isArray(wordsArr) || !wordsArr.length) {
+      return null
+    } 
+    else {
+  for (let i=0; i<wordsUnique.length; i++){
+    if(newArray.indexOf(wordsUnique[i]) === -1) {
+    newArray.push(wordsUnique[i]) } 
+    else {
+      continue;
+    }
+    
+  }}
+  return newArray
+} 
+
+console.log(uniquifyArray(wordsUnique))
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (wordsFind,word) {
+  for (let i = 0 ; i < wordsFind.length; i++) {
+    if (wordsFind[i] === word) {
+      return true
+    } 
+    } 
+    return false
+  }
+  
+
+
+doesWordExist (wordsFind,"eating")
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +157,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes (wordsCount,contarPalabra) {
+  sumPalabra=0
+  for (let i = 0 ; i < wordsCount.length; i++) {
+    if (wordsCount[i] === contarPalabra) {
+      sumPalabra+=1
+       
+    } 
+    } 
+    return sumPalabra
+  }
+  
+howManyTimes (wordsCount,"matter")
 
 // Iteration #8: Bonus
 
@@ -71,3 +196,42 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+//BONUS 3.1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum (mixedArr) {
+    let suma = 0
+      for(let i=0 ; i < mixedArr.length; i++){
+          if (typeof mixedArr[i] === 'string') {
+            suma += mixedArr[i].length
+          } else {
+            suma += mixedArr[i]
+  }
+      console.log(mixedArr[i])    
+      }
+      return suma
+  }
+
+console.log(sum(mixedArr))
+
+
+//BONUS 4.1
+
+function avg (mixedArr) {
+    let suma = 0
+    
+      for(let i=0 ; i < mixedArr.length; i++){
+          if (typeof mixedArr[i] === 'string') {
+            suma += mixedArr[i].length
+          } else {
+            suma += mixedArr[i]
+  }
+    
+      }
+      return suma/mixedArr.length
+  }
+
+console.log(avg(mixedArr))
