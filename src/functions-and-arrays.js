@@ -10,12 +10,15 @@ function maxOfTwoNumbers(num1,num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
+  // create a variable 'longestWord'
   let longestWord = "";
-  
+  // discard case the variable is empty
   if (arr.length === 0) {
     return null;
   } else {
+  //iterate over arr
   for (let i = 0; i < arr.length; i++) {
+    //if the word we are at is longer - it becomes longestWord
     if (longestWord.length < arr[i].length) {
       longestWord = arr[i];
     } 
@@ -37,6 +40,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   if (array.length === 0) {
@@ -46,6 +50,7 @@ function averageNumbers(array) {
     return (sumNumbers(array)) / array.length
   }
 }
+
 
 
 // Level 2: Array of strings
@@ -94,8 +99,24 @@ if (ar.length === 0) {
 }
 }
 }
-
-  
+/* // correction lab
+function uniquifyArray(words) {
+  // create a new empty array unique
+  const unique = [];
+  // iterate over words
+  for (let word of words) {
+  // for every element -> check if that element is not in the unique array 
+    if (unique.indexOf(word) === - 1) {
+  //if that is the case we put it in there 
+      unique.push(word)
+    }
+    // otherwise we go in the loop
+  }
+  // after the loop we return unique
+  return unique
+}
+uniquifyArray(words)
+*/  
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -114,6 +135,21 @@ function doesWordExist(array, word) {
 }
 
 doesWordExist(words,'subset')
+
+/* // correction lab
+function doesWordExist(haystack, needle) {
+  if (haystack.length === 0 ) {
+    return null;
+  }
+  for (let word of haystack) {
+    if (word === needle) {
+      return true
+    }
+  }
+    return false
+}
+*/
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -141,6 +177,18 @@ function howManyTimes(array,word) {
   return occurrences
 }
 }
+/* correction lab
+function howManyTimes(haystack,needle) {
+let count = 0;
+for(let word of haystack) {
+if(word === needle) {
+ count++
+ }
+}
+return count;
+}
+*/
+
 // Iteration #8: Bonus
 
 const matrix = [
