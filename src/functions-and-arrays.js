@@ -44,8 +44,6 @@ function findLongestWord (someArray) {
       break
 
   }
-
-
 }
 
 console.log(findLongestWord (words))
