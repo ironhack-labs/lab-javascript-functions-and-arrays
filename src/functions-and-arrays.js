@@ -17,7 +17,7 @@ const words = [
     "crackpot",
 ];
 
-const findLongestWord = (array) => {
+function findLongestWord(array) {
     if (array.length > 0) {
         let result = array.sort((a, b) => b.length - a.length);
         console.log(result);
@@ -25,7 +25,7 @@ const findLongestWord = (array) => {
     } else {
         return null;
     }
-};
+}
 
 // Iteration #3: Calculate the sum
 
@@ -144,12 +144,12 @@ const wordsCount = [
 
 function howManyTimes(array, name) {
     if (array.length > 0) {
-        let soma = 0
-        array.forEach(item => {
+        let soma = 0;
+        array.forEach((item) => {
             if (item === name) {
                 soma++;
             }
-        })
+        });
         return soma;
     } else {
         return 0;
