@@ -37,6 +37,8 @@ function sumNumbers (arr) {
 
 sumNumbers(numbers)
 
+// Bonus - Iteration #3.1: A generic `sum()` function
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -62,6 +64,28 @@ function averageWordLength(str) {
 
 averageWordLength(wordsArr)
 
+// Bonus - Iteration #4.1: A generic `avg()` function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  if (str.length === 0) {
+    return null
+  }
+  let totalElements = 0
+  for (let element of arr) {
+    if (typeof element === 'number') {
+      totalElements += element
+    } else if (typeof element === 'string') {
+        totalElements += element.length
+      } else if (typeof element === "boolean"){
+        totalElements += element  
+       }
+    }
+  return totalElements/arr.length
+ }
+
+avg(mixedArr)
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -77,25 +101,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(words) {
-  if (words.length === 0) {
-    return null
+function uniquifyArray (duplicateArray) {
+  if (duplicateArray.length === 0){
+    return null;
   }
-  let duplicate = [];
- for (let i=0; i<words.length; i++) {
-     let exist = false;
-    for (let j=0; j<duplicate.length; j++) {
-    if (words[i] === duplicate[j]) {
-     exist = true;
-   }
- }
-    if (!exist) {
-      duplicate.push(words[i])
-   }
- }
-   return duplicate
-}  
-
+let uniques = [];
+  for (let word of duplicateArray) {
+    if (uniques.indexOf(word) === -1) {
+      uniques.push(word)
+    }
+  }
+  return uniques 
+}
 
 uniquifyArray(wordsUnique)
 
