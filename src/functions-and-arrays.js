@@ -1,10 +1,21 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(a, b) {
-  if (a > b) {
-    return a;
-  }
-  return b;
+
+// Old way:
+
+// function maxOfTwoNumbers(a, b) {
+//   if (a > b) {
+//     return a;
+//   }
+//   return b;
+// }
+
+// New way
+
+function maxOfTwoNumbers (a, b){
+  let aux = [a, b];
+  return aux.sort((x, y) => {return x - y})[1]
 }
+
 
 // Iteration #2: Find longest word
 const words = [
@@ -16,43 +27,95 @@ const words = [
   "orchard",
   "crackpot",
 ];
+
+// old way
+
+// function findLongestWord(words) {
+//   if (words.length <= 0) {
+//     return null;
+//   } else {
+//     const n = words.length;
+//     let longestWord = words[0];
+//     let wordSize = words[0].length;
+//     for (i = 1; i < n; i++) {
+//       if (wordSize < words[i].length) {
+//         longestWord = words[i];
+//         wordSize = words[i].length;
+//       }
+//     }
+//     return longestWord;
+//   }
+// }
+
+// new way
+
 function findLongestWord(words) {
-  if (words.length <= 0) {
+  if(!words.length){
     return null;
-  } else {
-    const n = words.length;
-    let longestWord = words[0];
-    let wordSize = words[0].length;
-    for (i = 1; i < n; i++) {
-      if (wordSize < words[i].length) {
-        longestWord = words[i];
-        wordSize = words[i].length;
-      }
-    }
-    return longestWord;
   }
+
+  let biggest = words[0];
+
+  words.reduce((acc, value) => {
+    if(value.length > biggest.length){
+      biggest = value;
+      return biggest;
+    }
+
+  },biggest);
+
+  return biggest;
 }
 
 // Iteration #3: Calculate the sum
+
+
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+// old way
+
+// function sumNumbers(numbers) {
+//   const n = numbers.length;
+//   let arraySum = 0;
+//   for (i = 0; i < n; i++) {
+//     arraySum += numbers[i];
+//   }
+//   return arraySum;
+// }
+
+// new way
+
 function sumNumbers(numbers) {
-  const n = numbers.length;
-  let arraySum = 0;
-  for (i = 0; i < n; i++) {
-    arraySum += numbers[i];
-  }
-  return arraySum;
+  let sum = 0;
+  numbers.reduce((acc, value) => {
+    acc += value
+    sum = acc;
+    return acc
+  },0)
+  return sum;
 }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+//old way
+// function averageNumbers(numbers) {
+//   if (numbers.length <= 0) {
+//     return null;
+//   } else {
+//     return sumNumbers(numbers) / numbers.length;
+//   }
+// }
+
+//new way
+
 function averageNumbers(numbers) {
-  if (numbers.length <= 0) {
+  if(!numbers.length){
     return null;
-  } else {
-    return sumNumbers(numbers) / numbers.length;
   }
+  return sumNumbers(numbers)/numbers.length;
 }
 
 // Level 2: Array of strings
@@ -68,18 +131,31 @@ const wordsArr = [
   "fuel",
   "palace",
 ];
-function averageWordLength(words) {
+
+//old way
+
+// function averageWordLength(words) {
+//   if (words.length <= 0) {
+//     return null;
+//   } else {
+//     let wordsLength = [];
+//     const n = words.length;
+//     for (i = 0; i < n; i++) {
+//       wordsLength.push(words[i].length);
+//     }
+//     return averageNumbers(wordsLength);
+//   }
+// }
+
+//new way
+
+function averageWordLength(words){
   if (words.length <= 0) {
     return null;
-  } else {
-    let wordsLength = [];
-    const n = words.length;
-    for (i = 0; i < n; i++) {
-      wordsLength.push(words[i].length);
-    }
-    return averageNumbers(wordsLength);
   }
+  return averageNumbers(words.map(word => word.length));
 }
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -95,19 +171,33 @@ const wordsUnique = [
   "simple",
   "bring",
 ];
-function uniquifyArray(words) {
+
+//old way
+
+// function uniquifyArray(words) {
+//   if (words.length <= 0) {
+//     return null;
+//   } else {
+//     let newWordsArray = [];
+//     const n = words.length;
+//     for (i = 0; i < n; i++) {
+//       if (newWordsArray.indexOf(words[i]) == -1) {
+//         newWordsArray.push(words[i]);
+//       }
+//     }
+//     return newWordsArray;
+//   }
+// }
+
+
+// new way
+
+function uniquifyArray(words){
   if (words.length <= 0) {
     return null;
-  } else {
-    let newWordsArray = [];
-    const n = words.length;
-    for (i = 0; i < n; i++) {
-      if (newWordsArray.indexOf(words[i]) == -1) {
-        newWordsArray.push(words[i]);
-      }
-    }
-    return newWordsArray;
   }
+  return words.filter(
+    (word, index, oldArray) => oldArray.indexOf(word) == index);
 }
 
 // Iteration #6: Find elements
@@ -121,21 +211,35 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
-function doesWordExist(wordsArray, word) {
+
+
+//old way
+
+// function doesWordExist(wordsArray, word) {
+//   if (wordsArray.length <= 0) {
+//     return null;
+//   } else {
+//     const n = wordsArray.length;
+//     let i = 0;
+//     while (i < n && wordsArray[i] !== word) {
+//       i++;
+//     }
+//     if (i < n) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+// }
+
+// new way
+
+function doesWordExist(wordsArray, word){
   if (wordsArray.length <= 0) {
     return null;
-  } else {
-    const n = wordsArray.length;
-    let i = 0;
-    while (i < n && wordsArray[i] !== word) {
-      i++;
-    }
-    if (i < n) {
-      return true;
-    } else {
-      return false;
-    }
   }
+  
+  return wordsArray.filter(value => value == word).length > 0;
 }
 
 // Iteration #7: Count repetition
@@ -152,18 +256,29 @@ const wordsCount = [
   "disobedience",
   "matter",
 ];
+// old way
+
+// function howManyTimes(wordsArray, word) {
+//   const n = wordsArray.length;
+//   let repetition = 0;
+//   for (i = 0; i < n; i++) {
+//     if (wordsArray[i] == word) {
+//       repetition++;
+//     }
+//   }
+//   return repetition;
+// }
+
+
+// new way
+
 function howManyTimes(wordsArray, word) {
-  const n = wordsArray.length;
-  let repetition = 0;
-  for (i = 0; i < n; i++) {
-    if (wordsArray[i] == word) {
-      repetition++;
-    }
-  }
-  return repetition;
+
+  return wordsArray.filter(value => value == word).length;
 }
 
 // Iteration #8: Bonus
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
