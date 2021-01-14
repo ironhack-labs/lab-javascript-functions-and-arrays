@@ -22,15 +22,85 @@ function findLongestWord(wordsArray) {
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbersArray = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sumNumbers(numbersArray) {
+    if (numbersArray.length > 0) {
+        let sum = 0
+        numbersArray.forEach(element => {
+            sum += element
+        });
+        return sum
+    } else return 0;
+}
+
+// Bonus
+function sum(mixedArr) {
+    if (mixedArr.length > 0) {
+        let sum = 0
+        mixedArr.forEach(element => {
+            switch (typeof element) {
+                case "number":
+                    sum += element
+                    break
+                case "string":
+                    sum += element.length
+                    break
+                case "boolean":
+                    if (element) {
+                        sum += 1
+                    }
+                    break
+                default:
+                    //METER THROW
+            }
+
+        });
+        return sum
+    } else return 0;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg) {
+    if (numbersAvg.length > 0) {
+        return (sumNumbers(numbersAvg) / numbersAvg.length)
+    } else return null
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(wordsArr) {
+    if (wordsArr.length > 0) {
+        const wordsLengthArr = wordsArr.map(element => element.length)
+        return averageNumbers(wordsLengthArr)
+    } else return null
+}
+
+// Bonus
+//const arr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+    if (arr.length > 0) {
+        const mixedNums = arr.map(element => {
+            switch (typeof element) {
+                case "number":
+                    return element
+                case "string":
+                    return element.length
+                case "boolean":
+                    if (element) {
+                        return 1
+                    } else return 0
+                default:
+            }
+        })
+        return Math.round(averageNumbers(mixedNums) * 100) / 100
+    } else return null
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
     'crab',
