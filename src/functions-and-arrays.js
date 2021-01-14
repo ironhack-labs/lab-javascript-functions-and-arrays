@@ -51,7 +51,7 @@ function sum(mixedArr) {
                 }
                 break
             default:
-                //METER THROW
+                throw new Error("Unsupported data type sir or ma'am")
         }
 
     });
