@@ -37,14 +37,75 @@ function sumNumbers(list1){
   for(let i=0;i<listSize;i++){
     totalSum +=list1[i]
   }
-return totalSum
+  if(sumNumbers === ""){
+    return null
+  }else{
+  return totalSum}
+ 
 }
+
+// function sum(listTobeReduced){
+//   let totalSumToBeReturned = 0;
+//   let listSize = listTobeReduced.length
+//   let itemToBeAdded =0
+
+//   for(let i=0;i<listSize;i++){
+
+//     // console.log(typeof listTobeReduced[i])
+
+//       if(typeof(list1[i]) === 'boolean'){
+//           if(list1[i] === false){
+//             itemToBeAdded = 0
+//           }else{
+//             itemToBeAdded = 1
+//           }
+//       }else if(typeof(list1[i]) === 'string'){
+//         itemToBeAdded = list1[i].length
+//       }else if(typeof(list1[i]) === 'number'){
+//         itemToBeAdded = list1[i]
+//       }else if(typeof(list1[i]) === 'object'){
+//         itemToBeAdded = list1[i].length
+//       }
+//     totalSumToBeReturned +=itemToBeAdded
+//   }
+//    return totalSumToBeReturned
+// }
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+function averageNumbers(ArrayTobeAveraged){
+  if(ArrayTobeAveraged.length ===0){
+    return null
+  }
+  let lenArray = ArrayTobeAveraged.length
+  let totalArray = sumNumbers(ArrayTobeAveraged)
+  return totalArray/lenArray
+}
+
+
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(ArrayOfWords){
+  if(ArrayOfWords.length===0){
+    return null
+  }
+  let lenArray = ArrayOfWords.length
+  let totalWordsCount = 0
+  for(let i=0; i<lenArray; i++){
+    totalWordsCount += ArrayOfWords[i].length
+  }
+  return totalWordsCount/lenArray
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -61,6 +122,24 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arrayOfElements){
+  if(arrayOfElements.length === 0){
+    return null
+  }
+  let uniqueList = []
+  let lenArray = arrayOfElements.length
+
+  for (let i=0; i<lenArray; i++){
+    console.log(i, arrayOfElements[0],((arrayOfElements[0]) in uniqueList))
+
+    if(!((arrayOfElements[0]) in uniqueList)){
+      uniqueList.push(arrayOfElements[0])
+    }
+    console.log(uniqueList)
+  }
+  return uniqueList
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
