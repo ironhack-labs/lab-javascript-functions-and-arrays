@@ -175,6 +175,60 @@ const matrix = [
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix) {
+function horizontalProduct(colIndex, arr) {
+    if (arr[colIndex + 1] && arr[colIndex + 2] && arr[colIndex + 3]) {
+        return arr[colIndex] * arr[colIndex + 1] * arr[colIndex + 2] * arr[colIndex + 3]
+    } else return 0
+}
 
+function verticalProduct(rowIndex, colIndex, matrix) {
+    if (matrix[rowIndex + 1] && matrix[rowIndex + 2] && matrix[rowIndex + 3]) {
+        if (matrix[rowIndex + 1][colIndex] && matrix[rowIndex + 2][colIndex] && matrix[rowIndex + 3][colIndex]) {
+            return matrix[rowIndex][colIndex] * matrix[rowIndex + 1][colIndex] * matrix[rowIndex + 2][colIndex] * matrix[rowIndex + 3][colIndex]
+        } else return 0
+    } else return 0
+}
+
+function greatestProduct(matrix) {
+    let gProduct = 0
+    for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
+        for (let colIndex = 0; colIndex < matrix[rowIndex].length; colIndex++) {
+            const horizontalProductValue = horizontalProduct(colIndex, matrix[rowIndex])
+            const verticalProductValue = verticalProduct(rowIndex, colIndex, matrix)
+            if (horizontalProductValue > gProduct) { gProduct = horizontalProductValue }
+            if (verticalProductValue > gProduct) { gProduct = verticalProductValue }
+        }
+
+    }
+    return gProduct
+}
+
+function diagonalProduct(rowIndex, colIndex, matrix) {
+    if (matrix[rowIndex + 1] && matrix[rowIndex + 2] && matrix[rowIndex + 3]) {
+        if (matrix[rowIndex + 1][colIndex + 1] && matrix[rowIndex + 2][colIndex + 2] && matrix[rowIndex + 3][colIndex + 3]) {
+            return matrix[rowIndex][colIndex] * matrix[rowIndex + 1][colIndex + 1] * matrix[rowIndex + 2][colIndex + 2] * matrix[rowIndex + 3][colIndex + 3]
+        } else return 0
+    } else return 0
+}
+
+function reverseDiagonalProduct(rowIndex, colIndex, matrix) {
+    if (matrix[rowIndex + 1] && matrix[rowIndex + 2] && matrix[rowIndex + 3]) {
+        if (matrix[rowIndex + 1][colIndex - 1] && matrix[rowIndex + 2][colIndex - 2] && matrix[rowIndex + 3][colIndex - 3]) {
+            return matrix[rowIndex][colIndex] * matrix[rowIndex + 1][colIndex - 1] * matrix[rowIndex + 2][colIndex - 2] * matrix[rowIndex + 3][colIndex - 3]
+        } else return 0
+    } else return 0
+}
+
+function greatestProductOfDiagonals(matrix) {
+    let gProduct = 0
+    for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
+        for (let colIndex = 0; colIndex < matrix[rowIndex].length; colIndex++) {
+            const diagonalProductValue = diagonalProduct(rowIndex, colIndex, matrix)
+            const reverseDiagonalProductValue = reverseDiagonalProduct(rowIndex, colIndex, matrix)
+            if (diagonalProductValue > gProduct) { gProduct = diagonalProductValue }
+            if (reverseDiagonalProductValue > gProduct) { gProduct = reverseDiagonalProductValue }
+        }
+
+    }
+    return gProduct
 }
