@@ -84,25 +84,25 @@ function averageWordLength(wordsArr) {
 //const arr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(arr) {
-    if (arr.length > 0) {
-        const mixedNums = arr.map(element => {
-            switch (typeof element) {
-                case "number":
-                    return element
-                case "string":
-                    return element.length
-                case "boolean":
-                    if (element) {
-                        return 1
-                    } else return 0
-                default:
-            }
-        })
-        return Math.round(averageNumbers(mixedNums) * 100) / 100
-    } else return null
+    if (arr.length === 0) return null
+    const mixedNums = arr.map(element => {
+        switch (typeof element) {
+            case "number":
+                return element
+            case "string":
+                return element.length
+            case "boolean":
+                if (element) {
+                    return 1
+                } else return 0
+            default:
+        }
+    })
+    return Math.round(averageNumbers(mixedNums) * 100) / 100
+
 }
 // Iteration #5: Unique arrays
-const wordsUnique = [
+const wordsUnique = [ //
     'crab',
     'poison',
     'contagious',
@@ -116,8 +116,25 @@ const wordsUnique = [
     'bring'
 ];
 
+function uniquifyArray(arr) {
+    console.log(`Original ${arr}`)
+    if (arr.length > 0) {
+        let simplifiedArr = []
+        arr.forEach(element => {
+            if (!simplifiedArr.includes(element)) {
+                simplifiedArr.push(element)
+            }
+        })
+        return simplifiedArr
+    } else return null
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, searchWord) {
+    if (arr.length <= 0) return null
+    return arr.includes(searchWord)
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
