@@ -131,12 +131,12 @@ function uniquifyArray(arrayOfElements){
   let lenArray = arrayOfElements.length
 
   for (let i=0; i<lenArray; i++){
-    console.log(i, arrayOfElements[0],((arrayOfElements[0]) in uniqueList))
 
-    if(!((arrayOfElements[0]) in uniqueList)){
-      uniqueList.push(arrayOfElements[0])
-    }
-    console.log(uniqueList)
+      if(!(arrayOfElements[i] in uniqueList)){
+
+        uniqueList.push(arrayOfElements[i])
+      }
+      console.log(uniqueList)
   }
   return uniqueList
 }
