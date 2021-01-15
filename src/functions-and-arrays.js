@@ -9,23 +9,26 @@
 // Iteration #2: Find longest word
 /* 
 NOTE: Here I don't know where the mistakes are. When I remove the comment, I get only Errors in the Jasmine test.
+*/
+
 
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-function findLongestWord(arr) {
-  let longestWord = "";
-   if (arr.length === 0) {
-    return null;
-   } else {
-    for (let i = 0; i < arr.length; i++) {
-    if (longestWord.length < arr[i].length) {
-      longestWord = arr[i];
+
+function findLongestWord (words) {
+  let paper = "";
+  for (let i=0, i < words.length; i ++) {
+    if (words.length===0){
+      return null;
+    } else {
+    if (words[i].length>longestWord.length){
+     longestWord=(words[i]);
     }
   }
   return longestWord;
 }
   
-console.log (findLongestWord(words)); */
+console.log (findLongestWord(words));
 
 
   
@@ -96,11 +99,27 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray (arrayWords) {
-  if 
-for (let i = 0; i < arrayWords.length; i++) {
-  array.splice((arrayWords[i], 1);
-}
+
+function uniquifyArray(arr) {
+  let uniquifyArray = [];
+  if (arr.length === 0) {
+    return null;
+  } else {
+//for (let i = 0; i <arr.length; i++) {
+  for (let word of arr) {
+   // if (arr[i]===uniquifyArray) {
+    if (uniquifyArray.indexOf(words) === -1) 
+    {
+    uniquifyArray.push(word)
+  };
+  return uniquifyArray
+  }
+
+uniquifyArray(wordsUnique)
+
+
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
