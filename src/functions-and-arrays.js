@@ -1,7 +1,5 @@
 // Iteration #1: Find the maximum
 
-// antigo
-
 function maxOfTwoNumbers(x, y) {
     return Math.max(x, y);
 }
@@ -17,25 +15,71 @@ const words = [
     "crackpot",
 ];
 
-function findLongestWord(array) {
-    if (array.length > 0) {
-        let result = array.sort((a, b) => b.length - a.length);
-        console.log(result);
-        return result[0];
-    } else {
+// function findLongestWord(array) {
+//     if (array.length > 0) {
+//         let result = array.sort((a, b) => b.length - a.length);
+//         console.log(result);
+//         return result[0];
+//     } else {
+//         return null;
+//     }
+// }
+
+const findLongestWord = (array) => {
+    if (!array.length > 0) {
         return null;
     }
-}
+    let array2 = array.map((word) => {
+        return word.length;
+    });
+    console.log(array2);
+
+    let longestWord = Math.max(...array2);
+    return array[array2.indexOf(longestWord)];
+};
+
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(array) {
-    let soma = 0;
-    array.forEach((item) => (soma += item));
-    return soma;
-}
+// function sumNumbers(array) {
+//   let soma = 0;
+//   array.forEach((item) => (soma += item));
+//   return soma;
+// }
+
+const sumNumbers = (array) => {
+    if (!array.length > 0) {
+        return 0;
+    }
+    let finalSum = array.reduce((ac, e) => {
+        return ac + e;
+    });
+    return finalSum;
+};
+
+const sum = (array) => {
+    if (!array.length > 0) {
+        return 0;
+    }
+    return array
+        .map((item) => {
+            if (typeof item === "object") {
+                throw new Error("Unsupported data type sir or ma'am");
+            } else if (typeof item === "string" && Number(item)) {
+                return Number(item);
+            } else if (typeof item === "string") {
+                return item.length;
+            } else if (typeof item === "boolean") {
+                return Number(item);
+            } else {
+                return item;
+            }
+        })
+        .reduce((acc, el) => acc + el);
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
