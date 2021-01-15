@@ -1,74 +1,148 @@
+
+// const newFoods = foods.map((food) => {
+//   return food[0].toUpperCase() + food.slice(1);
+// })
+
+
+
+
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers (num1, num2){
+const maxOfTwoNumbers = (num1, num2) => {
   if (num1 > num2) { 
     return num1;
   } else {
     return num2;
   }
 }
+// Versão Antiga
+// function maxOfTwoNumbers (num1, num2){
+//   if (num1 > num2) { 
+//     return num1;
+//   } else {
+//     return num2;
+//   }
+// }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord (array) {
-  
-  if(array.length <= 0) {
 
+const findLongestWord = arr => {
+  if (arr.length < 1) {
     return null;
-
-  } else {
-
-    let longest = 0;
-    let word;
-    for (let i = 0; i < array.length; i++) {
-      if (array[i].length > longest ) {
-        longest = array[i].length;
-        word = array[i]
-      } 
-    }
-    return word;
-  }
+  }  
+  
+  arr.sort( (a, b) => b.length - a.length );
+  
+  return arr[0];
 }
+
+// Versão Antiga
+// function findLongestWord (array) {
+  
+//   if(array.length <= 0) {
+
+//     return null;
+
+//   } else {
+
+//     let longest = 0;
+//     let word;
+//     for (let i = 0; i < array.length; i++) {
+//       if (array[i].length > longest ) {
+//         longest = array[i].length;
+//         word = array[i]
+//       } 
+//     }
+//     return word;
+//   }
+// }
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(banana) {
-
-  let result = 0;
-  for (let i = 0; i < banana.length; i++) {
-      result = result + banana[i];
+const sumNumbers = (arr) => {
+  if (arr.length < 1) {
+    return 0;
   }
-  return result; 
-  
+
+  return arr.reduce((acc, el) =>  { return acc + el } , 0);
 }
+
+// Versão Antiga
+// function sumNumbers(banana) {
+
+//   let result = 0;
+//   for (let i = 0; i < banana.length; i++) {
+//       result = result + banana[i];
+//   }
+//   return result; 
+  
+// }
+
+// console.log(
+//   [1, 2, 3, 4].reduce((a, b) => a + b, 0)
+// )
+// console.log(
+//   [].reduce((a, b) => a + b, 0)
+// )
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) {
-  if(numbersAvg.length <= 0) {
-    return null;
-  } else {
-   let soma = sumNumbers(numbersAvg);
-  return (soma / numbersAvg.length); 
+const averageNumbers = (arr) => {
+  if (arr.length < 1) {
+    return null
   }
+  return arr.reduce((acc, el, i, arr) => {
+    if (i === arr.length - 1) {
+       let sum = acc + el;
+       return sum / arr.length;
+    } 
+    return acc + el;
+  }, 0) 
 }
+
+// Versão Antiga
+// function averageNumbers(numbersAvg) {
+//   if(numbersAvg.length <= 0) {
+//     return null;
+//   } else {
+//    let soma = sumNumbers(numbersAvg);
+//   return (soma / numbersAvg.length); 
+//   }
+// }
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength (words) {
-  let mediaLength = 0;
-  let wordsLength = [ ];
-  for (let i = 0; i < words.length; i++) {
-    wordsLength.push(words[i].length)
+ const averageWordLength = (arr) => {
+  if (arr.length < 1){
+    return null
   }
-  let result = averageNumbers(wordsLength);
-  return result;
-}
+  return arr.reduce((acc, el, i, arr) => {
+    if (i === arr.length - 1) {
+       let sum = acc + el.length;
+       return sum / arr.length;
+    } 
+    return acc + el.length;
+  }, 0) 
+ }
+
+
+// Versão Antiga
+// function averageWordLength (words) {
+//   let mediaLength = 0;
+//   let wordsLength = [ ];
+//   for (let i = 0; i < words.length; i++) {
+//     wordsLength.push(words[i].length)
+//   }
+//   let result = averageNumbers(wordsLength);
+//   return result;
+// }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -85,38 +159,67 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray (words) {
-  let newArray = [ ];
-  if(words.length < 1) {
+const uniquifyArray = (arr) => {
+  if(arr.length < 1) {
     return null;
-  } else {
-    for (let i = 0; i < words.length; i++) {
-      if(newArray.indexOf(words[i]) === -1) {
-      newArray.push(words[i]);
-      }    
-    }  
   }
   
-  return newArray;
-}
+  return arr.reduce((newArray, word) => {
+   // console.log(newArray);
+   // console.log(word);
+   if(!newArray.includes(word)) {
+     newArray.push(word);
+   }    
+   return newArray;
+  }, [])
+ }
+ 
+
+// Versão Antiga
+// function uniquifyArray (words) {
+//   let newArray = [ ];
+//   if(words.length < 1) {
+//     return null;
+//   } else {
+//     for (let i = 0; i < words.length; i++) {
+//       if(newArray.indexOf(words[i]) === -1) {
+//       newArray.push(words[i]);
+//       }    
+//     }  
+//   }
+  
+//   return newArray;
+// }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsArr, wordToSearch) {
-  if (wordsArr.length < 1) {
+const doesWordExist = (arr, word) => {
+  if(arr.length < 1){
     return null;
+  }
+  
+  if(arr.includes(word)) {
+    return true
   } else {
-    for (let i =0; i < wordsArr.length; i++) {
-      if (wordsArr[i] === wordToSearch) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
+    return false
   }
 }
+
+// function doesWordExist(wordsArr, wordToSearch) {
+//   if (wordsArr.length < 1) {
+//     return null;
+//   } else {
+//     for (let i =0; i < wordsArr.length; i++) {
+//       if (wordsArr[i] === wordToSearch) {
+//         return true;
+//       }
+//       else {
+//         return false;
+//       }
+//     }
+//   }
+// }
 
 
 // Iteration #7: Count repetition
@@ -134,19 +237,33 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes (wordsArr, wordToSearch){
-  let counter = 0;
-  if (wordsArr.length < 1) {
-    return 0;
+const howManyTimes = (arr, word) => {
+
+  if(!arr.includes(word)) {
+    return 0
   } else {
-    for (let i =0; i < wordsArr.length; i++) {
-      if (wordsArr[i] === wordToSearch) {
-        counter ++;
+    return arr.reduce((acc, el) => {
+      if(el === word) {
+        acc++;
       }
-    }
-    return counter;
+      return acc;
+    }, 0)
   }
 }
+
+// function howManyTimes (wordsArr, wordToSearch){
+//   let counter = 0;
+//   if (wordsArr.length < 1) {
+//     return 0;
+//   } else {
+//     for (let i =0; i < wordsArr.length; i++) {
+//       if (wordsArr[i] === wordToSearch) {
+//         counter ++;
+//       }
+//     }
+//     return counter;
+//   }
+// }
 
 // Iteration #8: Bonus
 
