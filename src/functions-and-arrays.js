@@ -1,19 +1,65 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2
+  } else {
+    return num1, num2
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(arr) {
+  if(!arr.length) {
+    return null;
+  }
+
+  let biggest = arr[0];
+
+  arr.reduce((acc, value) => {
+    if(value.length > biggest.length) {
+      biggest = value;
+      return biggest;
+    }
+  }, biggest)
+  return biggest;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(arr) {
+  return arr.reduce((acc, value) => {
+    return acc + value;
+  }, 0)
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers) {
+  if(!numbers.length) {
+    return null;
+  }
+
+  return sumNumbers(numbers)/numbers.length;
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(words) {
+  if(!words.length) {
+    return null;
+  }
+  return averageNumbers(words.map(word => word.length))
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -29,9 +75,24 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(words) {
+  if(!words.length) {
+    return null;
+  }
+
+  return words.filter((word, index, array) => array.indexOf(word) === index )
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(arr, word) {
+  if(!arr.length) {
+    return null;
+  }
+
+  return arr.filter(val => val == word).length > 0;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,6 +107,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayWords, word) {
+  if(!arrayWords.length) {
+    return 0;
+  } 
+
+  count = 0;
+  arrayWords.forEach( i => (i === word && count++) )
+  return count;
+}
 
 // Iteration #8: Bonus
 
