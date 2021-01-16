@@ -211,3 +211,15 @@ function verticalSweep(array) {
   }
   return maxProduct;
 }
+
+function greatestProductOfDiagonals(array) {
+  let maxProduct = 0;
+  for (let i = 0; i < array.length - 3; i++) {
+    for (let j = 0; j < array[i].length - 3; j++) {
+      if (array[i][j]*array[i+1][j+1]*array[i+2][j+2]*array[i+3][j+3] > maxProduct) {
+        maxProduct = array[i][j]*array[i+1][j+1]*array[i+2][j+2]*array[i+3][j+3];
+      }
+    }
+  }
+  return maxProduct;
+}
