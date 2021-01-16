@@ -87,7 +87,7 @@ function avg(array) {
   if (!array.length) {
     return null;
   }
-  return sum(array)/array.length;
+  return Math.round(sum(array)/array.length*100)/100;
 }
 
 // Iteration #5: Unique arrays
@@ -185,5 +185,29 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+  return Math.max(horizontalSweep(matrix), verticalSweep(matrix));
+}
 
+function horizontalSweep(array) {
+  let maxProduct = 0;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length - 3; j++) {
+      if (array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3] > maxProduct) {
+        maxProduct = array[i][j]*array[i][j+1]*array[i][j+2]*array[i][j+3];
+      }
+    }
+  }
+  return maxProduct;
+}
+
+function verticalSweep(array) {
+  let maxProduct = 0;
+  for (let i = 0; i < array.length - 3; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (array[i][j]*array[i+1][j]*array[i+2][j]*array[i+3][j] > maxProduct) {
+        maxProduct = array[i][j]*array[i+1][j]*array[i+2][j]*array[i+3][j];
+      }
+    }
+  }
+  return maxProduct;
 }
