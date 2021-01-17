@@ -11,6 +11,9 @@ function maxOfTwoNumbers (num1, num2) {
 }
 
 // Iteration #2: Find longest word
+// write down steps in plain text before coding. Think of if you would search the word for yourself.
+// take first word, compare it to the next words, if longer, save it in variable.
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord (words) {
@@ -47,13 +50,28 @@ function sumNumbers (numbers) {
 }
 }
 
+//BONUS Iteration #3.1: A generic `sum()` function
+
+function sum(array) {
+  let sum = 0;
+  let type;
+  for (let element of array) {
+    type = typeof element;
+    if (type === "object") throw new Error("Unsupported data type sir or ma'am")
+    if (type === "string") sum += element.length;
+    else sum += element;
+  }
+  return sum;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (num) {
-  let sum = 0
+  let sum = 0;
   let avg = 0;
+
   if (num.length === 0) {
     return null;
   } else if (num.length === 1) {
@@ -71,7 +89,7 @@ function averageNumbers (num) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength (arr) {
-  let sum = 0
+  let sum = 0;
   let avg = 0;
   if (arr.length === 0) {
     return null;
@@ -85,6 +103,14 @@ function averageWordLength (arr) {
    return avg;
   }
 }
+
+//BONUS - Iteration #4.1: A generic `avg()` function
+
+function avg(array) {
+  if (array.length === 0) return null;
+  return Number((sum(array) / array.length).toFixed(2));
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -121,6 +147,21 @@ function uniquifyArray (words) {
 
 
 // Iteration #6: Find elements
+// without indexOf:
+
+function doesWordExist (haystack, needle) {
+  if (haystack.length === 0) {
+    return null;
+  } 
+  for (let word of haystack) {
+    if (word === needle) {
+      return true;
+    }
+  }
+  return false;
+}
+
+//with indexOf:
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist (arrayOfWords, findWord) {
@@ -164,6 +205,9 @@ function howManyTimes(arr, searchWord) {
 }
 
 // Iteration #8: Bonus
+// What is the greatest product of four adjacent numbers? 
+// We consider adjacent any four numbers that are next to 
+// each other horizontally or vertically.
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -187,3 +231,19 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
+function greatestProduct(matrix) {
+  let result = 0;
+  let horizontal = 0;
+  let vertical = 0;
+  for (let j = 0; j < 20; j++) {
+    for (let i = 0; i < 17; i++) {
+      horizontal = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      vertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      result = Math.max(horizontal, vertical, result);
+    }
+  }
+  return result;
+}
