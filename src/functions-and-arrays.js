@@ -1,18 +1,107 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers (num1, num2) {
+
+   if (num1 > num2) {
+  
+     return num1;
+
+   }
+  
+   return num2;
+    
+//return Math.max(num1, num2)
+
+}
+
+
+//console.log(maxOfTwoNumbers(1,2)); 
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+    function findLongestWord (stringsArray) {
+
+      if (stringsArray.length === 0) {
+        return null;
+
+      }
+
+      let bigWords = '';
+
+      for (let i = 0; i < stringsArray.length; i +=1) {
+      if (stringsArray[i].length > bigWords.length) {
+        bigWords = stringsArray[i];
+        
+      }
+        
+      }
+
+      return bigWords;
+}
+
+//console.log(findLongestWord(words));
+    
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbersArray) {
+
+      let sum = 0;
+
+      for (let i = 0; i < numbersArray.length; i +=1) {
+        sum += numbersArray[i];
+        
+      }
+      
+      return sum;
+}
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = ['Anderson', 6, true, 10, 'Tiago', 4, 1, 9, {},false,[]];
+
+function sum(numArray) {
+
+  let sumBonnus = 0;
+
+  for (let i = 0; i < numArray.length; i +=1) {
+    
+    const datatype = typeof numArray [i];
+    console.log(datatype);
+
+    if (datatype === 'number') {
+    sumBonnus += numArray[i];
+    
+    } else if (datatype === 'string') {
+    sumBonnus += numArray[i].length;  
+    } else if (datatype === 'Boolean') {
+          if (numArray[i]) {
+    sumBonnus += 1;
+          }
+    } else {
+      throw new Error ("Unsupported data type sir or ma'am");
+      } 
+    
+  }
+  
+  return sumBonnus;
+
+
+}
+sum(numbersAvg);
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -71,3 +160,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+
