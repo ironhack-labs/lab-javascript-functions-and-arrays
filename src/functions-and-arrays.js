@@ -44,32 +44,33 @@ function sumNumbers(list1){
  
 }
 
-// function sum(listTobeReduced){
-//   let totalSumToBeReturned = 0;
-//   let listSize = listTobeReduced.length
-//   let itemToBeAdded =0
+function sum(listTobeReduced){
+  let totalSumToBeReturned = 0;
+  let listSize = listTobeReduced.length
+  let itemToBeAdded =0
 
-//   for(let i=0;i<listSize;i++){
+  for(let i=0;i<listSize;i++){
 
-//     // console.log(typeof listTobeReduced[i])
+    // console.log(typeof listTobeReduced[i])
 
-//       if(typeof(list1[i]) === 'boolean'){
-//           if(list1[i] === false){
-//             itemToBeAdded = 0
-//           }else{
-//             itemToBeAdded = 1
-//           }
-//       }else if(typeof(list1[i]) === 'string'){
-//         itemToBeAdded = list1[i].length
-//       }else if(typeof(list1[i]) === 'number'){
-//         itemToBeAdded = list1[i]
-//       }else if(typeof(list1[i]) === 'object'){
-//         itemToBeAdded = list1[i].length
-//       }
-//     totalSumToBeReturned +=itemToBeAdded
-//   }
-//    return totalSumToBeReturned
-// }
+      if(typeof(listTobeReduced[i]) === 'boolean'){
+          if(listTobeReduced[i] === false){
+            itemToBeAdded = 0
+          }else{
+            itemToBeAdded = 1
+          }
+      }else if(typeof(listTobeReduced[i]) === 'string'){
+        itemToBeAdded = listTobeReduced[i].length
+      }else if(typeof(listTobeReduced[i]) === 'number'){
+        itemToBeAdded = listTobeReduced[i]
+      }else if(typeof(listTobeReduced[i]) === 'object'){
+        // itemToBeAdded = Object.keys(list1[i]).length
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    totalSumToBeReturned +=itemToBeAdded
+  }
+   return totalSumToBeReturned
+}
 
 
 // Iteration #4: Calculate the average
@@ -123,27 +124,94 @@ const wordsUnique = [
 ];
 
 
-function uniquifyArray(arrayOfElements){
-  if(arrayOfElements.length === 0){
-    return null
-  }
-  let uniqueList = []
-  let lenArray = arrayOfElements.length
+// function uniquifyArray(arrayOfElements){
+//   if(arrayOfElements.length === 0){
+//     return null
+//   }
 
-  for (let i=0; i<lenArray; i++){
+//   let newArr =[]
+//    arrayOfElements.forEach(function(element){
 
-      if(!(arrayOfElements[i] in uniqueList)){
+//    if(newArr.includes(element) === false){
+//     newArr.push(element)
+//    }}
+  
+  // let newArr = []
+  // return [...new Set(wordsUnique)]
+  // return [...new Set(wordsUnique)]
+// }
+  // let uniqueList = []
+  // let lenArray = arrayOfElements.length
 
-        uniqueList.push(arrayOfElements[i])
-      }
-      console.log(uniqueList)
-  }
-  return uniqueList
-}
+  // arrayOfElements.forEach(function(element))
+  // for (let i=0; i<lenArray; i++){
+
+//       // if(!(arrayOfElements[i] in uniqueList)){
+//       if(uniqueList.indexOf(element) === -1){
+//           uniqueList.push(arrayOfElements[i])
+//       }
+//       console.log(uniqueList)
+//   }
+//   return uniqueList
+// }
+
+// function uniquifyArray(arrayOfElements){
+//   if(arrayOfElements.length === 0){
+//     return null
+//   }
+  //  let newArr =[]
+  //  arrayOfElements.forEach(function(element)){
+  //  if(newArr.includes(element)) === false){
+  //   newArr.push(element)
+  //  }
+//    }
+//     return newArr
+// }
+
+// }
+
+// function uniquifyArray(wordsUnique){
+
+//   // if(arrayOfElements.length === 0){
+//   //   return null
+//   // }
+
+// // let newArr =[]
+
+
+// // for(let i=0; i <wordsUnique.length; i++){
+
+// //     if(!newArr.includes(wordsUnique[i])) {
+// //       newArr.push(wordsUnique[i])
+// //     }
+
+
+// //     return newArr
+// // }
+// // }
+
+  
+// return [...new Set(wordsUnique) ]
+
+// }
+// wordsUnique.forEach(function(element)){}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-// Iteration #7: Count repetition
+
+// function doesWordExist(wordfind, arrayOfWords){
+//   if(arrayOfWords.length === 0){
+//     return null
+//   }
+//   // if(arrayOfWords.includes(wordfind)){
+//   //   return true
+//   // }}
+
+//   return (if(arrayOfWords.includes(wordfind))
+// }
+// // }
+// // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -158,7 +226,24 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(wordsArr, wordSearch){
+//   return wordsArr.filter( a => a == wordSearch).length
+// }
+
+
+function howManyTimes(wordsArr, wordSearch){
+  let count = 0
+  for(let i=0; i<wordsArr.length; i++){
+    if (wordSearch ==wordsArr[i]){
+      count +=1
+    }
+  }
+  return count
+}
+}
 // Iteration #8: Bonus
+
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -182,3 +267,21 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+function greatestProduct(matrix){
+  let max=0
+  for(let i= 0; i<matrix.length;i++){
+    let rowProd = 1
+    let colProd = 1
+    for(let j= 0; j<matrix.length;j++){
+      for(let k= 0; k<4 ;j++){
+          rowProd *= mat[y][x] || 0
+          colProd *= mat[y+1][x] || 0
+      }
+        max = Math.max(max,rowProd,colProd)
+    }
+  }
+}
+
+
