@@ -39,7 +39,32 @@ function sumNumbers(arrayOfNumbers) {
   return sum;
 }
 //BONUS 3.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(mixedArray){
+  if(mixedArray.length === 0) {
+    return 0;
+  }
+  let totalNumber = 0;
+  let totalString = 0;
+  let totalBoolean = 0;
+  let totalMixed = 0;
+  mixedArray.forEach(function(element){
+    if (typeof element === 'number'){
+      totalNumber += element;
+    }else if (typeof element === 'string'){
+      totalString += element.length;
+    }else if (typeof element === 'boolean'){
+      if (element === true){
+        totalBoolean += 1;
+      } else {
+        totalBoolean -= 1;
+      }
+    }
+  });
+  totalMixed = totalNumber + totalString + totalBoolean;
+  return totalMixed;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
