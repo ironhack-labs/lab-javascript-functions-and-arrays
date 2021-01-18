@@ -56,15 +56,46 @@ function sumNumbers(arrayOfNumbers) {
 
 // console.log(sumNumbers(numbers))
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// #### Bonus - Iteration #3.1: A generic `sum()` function
 
-// Calculating an average is an extremely common task. Let's practice it a bit.
+// Let's create a new function `sum()` that calculates the sum for array filled with (_almost_) any type of data. Note that strings should have their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
+
+// You can use the following array to test your solution:
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]; // should return: 57
+
+function sum(anyArray) {
+  let total = 0;
+
+  for (let i = 0; i < anyArray.length; i++) {
+    if (typeof anyArray[i] === 'number') {
+      total += anyArray[i];
+    } else if (typeof anyArray[i] === 'string') {
+      total += anyArray[i].length;
+    } else if (typeof anyArray[i] === 'boolean' && anyArray[i] === true) {
+      total++;
+    } else if (typeof anyArray[i] === 'boolean' && anyArray[i] === false) {
+      continue;
+    } else if (typeof anyArray[i] === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+
+  return total;
+}
+
+// console.log(sum(mixedArr))
+
+// // Iteration #4: Calculate the average
+// // Level 1: Array of numbers
+
+// // Calculating an average is an extremely common task. Let's practice it a bit.
 
 // The logic behind this:
 
 // Find the sum as we did in the first exercise (or how about reusing that the sumNumbers()?)
 // Take that sum and divide it by the number of elements in the list.
+
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -74,8 +105,9 @@ function averageNumbers(arrayOfNumbers) {
   }
 
   let totalSum = sumNumbers(arrayOfNumbers);
+  let result = totalSum / arrayOfNumbers.length
 
-  return totalSum / arrayOfNumbers.length
+  return Math.floor(result * 100) / 100
 
 }
 
@@ -101,11 +133,31 @@ function averageWordLength (arrayOfwords) {
       return null
     }
   }
+  
+  let result = totalLength / arrayOfwords.length;
 
-  return totalLength / arrayOfwords.length;
+  return Math.floor(result * 100) / 100;
 }
 
 // console.log(averageWordLength(['wordsArr', 2, 'ow']))
+
+// #### Bonus - Iteration #4.1: A generic `avg()` function
+
+// Create function `avg(arr)` that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or strings and/or booleans. We are following a similar logic to the one applied on the bonus iteration 4.1. :wink:
+
+function avg(arr) {
+  if (arr.length < 1) {
+    return null
+  };
+
+  let totalSum = sum(arr);
+  let result = totalSum / arr.length;
+
+
+  return Math.floor(result * 100) / 100;
+}
+
+// console.log(avg(mixedArr))
 
 
 // // Iteration #5: Unique arrays
