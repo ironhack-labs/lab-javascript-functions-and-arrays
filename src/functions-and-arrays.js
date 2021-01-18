@@ -116,7 +116,6 @@ function uniquifyArray(wordsUnique) {
   for (let i = 0; i < wordsUnique.length; i++) {
     if (wordsCompilation.indexOf(wordsUnique[i]) === -1) {
       wordsCompilation.push(wordsUnique[i])
-      console.log(wordsCompilation)
     }
   }
   if (!wordsUnique.length) {
@@ -187,3 +186,14 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ]
+function greatestProduct(matrix) {
+const arr = []
+for (i = 0; i < matrix.length; i++) {
+  for (j = 0; j < matrix[i].length; j++) {
+      i-2>0 && arr.push(matrix[i][j]*matrix[i-1][j]*matrix[i-2][j]*matrix[i-3][j])
+      j-2>0 && arr.push(matrix[i][j]*matrix[i][j-1]*matrix[i][j-2]*matrix[i][j-3])
+    }
+  }
+  let highest = Math.max.apply(null, arr);
+  return highest
+}
