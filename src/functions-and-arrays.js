@@ -30,8 +30,6 @@ let longestWord = '';
   return longestWord;
 }
 
-findLongestWord(words);
-
 
 // Iteration #3: Calculate the sum
 
@@ -129,9 +127,16 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+let uniqueArray;
+const unique = (value, index, self) => {
+  return self.indexOf(value) === index
+}
   if(wordsUnique.length === 0) {
     return null;
+  } else {
+  uniqueArray = wordsUnique.filter(unique)
   }
+  return uniqueArray;
 }
 
 // Iteration #6: Find elements
