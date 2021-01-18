@@ -60,27 +60,30 @@ function averageNumbers(arr) {
   if (arr.length == 0) {
     return null
   }
+  const average = sumNumbers(numbers) / numbers.length;
+  return average;
+}
 
 
-  //negative numbers
+//negative numbers
 
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] < 0) {
-      totalSum.push(arr[i]);
-    }
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i] < 0) {
+    totalSum.push(arr[i]);
   }
+}
 
 
-  for (let i in arr) (
-    totalSum += arr[i]
-  )
-  //Get the length of the array
-  let numberLength = arr.length;
+for (let i in arr) (
+  totalSum += arr[i]
+)
+//Get the length of the array
+let numberLength = arr.length;
 
 
 
-  //Return the average
-  return (totalSum / numberLength)
+//Return the average
+return (totalSum / numberLength)
 
 
 }
@@ -105,31 +108,39 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-let total = 0;
-
-
-function averageWordLength(arr) {
-  let average = 0;
-
-  if (arr.length == 0) {
-    return null
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null;
   }
-  if (arr.length == 1) {
-    return arr[0].length
+  let unique = [];
+  for (let i = 0; i < array.length; i++) {
+    console.log('u', unique);
+    console.log('w', words[i])
+    if (unique.indexOf(array[i]) === - 1) {
+      unique.push(array[i])
+    }
   }
-
-  for (let i = 0; i < arr.length; i++) {
-    total += arr[i].length;
-
-  }
-  average = total / arr.length;
-
+  return unique;
 }
-averageWordLength(wordsUnique)
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
+function doesWordExist(haystack, needle) {
+  if (haystack.length === 0) {
+    return null;
+  }
+  for (let word of haystack) {
+    if (word === needle) {
+      return true
+    }
+  }
+  return false
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -146,6 +157,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(haystack, needle) {
+  let count = 0;
+  for (let word of haystack) {
+    if (word === needle) {
+      count++
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -171,3 +191,17 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  let result = 0;
+  let horizontal = 0;
+  let vertical = 0;
+  for (let j = 0; j < 20; j++) {
+    for (let i = 0; i < 17; i++) {
+      horizontal = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      vertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      result = Math.max(horizontal, vertical, result);
+    }
+  }
+  return result;
+}
