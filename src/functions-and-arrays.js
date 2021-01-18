@@ -58,8 +58,10 @@ function sum(mixedArray){
       if (element === true){
         totalBoolean += 1;
       } else {
-        totalBoolean -= 1;
+        totalBoolean += 0;
       }
+    }else {
+      throw new Error("Unsupported data type sir or ma'am");
     }
   });
   totalMixed = totalNumber + totalString + totalBoolean;
@@ -96,7 +98,39 @@ function averageWordLength(arrayOfWords){
   averageWord = sumWord / arrayOfWords.length;
   return averageWord;
 }
+
 //BONUS 4.1
+
+function avg(mixedArray){
+  if(mixedArray.length === 0) {
+    return null;
+  }
+
+  let totalNumber = 0;
+  let totalString = 0;
+  let totalBoolean = 0;
+  let totalMixed = 0;
+  let average = 0;
+
+  mixedArray.forEach(function(element){
+    if (typeof element === 'number'){
+      totalNumber += element;
+    }else if (typeof element === 'string'){
+      totalString += element.length;
+    }else if (typeof element === 'boolean'){
+      if (element === true){
+        totalBoolean += 1;
+      } else {
+        totalBoolean += 0;
+      }
+    }else {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+  });
+  totalMixed = totalNumber + totalString + totalBoolean;
+  average = totalMixed / mixedArray.length;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -188,3 +222,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
