@@ -134,18 +134,19 @@ function averageNumbers(ArrayTobeAveraged){
 }
 
 
-function avg(MixedArrayTobeAveraged){
-  if(MixedArrayTobeAveraged.length === 0){
+function avg(arr){
+  if(arr.length === 0){
     return null
   }
   // gets the total sum of mixed array
-  let sumMixedArray = sum(MixedArrayTobeAveraged)
+  let sumMixedArray = sum(arr)
 
   // gets the number of elements in the array
-  let lenMixedArray = MixedArrayTobeAveraged.length
+  let lenMixedArray = arr.length
 
   // returns the average
-  return sumMixedArray/lenMixedArray
+  let avgArr = parseFloat((sumMixedArray/lenMixedArray).toFixed(2))
+  return avgArr
 }
 
 
@@ -182,27 +183,47 @@ const wordsUnique = [
 ];
 
 
+function uniquifyArray(wordsUnique){
+  if (wordsUnique.length === 0){
+    return null
+  }
+  let newArr = []
+  let lenWordsUnique = wordsUnique.length
+  for(let i = 0; i < lenWordsUnique; i++){
+    if(newArr.indexOf(wordsUnique[i]) === -1){
+      newArr.push(wordsUnique[i])
+      
+    }
+  }
+  return newArr
+}
+
 // function uniquifyArray(arrayOfElements){
 //   if(arrayOfElements.length === 0){
 //     return null
 //   }
 
-//   let newArr =[]
-//    arrayOfElements.forEach(function(element){
+//   let wordsUnique =[]
 
-//    if(newArr.includes(element) === false){
-//     newArr.push(element)
-//    }}
-  
-  // let newArr = []
-  // return [...new Set(wordsUnique)]
-  // return [...new Set(wordsUnique)]
+//   // arrayOfElements.forEach(word => {
+
+//   for(let i=0; i < length.arrayOfElements; i++){
+//     if(wordsUnique.includes(!(arrayOfElements[i]))){
+//       wordsUnique.push(word)
+//       console.log(wordsUnique)
+
+//     }
+//   }
+//   return [...new Set(wordsUnique)]
 // }
-  // let uniqueList = []
-  // let lenArray = arrayOfElements.length
 
-  // arrayOfElements.forEach(function(element))
-  // for (let i=0; i<lenArray; i++){
+
+
+//   let uniqueList = []
+//   let lenArray = arrayOfElements.length
+
+//   // arrayOfElements.forEach(function(element))
+//   for (let i=0; i<lenArray; i++){
 
 //       // if(!(arrayOfElements[i] in uniqueList)){
 //       if(uniqueList.indexOf(element) === -1){
@@ -217,12 +238,12 @@ const wordsUnique = [
 //   if(arrayOfElements.length === 0){
 //     return null
 //   }
-  //  let newArr =[]
-  //  arrayOfElements.forEach(function(element)){
-  //  if(newArr.includes(element)) === false){
-  //   newArr.push(element)
-  //  }
+//    let newArr =[]
+//    arrayOfElements.forEach(function(element)){
+//    if(newArr.includes(element)) === false){
+//     newArr.push(element)
 //    }
+//    })
 //     return newArr
 // }
 
