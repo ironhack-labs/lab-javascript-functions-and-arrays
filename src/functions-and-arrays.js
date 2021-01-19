@@ -236,7 +236,6 @@ const wordsCount = [
   'matter'
 ];
 
-
 function howManyTimes(wordsArr, wordSearch){
   let count = 0
   for(let i=0; i<wordsArr.length; i++){
