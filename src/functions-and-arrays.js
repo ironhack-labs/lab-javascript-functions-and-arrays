@@ -198,97 +198,22 @@ function uniquifyArray(wordsUnique){
   return newArr
 }
 
-// function uniquifyArray(arrayOfElements){
-//   if(arrayOfElements.length === 0){
-//     return null
-//   }
-
-//   let wordsUnique =[]
-
-//   // arrayOfElements.forEach(word => {
-
-//   for(let i=0; i < length.arrayOfElements; i++){
-//     if(wordsUnique.includes(!(arrayOfElements[i]))){
-//       wordsUnique.push(word)
-//       console.log(wordsUnique)
-
-//     }
-//   }
-//   return [...new Set(wordsUnique)]
-// }
 
 
-
-//   let uniqueList = []
-//   let lenArray = arrayOfElements.length
-
-//   // arrayOfElements.forEach(function(element))
-//   for (let i=0; i<lenArray; i++){
-
-//       // if(!(arrayOfElements[i] in uniqueList)){
-//       if(uniqueList.indexOf(element) === -1){
-//           uniqueList.push(arrayOfElements[i])
-//       }
-//       console.log(uniqueList)
-//   }
-//   return uniqueList
-// }
-
-// function uniquifyArray(arrayOfElements){
-//   if(arrayOfElements.length === 0){
-//     return null
-//   }
-//    let newArr =[]
-//    arrayOfElements.forEach(function(element)){
-//    if(newArr.includes(element)) === false){
-//     newArr.push(element)
-//    }
-//    })
-//     return newArr
-// }
-
-// }
-
-// function uniquifyArray(wordsUnique){
-
-//   // if(arrayOfElements.length === 0){
-//   //   return null
-//   // }
-
-// // let newArr =[]
-
-
-// // for(let i=0; i <wordsUnique.length; i++){
-
-// //     if(!newArr.includes(wordsUnique[i])) {
-// //       newArr.push(wordsUnique[i])
-// //     }
-
-
-// //     return newArr
-// // }
-// // }
-
-  
-// return [...new Set(wordsUnique) ]
-
-// }
-// wordsUnique.forEach(function(element)){}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 
-// function doesWordExist(wordfind, arrayOfWords){
-//   if(arrayOfWords.length === 0){
-//     return null
-//   }
-//   // if(arrayOfWords.includes(wordfind)){
-//   //   return true
-//   // }}
+function doesWordExist(wordToFind, arrayOfWords){
+  if(arrayOfWords.length === 0){
+    return null
+  }
+   if(arrayOfWords.includes(wordToFind)){
+    return true
+  }else{
+   return false}
+}
 
-//   return (if(arrayOfWords.includes(wordfind))
-// }
-// // }
 // // Iteration #7: Count repetition
 
 const wordsCount = [
