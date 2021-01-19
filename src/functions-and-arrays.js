@@ -1,23 +1,60 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers (num1, num2){
-   return maxNumber
-   console.log(math.max();
+// Iteration #1: Find the max of 2 nums
+const arrayNumbers = [0,1];
+
+function maxOfTwoNumbers (arrayNumbers) {
+  var maxNumber = math.max(arrayNumbers);
+  return maxNumber;
+  
+console.log(maxNumber);
 }
-maxNumber(2,5)
+
+
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-function findLongestWord[];{
-  return longestWord.maxLength()
-  console.log(longestWord)
+function findLongestWord(arrayOfWords) {
+  let longestWord = 'the';
+  arrayOfWords.forEach(function (x) {
+    console.log(x);
+    if(longestWord.length < x.length) {
+      longestWord = x;
+    }
+  })
+  return longestWord;
+  
 }
+console.log(longestWord);
+
+
+
+
+
+
+
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+var sum = numbers.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+console.log(sum);
+
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+var sum = numbers.reduce(function(a, b){
+  return a + b;
+}, 0);
+
+return sum/numbersAvg.length
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -37,8 +74,25 @@ const wordsUnique = [
   'bring'
 ];
 
+wordsUnique.indexOf()
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(term) {
+  for (var i = 0, len = wordsFind.length; i < len; i++) {
+    if (wordsFind[i] === term) {
+      console.log(wordsFind[i] + ' is found at ' + i);
+    }
+  }
+}
+
+doesWordExist('machine');
+
+
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -55,6 +109,7 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes ()
 // Iteration #8: Bonus
 
 const matrix = [
