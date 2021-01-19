@@ -67,6 +67,7 @@ function averageNumbers(arr) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
 function averageWordLength(arr) {
   let sum = 0;
   let avg = 0;
@@ -95,14 +96,111 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+/////////////////////////////////////////////////////////////////////////////////////////
+// function uniquifyArray(arr) {
+//   if (arr.length === 0) {
+//     return null;
+//   }
+//   var wordsUnique = [];
+//   // console.log(arr);
+//   arr.forEach(function(element, i) {
+//     var nextLocation = arr.indexOf(arr[i], i + 1);
+//     console.log(nextLocation);
+//     if (nextLocation == -1) {
+//       // console.log(arr[i]);
+//       wordsUnique.push(arr[i]);
+//     }
+//     if (nextLocation > 0) {
+//       wordsUnique.push(arr[i]);
+//       arr.splice(nextLocation, 1);
+//     }
+//     // console.log(arr);
+//   })
+//   return wordsUnique;
+// } 
+////////////////////////////////////////////////////////////////////////////////////////////
+// function uniquifyArray(arr) {
+//   if (arr.length === 0) {
+//     return null;
+//   }
+//   var wordsUnique = [];
+//   // console.log(arr);
+//   arr.forEach(function(element, i) {
+//     var currentLocation = arr.indexOf(arr[i], 0);
+//     var nextLocation = arr.indexOf(arr[i], i + 1);
+//     // console.log(nextLocation);
+//     if (nextLocation > currentLocation) {
+//       // console.log(arr[i]);
+//       wordsUnique.push(arr[i]);
+//       arr.splice(nextLocation, 1);
+//     }
+//     if (nextLocation == -1) {
+//       wordsUnique.push(arr[i]);
+//     }
+//     // console.log(arr);
+//   })
+//   return wordsUnique;
+// }
+//////////////////////////////////////////////////////////////////////////////////////////////
+// function uniquifyArray(arr) {
+//   if (arr.length === 0) {
+//     return null;
+//   }
+//   var wordsUnique = [];
+//   // console.log(arr);
+//   arr.forEach(function(element, i) {
+//     var prevOccurance = arr.indexOf(arr[i], 0);
+//     var currentOccurance = arr.indexOf(arr[i], i);
+//     var nextOccurance = arr.indexOf(arr[i], i + 1);
+//     console.log(`i: ${i} pO: ${prevOccurance} cO: ${currentOccurance} nO: ${nextOccurance}`);
+//     // console.log nextOccurance);
+//     if (arr[i]===arr[0]){
+//       arr.splice(i, 1);
+//     }
+//     if (currentOccurance < nextOccurance) {
+//       // console.log(arr[i]);
+//       wordsUnique.push(arr[i]);
+//       arr.splice (nextOccurance, 1);
+// }
+//     if (currentOccurance > prevOccurance) {
+//      // console.log(`triplicate?`);
+//      arr.splice(currentOccurance, 1);
+//      // console.log(arr);
+// }
+//     // console.log(arr);
+//    if (nextOccurance == -1) {
+//      wordsUnique.push(arr[i]);
+// }
+//   })
+//  return wordsUnique;
+// }
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 
 function uniquifyArray(arr) {
-
-
+  if (arr.length === 0) {
+    return null;
+  }
+  var wordsUnique = [];
+  arr.forEach(function (element, i) {
+    if (!wordsUnique.includes(arr[i])) {
+      console.log(` ${arr[i]} is not included on the list. Writing now...`);
+      wordsUnique.push(arr[i]);
+    }
+  })
+  return wordsUnique;
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, searchTerm) {
+  if (arr.length === 0) {
+    return null;
+  }
+  return arr.includes(searchTerm);
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -118,6 +216,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, searchTerm) {
+  let found = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === searchTerm){
+      found++;
+    }
+  }
+  return found;
+}
 
 // Iteration #8: Bonus
 
