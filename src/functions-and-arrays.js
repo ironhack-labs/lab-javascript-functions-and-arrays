@@ -129,7 +129,7 @@ function avg(mixedArray){
   });
   totalMixed = totalNumber + totalString + totalBoolean;
   average = totalMixed / mixedArray.length;
-  return average.toFixed(2);
+  return parseFloat(average.toFixed(2));
 }
 
 // Iteration #5: Unique arrays
