@@ -6,52 +6,85 @@ function maxOfTwoNumbers(num1, num2){
     return num2
   }
 }
+
+
+
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(list1){
+
+  // checks if the list is empty
+
+  if(list1.length === 0){
+    return null
+  }
+  // getting the length of the array for optimizing the loop
   let lenList = list1.length
-  let longestWord = "";
+  let longestWord = ""
+
+  // loop that checks through the list and compares length of word
+  // with the longest word previously found
+
   for(let i=0;i<lenList;i++){
     if(list1[i].length >longestWord.length){
       longestWord = list1[i]  
     }
 
   }
-  if(longestWord === ""){
-    return null
-  }else{
-  return longestWord}
+
+  return longestWord
 }
+
+
+
+
 // Iteration #3: Calculate the sum
-
-
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 
 function sumNumbers(list1){
-  let totalSum = 0;
-  let listSize = list1.length
 
+  // checks if the list is empty
+  if(list1.length === 0){
+    return 0
+  }
+
+  
+  // getting the length of the array for optimizing the loop
+  let listSize = list1.length
+  let totalSum = 0;
+
+
+  // loop that adds the numbers to the total
   for(let i=0;i<listSize;i++){
     totalSum +=list1[i]
   }
-  if(sumNumbers === ""){
-    return null
-  }else{
-  return totalSum}
- 
+  return totalSum
 }
 
 function sum(listTobeReduced){
+
+  // checks if the list is empty
+  if(listTobeReduced.length === 0){
+    return 0
+  }
+
   let totalSumToBeReturned = 0;
+  // getting the length of the array for optimizing the loop and asigns a value
+  //  to the variable to be added to the total
   let listSize = listTobeReduced.length
   let itemToBeAdded =0
 
+  // loops throuh each element of the list
   for(let i=0;i<listSize;i++){
 
-    // console.log(typeof listTobeReduced[i])
+    // if the element is type boolean - 
+    // transforms false in no.: 0 and true in no: 1
+
 
       if(typeof(listTobeReduced[i]) === 'boolean'){
           if(listTobeReduced[i] === false){
@@ -59,10 +92,17 @@ function sum(listTobeReduced){
           }else{
             itemToBeAdded = 1
           }
+
+
+          // if the the element is a string gets length of the string
       }else if(typeof(listTobeReduced[i]) === 'string'){
         itemToBeAdded = listTobeReduced[i].length
+
+        // if the the element is a number is left unchanged
       }else if(typeof(listTobeReduced[i]) === 'number'){
         itemToBeAdded = listTobeReduced[i]
+
+         // if the the element is an object throw an error
       }else if(typeof(listTobeReduced[i]) === 'object'){
         // itemToBeAdded = Object.keys(list1[i]).length
         throw new Error("Unsupported data type sir or ma'am")
@@ -82,13 +122,31 @@ function averageNumbers(ArrayTobeAveraged){
   if(ArrayTobeAveraged.length ===0){
     return null
   }
-  let lenArray = ArrayTobeAveraged.length
+
+  // gets the total sum of the array
   let totalArray = sumNumbers(ArrayTobeAveraged)
+  
+  // gets the number of elements in the array
+  let lenArray = ArrayTobeAveraged.length
+  
+  // returns the average
   return totalArray/lenArray
 }
 
 
+function avg(MixedArrayTobeAveraged){
+  if(MixedArrayTobeAveraged.length === 0){
+    return null
+  }
+  // gets the total sum of mixed array
+  let sumMixedArray = sum(MixedArrayTobeAveraged)
 
+  // gets the number of elements in the array
+  let lenMixedArray = MixedArrayTobeAveraged.length
+
+  // returns the average
+  return sumMixedArray/lenMixedArray
+}
 
 
 // Level 2: Array of strings
