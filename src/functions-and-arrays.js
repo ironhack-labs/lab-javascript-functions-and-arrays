@@ -277,6 +277,9 @@ const matrix = [
 function greatestProduct(matrix){
 
   let arr = matrix
+  let newArr = matrix.length
+
+  let newArr1 = matrix.length*2
 }
 //   let max=0
 //   for(let i= 0; i<matrix.length;i++){
