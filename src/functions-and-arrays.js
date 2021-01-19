@@ -9,6 +9,7 @@ function maxOfTwoNumbers(num1 , num2) {
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
 function findLongestWord(arrayOfWords) {
   let longestWord = '';
   arrayOfWords.forEach(function (word) {
@@ -16,22 +17,73 @@ function findLongestWord(arrayOfWords) {
       longestWord = word;
     }
   })
-  console.log(longestWord);
   return longestWord;
 }
 
-findLongestWord(words);
+findLongestWord(words); //{
+//   if (words.length > 0) {
+//     console.log(`${longestWord}`)
+//   }
+// }
+// Question: Cannot resolve error "should return null when called with an empty array"
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(numArray) {
+  let sum = 0;
+  numArray.forEach(function (num) {
+    sum = sum + num;
+  })
+  return sum
+}
+
+sumNumbers(numbers);
+
+//Bonus - Iteration #3.1: Generic sum() function.
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return 57
+
+// function sum(arr) {
+  // Add a condition if string then .length, if boolean then .value, etc.
+// }
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(avgArray) {
+  let sumOfNumbers = 0;
+  avgArray.forEach(function (num) {
+    sumOfNumbers = sumOfNumbers + num;
+  })
+  let avg = sumOfNumbers / avgArray.length; 
+  return avg;
+}
+
+averageNumbers(numbersAvg);
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsToAvg) {
+  let lengthOfWords = 0;
+  wordsToAvg.forEach(function (word) {
+    lengthOfWords = lengthOfWords + word.length;
+  })
+  let wordAvg = lengthOfWords / wordsToAvg.length;
+  return wordAvg;
+}
+
+averageWordLength(wordsArr);
+
+// Bonus - Iteration #4.1: Generic avg() function.
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 5.7
+
+//function avg (arr)
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -48,6 +100,14 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arr) {
+  arr.forEach(function (word) {
+   let wordIndex = arr.indexOf(`${word}`)
+   if (word, `${wordIndex} + 1`) >= 0) {
+      
+    })
+  })    
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
