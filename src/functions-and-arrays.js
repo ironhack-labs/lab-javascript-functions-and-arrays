@@ -274,7 +274,10 @@ const matrix = [
 ];
 
 
-// function greatestProduct(matrix){
+function greatestProduct(matrix){
+
+  let arr = matrix
+}
 //   let max=0
 //   for(let i= 0; i<matrix.length;i++){
 //     let rowProd = 1
