@@ -119,6 +119,8 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 
 function averageNumbers(ArrayTobeAveraged){
+
+  // checks if the list is empty
   if(ArrayTobeAveraged.length ===0){
     return null
   }
@@ -135,6 +137,7 @@ function averageNumbers(ArrayTobeAveraged){
 
 
 function avg(arr){
+  // checks if the list is empty
   if(arr.length === 0){
     return null
   }
@@ -154,6 +157,7 @@ function avg(arr){
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(ArrayOfWords){
+  // checks if the list is empty
   if(ArrayOfWords.length===0){
     return null
   }
@@ -184,6 +188,7 @@ const wordsUnique = [
 
 
 function uniquifyArray(wordsUnique){
+  // checks if the list is empty
   if (wordsUnique.length === 0){
     return null
   }
@@ -204,7 +209,8 @@ function uniquifyArray(wordsUnique){
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 
-function doesWordExist(wordToFind, arrayOfWords){
+function doesWordExist(arrayOfWords,wordToFind){
+  // checks if the list is empty
   if(arrayOfWords.length === 0){
     return null
   }
@@ -230,10 +236,6 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsArr, wordSearch){
-//   return wordsArr.filter( a => a == wordSearch).length
-// }
-
 
 function howManyTimes(wordsArr, wordSearch){
   let count = 0
@@ -244,7 +246,7 @@ function howManyTimes(wordsArr, wordSearch){
   }
   return count
 }
-}
+
 // Iteration #8: Bonus
 
 
@@ -273,19 +275,19 @@ const matrix = [
 ];
 
 
-function greatestProduct(matrix){
-  let max=0
-  for(let i= 0; i<matrix.length;i++){
-    let rowProd = 1
-    let colProd = 1
-    for(let j= 0; j<matrix.length;j++){
-      for(let k= 0; k<4 ;j++){
-          rowProd *= mat[y][x] || 0
-          colProd *= mat[y+1][x] || 0
-      }
-        max = Math.max(max,rowProd,colProd)
-    }
-  }
-}
+// function greatestProduct(matrix){
+//   let max=0
+//   for(let i= 0; i<matrix.length;i++){
+//     let rowProd = 1
+//     let colProd = 1
+//     for(let j= 0; j<matrix.length;j++){
+//       for(let k= 0; k<4 ;j++){
+//           rowProd *= mat[y][x] || 0
+//           colProd *= mat[y+1][x] || 0
+//       }
+//         max = Math.max(max,rowProd,colProd)
+//     }
+//   }
+// }
 
 
