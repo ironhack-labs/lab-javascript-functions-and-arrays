@@ -138,7 +138,7 @@ function doesWordExist(wordsFind) {
 if (wordsFind.length === 0) {
   return null;
 } if (wordsFind.indexOf()) {
-  return true;
+  return true
 } else {
   return false;
 }
