@@ -219,32 +219,18 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let highestVerticalResult = 0;
-  let highestHorizontalResult = 0;
-  for (arr of matrix) {
-    for (number of arr) {
-      let productVertical = matrix[arr].arr[number] * matrix[arr+1].arr[number] * matrix[arr+2].arr[number] * matrix[arr+3].arr[number];
-      if (productVertical > highestVerticalResult) {
-        highestVerticalResult = productVertical;
-      }
-      else {
-        continue;
-      }
-    for (number of arr) {
-      let productHorizontal = matrix[arr].arr[number] * matrix[arr].arr[number+1] * matrix[arr].arr[number+2] * matrix[arr].arr[number+3];
-      if (productHorizontal > highestHorizontalResult) {
-        highestHorizontalResult = productHorizontal;
-      }
-      else {
-        continue;
+  let highestResult = 0;
+    for (i = 0; i < matrix.length - 3; i ++) {
+      for (j = 0; j < matrix.length - 3; j++) {
+        let productVertical = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        let productHorizontal = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        if (productVertical > highestResult) {
+            highestResult = productVertical;
+        }
+        else if (productHorizontal > highestResult) {
+          highestResult = productHorizontal;
+        }
       }
     }
+  return highestResult;
   }
-  if (highestHorizontalResult > highestVerticalResult) {
-    return highestHorizontalResult;
-  }
-  else {
-    return highestVerticalResult;
-  }
-}
-}
