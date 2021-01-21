@@ -1,19 +1,56 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(num1, num2){
+  if (num1 > num2){
+    return num1;
+  } 
+  else {
+    return num2;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(arrayOfWords){
+  if (arrayOfWords.length === 0){
+    return null;
+  }
+  let longestWord = "";
+  for (let word of arrayOfWords){
+    if (word.length > longestWord.length){
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbersArr) {
+  if(numbersArr < 1){
+    return 0;
+  }
+  
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numArray){
+  if(numArray.length < 1)
+  return null;
+}
+}
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength(arr){
+  if (arr.length ===0){
+    return null;
+  } else if (arr.length === 1){
+    return arr[0].length;
+  }
+  let sumWords
+  return sumWords / arr.length;
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -28,10 +65,24 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(words){
+  if(words.length < 1)
+  return null;
+}
+let uniqifiedArray = []
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(arr, word){
+  if(arr.length === 0){
+    return null;
+  } else if (arr.includes(word)){
+    return true;
+  } else {
+    return false;
+  }
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,7 +97,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(arr, word){
+  if(arr.length < 1){
+    return 0;
+  }
+  let count = 0;
+  for (element of arr) {
+    if (element === word){
+      count ++;
+    }
+  }
+  return count; 
+  
 
+}
 // Iteration #8: Bonus
 
 const matrix = [
