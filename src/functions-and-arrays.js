@@ -2,34 +2,32 @@
 
 function maxOfTwoNumbers(num1, num2){
   if(num1 > num2){
-    return "O número é: " + num1;
+    return num1;
   } else if (num2 > num1){
-  return "O número é: " + num2;
+  return num2;
   } else{
-    return "Os números são iguais";
+    return num1;
   } 
 }
 
-console.log(maxOfTwoNumbers(2,2));
+// console.log(maxOfTwoNumbers(2,2));
 
 // Iteration #2: Find longest word
 
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'crocodila'];
 
 function findLongestWord(array){
-
+  if(array.length === 0){
+    return null
+  }
   let longestWord = "";
 
   for(let i=0; i<array.length; i++){
-    
     if(longestWord.length < array[i].length){
       longestWord = array[i];
-    } else if(longestWord.length > array[i].length){
-      return longestWord;
-    } else{
-      return longestWord;
-    }
-
+    }else if(longestWord.length === array[i].length){
+      longestWord = longestWord;
+    } 
   }
   return longestWord;
 }
@@ -42,10 +40,16 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array){
   let sum = 0;
-  for(let i=0; i<array.length; i++){
-    sum += array[i];
-  }
-  return sum;
+  if(array.length > 0){
+    for(let i=0; i<array.length; i++){
+      sum += array[i];
+    } 
+    return sum;
+  }else if(!array || array.length === 0){
+     return 0;
+  } else{
+     return null;
+   }
 }
 
 console.log(sumNumbers(numbers));
@@ -209,20 +213,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-console.log(matrix[1].length);
-console.log(matrix.length);
+console.log(matrix[1+1][2]);
+// console.log(matrix.length);
 
 function greatestProduct(array){
   
   let product = 0;
+  let product2 = 0;
+  let greatestNumber = 0;
 
   for(i=0; i<array.length; i++){
 
     for(j=0; j<array.length; j++){
-      
+      // console.log(j);
+      // console.log(i);
+      if(array[i+1]<array.length){
+        console.log(array[i+1][j]);
+      }
+      // product = (array[i][j])*(array[i+1][j])*([i+2][j])*([i+3][j])
+      // product2 = (array[i][j])*(array[i][j+1])*([i][j+2])*([i][j+3])
     }
 
   }
+  return product2
 }
 
 console.log(greatestProduct(matrix));
