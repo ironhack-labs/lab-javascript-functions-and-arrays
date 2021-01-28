@@ -14,7 +14,7 @@ maxOfTwoNumbers(2, 3);
 
 // Iteration #2: Find longest word
 
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'crocodila'];
 
 function findLongestWord(array){
 
@@ -67,7 +67,16 @@ function sum(array){
   let sum = 0;
   if(array.length > 0){
     for(let i=0; i<array.length; i++){
-      sum += array[i];
+      if(typeof array[i] === 'number'){
+        sum += array[i];
+      } else if(typeof array[i] === 'string'){
+        sum += array[i].length;
+      } else if (array[i] === true){
+        sum += 1
+      } else if(typeof array[i] === 'object' || typeof array[i] === 'array'){
+        throw new TypeError ("Unsupported data type sir or ma'am")
+      }
+      
     }
     return sum;
   } else if(array.length === 0){
@@ -114,9 +123,18 @@ function avg(array){
   if(array.length > 0){
     let sum = 0;
     for(i=0; i<array.length; i++){
-      sum += array[i].length;
+      if(typeof array[i] === 'number'){
+        sum += array[i];
+      } else if(typeof array[i] === 'string'){
+        sum += array[i].length;
+      } else if (array[i] === true){
+        sum += 1
+      } else if(typeof array[i] === 'object' || typeof array[i] === 'array'){
+        throw new TypeError
+      }
+      // sum += array[i].length;
     }
-    return sum/array.length;
+    return Math.round((sum/array.length)*100)/100;
     }
   return null;
 }
@@ -154,6 +172,9 @@ const wordsUnique = [
 function uniquifyArray(array){
   let wordCompare = "";
   
+  if(!array || array.length === 0){
+    return null
+  }
   for(i=0; i < array.length; i++){
     wordCompare = array[i];
 
@@ -208,14 +229,14 @@ const wordsCount = [
 function howManyTimes(array, wordSearch){
   let count = 0;
   if(array.length>0){
-    if(doesWordExist(wordsCount, wordSearch) === true){
+    if(doesWordExist(array, wordSearch) === true){
       for(i=0; i<array.length; i++){
         if(wordSearch === array[i]){
           count++;
         }
       }
     }else{
-      return 1;
+      return 0;
     }
   } else{
     return 0;
@@ -251,20 +272,50 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-console.log(matrix[1].length);
-console.log(matrix.length);
 
 function greatestProduct(array){
   
-  let product;
+  let verticalProduct = 0;
+  let horizontalProduct = 0;
 
-  for(i=0; i<array.length; i++){
-
-    for(j=0; j<array.length; j++){
-      
+  for(i=0; i<array.length-3; i++){
+    for(j=0; j<array[i].length; j++){
+      if(verticalProduct < (array[i][j])*(array[i+1][j])*(array[i+2][j])*(array[i+3][j])){
+        verticalProduct = (array[i][j])*(array[i+1][j])*(array[i+2][j])*(array[i+3][j])
+      }
     }
-
   }
+  for(i=0; i<array.length; i++){
+    for(j=0; j<array[i].length-3; j++){
+      if(horizontalProduct < (array[i][j])*(array[i][j+1])*(array[i][j+2])*(array[i][j+3])){
+        horizontalProduct = (array[i][j])*(array[i][j+1])*(array[i][j+2])*(array[i][j+3])
+      }
+    }
+  }
+  return maxOfTwoNumbers(verticalProduct, horizontalProduct)
 }
 
+
 console.log(greatestProduct(matrix));
+
+function greatestProductDiagonal(array){
+  let diagonalProduct = 0
+  let diagonalProductReverse = 0
+  for(i=0; i<array.length-3; i++){
+    for(j=0; j<array[i].length -3; j++){
+      if(diagonalProduct < (array[i][j])*(array[i+1][j+1])*(array[i+2][j+2])*(array[i+3][j+3])){
+        diagonalProduct = (array[i][j])*(array[i+1][j+1])*(array[i+2][j+2])*(array[i+3][j+3])
+      }
+    }
+  }
+  for(i=3; i<array.length; i++){
+    for(j=0; j<array[i].length-3; j++){
+      if(diagonalProductReverse < (array[i][j])*(array[i-1][j+1])*(array[i-2][j+2])*(array[i-3][j+3])){
+        diagonalProductReverse = (array[i][j])*(array[i-1][j+1])*(array[i-2][j+2])*(array[i-3][j+3])
+      }
+    }
+  }
+  return maxOfTwoNumbers(diagonalProduct, diagonalProductReverse)
+}
+    
+console.log(greatestProductDiagonal(matrix))
