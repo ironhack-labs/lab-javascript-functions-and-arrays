@@ -145,18 +145,41 @@ console.log(howManyTimes(wordsCount, 'machine'));
 console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
-
-function greatestProduct(matrix) {
-  // create greatestProduct variable
-  let greatestProduct = 1;
+function greatestVerticalProduct(matrix) {
+  // create greatestVP variable
+  let greatestVerticalProduct = 1;
   // iterate over matrix
   for (let i = 0; i < matrix.length - 3; i++) {
     // iterate over array
     let currentArray = matrix[i];
-    let adjacentArray1 = matrix[i+1];
-    let adjacentArray2 = matrix[i+2];
-    let adjacentArray3 = matrix[i+3];
+    let belowArray1 = matrix[i+1];
+    let belowArray2 = matrix[i+2];
+    let belowArray3 = matrix[i+3];
     for (let k = 0; k < currentArray.length; k++) {
+     // create a current number var
+     let currentNumber = currentArray[k];
+     // calculate product of vertical numbers (PV)
+     let verticalProduct = currentNumber * belowArray1[k] * belowArray2[k] * belowArray3[k];
+     console.log(`VP = ${verticalProduct}`);
+     // take the greatest of PH and PV
+     // if PH or PV > greatestProduct, reassign
+     if (verticalProduct > greatestVerticalProduct) {
+       greatestVerticalProduct = verticalProduct;
+      }
+    }
+  }
+  console.log(`greatestVP is ${greatestVerticalProduct}`);
+  return greatestVerticalProduct;
+} ;
+
+function greatestHorizontalProduct(matrix) {
+  // create greatestHP variable
+  let greatestHorizontalProduct = 1;
+  // iterate over matrix
+  for (let i = 0; i < matrix.length; i++) {
+    // iterate over array
+    let currentArray = matrix[i];
+    for (let k = 0; k < currentArray.length - 3; k++) {
      // create a current number var
      let currentNumber = currentArray[k];
      let adjacentNumber1 = currentArray[k+1];
@@ -164,25 +187,51 @@ function greatestProduct(matrix) {
      let adjacentNumber3 = currentArray[k+3];
      // calculate product of horizontal numbers (PH)
      let horizontalProduct = currentNumber * adjacentNumber1 * adjacentNumber2 * adjacentNumber3;
-     // calculate product of vertical numbers (PV)
-     let verticalProduct = currentNumber * adjacentArray1[k] * adjacentArray2[k] * adjacentArray3[k];
-     // take the greatest of PH and PV
-     // if PH or PV > greatestProduct, reassign
-     if (verticalProduct > horizontalProduct && verticalProduct > greatestProduct) {
-       greatestProduct = verticalProduct;
-     } else if (horizontalProduct > verticalProduct && horizontalProduct > greatestProduct) {
-       greatestProduct = horizontalProduct;
+     console.log(`HP = ${horizontalProduct}`);
+     if (horizontalProduct > greatestHorizontalProduct) {
+       greatestHorizontalProduct = horizontalProduct;
      }
     }
   }
-  // return greatestProduct
+  // return greatestHP
+  console.log(`greatestHP is ${greatestHorizontalProduct}`);
+  return greatestHorizontalProduct;
+};
+
+function greatestProduct(matrix) {
+  // create greatestProductVariable
+  let greatestProduct = 1;
+  // create HP variable
+  let greatestHP = greatestHorizontalProduct(matrix);
+  // create VP variable
+  let greatestVP = greatestVerticalProduct(matrix);
+  if (greatestHP > greatestProduct) {
+    greatestProduct = greatestHP;
+  }
+  if (greatestVP > greatestProduct) {
+    greatestProduct = greatestVP;
+  }
   return greatestProduct;
 }
+  
 
-const matrix1 = [ [ 1,  2, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1,  4, 3, 4, 5]
+const matrix1 = [ 
+  [ 1,  2, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
+  [ 1,  4, 3, 4, 5]
+]; 
+
+const matrix2 = [ 
+  [ 2, 2, 2, 2, 2], 
+  [ 2, 2, 2, 2, 2], 
+  [ 2, 2, 2, 2, 2], 
+  [ 2, 2, 2, 2, 2], 
+  [ 2, 2, 2, 2, 2]
 ];
 
-const matrix2 = [
+const matrix3 = [
   [08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 04, 56, 62, 00],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 03, 49, 13, 36, 65],
@@ -207,3 +256,4 @@ const matrix2 = [
 
 console.log(greatestProduct(matrix1));
 console.log(greatestProduct(matrix2));
+console.log(greatestProduct(matrix3));
