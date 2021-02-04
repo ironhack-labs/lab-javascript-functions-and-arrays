@@ -1,19 +1,105 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 < num2) {
+    return num2;
+  } else if (num1 > num2) {
+    return num1;
+  }
+  return num1
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let longestWord = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (longestWord.length < arr[i].length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i] 
+  }
+  return sum;
+}
+
+// BONUS Calculate the sum
+function sum(arr) {
+  let total = 0;
+  if(arr.length === 0) {
+    return total;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      total += arr[i].length;
+    } else if (typeof arr[i] === "number") {
+      total += arr[i];
+    } else if (arr[i] === true) {
+      total += 1;
+    } else if (arr[i] === false) {
+      continue;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return total
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+const averageNumbers = (arr) => {
+  let sum = 0;
+  if(arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  let avgResult = sum / arr.length;
+  return avgResult;
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength(arr) {
+  let sum = 0;
+  if(arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length;
+  }
+  let avgResult = sum / arr.length;
+  return avgResult;
+}
+// BONUS  Calculate the average of a mixed elements array
+function avg(arr) {
+  let sum = 0;
+  if(arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === "number") {
+      sum += arr[i];
+    } else if (arr[i] === true) {
+      sum += 1;
+    }
+  }
+  let avgResult = sum / arr.length;
+  let avgResultwith2FloatingPoint = avgResult.toFixed(2);
+  return Number(avgResultwith2FloatingPoint);
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -28,24 +114,71 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+console.log("____________\n")
+const uniquifyArray = (arr) => {
+  let newArr = [];
+  if(arr.length === 0) {
+    return null;
+  }
+  let highestIndex = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(arr[i]) === i ) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+// Test with set which it's much more easy :D
+// const uniquifyArray = (arr) => {
+//   if(arr.length === 0) {
+//     return null;
+//   } 
+//   const unique = [... new Set(arr)];
+//   return unique;
+// }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(array, word){
+  if(array.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (word === array[i]) {
+      return true;
+    }
+  }
+  return false;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+  'basketball',
+  'football',
+  'tennis',
+  'rugby',
+  'rugby',
+  'ping pong',
+  'rugby',
+  'basketball',
+  'rugby',
+  'handball',
+  'rugby'
+]
+function howManyTimes(arr, word){
+  let numberOfTimes = 0;
+  if(arr.length === 0) {
+    return numberOfTimes;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    console.log(word + " -- " + arr[i])
+    if (word == arr[i]) {
+        numberOfTimes ++
+      }
+  }
+  console.log(numberOfTimes);
+  return numberOfTimes;
+}
 
 // Iteration #8: Bonus
 
