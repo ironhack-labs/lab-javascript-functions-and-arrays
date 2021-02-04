@@ -73,31 +73,38 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-function uniquifyArray(array) {
-  if (array.length===0) {
+function uniquifyArray(array5) {
+  if (array5.length === 0) {
     return null;
-  } else {
-    let indexOfDuplicate;
-    if (array.length >1) {
-  for (let i=0; i<array.length; i++) {
-    i=0;
-    indexOfDuplicate = array.indexOf(array[i],i+1);
-    if (indexOfDuplicate !==-1) {
-    for (let j=0; j<array.length; j++) {
-      indexOfDuplicate = array.indexOf(array[j],j+1);
-      if (indexOfDuplicate !==-1) {
-       array.splice(indexOfDuplicate,1)
+  }
+  let indexOfDuplicate;
+  for (let i = 0; i <= array5.length; i++) {
+    if (array5.length === 1) {
+      break;
+    }
+    indexOfDuplicate = array5.indexOf(array5[i], i + 1);
+    for (let j = 0; j < array5.length; j++) {
+      indexOfDuplicate = array5.indexOf(array5[j], j + 1);
+      if (indexOfDuplicate !== -1) {
+        array5.splice(indexOfDuplicate, 1);
+      }
     }
   }
-    }
-  }
-}
-}
-return array;
+  return array5;
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(array, word) {
+  if (array.length===0) { 
+    return null;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (word === array[i]) {
+      return true;
+    }
+  }
+  return false;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
