@@ -46,7 +46,7 @@ describe('Find the longest word', () => {
   });
 
   it('should return the first occurrence of the word when longest have multiple occurrences ', () => {
-    expect(findLongestWord(['foo', 'bar'])).toBe('foo');
+    expect(findLongestWord(['yuka', 'guil'])).toBe('yuka');
     expect(findLongestWord(['bar', 'foo'])).toBe('bar');
   });
 
