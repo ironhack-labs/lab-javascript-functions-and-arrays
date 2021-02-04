@@ -19,7 +19,8 @@ describe('Find the maximum', () => {
 
   it('should return greater of two arguments - if the first argument greater', () => {
     expect(maxOfTwoNumbers(2, 1)).toBe(2);
-    expect(maxOfTwoNumbers(5, -7)).toBe(5);
+    expect(maxOfTwoNumbers(5,
+     -7)).toBe(5);
   });
 
   it('should return greater of two arguments - if the second argument greater', () => {
