@@ -181,6 +181,7 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
   });
 });
 
+// ------------------------------------------------------
 describe('Unique array', () => {
   it('should create a function named uniquifyArray', () => {
     expect(typeof uniquifyArray).toBe('function');
@@ -190,7 +191,7 @@ describe('Unique array', () => {
     expect(uniquifyArray([])).toEqual(null);
   });
 
-  it('should return the correct uniqified array when an array of the same elements passed as argument', () => {
+  it('should return the correct uniquified array when an array of the same elements passed as argument', () => {
     expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
   });
 
