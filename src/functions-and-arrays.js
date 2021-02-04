@@ -147,7 +147,7 @@ console.log(howManyTimes(wordsCount, 'matter'));
 // Iteration #8: Bonus
 function greatestVerticalProduct(matrix) {
   // create greatestVP variable
-  let greatestVerticalProduct = 1;
+  let greatestVerticalProduct = 0;
   // iterate over matrix
   for (let i = 0; i < matrix.length - 3; i++) {
     // iterate over array
@@ -173,8 +173,12 @@ function greatestVerticalProduct(matrix) {
 } ;
 
 function greatestHorizontalProduct(matrix) {
+  // edge case
+  if (matrix === []) {
+    return null;
+  }
   // create greatestHP variable
-  let greatestHorizontalProduct = 1;
+  let greatestHorizontalProduct = 0;
   // iterate over matrix
   for (let i = 0; i < matrix.length; i++) {
     // iterate over array
@@ -200,7 +204,7 @@ function greatestHorizontalProduct(matrix) {
 
 function greatestProduct(matrix) {
   // create greatestProductVariable
-  let greatestProduct = 1;
+  let greatestProduct = 0;
   // create HP variable
   let greatestHP = greatestHorizontalProduct(matrix);
   // create VP variable
@@ -257,3 +261,83 @@ const matrix3 = [
 console.log(greatestProduct(matrix1));
 console.log(greatestProduct(matrix2));
 console.log(greatestProduct(matrix3));
+
+//Iteration 8.1:Product of diagonals
+
+function greatestProductOfDiagonals(matrix) {
+  if (matrix === []) {
+    return null;
+  }
+  let greatestProductOfDiagonals = 0;
+  let greatestProductOfLeftDiagonal = greatestProductLeftDiagonal(matrix);
+  let greatestProductOfRightDiagonal = greatestProductRightDiagonal(matrix);
+  if (greatestProductOfLeftDiagonal > greatestProductOfDiagonals) {
+    greatestProductOfDiagonals = greatestProductOfLeftDiagonal
+  }
+  if (greatestProductOfRightDiagonal > greatestProductOfDiagonals) {
+    greatestProductOfDiagonals = greatestProductOfRightDiagonal
+  }
+  return greatestProductOfDiagonals;
+};
+
+function greatestProductLeftDiagonal(matrix) {
+  // create greatestPLD variable
+  let greatestPLD = 0;
+  // iterate over matrix
+  for (let i = 0; i < matrix.length - 3; i++) {
+    // create varaible for below current and arrays
+    let currentArray = matrix[i];
+    let belowArray1 = matrix[i+1];
+    let belowArray2 = matrix[i+2];
+    let belowArray3 = matrix[i+3];
+    
+    // iterate over current Array
+    for (let k = 3; k < currentArray.length; k++) {
+      // calculate PLD
+      let productOfLeftDiagonal = currentArray[k] * belowArray1[k-1] * belowArray2[k-2] * belowArray3[k-3];
+      //if PLD > greatestPLD, reassign
+      if (productOfLeftDiagonal > greatestPLD) {
+        greatestPLD = productOfLeftDiagonal;
+      }
+    }
+  }
+  // return greatestPLD
+  return greatestPLD;
+};
+
+function greatestProductRightDiagonal(matrix) {
+  // create greatestPRD variable
+  let greatestPRD = 0;
+  // iterate over matrix
+  for (let i = 0; i < matrix.length - 3; i++) {
+    // create varaible for below current and arrays
+    let currentArray = matrix[i];
+    let belowArray1 = matrix[i+1];
+    let belowArray2 = matrix[i+2];
+    let belowArray3 = matrix[i+3];
+    
+    // iterate over current Array
+    for (let k = 0; k < currentArray.length - 3; k++) {
+      // calculate PRD
+      let productOfRightDiagonal = currentArray[k] * belowArray1[k+1] * belowArray2[k+2] * belowArray3[k+3];
+      //if PRD > greatestPRD, reassign
+      if (productOfRightDiagonal > greatestPRD) {
+        greatestPRD = productOfRightDiagonal;
+      }
+    }
+  }
+  // return greatestPRD
+  return greatestPRD;
+};
+
+console.log(`The greatest product of left diagonal of matrix1 is ${greatestProductLeftDiagonal(matrix1)}`);
+console.log(`The greatest product of right diagonal of matrix1 is ${greatestProductRightDiagonal(matrix1)}`);
+console.log(`The greatest diagonal product of matrix2 is ${greatestProductOfDiagonals(matrix1)}`);
+
+console.log(`The greatest product of left diagonal of matrix2 is ${greatestProductLeftDiagonal(matrix2)}`);
+console.log(`The greatest product of right diagonal of matrix2 is ${greatestProductRightDiagonal(matrix2)}`);
+console.log(`The greatest diagonal product of matrix2 is ${greatestProductOfDiagonals(matrix2)}`);
+
+console.log(`The greatest product of left diagonal of matrix3 is ${greatestProductLeftDiagonal(matrix3)}`);
+console.log(`The greatest product of right diagonal of matrix3 is ${greatestProductRightDiagonal(matrix3)}`);
+console.log(`The greatest diagonal product of matrix3 is ${greatestProductOfDiagonals(matrix3)}`);
