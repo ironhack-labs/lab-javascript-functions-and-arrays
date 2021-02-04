@@ -6,12 +6,12 @@ function maxOfTwoNumbers(n1, n2) {
     return n1;
   } else {
     return n2;
-  }
+  };
 };
 
-console.log(maxOfTwoNumbers(2,2));
-console.log(maxOfTwoNumbers(3,2));
-console.log(maxOfTwoNumbers(2,4));
+console.log(`The greatest number of 2 and 2 is: ${maxOfTwoNumbers(2,2)}`);
+console.log(`The greatest number of 3 and 2 is: ${maxOfTwoNumbers(3,2)}`);
+console.log(`The greatest number of 2 and 4 is: ${maxOfTwoNumbers(2,4)}`);
 
 // Iteration #2: Find longest word
 
@@ -19,7 +19,7 @@ function findLongestWord(array) {
   //edge case
   if (array.length === 0) {
     return null;
-  }
+  };
   // define longest word var
   let longestWord = array[0];
   //iterate over array
@@ -28,13 +28,15 @@ function findLongestWord(array) {
     if (array[i].length > longestWord.length) {
     // reassign longest word var
       longestWord = array[i];
-    }
-  }
+    };
+  };
   return longestWord;
 };
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot',];
+const words1 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot',];
+const words2 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'toi', 'anticonstitutionnellement'];
 
-console.log(findLongestWord(words));
+console.log(`The longest word in words1 is: ${findLongestWord(words1)}`);
+console.log(`The longest word in words2 is: ${findLongestWord(words2)}`);
 
 // Iteration #3: Calculate the sum
 function sumNumbers(array) {
@@ -42,37 +44,47 @@ function sumNumbers(array) {
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] !== 'number') {
       continue;
-    }
+    };
     sum += array[i];
-    console.log(sum);
-  }
+  };
   return sum;
-}
+};
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-console.log(sumNumbers(numbers));
-console.log(sumNumbers(mixedArr));
+console.log(`The sum of numbers is: ${sumNumbers(numbers)}`);
+console.log(`The sum of mixedArr1 is: ${sumNumbers(mixedArr1)}`);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 function averageNumbers(arr) {
   return sumNumbers(arr)/arr.length;
-}
+};
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-console.log(averageNumbers(numbersAvg));
+console.log(`The average of the numbers in numbersAvg is: ${averageNumbers(numbersAvg)}`);
 
 // Level 2: Array of strings
 function averageWordLength(arr) {
   let totalLength = 0;
   for (let i = 0; i < arr.length; i++) {
     totalLength += arr[i].length;
-  }
+  };
   return totalLength/arr.length
-}
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+};
+const wordsArr1 = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr2 = ['seat', 'seat', 'seat', 'seat', 'seat', 'seat', 'seat', 'seat', 'seat', 'seat'];
 
-console.log(averageWordLength(wordsArr));
+console.log(`The average length of the words in wordsArr1 is: ${averageWordLength(wordsArr1)}`);
+console.log(`The average length of the words in wordsArr2 is: ${averageWordLength(wordsArr2)}`);
+
+// Bonus - Iteration #4.1: A generic avg() function
+
+function avg(arr) {
+
+};
+
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(`The average of mixedArr2 is ${avg(mixedArr2)}`);
 
 // Iteration #5: Unique arrays
 function uniquifyArray(arr) {
@@ -81,11 +93,11 @@ function uniquifyArray(arr) {
     let currentWord = arr[i];
     if (uniquifiedArr.indexOf(currentWord) === -1) {
       uniquifiedArr.push(currentWord);
-    }
-  }
+    };
+  };
   return uniquifiedArr;
-}
-const wordsUnique = [
+};
+const wordsUnique1 = [
   'crab',
   'poison',
   'contagious',
@@ -99,21 +111,30 @@ const wordsUnique = [
   'bring'
 ];
 
-console.log(uniquifyArray(wordsUnique));
+const wordsUnique2 = [
+  'crab',
+  'crab',
+  'crab',
+  'crab',
+  'bring'
+];
+
+console.log(`The uniquified version of wordsUnique1 is: ${uniquifyArray(wordsUnique1)}`);
+console.log(`The uniquified version of wordsUnique2 is: ${uniquifyArray(wordsUnique2)}`);
 
 // Iteration #6: Find elements
 function doesWordExist(arr, word) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === word) {
       return true;
-    }
-  }
+    };
+  };
   return false;
-}
+};
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-console.log(doesWordExist(wordsFind, 'subset'));
-console.log(doesWordExist(wordsFind, 'coucou'));
+console.log(`The word 'subset' appears in wordsFind: ${doesWordExist(wordsFind, 'subset')}`);
+console.log(`The word 'coucou' appears in wordsFind: ${doesWordExist(wordsFind, 'coucou')}`);
 
 
 // Iteration #7: Count repetition
@@ -122,10 +143,10 @@ function howManyTimes(arr, word) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === word) {
       numberOfTimes += 1;
-    }
-  }
+    };
+  };
   return numberOfTimes;
-}
+};
 
 const wordsCount = [
   'machine',
@@ -141,8 +162,8 @@ const wordsCount = [
   'matter'
 ];
 
-console.log(howManyTimes(wordsCount, 'machine'));
-console.log(howManyTimes(wordsCount, 'matter'));
+console.log(`The word 'machine' appears ${howManyTimes(wordsCount, 'machine')} time(s) in wordsCount`);
+console.log(`The word 'matter' appears ${howManyTimes(wordsCount, 'matter')} time(s) in wordsCount`);
 
 // Iteration #8: Bonus
 function greatestVerticalProduct(matrix) {
@@ -160,23 +181,21 @@ function greatestVerticalProduct(matrix) {
      let currentNumber = currentArray[k];
      // calculate product of vertical numbers (PV)
      let verticalProduct = currentNumber * belowArray1[k] * belowArray2[k] * belowArray3[k];
-     console.log(`VP = ${verticalProduct}`);
      // take the greatest of PH and PV
      // if PH or PV > greatestProduct, reassign
      if (verticalProduct > greatestVerticalProduct) {
        greatestVerticalProduct = verticalProduct;
-      }
-    }
-  }
-  console.log(`greatestVP is ${greatestVerticalProduct}`);
+      };
+    };
+  };
   return greatestVerticalProduct;
-} ;
+};
 
 function greatestHorizontalProduct(matrix) {
   // edge case
   if (matrix === []) {
     return null;
-  }
+  };
   // create greatestHP variable
   let greatestHorizontalProduct = 0;
   // iterate over matrix
@@ -191,14 +210,12 @@ function greatestHorizontalProduct(matrix) {
      let adjacentNumber3 = currentArray[k+3];
      // calculate product of horizontal numbers (PH)
      let horizontalProduct = currentNumber * adjacentNumber1 * adjacentNumber2 * adjacentNumber3;
-     console.log(`HP = ${horizontalProduct}`);
      if (horizontalProduct > greatestHorizontalProduct) {
        greatestHorizontalProduct = horizontalProduct;
-     }
-    }
-  }
+     };
+    };
+  };
   // return greatestHP
-  console.log(`greatestHP is ${greatestHorizontalProduct}`);
   return greatestHorizontalProduct;
 };
 
@@ -258,25 +275,33 @@ const matrix3 = [
   [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48]
 ];
 
-console.log(greatestProduct(matrix1));
-console.log(greatestProduct(matrix2));
-console.log(greatestProduct(matrix3));
+console.log(`The greatest product of 4 horizontally adjacent numbers in matrix1 is: ${greatestHorizontalProduct(matrix1)}`);
+console.log(`The greatest product of 4 horizontally adjacent numbers in matrix2 is: ${greatestHorizontalProduct(matrix2)}`);
+console.log(`The greatest product of 4 horizontally adjacent numbers in matrix3 is: ${greatestHorizontalProduct(matrix3)}`);
+
+console.log(`The greatest product of 4 vertically adjacent numbers in matrix1 is: ${greatestVerticalProduct(matrix1)}`);
+console.log(`The greatest product of 4 vertically adjacent numbers in matrix2 is: ${greatestVerticalProduct(matrix2)}`);
+console.log(`The greatest product of 4 vertically adjacent numbers in matrix3 is: ${greatestVerticalProduct(matrix3)}`);
+
+console.log(`The greatest product of 4 adjacent numbers in matrix1 is: ${greatestProduct(matrix1)}`);
+console.log(`The greatest product of 4 adjacent numbers in matrix2 is: ${greatestProduct(matrix2)}`);
+console.log(`The greatest product of 4 adjacent numbers in matrix2 is: ${greatestProduct(matrix3)}`);
 
 //Iteration 8.1:Product of diagonals
 
 function greatestProductOfDiagonals(matrix) {
   if (matrix === []) {
     return null;
-  }
+  };
   let greatestProductOfDiagonals = 0;
   let greatestProductOfLeftDiagonal = greatestProductLeftDiagonal(matrix);
   let greatestProductOfRightDiagonal = greatestProductRightDiagonal(matrix);
   if (greatestProductOfLeftDiagonal > greatestProductOfDiagonals) {
     greatestProductOfDiagonals = greatestProductOfLeftDiagonal
-  }
+  };
   if (greatestProductOfRightDiagonal > greatestProductOfDiagonals) {
     greatestProductOfDiagonals = greatestProductOfRightDiagonal
-  }
+  };
   return greatestProductOfDiagonals;
 };
 
@@ -330,14 +355,14 @@ function greatestProductRightDiagonal(matrix) {
   return greatestPRD;
 };
 
-console.log(`The greatest product of left diagonal of matrix1 is ${greatestProductLeftDiagonal(matrix1)}`);
-console.log(`The greatest product of right diagonal of matrix1 is ${greatestProductRightDiagonal(matrix1)}`);
-console.log(`The greatest diagonal product of matrix2 is ${greatestProductOfDiagonals(matrix1)}`);
+console.log(`The greatest product of left diagonal of matrix1 is: ${greatestProductLeftDiagonal(matrix1)}`);
+console.log(`The greatest product of right diagonal of matrix1 is: ${greatestProductRightDiagonal(matrix1)}`);
+console.log(`The greatest diagonal product of matrix2 is: ${greatestProductOfDiagonals(matrix1)}`);
 
-console.log(`The greatest product of left diagonal of matrix2 is ${greatestProductLeftDiagonal(matrix2)}`);
-console.log(`The greatest product of right diagonal of matrix2 is ${greatestProductRightDiagonal(matrix2)}`);
-console.log(`The greatest diagonal product of matrix2 is ${greatestProductOfDiagonals(matrix2)}`);
+console.log(`The greatest product of left diagonal of matrix2 is: ${greatestProductLeftDiagonal(matrix2)}`);
+console.log(`The greatest product of right diagonal of matrix2 is: ${greatestProductRightDiagonal(matrix2)}`);
+console.log(`The greatest diagonal product of matrix2 is: ${greatestProductOfDiagonals(matrix2)}`);
 
-console.log(`The greatest product of left diagonal of matrix3 is ${greatestProductLeftDiagonal(matrix3)}`);
-console.log(`The greatest product of right diagonal of matrix3 is ${greatestProductRightDiagonal(matrix3)}`);
-console.log(`The greatest diagonal product of matrix3 is ${greatestProductOfDiagonals(matrix3)}`);
+console.log(`The greatest product of left diagonal of matrix3 is: ${greatestProductLeftDiagonal(matrix3)}`);
+console.log(`The greatest product of right diagonal of matrix3 is: ${greatestProductRightDiagonal(matrix3)}`);
+console.log(`The greatest diagonal product of matrix3 is: ${greatestProductOfDiagonals(matrix3)}`);
