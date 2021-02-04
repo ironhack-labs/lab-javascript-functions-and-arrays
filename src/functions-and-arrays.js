@@ -1,11 +1,61 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers (nb1, nb2) {
+  console.log('argument 1 >', nb1);
+  console.log('argument 2 >', nb2);
+if (nb1 > nb2) {
+  return nb1;
+} else if (nb2 > nb1) {
+  return nb2;
+} else if (nb1 === nb2) {
+  return nb1;
+} 
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord (arrayOfWords) {
+if (arrayOfWords.length === 0) {
+  return null;
+}
+if (arrayOfWords.length === 1){
+  return arrayOfWords[0];
+} 
+if (arrayOfWords.length > 1){
+  return arrayOfWords[0];
+}
+let longestWord ="";
+for (let i=0; i < arrayOfWords.length; i++) {
+  if (longestWord.length > arrayOfWords[i].length) {
+    longestWord = arrayOfWords[i];
+  }
+return longestWord;
+}
+}
+ 
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers (numArray) {
+  if (numArray.length === 0) {
+    return 0;
+  }
+  if (numArray.length === 1) {
+    return numArray[0];
+  }
+  for (let j=0; j < numArray.length; j++) {
+    if (numArray[j] === 0) {
+      return 0;
+    }
+    let sumNumbers = 0;
+     return sumNumbers += numArray[j];
+ 
+  }
+}
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -55,11 +105,11 @@ const matrix = [
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
   [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
   [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
-  [24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
-  [32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70],
-  [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21],
+  [24, 47, 32, 60, 99,, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
+  [32, 98, 81, 28, 64, 23, 67, 10, 26, 38,  67, 59, 54, 70, 66, 18, 38, 64, 70],
+  [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 911],
   [24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72],
-  [21, 36, 23, 9, 75, 0, 76, 44, 20, 45, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95],
+  [21, 36, 23, 9, 75,5, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95],
   [78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 9, 53, 56, 92],
   [16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 0, 17, 54, 24, 36, 29, 85, 57],
   [86, 56, 0, 48, 35, 71, 89, 7, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58],
