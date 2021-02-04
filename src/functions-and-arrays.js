@@ -22,7 +22,6 @@ function findLongestWord(arr) {
   return longestWord;
 }
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const sumNumbers = (arr) => {
   let sum = 0;
@@ -181,7 +180,6 @@ function howManyTimes(arr, word){
 }
 
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -205,30 +203,6 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// function productOfFour(arr) {
-//   let product = 0;
-//   let newArr = []
-//   for (let i = 0; i < arr.length; i++) {
-//     for (let j = 0; j < arr[i].length; j++) {
-//     product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
-//     return product;
-//     }
-//   }
-// }
-
-// function productOfFour(arr) {
-//   let product = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     for (let j = 0; j < arr[i].length; j++) {
-//       product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
-//       if (!isNaN(product)) {
-//         newArr.push(product);
-//       }
-//     }
-//   }
-//   return newArr;
-// }
-// console.log(newArr);
 function greatestProduct(arr) {
   let ArrOfProduct = []
   let product = 0;
