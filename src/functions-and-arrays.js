@@ -204,3 +204,50 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// function productOfFour(arr) {
+//   let product = 0;
+//   let newArr = []
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr[i].length; j++) {
+//     product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+//     return product;
+//     }
+//   }
+// }
+
+// function productOfFour(arr) {
+//   let product = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr[i].length; j++) {
+//       product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+//       if (!isNaN(product)) {
+//         newArr.push(product);
+//       }
+//     }
+//   }
+//   return newArr;
+// }
+// console.log(newArr);
+function greatestProduct(arr) {
+  let ArrOfProduct = []
+  let product = 0;
+  // Calculate the products of 4 adjacent elements for the whole arr
+  // Add them in ArrOfProduct
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+      if (!isNaN(product)) {
+        ArrOfProduct.push(product);
+      }
+    }
+  }
+  // Compare the elements of ArrOfProduct return the highest
+  let highestProduct = 0;
+  for (let i = 0; i < ArrOfProduct.length; i++) {
+    if (highestProduct < ArrOfProduct[i]) {
+      highestProduct = ArrOfProduct[i];
+    }
+  }
+  return highestProduct;
+}
