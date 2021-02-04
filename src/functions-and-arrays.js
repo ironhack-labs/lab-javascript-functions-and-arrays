@@ -122,21 +122,6 @@ const howManyTimes = (arr, word) => {
   return sum;
 }
 
-console.log(howManyTimes([
-  'basketball',
-  'football',
-  'tennis',
-  'rugby',
-  'rugby',
-  'ping pong',
-  'rugby',
-  'basketball',
-  'rugby',
-  'handball',
-  'rugby'
-],
-'rugby'));
-
 // Iteration #8: Bonus
 
 const matrix = [
@@ -162,17 +147,37 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-//toujours en test
+//still working on the diagonal one
 
-// const greatestProduct = (arr) => {
-//   let results = [];
-//   for(let i = 0; i < arr.length; i++) {
-//     console.log(arr[i]);
-//   }
-// }
+const getHResult = (row, col, arr) => {
+  let result = 1;
+  for(let i = 0; i < 4; ++i) result *= arr[row][col + i];
+  return result;
+}
 
-// console.log(greatestProduct([[ 1,  2, 3, 4, 5]
-//   [ 1, 20, 3, 4, 5]
-//   [ 1, 20, 3, 4, 5]
-//   [ 1, 20, 3, 4, 5]
-//   [ 1,  4, 3, 4, 5]]));
+const getVResult = (row, col, arr) => {
+  let result = 1;
+  for(let i = 0; i < 4; ++i) result *= arr[row + i][col];
+  return result;
+}
+
+const greatestProduct = (arr) => {
+  let lastResult = 0;
+
+  for(let row = 0; row < arr.length; row++) {
+    for(let col = 0; col < arr[row].length; col++) {
+      if(col + 3 < arr[col].length) {
+        let result = getHResult(row, col, arr);
+        if(result > lastResult) lastResult = result;
+      }
+
+      if(row + 3 < arr.length) {
+        let result = getVResult(row, col, arr);
+        if(result > lastResult) lastResult = result;
+      }
+    }
+  }
+  return lastResult;
+}
+
+console.log(greatestProduct([[ 1,  2, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1,  4, 3, 4, 5]]));
