@@ -138,3 +138,60 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProductOneRow = (matrix, row) => {
+  let res = matrix[row][0] * matrix[row][1] * matrix[row][2] * matrix[row][3] ;
+  let test = res;
+
+  for (let k = 1 ; k < matrix[row].length-3 ; k++) {
+    test = matrix[row][k]*matrix[row][k+1]*matrix[row][k+2]*matrix[row][k+3] ;
+    res =  test > res ? test : res ;
+  }
+  return res ;
+}
+
+const greatestProductOneColumn = (matrix, column) => {
+  let res = matrix[0][column] * matrix[1][column] * matrix[2][column] * matrix[3][column] ;
+  let test = res ;
+
+  for (let k = 1 ; k < matrix.length-3 ; k++) {
+    test = matrix[k][column]*matrix[k+1][column]*matrix[k+2][column]*matrix[k+3][column] ;
+    res =  test > res ? test : res ;
+  }
+  return res ;
+}
+
+const greatestProduct = (matrix) => {
+  let nbRow = matrix.length ;
+  let nbCol = matrix[0].length ;
+
+  let res = 0 ;
+  let test ;
+  for (let k = 0; k < nbRow ; k++) {
+    test = greatestProductOneRow(matrix, k) ;
+    res = test > res ? test : res ;
+  }
+
+  for (let k = 0; k < nbCol ; k++) {
+    test = greatestProductOneColumn(matrix, k) ;
+    res = test > res ? test : res ;
+  }
+
+  return res ;
+}
+
+//Bonus - Iteration #8.1: Product of diagonals
+const greatestProductOfDiagonals = (matrix) => {
+  let res = matrix[0][0] * matrix[1][1] * matrix[2][2] * matrix[3][3] ;
+  let test = res ;
+
+  for (let k = 1 ; k < matrix.length-3 ; k++) {
+    test = matrix[k][k]*matrix[k+1][k+1]*matrix[k+2][k+2]*matrix[k+3][k+3] ;
+    res =  test > res ? test : res ;
+  }
+  for (let k = 0 ; k < matrix.length-3 ; k++) {
+    test = matrix[matrix.length-1-k][k]*matrix[matrix.length-2-k][k+1]*matrix[matrix.length-3-k][k+2]*matrix[matrix.length-4-k][k+3] ;
+    res =  test > res ? test : res ;
+  }
+  return res ;
+}
