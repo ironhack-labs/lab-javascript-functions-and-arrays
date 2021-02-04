@@ -52,12 +52,54 @@ function sumNumbers(array) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-console.log(`The sum of numbers is: ${sumNumbers(numbers)}`);
-console.log(`The sum of mixedArr1 is: ${sumNumbers(mixedArr1)}`);
+console.log(`The sum of numbers in numbers is: ${sumNumbers(numbers)}`);
+console.log(`The sum of numbers in mixedArr1 is: ${sumNumbers(mixedArr1)}`);
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+function sum(mixedArr) {
+  //edge case
+  for (let k = 0; k < mixedArr.length; k++) {
+    if (typeof mixedArr[k] === "object") {
+      throw new Error ("Unsupported data type sir or ma'am");
+    };
+  };
+  // create result variable
+  let sum = 0;
+  // iterate over array
+  for (i = 0; i < mixedArr.length; i++) {
+    let currentProperty = mixedArr[i];
+    // if current element is a number, add to result
+    if (typeof currentProperty === "number") {
+      sum += currentProperty;
+    };
+    // if current element is a string, add string length to result
+    if (typeof currentProperty === "string") {
+      sum += currentProperty.length;
+    };
+    // if current element is a boolean, add it's value to result
+    if (currentProperty === true) {
+      sum += 1;
+    };
+    if (currentProperty === false) {
+      sum += 0;
+    };
+  };
+  // return result variable
+  return sum;
+};
+
+console.log(`The sum of all elements in mixedArr1 is: ${sum(mixedArr1)}`);
 
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  };
   return sumNumbers(arr)/arr.length;
 };
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -65,6 +107,9 @@ console.log(`The average of the numbers in numbersAvg is: ${averageNumbers(numbe
 
 // Level 2: Array of strings
 function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  };
   let totalLength = 0;
   for (let i = 0; i < arr.length; i++) {
     totalLength += arr[i].length;
@@ -80,7 +125,11 @@ console.log(`The average length of the words in wordsArr2 is: ${averageWordLengt
 // Bonus - Iteration #4.1: A generic avg() function
 
 function avg(arr) {
-
+  let result = sum(arr)/arr.length
+  if (arr.length === 0) {
+    return null;
+  };
+  return parseFloat(result).toFixed(2);
 };
 
 const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -88,6 +137,10 @@ console.log(`The average of mixedArr2 is ${avg(mixedArr2)}`);
 
 // Iteration #5: Unique arrays
 function uniquifyArray(arr) {
+  //edge case
+  if (arr.length === 0) {
+    return null;
+  };
   let uniquifiedArr = [];
   for (let i = 0; i < arr.length; i++) {
     let currentWord = arr[i];
@@ -124,6 +177,10 @@ console.log(`The uniquified version of wordsUnique2 is: ${uniquifyArray(wordsUni
 
 // Iteration #6: Find elements
 function doesWordExist(arr, word) {
+  //edge case
+  if (arr.length === 0) {
+    return null;
+  };
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === word) {
       return true;
