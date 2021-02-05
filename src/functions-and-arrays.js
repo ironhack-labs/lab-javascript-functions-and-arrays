@@ -70,27 +70,35 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
 function uniquifyArray(wordsUnique){
-  if (wordsUnique.length===0){return null};
-  for (let a=0; a<wordsUnique.length; a++){
-    let unique = [];
-    wordsUnique.forEach((wordsUnique[a]) => {
-      if (!unique.includes(wordsUnique[a])) {
-          unique.push(wordsUnique[a]);
+  if (wordsUnique.length === 0 ){
+    return null
+  }
+
+  let unique = [];
+
+  for (let a = 0; a < wordsUnique.length; a++) {
+    wordsUnique.forEach((w) => {
+      if (!unique.includes(w)) {
+        unique.push(w);
       }
-    }
+    })
   }
   return unique
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-function doesWordExist(wordsFind){
-  if (wordsFind===0){return null};
-  const search = prompt ("What are you searching for ?");
-  if wordsFind.includes(search){return true};
-  else {return false};
+
+function doesWordExist(words, wordToFind){
+  if (words.length===0){
+    return null;
+  }
+  else if (words.includes(wordToFind)) {return true}
+  return false;
 }
+
 
 
 // Iteration #7: Count repetition
