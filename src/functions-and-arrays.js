@@ -147,7 +147,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-//still working on the diagonal one
+//horizontal / vertical one
 
 const getHResult = (row, col, arr) => {
   let result = 1;
