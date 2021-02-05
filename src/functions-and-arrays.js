@@ -151,13 +151,13 @@ const matrix = [
 
 const getHResult = (row, col, arr) => {
   let result = 1;
-  for(let i = 0; i < 4; ++i) result *= arr[row][col + i];
+  for(let i = 0; i < 4; i++) result *= arr[row][col + i];
   return result;
 }
 
 const getVResult = (row, col, arr) => {
   let result = 1;
-  for(let i = 0; i < 4; ++i) result *= arr[row + i][col];
+  for(let i = 0; i < 4; i++) result *= arr[row + i][col];
   return result;
 }
 
@@ -166,7 +166,7 @@ const greatestProduct = (arr) => {
 
   for(let row = 0; row < arr.length; row++) {
     for(let col = 0; col < arr[row].length; col++) {
-      if(col + 3 < arr[col].length) {
+      if(col + 3 < arr[row].length) {
         let result = getHResult(row, col, arr);
         if(result > lastResult) lastResult = result;
       }
@@ -180,4 +180,40 @@ const greatestProduct = (arr) => {
   return lastResult;
 }
 
-console.log(greatestProduct([[ 1,  2, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1, 20, 3, 4, 5], [ 1,  4, 3, 4, 5]]));
+//diagonals
+
+const getDRightResult = (arr, row, col) => {
+  let result = 1;
+  for(let i = 0; i < 4; i ++) {
+    result *= arr[row + i][col + i];
+  }
+  return result;
+}
+
+const getDLeftResult = (arr, row, col) => {
+  let result = 1;
+  for(let i = 0; i < 4; i ++) {
+    result *= arr[row + i][col - i];
+  }
+  return result;
+}
+
+const greatestProductOfDiagonals = (arr) => {
+  let lastResult = 0;
+
+  for(let row = 0; row < arr.length; row++) {
+    for(let col = 0; col < arr[row].length; col++) {
+      if(col + 3 < arr[row].length && row + 3 < arr.length) {
+        let result = getDRightResult(arr, row, col);
+        if(result > lastResult) lastResult = result;
+      }
+
+      if(col > 2 && row + 3 < arr.length) {
+        let result = getDLeftResult(arr, row, col);
+        if(result > lastResult) lastResult = result;
+      }
+    }
+  }
+
+  return lastResult;
+}
