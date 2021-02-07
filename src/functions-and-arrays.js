@@ -1,18 +1,77 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(nb1, nb2) {
+  console.log("argument 1 > ", nb1);
+  console.log("argument 2 > ", nb2);
+  console.log("______");
+  if (nb1 > nb2) {
+    return nb1;
+  } else if (nb1<nb2) {
+    return nb2;
+  } else {
+    return nb1}
+  }
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord (array) {
+if (array.length === 0){
+  return null
+} else if (array.length === 1) {
+  return array[0]
+}  
+let longestWord = ""
+for (let i=0; i<array.length; i++) {
+  if (longestWord.length < array[i].length) {
+    longestWord = array[i]
+  }
+}
+return longestWord
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers (someArr) {
+  if (someArr.length === 0){
+    return 0
+} 
+  let sum = 0
+  for (let i = 0; i < someArr.length; i++) {
+     sum += someArr[i]
+  }
+  return sum
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (someArr) {
+  if (someArr.length === 0) {
+    return null
+  }
+  let average = sumNumbers (someArr)  / someArr.length
+  return average
+}
+
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength (someArr) {
+  if (someArr.length === 0) {
+    return null
+  }
+    let sumWords = 0
+    for (let i = 0; i < someArr.length; i++) {
+      sumWords += someArr[i].length
+  }
+    let avgWords = sumWords / someArr.length
+    return avgWords
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +87,14 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(someArr) {
+  if (someArr.length === 0) {
+    return null
+  } else {
+    return someArr.filter((a,b) => someArr.indexOf(a) === b)
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
