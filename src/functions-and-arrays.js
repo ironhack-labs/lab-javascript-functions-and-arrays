@@ -1,16 +1,53 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(nb1, nb2) {
+  // console.log("Argument 1 >", nb1);
+  // console.log("Argument 2 >", nb2);
+  // console.log("-------------");
+  if (nb1 > nb2) {
+    return nb1;
+  } else if (nb1 < nb2) {
+    return nb2;
+  } else {
+    return nb2;
+  }
+};
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = [];
 
+function findLongestWord(list) {
+ const arraySorted = list.sort(function(a, b) {
+   if (list.length == 0){
+    return null;}
+      else {
+       return (b.length - a.length) || null;
+     }
+ });
+ return arraySorted[0];
+};
+// console.log(findLongestWord(words)); 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumNumbers(list){
+  let sum = 0;
+  for (let i = 0; i < list.length; i++){
+    sum += list[i];
+  };
+  return sum;
+};
+// console.log(sumNumbers(numbers));
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(list2){
+  let sum = 0;
+  for (let i = 0; i < list2.length; i++){
+    sum += list2[i];
+  };
+  return sum / list2.length;
+};
+console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
