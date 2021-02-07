@@ -219,13 +219,11 @@ function howManyTimes(arr, word) {
     return 0;
   }
   let result = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr.includes(word) === true) {
-      result += result + 1;
+  if (arr.includes(word) === true) {
+      result += result+1;
     };
     return result;
   };
-}
 
   const wordsCount = [
     "machine",
