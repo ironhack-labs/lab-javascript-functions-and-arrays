@@ -109,6 +109,7 @@ describe('Bonus: Calculate the sum', () => {
   it('should return the sum when passed array of mixed strings and numbers - ', () => {
     expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, 10])).toBe(56);
   });
+  
   it('should return the sum when passed array of mixed strings, numbers and booleans - ', () => {
     // false is counted as 0
     expect(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46);
