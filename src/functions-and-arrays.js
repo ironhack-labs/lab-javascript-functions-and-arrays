@@ -16,39 +16,75 @@ function findLongestWord(word) {
   return null;
   } else if (word.length === 1) {
     return word[0];
-  } else if (word[0].length === word[1].length) {
-    return word[0];
   } else {
+    let t = "";
     for ( let i=0; i < word.length; i++) { 
-      let t = 0;
-      if (word[i].length > t) {
-        t = word[i].length; 
-        return t;
+      if (word[i].length > t.length) {
+        t = word[i]; 
       }
     }   
+    return t;
   }
 } 
 
 console.log(findLongestWord(words));
+
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sum(number) {
-
-  if (!number.length) return 0;
+function sumNumbers(number) {
+  if (!number.length) {
+    return 0;
+  } else {
+    let t = 0;
+    for (let i = 0; i < number.length; i++) {
+      t += number[i]; 
+    }
+    return t;
+  }
 }
+
+console.log(sumNumbers(numbers))
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function sumNumbers() {
-
+function averageNumbers(numberMoy) {
+  if (!numberMoy.length) {
+    return null;
+  } else {
+    let t = 0;
+    for (let i = 0; i < numberMoy.length; i++) {
+      t += numberMoy[i]; 
+    }
+    return t / numberMoy.length;
+  }
 }
+
+console.log(averageNumbers([9]))
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsAr){
+  if (!wordsAr.length) {
+    return null;
+  } else {
+    let t = 0;
+    for (let i = 0; i < wordsAr.length; i++) {
+      t += wordsAr[i].length;
+    }
+    return t / wordsAr.length;
+  }
+}
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -64,6 +100,8 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
