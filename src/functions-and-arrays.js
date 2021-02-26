@@ -48,22 +48,109 @@ function sumNumbers (array) {
 
 // Iteration 3 Bonus 
 
-function sum ( array) {
-  let sum = 0;
-
-  if (array === "") {
+function sum(array) {
+  let total = 0;
+  if (array.length == 0)
+  {
     return 0;
   }
 
-  else ()
+  for (i=0; i<array.length; i++) {
+
+    switch (typeof array[i]) {
+      case 'number' : 
+        total = total + (array[i])
+      break;
+      case 'string' :
+        total = total + (array[i].length)
+      break;
+      case 'boolean' :
+        total = total + (array[i])
+      break;  
+      case 'object':
+        throw new Error("Unsupported data type sir or ma'am")
+        break;
+      case 'array':
+        throw new Error("Unsupported data type sir or ma'am")
+        break;
+    }
+  }
+
+return total;
 }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
+function averageNumbers (array) 
+{
+  let sum = 0
+  if (array.length == 0) 
+  {
+    return null;
+  }
+  for (let i = 0; i < array.length; i++) 
+  {
+    sum += array[i];
+  }
+  return sum / array.length
+}
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) 
+{
+  let sum = 0
+  if ( array.length == 0) 
+  {
+    return null;
+  }
+  for (i=0; i<array.length; i++ ) {
+    sum += array[i].length
+  }
+  return sum /array.length
+}
+
+// Iteration #4.3 Bonus
+
+function avg(arr) {
+
+  let sum = 0 
+
+  if (arr.length == 0) 
+  {
+    return null 
+  }
+
+  for (i=0; i<arr.length; i++) 
+  {
+    switch (typeof arr[i]) 
+    {
+      case 'number' : 
+        sum += arr[i];
+        break;
+      case 'string' :
+        sum += arr[i].length;
+        break;
+      case 'boolean' :
+        sum += arr[i];
+        break;
+      default :
+        return null;
+        break;
+    }
+
+  }
+    return parseFloat((sum / arr.length).toFixed(2));
+
+
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
