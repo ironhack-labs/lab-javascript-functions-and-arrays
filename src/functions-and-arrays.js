@@ -40,8 +40,8 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (array) {
   let sum = 0;
-  for (const val of array) {
-    sum += val;
+  for (i = 0; i < array.length; i++) {
+    sum = sum + array[i];
   }
   return sum;
 }
@@ -215,10 +215,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes (array,word){
+function howManyTimes (array, word){
   if (array.length == 0) {
-  return 0
+    return 0
   }
+
+  let count = 0
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === word) 
+    {
+      count++;
+    }
+  }
+  return count;
 }
 
 // Iteration #8: Bonus
@@ -246,4 +255,30 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix){}
+function greatestProduct(matrix) {
+  if (matrix.length == 0) {
+    return null 
+  }
+  
+  let greatestProduct = 0
+  for (i=0; i<matrix.length; i++) {
+    for (j=0; j<matrix[i].length; j++) {
+      // check vertical
+      if (i < matrix.length - 3 ) {
+        let product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+        if (product > greatestProduct) {
+          greatestProduct = product;
+        }
+      }
+      // check horizontal
+      if(j < matrix[i].length - 3) {
+        let product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+        if(product > greatestProduct) {
+          greatestProduct = product;
+        }
+      }
+    }
+  }
+
+  return greatestProduct
+}
