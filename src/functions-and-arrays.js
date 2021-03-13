@@ -7,13 +7,7 @@ const maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
 
 const findLongestWord = (arr) => {
   let wordLength = 0;
-  let longestWord;
-    if (arr.length === 0) {
-        return null;
-    }
-    if (arr.length === 1) {
-        return arr[0];
-    }
+  let longestWord = null;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > wordLength) {
         wordLength = arr[i].length;
