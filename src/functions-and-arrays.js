@@ -6,17 +6,16 @@ const maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
 // const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 const findLongestWord = (arr) => {
-  let wordLength = 0;
+  let longestWordLength = 0;
   let longestWord = null;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length > wordLength) {
-        wordLength = arr[i].length;
-        longestWord = arr[i];
+    if (arr[i].length > longestWordLength) {
+      longestWordLength = arr[i].length;
+      longestWord = arr[i];
     }
   }
   return longestWord;  
 }
-console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 
@@ -28,6 +27,30 @@ const sumNumbers = (numbers) => {
   }
   return sum;
 }
+
+console.log(sumNumbers(numbers))
+
+//Bonus - Iteration #3.1
+const sum = (arr) => {
+  let sum = 0;
+  for (element of arr) {
+    if (typeof element === `boolean`) {
+      if (element === true) {
+        sum += 1;
+      } else {
+        sum += 0;
+      }
+    } else if (typeof element === `string`) {
+      sum += element.length;
+    } else if (typeof element === 'number') {
+      sum += element
+    } else {
+      throw new Error ("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
