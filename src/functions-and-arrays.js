@@ -34,16 +34,10 @@ console.log(sumNumbers(numbers))
 const sum = (arr) => {
   let sum = 0;
   for (element of arr) {
-    if (typeof element === `boolean`) {
-      if (element === true) {
-        sum += 1;
-      } else {
-        sum += 0;
-      }
+    if (typeof element === `boolean` || typeof element === 'number') {
+      sum += element
     } else if (typeof element === `string`) {
       sum += element.length;
-    } else if (typeof element === 'number') {
-      sum += element
     } else {
       throw new Error ("Unsupported data type sir or ma'am");
     }
