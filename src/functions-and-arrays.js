@@ -58,7 +58,7 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
     } else if (typeof arr[i] === 'boolean'){
       total += (arr[i] ? 1 : 0);
     } else if (typeof arr[i] === 'object') {
-      return new Error('Unsupported data')
+      throw new Error ("Unsupported data type sir or ma'am")
     }
   }
   return total
@@ -94,7 +94,7 @@ const avg = (arr)=>{
     return null;
   }
   
-  return sum(arr) / arr.length;
+  return Number((sum(arr) / arr.length).toFixed(2));
 }
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -179,6 +179,69 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-const greatestProduct = (arr) =>{
+
+const greatestProduct = (matrix) =>{
   
-}
+  let maxProduct = 0;
+   
+   //loop the rows/outer array
+  for(let i=0; i<matrix.length; i++){
+    
+    //get the size of the inner array
+    let innerArrayLength = matrix[i].length;
+ 
+    //loop the inner array
+    for (let j=0; j< innerArrayLength; j++){
+      
+      //calculate the greatest product of horizontal row
+      if((j-3) >=0){
+      let result1 = (matrix[i][j] * matrix[i][j-1] * matrix[i][j-2] * matrix[i][j-3])
+      if (maxProduct < result1){
+        maxProduct = result1;
+      }
+    } 
+      
+      //calculate the greatest product of vertical row
+      if((i-3) >=0){
+      let result2 = (matrix[i][j] * matrix[i-1][j] * matrix[i-2][j] * matrix[i-3][j])
+      if (maxProduct < result2){
+        maxProduct = result2;
+      }
+    } 
+  }
+ }
+   return maxProduct
+ }
+
+ const greatestProductOfDiagonals = (matrix) =>{
+  
+  let maxProduct = 0;
+   
+   //loop the rows/outer array
+  for(let i=0; i<matrix.length; i++){
+    
+    //get the size of the inner array
+    let innerArrayLength = matrix[i].length;
+ 
+    //loop the inner array
+    for (let j=0; j< innerArrayLength; j++){
+      
+      //calculate the greatest product diagonal down-right
+      if(((i-3) >=0) && ((j-3)>=0)){
+      let result3 = (matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3])
+      if (maxProduct < result3){
+        maxProduct = result3;
+      }
+    } 
+      
+      //calculate the greatest product of diagonal up-right
+      if(((i-3) >=0) && ((j-1)>=0)){
+      let result4 = (matrix[i][j] * matrix[i-1][j+1] * matrix[i-2][j+2] * matrix[i-3][j+3])
+      if (maxProduct < result4){
+        maxProduct = result4;
+      }
+    } 
+  }
+ }
+   return maxProduct
+ }
