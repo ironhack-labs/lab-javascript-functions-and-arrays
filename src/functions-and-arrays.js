@@ -128,6 +128,15 @@ const wordsCount = [
   'matter'
 ];
 
+const howManyTimes = (arr, word) => {
+  if (!arr.length) {return  0;}
+  let totalTimes = 0;
+  arr.forEach(element => {
+      element === word ? totalTimes += 1 : 0;
+  });
+ return totalTimes;
+}
+
 
 // Iteration #8: Bonus
 
