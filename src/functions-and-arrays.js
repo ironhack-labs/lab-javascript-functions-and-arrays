@@ -164,21 +164,15 @@ const matrix = [
 ];
 
 const greatestProduct = (arr) => {
-  let maxArr;
+  let finalProduct;
   let total = 0;
   for (innerArr of arr) {
-      let sortedArr = innerArr.sort();
-      let slicedArr = sortedArr.slice(innerArr.length-4)
-      let arrTotals = [];
-      arrTotals.push(slicedArr.reduce((total, num) => total * num));
-      
-      
-      for (let i = 0; i < arr.length; i++) {
-          if (total < Number(arrTotals)) {
-              total = (Number(arrTotals));
-          }
-          maxArr = total;
+      let adjacentProduct = innerArr.sort().slice(innerArr.length-4).reduce((total, num) => total * num);
+      console.log(`my array is type : ${typeof adjacentProduct} and totals ${adjacentProduct}`)
+      if (total < adjacentProduct) {
+          total = adjacentProduct;
       }
+      finalProduct = total;
   }  
-  return maxArr; 
+  return finalProduct; 
 }
