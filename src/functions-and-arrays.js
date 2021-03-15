@@ -32,26 +32,44 @@ console.log(sumNumbers(numbers))
 
 //Bonus - Iteration #3.1
 const sum = (arr) => {
-  let sum = 0;
+  let total = 0;
   for (element of arr) {
     if (typeof element === `boolean` || typeof element === 'number') {
-      sum += element
+      total += element
     } else if (typeof element === `string`) {
-      sum += element.length;
+      total += element.length;
     } else {
       throw new Error ("Unsupported data type sir or ma'am");
     }
   }
-  return sum;
+  return total;
 }
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  const summedNumbers = sum(arr);
+  const avg = summedNumbers / arr.length;
+
+  return avg;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  const summedWords = sum(arr);
+  const avg = summedWords / arr.length;
+
+  return avg;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
