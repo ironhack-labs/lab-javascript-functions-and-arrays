@@ -50,7 +50,7 @@ const sum = (arr) => {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 const averageNumbers = (arr) => {
   if (!arr.length) {return  null;}
-  
+
   const summedNumbers = sum(arr);
   const avg = summedNumbers / arr.length;
 
@@ -106,6 +106,12 @@ const uniquifyArray = (arr) => {
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const doesWordExist = (arr, word) => {
+  if (!arr.length) {return  null;}
+  return arr.includes(word) ? true : false;
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
