@@ -49,9 +49,8 @@ const sum = (arr) => {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 const averageNumbers = (arr) => {
-  if (arr.length === 0) {
-    return null;
-  }
+  if (!arr.length) {return  null;}
+  
   const summedNumbers = sum(arr);
   const avg = summedNumbers / arr.length;
 
@@ -61,14 +60,22 @@ const averageNumbers = (arr) => {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 const averageWordLength = (arr) => {
-  if (arr.length === 0) {
-    return null;
-  }
+  if (!arr.length) {return  null;}
+
   const summedWords = sum(arr);
   const avg = summedWords / arr.length;
 
   return avg;
 }
+
+//Bonus - Iteration #4.1
+ const avg = (arr) => {
+  if (!arr.length) {return  null;}
+  const averageElementLength = sum(arr);
+  const average = averageElementLength / arr.length;
+
+   return Number(average.toFixed(2));
+ }
 
 
 // Iteration #5: Unique arrays
@@ -85,6 +92,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+const uniquifyArray = (arr) => {
+  if (!arr.length) {return  null;}
+  let newArray = [];
+  for (word of arr) {
+      if (!newArray.includes(word)) {
+          newArray.push(word)
+      }
+  } 
+  return newArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -103,6 +121,7 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
 
 // Iteration #8: Bonus
 
