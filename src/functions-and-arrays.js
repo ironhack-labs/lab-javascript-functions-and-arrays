@@ -163,16 +163,115 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-const greatestProduct = (arr) => {
-  let finalProduct;
-  let total = 0;
-  for (innerArr of arr) {
-      let adjacentProduct = innerArr.sort().slice(innerArr.length-4).reduce((total, num) => total * num);
-      console.log(`my array is type : ${typeof adjacentProduct} and totals ${adjacentProduct}`)
-      if (total < adjacentProduct) {
-          total = adjacentProduct;
+// const greatestProduct = (arr) => {
+//   let finalProduct;
+//   let total = 0;
+//   for (innerArr of arr) {
+//       let adjacentProduct = innerArr.sort().slice(innerArr.length-4).reduce((total, num) => total * num);
+//       console.log(`my array is type : ${typeof adjacentProduct} and totals ${adjacentProduct}`)
+//       if (total < adjacentProduct) {
+//           total = adjacentProduct;
+//       }
+//       finalProduct = total;
+//   }  
+//   return finalProduct; 
+// }
+
+function greatestProduct(matrix) {
+  let highestAdjacentTotal = 0;
+
+  for (array of matrix) {
+      for (let i = 0; i < array.length-3; i++) {
+        let selectedAdjacentTotal = array[i] * array[i+1] * array[i+2] * array[i+3];
+        if (selectedAdjacentTotal > highestAdjacentTotal){
+          highestAdjacentTotal = selectedAdjacentTotal;
+        }
+      }   
+  }
+  return highestAdjacentTotal;
+  
+}
+
+console.log(greatestProduct(matrix))
+
+//Bonus 8
+//I'm not sure which one is better? Thoughts?
+
+const diagonalProduct = (matrix) => {
+  let totalFromTop = 0;
+  let totalFromBottom = 0;
+  let highestAdjacent;
+  
+
+  for (let x = 0; x < matrix.length-3; x++) {
+      let y = x;
+      let totalOfSelectedAdjacent = matrix[x][y] * matrix[x + 1][y + 1] * matrix[x + 2][y + 2] * matrix[x + 3][y + 3];
+      if ( totalOfSelectedAdjacent > totalFromTop) {
+          totalFromTop = totalOfSelectedAdjacent
       }
-      finalProduct = total;
-  }  
-  return finalProduct; 
+  }
+
+  for (let x2 = matrix.length - 1; x2 > 2; x2--) {
+      let y2 = matrix.length - (x2 + 1);
+      let totalOfSelectedAdjacent = matrix[x2][y2] * matrix[x2 -1][y2 + 1] * matrix[x2 -2][y2 + 2] * matrix[x2 -3][y2 + 3];
+      if (totalOfSelectedAdjacent > totalFromBottom) {
+          totalFromBottom = totalOfSelectedAdjacent;
+      }
+      // console.log(totalFromBottom)
+      
+  }
+  if (totalFromBottom > totalFromTop) {
+      highestAdjacent = totalFromBottom;
+  } else {
+      highestAdjacent = totalFromTop;
+  }
+  return highestAdjacent;
+}
+
+//option Two
+//there are more lines but that's because I made a log to console what I was doing as I went 
+
+const findDiagonalProduct = (matrix) => {
+  let totalOne = 0, totalTwo = 0;
+  let selectionOne = [];
+  let selectionTwo = [];
+  let highestTotal = 0;
+
+  for (let row = 0; row < matrix.length; row++) {
+    let currentOneTotal;
+    let currentTwoTotal;
+    totalOne = matrix[row][row];
+    totalTwo = matrix[row][matrix.length - 1 - row ];
+    selectionOne.push(totalOne);
+    selectionTwo.push(totalTwo);
+    let log = '';
+    
+    if (selectionOne.length === 4 && selectionTwo.length === 4) {
+        currentOneTotal = selectionOne.reduce((total, num) => total * num );
+        
+        log += `Checking : ${selectionOne[0]} * ${selectionOne[1]} * ${selectionOne[2]} * ${selectionOne[3]} || Total : ${selectionOne[0] * selectionOne[1] * selectionOne[2] * selectionOne[3]}`
+        if (currentOneTotal > highestTotal) {
+          log += `\n`;
+          log += `Current highest : ${currentOneTotal} Previous highest was ${highestTotal}`
+          highestTotal = currentOneTotal;
+        }
+        selectionOne.shift()
+
+        log += `\n`;
+
+        currentTwoTotal = selectionTwo.reduce((total, num) => total * num );
+        log += `\n`;
+        log += `Checking : ${selectionTwo[0]} * ${selectionTwo[1]} * ${selectionTwo[2]} * ${selectionTwo[3]} || Total : ${selectionTwo[0] * selectionTwo[1] * selectionTwo[2] * selectionTwo[3]}`
+        if (currentTwoTotal > highestTotal) {
+          log += `\n`;
+          log += `Current highest : ${currentTwoTotal} Previous highest was ${highestTotal}`
+          highestTotal = currentTwoTotal;
+        }
+        selectionTwo.shift()
+
+        console.log(log)
+    }
+    
+  }
+  return highestTotal;
 }
