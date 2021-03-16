@@ -6,9 +6,13 @@ const maxOfTwoNumbers = (num1, num2) => Math.max(num1, num2);
 // const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 const findLongestWord = (arr) => {
+  //init longestWordLength with 0 to store word value as for loop iterates over array 
+  //init longestWord at null (so if the array is empty func returns null and to store the value of the longest word
   let longestWordLength = 0;
   let longestWord = null;
+  //iterate over each element for the length of the array
   for (let i = 0; i < arr.length; i++) {
+    // as the loop iterates, compares the current element to the previous one and stores the highest in longestWord var
     if (arr[i].length > longestWordLength) {
       longestWordLength = arr[i].length;
       longestWord = arr[i];
@@ -20,25 +24,35 @@ const findLongestWord = (arr) => {
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+//function expression accepts a single argument of a numbered array
 const sumNumbers = (numbers) => {
+  //init var sum with 0, sum acts as the accumulator 
   let sum = 0;
+  // used a for of loop (forEach also possible) to iterate over each element in the array and increase sum by the value of each element
   for (number of numbers) {
       sum += number;
   }
+  //return sum after all elements have been added
   return sum;
 }
 
 console.log(sumNumbers(numbers))
 
 //Bonus - Iteration #3.1
+//function expression accepts a single argument of array
 const sum = (arr) => {
+  //init total (total is nicer than sum as then I can easily reuse func for other operations) with 0, total acts as the accumulator 
   let total = 0;
+    // used a for of loop (forEach also possible) to iterate over each element in the array and increase sum by the value of each element
   for (element of arr) {
+    //check if element is boolean, if yes add boolean value to total, then check if string and use .length to add the length of the string to total
     if (typeof element === `boolean` || typeof element === 'number') {
       total += element
     } else if (typeof element === `string`) {
       total += element.length;
     } else {
+      // throws an error if the data type is not supported
       throw new Error ("Unsupported data type sir or ma'am");
     }
   }
@@ -48,32 +62,41 @@ const sum = (arr) => {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//function expression accepts a single argument of array of numbers
 const averageNumbers = (arr) => {
+  //returns null if array is empty
   if (!arr.length) {return  null;}
 
+  //init var with value of summed numbers calling the sum func with arr as argument
   const summedNumbers = sum(arr);
+  //init var with value of array average by dividing summedNumbers by the length of the array
   const avg = summedNumbers / arr.length;
 
   return avg;
 }
 
-// Level 2: Array of strings
+// Level 2: Array of strings This is exactly the same function as above, not sure why we needed to make it twice ????
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+//function expression accepts a single argument of array
 const averageWordLength = (arr) => {
+  //returns null if array is empty
   if (!arr.length) {return  null;}
 
+  //init var with value of summed words calling the sum func with arr as argument
   const summedWords = sum(arr);
+  //init var with value of array average by dividing summedWords by the length of the array
   const avg = summedWords / arr.length;
 
   return avg;
 }
 
 //Bonus - Iteration #4.1
+//It's the same function
  const avg = (arr) => {
   if (!arr.length) {return  null;}
   const averageElementLength = sum(arr);
   const average = averageElementLength / arr.length;
-
+  //this is the only change, added because jasmine wanted number to the second decimal
    return Number(average.toFixed(2));
  }
 
@@ -93,10 +116,15 @@ const wordsUnique = [
   'bring'
 ];
 
+//function expression accepts a single argument of array
 const uniquifyArray = (arr) => {
+  //returns null if array is empty
   if (!arr.length) {return  null;}
+  //declare empty array to accumulate elements
   let newArray = [];
+  //for of loop to iterate over each element of the array
   for (word of arr) {
+    //if array does not include the word, push the word to newArray
       if (!newArray.includes(word)) {
           newArray.push(word)
       }
@@ -107,8 +135,11 @@ const uniquifyArray = (arr) => {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+//function expression accepts a single argument of array
 const doesWordExist = (arr, word) => {
+  //returns null if array is empty
   if (!arr.length) {return  null;}
+  //if word is an element of arr, returns true, else returns false
   return arr.includes(word) ? true : false;
 }
 
@@ -128,10 +159,15 @@ const wordsCount = [
   'matter'
 ];
 
+//function expression accepts a single argument of array
 const howManyTimes = (arr, word) => {
+  //returns null if array is empty
   if (!arr.length) {return  0;}
+  //init var at 0 to act as accumulator
   let totalTimes = 0;
+  //iterates over each element in the arr
   arr.forEach(element => {
+    //if the element has the same value as word increases the accumulator by one, else by 0
       element === word ? totalTimes += 1 : 0;
   });
  return totalTimes;
@@ -163,36 +199,45 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// const greatestProduct = (arr) => {
-//   let finalProduct;
-//   let total = 0;
-//   for (innerArr of arr) {
-//       let adjacentProduct = innerArr.sort().slice(innerArr.length-4).reduce((total, num) => total * num);
-//       console.log(`my array is type : ${typeof adjacentProduct} and totals ${adjacentProduct}`)
-//       if (total < adjacentProduct) {
-//           total = adjacentProduct;
-//       }
-//       finalProduct = total;
-//   }  
-//   return finalProduct; 
-// }
-
+//function expression accepts a single argument of array
 function greatestProduct(matrix) {
-  let highestAdjacentTotal = 0;
-
-  for (array of matrix) {
-      for (let i = 0; i < array.length-3; i++) {
-        let selectedAdjacentTotal = array[i] * array[i+1] * array[i+2] * array[i+3];
-        if (selectedAdjacentTotal > highestAdjacentTotal){
-          highestAdjacentTotal = selectedAdjacentTotal;
-        }
-      }   
-  }
-  return highestAdjacentTotal;
+  //init var to store total
+  let highestTotal = 0;
+  let highestSelection = 0;
   
-}
 
-console.log(greatestProduct(matrix))
+  //iterate over each array nested inside the matrix array
+  for (array of matrix) {
+    //init empty arr to store up to 4 adjacent elements
+      let selection = [];
+      
+      //iterate over each element of the nested array
+      for (let i = 0; i < array.length; i++) {
+          //pushes current element into the selection array
+          selection.push(array[i]);
+          // implements code when the selection array contains 4 elements
+          if (selection.length === 4) {
+            //init var with product of the selection array
+              let currentSelection = selection.reduce((total, num) => total * num );
+              //if the value of the current selection is greater than the highest selection, assigns that value to highest selection 
+              if (currentSelection > highestSelection) {
+                  highestSelection = currentSelection;
+              }
+              // console.log('cs',currentSelection)
+              // console.log('hs', highestSelection)
+              selection.shift()
+          }
+      }
+      // console.log('final hs', highestSelection)
+      //Checks if the current highest selection is greater than that of the previous array (stored in highestTotal), if yes, assigns that value to highest total
+      if (highestSelection > highestTotal) {
+          highestTotal = highestSelection;
+          // console.log('high totes', highestTotal)
+      }
+      
+  }
+  return highestTotal;   
+}
 
 //Bonus 8
 //I'm not sure which one is better? Thoughts?
