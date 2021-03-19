@@ -1,18 +1,91 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(nb1, nb2){
+  console.log("argument 1 >", nb1);
+  console.log("argument 2>", nb2);
+if(nb1>nb2){
+  return nb1
+}else if(nb2>nb1){
+  return nb2;
+}else{
+  return nb1 , nb2;
+}
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+let wordLenght  = 0;
+function findLongestWord(arrayOfWords){
+  if (arrayOfWords.length === 0){
+    return null;
+  }else if(arrayOfWords.length === 1){
+    return arrayOfWords[0]
+  }else if(arrayOfWords){
+    for(let i = 0; i < arrayOfWords.length; i++){
+      if (arrayOfWords[i].length > wordLenght.length){
+        wordLenght = arrayOfWords[i].length
+        return wordLenght;
+      }else{
+        return arrayOfWords[i];
+      } 
+    }
+  }
+  
+
+}
+
+
+
+
+
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arrayOfNumbers){
+  if(arrayOfNumbers.length === 0){
+    return 0;
+  }else if(arrayOfNumbers.length === 1){
+    return arrayOfNumbers.reduce((a,b) => a + b);
+  }else if(arrayOfNumbers){
+    for(i = 0; i < arrayOfNumbers.length; i++){
+      if(arrayOfNumbers[i] === 0){
+        return 0;
+      }
+    }
+  }else if(arrayOfNumbers.length > 0){
+    return arrayOfNumbers.reduce((a,b) => a + b);
+  }
+}
+
 // Iteration #4: Calculate the average
+
+l
+function averageNumbers(arrayX) {
+  if(arrayX.length === 0){
+    return null;
+  }else if(arrayX.length === 1){
+    return arrayX.reduce((a, b) => (a + b)) / arrayX.length;
+    
+  }else if(arrayX) {
+    return arrayX.reduce((a, b) => (a + b)) / arrayX.length;
+  }
+};
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrayOf) {
+if(arrayOf.length === 0){
+  return null;
+}
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
