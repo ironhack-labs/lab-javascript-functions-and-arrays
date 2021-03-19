@@ -34,14 +34,13 @@ console.log(Sum)
 
 // Iteration #4: Calculate the average
 
+
+// Level 1: Array of numbers
+
+
 let average = Sum / numbers.length;
 console.log('Average is ' + average);
 
-
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-avgNum = numbersAvg.join('').length / numbersAvg.length
-console.log(avgNum)
 
 // Level 2: Array of strings
 
