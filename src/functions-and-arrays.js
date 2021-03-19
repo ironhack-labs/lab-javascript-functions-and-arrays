@@ -90,8 +90,28 @@ const wordsUnique = [
   'bring'
 ];
 
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+
+function doesWordExist(array,word){
+  for (let i = 0; i<array.length; i++){
+  console.log(array[i]);
+  	if(word === array[i]){
+    console.log('true');
+    }else{
+    console.log('false');
+    }
+  
+  }
+}
+
+let subset = 'subset';
+doesWordExist(words, subset);
 
 // Iteration #7: Count repetition
 const wordsCount = [
