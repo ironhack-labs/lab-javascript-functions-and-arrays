@@ -44,7 +44,7 @@ numbers.forEach(num => sum+= num); console.log(sum);
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-sum = 0;
+letsum = 0;
 numbersAvg.forEach(num => sum += num); console.log(sum/numbersAvg.length);
 
 // Level 2: Array of strings
@@ -69,6 +69,7 @@ totalChar = 0;
 
 mixedArr.forEach(element =>{
 
+
   if(typeof(element) == 'number'){
 
     totalChar += element;    
@@ -92,11 +93,53 @@ console.log(totalChar / mixedArr.length)
 //------end------
 
 // Iteration #5: Unique arrays
+const words = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
 
+
+newArray = []
+
+function uniquifyArray(array) {
+  
+  array.forEach(element => {         
+    if (newArray.includes(element)){      
+      return   
+  }
+  else{ 
+    newArray.unshift(element)
+  }           
+})
+console.log(newArray)
+}
+
+
+
+uniquifyArray(words);
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, search){
+ 
+  return array.includes(search)
+
+}
+
+
+doesWordExist(wordsFind,'machine')
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
