@@ -1,33 +1,99 @@
 // Iteration #1: Find the maximum
 
+num1 = parseInt(prompt("input the first number: "));
+num2 = parseInt(prompt("input the second number: "));
+
+function maxOfTwoNum(num1, num2){
+
+  if (num1 > num2){
+
+    return `${num1} is larger than ${num2}`
+  }else{
+
+     return `${num2} is larger than ${num1}`
+  }
+}
+
+maxOfTwoNum(num1, num2);
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+longestWord = '';
+
+function findLongestWord(array)
+
+for (i=0; i < array.length; i++){  
+  if (array[i].length > longestWord.length){   
+    longestWord = array[i];     
+  }  
+} 
+findLongestWord(words)
+
+console.log(longestWord);
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+sum = 0;
+numbers.forEach(num => sum+= num); console.log(sum);
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+sum = 0;
+numbersAvg.forEach(num => sum += num); console.log(sum/numbersAvg.length);
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+
+
+totalChar = 0;
+function averageWordLength(array) {
+  
+  array.forEach(element => totalChar += element.length); return totalChar / array.length;
+}
+averageWordLength(wordsArr);
+
+//#### Bonus - Iteration #4.1: A generic `avg()` function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+totalChar = 0;
+
+
+mixedArr.forEach(element =>{
+
+  if(typeof(element) == 'number'){
+
+    totalChar += element;    
+  }
+  else if(typeof(element) == 'boolean'){
+
+    if(element == true){
+
+      totalChar += 1;
+    }
+  }else if(typeof(element) == 'string'){
+
+    totalChar += element.length
+  }
+  console.log(totalChar)
+}
+)
+
+console.log(totalChar / mixedArr.length)
+
+//------end------
+
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -46,6 +112,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+
+function howManyTimes(array, element) {
+  count = 0; 
+
+  for(i=0; i< array.length; i++){
+  
+    if (element == array[i]){
+
+      count++
+    }
+  }
+  console.log(`the word ${element} appears ${count} times in the array`)
+};
+
+howManyTimes(wordsCount, 'machine');
 
 // Iteration #8: Bonus
 
