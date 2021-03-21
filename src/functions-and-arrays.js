@@ -218,7 +218,7 @@ function greatestProduct(array){
   } 
   )
   console.log(maxProduct);
-  console.log(index);
+
 };
 
 greatestProduct(matrix);
