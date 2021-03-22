@@ -1,33 +1,36 @@
 // Iteration #1: Find the maximum
 
-num1 = parseInt(prompt("input the first number: "));
-num2 = parseInt(prompt("input the second number: "));
-
-function maxOfTwoNum(num1, num2){
+function maxOfTwoNumbers(num1, num2){
 
   if (num1 > num2){
 
-    return `${num1} is larger than ${num2}`
+    return num1
   }else{
 
-     return `${num2} is larger than ${num1}`
+     return num2
   }
 }
 
-maxOfTwoNum(num1, num2);
 
 // Iteration #2: Find longest word
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 longestWord = '';
 
-function findLongestWord(array)
+function findLongestWord(array){
+
+if(array.length == 0){
+
+  return null
+}else{
 
 for (i=0; i < array.length; i++){  
   if (array[i].length > longestWord.length){   
     longestWord = array[i];     
   }  
-} 
+}
+  }
+}
 findLongestWord(words)
 
 console.log(longestWord);
@@ -37,25 +40,38 @@ console.log(longestWord);
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-sum = 0;
-numbers.forEach(num => sum+= num); console.log(sum);
+
+
+function sumNumbers(array){ 
+  sum = 0;
+  array.forEach(num => sum+= num); return sum;
+
+}
 
 // Iteration #4: Calculate the average
-// Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-letsum = 0;
-numbersAvg.forEach(num => sum += num); console.log(sum/numbersAvg.length);
+let average = sumNumbers(numbersAvg) / numbersAvg.length
+
+console.log(average)
+
+// Level 1: Array of numbers
+
+
+function averageNumbers(array){
+
+  sum = 0;
+  array.forEach(num => sum+= num); return (sum / array.length);
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 
-
-totalChar = 0;
 function averageWordLength(array) {
-  
-  array.forEach(element => totalChar += element.length); return totalChar / array.length;
+  totalChar = 0;
+  array.forEach(element => totalChar += element.length); return (totalChar / array.length);
 }
 averageWordLength(wordsArr);
 
@@ -63,32 +79,35 @@ averageWordLength(wordsArr);
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function avg(array){
+  
+  if(array.length == 0){
 
-totalChar = 0;
-
-
-mixedArr.forEach(element =>{
-
-
-  if(typeof(element) == 'number'){
-
-    totalChar += element;    
+  return null
   }
-  else if(typeof(element) == 'boolean'){
 
-    if(element == true){
+  totalChar = 0;
+  array.forEach(element =>{
+    
+    if(typeof(element) == 'number'){
 
-      totalChar += 1;
+      totalChar += element;    
     }
-  }else if(typeof(element) == 'string'){
+    else if(typeof(element) == 'boolean'){
 
-    totalChar += element.length
+      if(element == true){
+
+        totalChar += 1;
+      }
+    }else if(typeof(element) == 'string'){
+
+      totalChar += element.length
+    }
+    
   }
-  console.log(totalChar)
+  )
+  return (totalChar / array.length);
 }
-)
-
-console.log(totalChar / mixedArr.length)
 
 //------end------
 
@@ -107,11 +126,13 @@ const words = [
   'bring'
 ];
 
-
-newArray = []
-
 function uniquifyArray(array) {
   
+  if(array.length == 0){
+
+  return null
+  }   
+  newArray = []
   array.forEach(element => {         
     if (newArray.includes(element)){      
       return   
@@ -120,12 +141,8 @@ function uniquifyArray(array) {
     newArray.unshift(element)
   }           
 })
-console.log(newArray)
+return newArray
 }
-
-
-
-uniquifyArray(words);
 
 
 // Iteration #6: Find elements
@@ -170,7 +187,6 @@ function howManyTimes(array, element) {
   console.log(`the word ${element} appears ${count} times in the array`)
 };
 
-howManyTimes(wordsCount, 'machine');
 
 // Iteration #8: Bonus
 
