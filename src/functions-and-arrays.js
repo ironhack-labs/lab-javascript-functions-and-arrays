@@ -11,29 +11,37 @@ function maxOfTwoNumbers(num1, num2){
   }
 }
 
+maxOfTwoNumbers(1,5)
 
 // Iteration #2: Find longest word
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-longestWord = '';
+
 
 function findLongestWord(array){
-
-if(array.length == 0){
-
-  return null
-}else{
-
-for (i=0; i < array.length; i++){  
-  if (array[i].length > longestWord.length){   
-    longestWord = array[i];     
-  }  
-}
+  longestWord = '';
+  if(array.length === 0){
+    return null
   }
-}
-findLongestWord(words)
 
-console.log(longestWord);
+  else if(typeof(array) === 'string'){
+    return array
+  }
+
+  else{
+    for (i=0; i < array.length; i++){  
+      if (array[i].length > longestWord.length){   
+        longestWord = array[i];     
+      }   
+    }
+  }
+  return longestWord;
+}
+
+
+console.log(findLongestWord(words));
+
+
 
 
 // Iteration #3: Calculate the sum
@@ -44,15 +52,53 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array){ 
   sum = 0;
+  if(array.length === 0){
+    return 0;
+  }
   array.forEach(num => sum+= num); return sum;
-
+  return sum;
 }
+
+console.log(sumNumbers(numbers));
+
+//-----bonus---//
+
+function sum(i){
+  totalChar = 0;
+
+  if(i.length === 0){
+  return 0;
+  }
+  
+  if()
+
+  i.forEach(element =>{    
+    if(typeof(element) === 'number'){
+
+      totalChar += element;    
+    }
+    else if(typeof(element) === 'boolean'){
+      if(element == true){
+        totalChar += 1;
+      }
+    }
+    
+    else if(typeof(element) === 'string'){
+      totalChar += element.length
+    }
+    
+  })
+  return totalChar;
+}
+
+
+
 
 // Iteration #4: Calculate the average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-let average = sumNumbers(numbersAvg) / numbersAvg.length
+const average = sumNumbers(numbersAvg) / numbersAvg.length
 
 console.log(average)
 
@@ -89,17 +135,17 @@ function avg(array){
   totalChar = 0;
   array.forEach(element =>{
     
-    if(typeof(element) == 'number'){
+    if(typeof(element) === 'number'){
 
       totalChar += element;    
     }
-    else if(typeof(element) == 'boolean'){
+    else if(typeof(element) === 'boolean'){
 
       if(element == true){
 
         totalChar += 1;
       }
-    }else if(typeof(element) == 'string'){
+    }else if(typeof(element) === 'string'){
 
       totalChar += element.length
     }
@@ -112,7 +158,7 @@ function avg(array){
 //------end------
 
 // Iteration #5: Unique arrays
-const words = [
+const wordslist = [
   'crab',
   'poison',
   'contagious',
@@ -128,20 +174,20 @@ const words = [
 
 function uniquifyArray(array) {
   
-  if(array.length == 0){
-
-  return null
+  if(array.length === 0){
+    return null
   }   
   newArray = []
+
   array.forEach(element => {         
     if (newArray.includes(element)){      
       return   
-  }
-  else{ 
-    newArray.unshift(element)
-  }           
-})
-return newArray
+    }
+    else{ 
+      newArray.push(element) // use push function
+    }           
+  })
+  return newArray
 }
 
 
@@ -214,13 +260,14 @@ const matrix = [
 ];
 
 
+
+
+function greatestProduct(array){
+
 maxProductH = 0;
 maxProductV = 0;
 prodH = 0;
 prodV = 0;
-
-function greatestProduct(array){
-
   
   // horizontal loop
   
@@ -254,9 +301,9 @@ function greatestProduct(array){
     }    
   } 
   if(maxProductH > maxProductV){
-    console.log(maxProductH)
+    return maxProductH
   }else{
-    console.log(maxProductV)
+    return maxProductV
   }
 };
 
