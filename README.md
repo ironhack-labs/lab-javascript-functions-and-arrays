@@ -154,6 +154,7 @@ You can use the following array to test your solution:
 const words = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 ```
 
+
 #### Bonus - Iteration #4.1: A generic `avg()` function
 
 Create function `avg(arr)` that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or strings and/or booleans. We are following a similar logic to the one applied on the bonus iteration 4.1. :wink:
