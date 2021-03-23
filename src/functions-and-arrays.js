@@ -136,3 +136,19 @@ let uniquifyArray = (arr) => {
 console.log(uniquifyArray(wordsUnique));
 console.log(wordsUnique);
 
+// Iteration #6: Find elements
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let doesWordExist = (arr, str) => {
+  let wordExist = '';
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === str){
+      wordExist = true;
+      break;
+    } else {
+      wordExist = false;
+    }
+  }
+  return wordExist;
+}
+console.log(doesWordExist(words, 'subset'));
+
