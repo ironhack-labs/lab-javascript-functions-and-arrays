@@ -39,7 +39,7 @@ let sumElements=0
 for(let i=0; i<arr.length; i++) {
   const dataType = typeof arr[i]
   switch(dataType) {
-    case 'numbers':
+    case 'number':
       sumElements += arr[i]
       break;
       case 'string':
@@ -51,7 +51,7 @@ for(let i=0; i<arr.length; i++) {
           }
           break;
           default:
-            throw new Error('Unsopported data type')
+          throw new Error('Unsupported data type sir or ma\'am')
   }
 }
 return sumElements
@@ -61,8 +61,17 @@ return sumElements
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (numArr){
+  if (numArr.length === 0) {
+    return null
+  }
+  const numberSum = sumNumbers(numbersAvg)
+  return numberSum / numArr.length
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
