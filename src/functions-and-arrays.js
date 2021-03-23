@@ -93,6 +93,7 @@ function averageWordLength(wordsArr){
 
 
 // Iteration #5: Unique arrays
+//En codepen logramos que la funcion devuelva un array con valores únicos, pero Jasmine no lo detecta...
 const wordsUnique = [
   'crab',
   'poison',
@@ -107,9 +108,43 @@ const wordsUnique = [
   'bring'
 ];
 
+var uniqueArray = [];
+
+function uniquifyArray(wordsUnique){
+  
+  for (var i=0; i < wordsUnique.length; i++){
+    if(uniqueArray.indexOf(wordsUnique[i]) === -1){
+      uniqueArray.push(wordsUnique[i]);
+    }    
+  }
+  if (wordsUnique.length === 0){
+    return null;
+  }
+  return uniqueArray;  
+}
+uniquifyArray(wordsUnique);
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(word, wordsFind){
+  var found = false;
+  if (doesWordExist.length === 0){
+    return null;
+  }
+for (var i = 0; i < wordsFind.length; i++) {
+  var name = wordsFind[i];
+  if (name === word) {
+    found = true;
+    break;
+    }  
+  }
+  return found;
+}
+//Si hacemos console.log de 'found' nos detecta si es true o false, pero Jasmine no lo detecta...
+
+doesWordExist('machine',wordsFind);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -125,6 +160,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount,word){
+  var sum = 0;
+  for(var i=0; i<wordsCount.length;i++){
+    if(word === wordsCount[i]){
+      sum += 1;
+    }
+  }
+  return sum;
+}
 
 // Iteration #8: Bonus
 
