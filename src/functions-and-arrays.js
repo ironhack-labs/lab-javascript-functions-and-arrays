@@ -62,10 +62,6 @@ function averageNumbers (numberArr) {
   if(numberArr === null || numberArr.length === 0 || numberArr === 0) return null;
   return sumNumbers(numberArr) / numberArr.length;
 }
-function averageWordLength(wordArr) {
-  if(wordArr === null || wordArr.length === 0) return null;
-  return sum(wordArr) / wordArr.length;
-}
 
 function avg(arr) {
   if(arr === null || arr.length === 0) return null;
@@ -74,6 +70,10 @@ function avg(arr) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(wordArr) {
+  if(wordArr === null || wordArr.length === 0) return null;
+  return sum(wordArr) / wordArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -161,39 +161,84 @@ const matrix = [
 function greatestProduct(matrix) {
   if(matrix === null) return null;
   if(matrix.length === 0) return 0;
-  let verticalLimit = matrix.length;
-  let horizontalLimit = matrix[0].length;
   let product = 1;
 
-  for(let y = 0; y < verticalLimit; y++) {
-    for(let x = 0; x < horizontalLimit-4; x++) {
-      if(horizontalProduct(matrix, x, y) <= product)
+  for(let y = 0; y < matrix.length; y++) {
+    for(let x = 0; x < matrix[0].length; x++) {
+      if (getProduct(matrix, x, y) === -1 || getProduct(matrix, x, y) <= product)
         continue;
-      product = horizontalProduct(matrix, x, y);
-    }
-  }
-  
-  for(let y = 0; y < verticalLimit-4; y++) {
-    for(let x = 0; x < horizontalLimit; x++) {
-      if(verticalProduct(matrix, x, y) <= product)
-        continue;
-      product = verticalProduct(matrix, x, y);
+      product = getProduct(matrix, x, y);
     }
   }
   
   return product;
 }
 
-function horizontalProduct(matrix, x, y) {
-  let product = 1
-  for(let i = x; i < x+4; i++)
-    product *= matrix[y][i];
+function getProduct(matrix, x, y) {
+  let productH = 1;
+  let productV = 1;
+
+  for(let i = x; i < x+4; i++) {
+    if(i >= matrix[0].length)
+      return -1;
+    productH *= matrix[y][i];
+  }
+    
+
+  for(let i = y; i < y+4; i++) {
+    if(i >= matrix.length)
+      return -1;
+    productV *= matrix[i][x];
+  }
+    
+  
+  if(productH >= productV)
+    return productH;
+  else
+    return productV;
+}
+
+
+// Bonus - Iteration #8.1: Product of diagonals
+function greatestProductOfDiagonals(matrix) {
+  if(matrix === null) return null;
+  if(matrix.length === 0) return 0;
+  let product = 1;
+
+  for(let y = 0; y < matrix.length; y++) {
+    for(let x = 0; x < matrix[0].length; x++) {
+      if (getProductDiagonal(matrix, x, y) === -1 || getProduct(matrix, x, y) <= product)
+        continue;
+      product = getProductDiagonal(matrix, x, y);
+    }
+  }
+  
   return product;
 }
 
-function verticalProduct(matrix, x, y) {
-  let product = 1
-  for(let i = y; i < y+4; i++)
-    product *= matrix[i][x];
-  return product;
+function getProductDiagonal(matrix, x, y) {
+  let productDiagonal1 = 1;
+  let productDiagonal2 = 1;
+
+  let j = y;
+  for(let i = x; i < x+4; i++) {
+    if(i >= matrix[0].length || j >= matrix.length)
+      return -1;
+    productDiagonal1 *= matrix[j][i];
+    j++;
+  }
+    
+  j = y;
+  for(let i = x; i < x+4; i--) {
+    if(i >= 0 || j >= matrix.length)
+      return -1;
+    productDiagonal2 *= matrix[j][i];
+    j++;
+  }
+    
+  
+  if(productDiagonal1 >= productDiagonal2)
+    return productDiagonal1;
+  else
+    return productDiagonal2;
 }
