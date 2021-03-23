@@ -123,9 +123,9 @@ function uniquifyArray(wordArr) {
       uniqueWords.push(wordArr[i]);
       console.log(uniqueWords)
   }
-  //return uniqueWords;
+  return uniqueWords;
 }
-uniquifyArray(wordsUnique)
+uniquifyArray(wordsUnique);
 
 
 
