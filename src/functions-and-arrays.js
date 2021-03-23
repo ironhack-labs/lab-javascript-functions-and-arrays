@@ -85,6 +85,13 @@ function averageWordLength(strArr) {
   const sumOfNumbers = sumNumbers(oneElementArr)
   return sumOfNumbers / oneElementArr.length
 }
+//Bonus 4.1
+
+function avg(arr) {
+  if(arr.length === 0) {
+    return null
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -117,6 +124,20 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(someArr, word) {
+  if (someArr.length === 0) {
+    return null
+  }
+  for(let i=0; i<someArr.length; i++) {
+    if (someArr[i] === word) {
+      return true
+    } 
+  }
+  return false
+}
+
+
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -131,6 +152,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (strArr, str) {
+  let count = 0
+  for (let i=0; i<strArr.length; i++) {
+    if(strArr[i] === str) {
+      count ++
+    }
+  }
+  return count
+}
 
 // Iteration #8: Bonus
 
