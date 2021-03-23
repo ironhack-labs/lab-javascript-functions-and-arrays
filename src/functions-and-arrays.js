@@ -1,18 +1,95 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2 || num1 === num2) {
+    return num1;
+  } 
+  return num2;
+};
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  let longestWord = '';
+  for (word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    } 
+  }
+  return longestWord;
+}
+
+console.log(findLongestWord(words));
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2,[2,3,5], 1, 8, 10];
+
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (number of numbers) {
+    sum += number;
+  }
+  return sum;
+}
+
+let arr = [3,4,2]
+
+
+function sum(arr){
+  let sum =0;
+  for (item of arr) {
+    if (typeof item === 'string') {
+      sum += item.length;
+    } else if (typeof item === 'object') {
+        throw Error("Unsupported data type sir or ma'am") //"Error: Oh no! An array/object."; 
+    } else {
+      sum += item;
+    }
+  }
+  return sum;
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers) {
+  if (numbers.length === 0){
+    return null;
+  }
+  sum = sumNumbers(numbers);
+  return sum/numbers.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+function averageWordLength(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (word of words) {
+    sum += word.length;
+  }
+  return sum/words.length;
+}
+
+averageWordLength(wordsArr);
+
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  const arraySum = sum(arr);
+  return Number((arraySum/arr.length).toFixed(2)); // jasmine wants it to two decimal places.
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +106,48 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let uniqueArray = [];
+  for (item of arr) {
+    if (uniqueArray.indexOf(item) === -1) {
+      uniqueArray.push(item);
+    }
+  }
+  return uniqueArray;
+}
+
+// also works, but jasmine doesn't like it 
+// function uniquifyArray(arr) {
+//   if (arr.length === 0) {
+//     return null;
+//   }
+//   let uniqueArray = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr.indexOf(arr[i],i+1) === -1){
+//       uniqueArray.push(arr[i]);
+//     }
+//   }
+//   return uniqueArray;
+// }
+
+uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android']);
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordsArr, wordToFind) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  for (word of wordsArr) {
+    if (word === wordToFind) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +163,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsArr, wordToCount) {
+  let wordCount = 0;
+  for (word of wordsArr) {
+    if (word === wordToCount) {
+      wordCount++;
+    }
+  }
+  return wordCount;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +198,54 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let matrix2 = [
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+];
+function greatestProduct(matrix) {
+  let greatest = 0;
+  for (let row = 0; row < matrix.length; row++) {
+    if (row < matrix.length - 3) { // if it's not going to go past the border, work out 4 vertical
+      for (let column = 0; column < matrix[row].length; column++) { 
+        let colSum = matrix[row][column] * matrix[row+1][column] * matrix[row+2][column] * matrix[row+3][column];
+        if(colSum > greatest) {
+          greatest = colSum;
+        }
+      }
+    }
+    // in any case, work out the sum of the 4 horizantal
+    for (let column = 0; column < matrix[row].length; column++) { 
+      rowSum = matrix[row][column] * matrix[row][column+1] * matrix[row][column+2] * matrix[row][column+3];
+    }
+       
+    if(rowSum > greatest) {
+      greatest = rowSum;
+    } 
+  }
+  return greatest;
+}
+matrix3 = [[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5]]
+console.log(greatestProduct(matrix3));
