@@ -89,7 +89,7 @@ let avg = (arr) => {
 		return null;
 	} else {
 		return Number((sum(arr) / arr.length).toFixed(2));
-	};
+	}
 };
 
 // Iteration #5: Unique arrays
@@ -108,38 +108,34 @@ const wordsUnique = [
 ];
 
 let uniquifyArray = (words) => {
-  let uniqifiedArray = [];
-  if (words.length === 0) {
-    uniqifiedArray = null;
-    return uniqifiedArray;
-  }
+	let uniqifiedArray = [];
+	if (words.length === 0) {
+		uniqifiedArray = null;
+		return uniqifiedArray;
+	}
 
-  words.forEach((word, i) => {
-    if (words.indexOf(word, i+1) !== -1 && !uniqifiedArray.includes(word)){
-      uniqifiedArray.push(words[i]);
-    }
-    if(words.indexOf(word,i+1) === -1 && !uniqifiedArray.includes(word)){
-      uniqifiedArray.push(words[i]);
-    }
-  });
+	words.forEach((word, i) => {
+		if (!uniqifiedArray.includes(word)) {
+			uniqifiedArray.push(words[i]);
+		}
+	});
 
-  return uniqifiedArray;
+	return uniqifiedArray;
 };
 
 // Iteration #6: Find elements
 const wordsFind = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
 
 let doesWordExist = (wordsList, wordToFind) => {
-  let result = false;
-  if(wordsList.length === 0) return null;
-  wordsList.forEach(word => {
-    if(word === wordToFind){
-      result = true;
-    }
-  });
-  return result;
-}
-
+	let result = false;
+	if (wordsList.length === 0) return null;
+	wordsList.forEach((word) => {
+		if (word === wordToFind) {
+			result = true;
+		}
+	});
+	return result;
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -157,13 +153,13 @@ const wordsCount = [
 ];
 
 let howManyTimes = (arr, wordToCount) => {
-  let count = 0;
-  arr.forEach(word => {
-    if (word === wordToCount) {
-      count++;
-    }
-  });
-  return count;
+	let count = 0;
+	arr.forEach((word) => {
+		if (word === wordToCount) {
+			count++;
+		}
+	});
+	return count;
 };
 
 // Iteration #8: Bonus
@@ -192,40 +188,42 @@ const matrixToSolve = [
 ];
 
 let greatestProduct = (matrix) => {
-  let product = 0;
-  for(i=0; i<matrix.length -4; i++){
-    for(j=0; i<matrix[i].length -4; i++){
-      let productTemp = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
-      if (productTemp > product){
-        product = productTemp;
-      }
-      productTemp = matrix[j][i] * matrix[j][i+1] * matrix[j][i+2] * matrix[j][i+3];
-      if (productTemp > product){
-        product = productTemp;
-      }
-    }
-  };
-  return product;
+	let product = 0;
+	for (i = 0; i < matrix.length - 4; i++) {
+		for (j = 0; i < matrix[i].length - 4; i++) {
+			let productTemp = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+			if (productTemp > product) {
+				product = productTemp;
+			}
+			productTemp = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+			if (productTemp > product) {
+				product = productTemp;
+			}
+		}
+	}
+	return product;
 };
 
 //Bonus 8.1
 let greatestProductOfDiagonals = (matrix) => {
 	let product = 0;
-	for(i=0; i<matrix.length -4; i++){
-	  for(j=0; i<matrix[i].length -4; i++){
-		let productTemp = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
-		if (productTemp > product){
-		  product = productTemp;
+	for (i = 0; i < matrix.length - 4; i++) {
+		for (j = 0; i < matrix[i].length - 4; i++) {
+			let productTemp =
+				matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+			if (productTemp > product) {
+				product = productTemp;
+			}
 		}
-	  }
 	}
-	for(i=0 ; i<matrix.length -4 ; i++){
-	  for(j=3 ; j<matrix[i].length ; j++){
-		let productTemp = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
-		if (productTemp > product){
-		  product = productTemp;
+	for (i = 0; i < matrix.length - 4; i++) {
+		for (j = 3; j < matrix[i].length; j++) {
+			let productTemp =
+				matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+			if (productTemp > product) {
+				product = productTemp;
+			}
 		}
-	  }
 	}
 	return product;
-  };
+};
