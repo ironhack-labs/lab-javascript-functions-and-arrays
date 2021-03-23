@@ -197,13 +197,35 @@ let greatestProduct = (matrix) => {
     for(j=0; i<matrix[i].length -4; i++){
       let productTemp = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
       if (productTemp > product){
-        product += productTemp;
+        product = productTemp;
       }
       productTemp = matrix[j][i] * matrix[j][i+1] * matrix[j][i+2] * matrix[j][i+3];
       if (productTemp > product){
-        product += productTemp;
+        product = productTemp;
       }
     }
   };
   return product;
 };
+
+//Bonus 8.1
+let greatestProductOfDiagonals = (matrix) => {
+	let product = 0;
+	for(i=0; i<matrix.length -4; i++){
+	  for(j=0; i<matrix[i].length -4; i++){
+		let productTemp = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+		if (productTemp > product){
+		  product = productTemp;
+		}
+	  }
+	}
+	for(i=0 ; i<matrix.length -4 ; i++){
+	  for(j=3 ; j<matrix[i].length ; j++){
+		let productTemp = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
+		if (productTemp > product){
+		  product = productTemp;
+		}
+	  }
+	}
+	return product;
+  };
