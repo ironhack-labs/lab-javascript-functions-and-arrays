@@ -33,15 +33,13 @@ let sum = (numbersList) => {
 	numbersList.forEach((num) => {
 		switch (typeof num) {
 			case "number":
+			case "boolean":
 				sum += num;
 				break;
 			case "string":
 				sum += num.length;
 				break;
-			case "boolean":
-				sum += num;
-				break;
-			case "object":
+			default:
 				throw Error("Unsupported data type sir or ma'am");
 		}
 	});
@@ -83,7 +81,6 @@ let averageWordLength = (wordList) => {
 };
 
 // Bonus 4.1
-
 let avg = (arr) => {
 	if (arr.length === 0) {
 		return null;
@@ -110,8 +107,7 @@ const wordsUnique = [
 let uniquifyArray = (words) => {
 	let uniqifiedArray = [];
 	if (words.length === 0) {
-		uniqifiedArray = null;
-		return uniqifiedArray;
+		return null;
 	}
 
 	words.forEach((word, i) => {
@@ -163,7 +159,6 @@ let howManyTimes = (arr, wordToCount) => {
 };
 
 // Iteration #8: Bonus
-
 const matrixToSolve = [
 	[8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
 	[49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -191,10 +186,12 @@ let greatestProduct = (matrix) => {
 	let product = 0;
 	for (i = 0; i < matrix.length - 4; i++) {
 		for (j = 0; i < matrix[i].length - 4; i++) {
+			//Horizontal Product
 			let productTemp = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
 			if (productTemp > product) {
 				product = productTemp;
 			}
+			//Vertical Product
 			productTemp = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
 			if (productTemp > product) {
 				product = productTemp;
@@ -204,11 +201,12 @@ let greatestProduct = (matrix) => {
 	return product;
 };
 
-//Bonus 8.1
+// Bonus 8.1
 let greatestProductOfDiagonals = (matrix) => {
 	let product = 0;
 	for (i = 0; i < matrix.length - 4; i++) {
 		for (j = 0; i < matrix[i].length - 4; i++) {
+			//Left-Top to Right-Bottom Diagonal Product
 			let productTemp =
 				matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
 			if (productTemp > product) {
@@ -218,6 +216,7 @@ let greatestProductOfDiagonals = (matrix) => {
 	}
 	for (i = 0; i < matrix.length - 4; i++) {
 		for (j = 3; j < matrix[i].length; j++) {
+			//Right-Top to Left-Bottom Diagonal Product
 			let productTemp =
 				matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
 			if (productTemp > product) {
