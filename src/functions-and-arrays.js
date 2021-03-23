@@ -156,9 +156,19 @@ const wordsCount = [
 	"matter",
 ];
 
+let howManyTimes = (arr, wordToCount) => {
+  let count = 0;
+  arr.forEach(word => {
+    if (word === wordToCount) {
+      count++;
+    }
+  });
+  return count;
+};
+
 // Iteration #8: Bonus
 
-const matrix = [
+const matrixToSolve = [
 	[8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
 	[49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
 	[81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -180,3 +190,20 @@ const matrix = [
 	[20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
 	[1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
 ];
+
+let greatestProduct = (matrix) => {
+  let product = 0;
+  for(i=0; i<matrix.length -4; i++){
+    for(j=0; i<matrix[i].length -4; i++){
+      let productTemp = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      if (productTemp > product){
+        product += productTemp;
+      }
+      productTemp = matrix[j][i] * matrix[j][i+1] * matrix[j][i+2] * matrix[j][i+3];
+      if (productTemp > product){
+        product += productTemp;
+      }
+    }
+  };
+  return product;
+};
