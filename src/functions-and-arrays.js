@@ -105,3 +105,34 @@ let avg = (arr) => {
 
 console.log(avg(mixedArr));
 
+// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+let uniquifyArray = (arr) => {
+  for(let i=0; i< arr.length; i++){
+    for (let n=0; n<arr.length;n++){
+      if (i !== n){
+        if (arr[i] === arr[n]){
+          arr.splice(n,1);
+        }
+      } else{
+        continue;
+      }
+    }
+  }
+  return `Array updated`;
+}
+console.log(uniquifyArray(wordsUnique));
+console.log(wordsUnique);
+
