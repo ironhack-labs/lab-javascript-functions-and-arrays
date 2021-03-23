@@ -12,6 +12,7 @@ function maxOfTwoNumbers(num1, num2) {
 }
 //maxOfTwoNumbers(4,4)
 //ITERACION 2
+
 const words = ['mystery', 'brother', 'aviator', 'crocodrile', 'pearl', 'orchard', 'crackpot'];
 let largest = "";
 words.forEach((el) => {
@@ -20,6 +21,7 @@ words.forEach((el) => {
     }
 });
 console.log(largest);
+
 //ITERACION 3
 let result = 0;
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -27,6 +29,7 @@ numbers.forEach((el) => {
     result += el
 });
 console.log(result);
+
 //ITERACION 4
 const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 let result2 = 0;
@@ -36,7 +39,8 @@ numbers2.forEach((el) => {
     average = result2 / numbers.length;
 });
 console.log(average)
-    //level2
+
+//level2
 const words2 = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 let result3 = 0;
 let average2 = 0;
@@ -45,8 +49,10 @@ words2.forEach((el) => {
     average2 = result3 / words2.length;
 });
 console.log(average2 + " level2")
-    //ITERACION 5
-const words3 = [
+
+//ITERACION 5
+
+let strings = [
     'crab',
     'poison',
     'contagious',
@@ -60,24 +66,29 @@ const words3 = [
     'bring'
 ];
 
-function checkWord() {
-    let i = 0,
-        contador = 0;
-    while (i !== -1) {
-        i = words3.indexOf(texto, i);
-        if (i !== -1) {
-            i++
-            contador++
-        }
+let change = [];
+
+for (var i = 0; i < strings.length; i++) {
+    const element = strings[i];
+
+    if (!change.includes(strings[i])) {
+        change.push(element);
     }
-    console.log(contador)
 }
-checkWord();
+
+console.log(change);
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const words4 = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+search = 'machine'
+
+function doesWordExist(words4, word) {
+    console.log(words4.includes(search))
+}
+doesWordExist(words4, search)
 
 // Iteration #7: Count repetition
+
 const wordsCount = [
     'machine',
     'matter',
@@ -91,6 +102,26 @@ const wordsCount = [
     'disobedience',
     'matter'
 ];
+
+let text = 'matter';
+
+function howManyTimes(wordsCount, text) {
+
+
+    let i = 0,
+        contador = 0;
+
+    while (i !== -1) {
+        i = wordsCount.indexOf(text, i);
+        if (i !== -1) {
+            i++
+            contador++
+        }
+    }
+    return console.log(`La palabra "${text}" se repite ${contador} veces.`);
+}
+
+howManyTimes(wordsCount, text);
 
 // Iteration #8: Bonus
 
