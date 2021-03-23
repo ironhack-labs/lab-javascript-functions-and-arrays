@@ -20,15 +20,44 @@ let findLongestWord = (wordList) => {
 }
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let sumNumbers = (numbersList) => {
+    let sum = 0;
+    numbersList.forEach(num => sum += num);
+    return sum;
+}
 
+// Bonus 3.1
+let sum = (numbersList) => {
+  let sum = 0;
+  numbersList.forEach(num => {
+    switch(typeof num){
+      case "number":
+        sum += num;
+        break;
+      case "string":
+        sum += num.length;
+        break;
+      case "boolean":
+        sum += num;
+        break;
+      case "object":
+        throw Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return sum;
 }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let averageNumbers = (numbersList) => {
+  if(numbersList.length === 0){ return null}
+  else{
+    return sumNumbers(numbersList) / numbersList.length;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
