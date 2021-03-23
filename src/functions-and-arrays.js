@@ -1,15 +1,76 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(number1, number2) {
+  if(number1 > number2)
+      return number1;
+  else if(number1 < number2)
+      return number2;
+  else
+      return number1, number2;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(wordArr) {
+  if(wordArr === null || wordArr.length === 0) return null;
+
+  let longestWord = '';
+  wordArr.forEach(word => {
+      if(word.length > longestWord.length)
+              longestWord = word;
+  });
+  
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numberArr) {
+  if(numberArr === null) return null;
+  if(numberArr.length === 0) return 0;
+  let sum = 0;
+  numberArr.forEach(number => sum += number)
+  
+  return sum;
+}
+
+function sum(arr) {
+  let numberArr = [];
+  arr.forEach(object => {
+
+    switch(typeof object) {
+      case 'number':
+          numberArr.push(object);
+          break;
+      case 'string':
+          numberArr.push(object.length);
+          break;
+      case 'boolean':
+          object ? numberArr.push(1) : numberArr.push(0);
+          break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  })
+  if(numberArr.length === 1) return numberArr[0];
+  return sumNumbers(numberArr);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (numberArr) {
+  if(numberArr === null || numberArr.length === 0 || numberArr === 0) return null;
+  return sumNumbers(numberArr) / numberArr.length;
+}
+function averageWordLength(wordArr) {
+  if(wordArr === null || wordArr.length === 0) return null;
+  return sum(wordArr) / wordArr.length;
+}
+
+function avg(arr) {
+  if(arr === null || arr.length === 0) return null;
+  return parseFloat((sum(arr) / arr.length).toFixed(2));
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -28,9 +89,23 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(wordArr) {
+  if(wordArr === null || wordArr.length === 0) return null;
+  let uniqueWords = [];
+  for(let i = 0; i < wordArr.length; i++) {
+      if(wordArr.indexOf(wordArr[i]) < i) continue;
+      uniqueWords.push(wordArr[i]);
+  }
+
+  return uniqueWords;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(wordArr, word) {
+  if(wordArr === null || wordArr.length === 0) return null;
+  return wordArr.indexOf(word) != -1;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +121,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArr, word) {
+  if(wordArr === null) return null;
+  if(wordArr.length === 0) return 0;
+  let wordCounter = 0;
+  for(let i = 0; i < wordArr.length; i++) {
+      if(wordArr[i] == word) wordCounter++;
+  }
+
+  return wordCounter;
+}
 
 // Iteration #8: Bonus
 
@@ -71,3 +157,43 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  if(matrix === null) return null;
+  if(matrix.length === 0) return 0;
+  let verticalLimit = matrix.length;
+  let horizontalLimit = matrix[0].length;
+  let product = 1;
+
+  for(let y = 0; y < verticalLimit; y++) {
+    for(let x = 0; x < horizontalLimit-4; x++) {
+      if(horizontalProduct(matrix, x, y) <= product)
+        continue;
+      product = horizontalProduct(matrix, x, y);
+    }
+  }
+  
+  for(let y = 0; y < verticalLimit-4; y++) {
+    for(let x = 0; x < horizontalLimit; x++) {
+      if(verticalProduct(matrix, x, y) <= product)
+        continue;
+      product = verticalProduct(matrix, x, y);
+    }
+  }
+  
+  return product;
+}
+
+function horizontalProduct(matrix, x, y) {
+  let product = 1
+  for(let i = x; i < x+4; i++)
+    product *= matrix[y][i];
+  return product;
+}
+
+function verticalProduct(matrix, x, y) {
+  let product = 1
+  for(let i = y; i < y+4; i++)
+    product *= matrix[i][x];
+  return product;
+}
