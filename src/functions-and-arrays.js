@@ -152,3 +152,29 @@ let doesWordExist = (arr, str) => {
 }
 console.log(doesWordExist(words, 'subset'));
 
+// Iteration #7: Count repetition
+const wordsCount = [
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+];
+
+let howManyTimes = (arr, word) => {
+  let counter = 0;
+  arr.forEach((el) => {
+    if( word === el){
+      counter++;
+    } 
+  }); return counter
+} 
+
+console.log(howManyTimes(wordsCount, 'matter'));
+
