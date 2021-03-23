@@ -91,6 +91,28 @@ function averageWordLength(words){
   return avWord
 }
 }
+function avg(arr){
+  let avWord=0
+  let sumWord=0
+  if (arr.length === 0){
+    return null
+  } else{
+  for (let i =0;i<arr.length;i++){
+    if (typeof arr[i] === `string`){
+      sumWord = sumWord + arr[i].length
+    } else if (arr[i] === true){
+      sumWord = sumWord + 1
+    }else if (arr[i] === false){
+      sumWord = sumWord + 0
+    } else if(typeof arr[i] === `number`){
+        sumWord = sumWord+arr[i]
+}
+  }
+  avWord=sumWord/arr.length
+  avWord=Math.round(avWord * 100) / 100
+  return avWord
+}
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
