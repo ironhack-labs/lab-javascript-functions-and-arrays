@@ -175,6 +175,23 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arr,word){
+  const search=[word]
+  let suma = 0
+  if(arr.length === 0){
+    return 0
+  }else {for (let i= 0;i<arr.length; i++){
+     if (search.indexOf(arr[i]) !== -1){
+      suma = suma+1
+     }
+  }
+  return suma
+ 
+}
+}
+
+
+
 // Iteration #8: Bonus
 
 const matrix = [
