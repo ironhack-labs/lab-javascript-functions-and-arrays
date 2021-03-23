@@ -145,7 +145,21 @@ function uniquifyArray(arr){
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(arr,search){
+/* let word = prompt(`introduce la palabra que quieras buscar`) este metodo bloquea jasmine pero funciona en replit*/
+let status=false
+if(arr.length === 0){
+  return null
+}else {
+for (let i= 0;i<arr.length; i++){
+  
+  if(search === arr[i]){
+    status = true
+  } 
+}
+return status
+}
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
