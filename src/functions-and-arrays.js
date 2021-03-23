@@ -1,15 +1,44 @@
 // Iteration #1: Find the maximum
-
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 >num2) {
+    return num1;
+  }else return num2;
+};
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearlllll', 'orchard', 'crackpot'];
+let findLongestWord = (array) => {
+    let word ="";
+    for (let i=0 ; i<array.length; i++ ){
+        if(word.length < array[i].length){
+            word =array[i];
+        }
+    }
+    return word;
+}
+
+console.log(findLongestWord(words));
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sumNumbers = (array) => 
+{
+    let sum=0;
+    for (let i=0; i < array.length; i++){
+       sum += array[i];
+
+    }
+    return sum;
+ }
+console.log(sumNumbers(numbers));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let averageNumbers = sumNumbers(numbersAvg)/numbersAvg.length;
+console.log(averageNumbers);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -71,3 +100,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
