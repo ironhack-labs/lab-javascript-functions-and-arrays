@@ -1,20 +1,75 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(number1, number2){
+  if(number1>number2){
+    return number1;
+  }else{
+    return number2;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(words){
+  var longestWord = '';
+if (words.length === 0){
+  return null;
+} else if (words.length === 1){
+  return words[words.length-1];
+} for(var i=0; i < words.length; i++){
+   if (words[i].length > longestWord.length){
+    longestWord = words[i];
+   } else if (words[i].length < longestWord.length){
+    longestWord = longestWord;
+   } else if (words[i].length === longestWord.length){
+    console.log(longestWord, words[i]);
+    longestWord = longestWord;
+   } 
+  }
+  return longestWord;
+}
+findLongestWord();
 
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers){
+  var sum = 0;
+  for(var i=0; i<numbers.length; i++){
+    sum += numbers[i];
+  }
+return sum;
+}
+sumNumbers();
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg){
+  var sum = 0;
+  if (numbersAvg.length === 0){
+    return null;
+  }
+  for(var i=0; i<numbersAvg.length; i++){
+    sum += numbersAvg[i];
+  }
+  return sum / numbersAvg.length;
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(wordsArr){
+if (wordsArr.length === 0){
+  return null;
+}
+var sumAvg = 0;
+for (var i=0; i<wordsArr.length; i++){
+  sumAvg += wordsArr[i].length;
+}
+return sumAvg / wordsArr.length;
+}
+
 // Iteration #5: Unique arrays
+//En codepen logramos que la funcion devuelva un array con valores únicos, pero Jasmine no lo detecta...
 const wordsUnique = [
   'crab',
   'poison',
@@ -28,10 +83,37 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
+var uniqueArray = [];
+function uniquifyArray(wordsUnique){
+  for (var i=0; i < wordsUnique.length; i++){
+    if(uniqueArray.indexOf(wordsUnique[i]) === -1){
+      uniqueArray.push(wordsUnique[i]);
+    }    
+  }
+  if (wordsUnique.length === 0){
+    return null;
+  }
+  return uniqueArray;  
+}
+uniquifyArray(wordsUnique);
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(word, wordsFind){
+  var found = false;
+  if (doesWordExist.length === 0){
+    return null;
+  }
+for (var i = 0; i < wordsFind.length; i++) {
+  var name = wordsFind[i];
+  if (name === word) {
+    found = true;
+    break;
+    }  
+  }
+  return found;
+}
+//Si hacemos console.log de 'found' nos detecta si es true o false, pero Jasmine no lo detecta...
+doesWordExist('machine',wordsFind);
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,7 +128,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes(wordsCount,word){
+  var sum = 0;
+  for(var i=0; i<wordsCount.length;i++){
+    if(word === wordsCount[i]){
+      sum += 1;
+    }
+  }
+  return sum;
+}
 // Iteration #8: Bonus
 
 const matrix = [
