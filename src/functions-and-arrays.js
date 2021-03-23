@@ -1,18 +1,94 @@
 // Iteration #1: Find the maximum
-
+maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+longestWord = '';
+//Declare a function named findLongestWord that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+
+function findLongestWord(arrayOfWords) {
+  for(i = 0; i < arrayOfWords.length; i++) {
+      if (arrayOfWords[i].length > longestWord.length) {
+        longestWord = arrayOfWords[i];
+      } else {
+        continue;
+      }
+  }
+  return longestWord;
+}
+
+console.log(findLongestWord(words));
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+sumNumbers = (arrNum) => {
+  let sum = 0;
+  arrNum.forEach(number => sum += number);
+  return sum;
+}
+// array1.forEach(element => console.log(element));
+console.log(sumNumbers(numbers));
+
+// Bonius Interaction #3.1
+
+// Bonius Interaction #3.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(elementIntoNum) {
+  for (let i in elementIntoNum) {
+    elementSum = 0;
+    if (typeof elementIntoNum[i] == 'string') {
+      for (let counter = 0; counter < elementIntoNum[i].length; counter++) {
+        elementSum++;
+      } 
+    elementIntoNum[i] = elementSum;
+    }
+  }
+  console.log(sumNumbers(elementIntoNum));
+  // console.log(elementIntoNum);
+}
+// should return: 57
+sum(mixedArr);
+ 
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
+
+// average
+averageNumbers = (arrayAvg) => {
+  return sumNumbers(arrayAvg) / arrayAvg.length;
+}
+
+console.log(averageNumbers(numbers2));
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+averageWordLength = (wordsAvg) => {
+  let letterCounter = 0;
+  for(i = 0; i < wordsAvg.length; i++) {
+    for(l = 0; l < wordsAvg[i].length; l++) {
+      letterCounter ++;
+    }
+  }
+  return letterCounter / wordsAvg.length;
+}
+
+console.log(averageWordLength(wordsArr));
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +105,28 @@ const wordsUnique = [
   'bring'
 ];
 
+let extraWords = [];
+
+uniquifyArray = (uniqueArr) => {
+  for (i = 0; i < uniqueArr.length; i++) {
+    let compare = uniqueArr[i];
+      for (i = 0; i < uniqueArr.length; i++) {
+        if (compare === uniqueArr[i] && uniqueArr.indexOf(uniqueArr[i]) !== ) {
+          extraWords = uniqueArr[i];
+        } else {
+          continue;
+        }
+    }
+    console.log(extraWords);
+  }
+}
+
+uniquifyArray(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+doesWordExist 
 
 // Iteration #7: Count repetition
 const wordsCount = [
