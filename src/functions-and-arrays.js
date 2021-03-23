@@ -37,10 +37,46 @@ function sumNumbers(num){
   } 
   return suma
 }
+function sum(num){
+  let suma=0
+  if (num.length === 0){
+    return 0
+    } else if (num.length === 1){
+  return num[0]
+  }else {
+  for (let i = 0;i<num.length;i++){
+    if (typeof num[i] === `string`){
+      suma = suma + num[i].length
+    } else if (num[i] === true){
+      suma = suma + 1
+    }else if (num[i] === false){
+      suma = suma + 0
+    } else if(typeof num[i] === `number`){
+        suma = suma+num[i]
+}else if (typeof num[i]===`object`){
+  throw new Error("Unsupported data type sir or ma'am")
+}
+    
+  }return suma
+}
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function averageNumbers(num){
+  let sum=0
+  if (num.length === 0){
+    return null
+  } else if (num.length === 1){return num[0]}
+  else{ 
+    for (let i = 0;i<num.length;i++){
+      sum = sum + num[i] 
+    }
+  }
+  av = sum/num.length
+  return av
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
