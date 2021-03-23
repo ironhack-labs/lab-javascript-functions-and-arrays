@@ -1,20 +1,80 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2) { 
+    return num1;
+} else {
+  return num2;
+}
+} 
+
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// let findLongestWord = (array) => {
+//   let longest="";
+//   for(let i=0; i< array.length; i++){
+//       let nexti= i+1;
+//       if (array[i].length > array[nexti].length){
+// return(array[i]);
+// console.log(array[nexti].length);
+//       }else if (array[nexti].length > array[i].length){
+//           console.log(array[nexti]);
+ 
+//       }
+//   }
+//   return;
+// };
+// console.log(findLongestWord(words));
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(ArrayOfnumbers) {
+  let sum = 0;
+  ArrayOfnumbers.forEach (function(ArrayOfnumbers) {
+    sum += ArrayOfnumbers;
+  });
+  return sum;
+}
+
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+let total = 0;
+for(let i = 0; i < numbersAvg.length; i++) {
+    total += numbersAvg[i];
+}
+let avg = total / numbersAvg.length;
+
+
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength (wordsArr) {
+  return avg(wordsArr) / wordsArr.length; 
+}
+
+function avg(wordsArr) {
+  let avg = 0;
+  wordsArr.forEach(function(wordsArr) {
+      avg += wordsArr.length;
+  });
+  return avg;
+}
+
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -29,8 +89,21 @@ const wordsUnique = [
   'bring'
 ];
 
+let unique = [...new Set(wordsUnique)];
+  console.log(unique); 
+  
+
 // Iteration #6: Find elements
+//Let's create a simple array search.
+//Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. 
+//Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordsArray, trouble) {
+  return (wordsArray.indexOf(trouble) > -1);
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
