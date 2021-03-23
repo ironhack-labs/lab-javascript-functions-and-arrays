@@ -11,6 +11,8 @@ function maxOfTwoNumbers(firstNumber, secondNumber){
     return firstNumber
   }
 }
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -252,18 +254,47 @@ const matrix = [
 ];
 
 function greatestProduct(matrix){
-  if (matrix[0][0] == 1){
-    return 1
-  }else{
-    return 16
-  } 
+  let biggestProduct = 0;
+  for (let i = 0; i < matrix.length; i++) {
+      let row = matrix[i];
+      for (let j = 0; j < row.length; j++) {
+          if (j < row.length - 3) {
+              let result = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+              if (result > biggestProduct) {
+                  biggestProduct = result;
+              }
+          }
+
+          if (i < (matrix.length - 3)) {
+              let result = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+              if (result > biggestProduct) {
+                  biggestProduct = result;
+              }
+          }
+      }
+  }
+  return biggestProduct
 }
 
-//No tengo ni idea de como meterle mano a este. 
-// He hecho un poco de trampa para que pase los tests de jasmine.
-// En teoria esta todo en verde y pasa todos los tests. 
-// Pero esta claro que el bonus 8 no hace lo que tiene que hacer.
-
 function greatestProductOfDiagonals(matrix){
-  
+  let biggestProduct = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    let row = matrix[i];  
+    for (let j = 0; j < row.length; j++) {
+      if ((j < (row.length - 3)) && (i < (matrix.length - 3))) {
+        let result = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+        if (result > biggestProduct) {
+          biggestProduct = result;
+        }
+      }
+        
+      if ((j > 2) && (i < (matrix.length - 3))) {
+        let result = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+        if (result > biggestProduct) {
+          biggestProduct = result;
+        }
+      }
+    }
+  }
+  return biggestProduct
 }
