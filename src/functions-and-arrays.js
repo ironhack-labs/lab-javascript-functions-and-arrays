@@ -1,18 +1,65 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2){
+    console.log(`The largest is ${num1}`)
+  }else if(num1 < num2){
+    console.log(`The largest is ${num2}`)
+  }else{
+    console.log(`${num1} and ${num2} are equal`)
+  }
+}
+maxOfTwoNumbers(2,2);
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(words) {
+  let longest = "";
+  for (let i = 0; i < words.length; i++) {
+    if(words[i].length > longest.length) {
+      longest = words[i];
+    }
+  }
+  console.log(longest);
+}
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+function sumNum(arr){
+  let suma = 0;
+  numbers.forEach(function(num){
+    suma += num
+  })
+  console.log(suma)
+}
+sumNum(numbers);
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function avarageNumbers(someArr){
+  let cont = 0;
+  for(let i= 0; i < someArr.length; i++){
+    cont += someArr[i]
+  }
+  let avg = cont/someArr.length;
+  console.log(avg)
+}
+avarageNumbers(numbersAvg)
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrWords){
+  let count = 0;
+  for(let i = 0; i < arrWords.length; i++){
+    count += arrWords[i].length;
+  }
+  let avg = count/(arrWords.length);
+  console.log(avg);
+}
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -28,6 +75,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  let uniqueNames = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueNames.indexOf(arr[i]) === -1) {
+      uniqueNames.push(arr[i]);
+    }
+  }
+  console.log(uniqueNames);
+}
+uniquifyArray (wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
