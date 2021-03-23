@@ -76,3 +76,32 @@ let sum = (array) => {
 
 console.log(sum(mixedArr));
 
+// Iteration #4: Calculate the average
+// Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let averageNumbers = (arr) => {
+  let sumArr = sumNumbers(arr);
+  return sumArr/arr.length;
+}
+
+console.log(averageNumbers(numbersAvg));
+
+// Level 2: Array of strings
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+let averageWordLength = (arr) => {
+  let lengthSum = 0;
+  arr.forEach((el) => lengthSum += el.length);
+  return lengthSum / arr.length;  
+}
+console.log(averageWordLength(wordsArr));
+
+//Bonus - Iteration #4.1: A generic avg() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+let avg = (arr) => {
+  let sumArr = sum(arr);
+  return sumArr/arr.length;
+}
+
+console.log(avg(mixedArr));
+
