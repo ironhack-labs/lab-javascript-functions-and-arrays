@@ -66,12 +66,7 @@ const wordsUnique = [
   'bring'
 ];
 
-const uniquifyArray = arr => {
-  if(arr.length > 0){
-    let distinct = [...new Set(arr)];
-    return distinct;
-  } else{return null};
-}
+const uniquifyArray = arr => arr.length > 0 ? [...new Set(arr)] : null;
 
 console.log(uniquifyArray(wordsUnique))
 
