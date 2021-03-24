@@ -1,18 +1,111 @@
 // Iteration #1: Find the maximum
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+};
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+const findLongestWord = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  let longest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+};
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const sumNumbers = (arr) => {
+  if (arr.length === 0) {
+    return 0
+  }
+  let sum = 0;
+  for (num of arr) {
+    sum += num;
+  }
+  if (sum === 0) {
+    return 0;
+  } else {
+    return sum;
+  }
+};
+
+// I 3.1
+const sum = (arr) => {
+  if (arr.length === 0) {
+    return 0
+  } else if (arr.length === 1) {
+    //if given 1 number
+    return arr[0]
+  } else {
+    let result = 0;
+    for (e of arr) {
+      if (typeof e === 'string') {
+        result += e.length;
+      } else if (typeof e === 'number' || typeof e === 'boolean') {
+        result += e;
+      } else {
+        //if not one of these data types, display error
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    }
+    return result;
+  }
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  return sumNumbers(arr) / arr.length;
+};
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (arr) => {
+  if (arr.length === 0) {
+    return null
+  }
+  let strNum = 0;
+  for (str of arr) {
+    strNum += str.length;
+  }
+  return strNum/arr.length;
+};
+
+//I 4.3
+const avg = (arr) => {
+  if (arr.length === 0) {
+    return null;
+  }
+  eSum = 0;
+  //only checking for string and else strings for this one
+  for (e of arr) {
+    if (typeof e === 'string'){
+      eSum += e.length
+    } else {
+      eSum += e;
+    }
+  }
+  //toFixed because jasmine doesnt like runoff digits
+  return Number((eSum/arr.length).toFixed(2));
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +122,34 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = (arr) => {
+  result = [];
+  if (arr.length === 0) {
+    return null
+  }
+  for (str in arr) {
+    if (result.includes(arr[str])) {
+    } else {
+      result.push(arr[str]);
+    }
+  }
+  return result;
+};
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arr, find) {
+  if (arr.length === 0) {
+    return null
+  }
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === find) {
+      return true
+    }
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +165,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+const howManyTimes = (arr, word) => {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let wordSum = 0;
+  for (str of arr) {
+    if (str === word)
+      wordSum++;
+  }
+  return wordSum;
+};
 
 // Iteration #8: Bonus
 
@@ -71,3 +202,8 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
+const greatestProduct = (matrix) => {
+  //hmmmmmmm
+};
