@@ -174,7 +174,7 @@ function greatestProduct(matrix) {
   return product;
 }
 
-function getProduct(matrix, x, y) {
+function getProduct(matrix, xCoordinate, yCoordinate) {
   let productH = 1;
   let productV = 1;
 
