@@ -1,18 +1,97 @@
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+// ATTEMPTED 23.03.2021 //
+
 // Iteration #1: Find the maximum
 
+let num1;
+let num2;
+
+function maxOfTwoNumbers(num1, num2) {
+ if (num1 > num2)
+   return num1;
+ else if (num2 > num1)
+   return num2;
+ else if (num1 === num2)
+   return num1;
+ else if (num1 === "" || num2 === "")
+   return null;
+ else
+   return undefined;
+}
+
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  let longWord = "";
+  for (let i = 0; i < words.length; i++) {
+    if (longWord.length < words[i].length)
+      longWord = words[i];
+    else if (words.length === 0)
+      return null;
+  }
+  return longWord;
+  
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sum = 0;
+
+function sumNumbers(numbers) {
+  for (let i = 0; i < numbers.length; i++)
+    sum += numbers[i];
+  if (numbers.length === 0)
+    return null;
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Level 2: Array of strings
+let total = 0;
+let average = [];
+
+function averageNumbers(numbersAvg) {
+  for (let i = 0; i < numbersAvg.length; i++) {
+    total += numbers[i];
+  }
+  average = total / numbersAvg.length;
+}
+
+// Level 2: Array of strings // unfinished
+let numArr = [];
+let wordsLength = 0;
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  for (let i = 0; i < wordsArr.length; i++) {
+  wordsLength += wordsArr[i].length;
+  averageLength = wordsLength / wordsArr.length;
+  }
+  return averageLength;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------
+// QUESTIONS REGARDING ATTEMPTED //
+
+Find the longest word should return null when called with an empty array – Expected '' to be null.
+
+• Did not understand question – does this mean: the function "maxOfTwoNumbers();" called exactly so (empty) should return null?
+• Could not determine how to include two seperate return statements for "wordLength" and an empty array within one function.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------- */
+// NOT ATTEMPTED 23.03.2021 //
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
