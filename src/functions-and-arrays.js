@@ -1,20 +1,144 @@
-// Iteration #1: Find the maximum
+/* Iteration #1: Find the maximum
+Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest*/
 
-// Iteration #2: Find longest word
+function maxOfTwoNumbers (num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+};
+
+console.log(maxOfTwoNumbers(10,20));
+
+/* Iteration #2: Find longest word
+Declare a function named findLongestWord that takes as an argument an array of words and returns
+the longest one. If there are 2 with the same length, it should return the first occurrence.*/
+
+function findLongestWord (arr) {
+  var longest = '';
+  var numberOfLetters = 0;
+  for(let i=0; i < arr.length; i++) {
+    if (arr[i].length > numberOfLetters){
+      longest = '';
+      longest += arr[i];
+      numberOfLetters = arr[i].length}
+    }
+  if (!longest){
+    return null
+  } else {
+    return longest;
+  }
+};
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+console.log(findLongestWord(words));
+
+/* Iteration #3: Calculate the sum
+Declare a function named sumNumbers that takes an array of numbers as an argument, and returns
+the sum of all of the numbers in the array. Later in the course we will learn how to do this
+by using the reduce array method, which will make your work significantly easier. For now,
+let's practice "declarative" way adding values, using loops.*/
+
+function sumNumbers (arr) {
+  var sumTotal = 0;
+  for(let i = 0; i < arr.length; i++) {
+    sumTotal += arr[i];
+  }
+  return sumTotal
+}
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
+console.log(sumNumbers(numbers));
+
+/*Bonus 3.1
+In the iteration 3, you created a function that returns the sum of an array of numbers. But what
+if we wanted to know how much is the sum of the length of all of the words in an array? What if
+we wanted to add boolean values to the mix? We wouldn't be able to use the same function as above,
+or better saying, we would have to tweak it a little bit so that it can be reused no matter what
+is in the array that is passed as argument when function sumNumbers() is called.
+Here we are applying a concept we call polymorphism, that is, dealing with a functions' input
+independently of the types they are passed as.
+Let's create a new function sum() that calculates the sum for array filled with (almost) any
+type of data. Note that strings should have their length added to the total, and boolean values
+should be coerced into their corresponding numeric values. Check the tests for more details.*/
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum (arr) {
+  let totalLetters = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(typeof arr[i] === 'number') {
+      totalLetters += arr[i];
+    } else if (typeof arr[i] === 'string') {
+      totalLetters += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      if (arr[i] === true){
+        totalLetters += 4
+      } else {
+        totalLetters += 5
+      }
+    } 
+  }
+  return totalLetters;
+}
+  
+console.log(sum(mixedArr));
+
+/* Iteration #4: Calculate the average
+Level 1: Array of numbers
+Declare a function named averageNumbers that expects an array of numbers and returns the
+average of the numbers:*/
+
+function averageNumbers(arr) {
+  let sumNum = sumNumbers(arr);
+  if (!arr){
+    return null
+  } else {
+    return sumNum / arr.length;
+  }
+}
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-// Level 2: Array of strings
+console.log(averageNumbers(numbersAvg));
+
+/* Level 2: Array of strings
+Declare a function named averageWordLength that receives as a single argument an array
+of words and returns the average length of the words:*/
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// Iteration #5: Unique arrays
+function averageWordLength(arr) {
+  let letters = arr.join('').length;
+  if (!arr){
+    return null
+  } else {
+    return letters / arr.length;
+  }
+}
+
+console.log(averageWordLength(wordsArr));
+
+/* Bonus 4
+Create function avg(arr) that receives any mixed array and calculates average. Consider
+as mixed array an array filled with numbers and/or strings and/or booleans. We are following
+a similar logic to the one applied on the bonus iteration 4.1.*/
+
+function avg(arr) {
+  let totalLetters = sum(arr);
+  return totalLetters / arr.length;
+}
+
+console.log(avg(mixedArr));
+
+/*Iteration #5: Unique arrays
+Take the following array, remove the duplicates, and return a new array. You are more than
+likely going to want to check out the indexOf Array method.
+Do this in the form of a function uniquifyArray that receives an array of words as a argument.*/
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -29,10 +153,51 @@ const wordsUnique = [
   'bring'
 ];
 
-// Iteration #6: Find elements
+function uniquifyArray (arr){
+    let sortedArr = arr.sort();
+    let newArr = [];
+    for (let i=0; i<sortedArr.length-1; i++){
+      if (sortedArr[i+1] !== sortedArr[i]){
+        newArr.push(sortedArr[i]);
+        }
+      } return newArr;
+    }
+
+console.log(uniquifyArray(wordsUnique));
+
+/* Iteration #6: Find elements
+Declare a function named doesWordExist that will take in an array of words as one argument, and
+a word to search for as the other. Return true if it exists, otherwise, return false. Don't use
+indexOf for this one.*/
+
+function doesWordExist(arr, word){
+  for (let i=0; i<arr.length; i++){
+    if(arr[i] === word){
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-// Iteration #7: Count repetition
+console.log(doesWordExist(wordsFind, 'joao'));
+
+/* Iteration #7: Count repetition
+Declare a function named howManyTimes that will take in an array of words as the first argument, and a
+word to search for as the second argument. The function will return the number of times that word
+appears in the array.*/
+
+function howManyTimes(arr, word){
+  let wordCount = 0;
+  for (let i=0; i<arr.length; i++){
+    if(arr[i] === word){
+      wordCount += 1;
+    }
+  }return wordCount
+};
+
 const wordsCount = [
   'machine',
   'matter',
@@ -47,7 +212,15 @@ const wordsCount = [
   'matter'
 ];
 
-// Iteration #8: Bonus
+console.log(howManyTimes(wordsCount, 'matter'));
+
+/* Iteration #8: Bonus
+What is the greatest product of four adjacent numbers? We consider adjacent any four numbers
+that are next to each other horizontally or vertically.*/
+
+// NO COMPREENDO LO EXERCICIO ¿?¿?¿?¿?
+// NO COMPREENDO LO EXERCICIO ¿?¿?¿?¿?
+// NO COMPREENDO LO EXERCICIO ¿?¿?¿?¿?
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
