@@ -36,6 +36,22 @@ sumNumbers = (arrNum) => {
   return totalSum;
 }
 
+//Bonus
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+sum = (arr) => {
+  let sumArr = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sumArr = sumArr + arr[i];
+    } else if (typeof arr[i] === 'string') {
+      sumArr = sumArr + arr[i].length;
+    } else if (typeof arr[i] === 'boolean' && arr[i] === true) {
+      sumArr = sumArr + 1;
+    };
+  };
+};
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -50,6 +66,24 @@ averageNumbers = (arrNum) => {
   total = total / div;
   return total;
 }
+
+
+//Bonus
+avg = (arr) => {
+  let sumArr = 0;
+  let div = arr.length;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sumArr = sumArr + arr[i];
+    } else if (typeof arr[i] === 'string') {
+      sumArr = sumArr + arr[i].length;
+    } else if (typeof arr[i] === 'boolean' && arr[i] === true) {
+      sumArr = sumArr + 1;
+    };
+  };
+  sumArr = sumArr / div;
+  return sumArr;
+};
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
