@@ -1,19 +1,56 @@
 // Iteration #1: Find the maximum
-
+const maxOfTwoNumbers = (a, b) => (a > b ? a : b);
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+const findLongestWord = arr => {
+  if (arr[0] !== undefined){
+    let long = '';
+    for (var i = 0; i < arr.length; i++){
+      (arr[i].length > long.length ? long = arr[i]: long = long)
+    }
+    return long;
+  }
+  else {return null}
+}
+console.log(findLongestWord([]))
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const sumNumbers = arr => {
+  let sum = 0;
+  if (arr.length > 0){
+    for (var i = 0; i < arr.length; i++){
+      sum += arr[i];
+    }
+    return sum;
+  } else {return null}
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+const averageNumbers = arr => {
+  let sum = 0;
+  if (arr.length > 0){
+    for (var i = 0; i < arr.length; i++){
+      sum += arr[i];
+    }
+    return (sum/arr.length);
+  } else {return null}
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = arr => {
+  let sum = 0;
+    if (arr.length > 0){
+      for (var i = 0; i < arr.length; i++){
+      sum += arr[i].length;
+      }
+    return Math.floor(sum/arr.length);
+  } else {return null}
+}
 
+console.log(averageWordLength(['Ironhack', 'Madrid', 'Barcelona', 'Paris', 'Miami', 'Mexico', 'Berlin', 'Programmers']));
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -29,9 +66,29 @@ const wordsUnique = [
   'bring'
 ];
 
+const uniquifyArray = arr => {
+  if(arr.length > 0){
+    let distinct = [...new Set(arr)];
+    return distinct;
+  } else{return null};
+}
+
+console.log(uniquifyArray(wordsUnique))
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+const doesWordExist = (arr, word) => {
+  let value = 0;
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i] === word){
+      value++
+    }
+  }
+  if (value > 0){
+    return true;
+  }
+  else{return false}
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -47,7 +104,67 @@ const wordsCount = [
   'matter'
 ];
 
+const howManyTimes = (arr, word) => {
+  let count = 0;
+  if (arr.length > 0){
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i] === word){
+      count++
+      }
+    } return count; 
+  } else{return null}
+}
+
+console.log(howManyTimes(wordsUnique, 'crab'))
+
 // Iteration #8: Bonus
+
+const greatestProduct = mat => {
+  let acc = [];
+  for (var i = 0; i< mat.length; i++){
+    let newArr = mat[i];
+    let bigNum = 0;
+    for (var j = 0; j < newArr.length; j++){
+      if (newArr[j] > bigNum){
+        bigNum = newArr[j];
+      }
+    }
+    if (acc.length < 4){
+      acc.push(bigNum)
+    }
+  }
+  let total = acc[0]; 
+  for (var y = 1; y < acc.length; y++){
+    total *= acc[y]
+  }
+  return total
+}
+
+let matrix1 = [
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+];
+
+console.log(greatestProduct(matrix1))
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -71,3 +188,11 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const matrix2 = [[1, 2, 3, 4, 5]
+,[1, 20, 3, 4, 5]
+,[1, 20, 3, 4, 5]
+,[1, 20, 3, 4, 5]
+,[1,  4, 3, 4, 5]];
+
+console.log(greatestProduct(matrix2))

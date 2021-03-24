@@ -12,6 +12,17 @@ const shuffle = currentArray => {
   return array;
 };
 
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = arr => {
+  let sum = 0;
+  for (var i = 0; i < arr.length; i++){
+    sum += arr[i].length;
+  }
+  return (sum/arr.length);
+}
+
+console.log(averageWordLength(wordsArr));
+
 describe('Find the maximum', () => {
   it('should create a function named maxOfTwoNumbers', () => {
     expect(typeof maxOfTwoNumbers).toBe('function');
