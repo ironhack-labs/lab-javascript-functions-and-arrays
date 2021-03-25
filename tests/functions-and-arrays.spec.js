@@ -37,6 +37,8 @@ describe('Find the longest word', () => {
     expect(typeof findLongestWord).toBe('function');
   });
 
+
+
   it('should return null when called with an empty array', () => {
     expect(findLongestWord([])).toBe(null);
   });
