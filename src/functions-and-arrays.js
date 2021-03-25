@@ -1,32 +1,30 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1,num2){
   if (num1<num2){
-    console.log(num2);
+    return num2;
   }else if (num1>num2){
-    console.log(num1);
+    return num1;
   }else{
-    console.log(`Woops! They are the same number!` )
+    return num1;
   }
-  }
+}
   
-  maxOfTwoNumbers(999,99);
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array){
-  let longestElement ='';
-  for(let i = 1; i<array.length; i++){
-  	let previousElement = i-1;
-    if(array[i].length > longestElement.length){
-        longestElement = array[i];
-      }
+  if(array.length === 0){
+    return null
   }
-   console.log(longestElement);
+  if(array.length=== 1){
+    return array[0]
+  }
+  const longestItem = array.sort((a,b) => b.length - a.length)
+  return longestItem[0]
+
 }
 
-findLongestWord(words);
-
+ 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -34,49 +32,83 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers (array) {
   let total = 0;
   for (let i=0; i<array.length; i++){
-    total = total + array[i];
+    total +=  array[i];
   }
   return total;
 }
 
 sumNumbers(numbers);
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(array){
-  const total = sumNumbers(array);
-  const numberOfElements = (array.length)+1;
-  console.log (numberOfElements);
-  const average = total / numberOfElements;
-  console.log(average);
+//Bonus 3.1
+const sum = (arr)=>{
+  if(arr.length === 0){
+    return 0 
+  }
+  if (arr.length === 1){
+    return arr[0]
+  }
+  let total = 0;
+  for (let item of arr){
+    switch(typeof item){
+      case 'number':
+        total+= item;
+        break;
+      case 'string': 
+        total += item.length;
+        break;
+      case 'boolean':
+        total += item ? 1: 0
+        break;
+      default: 
+        throw new Error ("Unsupported data type sir or ma'am");
+    }
+  }
+  return total
 }
 
- averageNumbers(numbersAvg);
+///Bonus 4.1
 
+const avg = (arr)=>{
+  if(arr.length === 0){
+    return null
+  }
+  const sumArr = sum(arr);
+  const average = (Math.floor((sumArr / arr.length)*100)/100);
+  return average;
+}
+
+// Iteration #4: Calculate the average
+// Level 1: Array of numbers
+
+function averageNumbers(array){
+  if(array.length === 0){
+    return null
+  }
+  const total = sumNumbers(array);
+  const average = total / (array.length);
+  return average;
+}
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength (array) {
-  let total = 0;
-  for (let i=0; i<array.length; i++){
-    const elementLength = array[i].length
-    total = total + elementLength;
+function averageWordLength (arr) {
+  if(arr.length === 0){
+    return null
   }
-  const numElements = (array.length);
-  const averagelength = total / numElements;
-  
-  console.log(averagelength);
+  const totalLength = arr.map(item => item.length);
+  console.log(totalLength);
+  console.log(arr.length);
+  const totalAverage = totalLength.reduce((acc, val) => acc + val)
+  return totalAverage/arr.length
 }
+
 
 
 averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+/*  const wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -88,27 +120,42 @@ const wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
+]; */
 
+
+function uniquifyArray (arr) {
+  if(arr.length === 0){
+    return null
+  }
+} 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-
-function doesWordExist(array,word){
-  for (let i = 0; i<array.length; i++){
-  console.log(array[i]);
-  	if(word === array[i]){
-    console.log('true');
-    }else{
-    console.log('false');
-    }
-  
+// TODO : I need to check if the word is the only one and return true and then if its on the array or not
+function doesWordExist (arr, word){
+  if(arr.length === 0){
+    return null
   }
+  const itArr = arr.map((item)=>{
+    if (word === item){
+     return true
+    }else{
+      return false
+    }
+  })
 }
+/* const doesWordExist = (arr,word)=>{
+  const itArr = arr.map((item)=>{
+    if (word === item){
+     return true
+    }else{
+      return false
+    }
+    //(item === word) ? console.log('true'):console.log('true')
+  })
+} */
+/*
+
 
 let subset = 'subset';
 doesWordExist(words, subset);
@@ -152,3 +199,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+ */
