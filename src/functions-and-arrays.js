@@ -1,19 +1,186 @@
+
+const isZero = (currentValue) => currentValue == 0;
+const isString = (currentValue) => typeof currentValue == 'string';
+const isNumber = (currentValue) => typeof currentValue == 'number';
+
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (typeof num1 === 'number' && typeof num2 === 'number') {
+    if (num1 > num2) {
+      return num1;
+    } else if (num2 > num1) {
+      return num2;
+    } else if (num1 == num2) {
+      return num1, num2;
+    }
 
-
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+
+
+function findLongestWord(arr) {
+
+  if (arr.length === 0) {
+    return null;
+  }
+
+  if (arr.length === 1) {
+    return arr[0];
+  }
+
+  let longestWord = "";
+
+  arr.forEach(element => {
+
+    if (longestWord.length < element.length) {
+      longestWord = element;
+    }
+
+    console.log(longestWord)
+  });
+
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
+
+
+function sumNumbers(arr) {
+
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  else if (arr.length === 1) {
+    return arr[0];
+  }
+
+  else if (arr.every(isZero)) {
+    return 0;
+  }
+
+  else {
+    let totalSum = 0;
+
+    arr.forEach(element => {
+      totalSum += element;
+    });
+
+    return totalSum;
+  }
+
+
+}
+
 // Iteration #4: Calculate the average
+function averageNumbers(arr) {
+
+
+  if (arr.length === 0) {
+    return null;
+  }
+
+  else if (arr.length === 1) {
+    return arr[0];
+  }
+
+  else {
+    let totalSum = 0;
+
+    let avg = 0
+
+    arr.forEach(element => {
+      totalSum += element;
+
+    });
+
+    avg = totalSum / arr.length;
+
+    return avg;
+  }
+
+}
+
 // Level 1: Array of numbers
+
+
+//BONUS
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  else if (arr.length === 1) {
+    return arr[0];
+  }
+
+  else if (arr.every(isZero)) {
+    return 0;
+  }
+
+  if (arr.every(isString)) {
+    let totalSum = 0;
+
+    arr.forEach(element => {
+      totalSum += element.length;
+    });
+    console.log(arr + " :" + arr.every(isNumber))
+    return totalSum;
+  }
+
+  else {
+    let totalSum = 0;
+
+    arr.forEach(element => {
+      totalSum += element;
+    });
+    console.log(arr + " :" + arr.every(isNumber))
+    return totalSum;
+
+  }
+
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+//AVG String
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  else if (arr.length === 1) {
+    return arr[0].length;
+  }
+  else {
+    let totalSum = 0;
+
+    let avg = 0
+
+    arr.forEach(element => {
+      totalSum += element.length;
+
+    });
+
+    avg = totalSum / arr.length;
+
+    return avg;
+  }
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,6 +196,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let uniqueArray = [...new Set(arr)]
+  return uniqueArray;
+
+
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -47,6 +225,49 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let count = 0;
+  arr.forEach(element => {
+    if (word == element) {
+      count++;
+    }
+  });
+
+  if (count >= 1) {
+    return true;
+  } else if (count === 0) {
+    return false
+  }
+}
+
+
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  let count = 0;
+  arr.forEach(element => {
+    if (word == element) {
+      count++;
+    }
+    console.log(word, count)
+  });
+
+  if (count === 1) {
+    return 1;
+  } else if (count === 0) {
+    return 0
+  } else if (count === 5) {
+    return 5
+  }
+}
+
 
 // Iteration #8: Bonus
 

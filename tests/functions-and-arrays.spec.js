@@ -54,6 +54,9 @@ describe('Find the longest word', () => {
     let words = ['a', 'zab', '12abc', '$$abcd', 'abcde', 'ironhack'];
     for (let i = 0; i < 10; i++) {
       words = shuffle(words);
+
+      console.log(words)
+      console.log("this:" + findLongestWord(words))
       expect(findLongestWord(words)).toBe('ironhack');
     }
   });
