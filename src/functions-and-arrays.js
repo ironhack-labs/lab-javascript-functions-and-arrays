@@ -18,7 +18,7 @@ let findLongestWord = (array) => {
     return word;
 }
 
-console.log(findLongestWord(words));
+
 
 
 // Iteration #3: Calculate the sum
@@ -38,7 +38,7 @@ let sumNumbers = (array) => {
     return sum;
   }
  };
-console.log(sumNumbers(numbers));
+
 
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -58,7 +58,7 @@ let sum = (array) => {
   return(totalSum);
 };
 
-console.log(sum(mixedArr));
+
 
 
 // Iteration #4: Calculate the average
@@ -87,7 +87,7 @@ let avg = total / array.length;
  return avg;
 }
 
-console.log(averageNumbers(numbersAvg));
+
 
 
 // Level 2: Array of strings
@@ -103,9 +103,9 @@ let averageWordLength=(array)=>{
   }
   return(wordAverage / array.length);
 };
-console.log(averageWordLength(wordsArr));
 
-let avg= (arr) => {
+
+let avg = (arr) => {
   if (arr.length === 0){ return null}
   let totalSum=0;
 for (let i =0; i< arr.length; i++){
@@ -121,7 +121,7 @@ for (let i =0; i< arr.length; i++){
 }
   return Number((totalSum/arr.length).toFixed(2))
 };
-console.log(avg(mixedArr))
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -138,10 +138,33 @@ const wordsUnique = [
   'bring'
 ];
 
-uniquifyArray
+let uniquifyArray = (array) => {
+  let uniArr = array.filter((value, index, self) => array.indexOf(value) === index)
+  return uniArr
+}
+
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+let testElement ='eating';
+
+
+  let doesWordExist = (array) => {
+  let found = false;
+    for (let i = 0; i < array.length && !found; i++) {
+      if (array[i] === testElement) {
+        found = true;
+        break;
+      }
+    }
+  return found;
+};
+
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -157,6 +180,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let howManyTimes = (array, item) => {
+  let foundWord = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === item) {
+        foundWord.push(1)
+      }
+    }
+  return foundWord.length;
+}
+
+
+
 
 // Iteration #8: Bonus
 
@@ -183,3 +219,10 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+
+
+// const greatestProduct = (matrix) => {
+// for (let i=0; i < matrix.length; i++){
+
+// }
+// }
