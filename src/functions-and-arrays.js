@@ -94,6 +94,7 @@ console.log(averageNumbers(numbersAvg));
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 let averageWordLength=(array)=>{
+  if (array.length === 0){ return null}
     let wordAverage = 0;
   for(let i=0; i< array.length; i++){
     if(array.length === 0){wordAverage = null;
@@ -105,6 +106,7 @@ let averageWordLength=(array)=>{
 console.log(averageWordLength(wordsArr));
 
 let avg= (arr) => {
+  if (arr.length === 0){ return null}
   let totalSum=0;
 for (let i =0; i< arr.length; i++){
     if(arr.length === 0){totalSum = null
@@ -117,9 +119,8 @@ for (let i =0; i< arr.length; i++){
     }else{totalSum += arr[i]}
     
 }
-return(totalSum/arr.length);
+  return Number((totalSum/arr.length).toFixed(2))
 };
-
 console.log(avg(mixedArr))
 
 // Iteration #5: Unique arrays
