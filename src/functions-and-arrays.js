@@ -1,20 +1,50 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a
+  } else {
+    return b
+  }
+}
+
+maxOfTwoNumbers(20, 10)
+
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(words) {
+console.log(words.length)
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+  let total = 0
+  for (i = 0; i < numbers.length; ++i) {
+    total += numbers[i]
+  }
+  return total
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg) {
+  let total = 0
+  for (i = 0; i < numbersAvg.length; ++i) {
+    total += numbersAvg[i]
+  }
+  let avg = total / numbersAvg.length
 
+  return avg
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength(wordsArr) {
+  avg = wordsArr.join('').length / wordsArr.length
+  return avg
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -30,9 +60,18 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  console.log(wordsUnique.indexOf('poison', 2))
+  console.log(wordsUnique.indexOf('simple', 2))
+  console.log(wordsUnique.indexOf('bring', 2))
+
+
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function doesWordExist(wordsFind){
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -47,6 +86,10 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordsCount){
+
+}
 
 // Iteration #8: Bonus
 
