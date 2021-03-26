@@ -1,19 +1,147 @@
 // Iteration #1: Find the maximum
+let listaDeNumeros = [1 , 4, 8, 9]
+
+// let suma = 0
+// for (let i = 0; i < listaDeNumeros.length; i++) {
+//   console.log("hola")
+//   suma += 1
+// }
+//cuando inicia, cuando tiene que seguir, como avanza
+// let total = 0
+// for (let i = 0; i <lista.length; i++) {
+//   const cadaNumero  = lista[i]
+//   total += cadaNumero
+// }
 
 
+ function maxOfTwoNumbers(first, second) {
+    if (first > second) {
+       return first
+    } else if (first < second) {
+        return second
+    } else if (first === second) {
+      return first & second
+    }
+   }
+ 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) { 
+  if (words.length === 0){
+    return null
+  } else if (words.length === 1) {
+    return(words[0])
+  } 
+
+  let longest = words[0]
+  for (i = 0; i < words.length; i++) {
+    if (words[i].length > longest.length) {
+      longest = words[i]
+    } return words[i]
+  } 
+}
+findLongestWord(words)
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+const zeros = [0, 0, 0, 0]
+
+function sumNumbers (numArray) {
+    if (numArray.length === 0){
+   return 0
+  } else if (numArray.length === 1) {
+   return numArray[0]
+  }
+  let suma = 0
+  for (let i = 0; i < numArray.length; i++) {
+    let insideNumber = numArray[i]
+    suma += insideNumber
+  }
+  if (suma === 0) {
+    return 0
+  } 
+  let elementType = 0
+  for (let i = 0; i < numArray.length; i++) {
+    elementType = typeof numArray[i]
+  }
+  if (elementType === "number") {
+    return(suma)
+  }
+ } 
+
+ sumNumbers(numbers)
+
+ // BONUS
+
+function sum(randomArray) {
+  if (randomArray.length === 0) {
+    return 0
+  }
+  let suma = 0
+  for (let i = 0; i < randomArray.length; i++) {
+    let insideNumber = randomArray[i]
+    suma += insideNumber
+  }
+  if (randomArray.length === 1) {
+    return suma
+  } else if (suma === 0) {
+    return 0
+  }
+  let elementType = 0
+  for (i = 0; i < randomArray.length; i++) {
+    elementType = typeof randomArray[i]
+  }
+  if (elementType === "number") {
+    return suma
+  }
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers (numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null
+  }  else if(numbersAvg.length === 1) {
+    return numbersAvg[0]
+  }
+
+  let totalValue= 0
+  for (let i = 0; i < numbersAvg.length; i++) {
+    let eachValue = numbersAvg[i]
+    totalValue += eachValue
+  } 
+  let media = totalValue / numbersAvg.length
+  return media
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+
+  if (wordsArr.length === 0) {
+    return null
+  } 
+  else if(wordsArr.length === 1) {
+    return wordsArr[0].length
+  }
+  let totalValue = 0
+  for (let i = 0; i < wordsArr.length; i++) {
+    let eachValue = wordsArr[i].length
+    totalValue += eachValue
+  }
+  let media = totalValue / wordsArr.length
+  return media
+}
+
+// BONUS
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -30,8 +158,22 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null
+  }
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(wordsFind) {
+  if(wordsFind.length === 0){
+    return null
+  } 
+  
+  
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,6 +189,25 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+let word = 'machine'
+console.log(word)
+
+function howManyTimes(wordsCount) {
+  if (wordsCount.length === 0) {
+    return 0
+  }
+  let count = 0
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (word === wordsCount[i]) {
+      count += 1
+    }
+    else if (word != wordsCount[i]) {
+      count += 0
+    }
+    return count
+  }
+}
 
 // Iteration #8: Bonus
 
