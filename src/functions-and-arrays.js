@@ -1,4 +1,4 @@
-// Iteration #1: Find the maximum
+// Iteration #1: Find the maximum 
 
 function maxOfTwoNumbers(num1,num2) {
   if (num1 > num2) { 
@@ -9,55 +9,59 @@ function maxOfTwoNumbers(num1,num2) {
 } 
 
 
-// Iteration #2: Find longest word
+// Iteration #2: Find longest word -- Tried to apply feedback but my results were wrong, so I decided to redo this entire iteration and apply similar logic I found to work for the other excercises.
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// let findLongestWord = (array) => {
-//   let longest="";
-//   for(let i=0; i< array.length; i++){
-//       let nexti= i+1;
-//       if (array[i].length > array[nexti].length){
-// return(array[i]);
-// console.log(array[nexti].length);
-//       }else if (array[nexti].length > array[i].length){
-//           console.log(array[nexti]);
- 
-//       }
-//   }
-//   return;
-// };
-// console.log(findLongestWord(words));
+function findLongestWord(wordsArray) {
+  if (wordsArray.length === 0) {
+    return null
+  } else if (wordsArray.length === 1) {
+    return wordsArray[0];
+  } else {
+    let longestWord = '';
+    for (let i = 0; i < wordsArray.length; i++) {
+      if (wordsArray[i].length > longestWord.length) {
+        longestWord = wordsArray[i]
+      }
+    }
+    return longestWord;
+  }
+}
 
-
-
-// Iteration #3: Calculate the sum
+// Iteration #3: Calculate the sum ----- this one made jasmine go all red, however logic seems to be right on rpl. Can't figure out the mistake
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(ArrayOfnumbers) {
-  let sum = 0;
-  ArrayOfnumbers.forEach (function(ArrayOfnumbers) {
-    sum += ArrayOfnumbers;
-  });
-  return sum;
+  if (ArrayOfnumbers === 0) {
+  return 0; }
+  else {
+    let sum = 0;
+    for ( let i = 0 ; i < ArrayOfnumbers.length ; i++ ) {
+      sum += ArrayOfnumbers [i];}
+
+      return sum;
+    }
 }
 
+// Iteration #4: Calculate the average 
 
-// Iteration #4: Calculate the average
+// Level 1: Array of numbers ---- CORRECT 
 
-// Level 1: Array of numbers
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (arrOfNumbers) {
+  if (arrOfNumbers.length === 0) {
+    return null; }
+    else { let sum = 0;
+      for(let i = 0; i < arrOfNumbers.length; i++) {sum += arrOfNumbers[i]; } }
+      
+  let avg = sum / arrOfNumbers.length;
 
-let total = 0;
-for(let i = 0; i < numbersAvg.length; i++) {
-    total += numbersAvg[i];
+  return avg;
 }
-let avg = total / numbersAvg.length;
-
-
-// Level 2: Array of strings
+// Level 2: Array of strings ---- CORRECT
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -73,54 +77,62 @@ function avg(wordsArr) {
   return avg;
 }
 
-// Iteration #5: Unique arrays
+// Iteration #5: Unique arrays ----- CORRECT
 
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const wordsUnique = ['crab','poison', 'contagious','simple','bring','sharp','playground',
+'poison','communion','simple','bring'];
 
-let unique = [...new Set(wordsUnique)];
-  console.log(unique); 
-  
+function uniquifyArray( wordsArr ) {
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    let result = [];
+    for (let i = 0; i < wordsArr .length; i++) {
+      if (!result.includes(wordsArr[i])) {
+        result.push(wordsArr[i])
+      }
+    }
+    return result;
+  }
+}
 
-// Iteration #6: Find elements
-//Let's create a simple array search.
-//Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. 
-//Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+// Iteration #6: Find elements ----- CORRECT
 
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsArray, trouble) {
-  return (wordsArray.indexOf(trouble) > -1);
+function doesWordExist(wordsArray, word) {
+  if (wordsArray.length === 0) {
+    return null;
+  } else {
+    let result;
+    if (wordsArray.includes(word)) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
+ // Iteration #7: Count repetition ----- CORRECT
+
+const wordsCount = ['machine','matter','subset','trouble','starting','matter','eating',
+  'matter','truth','disobedience','matter'];
+
+function howManyTimes (wordsArray, word) {
+  if (wordsArray.length === 0) {
+    return 0;
+  } else {
+    let count = 0;
+    for (let i = 0; i < wordsArray.length; i++) {
+      if (word === wordsArray[i]) {
+        count++
+      }
+    }
+    return count;
+  }
 }
 
 
-// Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
-
-// Iteration #8: Bonus
+ // Iteration #8: Bonus
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
