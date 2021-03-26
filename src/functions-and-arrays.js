@@ -13,7 +13,7 @@ function maxOfTwoNumbers(num1, num2) {
 // Iteration #2: Find longest word
 
 
-findLongestWord = (words) => {
+const findLongestWord = (words) => {
   let longest = '';
   if (words.length === 0){
       return null;
@@ -27,10 +27,10 @@ findLongestWord = (words) => {
 // Iteration #3: Calculate the sum
 
 
-sumNumbers = (numbers) => {
+const sumNumbers = (numbers) => {
   let sum = 0;
   for (let i in numbers){
-    sum += numbers[i];
+    sum += numbers[i];git
   }
   return sum;
 }
@@ -42,7 +42,7 @@ sumNumbers = (numbers) => {
 
 // Level 1: Array of numbers
 
-averageNumbers = (numbers) => {
+const averageNumbers = (numbers) => {
   let sum = 0;
   if (numbers.length === 0){
     return null;
@@ -56,7 +56,7 @@ averageNumbers = (numbers) => {
 
 // Level 2: Array of strings
 
-averageWordLength = (wordsUnique) => {
+const averageWordLength = (wordsUnique) => {
   if (wordsUnique.length === 0){
     return null;
   }
@@ -68,7 +68,7 @@ averageWordLength = (wordsUnique) => {
 
 // Iteration #5: Unique arrays
 
-uniquifyArray = (words) => {
+const uniquifyArray = (words) => {
   if (words.length === 0){
     return null;
   }
