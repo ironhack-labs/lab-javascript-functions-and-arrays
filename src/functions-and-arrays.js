@@ -1,54 +1,69 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
     if (num1 > num2) {
-        console.log(num1)
-        return num1
-    } else if (num1 < num2) {
-        console.log(num2)
-        return num2
+        return num1;
     } else {
-        console.log("same number")
+        return num2;
     }
 }
+
 //maxOfTwoNumbers(4,4)
 //ITERACION 2
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-const words = ['mystery', 'brother', 'aviator', 'crocodrile', 'pearl', 'orchard', 'crackpot'];
-let largest = "";
-words.forEach((el) => {
-    if (largest.length < el.length) {
-        largest = el;
-    }
-});
-console.log(largest);
+function findLongestWord(arrayOfWords) {
+    let biggerWord = "";
+    if (arrayOfWords.length === 0)
+        return null;
+    arrayOfWords.forEach(singleWord => {
+        if (singleWord.length > biggerWord.length) {
+            biggerWord = singleWord
+        }
+    });
+    return biggerWord;
+}
+
 
 //ITERACION 3
-let result = 0;
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-numbers.forEach((el) => {
-    result += el
-});
-console.log(result);
+
+
+function sumNumbers(arr) {
+    let total = 0
+    if (arr.length === 0) {
+        return 0;
+    }
+    for (i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+    return total;
+}
 
 //ITERACION 4
-const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
-let result2 = 0;
-let average = 0;
-numbers2.forEach((el) => {
-    result2 += el
-    average = result2 / numbers.length;
-});
-console.log(average)
 
-//level2
-const words2 = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-let result3 = 0;
-let average2 = 0;
-words2.forEach((el) => {
-    result3 += el.length
-    average2 = result3 / words2.length;
-});
-console.log(average2 + " level2")
+const number = [2, 6, 9, 10, 7, 4, 1, 9];
+averageNumbers = (array) => {
+        let arrayFunction = sumNumbers(array)
+        if (array.length === 0) {
+            return null
+        }
+        return arrayFunction / array.length
+    }
+    // Level 2: Array of strings
+const word = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+averageWordLength = (words) => {
+    let total = 0
+    let index = words.length
+        //debugger
+    if (words.length === 0)
+        return null
+    words.forEach(function(el1) {
+        return total += el1.length
+    })
+    return total / words.length
+}
+averageWordLength(word)
 
 //ITERACION 5
 
