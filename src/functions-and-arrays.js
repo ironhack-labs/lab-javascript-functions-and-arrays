@@ -101,9 +101,6 @@ function averageWordLength (arr) {
 }
 
 
-
-averageWordLength(wordsArr);
-
 // Iteration #5: Unique arrays
 
 function uniquifyArray(arr){
@@ -121,52 +118,42 @@ function uniquifyArray(arr){
 
 
 // Iteration #6: Find elements
-// TODO : I need to check if the word is the only one and return true and then if its on the array or not
-function doesWordExist (arr, word){
+
+const doesWordExist = (arr, word)=>{
   if(arr.length === 0){
     return null
+  } 
+  if((arr.length === 1) && (arr[0] === word)) {
+    return true 
+  }else {
+    arr.forEach((item)=>{
+       (item === word)? console.log('true'): console.log('false');
+    })
   }
-  const itArr = arr.map((item)=>{
-    if (word === item){
-     return true
-    }else{
-      return false
-    }
-  })
 }
-/* const doesWordExist = (arr,word)=>{
-  const itArr = arr.map((item)=>{
-    if (word === item){
-     return true
-    }else{
-      return false
-    }
-    //(item === word) ? console.log('true'):console.log('true')
-  })
-} */
-/*
 
+//Problem: if I return, it doesnt continue iterating
 
-let subset = 'subset';
-doesWordExist(words, subset);
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+
+const howManyTimes = (arr, word) => {
+  if(arr.length === 0){
+    return 0
+  } else{
+     let counter = 0;
+    for (let i=0; i<arr.length; i++){
+      if(arr[i] === word){
+        counter = counter +1;
+      }
+    }
+    return (counter)
+  }
+}
+
 
 // Iteration #8: Bonus
-
+/* 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -189,4 +176,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
- */
+ */ 
