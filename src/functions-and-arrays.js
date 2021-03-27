@@ -203,31 +203,47 @@ const matrix = [
 ];
 
 let greatestProduct = (matrix) =>{
-  let totalProduct = 0;
-  let horizontalProduct = 0;
-  let verticalProduct = 0;
-  for (let i = 0; i < matrix.length; i++){
-    for ( let k = 0; k < matrix[i].length; k++){
-      if (i+3 < matrix.length){
-        verticalProduct = matrix[i][k]*matrix[i+1][k]*matrix[i+2][k]*matrix[i+3][k];
+  let product = 0;
+  for (let i = 0; i < matrix.length -4; i++){
+    for ( let k = 0; k < matrix[i].length -4; k++){
+      //Vertical
+      let tempProduct = matrix[i][k]*matrix[i + 1][k]*matrix[i + 2][k]*matrix[i + 3][k];
+      if (tempProduct > product){
+        product = tempProduct;
       }
-      if (k+3 < matrix[i].length){
-        horizontalProduct = matrix[i][k]*matrix[i][k+1]*matrix[i][k+2]*matrix[i][k+3];
-  }
-      if (horizontalProduct > verticalProduct && totalProduct < horizontalProduct) {
-        totalProduct = horizontalProduct;
-      }
-      else if (horizontalProduct < verticalProduct && totalProduct < verticalProduct){
-        totalProduct = verticalProduct;
+      //Horizontal
+      tempProduct = matrix[i][k]*matrix[i][k + 1]*matrix[i][k + 2]*matrix[i][k + 3];
+      if (tempProduct > product){
+        product = tempProduct;
       }
     }
   }
-  return totalProduct;
+  return product;
 }
 
 console.log(greatestProduct(matrix));
 
 //Bonus - Iteration #8.1: Product of diagonals
 let greatestProductOfDiagonals = (matrix) =>{
-
+  let product = 0;
+  //Diagonal left-right, top to bottom
+  for (let i = 0; i < matrix.length -4; i++){
+    for ( let k = 0; k < matrix[i].length -4; k++){
+      //Diagonal left-right, top to bottom
+      let tempProduct = matrix[i][k]*matrix[i + 1][k + 1]*matrix[i + 2][k + 2]*matrix[i + 3][k + 3];
+      if (tempProduct > product){
+        product = tempProduct;
+      }
+    }
+  }
+  //Diagonal right-left top to bottom
+  for (let i = 0; i < matrix.length -4; i++){
+    for ( let k = 3; k < matrix[i].length -4; k++){         
+      tempProduct = matrix[i][k]*matrix[i + 1][k - 1]*matrix[i + 2][k - 2]*matrix[i + 3][k - 3];
+      if (tempProduct > product){
+        product = tempProduct;
+      }
+    }
+  }
+  return product;
 }
