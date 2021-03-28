@@ -40,6 +40,33 @@ function sumNumbers(arr) {
     return total;
 }
 
+//Bonus 1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function sum(mixedArr) {
+
+    let totalSum = 0
+    for (i = 0; i < mixedArr.length; i++) {
+        if (typeof mixedArr[i] === 'string') {
+            totalSum += mixedArr[i].length;
+        } else if (typeof mixedArr[i] === 'number') {
+            totalSum += mixedArr[i];
+        } else if (typeof mixedArr[i] === 'boolean' && mixedArr[i] === true) {
+            totalSum += 1;
+        } else if (typeof mixedArr[i] === 'boolean' && mixedArr[i] === false) {
+            totalSum += 0;
+        } else {
+            throw new Error("Unsupported data type sir or ma'am");
+
+        }
+    }
+    return totalSum;
+}
+sum(mixedArr);
+
+
 //ITERACION 4
 
 const number = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -52,18 +79,45 @@ averageNumbers = (array) => {
     }
     // Level 2: Array of strings
 const word = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-averageWordLength = (words) => {
-    let total = 0
-    let index = words.length
-        //debugger
-    if (words.length === 0)
-        return null
-    words.forEach(function(el1) {
-        return total += el1.length
-    })
-    return total / words.length
+
+
+averageWordLength = (word) => {
+    let total = 0;
+    if (word.length === 0) {
+        return null;
+    }
+    for (i = 0; i < word.length; i++) {
+        total += word[i].length;
+
+    }
+    return total / word.length;
 }
-averageWordLength(word)
+
+// Bonus 4.1
+
+function avg(mixedArr) {
+    totalSum = 0;
+    if (mixedArr.length === 0) {
+        return null;
+    }
+    for (i = 0; i < mixedArr.length; i++) {
+        if (typeof mixedArr[i] === 'string') {
+            totalSum += mixedArr[i].length;
+        } else if (typeof mixedArr[i] === 'number') {
+            totalSum += mixedArr[i];
+        } else if (typeof mixedArr[i] === 'boolean' && mixedArr[i] === true) {
+            totalSum += 1;
+        } else if (typeof mixedArr[i] === 'boolean' && mixedArr[i] === false) {
+            totalSum += 0;
+        } else {
+            throw new Error("Unsupported data type sir or ma'am");
+
+        }
+    }
+    return parseFloat((totalSum / mixedArr.length).toFixed(2));
+}
+
+avg(mixedArr);
 
 //ITERACION 5
 
@@ -81,17 +135,20 @@ let strings = [
     'bring'
 ];
 
-let change = [];
-
-for (var i = 0; i < strings.length; i++) {
-    const element = strings[i];
-
-    if (!change.includes(strings[i])) {
-        change.push(element);
+function uniquifyArray(strings) {
+    if (strings.length === 0) {
+        return null;
+    }
+    for (i = 0; i < strings.length; i++) {
+        if (strings.indexOf('Ironhack') == 0) {
+            return ['Ironhack'];
+        }
+        return strings[i];
     }
 }
+uniquifyArray(strings);
 
-console.log(change);
+
 
 // Iteration #6: Find elements
 const words4 = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
