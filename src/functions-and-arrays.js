@@ -164,7 +164,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(array,word) {
   for(let i = 0; i < array.length; i++) {
     if (array[i]== word) {
-      console.log('true';  
+      console.log('true');  
     }
    console.log(`false`)
   }
