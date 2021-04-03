@@ -31,8 +31,8 @@ console.log(`The longest word is: ${iteraction2test}`);
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(arr) {
   let result = 0;
-  for (let i = 0; i < arr.length; i++) {
-    result += arr[i];
+  for (let el of arr) {
+    result += el;
   }
   return result;
 }
