@@ -1,19 +1,13 @@
 // Iteration #1: Find the maximum. Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
-let n1 = Number(2)
-let n2 = Number(5)
 
-const twoNumbers= [n1,n2]
-
-function maxOfTwoNumbers(twoNumbers) {
-
-let maxNumber = Number()
-
-   if(n1 > n2) {
-   return maxNumber = Number(n1) 
-   } else if(n2 > n1) {
-      return maxNumber = Number(n2) 
-    } else {return maxNumber = Number(n1) }
-     
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1
+  } else if (n2 > n1) {
+    return n2
+  } else {
+    return n2
+  }
 }
 
 

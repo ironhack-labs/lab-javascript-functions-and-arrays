@@ -1,3 +1,16 @@
+const shuffle = currentArray => {
+  const array = [...currentArray];
+  let counter = array.length;
+
+  while (counter > 0) {
+    let randomIndex = Math.floor(Math.random() * counter);
+    counter--;
+    let temp = array[counter];
+    array[counter] = array[randomIndex];
+    array[randomIndex] = temp;
+  }
+  return array;
+};
 
 describe('Find the maximum', () => {
   it('should create a function named maxOfTwoNumbers', () => {
