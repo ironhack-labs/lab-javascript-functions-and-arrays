@@ -30,34 +30,41 @@ function findLongestWord(words) {
 
 // Iteration #3: Calculate the sum
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [ ];
 
-function sumNumbers(numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++){
-    if (numbers[i] === isNumber){
-      sum += Number(numbers[i]);
-    } 
-    return sum
-  
+function sumNumbers(numbers){
+  let sum = [];
+  for (i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  } if (numbers = [ ]){
+    return 0;
+  } if (numbers[i] === 0){
+    return 0;
+    } if (sum = [number]){
+      return sum;
+    }
+  return sum ;
 }
 
+//con const no dejaría devolver 0 si los elementos son 0
+// ¿cómo le explico que es un number array?
 
-// calcular la sum de los numbers en el array + 0 if empty array
-// if (numbers[i] === 0 ){
- // return numbers[i]
-// }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg){
+  let sum = sumNumbers(numbersAvg);
+  let average = sum / numbersAvg.length;
+  return average;
+}
+
+/*function averageNumbers(numbersAvg){
   if (numbersAvg === number){
     return sumNumbers(numbersAvg) / numbersAvg.length
   }
-  
-}
+}*/
 
 
 // Level 2: Array of strings
@@ -84,8 +91,39 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  const noDuplicates = [];
+  for (i = 0; i < wordsUnique.length; i++){
+    if (noDuplicates.indexOf(wordsUnique[i]) === -1){  //si esto es -1 es que esa palabra no está repetida
+      noDuplicates.push(wordsUnique[i])
+    } 
+  } 
+  return noDuplicates
+}
+
+/*  para que devuelva null?:
+else if (wordsUnique = [ ]){
+      return null;
+    } else {
+      return noDuplicates
+    }
+    */
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+/*function doesWordExist(wordsFind, word){
+  const word = []
+  for (i = 0; i < wordsUnique.length; i++){
+    if (wordsFind(i) = word ){
+      return true
+    } if (wordsFind(i) = !word){
+      return false
+    }
+  return true
+}*/
+/// ¿por qué no sale esta función? buscar qué falta
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
