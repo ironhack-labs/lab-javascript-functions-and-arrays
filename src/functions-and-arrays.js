@@ -35,17 +35,26 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]
 
 function sumNumbers(numbers) {
 
-let sum = 0
+      if (!numbers.length) {return 0};
 
-  if (!numbers.length) {
-      return 0
-    }
+      return numbers.reduce(function(a, b){return a + b}, 0)    
 
-  for (let i=0; i < numbers.length; i++) {
-  sum += numbers[i]
 }
-  return sum
+
+// Iteration #3.1: Calculate the sum
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixedArr) {
+  let result = 0;
+  if (!mixedArr.length) {return 0} 
+  for (let element of mixedArr) {
+    if (typeof element === 'string'){result += element.length} else if (typeof element === "number"){result += element} else if (typeof element === "boolean"){if (element === true){
+        result += 1} else if (element === false){
+          result += 0}
+  } }
+    return result;
 }
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
