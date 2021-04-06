@@ -44,17 +44,26 @@ function sumNumbers (numbArray) {
 }
 
 //Bonus
-function sum (numbArray) {
-  let suma = 0
-  if (numbArray.length === 0) {
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum (mixedArr) {
+  let result = 0
+  if (mixedArr.length === 0) {
     return 0
-  } else if (numbArray.length === 1) {
-    return numbArray[0]
-  } else {
-
-  }
-} 
-
+  } for (let element of mixedArr) {
+    if (typeof element === "string") {
+      result += element.length
+    } else if (typeof element === "number") {
+      result += element
+    } else if (typeof element === true) {
+      result += 1
+    } else if (typeof element === false) { 
+      result += 0  
+    } else if (element === "object") {
+      throw new Error ("Unsoportable data type")
+    }
+  return result
+}
 
 
 
