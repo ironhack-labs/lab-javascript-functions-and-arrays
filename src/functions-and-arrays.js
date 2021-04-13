@@ -1,20 +1,178 @@
 // Iteration #1: Find the maximum
-var NumeroMasGrande = Math.max(488, 154, 365432);
-console.log("el numero mas grande es: " + NumeroMasGrande);
+/* var NumeroMasGrande = Math.max(488, 154, 365432);
+console.log("el numero mas grande es: " + NumeroMasGrande); */
+
+//funcion que dice cual numero es mayor
+const maxOfTwoNumbers = (a, b) => {
+    if (a > b) {
+        return a
+    } else if (a < b) {
+
+        return b
+
+    } else {
+        return b
+
+    }
+
+}
+
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+
+//funcion que indica cual palabra tiene mas caracteres
+const findLongestWord = (matriz) => {
+
+    let matrizOrdenada = []
+    if (matriz.length === 0) {
+        return null
+
+    }
+    if (matriz.length === 1) {
+        console.log(matriz[0]);
+        return matriz[0]
+
+    }
+
+    /*  
+    let numero = 0
+
+    matriz.forEach(element => {
+
+             if (element.length > numero) {
+                 numero = element.length
+             }
+
+         });
+         console.log(numero); */
+
+
+    matriz.sort((a, b) => {
+        /*  console.log("este es a");
+         console.log(a.length);
+         console.log("este es b");
+         console.log(b.length); */
+        return b.length - a.length
+
+    })
+    return matriz[0];
+}
+
+findLongestWord(words)
+
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+//Funcion que suma los numeros
+const sumNumbers = (numeros) => {
+
+    let suma = 0;
+
+    numeros.forEach(element => {
+
+        suma += element
+    });
+
+
+    return suma;
+
+}
+
+//funcion que transforma todos los parametros de una matriz a number
+const sum = (numeros) => {
+
+    if (numeros.length === 0) {
+        return 0
+
+    }
+    let arreglo = [];
+    numeros.forEach(element => {
+
+        if (typeof element === 'string') {
+
+            arreglo.push(element.length);
+
+        } else if (typeof element === 'boolean') {
+            if (element === true) {
+                arreglo.push(1)
+            } else {
+                arreglo.push(0)
+
+            }
+
+        } else if (typeof element === 'number') {
+
+            arreglo.push(parseInt(element));
+
+        } else {
+            return 'los datos no son compatibles'
+        }
+    });
+
+
+    return arreglo;
+
+}
+
+sumNumbers(sum(numbers))
+
+
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+//calcula el promedio de una amtriz
+const averageNumbers = (numeros) => {
+    if (numeros.length === 0) {
+        return null
+
+    }
+    let suma;
+    let promedio;
+    suma = sumNumbers(numeros);
+
+    promedio = suma / numeros.length
+    return promedio
+}
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+//calcula el promedio de una matriz de string
+const averageWordLength = (string) => {
+        if (string.length === 0) {
+            return null;
+
+        }
+
+        return averageNumbers(sum(string));
+
+    }
+    //calcula el ptromedio de una matriz mixta
+function avg(mix) {
+    if (mix.length === 0) {
+        return null;
+
+    }
+
+    console.log(sum(mix));
+
+    return averageNumbers(sum(mix));
+
+}
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -31,8 +189,55 @@ const wordsUnique = [
     'bring'
 ];
 
-// Iteration #6: Find elements
+//para hacer una matriz donde no se repitan valores
+const uniquifyArray = (matriz) => {
+
+        if (matriz.length === 0) {
+            return null;
+
+        }
+        console.log(matriz);
+        let matrizUnica = [];
+
+        matriz.forEach((a, index) => {
+
+
+            if (matriz.indexOf(a) === index) {
+                console.log("entro");
+                matrizUnica.push(a)
+            }
+
+
+
+        });
+        return matrizUnica;
+
+    }
+    // Iteration #6: Find el)ements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+//funcion que busca una palabra en la matriz
+const doesWordExist = (matriz, palabra) => {
+
+    if (matriz.length === 0) {
+        return null;
+
+    }
+
+
+
+    if (matriz.indexOf(palabra) >= 0) {
+        return true
+
+
+    } else if (matriz.indexOf(palabra) < 0) {
+        return false
+    }
+
+
+
+
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -48,6 +253,44 @@ const wordsCount = [
     'disobedience',
     'matter'
 ];
+//funcion que te dice la cantidad de repetidos hay despendiendo de la palabra
+const howManyTimes = (matriz, palabra) => {
+
+    if (matriz.length === 0) {
+        return 0;
+
+    }
+    console.log(matriz);
+    console.log(palabra);
+    let palabraUnica = [];
+    matriz.forEach((a, index) => {
+        console.log();
+
+        if (a === palabra) {
+            palabraUnica.push(a);
+        }
+    });
+    console.log(palabraUnica.length);
+
+
+    switch (palabraUnica.length) {
+        case 0:
+
+            return 0;
+
+        case 5:
+            return 5;
+
+        case 1:
+
+            return 1;
+
+        default:
+            break;
+    }
+
+
+}
 
 // Iteration #8: Bonus
 
@@ -73,5 +316,20 @@ const matrix = [
     [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/* const greatestProduct = (matriz) => {
+    console.log(matriz);
+    let matrizNueva = [];
+    matriz.forEach(element => {
+        console.log(element);
+
+        element.forEach(prueba => {
+
+
+
+        });
+    });
+
+} */
 
 //prueba
