@@ -18,12 +18,59 @@ const findLongestWord = (words) => {
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers){
+  if(numbers.length === 0) return 0;
+  let sum = 0;
+  numbers.forEach(number => sum += number)
+  return sum
+}
+
+function sum(numbers){
+  if(numbers.length === 0) return 0;
+  let sum = 0
+  let add = 0
+  numbers.forEach(item => {
+    if(typeof item === 'object' || typeof item === 'function' || typeof item === 'undefined') throw new Error ("Unsupported data type sir or ma'am");
+    switch (typeof item) {
+      case 'string':
+        add = item.length
+        break
+      case 'number':
+        add = item
+        break
+      case 'boolean':
+        add = item
+        break
+    }
+    sum += add
+  }
+  )
+  return sum
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const averageNumbers = (numbers) => {
+  if(numbers.length === 0) return null;
+  return sumNumbers(numbers)/numbers.length
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+const averageWordLength = (words) => {
+  if(words.length === 0) return null;
+  let sum = 0;
+  words.forEach(word => sum += word.length);
+  return sum/words.length;
+}
+
+const avg = (arr) => {
+  if(arr.length === 0) return null;
+  let prom = sum(arr)/arr.length
+  return Math.round(prom*100)/100
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -39,6 +86,19 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr) {
+  if(arr.length === 0) return null;
+  let uniq = [arr[0]];
+  let cont = 0;
+  arr.forEach(item => {
+      cont = 0
+      uniq.forEach(elem => {if(elem === item) cont += 1})
+      if (cont === 0) uniq.push(item)
+    }
+  )
+  return uniq;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
