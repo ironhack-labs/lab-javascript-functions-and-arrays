@@ -131,7 +131,7 @@ function howManyTimes(arr, str) {
   if (arr[0] === undefined) {
     return 0;
   } else {
-    for (let i = 0; i , arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
       if (arr[i] === str) {
         matchArr.push(arr[i]);
       }
