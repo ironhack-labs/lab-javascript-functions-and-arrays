@@ -207,8 +207,26 @@ function uniquifyArray(params) {
 
   if (!params.length) {
     result = null;
-  
 }
+
+// create a new empty arrray collector
+let collector = [];
+
+// for loop to iterate through the array
+for (let index = 0; index < params.length; index++) {
+
+  // if index doesnt show up in collector push it in collector otherwise continue
+  if (collector.includes(params[index])) {
+    continue;
+  
+  } else {
+    collector.push(params[index]);
+  }
+  
+  result = collector
+}
+
+return result
 
 }
 
