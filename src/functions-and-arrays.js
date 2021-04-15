@@ -1,19 +1,192 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(a,b) {
+  return a>b?a:b;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(list) {
+
+  if (list.length === 0) {
+    return null;
+  }
+
+  let longest="";
+
+  for (let index = 0; index < list.length; index++) {
+    if (list[index].length > longest.length) {
+      longest = list[index]
+    }
+    
+  }
+  return longest
+  
+}
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numList) {
+
+  if (numList === null) {
+    return 0;
+  }
+
+  if (numList.length === 1) {
+    return numList[0];
+  }
+
+  let compound = 0;
+  for (let index = 0; index < numList.length; index++) {
+
+    compound = compound + numList[index];
+
+  }
+
+  return compound;
+}
+
+// BONUS
+
+function sum(numList) {
+
+  if (numList === null) {
+    return 0;
+  }
+
+  if (numList.length === 1) {
+    return numList[0];
+  }
+
+  let compound = 0;
+  for (let index = 0; index < numList.length; index++) {
+
+    if (typeof numList[index] === 'string'){
+
+      compound = compound + numList[index].length;
+    } else {
+       compound = compound + numList[index];
+    }
+ 
+  }
+
+  return compound;
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers) {
+
+ let result = 0;
+
+  if (!numbers.length) {
+    result = null;
+  }
+
+  if (numbers.length === 1) {
+    result = numbers[0];
+  }
+
+  let totalNb= numbers.length;
+
+  let compound = 0;
+  for (let index = 0; index < numbers.length; index++) {
+    
+    compound = compound + numbers[index];
+    result = compound/totalNb;
+    
+  }
+
+
+  return result;
+  
+}
+
+
+
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(words) {
+
+  let result = 0;
+ 
+   if (!words.length) {
+     result = null;
+   }
+ 
+   if (words.length === 1) {
+     result = words[0].lengh;
+   }
+ 
+   let totalW = words.length;
+ 
+   let compound = 0;
+   for (let index = 0; index < words.length; index++) {
+     
+     compound = compound + words[index].length;
+     result = compound/totalW;
+     
+   }
+ 
+   return result;
+   
+ }
+
+// BONUS
+
+function avg(items) {
+
+let result = 0;
+ 
+if (!items.length) {
+  result = null;
+}
+
+if (items.length === 1 && typeof items[0] === 'string') {
+  result = items[0].lengh;
+} else if (items.length === 1 && typeof items[0] === 'number') {
+    result = items[0].lengh;
+  }
+
+let totalW = items.length;
+
+let compound = 0;
+for (let index = 0; index < items.length; index++) {
+
+  if (typeof items[index] === 'string') {
+    compound = compound + items[index].length;
+  
+  } else {
+    compound = compound + items[index]
+  };
+  
+  result = compound/totalW
+}
+
+//  let compound = 0;
+//  for (let index = 0; index < numList.length; index++) {
+
+//    if (typeof numList[index] === 'string'){
+
+//      compound = compound + numList[index].length;
+//    } else {
+//       compound = compound + numList[index];
+//    }
+
+return result;
+}
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,6 +202,16 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(params) {
+
+  if (!params.length) {
+    result = null;
+  
+}
+
+}
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
