@@ -12,3 +12,11 @@ const weaponsArray = [];
 // ITERATION 2
 
 // ITERATION 3
+
+if (typeof module !== "undefined") {
+  module.exports = {
+    pickMystery,
+    revealMystery,
+    selectRandom,
+  };
+}
