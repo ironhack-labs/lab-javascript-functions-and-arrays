@@ -1,19 +1,70 @@
+//JAIME SEVILLANO
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1,num2) {
+  let largest = Math.max(num1,num2);
+  console.log(largest);
+  return
+}
 
+maxOfTwoNumbers(2,3)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(arr) {
+  var long1 = arr[0];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].length > long1.length) {
+      long1 = arr[i];
+    }
+  }
+  return long1;
+}
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(arr) {    
+  var sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }    
+  return sum;
+}
+console.log(sumNumbers(numbers));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arr) {    
+  var sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    prom = sum/arr.length;
+  }    
+  return prom;
+}
+console.log(averageNumbers(numbers));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(Arr){
+  var currentWord = '';
+  var currentWordLength = 0;
+  var sum = 0;
+  var avg = 0;
+  if(Arr.length >0){
+    for(var i = 0; i < Arr.length; i++){
+      currentWord = Arr[i];
+      currentWordLength = currentWord.length;
+      sum += currentWordLength;
+      avg = sum/Arr.length;
+    }
+  return avg;
+  }
+}
+
+console.log(averageWordLength(words))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,10 +80,27 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr) {
+  let x = {};
+  arr.forEach(function(i) {
+    if(!x[i]) {
+      x[i] = true
+    }
+  })
+  return Object.keys(x)
+};
+
+console.log(uniquifyArray(words))
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(arr, val) {
+  return arr.some(function(arrVal) {
+    return val === arrVal;
+  });
+}
 
+console.log(doesWordExist(words, 'machine'));
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -47,6 +115,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(arr, string) {
+  var count = 0;
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === string) {
+          count++;
+      }
+  }
+  return count;
+}
+
+console.log(howManyTimes(words,`matter`));
 
 // Iteration #8: Bonus
 
@@ -72,3 +151,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
