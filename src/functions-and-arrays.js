@@ -103,6 +103,16 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+const doesWordExist = (words, wordSearch) => {
+  if(words.length === 0) return null;
+  let cont = 0;
+  words.forEach(word => {if(word === wordSearch) cont += 1})// Si pongo el return dentro del loop forEach me regresa indefinido??
+  if (cont > 0) {
+    return true;
+  } else { 
+    return false;
+  }
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -117,6 +127,13 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words, wordToCount) {
+  if(words.length === 0) return 0;
+  let cont = 0;
+  words.forEach(word => {if(word === wordToCount) cont += 1})
+  return cont
+}
 
 // Iteration #8: Bonus
 
@@ -142,3 +159,17 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+const greatestProduct = (matrix) => {
+  let max = 0
+  let adjacentProduct = 0
+  matrix.forEach((xAxis, xCrd) => {
+    xAxis.forEach((yAxis, yCrd) => {
+        adjacentProduct = yAxis * matrix[xCrd][yCrd + 1] * matrix[xCrd][yCrd + 2] * matrix[xCrd][yCrd + 3]
+        if (max < adjacentProduct) max = adjacentProduct
+        }
+      )
+    }
+  )
+return max
+}
