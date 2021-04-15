@@ -161,15 +161,38 @@ const matrix = [
 ];
 
 const greatestProduct = (matrix) => {
-  let max = 0
-  let adjacentProduct = 0
+  let maxHor = 0
+  let adjacentProductHor = 0
+  let maxVer = 0
+  let adjacentProductVer = 0
+  //max horizontal-vertical product 
   matrix.forEach((xAxis, xCrd) => {
     xAxis.forEach((yAxis, yCrd) => {
-        adjacentProduct = yAxis * matrix[xCrd][yCrd + 1] * matrix[xCrd][yCrd + 2] * matrix[xCrd][yCrd + 3]
-        if (max < adjacentProduct) max = adjacentProduct
+        if(yCrd <= xAxis.length - 4) adjacentProductHor = yAxis * matrix[xCrd][yCrd + 1] * matrix[xCrd][yCrd + 2] * matrix[xCrd][yCrd + 3]
+        if(xCrd <= matrix.length - 4) adjacentProductVer = yAxis * matrix[xCrd + 1][yCrd] * matrix[xCrd + 2][yCrd] * matrix[xCrd + 3][yCrd]
+        if (maxHor < adjacentProductHor) maxHor = adjacentProductHor
+        if (maxVer < adjacentProductVer) maxVer = adjacentProductVer
         }
       )
     }
   )
-return max
+  return Math.max(maxHor, maxVer)
+  }
+
+function greatestProductOfDiagonals(matrix) {
+  let maxDiag = 0
+  let adjacentProductDiag = 0
+  //max Diagonal product 
+  matrix.forEach((xAxis, xCrd) => {
+    xAxis.forEach((yAxis, yCrd) => {
+        if(xCrd <= matrix.length - 4 && yCrd <= xAxis.length - 4) adjacentProductDiag = yAxis * matrix[xCrd + 1][yCrd + 1] * matrix[xCrd + 2][yCrd + 2] * matrix[xCrd + 3][yCrd + 3]
+        if(maxDiag < adjacentProductDiag) maxDiag = adjacentProductDiag
+        }
+      )
+    }
+  )
+  return maxDiag
 }
+
+
+
