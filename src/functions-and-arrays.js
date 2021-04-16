@@ -234,6 +234,16 @@ return result
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(list,word) {
+
+  // let result="";
+  if (!list.length) {
+    result = null;
+  } else result = list.includes(word);
+  
+  return result;
+}
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
