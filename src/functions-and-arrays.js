@@ -259,6 +259,25 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(list,word) {
+
+  let result = 0;
+  if (!list.length) {
+    result = 0;
+  }
+  
+  for (let index = 0; index < list.length; index++) {
+
+    if (list[index] === word){  
+      result++;
+    } 
+  }
+  
+  return result;
+}
+
+console.log(howManyTimes(wordsCount,"rugby"))
+
 // Iteration #8: Bonus
 
 const matrix = [
