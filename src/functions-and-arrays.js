@@ -41,19 +41,26 @@ sumNumbers(numbers)
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(x){
-  let total
-  let totalnum = 0
-  for (let i of x){
-    totalnum = sumNumbers(i) 
-  }
-  let totalstr = 0
-  for (let i of x){
-    totalstr = sumNumbers(i.length) 
-  }
-
-  return total
-}
-sum(mixedArr)
+  totalnum = 0
+  
+    for (let i of x){
+      toNumber = parseInt(i.length, 10);
+      if (typeof i === "object" || typeof i === "array") {
+        return "Error"
+      } else if (i === true){
+        i = 1;
+      } else if (i === false){
+        i = 0;
+      } else if (i.length > 2){
+        i = toNumber;
+      } 
+      console.log(i)
+    totalnum += i
+    }
+   return totalnum
+      }
+    
+  sum(mixedArr)
 
 
 // Iteration #4: Calculate the average
