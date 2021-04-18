@@ -38,6 +38,8 @@ function sum (numbersArray) {
       addedNums += numbersArray[i].length
     } else if (typeof numbersArray[i] == 'boolean') {
       addedNums += 1;
+    } else if (typeof numbersArray[i] == 'object' || typeof numbersArray[i] == 'array') {
+      throw "Error: Unsupported data type sir or ma'am"
     } else {
       addedNums += numbersArray[i]
     }}
@@ -73,6 +75,19 @@ function averageWordLength (arrayOfStrings) {
   }
   return averageNumbers (wordsToNumbers)
 }
+
+//Bonus: Iteration 4.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  if (arr.length == 0) {
+    return null
+  } else {
+  return Math.round((sumNumbers(arr) / arr.length)*100)/100
+}
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
