@@ -1,19 +1,95 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+  } else return b;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(word) {
+  if (word !== true) {
+      return null;
+  } else {
+      let longestWord = 0;
+      for (let i = 0; i < word.length; i++) {
+          if (word[i].length > longestWord) {
+              longestWord = word[i];
+          } return longestWord;
+      }
+  }
+}
+
+console.log(findLongestWord(words));
+
+// ========== // 
+/*function findLongestWord(word) {
+    if (word !== true) {
+        return null;
+    } else {
+        let longestWord = 0;
+        for (let i = 0; i < word.length; i++) {
+            if (word[i].length > longestWord) {
+                longestWord = word[i];
+            } return longestWord;
+        }
+    }
+}
+*/
+
+// In this iteration, I don't understand why the longest word would always be 'mystery' T-T
+
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(number) {
+  let sumResult = 0;
+  for (let i = 0; i < number.length; i++) {
+      sumResult += number[i];
+  } return sumResult;
+}
+
+console.log(sumNumbers(numbers));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numberArr) {
+    if (numberArr !== true) {
+        return null;
+    } else {
+        let count = 0;
+        let sum = 0;
+        for (let i = 0; i < numberArr.length; i++) {
+            count ++;
+            sum += numberArr[i];
+            average = sum / count;
+        } return `The sum is ${sum}, the average is ${average} `;
+    }
+}
+console.log(averageNumbers(numbersAvg));
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordArr) {
+  let count = 0;
+  let wordSum = 0;
+  for (let i = 0; i < wordArr.length; i ++) {
+      count ++;
+      wordSum += wordArr[i].length;
+      wordAvg = wordSum / count;
+  } return `The the sum of words length is ${wordSum}, the average is ${wordAvg} `;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -47,6 +123,24 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordCount){
+  let repeatedWord = "";
+  let count = 0;
+  if (wordCount !== true) {
+      return 0;
+  } else {
+      for (let i = 0; i < wordCount.length; i++) {
+          if (wordCount[i]) {
+              repeatedWord = wordCount[i];
+              count ++;
+          }
+      } return (`The repeated word is '${repeatedWord}', it was repeated for ${count} times`);
+  }
+}
+
+// !!!! In this iteration, I'm not sure about the count it makes. I think, 'count' gives me the length of the array. I'm stuck.
+
 
 // Iteration #8: Bonus
 
