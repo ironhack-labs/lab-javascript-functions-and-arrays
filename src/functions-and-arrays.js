@@ -34,8 +34,10 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sum (numbersArray) {
   let addedNums = 0;
     for (let i = 0; i < numbersArray.length; i++) {
-    if (typeof numbersArray[i] != 'number') {
-      return null;
+      if (typeof numbersArray[i] == 'string') {
+      addedNums += numbersArray[i].length
+    } else if (typeof numbersArray[i] == 'boolean') {
+      addedNums += 1;
     } else {
       addedNums += numbersArray[i]
     }}
@@ -88,9 +90,12 @@ const wordsUnique = [
 ];
 
 function uniquifyArray (arrayOfStrings) {
+  if (arrayOfStrings.length == 0) {
+    return null
+  } else {
   return arrayOfStrings.filter ((valor, indice) => {
     return arrayOfStrings.indexOf(valor) === indice
-  })
+  })}
 }
 
 // Iteration #6: Find elements
