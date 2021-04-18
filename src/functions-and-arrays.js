@@ -1,31 +1,35 @@
 // Iteration #1: Find the maximum
 
 
-function maxOfTwoNumbers(num1,num2) {
-  if(num1 > num2) {
-    return num1
-  }
-  return num2
+function maxOfTwoNumbers(a,b) {
+  //si a es mayor que b devolvemos a en caso contrario devolvemos b
+  return a > b 
+    ? a 
+    : b
 }
+
 maxOfTwoNumbers(2,4)
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 
 function findLongestWord(arrWords) {
-  let word = "";
-
-  if (arrWords.length === 0) {
-      return null;
+  if(arrWords.length === 0) {
+    return null;
   }
 
-  for (let i = 0; i < arrWords.length; i++) {
-    if (word.length < arrWords[i].length) {
-        word = arrWords[i];
+  let biggerWord = "";
+
+  for (word of arrWords) {
+    // En cada iteracion comprabamos si la longitud de la palabra que tenemos es mas grande que la anterior, la reemplazamos con la actual.
+
+    if(word.length > biggerWord.length) {
+      biggerWord = word;
     }
   }
-  return word;
+  return biggerWord;
 }
 
 
@@ -34,34 +38,95 @@ function findLongestWord(arrWords) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrayNumbers) {
-  var suma = 0;
-  for ( var i = 0; i < arrayNumbers.length; i++ ) {
-      if ( arrayNumbers[i] > 0 ) {
-        suma = suma + 1;
-      }
+  let suma = 0;
+
+  for(number of arrayNumbers) {
+    //En cada iteracion añadimos a la suma el numero
+    suma = suma + number
   }
   return suma;
 }
 
+function sumWordsLength(arrayWords) {
+  let suma = 0;
 
-
+  for(word of arrayWords) {
+    //En cada iteracion añadimos a la suma la longitud de la palabra
+    suma = suma + word.length
+  }
+  return suma;
+}
 
 // Bono - Iteración # 3.1: una sum()función genérica
 
-function sum() {
+function sum(array) {
+  let suma = 0;
 
+  for (let item of array) {
+    //En cada iteracion dependiendo del tipo de dato, añadimos a la suma segun el caso.
+    // si es numero, añadimos el numer
+    // si es string, añadimos la longitud
+    // si es un boolean y es true, añadimos 1
+    // si en caso que no es numero,string o boolean devolvemos un error.
+    switch(typeof item) {
+      case "number":
+        suma = suma + item;
+        break;
+      case "string":
+        suma = suma + item.length
+        break;
+      case "boolean":
+        if(item === true) {
+          suma = suma + 1
+        }
+        break;
+      default: 
+        throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
 
+  return suma;
 
 }
 
-
-
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arrayNumbers) {
+  // media = (a1 + a2 + a3 + ... an) / n
+  if(arrayNumbers.length === 0){
+    return null;
+  }
+  const suma = sumNumbers(arrayNumbers);
+  const averageNumbers = suma / arrayNumbers.length
+  return averageNumbers
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrayWords) {
+  // media = (longitud1 + longitud2 + ...longitudN) / N
+  if(arrayWords.length === 0) {
+    return null;
+  }
+  const suma = sumWordsLength(arrayWords)
+  const averageWords = suma / arrayWords.length
+  return averageWords;
+}
+
+function avg(arrayMixed) {
+  if(arrayMixed.length === 0) {
+    return null;
+  }
+  const suma = sum(arrayMixed)
+  const averageWords = suma / arrayMixed.length
+  //para pasar el test reducimos el resultado a dos decimales
+  return Math.round(averageWords * 100) / 100;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -78,8 +143,38 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arrayWords) {
+  if(arrayWords.length === 0){
+    return null;
+  }
+
+  let uniqueWords = []
+  for(word of arrayWords) {
+    // Creamos un nuevo array donde almacenamos solo las palabras que no se repiten.
+    // En cada iteracion en el caso que la palabra no esta en el array de las palabras unicas, la agregamos.
+    if(uniqueWords.indexOf(word) === -1) {
+      uniqueWords.push(word)
+    }
+  }
+  return uniqueWords;
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayWords, word) {
+  if(arrayWords.length === 0) {
+    return null;
+  }
+
+  for(item of arrayWords) {
+    // En el caso que encontramos la palabra devolvemos true en caso contrario esperamos que se acabe el bluque y devolvemos false.
+    if(item === word){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -95,6 +190,22 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words, wordToFind) {
+  if(words.length === 0) {
+    return 0;
+  }
+
+  let count = 0;
+
+  for(word of words) {
+    //Incrementamos el contador cada vez que encontramos la palabra que buscamos.
+    if(word === wordToFind){
+      count = count + 1
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -120,3 +231,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
