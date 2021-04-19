@@ -2,15 +2,13 @@
 
 function maxOfTwoNumbers (x, y){
   if (x>y){
-    console.log(x)
+    return x
   }
   else(x<y);{
-    console.log(y)
+    return y
   }
   return
 }
-
-console.log(maxOfTwoNumbers(x,y))
 
 // Iteration #2: Find longest word
 
@@ -26,11 +24,16 @@ function findLongestWord(str){
   return longestWord;
 }
 
-console.log(findLongestWord(words));
-
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(arr){
+  let sum = 0
+  for(let i=0; i < nums.length; i++){
+    sum += numbers[i];
+}
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
