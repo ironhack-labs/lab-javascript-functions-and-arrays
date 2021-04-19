@@ -27,11 +27,17 @@ return longestWord;
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers (arrNumbers){
-  let sum = 0
+/*function sumNumbers (arrNumbers){
+  if(arrNumbers.length === 0){
+    return 0;
+  }
+  let sum =0
   for(let i of numbers) sum+=i;
   return sum
-}
+  
+}*/
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
