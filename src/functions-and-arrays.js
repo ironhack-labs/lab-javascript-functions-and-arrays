@@ -48,6 +48,41 @@ function sumNumbers(arrNumb) {
   }
   return suma;
 }
+
+function sum(arr) {
+  if (!Array.isArray(arr) || arr.length <= 0) {
+    return 0;
+  } else {
+    let sumaNumero = 0;
+    let sumaPalabra = 0;
+    let sumaBoolean = 0;
+    let sumaTotal = 0;
+    for (i = 0; i < arr.length; i++) {
+      switch (typeof arr[i]) {
+        case "number":
+          sumaNumero += arr[i];
+          break;
+        case "string":
+          sumaPalabra += arr[i].length;
+          break;
+        case "boolean":
+          if (arr[i] === true) {
+            sumaBoolean += 1;
+          } else {
+          }
+          break;
+        default: {
+          console.log(Error("Unsupported data type sir or ma'am"));
+          break;
+        }
+      }
+    }
+    sumaTotal = sumaNumero + sumaPalabra + sumaBoolean;
+
+    return sumaTotal;
+  }
+}
+
 //console.log(sumNumbers(numbers));
 //console.log(sumNumbers([0, 0, 0, 0, 0]));
 
@@ -60,10 +95,10 @@ function averageNumbers(arrNumb) {
     return null;
   } else {
     let average = 0;
-    let sum = 0;
+    let sumArr = 0;
     for (i = 0; i < arrNumb.length; i++) {
-      sum += arrNumb[i];
-      average = sum / arrNumb.length;
+      sumArr += arrNumb[i];
+      average = sumArr / arrNumb.length;
     }
     return average;
   }
@@ -97,6 +132,41 @@ function averageWordLength(arr) {
   }
 }
 //console.log(averageWordLength(wordsArr));
+
+function avg(arr) {
+  if (!Array.isArray(arr) || arr.length <= 0) {
+    return null;
+  } else {
+    let avgNumero = 0;
+    let avgPalabra = 0;
+    let avgBoolean = 0;
+    let avgTotal = 0;
+
+    for (i = 0; i < arr.length; i++) {
+      switch (typeof arr[i]) {
+        case "number":
+          avgNumero += arr[i];
+          break;
+        case "string":
+          avgPalabra += arr[i].length;
+          break;
+        case "boolean":
+          if (arr[i] === true) {
+            avgBoolean += 1;
+          } else {
+          }
+          break;
+        default: {
+          console.log(Error("Unsupported data type sir or ma'am"));
+          break;
+        }
+      }
+    }
+    avgTotal = (avgNumero + avgPalabra + avgBoolean) / arr.length;
+
+    return avgTotal;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -505,3 +575,5 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(matrix) {}
