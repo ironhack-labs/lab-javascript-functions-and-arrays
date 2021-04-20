@@ -31,7 +31,7 @@ function findLongestWord(arr) {
   return longestWord;
 }
 
-console.log(findLongestWord(words));
+//console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
@@ -69,11 +69,11 @@ function sum(arr) {
           if (arr[i] === true) {
             sumaBoolean += 1;
           } else {
+            continue;
           }
           break;
         default: {
-          console.log(Error("Unsupported data type sir or ma'am"));
-          break;
+          throw new Error("Unsupported data type sir or ma'am");
         }
       }
     }
@@ -141,6 +141,8 @@ function avg(arr) {
     let avgPalabra = 0;
     let avgBoolean = 0;
     let avgTotal = 0;
+    let avgTotalRed = 0;
+    let avgTotalRedNum = 0;
 
     for (i = 0; i < arr.length; i++) {
       switch (typeof arr[i]) {
@@ -154,19 +156,25 @@ function avg(arr) {
           if (arr[i] === true) {
             avgBoolean += 1;
           } else {
+            continue;
           }
           break;
         default: {
-          console.log(Error("Unsupported data type sir or ma'am"));
-          break;
+          throw new Error("Unsupported data type sir or ma'am");
         }
       }
     }
     avgTotal = (avgNumero + avgPalabra + avgBoolean) / arr.length;
+    avgTotalRed = avgTotal.toFixed(2);
+    avgTotalRedNum = parseFloat(avgTotalRed);
 
-    return avgTotal;
+    return avgTotalRedNum;
   }
 }
+
+//console.log(avg)
+
+//if (!Array.isArray(arr[i]) || arr[i].length <= 0) {
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -576,4 +584,36 @@ const matrix = [
   ],
 ];
 
-function greatestProduct(matrix) {}
+function greatestProduct(arr) {
+  let resultProduct = 0;
+  let resultProductHor = 0;
+  let resultProductVer = 0;
+  let rows = arr.length;
+  let columns = arr[0].length;
+  for (i = 0; i < columns; i++) {
+    for (j = 0; j < rows - 3; j++) {
+      resultProductVer =
+        arr[j][i] * arr[j + 1][i] * arr[j + 2][i] * arr[j + 3][i];
+      if (resultProduct < resultProductVer) {
+        resultProduct = resultProductVer;
+      } else {
+        continue;
+      }
+    }
+  }
+  for (k = 0; k < rows; k++) {
+    for (l = 0; l < columns - 3; l++) {
+      resultProductHor =
+        arr[k][l] * arr[k][l + 1] * arr[k][l + 2] * arr[k][l + 3];
+      if (resultProduct < resultProductHor) {
+        resultProduct = resultProductHor;
+      } else {
+        continue;
+      }
+    }
+
+    return resultProduct;
+  }
+}
+
+//console.log(greatestProduct(matrix));
