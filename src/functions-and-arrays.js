@@ -1,13 +1,18 @@
 // Iteration #1: Find the maximum
 
-function maxOfTwoNumbers (x, y){
-  if (x>y){
-    return x
+
+function maxOfTwoNumbers(x, y){
+  
+  if (x > y) {
+    return x;
   }
-  else(x<y);{
-    return y
+  else if (x < y) {
+    return y;
   }
-  return
+  else {
+    return x;
+  }
+
 }
 
 // Iteration #2: Find longest word
@@ -22,6 +27,10 @@ function findLongestWord(str){
      }
   }
   return longestWord;
+
+      else {
+
+}
 }
 
 // Iteration #3: Calculate the sum
