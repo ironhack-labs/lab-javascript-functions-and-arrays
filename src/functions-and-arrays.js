@@ -39,6 +39,29 @@ for (let i = 0; i < arrNumbers.length; i++) {
 return sum;
 }
 
+// Iteration 3.1: generic sum
+function sum(arrMixto){
+  let sum = 0;
+  for (let i = 0; i < arrMixto.length; i++) {
+    if (typeof arrMixto[i] === "number"){
+      sum += arrMixto[i];
+    } else if (typeof arrMixto[i] === "boolean"){
+      if (arrMixto[i] === true){
+        sum += 1;
+      } else {
+        sum += 0;
+      }
+    } else if (typeof arrMixto[i] === "string"){
+      sum += arrMixto[i].length;
+    } else {
+      throw new Error(`Unsupported data type sir or ma'am`);
+    } // telita con esto ¬¬ 
+  }
+  return sum
+}
+
+//SPEC DE JASMINE DE DEVOLVER ERROR.
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
