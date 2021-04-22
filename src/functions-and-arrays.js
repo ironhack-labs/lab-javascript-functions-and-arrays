@@ -42,7 +42,7 @@ findLongestWord(words)
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
-  //let contador;
+  //let suma;
   if (array.length === 0) {
     return 0;
     //Si los elementos del array son todos cero, devuelve CERO
@@ -64,22 +64,22 @@ function sumNumbers(array) {
   }
 }
 
-sumNumbers(numbers);
+let suma = sumNumbers(numbers);
 
 
 
 /////////////////////////////////////////////////////////
-  // let suma = 0;
-  // //Si el array está vacío devuelve CERO
-  // if (array.length === 0) {
-  //   return 0;
-    //Si los elementos del array son todos cero, devuelve CERO
-  // } else if (array.forEach(element) === 0) {
-  //     return 0;
-  //    }
+// let suma = 0;
+// //Si el array está vacío devuelve CERO
+// if (array.length === 0) {
+//   return 0;
+//Si los elementos del array son todos cero, devuelve CERO
+// } else if (array.forEach(element) === 0) {
+//     return 0;
+//    }
 
-    //Opción B
-  //return array.forEach(element => sum + element)
+//Opción B
+//return array.forEach(element => sum + element)
 
 
 
@@ -87,6 +87,25 @@ sumNumbers(numbers);
 
 
 // // Iteration #4: Calculate the average
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null;
+
+  } else {
+    let contador = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === 0) {
+        contador++;
+      }
+    }
+    if (contador == array.length) {
+      return 0;
+    } else {
+      return sumNumbers(array) / array.length;
+    }
+  }
+}
+averageNumbers(numbers);
 // // Level 1: Array of numbers
 // const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 // function averageNumbers(array) {
