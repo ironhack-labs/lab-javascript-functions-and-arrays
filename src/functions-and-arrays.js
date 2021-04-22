@@ -1,5 +1,4 @@
 // Iteration #1: Find the maximum
-
 function maxOfTwoNumbers(num1, num2){
   if (num1 > num2){
     return num1
@@ -114,8 +113,19 @@ console.log(unique)
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(element){
+  
+  if(wordsFind.includes(element)){
+  return true
+  } else {
+    return false
+  }
+}
+
+let find = doesWordExist(wordsFind)
 
 // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -129,6 +139,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word) {
+  let times = 0;
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+       times++;
+      }
+   }
+  }
+  return times;
+}
+howManyTimes(wordsCount, 'matter');
 
 // Iteration #8: Bonus
 
