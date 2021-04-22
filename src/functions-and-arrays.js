@@ -62,6 +62,7 @@ console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 
+function avg(arr)
 
 // Level 1: Array of numbers
 
@@ -89,6 +90,8 @@ function averageWordLength(words) {
   let avg = sum / words.length;
   return avg;
 }
+
+console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
