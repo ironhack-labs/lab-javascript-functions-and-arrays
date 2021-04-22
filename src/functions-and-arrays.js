@@ -53,21 +53,18 @@ function sum(arr) {
   if (!Array.isArray(arr) || arr.length <= 0) {
     return 0;
   } else {
-    let sumaNumero = 0;
-    let sumaPalabra = 0;
-    let sumaBoolean = 0;
-    let sumaTotal = 0;
+    let sumaArr = 0;
     for (i = 0; i < arr.length; i++) {
       switch (typeof arr[i]) {
         case "number":
-          sumaNumero += arr[i];
+          sumaArr += arr[i];
           break;
         case "string":
-          sumaPalabra += arr[i].length;
+          sumaArr += arr[i].length;
           break;
         case "boolean":
           if (arr[i] === true) {
-            sumaBoolean += 1;
+            sumaArr += 1;
           } else {
             continue;
           }
@@ -77,9 +74,7 @@ function sum(arr) {
         }
       }
     }
-    sumaTotal = sumaNumero + sumaPalabra + sumaBoolean;
-
-    return sumaTotal;
+    return sumaArr;
   }
 }
 
