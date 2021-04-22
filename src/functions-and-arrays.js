@@ -10,7 +10,6 @@ function maxOfTwoNumbers (num1, num2){
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-
 function findLongestWord(arrWords){
   if(arrWords.length === 0){
     return null;
@@ -71,11 +70,38 @@ function averageNumbers(arrAverage) {
   if (arrAverage.length === 0){
     return null;
   }
-  return sumNumbers()/array.length
+  return sumNumbers(arrAverage)/arrAverage.length
 }
+
+averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrAvgWord){
+  if (arrAvgWord.length === 0){
+    return null
+  }
+  let avgWord = 0
+  for (let i = 0; i < arrAvgWord.length; i++){
+    avgWord += arrAvgWord[i].length
+  }
+  return avgWord/arrAvgWord.length
+}
+
+// Iteration 4.1 generic average
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]
+
+function avg(arrMixtoAvg){
+  if (arrMixtoAvg.length === 0){
+    return null
+  } 
+let averageMixto = 0
+
+    return Math.round((sum(arrMixtoAvg) / arrMixtoAvg.length)*100)/100;
+  }
+
+  avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
