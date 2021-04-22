@@ -132,7 +132,7 @@ function averageWordLength(arr) {
   }
 }
 //console.log(averageWordLength(wordsArr));
-
+/*
 function avg(arr) {
   if (!Array.isArray(arr) || arr.length <= 0) {
     return null;
@@ -171,6 +171,18 @@ function avg(arr) {
     return avgTotalRedNum;
   }
 }
+*/
+
+function avg(arr) {
+  if (!Array.isArray(arr) || arr.length <= 0) {
+    return null;
+  } else {
+  let avgTotal = sum(arr)/arr.length;
+  let avgTotalRed = avgTotal.toFixed(2);
+  let avgTotalRedNum = parseFloat(avgTotalRed);
+  return avgTotalRedNum;
+}}
+
 
 //console.log(avg)
 
