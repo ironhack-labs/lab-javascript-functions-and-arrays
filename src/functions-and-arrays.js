@@ -87,6 +87,7 @@ let suma = sumNumbers(numbers);
 
 
 // // Iteration #4: Calculate the average
+//Level 1
 function averageNumbers(array) {
   if (array.length === 0) {
     return null;
@@ -106,6 +107,26 @@ function averageNumbers(array) {
   }
 }
 averageNumbers(numbers);
+
+//Level 2
+function averageWordLength(array) {
+  let array_length = [];
+  //Antes de llamar a la funcion suma, debemos transformar nuestro array de strings
+  //en un array de numeros con las longitudes de cada elemento
+  // array.forEach(function(element,index){
+  //  array_length[index]=element[index].length;
+  //  });
+  for (let i = 0; i < array.length; i++) {
+    array_length[i] = array[i].length;
+  }
+  return averageNumbers(array_length);
+  //console.log(array_length);
+
+}
+averageWordLength(words);
+
+
+
 // // Level 1: Array of numbers
 // const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 // function averageNumbers(array) {
