@@ -113,12 +113,16 @@ function averageWordLength(array) {
   let array_length = [];
   //Antes de llamar a la funcion suma, debemos transformar nuestro array de strings
   //en un array de numeros con las longitudes de cada elemento
-  // array.forEach(function(element,index){
-  //  array_length[index]=element[index].length;
-  //  });
-  for (let i = 0; i < array.length; i++) {
-    array_length[i] = array[i].length;
-  }
+
+  //Opción A
+  array.forEach(function (element, index) {
+    array_length[index] = element.length;
+  });
+
+  //Opción 2
+  //for (let i = 0; i < array.length; i++) {
+  //array_length[i] = array[i].length;
+  //}
   return averageNumbers(array_length);
   //console.log(array_length);
 
