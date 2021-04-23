@@ -41,8 +41,33 @@ function sumNumbers(arrNumbers){
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrNumbers){
+  if(arrNumbers.length === 0){
+    return null;
+  }
+  let sumaTotal = 0;
+    for (let i= 0; i< arrNumbers.length; i++){
+      sumaTotal = sumaTotal + arrNumbers[i];
+    }
+    return sumaTotal/arrNumbers.length;
+}
+console.log(averageNumbers(numbersAvg))
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrWords){
+if(arrWords.length === 0){
+    return null;
+  }
+let totalWordLength = 0;
+for (let i = 0; i < arrWords.length; i++){
+  totalWordLength = totalWordLength + arrWords[i].length;
+} 
+return totalWordLength/arrWords.length;
+}
+console.log(averageWordLength(wordsArr));
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -59,8 +84,32 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (Arr) {
+  if(Arr.length === 0){
+    return null;
+  }
+  let noDuplicates = [];
+  for (i=0 ; i<Arr.length ; i++){
+    if (noDuplicates.indexOf(Arr[i]) === -1)
+    noDuplicates.push(Arr[i]);
+  }
+  return noDuplicates;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (Arr, Word){
+  for (i=0 ; i<Arr.length ; i++){
+    if(Arr[i] === Word){
+    return true;
+    }
+  }
+  return false;
+}
+console.log(doesWordExist(wordsFind, 'matter'));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -76,6 +125,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (Arr, Word){
+  let counter = 0;
+  for (i=0 ; i<Arr.length ; i++){
+    if(Arr[i] === Word){
+    counter ++;
+    }
+  }
+  return counter;
+}
+console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
 
@@ -101,3 +161,43 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix){
+  let max = 0;
+  let result ;
+
+  for (i=0 ; i<20 ; i++){
+
+    for (j=0; j<20 ; j++){
+      if((j-3)>= 0){
+        result = matrix[i][j] * matrix[i][j-1] * matrix[i][j-2] * matrix[i][j-3];
+        if (result > max){
+          max = result;
+        }
+        }
+      
+      if((i-3)>= 0){
+        result = matrix[i][j] * matrix[i-1][j] * matrix[i-2][j] * matrix[i-3][j];
+        if (result > max){
+          max = result;
+        }
+        }
+      
+      if((i-3)>=0 && (j+3)>=0){
+        result = matrix[i][j] * matrix[i-1][j+1] * matrix[i-2][j+2] * matrix[i-3][j+3];
+        if (result > max){
+          max = result;
+        }
+        }
+
+      if((i-3)>=0 && (j-3)>=0){
+        result = matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3];
+        if (result > max){
+          max = result;
+        }
+        }
+    }
+
+  }
+  return max;
+}
