@@ -62,8 +62,6 @@ console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 
-function avg(arr)
-
 // Level 1: Array of numbers
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -80,13 +78,24 @@ function averageNumbers(numbers) {
 console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function sumStr(strArray) {
+  let sum = 0;
+  for (let i = 0; i < strArray.length; i++){
+  sum = strArray[i].length + sum;
+}    
+  return sum;
+}
+
+console.log(sumStr(wordsArr));
+
 function averageWordLength(words) {
-  if (!words[0]) {
-    return null;
+  if (words.length === 0) {
+    return null
   }
-  let sum = wordsArr(words);
+  let sum = sumStr(words);
   let avg = sum / words.length;
   return avg;
 }
@@ -94,7 +103,8 @@ function averageWordLength(words) {
 console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+
+const uniqueWords = [
   'crab',
   'poison',
   'contagious',
@@ -108,11 +118,31 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(uniqueWords) {
+  if (uniqueWords.length === 0) {
+    return null
+  } 
+  let uniqueArray = uniqueWords.filter((item, index) => uniqueWords.indexOf(item) === index);
+  return uniqueArray;
+}
+
+console.log(uniquifyArray(uniqueWords));
+
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+const findWords = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(findWords, matter) {
+  if (findWords.length === 0) {
+    return null
+  } 
+ return findWords.includes(matter)
+}
+  
+  console.log(doesWordExist(findWords, 'matter'));
 
 // Iteration #7: Count repetition
-const wordsCount = [
+const words2 = [
   'machine',
   'matter',
   'subset',
@@ -125,6 +155,11 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words2, matter) {
+  let wordRepeat = words2.filter(word => word === matter);
+  return wordRepeat.length;
+}
 
 // Iteration #8: Bonus
 
