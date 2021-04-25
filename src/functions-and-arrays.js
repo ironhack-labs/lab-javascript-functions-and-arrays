@@ -173,76 +173,94 @@ averageWordLength(words);
 //   }
 // }
 // averageWordLength(wordsArr)
-// // Iteration #5: Unique arrays
-// const wordsUnique = [
-//   'crab',
-//   'poison',
-//   'contagious',
-//   'simple',
-//   'bring',
-//   'sharp',
-//   'playground',
-//   'poison',
-//   'communion',
-//   'simple',
-//   'bring'
-// ];
-// function uniquifyArray(array) {
-//   switch (array.length) {
-//     case 0:
-//       return null
-//       break
-//   }
-//   //Declaramos el array unique que acumulara el nuevo array unico
-//   //Lo inicializamos a la posicion cero para poder comparar sucesivos
-//   //elementos y los que den como resultado un numero negativo significaran que
-//   //no estan repetidos y por tanto los añadira al nuevo array
-//   let unique = array[0]
-//   array.forEach(element => {
-//     if (unique.indexOf(element) < 0) {
-//       unique.push(element)
-//     }
-//   });
-// }
+// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+function uniquifyArray(array) {
 
-// uniquifyArray(wordsArr)
+  let contador = 0;
+  let coincidencia;
+  let unique = [];
+  let repeatWord;
+  switch (array.length) {
+    case 0:
+      return null
+      break
+    default:
+
+      //Accedemos al elemento i para compararlo con los elementos de iterar j
+      for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+          if (array[i].length == array[j].length) {
+            let contador = 0;
+            for (k = 0; k < array[i].length; k++) {
+              coincidencia = array[i][k].indexOf(array[j][k]); //cada vez que coincidan da el valor de la posicion de la letra, si no lo hacen ¡
+              if (coincidencia != -1) {
+                contador++;
+              }
+            }
+            if (contador == array[i].length) {
+              array.splice(array[i], 1);
+              repeatWord++;
+            }
+          }
+
+          unique[i] = array[i];
+          return unique;
+
+          //console.log(unique);
+        }
+      }
+
+  }
+  //Declaramos el array unique que acumulara el nuevo array unico
+  //Lo inicializamos a la posicion cero para poder comparar sucesivos
+  //elementos y los que den como resultado un numero negativo significaran que
+  //no estan repetidos y por tanto los añadira al nuevo array
+  //   let unique = array[0];
+  //   array.forEach(element => {
+  //     if (unique.indexOf(element) < 0) {
+  //       unique.push(element);
+  //     }
+  //   });
+}
+
+uniquifyArray(wordsUnique);
 // // Iteration #6: Find elements
 // const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 // //Queria hacerlo con forEach pero no he sabido hacerlo
-// //const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-// function doesWordExist(array, word) {
-//   if (array.length === 0) {
-//     return null;
-//   } else {
-//     //Queria hacerlo con forEach pero no he sabido hacerlo
-//     //array.forEach(element => {
-//     //  return word === element
-//     // });
-//     for (let i = 0; i < array.length; i++) {
-//       if (array[i] === word) {
-//         return true;
-//       } else {
-//         return false
-//       }
-//     }
-//   }
-// }
-// doesWordExist(wordsFind, 'matter');
-// // Iteration #7: Count repetition
-// const wordsCount = [
-//   'machine',
-//   'matter',
-//   'subset',
-//   'trouble',
-//   'starting',
-//   'matter',
-//   'eating',
-//   'matter',
-//   'truth',
-//   'disobedience',
-//   'matter'
-// ];
+//const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(array, word) {
+  switch (array.length) {
+    case 0:
+      return null
+      break
+    default:
+      for (elements of array) {
+        if (elements == word) {
+          return true;
+          break;
+        } else {
+          return false;
+        }
+      }
+  }
+}
+
+doesWordExist(wordsFind, 'matter');
+
 // function howManyTimes(array) {
 //   let contador = 0;
 //   if (array.length === 0) {
