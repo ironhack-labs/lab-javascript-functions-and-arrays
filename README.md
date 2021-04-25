@@ -4,7 +4,7 @@
 
 Do you remember the classic detective board game Clue? It was a very popular game in the 90's.
 
-The plot starts with the death of Mr. Boddy, the very wealthy owner of Tudor Manor. He was killed under highly suspicious circumstances, and it's the players mission to uncover which **suspect** murdered him, what **weapon** was used, and in which **room** of the mansion the crime took place.
+The plot starts with the death of Mr. Boddy, the very wealthy owner of Tudor Manor. He was killed under _highly suspicious circumstances_, and it's the player's mission to uncover which **suspect** murdered him, what **weapon** was used, and in which **room** of the mansion the crime took place.
 
 When playing Clue, these three details are represented by a **suspect** card, a **weapon** card and a **room** card that are kept hidden in an envelope for the duration of the game. By progressively revealing the remaining cards, the players can infer which are the three cards that are hidden. When a player is confident that they know the solution to the mystery, they will try to reveal it. If a player guesses correctly, they win the game.
 
@@ -14,26 +14,29 @@ When playing Clue, these three details are represented by a **suspect** card, a 
 
 - Fork this repo
 - Clone this repo
+- Visit the "actions" tab in your fork, and enable workflows
 
 ## Submission
 
 - Upon completion, run the following commands:
 
-  ```
-  git add .
-  git commit -m "done"
-  git push origin master
-  ```
+```sh
+git add .
+git commit -m "done"
+git push origin master
+```
 
 - Create Pull Request so your TAs can check up your work.
 
 ## Remember our tests!
 
-We will be working with automated tests again! Please, open the `SpecRunner.html` in your browser and use it to debug your solution of the lab.
+We will be working with automated tests again!
+
+Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `test-report.html` file with the "Live Server" VSCode extension to always see the most up to date test results.
 
 ## Instructions
 
-You will be working in the `src/clue.js` file. Open the `SpecRunner.html` as well as the test file (`tests/clue.spec.js`) to guide you in solving the following challenges.
+You will be working in the `src/clue.js` file. The test file (`tests/clue.spec.js`) will guide you in solving the following challenges.
 
 ### Iteration 1: Create the cards
 
@@ -87,7 +90,7 @@ Declare a function named `pickMystery` that takes no arguments and returns an ob
 
 At last, we are ready to reveal the mystery.
 
-Declare a function named `revealMystery` that receives an _envelope_ `object` (such as the one returned by `pickMystery`) as the single argument, and returns a reveal message in the following format:
+Declare a function named `revealMystery` that receives an _envelope_ `object` (with the shape of the object returned by `pickMystery`) as the single argument, and returns a reveal message in the following format:
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
 
