@@ -81,9 +81,27 @@ let suma = sumNumbers(numbers);
 //Opción B
 //return array.forEach(element => sum + element)
 
-
-
 //BONUS
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// function sum(array) {
+
+//   const result = array.filter(function (value, index) {
+//     for (elements of array) {
+//       if (typeof elements === "string") {
+//         array.splice(elements, 1);
+//         return array.splice(index, elements.length);
+//       } else if (typeof elements === "boolean") {
+//         array.splice(elements, 1);
+//         return array.splice(index, 1);
+//       }
+//     }
+//   });
+// }
+// sum(mixedArr);
+
+// //Llamo a la funcion suma de numeros pasandole como argumento el array de numeros result
+
+// return sumNumbers(result)
 
 
 // // Iteration #4: Calculate the average
