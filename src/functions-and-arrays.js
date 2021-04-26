@@ -6,11 +6,11 @@ function maxOfTwoNumbers(number1, number2){
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(arr){
-  if (!arr.length) return null
-  let longest = arr[0];
-  for (let i = 0; i < arr.length -1; i++){
-    if (arr[i+1].length > longest.length){
+function findLongestWord(words){
+  if (!words.length) return null
+  let longest = words[0];
+  for (let i = 0; i < words.length -1; i++){
+    if (words[i+1].length > longest.length){
       longest = words[i+1]
     }
   }
@@ -20,15 +20,14 @@ function findLongestWord(arr){
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let sum = 0;
 function sumNumbers (numbers){
+  let sum = 0;
   if (!numbers.length) return 0
-  for (let w = 0; w < numbers.length; w++){
-    sum += numbers[w]
+  for (let i = 0; i < numbers.length; i++){
+    sum += numbers[i]
   }
 return sum
   }
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -72,32 +71,29 @@ const wordsUnique = [
   'bring'
 ];
 
- const uniquifyArray = (wordsUnique) => {
+ function uniquifyArray (wordsUnique) {
+   if(!wordsUnique.length) return null
   let unique = [];
   for (i = 0; i < wordsUnique.length; i++) {
     if (unique.indexOf(wordsUnique[i]) === -1) {
       unique.push(wordsUnique[i]);
     }
   }
+    return unique;
+  }
 
-  return unique;
-}
 
- 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-const doesWordExist = (arr, word)=>{
-
-  let value = false
-  arr.forEach((item, index)=>{
-  if(word === item){
-  value = true
-  } 
-  })
-  return value
+function doesWordExist(wordsFind, word){
+  if(!wordsFind.length) return null
+  for(let i = 0; i < wordsFind.length; i++){
+    if(wordsFind[i] === word) return true
   }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -113,17 +109,33 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+// Esta es mi solución pero no he conseguido que regrese el 5
 
+// function howManyTimes(wordsCount, word){
+//   let acc = 0;
+//   if(!wordsCount.length) return 0
+//   for(let i = 0; i < wordsCount.length; i++){
+//     if(wordsCount[i] === word){
+//       acc += 1;
+//       return 1
+//     } 
+//     if(acc === 5) return 5
+//   }
+//   return 0
+// }
+
+
+//Obtuve ayuda con esta solución y funciona correctamente: 
 function howManyTimes(wordsCount, word){
-  let count = 0;
-  wordsCount.forEach((item,index)=>{
-  if(item === word){
-  Count +=1
+  let acc = 0;
+  for(let i = 0; i < wordsCount.length; i++)
+    if(wordsCount[i] === word){
+      acc += 1;
   }
-  })
-  
-  return count
-  }
+  return acc
+}
+
+
 
 // Iteration #8: Bonus
 
