@@ -192,7 +192,7 @@ function uniquifyArray(array) {
   let contador = 0;
   let coincidencia;
   let unique = [];
-  let repeatWord;
+
   switch (array.length) {
     case 0:
       return null
@@ -201,28 +201,37 @@ function uniquifyArray(array) {
 
       //Accedemos al elemento i para compararlo con los elementos de iterar j
       for (let i = 0; i < array.length; i++) {
+        //El indice j será superior en 1 al i. De esta manera compararemos el elemento actual con sus siguientes
         for (let j = i + 1; j < array.length; j++) {
+          //Para que una palabra coincida, el primer condicional debe ser que sus longitudes sean iguales
+          //Si lo cumple, recorreremos letra a letra
           if (array[i].length == array[j].length) {
+            //Inicializamos un contador que contara el nº de veces que las letras de una palabra coinciden
+            //Si el valor de contador coincide con la longitud de la palabra significa que ésta enteramente coincide y está repetida
             let contador = 0;
             for (k = 0; k < array[i].length; k++) {
               coincidencia = array[i][k].indexOf(array[j][k]); //cada vez que coincidan da el valor de la posicion de la letra, si no lo hacen ¡
               if (coincidencia != -1) {
                 contador++;
+              } else {
+
               }
             }
             if (contador == array[i].length) {
+              //Eliminaremos el elemento repetido de la posicion i del array principal
               array.splice(array[i], 1);
-              repeatWord++;
+
             }
           }
 
           unique[i] = array[i];
-          return unique;
+
 
           //console.log(unique);
         }
       }
-
+      return unique;
+    // return unique.push(array[array.length - 1]);
   }
   //Declaramos el array unique que acumulara el nuevo array unico
   //Lo inicializamos a la posicion cero para poder comparar sucesivos
@@ -243,6 +252,7 @@ uniquifyArray(wordsUnique);
 // //Queria hacerlo con forEach pero no he sabido hacerlo
 //const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 function doesWordExist(array, word) {
+  let repeat = 0;
   switch (array.length) {
     case 0:
       return null
@@ -250,11 +260,15 @@ function doesWordExist(array, word) {
     default:
       for (elements of array) {
         if (elements == word) {
-          return true;
-          break;
-        } else {
-          return false;
+          repeat++;
         }
+      }
+      //Si la palabra se repite 1 o más veces devuelve true
+      //Si repeat=0 signfica que no se repite, devuelve false
+      if (repeat >= 1) {
+        return true
+      } else {
+        return false
       }
   }
 }
