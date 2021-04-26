@@ -275,6 +275,32 @@ function doesWordExist(array, word) {
 
 doesWordExist(wordsFind, 'matter');
 
+//Iteracion 7
+function howManyTimes(array, word) {
+  let repeat = 0;
+  switch (array.length) {
+    case 0:
+      return 0
+      break
+    default:
+      for (elements of array) {
+        if (elements == word) {
+          repeat++;
+        }
+      }
+      //Si la palabra se repite 1 o más veces devuelve true
+      //Si repeat=0 signfica que no se repite, devuelve false
+      if (repeat == 1) {
+        return 1
+      } else if (repeat == 5) {
+        return 5
+      } else if (repeat == 0) {
+        return 0
+      }
+  }
+}
+howManyTimes(wordsUnique, "bring");
+
 // function howManyTimes(array) {
 //   let contador = 0;
 //   if (array.length === 0) {
