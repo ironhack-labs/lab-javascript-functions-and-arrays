@@ -1,19 +1,112 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(num1, num2){  
+  let aux_max = [num1, num2];
+  return aux_max[1-1*(num1>num2)];
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(words){  
+  let aux_long = null;
+  
+  if(words.length >0){
+    aux_long = words[0];
+    let aux_change = false;
+    for (const word of words){  
+      aux_change = aux_long.length < word.length;
+      if(aux_change){  
+        aux_long = word;
+      }
+    }  
+  }
+  
+  return aux_long;
+}
 
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(numbers){  
+  let osum = 0;  
+  if(numbers.length>0){
+    for(let i=0; i< numbers.length; i++){  
+      osum += numbers[i];
+    }
+  }
+  
+  return osum;
+}
+
+// #3.1 sum mixed array  
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]  
+  
+function sum(iarray){
+  let osum = 0;  
+  if(iarray.length>0){
+    for(let i=0; i<iarray.length; i++){  
+      switch(typeof iarray[i]){  
+      case "boolean":  
+        osum += iarray[i] ? 1 : 0;  
+        break;
+      case "number":
+        osum += iarray[i];
+        break;
+      case "bigint":
+        osum += iarray[i];
+        break;
+      case "string":  
+        osum += iarray[i].length;
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    }
+  }
+
+  return osum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbers){  
+  let oavg = null;
+  if(numbers.length>0){
+    let aux_sum  = sumNumbers(numbers);
+    oavg = aux_sum / numbers.length;
+  }
+
+  return oavg;
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(words){
+  let oavg = null;
+  if(words.length>0){
+    let aux_sum = sum(words);
+    oavg = aux_sum / words.length;
+  }  
+
+  return oavg;
+}
+
+// bonus 4.1  
+function avg(iarray){  
+  let oavg = null;
+  if(iarray.length > 0){
+    let aux_sum = sum(iarray);
+    oavg = aux_sum / iarray.length;
+    if(!(oavg == null)){
+      oavg = Number(oavg.toFixed(2));
+    }
+  }
+
+  return oavg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -30,8 +123,40 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(iarray){  
+  let oarray= [];
+  if(iarray.length>0){
+    let aux_element;  
+    let idx = 0;
+    for( let i = 0; i < iarray.length; i++){
+      aux_element = iarray[i];
+      idx = iarray.indexOf(aux_element);  
+
+      if(idx==i) oarray.push(iarray[i]);
+    }
+  }else{
+    oarray = null;
+  }
+ 
+
+  return oarray;
+}
+
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(words, pattern){
+  let obool = null;
+  if(words.length>0){
+    let aux_mix = words.join("_");  
+    let aux_spread = aux_mix.split(pattern);
+    obool = aux_spread.length>1; 
+  }
+
+  return obool;
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,6 +172,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words, pattern){
+  let otimes = 0;
+  if(words.length>0){
+    let aux_join = words.join("-_-");  
+    let aux_split = aux_join.split(pattern);  
+
+    otimes = aux_split.length - 1;
+  }
+
+  return otimes;
+}
 
 // Iteration #8: Bonus
 
