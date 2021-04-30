@@ -32,7 +32,7 @@ git push origin master
 
 We will be working with automated tests again!
 
-Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `test-report.html` file with the "Live Server" VSCode extension to always see the most up to date test results.
+Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up to date test results.
 
 ## Instructions
 

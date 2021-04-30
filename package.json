@@ -17,7 +17,8 @@
       [
         "./node_modules/jest-html-reporter",
         {
-          "pageTitle": "Test Report"
+          "pageTitle": "Lab Solution",
+          "outputPath": "lab-solution.html"
         }
       ]
     ]
@@ -28,7 +29,7 @@
     "titleTemplate": "{title}"
   },
   "prettier": {
-    "trailingComma": "none",
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }
