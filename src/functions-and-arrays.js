@@ -1,12 +1,12 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(number1, number2){
+const maxOfTwoNumbers = (number1, number2) => {
   return Math.max(number1, number2);
 }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words){
+const findLongestWord = (words) => {
   if (!words.length) return null
   let longest = words[0];
   for (let i = 0; i < words.length -1; i++){
@@ -20,7 +20,7 @@ function findLongestWord(words){
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-function sumNumbers (numbers){
+const sumNumbers = (numbers) => {
   let sum = 0;
   if (!numbers.length) return 0
   for (let i = 0; i < numbers.length; i++){
@@ -29,17 +29,43 @@ function sumNumbers (numbers){
 return sum
   }
 
+  //Bonus - Iteration #3.1: A generic sum() function
+
+  const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+  const sum = (mixedArr) => {
+    let result = 0;
+    if(!mixedArr.length) return 0   
+    for(let i = 0; i < mixedArr.length; i++){
+
+      if(typeof mixedArr[i] === 'number'){
+        result += mixedArr[i];
+
+      } else if (typeof mixedArr[i] === 'string'){
+        result += mixedArr[i].length; 
+
+      } else if (typeof mixedArr[i] === 'boolean'){
+        result += mixedArr[i];
+
+      } else if (typeof mixedArr[i] === 'object'){
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    }
+    return result
+  }
+
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 const averageNumbers = (numbersAvg)=>{
   let total = 0;
   if(!numbersAvg.length) return null
-  for (let avg = 0; avg < numbersAvg.length; avg++){
-    total += numbersAvg[avg]
+  for (let avg1 = 0; avg1 < numbersAvg.length; avg1++){
+    total += numbersAvg[avg1]
   }
-  return total/ numbersAvg.length
+  return total /= numbersAvg.length
   }
   
 
@@ -54,6 +80,29 @@ const averageWordLength = (wordsArr) =>{
     avg2 = total2 / wordsArr.length;
   }
   return avg2;
+}
+
+
+//Bonus - Iteration #4.1: A generic avg() function
+
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+const avg = (mixedArr2) => {
+  let total = 0
+
+  if(!mixedArr2.length) return null
+
+  for(let i = 0; i < mixedArr2.length; i++){
+    if(typeof mixedArr2[i] === 'number'){
+      total += mixedArr2[i]
+    } else if( typeof mixedArr2[i] === 'string'){
+      total += mixedArr2[i].length
+    } else if(typeof mixedArr2[i] === 'boolean'){
+      total += mixedArr2[i]
+    }
+    average = total / mixedArr2.length
+  }
+  return average.toFixed(2)
 }
 
 // Iteration #5: Unique arrays
@@ -71,7 +120,7 @@ const wordsUnique = [
   'bring'
 ];
 
- function uniquifyArray (wordsUnique) {
+ const uniquifyArray = (wordsUnique) => {
    if(!wordsUnique.length) return null
   let unique = [];
   for (i = 0; i < wordsUnique.length; i++) {
@@ -87,8 +136,9 @@ const wordsUnique = [
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind, word){
+const doesWordExist = (wordsFind, word) => {
   if(!wordsFind.length) return null
+
   for(let i = 0; i < wordsFind.length; i++){
     if(wordsFind[i] === word) return true
   }
@@ -109,9 +159,10 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
 // Esta es mi solución pero no he conseguido que regrese el 5
 
-// function howManyTimes(wordsCount, word){
+// const howManyTimes = (wordsCount, word) =>{
 //   let acc = 0;
 //   if(!wordsCount.length) return 0
 //   for(let i = 0; i < wordsCount.length; i++){
@@ -126,7 +177,7 @@ const wordsCount = [
 
 
 //Obtuve ayuda con esta solución y funciona correctamente: 
-function howManyTimes(wordsCount, word){
+const howManyTimes = (wordsCount, word) => {
   let acc = 0;
   for(let i = 0; i < wordsCount.length; i++)
     if(wordsCount[i] === word){
@@ -161,3 +212,88 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+// SOLUTION FOUND ONLINE
+
+const greatestProduct = (matrix, numberOfAdjacentValues) => {
+
+  let largestProduct = 0
+
+    /* Variables to iterate through nested array */
+    let row
+    let column
+
+    /* How many indexes adjecent to each cell we need to multiply */
+    let maxOffset = (numberOfAdjacentValues - 1) || 3
+
+    /* Nested for loop goes through each cell in nested array */
+    for(row = 0; row < matrix.length; row ++){
+        for(column = 0; column < matrix[0].length; column ++){
+
+            /* Value of current cell */
+            let cell = matrix[row][column]
+            /* Stores temporary product */
+            let product
+
+            /* Iterate though adjacent row and column indices */
+            let i
+            let j
+
+            /* Adjacent horizontally */
+            product = cell
+            for(i = 1; i <= maxOffset; i ++ ){
+                if(matrix[row] && matrix[row][column + i]){
+                    product = product * matrix[row][column + i]
+                }else{
+                    break
+                }
+            }
+            if(product > largestProduct){
+                largestProduct = product
+            }
+
+            /* Adjacent vertically */
+            product = cell
+            for(i = 1; i <= maxOffset; i ++ ){
+                if(matrix[row + i] && matrix[row + i][column]){
+                    product = product * matrix[row + i][column]
+                }else{
+                    break
+                }
+            }
+            if(product > largestProduct){
+                largestProduct = product
+            }
+           
+            /* Adjacent diagnonal topleft-bottomright */
+            product = cell
+            for(i = 1; i <= maxOffset; i ++ ){
+                if(matrix[row + i] && matrix[row + i][column + i]){
+                    product = product * matrix[row + i][column + i]
+                }else{
+                    break
+                }
+            }
+            if(product > largestProduct){
+                largestProduct = product
+            }
+
+            /* Adjacent diagnonal bottomleft-topright */
+            product = cell
+            for(i = 1; i <= maxOffset; i ++ ){
+                if(matrix[row - i] && matrix[row - i][column + i]){
+                    product = product * matrix[row - i][column + i]
+                }else{
+                    break
+                }
+            }
+            if(product > largestProduct){
+                largestProduct = product
+            }
+        }
+    }
+
+    return largestProduct
+
+}
+
