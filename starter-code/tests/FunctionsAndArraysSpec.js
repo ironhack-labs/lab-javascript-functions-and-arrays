@@ -1,5 +1,7 @@
 /* eslint no-undef: 'off' */
 function shuffle(currentArray) {
+
+  // test
   var array = currentArray.map(function (arr) {
     return arr.slice();
   });
