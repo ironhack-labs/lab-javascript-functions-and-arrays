@@ -175,12 +175,11 @@ if (wordsCount == 0) {
   return howMany;
 }
 
-for (word of wordCount) {
-  if (searchWord == word) {
+for (word of wordsCount) {
+  if (searchWord === word) {
     howMany = howMany + 1;
   }
 }
-
 return howMany;
 }
 
