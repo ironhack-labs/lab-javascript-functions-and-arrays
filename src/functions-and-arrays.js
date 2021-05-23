@@ -1,29 +1,23 @@
 // Iteration #1: Find the maximum
-function maximum (num1, num2, num3) {
-  if (num1> num2 && num1> num2) {
-    let maximum = num1
+function maxOfTwoNumbers (num1, num2) {
+  if (num1> num2) {
     return num1 + "is the maximum of the inserted values"
   }
-  else if (num2> num1 && num2> num3) {
-    let maximum = num2
+  else if (num2> num1) {
     return num2 + "is the maximum of the inserted values";
-  }
-  else if (num3> num1 && num3> num2) {
-    let maximum = num3
-    return num3 + " " + "is the maximum of the inserted values"
   }
 }
 
-maximum(1, 2, 3)
+maxOfTwoNumbers(1, 2)
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviallllllltor', 'crocodile', 'pearl', 'orchard', 'crackpoto'];
+const words = ['mystery', 'brother', 'avialtor', 'crocodile', 'pearl', 'orchard', 'crackpoto'];
 
-function longestWord (arrayOfWords) {
+function findLongestWord (arrayOfWords) {
   const arraySorted = arrayOfWords.sort((a,b) => a.length - b.length);
   return arraySorted.reverse()[0]
 }
-longestWord (words)
+findLongestWord (words)
 
 // Iteration #3: Calculate the sum
 
@@ -31,7 +25,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (arrayOfNrs) {
   let sumCalc = 0;
-  for(let i=0; i<arrayOfNrs.length; i++){
+  for (let i=0; i<arrayOfNrs.length; i++){
     sumCalc += arrayOfNrs[i];
   }
   return 'The sum is' + " " + sumCalc
@@ -116,6 +110,21 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes (array, word) {
+  let cntr = 0;
+  for (let i=0; i<array.length; i++) {
+    if (array[i] === word) {
+      cntr++    
+    }
+    else{
+      continue;
+    }
+   }
+   return cntr;
+  }
+  
+  howManyTimes(wordsCount, 'matter')
+
 // Iteration #8: Bonus
 
 const matrix = [
@@ -140,3 +149,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+  
+}
