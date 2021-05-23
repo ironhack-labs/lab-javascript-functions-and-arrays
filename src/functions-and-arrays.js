@@ -40,13 +40,22 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers (arr) {
   let result = 0;
     for (let i = 0; i < arr.length; i++) {
-      result += arr[i] ;
-    }
-    return result / arr.length ;
-}
+      result += arr[i] / arr.length;
+      }
+      return result;
+  }
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const singleWrodArr = ['chocolate'];
+  function averageWordLength (arr) {
+    let result = 0
+      for (let i = 0; i < arr.length; i++) {
+      result += arr[i].length/arr.length;
+  }
+    return result
+} 
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
