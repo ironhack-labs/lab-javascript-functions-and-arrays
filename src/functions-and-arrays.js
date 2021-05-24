@@ -5,8 +5,7 @@ function maxOfTwoNumbers(n1, n2) {
   } else {
     return n2;
   }
- 
-}
+};
 
 
 // Iteration #2: Find longest word
@@ -19,7 +18,7 @@ function findLongestWord (arr) {
     }
   }
     return result
-}
+};
 
 // Iteration #3: Calculate the sum
 
@@ -30,7 +29,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
         result += arr[i];
       }
       return result;
-  }
+  };
 
 
 
@@ -54,10 +53,10 @@ const singleWrodArr = ['chocolate'];
       result += arr[i].length/arr.length;
   }
     return result
-} 
+};
 
 
-// Iteration #5: Unique arrays
+/* Iteration #5: Unique arrays - "WORKS but not my solution"
 const wordsUnique = [
   'crab',
   'poison',
@@ -71,11 +70,35 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray (arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let exists = false;
+    for (j = 0; j < result.length; j++) {
+      if (arr[i] === result[j]) {
+        exists = true;
+        break;
+      }
+    }
+    if (!exists) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
+  */
 
-// Iteration #6: Find elements
+/* Iteration #6: Find elements - "WORKS but not my solution"
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist (arr, truth) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes('truth')) return true;
+    }
+  };
+*/
 
-// Iteration #7: Count repetition
+
+/* Iteration #7: Count repetition - "WORKS but not my solution"
 const wordsCount = [
   'machine',
   'matter',
@@ -89,6 +112,24 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(wordsCount){
+  let counts = {}
+ 
+  for(let i =0; i < wordsCount.length; i++){ 
+      if (counts[wordsCount[i]]){
+      counts[wordsCount[i]] += 1
+      } else {
+      counts[wordsCount[i]] = 1
+      }
+     }  
+     for (let prop in counts){
+         if (counts[prop] >= 2){
+             console.log(prop + " counted: " + counts[prop] + " times.")
+         }
+     }
+   console.log(counts)
+ }
+ */
 
 // Iteration #8: Bonus
 
