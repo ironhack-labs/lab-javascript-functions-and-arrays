@@ -4,7 +4,9 @@ function maxOfTwoNumbers (a,b){
   else {return b};
 }
 
-// console.log(maxOfTwoNumbers(2,48));
+//console.log(maxOfTwoNumbers(2,48));
+
+
 
 function mathMaxFunction (a,b){
  return Math.max(a,b);
@@ -13,13 +15,17 @@ function mathMaxFunction (a,b){
 
 // Iteration #2: Find longest word
 
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = [];
+
 function findLongestWord (arr){
   let result='';
-  for(let i=0;i<arr.length; i++){if(arr[i].length>result.length){result=arr[i]}
+  for(let i=0;i<arr.length; i++)
+  {if(arr[i].length>result.length)
+    {result=arr[i]}
   }
   return result===''?null:result;
   }
+
 
 // Iteration #3: Calculate the sum
 
@@ -182,7 +188,19 @@ const matrix = [
 
 function greatestProduct(matrix)
 {
-return 'nothing here yet';
+let result=1, horizontalResult=1, verticalResult=1;
+                    //iterate horizontal & vertical at the same time;
+  for (let h=0;h<matrix.length;h++){
+    for(let i=0;i<matrix.length-3;i++)
+      {horizontalResult=1;verticalResult=1;
+        for(let j=i;j<i+4;j++){
+         horizontalResult*=matrix[h][j];
+         verticalResult*=matrix[j][h];
+          }
+        if(Math.max(horizontalResult,verticalResult)>result){result=Math.max(horizontalResult,verticalResult)}  
+        
+        }
 
-};
-
+    }
+    return result;
+  }
