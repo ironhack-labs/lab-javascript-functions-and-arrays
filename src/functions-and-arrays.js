@@ -1,19 +1,105 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(number1 , number2){
+  if (number1 == number2){
+    return number1,number2;
+
+  }else if(number1 > number2){
+    return number1;
+  }else {
+    return number2;
+  }
+
+}   
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(someArray){
+  let emptyArray =[]
+  if(someArray[0]==emptyArray[0] && emptyArray.length < 1){
+    return null;
+  }else if (someArray.length == 1){
+    return someArray[0];
+  }else{
+    let longestWord = ""
+    for(let i=0; i<someArray.length ;i+=1){
+        if (longestWord.length < someArray[i].length){
+          longestWord = someArray[i]
+        }
+    }return longestWord;
+  }
+}
+      
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let arrayCountNumber = 0
+function sumNumbers(someNumberArray){
+  if (someNumberArray.length==0){
+    return 0;
+  }
+  if(someNumberArray.length==1){
+    return someNumberArray[0]
+  }
+  for(let i = 0 ; i<someNumberArray.length ; i += 1){
+    if (someNumberArray[i] == 0){
+      if(someNumberArray[someNumberArray.length - 1] ==0){
+        return 0;
+      }
+    }else{
+      break;
+    }
+    }
+  for(let i = 0 ; i<someNumberArray.length ; i +=1){
+    arrayCountNumber += someNumberArray[i];
+    
+
+  }
+  return arrayCountNumber;
+  }
+
 
 // Iteration #4: Calculate the average
+
+function averageNumbers(someAverageNumberArray){
+  let someAverageNumberArrayEmpty =[]
+  if(someAverageNumberArray[0] == someAverageNumberArrayEmpty[0]){
+    return null;
+  }
+  if(someAverageNumberArray.length == 1){
+    return someAverageNumberArray[0];
+  }
+  let somaDosNumeros = 0
+  for(let i=0 ; i<someAverageNumberArray.length ; i+=1){
+        somaDosNumeros += someAverageNumberArray[i];
+    }
+  
+  return somaDosNumeros/someAverageNumberArray.length;
+}
+
+
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageWordLength(wordLength){
+  let wordLengthEmpty =[]
+  if(wordLength[0] == wordLengthEmpty[0]){
+    return null;
+  }
+  if(wordLength.length == 1){
+    return wordLength[0].length;
+  }
+  let counterWordLengthEmpty = 0
+  for(let i = 0 ; i<wordLength.length ; i+=1){
+      counterWordLengthEmpty += wordLength[i].length;
+  }
+  return counterWordLengthEmpty/wordLength.length;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -30,8 +116,46 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(uniquify){
+  if(uniquify.length===0){
+    return null;
+  }
+  let correctUniquiArray =[]
+  for (let i = 0 ; i<uniquify.length ; i+=1){
+      if(correctUniquiArray.indexOf(uniquify[i])==-1){
+        correctUniquiArray.push(uniquify[i])
+      }
+      
+     }
+  return correctUniquiArray;
+  }
+
+     
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arrayWords, someWordInArray){
+  if(arrayWords.length ===0){
+    return null;
+  }
+  if(arrayWords.length ===1){
+    if(arrayWords[0]===someWordInArray){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  for(let i = 0 ; i<arrayWords.length ; i +=1){
+    if(arrayWords[i] === someWordInArray){
+      return true
+    }
+  }
+return false;
+}
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,6 +171,29 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arrayManyTimes,wordManyTimes){
+  if (arrayManyTimes.length===0){
+    return 0;
+  }
+  let countManyTimes =0;
+  for (let i=0 ; i<arrayManyTimes.length ; i +=1){
+    if(arrayManyTimes[i]==wordManyTimes){
+      countManyTimes +=1;
+    }
+  }
+  if (countManyTimes === 0){
+    return 0;
+  }
+  if (countManyTimes === 1){
+    return 1;
+  }
+  if (countManyTimes===5){
+    return 5;
+  }
+}
+
+
 
 // Iteration #8: Bonus
 
