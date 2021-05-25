@@ -1,4 +1,9 @@
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(a, b){
+  return Math.max(a, b)
+  let maxOfTwoNumbers = [1, 2]
+
+}
 
 
 // Iteration #2: Find longest word
