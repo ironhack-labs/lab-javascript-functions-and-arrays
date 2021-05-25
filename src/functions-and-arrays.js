@@ -1,21 +1,102 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  } else if (number2 > number1) {
+    return number2;
+  } else if (number1 === number2) {
+    return number1, number2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(wordArray) {
+  if (wordArray.length === 0) {
+    return null;
+  }
+  let numberOfLetters = 0;
+  let biggestWordIndex = -1;
+  for (let word of wordArray) {
+    if (word.length > numberOfLetters) {
+      numberOfLetters = word.length;
+      biggestWordIndex = wordArray.indexOf(word);
+    } 
+  }
+  return wordArray[biggestWordIndex];
+}
 
-// Iteration #3: Calculate the sum
-
+// //Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numberArray) {
+  let sum = 0;
+  for (let i = 0; i < numberArray.length; i += 1) {
+    sum += numberArray[i]
+  }
+  return sum;
+}
 
-// Iteration #4: Calculate the average
+//Bonus - Iteration #3.1: A generic sum() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(genericArray) {
+  if (genericArray.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < genericArray.length; i += 1) {
+      if (typeof genericArray[i] === 'number') {
+        sum += genericArray[i]
+      } else if (typeof genericArray[i] === 'string') {
+        sum += genericArray[i].length
+      } else if (typeof genericArray[i] === 'boolean') {
+        if (genericArray[i] === true) {
+          sum += 1
+        } 
+      } else {         
+        throw new Error(`Unsupported data type sir or ma'am`);
+      
+    } 
+  }
+  return sum;
+}
+
+// // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numberArray) {
+  if (numberArray.length > 0) {
+    return sumNumbers(numberArray)/numberArray.length;
+  } else {
+    return null;
+  }
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(wordArray) {
+  let numberOfLetters = 0;
+  for (let word of wordArray) {
+    numberOfLetters += word.length;
+  } 
+  if (numberOfLetters === 0) {
+    return null;
+  } else {
+    return numberOfLetters/wordArray.length;
+  }
+}
 
-// Iteration #5: Unique arrays
+//Bonus - Iteration #4.1: A generic avg() function
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  // sum(arr)/arr.length -> 5.111111111
+  // (sum(arr)/arr.length).toFixed(2) -> '5.11'
+  // Math.round((sum(arr)/arr.length) * 100) / 100 -> 5.11
+  return Number((sum(arr)/arr.length).toFixed(2));
+}
+ 
+// // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
   'poison',
@@ -29,9 +110,35 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(wordArray) {
+  let newArray = [ ];
+  if (wordArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < wordArray.length; i += 1) {
+    if (wordArray.indexOf(wordArray[i]) < i) {
+      continue
+    } else {
+      newArray.push(wordArray[i]);
+    }
+  } 
+  return newArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(wordArray, word) {
+  if (wordArray.length === 0) {
+    return null;
+  }
+  let found = false;
+  for (let i = 0; i < wordArray.length; i += 1) {
+    if (word === wordArray[i]) {
+      found = true;
+    }
+  } 
+  return found;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -47,9 +154,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(wordArray, word) {
+  if (wordArray.length === 0) {
+    return 0;
+  }
+  let times = 0;
+  for (let i = 0; i < wordArray.length; i += 1) {
+    if (wordArray[i] === word) {
+      times += 1;
+    } 
+  }
+  return times;
+} 
 
 // Iteration #8: Bonus
-
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
