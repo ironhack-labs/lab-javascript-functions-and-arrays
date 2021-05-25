@@ -51,6 +51,7 @@ function sum(arr) {
   let totalSum = 0;
 
   for (let i = 0; i < arr.length; i++) {
+    
     if (typeof arr[i] === "string") {
       totalSum += arr[i].length;
     } else if (typeof arr[i] === true) {
@@ -58,10 +59,11 @@ function sum(arr) {
     } else if (typeof arr[i] === false) {
       totalSum += 0;
     } else if (typeof arr[i] === "object" || arr[i] instanceof Array) {
-      console.log("error");
+      throw new Error("Unsupported data type sir or ma'am");
     } else {
       totalSum += arr[i];
-    }
+    
+  }
   }
   return totalSum;
 }
@@ -103,13 +105,17 @@ function averageWordLength(wordArr) {
   wordArr.forEach((word) => arrayOfLengths.push(word.length));
   console.log(arrayOfLengths);
 
-  return Math.floor(averageNumbers(arrayOfLengths));
+  return averageNumbers(arrayOfLengths);
 }
 
 averageWordLength(wordsArr);
 
 function avg(arr) {
   let avgArray = [];
+
+  if(arr.length===0){
+    return null;
+  }
 
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] === "string") {
@@ -122,7 +128,7 @@ function avg(arr) {
       avgArray.push(arr[i]);
     }
   }
-  return averageNumbers(avgArray);
+  return parseFloat(averageNumbers(avgArray).toFixed(2));
 }
 
 // Iteration #5: Unique arrays
@@ -276,3 +282,5 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(){}
