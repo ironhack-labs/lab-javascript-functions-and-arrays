@@ -19,14 +19,13 @@ const words = [
 ];
 
 function findLongestWord(wordsArr) {
-  if(wordsArr.length === 0) {
-    return null
+  if (wordsArr.length === 0) {
+    return null;
   }
   let biggerWord = "";
   for (let i = 0; i < wordsArr.length; i++) {
     if (wordsArr[i].length > biggerWord.length) {
       biggerWord = wordsArr[i];
-      
     }
   }
   return biggerWord;
@@ -38,72 +37,58 @@ function findLongestWord(wordsArr) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(number) {
-  let sum = 0
-  if(number.length == []){
-    return 0
+  let sum = 0;
+  if (number.length == []) {
+    return 0;
   }
-  for(let i = 0; i < number.length; i++){
-    sum += number[i]
-
+  for (let i = 0; i < number.length; i++) {
+    sum += number[i];
   }
-  return sum
+  return sum;
 }
 
 // console.log(sumNumbers(numbers))
 
- //Bonus of interaction #3: Calculate the sum
- const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+//Bonus of interaction #3: Calculate the sum
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
- // should return: 57
- 
-function sum(sumAll){
-  let sumEverything = 0
-  if(sumAll.length == []){
-    return 0
-  }
-  for(let i= 0; i < sumAll.length; i++){
-    if(typeof sumAll[i] === "string" ){
-      sumEverything += sumAll[i].length
-    }
-    else if(sumAll[i] === true){
-      sumEverything+= 1
-      // console.log(sumAll[i].length)
-      
-    }
-    else if(typeof sumAll[i] === "number"){ 
-      sumEverything += sumAll[i]
-    }
-    else if(sumAll[i] === false){
-      sumEverything+= 0
-      // console.log(sumAll[i].length)
-      
-    }
-    else{
-      throw new Error("Unsupported data type sir or ma'am")
-    }
+// should return: 57
 
+function sum(sumAll) {
+  let sumEverything = 0;
+  if (sumAll.length == []) {
+    return 0;
   }
-  return sumEverything
+  for (let i = 0; i < sumAll.length; i++) {
+    if (typeof sumAll[i] === "string") {
+      sumEverything += sumAll[i].length;
+    } else if (sumAll[i] === true) {
+      sumEverything += 1;
+      // console.log(sumAll[i].length)
+    } else if (typeof sumAll[i] === "number") {
+      sumEverything += sumAll[i];
+    } else if (sumAll[i] === false) {
+      sumEverything += 0;
+      // console.log(sumAll[i].length)
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sumEverything;
 }
 
-      
-console.log(sum(mixedArr))
-
-
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(avgNumbers){
-  
-  if(avgNumbers.length == 0){
-    return null
+function averageNumbers(avgNumbers) {
+  if (avgNumbers.length == 0) {
+    return null;
   }
-  return sum(avgNumbers) / avgNumbers.length
-  
+  return sum(avgNumbers) / avgNumbers.length;
 }
-
 
 // console.log(averageNumbers(numbersAvg))
 
@@ -121,27 +106,23 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength (wordsRecive){
-  
-  if(wordsRecive.length == [ ]){
-    return null
+function averageWordLength(wordsRecive) {
+  if (wordsRecive.length == []) {
+    return null;
   }
-  return  sum(wordsRecive) / wordsRecive.length
+  return sum(wordsRecive) / wordsRecive.length;
 }
 
-console.log(averageWordLength(wordsArr))
+console.log(averageWordLength(wordsArr));
 
-
-function avg(arr){
-  
-  if(arr.length == []){
-    return null
+function avg(arr) {
+  if (arr.length == []) {
+    return null;
   }
-  return parseFloat((sum(arr) / arr.length).toFixed('2'))
+  return parseFloat((sum(arr) / arr.length).toFixed("2"));
 }
-console.log(avg(mixedArr))
+console.log(avg(mixedArr));
 // should return: 5.7
-
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -158,6 +139,22 @@ const wordsUnique = [
   "bring",
 ];
 
+function uniquifyArray(uniqueWords) {
+  let newArray = [];
+  if (uniqueWords.length == []) {
+    return null;
+  }
+  for (let i = 0; i < uniqueWords.length; i++) {
+    if (newArray.indexOf(uniqueWords[i]) === -1) {
+      newArray.push(uniqueWords[i]);
+    }
+  }
+  return newArray;
+}
+// uniquifyArray(wordsUnique)
+
+// console.log(uniquifyArray(wordsUnique))
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -170,6 +167,18 @@ const wordsFind = [
   "disobedience",
 ];
 
+function doesWordExist(existWordArr, find) {
+  if (existWordArr.length == []) {
+    return null;
+  }
+  for (let i = 0; i < existWordArr.length; i++) {
+    if (find.includes(existWordArr[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(doesWordExist(wordsFind, "matter"));
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
@@ -185,6 +194,16 @@ const wordsCount = [
   "matter",
 ];
 
+function howManyTimes(existInArray, search) {
+  let count = 0;
+  for (let i = 0; i < existInArray.length; i++) {
+    if (search.includes(existInArray[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+// console.log(howManyTimes(wordsCount, "matter"));
 // Iteration #8: Bonus
 
 const matrix = [
@@ -251,3 +270,61 @@ const matrix = [
     48,
   ],
 ];
+
+function greatestProduct(matrx) {
+  let multiplication = [];
+  // console.log(matrx)
+  let result = 0
+  for (let i = 0; i < matrx.length-3; i++) {
+    for (let j = 0; j < matrx.length-3; j++) {
+
+      multiplication.push(matrx[i][j] * matrx[i][j+1] * matrx[i][j+2]
+        *matrx[i][j+3]) ;
+        multiplication.push(matrx[i][j] * matrx[i+1][j] * matrx[i+2][j]
+          * matrx[i+3][j]) ;
+          
+      
+        
+        }
+      }
+  for(let k = 0; k < multiplication.length; k++){
+    if(multiplication[k]> result){
+      result = multiplication[k]
+    }
+  }
+  return result
+  
+  
+}
+
+// console.log(greatestProduct(matrix));
+
+
+
+function greatestProductOfDiagonals(matri) {
+  let multiplication = [];
+  let result = 0
+  for (let i = 0; i < matri.length-3; i++) {
+    for (let j = 0; j < matri.length-3; j++) {
+      
+      multiplication.push(matri[i][j] * matri[i+1][j+1] * matri[i+2][j+2]
+        *matri[i+3][j+3]) ;
+        // console.log(multiplication)
+        // multiplication.push(matri[i][j] * matri[i+1][j] * matri[i+2][j]
+        //   * matri[i+3][j]) ;
+          
+      
+        
+        }
+      }
+  for(let k = 0; k < multiplication.length; k++){
+    if(multiplication[k]> result){
+      result = multiplication[k]
+    }
+  }
+  return result
+  
+  
+}
+
+console.log(greatestProductOfDiagonals(test))
