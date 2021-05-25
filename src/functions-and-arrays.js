@@ -365,3 +365,59 @@ function greatestProduct(arrayProduct){
     }
   }
 
+
+  // Bonus - Iteration #8: Product of adjacent numbers
+
+
+  function calculGreatesProduct(matrix){
+    let productGreates = 1;
+    let productGreatesCompare = 1;
+    let element1 = 0;
+    let element2 = 0;
+    let element3 = 0;
+    let element4 = 0;
+    for (let z=0 ; z<matrix.length ; z+=1){
+      for(let i= 0 ; i<matrix[z].length-3 ; i+=1){
+        if (typeof matrix[z][i+3] === "undefined"){
+          break;
+        }else{    
+          productGreatesCompare = 1
+          element1 = matrix[z][i];
+          element2 = matrix[z][i+1];
+          element3 = matrix[z][i+2];
+          element4 = matrix[z][i+3];
+          productGreatesCompare = element1*element2*element3*element4
+
+          if (productGreatesCompare > productGreates){
+           productGreates = productGreatesCompare;
+          }
+        } 
+      }
+    }
+    for (let z=0 ; z <matrix.length ; z+=1){
+      for(let i= 0 ; i<matrix[z].length-3 ; i+=1){
+        if (matrix[i+3][z] == undefined){
+          break;
+        }else{    
+          productGreatesCompare = 1
+          element1 = matrix[i][z];
+          element2 = matrix[i+1][z];
+          element3 = matrix[i+2][z];
+          element4 = matrix[i+3][z];
+          productGreatesCompare = element1*element2*element3*element4;
+          
+          if (productGreatesCompare > productGreates){
+  
+            productGreates = productGreatesCompare;
+          }
+        } 
+      }
+    }
+    
+  return productGreates;
+  }
+  
+  console.log(calculGreatesProduct(matrix))
+
+
+
