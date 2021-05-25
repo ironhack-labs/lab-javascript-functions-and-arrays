@@ -94,13 +94,8 @@ function averageNumbers(numbersArray) {
     return numbersArray[0];
   }
 
-  let sum = 0;
 
-for (num of numbersArray) {
-sum = sum + num;
-}
-
-return sum/numbersArray.length;
+return sum(numbersArray)/numbersArray.length;
 
 }
 
