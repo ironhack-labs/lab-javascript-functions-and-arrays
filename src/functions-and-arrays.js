@@ -175,6 +175,38 @@ function averageWordLength(wordLength){
   }
   return counterWordLengthEmpty/wordLength.length;
 }
+//Bonus function avg;
+function avg(mixedElementArray){
+  if(mixedElementArray.length===0){
+    return null;
+  }
+  let sumMixedElements =0;
+  mixedElementArray.forEach(elemento =>{
+    if(typeof elemento==="string"){
+      sumMixedElements+=elemento.length;
+    }
+    if(typeof elemento==="number"){
+      sumMixedElements+=elemento;
+    }
+    if (typeof elemento==="boolean"){
+      if (elemento==true){
+        sumMixedElements += 1;
+      }
+    }
+  })
+  let mediaDaArray =Number((sumMixedElements/mixedElementArray.length).toFixed(2))
+  return mediaDaArray;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 // Iteration #5: Unique arrays
