@@ -1,19 +1,93 @@
+//24052021 - LAB 02 - Pedro Pasquali
 // Iteration #1: Find the maximum
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1
+  }
+  return n2
+}
+//--ANSWER HERE--//console.log(maxOfTwoNumbers (5, 12));
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// Iteration #3: Calculate the sum
+function findLongestWord(wordArray) {
+  if (wordArray.length === 0) {
+    return null
+  }
+  let longestWordIs = ``;
+  for (let index = 0; index < wordArray.length; index += 1) {
+    if (wordArray[index].length > longestWordIs.length) {
+      longestWordIs = wordArray[index]
+    }
+  }
+  return longestWordIs
+}
+//--ANSWER HERE--//console.log(findLongestWord(words))
 
+
+
+
+
+
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(nToBeSummed) {
+  let startEndResult = 0
+  for (let index = 0; index < nToBeSummed.length; index += 1) {
+    let lastResult = startEndResult + nToBeSummed[index]
+    startEndResult = lastResult
+  }
+  return startEndResult
+}
+//--ANSWER HERE--//console.log(sumNumbers(numbers))
+
+
+// Iteration #3.1: A generic sum() function -------- BONUS-------------------------------
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
+
 // Iteration #4: Calculate the average
+//--ANSWER HERE--//console.log(sumNumbers(numbers)/numbers.length)
+
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg1 = [];
+
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null
+  }
+  return (sumNumbers(array) / array.length)
+}
+//--ANSWER HERE--//console.log(averageNumbers(numbersAvg))
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null
+  }
+  let startEndSumOfChar = 0
+  for (let index = 0; index < arrayOfWords.length; index += 1) {
+    let lastSumOfChar = startEndSumOfChar + arrayOfWords[index].length
+    startEndSumOfChar = lastSumOfChar
+  }
+  return startEndSumOfChar / arrayOfWords.length
+}
+//--ANSWER HERE--//console.log(averageWordLength(wordsArr))
+
+
+// Iteration #4.1: A generic avg() function -------- BONUS-------------------------------
+const mixedArrn2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 5.7
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -30,8 +104,91 @@ const wordsUnique = [
   'bring'
 ];
 
+/*
+let index = 0
+wordsUnique.indexOf() // ----- returns the position
+wordsUnique[index] // ------returns the value of an element
+
+console.log(wordsUnique.indexOf(`poison`, 0))
+console.log(wordsUnique.indexOf(`poison`, 1))
+console.log(wordsUnique.indexOf(`poison`, 2))
+console.log(wordsUnique.indexOf(`poison`, 3))
+
+function uniquifyArray(arrayData) {
+  if (wordsUnique[0] === wordsUnique[1]) {
+    console.log(true)
+
+  }
+}
+
+
+
+console.log(wordsUnique[1])
+console.log(wordsUnique.indexOf(`poison`))
+
+
+
+function uniquifyArray(anyArray) {
+  let brandNewArray = [];
+  if (anyArray.length === 0) {
+  return null;
+  }
+  for (let index = 0; index < anyArray.length; index+=1) {
+    if (anyArray[index] === anyArray[index+=1]) {
+      brandNewArray.push(anyArray[1])
+    }
+  }
+
+console.log(uniquifyArray(wordsUnique))
+
+  /*
+  let brandNewArray = []
+  anyArray.forEach(function (element) {
+    for (let index = 0; index < anyArray.length; index+=1) {
+
+
+   }
+  })
+
+
+  for ()
+    if (anyArray.IndexOf(anyArray[index]) === anyArray.IndexOf(anyArray[index], ))
+
+
+    if (anyArray[index] === { brandNewArray
+
+    }
+
+
+    if (anyArray[index] === anyArray[index+1]) {
+      continue
+    } else {
+      brandNewArray.push(anyArray[index])
+    }
+  }
+  return brandNewArray
+}
+//--ANSWER HERE--//console.log(uniquifyArray(wordsUnique))
+
+
+
+*/
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (bucketOfWords, word) {
+  if ( bucketOfWords === []) {
+    return null
+  } 
+  for ( let index = 0; index < bucketOfWords.length; index+=1) {
+    if (bucketOfWords[index] === word) {
+      return true
+    }
+    return false
+  } 
+}
+//--ANSWER HERE--//console.log(doesWordExist(wordsFind, `pedro`))
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
