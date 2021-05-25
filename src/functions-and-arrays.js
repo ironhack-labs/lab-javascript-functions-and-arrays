@@ -26,11 +26,12 @@ function findLongestWord (words) {
 
   for (word of words) {
     if (word.length > longestWordLength) {
-      longestWordLength = word;
+      longestWordLength = word.length;
       longestWord = word;
     }
   }
   return longestWord;
+  return longestWordLength;
 }
 
 
