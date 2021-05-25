@@ -1,3 +1,4 @@
+/*
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
   if (num2 > num1) {
@@ -50,7 +51,7 @@ function sumNumbers(list) {
  //faltou a última função funcionar neste!
 
 
-// Iteration #4: Calculate the average
+ // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -68,7 +69,7 @@ function averageNumbers(list) {
     }
     average = Math.abs(sumTotal) / list.length;
     return average;
-  }
+  }             
 }
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -87,7 +88,7 @@ function averageWordLength(list) {
     average = Math.abs(sum) / list.length;
     return average;
   }
-}
+} 
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -182,3 +183,162 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+*/
+
+// Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num2 > num1) {
+    return num2
+  } else {
+    return num1
+  }
+}
+// Iteration #2: Find longest word
+const words2 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(list){
+let l=" ";
+if (list.length === 0){
+  return null;
+  } else {
+    for (let i = 0; i < list.length; i++){
+      if (l.length < list[i].length) {
+        l = list[i];
+      }
+    }
+  }
+  return l;
+}
+
+// Iteration #3: Calculate the sum
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(list) {
+  let sum = 0;
+  if (list.length === 0) {
+    return 0;
+  } else if (list.length === 1) {
+    return list[0];
+  } else {
+    for (let i = 0; i < list.length; i++) {
+      if (list[i] !== 0) {
+        sum += list[i];
+      } else {
+        return 0;
+      }
+    }
+    return sum;
+  }
+}
+
+// Iteration #4: Calculate the average
+// Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(list){
+  let average = 0;
+  let sumTotal = 0;
+  if (list.length ===0) {
+    return null;
+  } else if (list.length ===1) {
+    return list[0];
+  } else {
+    let sum = 0;
+    for (let i =0; i < list.length; i++) {
+      sumTotal += list[i];
+    }
+    average = Math.abs(sumTotal) / list.length;
+    return average;
+  }
+}
+
+// Level 2: Array of strings
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(list) {
+  let average = 0;
+  let sum = 0;
+  if (list.length ===0) {
+    return null;
+  } else if (list.length ===1) {
+    return list[0].length;
+    } else {
+      for (let i = 0; i < list.length; i++) {
+        sum += list[i].length;
+      }
+      average = Math.abs(sum) / list.length;
+      return average;
+    }
+}
+// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray(list) {
+  list2 = [];
+  if (list.length === 0) {
+    return null;
+  } else {
+    let uniqueArray = [...new Set(list)];
+    return uniqueArray; 
+  }
+}
+
+// Iteration #6: Find elements
+const words6 = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (list, word){
+let l = 0;
+if (list.length === 0) {
+  return null;
+  } else {
+    for (let i=0 ; i < list.length ; i++) {
+      console.log(list[i]);
+      if (word ===list[i]) {
+        l++
+      }
+    }
+    if (l === 0) {
+      return false;
+    } else if(l === 1 || again >1 ) {
+      return true
+    }
+  }
+}
+
+// Iteration #7: Count repetition
+const words7 = [
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+];
+
+function howManyTimes (list, word) {
+  let l = 0;
+  if (list.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < list.length; i++) {
+      if (word === list[i]) {
+        l++
+      }
+    }
+    return l;
+  }
+}
+
