@@ -51,7 +51,6 @@ function sum(arr) {
   let totalSum = 0;
 
   for (let i = 0; i < arr.length; i++) {
-    
     if (typeof arr[i] === "string") {
       totalSum += arr[i].length;
     } else if (typeof arr[i] === true) {
@@ -62,8 +61,7 @@ function sum(arr) {
       throw new Error("Unsupported data type sir or ma'am");
     } else {
       totalSum += arr[i];
-    
-  }
+    }
   }
   return totalSum;
 }
@@ -113,7 +111,7 @@ averageWordLength(wordsArr);
 function avg(arr) {
   let avgArray = [];
 
-  if(arr.length===0){
+  if (arr.length === 0) {
     return null;
   }
 
@@ -283,4 +281,4 @@ const matrix = [
   ],
 ];
 
-function greatestProduct(){}
+function greatestProduct() {}
