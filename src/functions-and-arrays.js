@@ -54,7 +54,15 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(mixedArray) {
 let sumResult = 0;
+let toTest = mixedArray;
 
+
+for (item of toTest) {
+let stringWords = toTest.filter(word => word === string);
+}
+
+for (item of toTest) {
+  let booleanValues = toTest.filter(boo => boo === Boolean);
 }
 
 
