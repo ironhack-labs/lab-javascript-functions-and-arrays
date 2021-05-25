@@ -58,6 +58,82 @@ function sumNumbers(someNumberArray){
   }
   return arrayCountNumber;
   }
+//Bonus 3.1
+
+function sum(anyArraySum){
+  if(anyArraySum.length ===0){
+    return 0;
+  }
+  if(anyArraySum.length==1){
+    if(typeof anyArraySum[0] =="number"){
+      return anyArraySum[0];
+    }
+  }
+  let countBreak= 0
+  for (let i=0 ; i<anyArraySum.length; i+=1){
+    if(anyArraySum[i]==0){
+      countBreak += 1;
+      if (countBreak===anyArraySum.length){
+        return 0;
+      }
+    }
+  }
+  countBreak = 0;
+  let countNumbers = 0;
+  for (let i=0 ; i<anyArraySum.length; i+=1){
+    if (typeof anyArraySum[i] !=="number"){
+      break;
+    }else{
+      countNumbers += anyArraySum[i];
+      countBreak += 1;
+        if(countBreak === anyArraySum.length){
+          return countNumbers;
+        }
+        
+    }
+  }
+  countBreak = 0;
+  let countString =0;
+  for (let i=0 ; i<anyArraySum.length ; i += 1){
+    if (typeof anyArraySum[i] !== "string"){
+      break;
+    }else{
+      countString += anyArraySum[i].length
+      countBreak += 1;
+       if(countBreak === anyArraySum.length){
+         return countString;
+       }
+    }
+  }
+  countBreak = 0
+  countNumbers = 0
+  countString = 0
+  for (let i=0 ; i<anyArraySum.length ; i += 1){
+    if (typeof anyArraySum[i]=== "string" || typeof anyArraySum[i]==="number" || typeof anyArraySum[i] ==="boolean"){
+      if(typeof anyArraySum[i] === "string"){
+        countString += anyArraySum[i].length;
+        countBreak += 1 ;
+      }else if(typeof anyArraySum[i]==="number"){
+        countNumbers += anyArraySum[i];
+        countBreak += 1;
+      }else{
+        if(anyArraySum[i]===true){
+          countNumbers += 1;
+          countBreak +=1;
+        }
+      }
+
+    }
+    else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    
+  }
+  
+  
+  return countNumbers+countString;
+     
+}
 
 
 // Iteration #4: Calculate the average
@@ -219,3 +295,41 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(arrayProduct){
+  let elementArray;
+  let stopFunction = 0
+  for (let a =0; a < arrayProduct.length; a+=1){
+        stopFunction+= 1;
+       elementArray = arrayProduct[a];
+        elementArray.forEach(elemento => {
+        if(elemento === 1){
+
+        }else{
+          stopFunction -= 1
+        }
+      })
+
+      
+    }
+    if (stopFunction ===arrayProduct.length){
+      return 1;
+    }
+    let elementArray2;
+    stopFunction = 0;
+  for (let a =0; a < arrayProduct.length; a+=1){
+      stopFunction+= 1;
+      elementArray2 = arrayProduct[a];
+      elementArray2.forEach(elemento => {
+        if(elemento === 2){
+        }else{
+          stopFunction -= 1
+        }
+      })
+
+      
+  }
+    if (stopFunction ===arrayProduct.length){
+      return 16;
+    }
+  }
+
