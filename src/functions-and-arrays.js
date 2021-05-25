@@ -21,7 +21,7 @@ function findLongestWord (words) {
     return words[0];
   } 
   
-  let longestWordLength = 0;
+  let longestWordLength;
   let longestWord;
 
   for (word of words) {
@@ -48,6 +48,22 @@ let sumOfNumbers = 0;
 
 return sumOfNumbers;
 }
+
+/* good solution
+
+function sumNumbers(listOfNumbers) {
+  let result = 0
+  for (let i = 0; i < listOfNumbers.length; i++) {
+    console.log("i", i)
+    const element = listOfNumbers[i];
+    console.log("element", element)
+    result += element
+    console.log("result", result)
+  }
+  return result
+}
+
+*/
 
 // Bonus - #3.1: A generic sum() function
 
