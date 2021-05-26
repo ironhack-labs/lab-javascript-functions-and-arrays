@@ -281,4 +281,25 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function productOfAll(arr) {
+  let product = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    product *= arr[i];
+  }
+  return product;
+}
+
+function greatestProduct(arr) {
+  let greatestsOfAll = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let currentArray = arr[i].sort((a, b) => a - b);
+
+    greatestsOfAll.push(currentArray[0]);
+  }
+
+  let finalNumbers = greatestsOfAll.slice(0, 4);
+
+  return productOfAll(finalNumbers);
+}
