@@ -1,12 +1,15 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers (num1, num2) {
   if (num1> num2) {
-    return num1 + "is the maximum of the inserted values"
+    return num1; 
   }
   else if (num2> num1) {
-    return num2 + "is the maximum of the inserted values";
+    return num2;
   }
-}
+  else if (num1 = num2){
+    return num1 || num2
+  }
+  }
 
 maxOfTwoNumbers(1, 2)
 
@@ -14,10 +17,25 @@ maxOfTwoNumbers(1, 2)
 const words = ['mystery', 'brother', 'avialtor', 'crocodile', 'pearl', 'orchard', 'crackpoto'];
 
 function findLongestWord (arrayOfWords) {
-  const arraySorted = arrayOfWords.sort((a,b) => a.length - b.length);
+  if (arrayOfWords.length === 0) 
+    return null;
+  let currentLongest= '';
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    const word = arrayOfWords[i];
+
+    if (word.length > currentLongest.length) {
+      currentLongest = word
+  }
+    }
+    return currentLongest
+  }
+  
+/* try1:  const arraySorted = arrayOfWords.sort((a,b) => a.length - b.length);
   return arraySorted.reverse()[0]
-}
+*/
+
 findLongestWord (words)
+
 
 // Iteration #3: Calculate the sum
 
@@ -25,10 +43,12 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (arrayOfNrs) {
   let sumCalc = 0;
+  if (arrayOfNrs.length === 0) 
+      return 0;
   for (let i=0; i<arrayOfNrs.length; i++){
     sumCalc += arrayOfNrs[i];
   }
-  return 'The sum is' + " " + sumCalc
+  return sumCalc
 }
 sumNumbers (numbers)
 
@@ -38,19 +58,23 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (arrayOfNrs) {
   let cntr = 0;
+  if (arrayOfNrs.length === 0) 
+    return null;
   for (let i = 0; i<arrayOfNrs.length; i++){
     cntr += arrayOfNrs[i]
   }
-  return 'The average is' + ' ' + cntr/arrayOfNrs.length
+  return cntr/arrayOfNrs.length
 }
-averageNumbers(numbersAvg)
 
+averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength (arrayOfWords) {
   let totalLength = 0
+  if (arrayOfWords.length === 0) 
+    return null;
   for (let i = 0; i<arrayOfWords.length; i++){
     totalLength += arrayOfWords[i].length;
   }
@@ -76,6 +100,8 @@ const wordsUnique = [
 
 function uniquifyArray (array) {
   let uniqueArray = [];
+  if (array.length === 0) 
+    return null;
   for(let i=0; i<array.length; i++){
       if (uniqueArray.indexOf(array[i])=== -1) {
         uniqueArray.push(array[i]); 
@@ -84,12 +110,15 @@ function uniquifyArray (array) {
   return uniqueArray;
 }
 
+
 uniquifyArray (wordsUnique)
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist (arrayOfWords, wordToSearchFor) {
+  if (arrayOfWords.length === 0) 
+    return null;
   return arrayOfWords.includes(wordToSearchFor);
 }
 
@@ -112,6 +141,8 @@ const wordsCount = [
 
 function howManyTimes (array, word) {
   let cntr = 0;
+  if (array.length === 0) 
+    return 0;
   for (let i=0; i<array.length; i++) {
     if (array[i] === word) {
       cntr++    
@@ -126,6 +157,7 @@ function howManyTimes (array, word) {
   howManyTimes(wordsCount, 'matter')
 
 // Iteration #8: Bonus
+//works but not accepted in jasmine :(
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -150,6 +182,55 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix) {
-  
+//check the nr of nested arrays and arrayobjects
+//console.log(matrix.length)
+//console.log(matrix[0].length)
+// matrix.length=20
+let n = 20
+
+//Grouping each 4 elements that are adjacent to each other in each row and calculate their maximum result.
+function greatestProduct (arr, n) {
+  //initializing container for results and and one to copy the result if the next result is higher than the one before..
+  let max = 0, result;
+  //accessing the rows
+  for (let i=0; i<n; i++){
+    //accessing the columns
+    for (let j=0; j<n; j++){
+      //looping through the lines in 4 nr steps (via modifying j)
+        if ((j-3) >= 0) {
+          result = (arr[i][j] * arr[i][j-1]
+                    * arr[i][i-2]
+                    * arr[i][i-3]);
+                    if (max < result)
+                       max = result;
+        } 
+      //looping through the columns in 4nr steps (via modifying i)
+        if  ((i-3) >= 0) {
+          result = (arr[i][j] * arr[i-1][j]
+                  * arr[i-2][j]
+                  * arr[i-3][j]);
+                  if (max<result)
+                    max=result;
+        }
+      // looping diagonal (down-right) in 4nr steps
+        if ((i-3)>=0 && (j-3)>=0) {
+          result = (arr[i][j]* arr[i-1][j-1]
+                  * arr[i-2] [j-2]
+                  * arr[i-3] [j-3]);
+                if (max < result)
+                  max = result;
+        }
+      // looping diagonal (up-right) in 4nr steps
+      if ((i-3)>=0 && (j-3)<= 0) {
+        result = arr[i][j]* arr[i-1][j+1]
+                * arr[i-2][j+2]
+                * arr[i-3][j+3];
+              if (max < result)
+                max = result;                
+        }
+    }
+  }
+return max;
 }
+
+greatestProduct(matrix, n);
