@@ -14,7 +14,9 @@ When playing Clue, these three details are represented by a **suspect** card, a 
 
 - Fork this repo
 - Clone this repo
-- Visit the "actions" tab in your fork, and enable workflows
+- Visit the "Actions" tab in your fork, and enable workflows
+
+<br>
 
 ## Submission
 
@@ -28,27 +30,36 @@ git push origin master
 
 - Create Pull Request so your TAs can check up your work.
 
+<br>
+
 ## Remember our tests!
 
 We will be working with automated tests again!
 
-Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up to date test results.
+Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up-to-date test results.
+
+<br>
 
 ## Instructions
 
-You will be working in the `src/clue.js` file. The test file (`tests/clue.spec.js`) will guide you in solving the following challenges.
+You will be working in the `src/clue.js` file. The test requirements (`tests/clue.spec.js`) will guide you in solving the following iterations.
+
+<br>
 
 ### Iteration 1: Create the cards
 
-Clue has three different _card types_: **suspects**, **rooms**, and **weapons**. We will be given the same amount of information for any given card with the same _card type_.
+Clue has three different _card types_: **suspects**, **rooms**, and **weapons**.
 
-As such, let's create an `array` for every _card type_, that is going contain the _objects_ representing each card. These arrays should be named `suspectsArray`, `weaponsArray`, `roomsArray`.
+Let's create an `array` for every _card type_. These arrays should be named `suspectsArray`, `weaponsArray`, `roomsArray`.
+Each array will contain _objects_, where each _object_ represents one card.
 
 All of the information you need about **suspects**, **rooms**, and **weapons** can be found on the `DATA.md` file.
 
-_Suggestion_: Copy this data into the `clue.js` file and model it into objects nested inside your cards arrays. This is a great chance for you to experiment with IDE shortcuts, multiple-line selection, find and replace, and other great features that VS Code provides you with.
+_Suggestion_: Copy this data into the `clue.js` file and model it into objects nested inside your cards arrays. This is a great chance for you to experiment with IDE shortcuts, multiple-line selection, find and replace, and other great features that VS Code provides.
 
-### Game suspects
+<br>
+
+#### Suspects
 
 All of six possible _suspects_ in Clue have a **first name**, **last name**, **occupation**, **age**, **description**, **image** and **color**.
 
@@ -66,25 +77,37 @@ const suspectsArray = [
 ];
 ```
 
-### Available weapons
+<br>
+
+#### Weapons
 
 There are a total of nine _weapons_. Each of them has a different **name** and **weight**.
 
-### Mansion rooms
+<br>
+
+#### Rooms
 
 The game board represents the blueprints of the mansion and features fifteen different _rooms_. Each room will only have a **name**.
+
+<br>
 
 ### Iteration 2: Create the mystery
 
 At the beginning of the game, players shuffle each of the card stacks to create a combination of _suspect_, _weapon_ and _room_. This will be the mystery to solve.
 
+<br>
+
 #### Random selector
 
 Declare a function named `selectRandom` to randomly select one element from a card stack. The function should expect an `array` as an argument, and should return a random element from the array.
 
+<br>
+
 #### Create the mystery
 
 Declare a function named `pickMystery` that takes no arguments and returns an object with three properties: _suspect_, _weapon_ and _room_, each holding as a value a card of that specific type. You can get a random card of each type by calling `selectRandom` on each card stack.
+
+<br>
 
 ### Iteration 3: Reveal the mystery
 
@@ -93,6 +116,8 @@ At last, we are ready to reveal the mystery.
 Declare a function named `revealMystery` that receives an _envelope_ `object` (with the shape of the object returned by `pickMystery`) as the single argument, and returns a reveal message in the following format:
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
+
+<br>
 
 ## Extra Resources
 

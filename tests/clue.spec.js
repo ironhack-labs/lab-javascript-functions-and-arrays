@@ -58,26 +58,6 @@ describe('Array "suspectsArray', () => {
   });
 });
 
-describe('Array "roomsArray', () => {
-  it('should be an array', () => {
-    expect(roomsArray instanceof Array).toBeTruthy();
-  });
-
-  it('should have 15 rooms', () => {
-    expect(roomsArray).toHaveLength(15);
-  });
-
-  describe('Room Objects', () => {
-    beforeAll(() => {
-      expect(roomsArray.length).toBeTruthy();
-    });
-
-    it('should have a string in property "name"', () => {
-      for (let room of roomsArray) expect(typeof room.name).toBe('string');
-    });
-  });
-});
-
 describe('Array "weaponsArray', () => {
   it('should be an array', () => {
     expect(weaponsArray instanceof Array).toBeTruthy();
@@ -103,6 +83,27 @@ describe('Array "weaponsArray', () => {
     });
   });
 });
+
+describe('Array "roomsArray', () => {
+  it('should be an array', () => {
+    expect(roomsArray instanceof Array).toBeTruthy();
+  });
+
+  it('should have 15 rooms', () => {
+    expect(roomsArray).toHaveLength(15);
+  });
+
+  describe('Room Objects', () => {
+    beforeAll(() => {
+      expect(roomsArray.length).toBeTruthy();
+    });
+
+    it('should have a string in property "name"', () => {
+      for (let room of roomsArray) expect(typeof room.name).toBe('string');
+    });
+  });
+});
+
 describe('Function "selectRandom" - Find a random element of the array', () => {
   it('should be declared', () => {
     expect(typeof selectRandom).toBe('function');
@@ -110,6 +111,7 @@ describe('Function "selectRandom" - Find a random element of the array', () => {
 
   it("should return undefined if the array is empty", () => {
     expect(selectRandom([])).toBe(undefined);
+    expect(selectRandom(['a', 'ab', 'cd'])).toBeDefined();
   });
 
   it("should return the element of a single value array", () => {
@@ -154,8 +156,13 @@ describe('Function "pickMystery" - Pick a random mystery', () => {
     expect(mistery !== null).toBeTruthy();
   });
 
-  it('should return an object with 3 properties', () => {
-    expect(Object.keys(pickMystery())).toHaveLength(3);
+  it('should return an object with 3 properties: `suspect`, `weapon`, `room`', () => {
+    const mistery = pickMystery();
+
+    expect(Object.keys(mistery)).toHaveLength(3);
+    expect(mistery).toHaveProperty('suspect');
+    expect(mistery).toHaveProperty('weapon');
+    expect(mistery).toHaveProperty('room');
   });
 
   it('should return a suspect in the suspect property of the object', () => {
