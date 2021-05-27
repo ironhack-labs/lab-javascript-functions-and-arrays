@@ -4,14 +4,14 @@ Use this data to model your game cards into objects.
 
 ### Suspects
 
-mrGreen <br>
-firstName: Jacob <br>
+mrGreen<br>
+firstName: Jacob<br>
 lastName: Green<br>
 occupation: Entrepreneur<br>
-age: 45 <br>
+age: 45<br>
 description: He has a lot of connections<br>
-image: https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg <br>
-color: green <br>
+image: https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg<br>
+color: green<br>
 
 drOrchid<br>
 firstName: Doctor<br>
@@ -28,7 +28,7 @@ lastName: Plum<br>
 occupation: Designer<br>
 age: 22<br>
 description: Billionaire video game designer<br>
-image: https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg <br>
+image: https://66.media.tumblr.com/ee7155882178f73b3781603f0908617c/tumblr_phhxc7EhPJ1w5fh03_540.jpg<br>
 color: purple<br>
 
 missScarlet<br>
