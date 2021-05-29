@@ -105,7 +105,7 @@ return sum(numbersArray)/numbersArray.length;
 
 }
 
-#4.1:
+// #4.1:
 function avg(arr) {
   let avgArray = [];
   if(arr.length===0){
