@@ -69,19 +69,25 @@ function sumNumbers(listOfNumbers) {
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum(mixedArray) {
-let sumResult = 0;
-let toTest = mixedArray;
-
-
-for (item of toTest) {
-let stringWords = toTest.filter(word => word === string);
+function sum(arr) {
+  if (arr.length === 0) return 0
+  let result = 0
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (typeof element === 'string') {
+      result += element.length
+    } else if (typeof element === 'boolean') {
+      if (element === true) {
+        result += 1
+      }
+    } else if (typeof element === 'number') {
+      result += element
+    } else {
+      throw new Error("Unsupported data type sir or ma'am") // not string, boolean or number
+    }
+  }
+  return result
 }
-
-for (item of toTest) {
-  let booleanValues = toTest.filter(boo => boo === Boolean);
-}
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -203,7 +209,7 @@ for (word of wordsCount) {
 return howMany;
 }
 
-// Iteration #8: Bonus
+// Iteration #8: Bonus - Product of adjacent numbers
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -227,3 +233,42 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix) {
+
+  let productHorizontal;
+  let productVertical;
+
+  for (let i = 0; i <= matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+        testProductHorizontal = (matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]);
+        if (testProductHorizontal > productHorizontal) {
+          productHorizontal = testProductHorizontal;
+        }
+    }
+  }
+
+  console.log(productHorizontal)
+
+  for (let i = 0; i <= matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+        testProductVertical = (matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]);
+        if (testProductVertical > productVertical) {
+          productVertical = testProductVertical;
+        }
+    }
+  }
+  console.log(productVertical);
+
+  let result = maxOfTwoNumbers(productHorizontal, productVertical);
+
+  console.log(result);
+  return result;
+}
+
+// Iteration #8.1: Bonus - Product of diagonals
+
+function greatestProductOfDiagonals(matrix) {
+
+
+}
