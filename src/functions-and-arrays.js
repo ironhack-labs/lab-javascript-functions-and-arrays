@@ -67,11 +67,8 @@ function sumNumbers(listOfNumbers) {
 
 // Bonus - #3.1: A generic sum() function
 
-<<<<<<< HEAD
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-=======
->>>>>>> 05dbeedef0a78fb36e9715487bac489d831501d7
 function sum(arr) {
   if (arr.length === 0) return 0
   let result = 0
@@ -108,7 +105,7 @@ return sum(numbersArray)/numbersArray.length;
 
 }
 
-#4.1:
+// #4.1:
 function avg(arr) {
   let avgArray = [];
   if(arr.length===0){
