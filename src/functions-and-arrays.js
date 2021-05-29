@@ -256,10 +256,10 @@ const matrix = [
 
 function greatestProduct(matrix) {
 
-  let productHorizontal;
-  let productVertical;
+  let productHorizontal = 0;
+  let productVertical = 0;
 
-  for (let i = 0; i <= matrix.length; i++) {
+  for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length - 3; j++) {
         testProductHorizontal = (matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]);
         if (testProductHorizontal > productHorizontal) {
@@ -270,7 +270,7 @@ function greatestProduct(matrix) {
 
   console.log(productHorizontal)
 
-  for (let i = 0; i <= matrix.length - 3; i++) {
+  for (let i = 0; i < matrix.length - 3; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
         testProductVertical = (matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]);
         if (testProductVertical > productVertical) {
