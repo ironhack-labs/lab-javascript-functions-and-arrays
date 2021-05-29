@@ -67,19 +67,24 @@ function sumNumbers(listOfNumbers) {
 
 // Bonus - #3.1: A generic sum() function
 
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
-function sum(mixedArray) {
-let sumResult = 0;
-let toTest = mixedArray;
-
-
-for (item of toTest) {
-let stringWords = toTest.filter(word => word === string);
-}
-
-for (item of toTest) {
-  let booleanValues = toTest.filter(boo => boo === Boolean);
+function sum(arr) {
+  if (arr.length === 0) return 0
+  let result = 0
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (typeof element === 'string') {
+      result += element.length
+    } else if (typeof element === 'boolean') {
+      if (element === true) {
+        result += 1
+      }
+    } else if (typeof element === 'number') {
+      result += element
+    } else {
+      throw new Error("Unsupported data type sir or ma'am") // not string, boolean or number
+    }
+  }
+  return result
 }
 
 
