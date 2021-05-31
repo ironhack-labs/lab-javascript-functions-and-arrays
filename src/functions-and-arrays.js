@@ -1,4 +1,11 @@
-//24052021 - LAB 02 - Pedro Pasquali
+
+//---LAB 02 - JS Functions and Arrays -- 24.05.2021
+//---Writen by Pedro Pasquali
+//---Code Diary--//
+/*
+31.05.21 - Bonus 3.1 + 4.1. Falta 8.0 + 8.1
+
+*/
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(n1, n2) {
   if (n1 > n2) {
@@ -27,10 +34,6 @@ function findLongestWord(wordArray) {
 //--ANSWER HERE--//console.log(findLongestWord(words))
 
 
-
-
-
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -46,17 +49,36 @@ function sumNumbers(nToBeSummed) {
 
 
 // Iteration #3.1: A generic sum() function -------- BONUS-------------------------------
+// should return: 57 (Ou é 56???)
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-// should return: 57
+
+// console.log(mixedArr[5] === true)
+// console.log(typeof mixedArr[5].length)
+
+function sumArrays(toBeSummed) {
+  let startEndResult = 0;
+  for (let index = 0; index < toBeSummed.length; index += 1) {
+    switch (typeof toBeSummed[index]) {
+      case 'number':
+        startEndResult += toBeSummed[index];
+        break;
+      case 'string':
+        startEndResult += toBeSummed[index].length;
+        break;
+      case true:
+        startEndResult += 1;
+        break;
+    }
+  }
+  return startEndResult
+}
+//--ANSWER HERE--//console.log(sumArrays(mixedArr))
+
 
 
 // Iteration #4: Calculate the average
-//--ANSWER HERE--//console.log(sumNumbers(numbers)/numbers.length)
-
-
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-const numbersAvg1 = [];
 
 function averageNumbers(array) {
   if (array.length === 0) {
@@ -88,6 +110,15 @@ function averageWordLength(arrayOfWords) {
 const mixedArrn2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 5.7
 
+function avgArr(array) {
+  if (array.length === 0) {
+    return null
+  }
+  return (sumArrays(mixedArrn2) / mixedArrn2.length)
+}
+//--ANSWER HERE--//console.log(avgArr(mixedArrn2))
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -104,91 +135,34 @@ const wordsUnique = [
   'bring'
 ];
 
-/*
-let index = 0
-wordsUnique.indexOf() // ----- returns the position
-wordsUnique[index] // ------returns the value of an element
-
-console.log(wordsUnique.indexOf(`poison`, 0))
-console.log(wordsUnique.indexOf(`poison`, 1))
-console.log(wordsUnique.indexOf(`poison`, 2))
-console.log(wordsUnique.indexOf(`poison`, 3))
-
-function uniquifyArray(arrayData) {
-  if (wordsUnique[0] === wordsUnique[1]) {
-    console.log(true)
-
+function uniquifyArray (arrayData) {
+  let newArrayData = [];
+  for (let index = 0; index < arrayData.length; index += 1) {
+    if (arrayData.indexOf(arrayData[index],index+1) == `-1`) {
+      newArrayData.unshift(arrayData[index]);
+    }
   }
+  return newArrayData;
 }
+//--ANSWER HERE--//console.log(uniquifyArray(wordsUnique));
 
 
-
-console.log(wordsUnique[1])
-console.log(wordsUnique.indexOf(`poison`))
-
-
-
-function uniquifyArray(anyArray) {
-  let brandNewArray = [];
-  if (anyArray.length === 0) {
-  return null;
-  }
-  for (let index = 0; index < anyArray.length; index+=1) {
-    if (anyArray[index] === anyArray[index+=1]) {
-      brandNewArray.push(anyArray[1])
-    }
-  }
-
-console.log(uniquifyArray(wordsUnique))
-
-  /*
-  let brandNewArray = []
-  anyArray.forEach(function (element) {
-    for (let index = 0; index < anyArray.length; index+=1) {
-
-
-   }
-  })
-
-
-  for ()
-    if (anyArray.IndexOf(anyArray[index]) === anyArray.IndexOf(anyArray[index], ))
-
-
-    if (anyArray[index] === { brandNewArray
-
-    }
-
-
-    if (anyArray[index] === anyArray[index+1]) {
-      continue
-    } else {
-      brandNewArray.push(anyArray[index])
-    }
-  }
-  return brandNewArray
-}
-//--ANSWER HERE--//console.log(uniquifyArray(wordsUnique))
-
-
-
-*/
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist (bucketOfWords, word) {
-  if ( bucketOfWords === []) {
+function doesWordExist(bucketOfWords, word) {
+  if (bucketOfWords.length === 0) {
     return null
-  } 
-  for ( let index = 0; index < bucketOfWords.length; index+=1) {
+  }
+  for (let index = 0; index < bucketOfWords.length; index += 1) {
+    console.log(index)
     if (bucketOfWords[index] === word) {
       return true
     }
-    return false
-  } 
+  }
+  return false
 }
-//--ANSWER HERE--//console.log(doesWordExist(wordsFind, `pedro`))
-
+//--ANSWER HERE--//console.log(doesWordExist(wordsFind,`subset`))
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -202,8 +176,21 @@ const wordsCount = [
   'matter',
   'truth',
   'disobedience',
-  'matter'
+  'matter',
+  `machine`
 ];
+
+function howManyTimes (searchArray, wordToCheck) {
+  totalTimes = 0;
+  for (let index = 0; index < searchArray.length; index += 1) {
+    if (searchArray[index] === wordToCheck) {
+      totalTimes += 1;
+    }
+  }
+  return totalTimes;
+}
+//--ANSWER HERE--//console.log(howManyTimes(wordsCount,`machine`));
+
 
 // Iteration #8: Bonus
 
@@ -229,3 +216,19 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+console.log(matrix[0][10])
+
+function greatestProduct(anyMatrix) {
+  let index = 0
+  let biggestNumbers = []
+  for (index; index < anyMatrix.length; index += 1 ) {
+    for (index; index < anyMatrix[index].length; += 1) {
+      if (anyMatrix[index][index] > anyMatrix[index][index+1]) {
+
+      }
+    }
+  }  
+
+}
+// Iteration #8.1: Bonus
