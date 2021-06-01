@@ -112,8 +112,8 @@ function averageWordLength(arrayLen) {
     return media;
    }
   }
-console.log(averageWordLength(wordsArr))
-console.log("-=".repeat(25))
+console.log(averageWordLength(wordsArr));
+console.log("-=".repeat(25));
 
 // Bonus - Iteration #4.1
 function avg(arrayMix) {
@@ -124,7 +124,7 @@ function avg(arrayMix) {
     let soma = sum(arrayMix);
     let tam = arrayMix.length;
     let media = soma/tam;
-    console.log(media)
+    console.log(media);
     return media;
   }
 }
@@ -144,16 +144,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (array.length === 0){
+    return null;
+  }
+  else{
+    return Array.from(new Set(array)); //? From internet - Set is a new function (ES6) that removes repeated words
+  }
+}
 
-
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) { //indexOf returns -1 if does not exist
+  if (array.length === 0){
+    return null;
+  }
+  else{
+    for (let i = 0; i < array.length; i++){
+      if (array.indexOf(word)=== -1){
+        return false
+      }
+      else {
+        return true
+      }
+    }
+  }
+  
+}
 
-
+console.log(doesWordExist(wordsFind, "subset"))
 
 // Iteration #7: Count repetition
 const wordsCount = [
