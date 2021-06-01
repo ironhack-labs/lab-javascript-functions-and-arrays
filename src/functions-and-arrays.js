@@ -50,6 +50,10 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(anArr) {  
+  if (anArr.length == 0) {
+    return null
+  }
+
   let average = 0;
   
   let total = sumNumbers(anArr)
@@ -62,6 +66,10 @@ function averageNumbers(anArr) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(anArr) { 
+  if (anArr.length == 0) {
+    return null
+  }
+  
   let total = 0;
   
   for (let i = 0; i < anArr.length; i++){
