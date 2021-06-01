@@ -44,23 +44,17 @@ function sumNumbers(arr){
 
 function sum(arr){
   let sumed = 0
-  if(arr.length === 0){
-    return 0
-  } 
+  if(arr.length === 0) return 0 
   for(let i = 0; i< arr.length; i++){
-    if(typeof arr[i]=== 'string'){
+     if(typeof arr[i]=== 'object' || typeof arr[i]=== 'array'){
+       throw new Error("Unsupported data type sir or ma'am")
+    }else if(typeof arr[i]=== 'string'){
       sumed = sumed + arr[i].length
-    } else if(typeof arr[i]==='object'){
-      //arrojar un error ¿?¿ return 'ERROR'     || alert('ERROR')
-    } else {
+    }else {
       sumed = sumed + arr[i]
-    }
-    
+    } 
   }
   return sumed
-  
-  
-
 }
 
 
@@ -86,9 +80,8 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(arr){
   let sumed = 0
   let average
-  if(arr.length === 0){
-    return null
-  }  for(let i = 0; i< arr.length; i++){
+  if(arr.length === 0) return null 
+  for(let i = 0; i< arr.length; i++){
     sumed = sumed + arr[i].length
   }
   average = sumed/arr.length
@@ -96,19 +89,20 @@ function averageWordLength(arr){
 }
 function avg(arr){
   let sumed = 0
-  let average 
-  if(arr.length === 0){
-    return null
-  } 
+  if(arr.length === 0) return null
   for(let i = 0; i< arr.length; i++){
     if(typeof arr[i]=== 'string'){
       sumed = sumed + arr[i].length
+    } else if(typeof arr[i]=== false ){
+      sumed = sumed 
+    } else if(typeof arr[i]=== true ){
+      sumed ++
     } else {
       sumed = sumed + arr[i]
     }
   }
-  average = sumed/arr.length
-  return average
+  let average = sumed/arr.length
+  return Number(average.toFixed(2))
 }
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -125,7 +119,14 @@ const wordsUnique = [
   'bring'
 ];
 function uniquifyArray(arr){
-
+  if (arr.length ===0) return null
+  for(let i=0; i<=arr.length; i++){
+    for(let k=1; k<=arr.length; k++){
+      if(arr[i]===arr[k]){
+        arr.splice(k,1)
+      }
+    }
+  }
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
