@@ -192,9 +192,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  let counter = 0;
+  if (array.length === 0){
+    return 0;
+  }
+  else{
+    for (let i = 0; i < array.length; i++){
+      if (array[i]===word){
+        counter++
+      }
+    }
+    return counter;
+  }
+}
 
-
+console.log(howManyTimes(wordsCount, "matter"))
 
 // Iteration #8: Bonus
 const matrix = [
@@ -220,9 +233,20 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+//Matriz 20x20
+console.log("-=".repeat(25))
+function greatestProduct(array) {
+  let maior = 0;
+  //Primeira parte -> Multiplicar os laterais
+  for (let i = 0; i < array.length; i++){
+    for (let j = 0; j < array[i].length; j++){
+      console.log(array[i][j])
+    }
+    console.log("-=".repeat(25))
+  }
+}
 
-
+greatestProduct(matrix)
 
 
 // The following is required to make unit tests work.
