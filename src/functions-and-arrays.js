@@ -120,8 +120,15 @@ function uniquifyArray(anArr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(anArr, aString) {
+  for (let i = 0; i <anArr.length; i++){
+    let word = anArr[i]
+    if (word == aString){
+      return true
+    }
+  }
+  return false 
+}
 
 
 // Iteration #7: Count repetition
