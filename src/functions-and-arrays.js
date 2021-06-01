@@ -1,24 +1,79 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2){
+      return n1;
+  } else if (n2 > n1){
+      return n2;
+  } else {
+      return n1;
+    }
+}
+console.log(maxOfTwoNumbers(5, 6))
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  let maior = 0;
+  let palavra = "";
+  if (array.length === 0){
+    return null;
+  }
+  else{
+    for (let i = 0; i < array.length; i++){
+      if (array[i].length > maior){
+        maior = array[i].length;
+        palavra = array[i];
+      }
+      else if (array[i] === maior) {
+        continue;
+      }
+  
+    }
+  }
+  
+  return palavra;
+}
 
-
+console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNum) {
 
+    let soma = 0
+    for (let i = 0; i < arrayNum.length; i++){
+        soma = soma + arrayNum[i];
+    }
+    return soma;
+}
 
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arraySum) {
+  let soma = 0;
+  for (let i = 0; i < arraySum.length; i++){
+    if (typeof arraySum[i]==="string"){
+      soma += arraySum[i].length;
+      //console.log(`Soma de len: ${arraySum[i]} e total ${soma}`)
+    } else if (typeof arraySum[i] === true){
+      if (arraySum[i]){
+        soma += 1;
+      } else{
+        soma -= 1;
+      }
+    } else{
+      soma += arraySum[i];
+      //console.log(soma)
+    }
+  }
+  return soma;
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(sum(mixedArr));
+
 
 
 
