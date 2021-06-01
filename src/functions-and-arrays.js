@@ -8,6 +8,7 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -28,6 +29,7 @@ function findLongestWord(anArr) {
   return longestWord
 }
 
+
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -40,6 +42,7 @@ function sumNumbers(anArr) {
   }
   return total    
 }
+
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -62,6 +65,7 @@ function averageNumbers(anArr) {
   return average;
 }
 
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -79,8 +83,10 @@ function averageWordLength(anArr) {
   return average
 }
 
+
 // Bonus - Iteration #4.1
 function avg() {}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -97,8 +103,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(anArr) {
+  if (anArr.length == 0)
+    return null
+  
+  let result = []
+  for (let i = 0; i <anArr.length; i++){
+    if (!result.includes(anArr[i])) {
+      result.push(anArr[i])
+    }
+  }
+  return result
+}
 
 
 // Iteration #6: Find elements
