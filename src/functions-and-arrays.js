@@ -13,14 +13,16 @@ function maxOfTwoNumbers(num1, num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(wordsArr) {
-  let longest = '';
-  if (!wordsArr.length) {
+function findLongestWord(wordArr) {
+  // if empty array, return null
+  if (!wordArr.length) { 
     return null;
   }
-  for (let i=0; i < wordsArr.length; i++) {
-    if (wordsArr[i].length > longest.length) {
-      longest = wordsArr[i]
+  // iterate through, and replace 'longest' with [i] if [i] is longer than the the current longest string.
+  let longest = '';
+  for (let i=0; i < wordArr.length; i++) {
+    if (wordArr[i].length > longest.length) {
+      longest = wordArr[i]
     }
   }
   return longest;
@@ -36,16 +38,43 @@ function sumNumbers(numArr) {
     return 0
   }
   let newSum = 0;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < numArr.length; i++) {
     newSum += numArr[i];
   }
-  return newSum
+  return newSum;
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+function sum(mixedArr) {
+  if (mixedArr.length == 0) {
+    return 0;
+  }
+  let newSum = 0;
+  //using a switch case to treat different data types appropriately.
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    switch (typeof (mixedArr[i])) {
+      case "string":
+        newSum += mixedArr[i].length;
+        break;
+      case "boolean":
+        if (mixedArr[i]) {
+          newSum ++
+        }
+        break;
+      case "number":
+        newSum += mixedArr[i];
+        break;
+      default:
+        throw 'Unsupported data type sir or ma\'am'
+        
+    }
+  }
+  return newSum;
+}
 
 
 
@@ -53,16 +82,67 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numArr) {
+  // if empty array, return null
+  if (!numArr.length) { 
+    return null;
+  }
+  //Add 'em to sigma as you go, then divide by array length
+  let sigma = 0
+  for (let i=0; i<numArr.length; i++) {
+    sigma += numArr[i]
+  }
+  return (sigma / numArr.length);
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArr) { 
+
+   // if empty array, return null
+   if (!wordArr.length) { 
+    return null;
+  }
+  let charCount = 0;
+  for (let i=0; i < wordArr.length; i++) {
+    charCount += wordArr[i].length;
+    }
+  return (charCount / wordArr.length)
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length == 0) {
+    return null;
+  }
+  let newSum = 0;
+  //using a switch case to treat different data types appropriately.
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    switch (typeof (mixedArr[i])) {
+      case "string":
+        newSum += mixedArr[i].length;
+        break;
+      case "boolean":
+        if (mixedArr[i]) {
+          newSum ++
+        }
+        break;
+      case "number":
+        newSum += mixedArr[i];
+        break;
+      default:
+        throw 'Unsupported data type sir or ma\'am'
+        
+    }
+  }
+  let floatMean = newSum / mixedArr.length;
+  let cleanMean = parseFloat(floatMean.toFixed(2));
+  return cleanMean
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -79,7 +159,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(duplicatesArr) {
+  if (duplicatesArr.length == 0) {
+    return null;
+  }
+  let singlesArr = [];
+  for (let i = 0; i < duplicatesArr.length; i++) {
+    if (!singlesArr.includes(duplicatesArr[i])) {
+      singlesArr.push(duplicatesArr[i])
+    }
+  }
+  return singlesArr;
+}
 
 
 
