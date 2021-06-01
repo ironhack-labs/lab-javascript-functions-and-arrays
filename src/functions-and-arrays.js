@@ -237,13 +237,25 @@ const matrix = [
 console.log("-=".repeat(25))
 function greatestProduct(array) {
   let maior = 0;
+  let resultado = 0;
+  let resulCol = 0;
   //Primeira parte -> Multiplicar os laterais
   for (let i = 0; i < array.length; i++){
     for (let j = 0; j < array[i].length; j++){
-      console.log(array[i][j])
+      //console.log(array[i][j])
+      if (j<17 & i<17){
+        resultado = array[i][j] * array[i][j+1] * array[i][j+2] *array[i][j+3]
+        resulCol = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j]
+        //console.log(resultado)
+        if (resultado > resulCol){
+          maior = resultado;
+        } else{
+          maior = resulCol
+        }
+      }
     }
-    console.log("-=".repeat(25))
   }
+  return maior;
 }
 
 greatestProduct(matrix)
