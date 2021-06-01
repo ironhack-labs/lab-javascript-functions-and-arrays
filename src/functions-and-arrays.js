@@ -244,7 +244,43 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+//// looking for largest product of 4 consecutive array values horizontally, or vertically.
+ //for horizontal groups, start at multiply indicies 0-4, then increase range. max range 17-20.
+ //for vertical, increase the 'vertical' index each time. [y][x] location
+ ///run through and and store product in new var if larger than previously found product. Split the two operations into vertical and horizontal. I don't want to memory leak.
+
+ //Let's start with horizontal.
+function greatestProduct(matrix) {
+  let biggestSoFarH = 0;
+  let workingProductH = 0;
+  for (let y=0; y<20; y++) { //run through each row
+    for (let x=0; x<=16; x++) { 
+//in each row array, find product of 4 consecutive values. Ends at index 16 for 16-19.
+      workingProductH = (matrix[y][x] * matrix[y][x+1] * matrix[y][x+2] * matrix[y][x+3]);
+      if (workingProductH > biggestSoFarH) {
+        biggestSoFarH += (workingProductH - biggestSoFarH)  //compared product to current biggest. If bigger, increase biggest by difference - avoids any referencing problems.
+      }
+    }
+  }
+  //Now to run through the vertical products. call the same position in each array, the index of the array called changing.
+  
+  let biggestSoFarV = 0;
+  let workingProductV = 0;
+  for (let y=0; y<=16; y++) { 
+    for (let x=0; x<20; x++) { 
+      workingProductV = (matrix[y][x] * matrix[y+1][x] * matrix[y+2][x] * matrix[y+3][x]);
+      if (workingProductV > biggestSoFarV) {
+        biggestSoFarV += (workingProductV - biggestSoFarV)
+      }
+    }
+  }
+// lets compare Horizontal and Vertical.  
+  if (biggestSoFarH > biggestSoFarV) {
+    return biggestSoFarH
+  } else {
+    return biggestSoFarV
+  } 
+}
 
 
 
