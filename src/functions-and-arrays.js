@@ -1,24 +1,58 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  }
+  else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longest = '';
+for (let i = 0; i < words.length; i++) {
+if (words[i].length > longest) {
+  longest = words[i]
+}
+
+}
+return longest 
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+let sum = '';
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    sum = numbers[i]  
+  }
+
+}
+return sum
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() {
+  let sum = '';
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (mixedArr[i] > 0) {
+      sum = mixedArr[i].length  
+    }
+  
+  }
+  return sum
+  }}
 
 
 
@@ -26,16 +60,40 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(avrg) {
+  let numerator = '';
+  let denominator = '';
+for (let i = 0; i > numbersAvg.length; 1++) {
+  numerator = numbersAvg[i];
+  denominator = numbersAvg.length + 1;
+  average = numerator / denominator;
+}
+return average
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let averword = ''
+  let numerator = ''
+  let denominator = ''
+  for (let i = 0; i < wordsArr; i++ ) {
+    if (wordsArr[i] > 0) {
+    numerator = wordsArr[i].length;
+    denominator = wordsArr.length + 1;
+    averword = numerator / denominator; 
+    }
+  }
+  return averword
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(average) {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,7 +110,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(Unique) {
+  let check = ''
+for (i = 0; i < wordsUnique.length; i++) {
+  let check = wordsUnique[i]
+if (check.indexOf([i]) > 1) {
+  
+}
+}
+return check
+}
 
 
 
