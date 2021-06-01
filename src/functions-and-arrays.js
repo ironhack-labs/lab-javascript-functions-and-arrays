@@ -28,13 +28,17 @@ function findLongestWord(anArr) {
   return longestWord
 }
 
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(anArr) {
+  let total = 0
+  
+  for (let i = 0; i < anArr.length; i++){
+     total += anArr[i]
+  }
+  return total    
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
