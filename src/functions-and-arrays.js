@@ -62,7 +62,7 @@ function sum(array) {
         sum++
       }
     } else if (typeof element === "object") {
-      // what is an object doing here?
+      throw new Error("Unsupported data type sir or ma'am");
     } else {
       sum = sum + element;
     }
@@ -108,8 +108,11 @@ function avg(array) {
 
   if (!array.length) return null;
 
-  let sum = sum(array);
-  return sum / array.length;
+  let result = 0;
+
+  result = sum(array) / array.length;
+
+  return Number(result.toFixed(2));
 
 }
 
