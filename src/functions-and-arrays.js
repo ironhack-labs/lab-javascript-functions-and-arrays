@@ -1,5 +1,8 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() { }
+function maxOfTwoNumbers(a, b) {
+  return Math.max(a, b);
+}
+
 
 
 
