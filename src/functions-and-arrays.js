@@ -55,6 +55,9 @@ console.log(sumNumbers(numbers))
 function sum(arraySum) {
   let soma = 0;
   for (let i = 0; i < arraySum.length; i++){
+    if (typeof arraySum[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
     if (typeof arraySum[i]==="string"){
       soma += arraySum[i].length;
       //console.log(`Soma de len: ${arraySum[i]} e total ${soma}`) 
@@ -65,7 +68,7 @@ function sum(arraySum) {
   }
   return soma;
 }
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
 console.log(sum(mixedArr));
 
 /*Tests - 
@@ -77,7 +80,7 @@ console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [9, 10, 82, 92, 32, 102, 58];
 
 function averageNumbers(arrayAvg) {
   if (arrayAvg.length === 0){
@@ -89,11 +92,11 @@ function averageNumbers(arrayAvg) {
     let divArr = arrayAvg.length;
   //console.log(divArr);
     let media = somaArray/divArr;
-    return media;
+    return Number(media.toFixed(2));
   }
   
 }
-console.log(averageNumbers(numbersAvg))
+console.log("expected", averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
@@ -122,13 +125,16 @@ function avg(arrayMix) {
   }
   else {
     let soma = sum(arrayMix);
+    console.log('mixsoma', soma);
     let tam = arrayMix.length;
+    console.log('mixtam', tam);
+
     let media = soma/tam;
-    console.log(media);
-    return media;
+   
+    return Number(media.toFixed(2));
   }
 }
-console.log(avg(mixedArr));
+console.log("expected2", avg(mixedArr));
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
