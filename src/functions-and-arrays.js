@@ -57,13 +57,7 @@ function sum(arraySum) {
   for (let i = 0; i < arraySum.length; i++){
     if (typeof arraySum[i]==="string"){
       soma += arraySum[i].length;
-      //console.log(`Soma de len: ${arraySum[i]} e total ${soma}`)
-    } else if (typeof arraySum[i] === true){
-      if (arraySum[i]){
-        soma += 1;
-      } else{
-        soma -= 1;
-      }
+      //console.log(`Soma de len: ${arraySum[i]} e total ${soma}`) 
     } else{
       soma += arraySum[i];
       //console.log(soma)
@@ -74,24 +68,67 @@ function sum(arraySum) {
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 console.log(sum(mixedArr));
 
-
+/*Tests - 
+    if (typeof arraySum[i] !== true || typeof arraySum[i] !== "string" || typeof arraySum[i] !== 2){
+      return null;
+    }
+*/
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayAvg) {
+  if (arrayAvg.length === 0){
+    return null;
+  }
+  else{
+    let somaArray = sumNumbers(arrayAvg);
+  //console.log(somaArray);
+    let divArr = arrayAvg.length;
+  //console.log(divArr);
+    let media = somaArray/divArr;
+    return media;
+  }
+  
+}
+console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayLen) {
+  let soma = 0;
+  if (arrayLen.length === 0){
+    return null;
+  }
+  else{
+    for (let i = 0; i < arrayLen.length; i++){
+      soma += arrayLen[i].length;
+    }
+    media = soma/arrayLen.length;
+    return media;
+   }
+  }
+console.log(averageWordLength(wordsArr))
+console.log("-=".repeat(25))
 
 // Bonus - Iteration #4.1
-function avg() {}
-
+function avg(arrayMix) {
+  if (arrayMix.length === 0){
+    return null;
+  }
+  else {
+    let soma = sum(arrayMix);
+    let tam = arrayMix.length;
+    let media = soma/tam;
+    console.log(media)
+    return media;
+  }
+}
+console.log(avg(mixedArr));
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
