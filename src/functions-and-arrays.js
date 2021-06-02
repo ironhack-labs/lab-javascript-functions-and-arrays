@@ -88,13 +88,24 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  if (arr.length === 0) return null;
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return Array.from(new Set(arr));
+  }
 }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  if (arr.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -111,7 +122,10 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) return 0;
+  if (arr.indexOf(word) === -1) return 0;
+}
 
 // Iteration #8: Bonus
 const matrix = [
