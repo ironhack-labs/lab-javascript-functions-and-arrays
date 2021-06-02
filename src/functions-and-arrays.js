@@ -55,12 +55,14 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrays) {
+  if (arrays.length === 0){
+    return null}else{
   const soma = sumNumbers(arrays)
   let tamanho = arrays.length
   let media = soma/tamanho
   return media  
 }
-  
+}  
 
 
 // Level 2: Array of strings
