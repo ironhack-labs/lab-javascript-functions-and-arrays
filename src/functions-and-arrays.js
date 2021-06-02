@@ -146,12 +146,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {
+function howManyTimes(anArr, aString) {
+  let count = 0
   for (let i = 0; i <anArr.length; i++){
-    
+    if(anArr[i] === aString){
+      count += 1;
+    }
   }
+  return count;
 }
-
 
 
 // Iteration #8: Bonus
