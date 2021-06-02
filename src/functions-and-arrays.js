@@ -10,17 +10,46 @@ if(num1>num2){
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+//Logic: starting from currentlyLongestWord=someArr[0], so first element, assign new value to currentlyLongestWord, whenever there is a longer word at current index (and go on to next index). For every element in the array you're currently at, compare the currentlyLongestWord with that element (and assign new value if needed). finally, return longest word (after the loop).
+
+//const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(someArr) {
+
+  currentlyLongestWord=someArr[0];
+  
+ 
+    
+    for(let i=0; i<someArr.length; i++){
+      
+     if(currentlyLongestWord.length < someArr[i].length){
+        
+        currentlyLongestWord=someArr[i];}
+        
+        
+    } return currentlyLongestWord;
+  }
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(someArr) {
 
+
+  currentNumber=0;
+  for(let i =0; i<someArr.length; i++){
+  
+  currentNumber+=someArr[i];
+  } return(currentNumber);
+  
+  } 
+
+
+
+//DID NOT TRY ANYThing below yet because tooooo much :/ :( :'(
 
 
 // Iteration #3.1 Bonus:
