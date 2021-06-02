@@ -282,38 +282,30 @@ function greatestProduct(matrix) {
   } 
 }
 
-//8.1 Diagonal City, Baby!
+//8.1 Diagonal City, Baby! Tidied up code.
 
 function greatestProductOfDiagonals(matrix) {
-  //Diagonals Down and Right
-  let biggestSoFarDR = 0;
-  let workingProductDR = 0;
-  for (let y=0; y<=16; y++) { //run through each row only as far as 16,16 so diagonal range does not exceed array.
+  let biggestSoFar = 0;
+  let workingProduct = 0;
+  for (let y=0; y<=16; y++) { 
     for (let x=0; x<=16; x++) { 
-      workingProductDR = (matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3]);
-      if (workingProductDR > biggestSoFarDR) {
-        biggestSoFarDR += (workingProductDR - biggestSoFarDR)  //compared product to current biggest. If bigger, increase biggest by difference - avoids any referencing problems.
+      workingProduct = ( matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3] );
+      if (workingProduct > biggestSoFar) {
+        biggestSoFar = workingProduct
       }
     }
   }
-  //Diagonals Up and Right. Start on 4th row and as far as 19,16 to keep within array range.
-  let biggestSoFarUR = 0;
-  let workingProductUR = 0;
   for (let y=3; y<20; y++) { 
     for (let x=0; x<=16; x++) { 
-      workingProductUR = (matrix[y][x] * matrix[y-1][x+1] * matrix[y-2][x+2] * matrix[y-3][x+3]);
-      if (workingProductUR > biggestSoFarUR) {
-        biggestSoFarUR += (workingProductUR - biggestSoFarUR)
+      workingProduct = ( matrix[y][x] * matrix[y-1][x+1] * matrix[y-2][x+2] * matrix[y-3][x+3] );
+      if (workingProduct > biggestSoFar) {
+        biggestSoFar = workingProduct
       }
     }
   }
-// lets compare Horizontal and Vertical.  
-  if (biggestSoFarDR > biggestSoFarUR) {
-    return biggestSoFarDR
-  } else {
-    return biggestSoFarUR
+  return biggestSoFar
   } 
-}
+
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
