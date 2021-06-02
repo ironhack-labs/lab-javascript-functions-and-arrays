@@ -17,11 +17,11 @@ if(num1>num2){
 
 function findLongestWord(someArr) {
 
-  currentlyLongestWord=someArr[0];
+  let currentlyLongestWord=someArr[0];
   
  
     
-    for(let i=0; i<someArr.length; i++){
+    for(let i=1; i<someArr.length; i++){
       
      if(currentlyLongestWord.length < someArr[i].length){
         
