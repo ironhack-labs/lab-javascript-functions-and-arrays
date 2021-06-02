@@ -120,16 +120,24 @@ const wordsUnique = [
 ];
 function uniquifyArray(arr){
   if (arr.length ===0) return null
-  for(let i=0; i<=arr.length; i++){
-    for(let k=1; k<=arr.length; k++){
-      if(arr[i]===arr[k]){
-        arr.splice(k,1)
-      }
+  const newArr =[]
+  for(let i=0; i<arr.length; i++){
+    if(!newArr.includes(arr[i])){
+      newArr.push(arr[i])
     }
   }
+  return newArr
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const doesWordExist = (arr, word)=>{
+  if(arr.length===0) return null 
+  if(arr.includes(word)){
+    return true
+  }else{
+    return false
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -145,7 +153,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+const howManyTimes = (arr, word)=>{
+  let counter = 0
+  if(arr.length === 0) return 0
+  for(let i=0; i<=arr.length ; i++){
+    if(arr[i] === word){
+      counter+=1
+    }
+  }
+  return counter
+}
 // Iteration #8: Bonus
 
 const matrix = [
@@ -170,3 +187,24 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+const greatestProduct = (matrix)=>{
+  let biggestProduct = 0
+    for(let i=0; i<matrix.length; i++){
+      let row = matrix[i]
+      for(let k=0; k<row.length; k++){
+        if(k < row.length - 3){
+          let result = row[k] * row[k+1] * row[k+2] * row[k+3]
+          if(result>biggestProduct){
+            biggestProduct=result
+          }
+        }
+        if(i<matrix.length-3){
+          let result = matrix[i][k] * matrix[i+1][k] * matrix[i+2][k] * matrix[i+3][k]
+          if(result>biggestProduct){
+           biggestProduct = result
+          }
+        }
+      }
+    }
+  return biggestProduct
+}
