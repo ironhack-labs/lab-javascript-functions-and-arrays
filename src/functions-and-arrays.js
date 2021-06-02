@@ -1,20 +1,62 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+if (a > b) {
+  return a;
+} else {
+  return b;
+} 
+}
+
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+
+function findLongestWord(words) {
+  if (words.length === 0 ){ //estipula um nulo
+    return null
+  }
+let longestWord = words[0]; //estipula qual a palavra maior
+for (let i=0; i < words.length; i++) { //inicia na primeira palavra
+  if (words[i].length > longestWord.length){  //[i] define a palavra em cada ponto
+    longestWord = words[i] // 
+  }
+}
+console.log(longestWord)
+return longestWord;
+}
+
+findLongestWord(words);
+
+
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+    let sum2 = 0;
+    for (let i=0; i < numbers.length; i++){
+  
+        sum2 = numbers[i] + sum2;
+    }
+    console.log(sum2)
+    return sum2;
+  
+  }
+  
 
+
+
+
+
+  
 
 
 // Iteration #3.1 Bonus:
@@ -22,17 +64,59 @@ function sum() {}
 
 
 
+
+
+
+
+
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someNumbArray) {
+  if (someNumbArray.length === 0) {
+    return null;
+
+  } else {
+
+    let result = 0;
+
+    someNumbArray.forEach((number) => {
+      result += number;
+    });
+    return result / someNumbArray.length;
+
+  }
+}
+
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+
+function averageWordLength(someWordsArr) {
+  if (someWordsArr.length === 0) {
+    return null;
+  } else {
+
+    let totalNumberOfChar = 0;
+
+    for (let i = 0; i < someWordsArr.length; i++) {
+      totalNumberOfChar += someWordsArr[i].length;
+    }
+
+    return totalNumberOfChar / someWordsArr.length;
+  }
+}
+
+const testArray = ['ola', 'adeus'];
+console.log(averageWordLength(testArray));
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +136,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(someArray) {
+  const uniqueArray = [];
+
+  if (someArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < someArray.length; i++) {
+    if (uniqueArray.indexOf(someArray[i]) === -1) {
+      uniqueArray.push(someArray[i]);
+    }
+  }
+
+  return uniqueArray;
+}
 
 
 
