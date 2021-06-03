@@ -1,41 +1,81 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) return a;
+  else if (a < b) return b;
+  else return a;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length <= 0) return null;
 
+  let longest = '';
 
+  words.forEach((element) => {
+    if (element.length > longest.length) {
+      longest = element;
+    }
+  });
+
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let result = 0;
+  numbers.forEach((element) => {
+    result += element;
+  });
+  return result;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(mixedArr) {
+  if (mixedArr.length <= 0) return 0;
 
+  let result = 0;
+
+  mixedArr.forEach((element) => {
+    if (typeof element === 'string') result += element.length;
+    else if (typeof element === 'number') result += element;
+    else if (typeof element === 'boolean') result += element;
+    else throw new Error("Unsupported data type sir or ma'am");
+  });
+
+  return result;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length <= 0) return null;
 
+  return Number((sum(numbersAvg) / numbersAvg.length).toFixed(2));
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length <= 0) return null;
+
+  return Number((sum(wordsArr) / wordsArr.length).toFixed(2));
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length <= 0) return null;
+
+  return Number((sum(arr) / arr.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +92,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length <= 0) return null;
 
+  const result = [];
+  let tmp;
 
+  wordsUnique.forEach((el, ind) => {
+    if (result.indexOf(wordsUnique[ind]) < 0) {
+      result.push(wordsUnique[ind]);
+    }
+  });
+
+  return result;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length <= 0) return null;
+  if (wordsFind.length == 1) return true;
 
+  let found = false;
 
+  wordsFind.forEach(element => {
+    if (element === word) {
+      return found = true;
+    };
+  });
+
+  return found;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +140,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  if (wordsCount.length <= 0) return 0;
 
+  let count = 0;
 
+  wordsCount.forEach(element => {
+    if (element === word) {
+      count++;
+    };
+  });
+
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +178,88 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
 
+  let max = 0;
+  let filled = false;
+  const subArr = [];
+  const vMatrix = [];
 
+  // El siguiente código crea una matriz girada de la original para realizar el sumatorio tanto horizontal como vertical
+  for (let j = 0; j < matrix.length; j++) {
+    let fila = [];
+    for (let i = 0; i < matrix.length; i++) {
+      fila.push(matrix[i][j]);
+    }
+    vMatrix.push(fila);
+  }
+  //
 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+
+      let tmpMult = 1;
+
+      if (subArr.length < 4) {
+        subArr.push(matrix[i][j]);
+        if (subArr.length == 4)
+          filled = true;
+      } else if (subArr.length == 4) {
+        filled = true;
+      }
+
+      if (filled) {
+        subArr.shift();
+        subArr.push(matrix[i][j]);
+      }      
+
+      subArr.forEach(el => {
+        tmpMult *= el;
+      });
+
+      if (tmpMult > max)
+        max = tmpMult;
+    }
+
+    subArr.splice(0, 4);
+    filled = false;
+  }
+
+  filled = false;
+
+  for (let i = 0; i < vMatrix.length; i++) {
+    for (let j = 0; j < vMatrix[i].length; j++) {
+
+      let tmpMult = 1;
+
+      if (subArr.length < 4) {
+        subArr.push(vMatrix[i][j]);
+        if (subArr.length == 4)
+          filled = true;
+      } else if (subArr.length == 4) {
+        filled = true;
+      }
+
+      if (filled) {
+        subArr.shift();
+        subArr.push(vMatrix[i][j]);
+      }
+
+      subArr.forEach(el => {
+        tmpMult *= el;
+      });
+
+      if (tmpMult > max)
+        max = tmpMult;
+
+    }
+
+    subArr.splice(0, 4);
+    filled = false;
+  }
+
+  return max;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
