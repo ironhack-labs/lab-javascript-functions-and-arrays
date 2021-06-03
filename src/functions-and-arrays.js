@@ -1,19 +1,94 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+
+if (a > b) {
+  return a
+}
+if (a < b) {
+  return b
+}
+if (a === b) {
+  return b
+}
+
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(atrray) {
+
+if (atrray.length <1){
+return null
+}
+
+if (atrray.length === 1){
+return atrray[0]
+}
+
+
+let longest = 0
+
+for (let i =0; i <= atrray.length; i++){
+
+  if (atrray[i].length > longest ) {
+      
+    longest =atrray[i].length
+
+  }
+
+}
+
+
+return longest
+
+
+}
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let arrnumbers2 = 0
+let arrtotal =[]
+let escero = true
+function sumNumbers(arrnumbers) {
 
-function sumNumbers() {}
+  if(arrnumbers.length < 1) {
+    return 0
+
+  }
+
+for ( let i = 0; i <= arrnumbers.length-1; i++ ){
+
+  if (arrnumbers[i] != 0 ){
+    escero = false
+  }
+
+    arrnumbers2 = arrnumbers2 + arrnumbers[i]
+   //should return the sum when passed array of numbers
+  //no me lo da por bueno aunque le ponga return de arrnumbers2
+
+  }
+//should return zero if all elements are zero
+//en replit.com me funciono con el console.log
+  if (escero === true){
+      return 0
+  }
+
+
+  // porque no funciona??? should return the sum with one number array, 
+  //a arrtotal (un array vacio) le hag push de arrnumbers2 que es la suma total
+  //piden que haga return de la suma con un array de un numero
+  arrtotal = arrtotal.push(arrnumbers2)
+
+  return arrtotal
+
+}
 
 
 
@@ -25,14 +100,74 @@ function sum() {}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let avg = 0
+function averageNumbers(numbersAvg) {
 
-function averageNumbers() {}
+
+   if(numbersAvg.length === 0) {
+    return null
+
+  }
+  if(numbersAvg.length === 1) {
+    return numbersAvg[0]
+
+  }
+
+
+  for(let i=0; numbersAvg.length; i++ ){
+
+     avg = avg + numbersAvg[i]
+
+  }
+  avg = avg / numbersAvg.length
+
+  return avg
+
+
+}
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+let wordLength = 0
+let avg2 = 0
+let avgOneWOrd =0
+function averageWordLength(wordsArr) { 
 
-function averageWordLength() { }
+if(wordsArr.length === 0) {
+    return null
+
+  }
+
+  if(wordsArr.length === 1) {
+    
+    avgOneWOrd = wordsArr[0].length
+    return avgOneWOrd
+
+  }
+
+ for(let i=0; wordsArr.length; i++ ){
+
+    wordLength= wordLength+ wordsArr[i].length
+     
+
+   
+      
+    
+  }
+
+avg2 = wordLength / wordsArr.length
+return avg2
+
+}
+
+
+
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +187,48 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+
+let norepeted = false
+function uniquifyArray(wordsUnique) {
+
+
+  if(wordsUnique.length === 0){
+    return null
+
+  }
+
+
+for (let i = 0; wordsUnique.length; i++ ){
+
+  for (let u=0; wordsUnique.length; u++){
+      if (i === u){
+        continue
+      }
+         if (wordsUnique[i].indexOf( wordsUnique[u]) != 0 ){
+         
+        norepeted =true
+        continue
+
+
+      }
+      if (wordsUnique[i].indexOf( wordsUnique[u]) >= 0 ){
+          wordsUnique.splice(u,1);
+
+      }
+   
+    
+  }
+
+}
+
+if (norepeted == true) {
+return wordsUnique
+}
+return wordsUnique
+
+
+}
 
 
 
