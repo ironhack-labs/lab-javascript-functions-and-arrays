@@ -11,11 +11,13 @@ function maxOfTwoNumbers(a, b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
   let longest = arr[0];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longest.length) {
       longest = arr[i];
-      break
     }
   }
   return longest;
@@ -50,6 +52,9 @@ function averageSumNumbers(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
   sum = 0
   let average
   for (let i = 0; i < arr.length; i++) {
@@ -63,7 +68,17 @@ function averageNumbers(arr) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i].length;
+  }
+  let average = total / arr.length;
+  return average
+}
 
 // Bonus - Iteration #4.1
 function avg() { }
@@ -83,15 +98,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let uniArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (uniArray.indexOf(arr[i]) === -1) {
+      uniArray.push(arr[i]);
+    }
+  }
+  return uniArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
-
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let incluWord
+  for (let i = 0; i < arr.length; i++) {
+    incluWord = word.includes(arr[i])
+    if (incluWord !== true) {
+      incluWord
+    }
+    return incluWord
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -109,8 +146,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
-
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  for (let i = 0; i < arr.length; i++)
+    if (arr[i] === word)
+      count++
+  return count;
+}
 
 
 // Iteration #8: Bonus
