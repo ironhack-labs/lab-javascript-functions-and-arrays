@@ -56,7 +56,6 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
   if (!array.length) return null;
-  console.log('hola');
   if (array.length === 1) return array[0];
   let counter = 0;
   array.forEach((elem) => (counter += elem / array.length));
@@ -119,12 +118,12 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr) {
+function doesWordExist(arr, word) {
   if (!arr.length) return null;
 
   if (arr.length === 1 && arr.includes('machine')) return true;
 
-  return arr.includes('ratatouille') || arr.includes('book');
+  return arr.includes(word);
 }
 
 // Iteration #7: Count repetition
@@ -142,9 +141,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr) {
-  if (!arr.length) return 0;
-  let number = 1;
+function howManyTimes(arrWords, word) {
+  let result = 0;
+  let newWord = [];
+
+  arrWords.forEach((elem) => {
+    if (word === elem) newWord.push(elem);
+  });
+  result = newWord.length;
+  return result;
 }
 
 // Iteration #8: Bonus
