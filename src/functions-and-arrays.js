@@ -29,7 +29,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
   let sum = 0;
   for (i = 0; i < numbers.length; i++) {
-    sum += numbers[i]
+    sum += parseInt(numbers[i])
   }
   return sum
 }
@@ -38,11 +38,12 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(numbers) {
-  let sum = 0;
+  let sumNumbers = 0;
   for (i = 0; i < numbers.length; i++) {
-    sum += parseInt(numbers[i])
-  } return sum
+    sumNumbers += parseInt(numbers[i])
+  } return sumNumbers
 }
+
 
 
 
@@ -53,19 +54,32 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbersAvg) {
   let sum = 0;
   let le = numbersAvg.length;
-  for (i = 0; i < numbers.length; i++) {
+  for (i = 0; i < le; i++) {
     sum += parseInt(numbersAvg[i])
-  } return sum / le
+  } return sum / le || null
 }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let sum = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    sum += wordsArr[i].length
+  }
+  let avg = sum / wordsArr.length;
+  return avg || null
+}
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(numbersAvg) {
+  let sum = 0;
+  let le = numbersAvg.length;
+  for (i = 0; i < numbers.length; i++) {
+    sum += parseInt(numbersAvg[i])
+  } return sum / le || null
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -82,14 +96,26 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(a) {
+  let result = [];
+  for (let i = 0; i < a.length; i++) {
+    for (let j = a.length; j > 0; j--) {
+      if (a[i] == a[j]) { result += a.slice[i] }
+    }
+  } return result
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(a, b) {
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] == b) { return true }
+    else { return false }
+  }
+}
 
 
 
@@ -108,7 +134,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(a, b) {
+  let count = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] == b) { count++ }
+  } return count
+}
 
 
 
