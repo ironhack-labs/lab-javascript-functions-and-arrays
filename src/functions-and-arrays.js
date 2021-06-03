@@ -261,6 +261,198 @@ function greatestProduct(matrix) {
   return max;
 }
 
+
+function greatestProductOfDiagonals(matrix) {
+  let max = 0;
+  let filled = false;
+  const subArr = [];
+  const dMatrix1 = [];
+  const dMatrix2 = [];
+  const dMatrix3 = [];
+  const dMatrix4 = [];
+
+  // diagonal izq-sup a der-inf / parte sup-der
+  for (let i = 0; i < matrix.length; i++) {
+    let fila = [];
+    let tmp = i;
+    for (let j = 0; j < matrix.length; j++) {
+      if (matrix[j][tmp] === undefined)
+        break;
+      fila.push(matrix[j][tmp]);
+      tmp++;
+    }
+    dMatrix1.push(fila);
+  }
+  //console.table(dMatrix1);
+
+  // diagonal der-sup a izq-inf / parte sup-izq
+  for (let i = matrix.length - 1; i >= 0; i--) {
+    let fila = [];
+    let tmp = i;
+    for (let j = 0; j < matrix.length; j++) {
+      if (matrix[j][tmp] === undefined)
+        break;
+      fila.push(matrix[j][tmp]);
+      tmp--;
+    }
+    dMatrix2.push(fila);
+  }
+  //console.table(dMatrix2);
+
+  // diagonal der-inf a izq-sup / parte inf-izq
+  for (let i = matrix.length - 1; i >= 0; i--) {
+    let fila = [];
+    let tmp = i;
+    for (let j = matrix.length - 1; j >= 0; j--) {
+      if (matrix[j][tmp] === undefined)
+        break;
+      fila.push(matrix[j][tmp]);
+      tmp--;
+    }
+    dMatrix3.push(fila);
+  }
+  //console.table(dMatrix3);
+
+  // diagonal izq-inf a der-sup / parte inf-der
+  for (let i = 0; i < matrix.length; i++) {
+    let fila = [];
+    let tmp = i;
+    for (let j = matrix.length - 1; j >= 0; j--) {
+      if (matrix[j][tmp] === undefined)
+        break;
+      fila.push(matrix[j][tmp]);
+      tmp++;
+    }
+    dMatrix4.push(fila);
+  }
+  //console.table(dMatrix4);
+
+  // Iteración matriz 1:
+  for (let i = 0; i < dMatrix1.length; i++) {
+    for (let j = 0; j < dMatrix1[i].length; j++) {
+      let tmpMult = 1;
+
+      if (subArr.length < 4) {
+        subArr.push(dMatrix1[i][j]);
+        if (subArr.length == 4)
+          filled = true;
+      } else if (subArr.length == 4) {
+        filled = true;
+      }
+
+      if (filled) {
+        subArr.shift();
+        subArr.push(dMatrix1[i][j]);
+      }
+
+      subArr.forEach(el => {
+        tmpMult *= el;
+      });
+
+      if (tmpMult > max)
+        max = tmpMult;
+    }
+
+    subArr.splice(0, 4);
+    filled = false;
+  }
+
+  // Iteración matriz 2:
+  for (let i = 0; i < dMatrix2.length; i++) {
+    for (let j = 0; j < dMatrix2[i].length; j++) {
+
+      let tmpMult = 1;
+
+      if (subArr.length < 4) {
+        subArr.push(dMatrix2[i][j]);
+        if (subArr.length == 4)
+          filled = true;
+      } else if (subArr.length == 4) {
+        filled = true;
+      }
+
+      if (filled) {
+        subArr.shift();
+        subArr.push(dMatrix2[i][j]);
+      }
+
+      subArr.forEach(el => {
+        tmpMult *= el;
+      });
+
+      if (tmpMult > max)
+        max = tmpMult;
+
+    }
+
+    subArr.splice(0, 4);
+    filled = false;
+  }
+
+  // Iteración matriz 3:
+  for (let i = 0; i < dMatrix3.length; i++) {
+    for (let j = 0; j < dMatrix3[i].length; j++) {
+      let tmpMult = 1;
+
+      if (subArr.length < 4) {
+        subArr.push(dMatrix3[i][j]);
+        if (subArr.length == 4)
+          filled = true;
+      } else if (subArr.length == 4) {
+        filled = true;
+      }
+
+      if (filled) {
+        subArr.shift();
+        subArr.push(dMatrix3[i][j]);
+      }
+
+      subArr.forEach(el => {
+        tmpMult *= el;
+      });
+
+      if (tmpMult > max)
+        max = tmpMult;
+    }
+
+    subArr.splice(0, 4);
+    filled = false;
+  }
+
+  // Iteración matriz 4:
+  for (let i = 0; i < dMatrix4.length; i++) {
+    for (let j = 0; j < dMatrix4[i].length; j++) {
+      let tmpMult = 1;
+
+      if (subArr.length < 4) {
+        subArr.push(dMatrix4[i][j]);
+        if (subArr.length == 4)
+          filled = true;
+      } else if (subArr.length == 4) {
+        filled = true;
+      }
+
+      if (filled) {
+        subArr.shift();
+        subArr.push(dMatrix4[i][j]);
+      }
+
+      subArr.forEach(el => {
+        tmpMult *= el;
+      });
+
+      if (tmpMult > max)
+        max = tmpMult;
+    }
+
+    subArr.splice(0, 4);
+    filled = false;
+  }
+
+  return max;
+}
+
+
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
