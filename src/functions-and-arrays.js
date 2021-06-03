@@ -1,24 +1,78 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2){
+    return num1
+  }else {
+    return num2
+  }
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  const wordsArrayLength = words.length;
+  if(wordsArrayLength == 0){
+    return null;
+  }
+  let indexOfLongest = wordsArrayLength -1 ;
+  for(let i = wordsArrayLength-1; i>=0 ; i--){
+    if( words[i].length >= words[indexOfLongest].length) {
+      indexOfLongest = i;
+    }
+  }
+  return words[indexOfLongest];
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sum = 0;
+  arr.forEach( number => {
+    sum += number;
+  })
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  const len = arr.length;
+  if( len == 0 ){
+    return 0;
+  }
+  for( let i =0 ; i < len ; i++){
+    if ( (typeof arr[i]) == "string" ){
+      arr[i] = arr[i].length;
+    }else if( typeof arr[i] === "object" ){
+      throw "Unsupported data type sir or ma'am"
+    }else if( arr[i] === true ){
+      arr[i] = 1;
+    }else if ( arr[i] === false){
+      arr[i] = 0;
+    }
+
+  }
+
+  //does not work with foreach:
+    // arr.forEach( element => {
+    //   if ( (typeof element) == "string" ){
+    //       console.log(element, element.length)
+    //     element = element.length;
+    //     console.log("****************" ,element)
+    //   }
+    // })
+
+
+  return sumNumbers(arr);
+}
 
 
 
@@ -26,16 +80,35 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let len = arr.length;
+  if((len) == 0) {
+    return null;
+  }
+  return sumNumbers(arr) / len;
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
 
+function averageWordLength(arr) {
+  let len = arr.length;
+    if((len) == 0) {
+      return null;
+    }
+  return sum(arr) / len;
+  }
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let len = arr.length;
+  if((len) == 0) {
+    return null;
+  }
+return Math.round( (sum(arr) / len) *100 )/100;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +125,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if( arr.length == 0 ){
+    return null;
+  }
+  let finalArr = []
+  arr.forEach(element => {
+    if( finalArr.indexOf( element ) == -1 ){
+      finalArr.push(element)
+    }
+  })
+  return finalArr
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if( arr.length == 0 ){
+    return null;
+  }
+  for(i=0 ; i<arr.length; i++){
+    if( word === arr[i] ){
+    return true;
+  }
+}
+  // arr.forEach( element => {
+  //   if( word === element ){
+  //     return true;
+  //   }
+  // })
+  return false;
+}
 
 
 
@@ -78,7 +177,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let len = arr.length;
+  if( len == 0 ){
+    return 0;
+  }
+  let count = 0;
+  for(let i=0; i<len; i++){
+    if ( arr[i] === word ){
+      count++ ;
+    }
+  }
+  return count;
+}
 
 
 
@@ -106,7 +217,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(a) {
+  let n = matrix.length;
+  if(n == 0 ){
+    return 0;
+  }
+  
+  let res = a[0][0] *  a[0][1] * a[0][2] * a[0][3]
+
+  for(let i=0; i<n-1; i++){
+    for(let j=0; j<n-4; j++){
+      let temp = a[i][j] *  a[i][j+1] *a[i][j+2] * a[i][j+3];
+      if( temp > res ){
+        res = temp;
+      }
+    }
+  }
+  for(let j=0; j<n-1; j++){
+    for(let i=0; i<n-4; i++){
+      let temp = a[i][j] *  a[i+1][j] *a[i+2][j] * a[i+3][j];
+      if( temp > res ){
+        res = temp;
+      }
+    }
+  }
+  return res;
+}
 
 
 
