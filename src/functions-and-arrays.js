@@ -1,4 +1,5 @@
 // Iteration #1: Find the maximum
+
 function maxOfTwoNumbers(num1, num2) {
   if(num1 > num2){
     return num1
@@ -34,11 +35,19 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
   let sum = 0;
-  arr.forEach( number => {
+  arr.forEach( function(number){
     sum += number;
   })
   return sum;
 }
+
+// function sumNumbers(arr) {
+//   let sum = 0;
+//   arr.forEach( number => {
+//     sum += number;
+//   })
+//   return sum;
+// }
 
 
 
@@ -130,13 +139,26 @@ function uniquifyArray(arr) {
     return null;
   }
   let finalArr = []
-  arr.forEach(element => {
+  arr.forEach(function(element){
     if( finalArr.indexOf( element ) == -1 ){
       finalArr.push(element)
     }
   })
   return finalArr
 }
+
+// function uniquifyArray(arr) {
+//   if( arr.length == 0 ){
+//     return null;
+//   }
+//   let finalArr = []
+//   arr.forEach(element => {
+//     if( finalArr.indexOf( element ) == -1 ){
+//       finalArr.push(element)
+//     }
+//   })
+//   return finalArr
+// }
 
 
 
