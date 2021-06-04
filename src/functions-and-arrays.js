@@ -70,17 +70,43 @@ function sum(numArray) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const negativeAvg = [-2, -6, -9, -10, -7, -4, -1, -9]; //debugging array
+const emptyArray = []; //debugging array
+const oneArray = [9]; //debugging array
 
-function averageNumbers() {}
-
+//Tests for this function are all failing, but give the correct result in the console... *pulls hair*
+function averageNumbers(array) {
+  if (array == '') {
+    return null
+  }
+  return sum = sumNumbers(array) / array.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(array) {
+  if (array == '') {
+    return null
+  }
+  let sum = 0;
+  for (i = 0; i < array.length; i++){
+sum += array[i].length;
+  }
+  return sum
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+ function avg(array) {
+/* switch (array){
+  case array == '':
+    return null
+}
+
+*/
+ }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
