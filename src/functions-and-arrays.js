@@ -120,13 +120,8 @@ const wordsUnique = [
 ];
 function uniquifyArray(arr){
   if (arr.length ===0) return null
-  const newArr =[]
-  for(let i=0; i<arr.length; i++){
-    if(!newArr.includes(arr[i])){
-      newArr.push(arr[i])
-    }
-  }
-  return newArr
+  const uniqueArr = [...new Set(arr)]
+  return uniqueArr
 }
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
