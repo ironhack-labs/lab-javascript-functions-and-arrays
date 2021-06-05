@@ -26,12 +26,12 @@ function findLongestWord(words){
   }else {
     let theLongestWord = "";
     for(let wordToTest of words){
-      if (wordToTest.length > theLongestWord.length) {
+      if (wordToTest.length > theLongestWord.length){
         theLongestWord = wordToTest              
       }    
+    }
+    return theLongestWord 
   }
-  return theLongestWord 
-}
 }
 
 
@@ -39,21 +39,11 @@ function findLongestWord(words){
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers){
-  
-  if (numbers.length === 0) {
-    return 0
-  } else if(numbers.length === 1){
-    return numbers[0]
-  } else if(numbers.every(item => item === 0)){
-    return 0
-  } else{
-    let sum = 0;
-    for(let valueToSum of numbers){
-      sum += numbers[valueToSum]
-      valueToSum += 1
-    }
-    return sum
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];   
   }
+  return sum 
 }
 
 
@@ -62,7 +52,8 @@ function sumNumbers(numbers){
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum(mixedArr) {}
+function sum(mixedArr){
+};
 
   
 
@@ -97,7 +88,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  let result = []
+  wordsUnique.forEach((item, index) => { if (wordsUnique.indexOf(item) == index) result.push(item) });
+  return result;
+}
 
 
 
@@ -163,7 +161,7 @@ if (typeof module !== 'undefined') {
     maxOfTwoNumbers,
     findLongestWord,
     sumNumbers,
-    sum,
+//    sum,
     averageNumbers,
     averageWordLength,
     avg,
