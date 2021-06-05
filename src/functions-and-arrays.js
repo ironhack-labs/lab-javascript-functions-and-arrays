@@ -8,14 +8,11 @@ function maxOfTwoNumbers(num1, num2) {
 
 }
 
-
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(longWord) {
-	let word = 0;
-  let longerWord = '';
+	let word = '';
 
   if(! longWord.length){
     return null;
@@ -25,19 +22,12 @@ function findLongestWord(longWord) {
     return longWord[0];
   }
 
-  for (let i = 0; i < longWord.length; i++){
-    if(longWord[i].length >= longWord[i + 1].length){
-      return longWord[i]
-    }
-  }
-
 	for (let i = 0; i < longWord.length; i++){
-		if(longWord[i].length > word){
-			word = longWord[i].length;
-			longerWord = longWord[i];
+		if(longWord[i].length > word.length){
+			word = longWord[i]
 		}
 	}
-	return longerWord;
+	return word;
 }
 
 // Iteration #3: Calculate the sum
@@ -46,8 +36,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numArr) {
   let ArrSum = [];
 	let sum = 0
-  let sum2 = 0
-
 
   if (numArr.length === 0) {
     return 0
@@ -60,17 +48,37 @@ function sumNumbers(numArr) {
 		}
 	}
 
-  for (let i = 0; i < numArr.length; i++){
-		sum2 += numArr[i]
-	}
-
-  return sum2;
+  return sum;
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let totalSum = 0;
+	
+	if(arr.length === 0){
+		return 0
+	}
+	
+	for(let i = 0; i < arr.length; i++) {
+		if (typeof arr[i] ===  'string'){
+			totalSum += arr[i].length;
+		}else if(typeof arr[i] === 'boolean') {
+			if(arr[i] === true){
+				totalSum += 1;
+			}else{
+				totalSum += 0;
+			}	
+		}else if(typeof arr[i] === 'number'){
+			totalSum += arr[i];
+		}else if(typeof arr[i] === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+	}
+	
+	return totalSum;
+}
 
 
 
@@ -106,8 +114,44 @@ function averageWordLength(arr) {
 
  }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.1 ------------------------------------------------
+function avg(arr) {
+  let average = 0; // set default variable that will be returned at the end
+
+  // conditional for passing test if array is empty
+  if (arr.length === 0) {
+    return null; // the return keyword will end the function here, it will prevent the rest of the code from executing
+  }
+
+  // loop that will update the default variable depending on the type of data
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      average += arr[i];
+    } else if (typeof arr[i] === "string") {
+      average += arr[i].length;
+    } else if (typeof arr[i] === "boolean") {
+      average += arr[i];
+    }
+  }
+
+  average = average / arr.length; // to update variable with average of sum
+  average = parseFloat(average.toFixed(2)); // code to fix the decimals of the number to be only 2.
+
+  return average; // return the default variable
+}
+//                    ----------same resukt as the one over---------
+// function avg(arr) {
+// 	let suma = 0;
+	
+//   if (arr.length === 0){
+//     return null
+//   }
+	
+//   suma = sum(arr)
+
+//  	return suma / arr.length
+// }
+//------------------------------------------------
 
 // Iteration #5: Unique arrays ?? 
 const wordsUnique = [
@@ -133,14 +177,14 @@ function uniquifyArray(arr) {
 	
 	for (let i = 0; i < arr.length; i++){
 		if(uniquifyArray.indexOf(arr[i]) === -1){
-			uniquifyArray.unshift(arr[i]);
+			uniquifyArray.push(arr[i]);
 		}
 	}
 
   if(uniquifyArray.length === arr.length){
 		return arr
 	}
-
+  console.log(uniquifyArray)
 	return uniquifyArray
 }
 
@@ -150,18 +194,26 @@ function uniquifyArray(arr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, word) {
+  let wordIsThere = 0;
+	let wordIsNotThere = 0;
+	
   if(arr.length === 0){
     return null
   }
 
   for(let i = 0; i < arr.length; i++) {
 		if(arr[i] === word){
-      return true;
+			wordIsThere += 1;
     }else if(word !==arr[i]){
-      return false;
+      wordIsNotThere += 1
     }
 	}
-
+	
+	if(wordIsThere > 0){
+		return true
+	}else{
+		return false
+	}
 }
 
 
