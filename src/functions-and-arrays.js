@@ -65,7 +65,7 @@ function sum(someArray) {
 }
 
 
-
+//iterate over the array, if the n > than the previous
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -234,3 +234,63 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+
+/*
+
+function findUnique(wordsArray) {
+  let emptyArray = "";
+  for (word of wordsArray) {
+      let firstOccurance = wordsArray.indexOf(word);
+    if ()
+  }
+  for (aWord of wordsArray) {
+    
+  }
+}
+
+
+
+
+function findUnique(wordsArray) {
+  let emptyArray = ""
+  for (let i = 0; i < wordsArray) {
+    let word = wordsArray;
+    if (emptyArray[word] === emptyArray) {
+    wordsArray = wordsArray[wordsArray -1];
+    wordsArray -= 1;
+  } else {
+    emptyArray[word] = wordsArray;
+    i++
+  }
+  return emptyArray;
+  }
+}
+
+*/
+
+
+// find first unique name in an array
+
+const arrayA = ["ana", "ivan", "jan", "ana", "morgane"]
+
+function findUnique(wordsArray) {
+  let newArray = ""
+  for (name of wordsArray) {
+    for (j = wordsArray.indexOf(name)+ 1; j < wordsArray.length; j++) {
+      let name2 = wordsArray[j];
+      if (name !== name2) {newArray = name}
+      else {
+        newArray = "";
+        break;
+      }
+    }
+    if (newArray !== "") {
+      break;
+    }
+  }
+  return newArray;
+}
+
+findUnique(arrayA);
+
