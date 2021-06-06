@@ -1,24 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  } else
+  if (number1 < number2) {
+    return number2;
+  } else {
+    return number1
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordArray) {
+  if(wordArray.length === 0) {
+    return null;
+  }
 
+  let longestWord = "";
+  for (word of wordArray)
+  //for (i=0; i < words.length; i++)
+  // let word = word.length[i];
+  {
+    if(word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numberArray) {
+  if (numberArray.length === 0) {
+    return 0;
+  }
+  let totalNumber = 0;
+  for (sumOfnumbers of numberArray)
+  //for (i=0; i < numbers.length; i++)
+  // let sumOfNumbers = numbers.length[i];
+   {
+     totalNumber += sumOfnumbers;
+   }
+    return totalNumber
+  }
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(someArray) {
+  if (!someArray.length) {
+    return 0
+  }
+
+}
 
 
 
@@ -26,13 +70,34 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(numberArray) {
+  if (!numberArray.length) { 
+  return null;
+}
+let sumNumbersArray = 0;
+for (aNumber of numberArray) {
+sumNumbersArray += aNumber
+}
+return sumNumbersArray / numberArray.length;
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray){
+  if (!wordsArray.length) {
+  return null;
+}
+let wordLength = 0;
+for (word of wordsArray) {
+  wordLength += word.length;
+}
+return wordLength / wordsArray.length;
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +117,49 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArray) {
+  if (wordsArray.length === 0) {
+    return null
+  }
+  let firstWordOccurance = wordsArray.indexOf(word)
+  let emptyArray = [""]
+  for (word of wordsArray)
+  // for (i = 0; i < uniquifyArray.length; i++)
+  // let indexofArray = uniquifyArray[i];
+  if (firstWordOccurance != -1) {
+    emptyArray.push(word);
+    firstWordOccurance = wordsArray.indexOf(word, firstWordOccurance + 1);
+  }
+  return emptyArray;
+}
+
+
+
+/*
+let emptyArray = [];
+let currentarray = ['a', 'b', 'a', 'c', 'a', 'd'];
+let letterToFind = 'a';
+let currentIndex = currentArray.indexOf(letterToFind);
+
+
+
+
+for (currentIndex != -1) {
+  emptyArray.push(currentIndex);
+  currentIndex = currentarray.indexOf(letterToFind, currentIndex + 1);
+}
+console.log(emptyArray);
+// [0, 2, 4]
+
+*/
+
+
+
+
+
+
+
+
 
 
 
@@ -111,8 +218,7 @@ function greatestProduct() {}
 
 
 
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
+// The following is required to make unit tests work. Environment setup. Do not modify the below code.
 if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
