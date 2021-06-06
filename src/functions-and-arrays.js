@@ -273,8 +273,43 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct() {}
+// class solution
+function greatestProduct() {
+  let greatest = 0;
+	
+  let horizontal = 0;
+  let vertical = 0;
+  let diagonal = 0;
+  let inverseDiagonal = 0
+	
+	for(let ver = 0; ver < matrix.length -3; ver++){
+		for(let hor = 0; hor < matrix.length -3; hor++ ){
+			
+			horizontal = matrix[ver][hor] * matrix[ver][hor + 1] * matrix[ver][hor + 2] * matrix[ver][hor + 3]
+			if(horizontal > greatest){
+				greatest = horizontal;
+			}
+			
+			vertical = matrix[ver][hor] * matrix[ver + 1][hor] * matrix[ver + 2][hor] * matrix[ver + 3][hor]
+			if(vertical > greatest){
+				greatest = vertical;
+			}
+			
+			diagonal =  matrix[ver][hor] * matrix[ver + 1][hor + 1] * matrix[ver + 2][hor + 2] * matrix[ver + 3][hor + 3]
+			if(diagonal > greatest){
+				greatest = diagonal;
+			}
+			
+			inverseDiagonal = matrix[ver][hor + 3] * matrix[ver +1 ][hor + 2] * matrix[ver + 2][hor + 1] * matrix[ver + 3][hor - 3]
+			if(inverseDiagonal > greatest){
+				greatest = inverseDiagonal;
+			}
+			
+		}
+	}
+	
+	return greatest;
+}
 
 
 
