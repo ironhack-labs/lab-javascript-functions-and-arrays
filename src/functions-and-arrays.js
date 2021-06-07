@@ -24,9 +24,10 @@ function findLongestWord(arr) {
       if (arr[i].length > longestWord.length) {
         longestWord = arr[i];
       }
-      return longestWord;
+      
     
     }
+    return longestWord;
   }
 
 }
@@ -158,7 +159,7 @@ function howManyTimes(wordsArr, searchWord) {
   let count = 0;
 
   for (let i = 0; i < wordsArr.length; i++) {
-    if (WordsArr[i] === searchWord) {
+    if (wordsArr[i] === searchWord) {
       count++;
     }
   }
