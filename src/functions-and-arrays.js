@@ -1,41 +1,117 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
 
+  let biggestWord = '';
 
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (arrayOfWords[i].length > biggestWord.length) {
+      biggestWord = arrayOfWords[i];
+    }
+  }
+  return biggestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayOfNums) {
+  let sum = 0;
 
-
+  for (let i = 0; i < arrayOfNums.length; i++) {
+    sum += arrayOfNums[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arrayOfValues) {
+  let sum = 0;
 
-
+  for (let i = 0; i < arrayOfValues.length; i++) {
+    if (typeof arrayOfValues[i] === 'object') {
+      throw "Unsupported data type sir or ma'am";
+    } else if (typeof arrayOfValues[i] === 'string') {
+      sum += arrayOfValues[i].length;
+    } else if (typeof arrayOfValues[i] === 'number') {
+      sum += arrayOfValues[i];
+    } else if (typeof arrayOfValues[i] === 'boolean') {
+      sum += arrayOfValues[i];
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+  if (arrayOfNumbers.length === 0) {
+    return null;
+  }
 
+  let sum = 0;
+  let average = 0;
+
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    sum += arrayOfNumbers[i];
+    average = sum / arrayOfNumbers.length;
+  }
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfStrings) {
+  if (arrayOfStrings.length === 0) {
+    return null;
+  }
+
+  let sum = 0;
+  let average = 0;
+
+  for (i = 0; i < arrayOfStrings.length; i++) {
+    sum += arrayOfStrings[i].length;
+    average = sum / arrayOfStrings.length;
+  }
+  return average;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrayOfValues) {
+  if (arrayOfValues.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  let average = 0;
+
+  for (i = 0; i < arrayOfValues.length; i++) {
+    if (typeof arrayOfValues[i] === 'string') {
+      sum += arrayOfValues[i].length;
+    } else if (typeof arrayOfValues[i] === 'number') {
+      sum += arrayOfValues[i];
+    } else if (typeof arrayOfValues[i] === 'boolean') {
+      sum += arrayOfValues[i];
+    }
+    average = sum / arrayOfValues.length;
+  }
+  return parseFloat(average.toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +128,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayOfWords) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
 
+  let cleanArray = [];
 
+  for (i = 0; i < arrayOfWords.length; i++) {
+    if (cleanArray.includes(arrayOfWords[i])) {
+      continue;
+    } else {
+      cleanArray.push(arrayOfWords[i]);
+    }
+  }
+  return cleanArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayOfWords, wordToFind) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
 
+  let checkWord = false;
 
+  for (let word of arrayOfWords) {
+    if (word === wordToFind) {
+      checkWord = true;
+    }
+  }
+  return checkWord;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +178,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfWords, wordToCount) {
+  if (arrayOfWords.length === 0) {
+    return 0;
+  }
 
+  let wordCount = 0;
 
+  for (let word of arrayOfWords) {
+    if (word === wordToCount) {
+      wordCount += 1;
+    }
+  }
+  return wordCount;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +217,46 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arrayOfArrays) {
+  //get the product of rows
+  let product = 0;
 
+  for (i = 0; i < arrayOfArrays.length; i++) {
+    if (arrayOfArrays[i][i] * arrayOfArrays[i][i + 1] * arrayOfArrays[i][i + 2] * arrayOfArrays[i][i + 3] > product) {
+      product = arrayOfArrays[i][i] * arrayOfArrays[i][i + 1] * arrayOfArrays[i][i + 2] * arrayOfArrays[i][i + 3];
+    }
+  }
+  //invert the matrix - columns per rows
+  let arrayOfArraysInverted = [];
 
+  for (i = 0; i < arrayOfArrays.length; i++) {
+    arrayOfArraysInverted.push([]);
+  }
 
+  for (i = 0; i < arrayOfArrays.length; i++) {
+    for (j = 0; j < arrayOfArrays.length; j++) {
+      arrayOfArraysInverted[j].push(arrayOfArrays[i][j]);
+    }
+  }
+
+  //get the product of reverted rows, aka original columns
+  for (i = 0; i < arrayOfArraysInverted.length; i++) {
+    if (
+      arrayOfArraysInverted[i][i] *
+        arrayOfArraysInverted[i][i + 1] *
+        arrayOfArraysInverted[i][i + 2] *
+        arrayOfArraysInverted[i][i + 3] >
+      product
+    ) {
+      product =
+        arrayOfArraysInverted[i][i] *
+        arrayOfArraysInverted[i][i + 1] *
+        arrayOfArraysInverted[i][i + 2] *
+        arrayOfArraysInverted[i][i + 3];
+    }
+  }
+  return product;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
