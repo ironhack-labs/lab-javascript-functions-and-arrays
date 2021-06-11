@@ -27,12 +27,14 @@ function findLongestWord( arrayOfAnyWords ) {
 //const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers( arrayOfNumbers ) {
-  if ( arrayOfNumbers === [] ) {
-    return zero;
-  }
+    if ( arrayOfNumbers.length === 0 ){
+      return 0;
+    } 
   let sumOfNumbers = 0;
-  for ( let i = 0; i < arrayOfNumbers; i++) {
-    sumOfNumbers += arrayOfNumbers [i]
+  for ( let i = 0; i < arrayOfNumbers; i++ ) {
+    if ( arrayOfNumbers[i].length > sumOfNumbers ) {
+      sumOfNumbers += arrayOfNumbers[i].length;
+    }
   }
   return sumOfNumbers;
 }
@@ -40,21 +42,51 @@ function sumNumbers( arrayOfNumbers ) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  if ( array.length === 0 ){
+    return 0;
+  }
+  return sum;
+}
 
-
+// sum of any data which is in the array
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+  let sumOfNumbers = 0;
+    if ( arrayOfNumbers.length === 0 ) {
+    return null;
+  }
+  let averageOfNumbers = "";
+  for ( let i = 0; i < arrayOfNumbers[i].length; i++ ) {
+    averageOfNumbers += arrayOfNumbers[i];
+  }
+  return averageOfNumbers;
+}
 
+// average = sumOfNumbers / arrayOfNumbers[i].length
+// would "count" arrayOfNumbers help in this case?
+  
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfWords) {
+   if ( arrayOfWords.length === 0 ) {
+    return null;
+  }
+  let averageLengthOfWords = 0;
+  for ( let i = 0; i < arrayOfWords[i].length; i++ ) {
+    averageLengthOfWords += arrayOfWords[i].length;
+  }
+  return averageLengthOfWords;
+}
+
+//mandotory to need to know the length of every word/string in the array
+// averageWordLength = sumOfWords / arrayOfWords[i].length
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -81,8 +113,9 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayOfWords, word) {
 
+}
 
 
 // Iteration #7: Count repetition
@@ -100,7 +133,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfWords, word) {
+  return numberOfTimes;
+}
 
 
 
