@@ -32,39 +32,57 @@ function findLongestWord(arrayOfStrings) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrayOfNumbers) {
-  let total = " ";
-
-   for (i = 0; i < arrayOfNumbers.length; i++){
-
-   total  += arrayOfNumbers[i];
-   }
+  if(arrayOfNumbers.length===0){
+    return 0
+  }
+  let total = 0;
+  for (i = 0; i < arrayOfNumbers.length; i++){
+  total  += arrayOfNumbers[i];
+   } 
   return total
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arrayOfNumbers) {
+  if(arrayOfNumbers.length===0){
+    return 0
+  }
+}
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayOfNumbers) {
-  let total = " ";
-
-   for (i  = 0; i < arrayOfNumbers.length; i++);{
+  let total = 0;
+  if(arrayOfNumbers.length===0){
+    return null
+  }
+   for (let i  = 0; i < arrayOfNumbers.length; i++) {
     total  += arrayOfNumbers[i];
    }
-   return total
+   return total / arrayOfNumbers.length
+  }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfStrings) { 
+  let total = 0;
+  if(arrayOfStrings.length===0){
+    return null
+  }
+   for (let i  = 0; i < arrayOfStrings.length; i++) {
+    total  += arrayOfStrings[i];
+   }
+   return total / arrayOfStrings.length
+  }
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -84,14 +102,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayOfStrings) {
+  if(arrayOfStrings.length===0){
+    return null
+  }
+  for(let i = 0; i=arrayOfStrings; i++)
+  if (arrayOfStrings[i].indexOf > 1) {
+    arrayOfStrings.splice(1)
+  }
+  return arrayOfStrings
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayOfStrings) {
+  if(arrayOfStrings.length===0){
+    return null
+  }
+let word="";
+for (let i = 0; i++;)
+if(arrayOfStrings[i] === word){
+  return true
+} else {
+  return false
+}
+}
 
 
 
@@ -110,7 +148,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfStrings) {
+  if(arrayOfStrings.length===0){
+    return 0
+  }
+  const howManyTimes = ""
+  if(arrayOfStrings.indexOf > 1){
+    return arrayOfStrings()
+  }
+
+}
 
 
 
