@@ -67,7 +67,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
   let length = arr.length;
-  return this.sum(arr) / length;
+  return sum(arr) / length;
 }
 
 console.log(averageNumbers(numbersAvg));
@@ -186,7 +186,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct() {
+
+}
 
 
 
