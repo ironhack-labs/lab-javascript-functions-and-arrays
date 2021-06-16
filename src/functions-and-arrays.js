@@ -89,7 +89,18 @@ function averageWordLength(arr) {
 // Bonus - Iteration #4.1
 function avg(arr) {
   if (arr.length === 0) return null;
-  const sum = sum(arr);
+  let sum = 0;
+  for (const item of arr) {
+    if (arr[i].isArray() || arr[i] === 'object') {
+      throw new Error('Whoops!');
+    } else if (typeof item === "boolean") {
+      result += Number(item);
+    } else if (typeof item === "string") {
+      result += item.length;
+    } else {
+      result += item
+    }
+  }
   return sum / arr.length;
 }
 
