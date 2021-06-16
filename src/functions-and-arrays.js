@@ -91,7 +91,7 @@ function avg(arr) {
   if (arr.length === 0) return null;
   let sum = 0;
   for (const item of arr) {
-    if (arr[i].isArray() || arr[i] === 'object') {
+    if (!arr[i].isArray() || arr[i] === 'object') {
       throw new Error('Whoops!');
     } else if (typeof item === "boolean") {
       result += Number(item);
