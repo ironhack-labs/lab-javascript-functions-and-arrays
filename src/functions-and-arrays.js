@@ -24,7 +24,7 @@ function findLongestWord(arr) {
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6];
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function sumNumbers(arr) {
   // const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -41,20 +41,20 @@ function sumNumbers(arr) {
   return result;
 }
 
-// console.log(sumNumbers(numbers));
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
   let result = 0;
-  for (const item of arr) {
-    if (item.isArray() || item === 'object') {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].isArray() || arr[i] === 'object') {
       throw new Error('Whoops!');
-    } else if (typeof item === "boolean") {
-      result += Number(item);
-    } else if (typeof item === "string") {
-      result += item.length;
+    } else if (typeof arr[i] === "boolean") {
+      result += Number(arr[i]);
+    } else if (typeof arr[i] === "string") {
+      result += arr[i].length;
     } else {
-      result += item
+      result += arr[i]
     }
   }
   return result;
@@ -70,15 +70,15 @@ function averageNumbers(arr) {
   if (arr.length === 0) return null;
   let length = arr.length;
   let result = 0;
-  for (const item of arr) {
-    if (item.isArray() || item === 'object') {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].isArray() || arr[i] === 'object') {
       throw new Error('Whoops!');
-    } else if (typeof item === "boolean") {
-      result += Number(item);
-    } else if (typeof item === "string") {
-      result += item.length;
+    } else if (typeof arr[i] === "boolean") {
+      result += Number(arr[i]);
+    } else if (typeof arr[i] === "string") {
+      result += arr[i].length;
     } else {
-      result += item
+      result += arr[i]
     }
   }
   return result / length;
