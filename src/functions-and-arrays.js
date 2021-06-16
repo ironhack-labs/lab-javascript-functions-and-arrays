@@ -47,7 +47,7 @@ function sumNumbers(arr) {
 function sum(arr) {
   let result = 0;
   for (const item of arr) {
-    if (arr[i].isArray() || arr[i] === 'object') {
+    if (item.isArray() || item === 'object') {
       throw new Error('Whoops!');
     } else if (typeof item === "boolean") {
       result += Number(item);
@@ -69,7 +69,19 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arr) {
   if (arr.length === 0) return null;
   let length = arr.length;
-  return sum(arr) / length;
+  let result = 0;
+  for (const item of arr) {
+    if (item.isArray() || item === 'object') {
+      throw new Error('Whoops!');
+    } else if (typeof item === "boolean") {
+      result += Number(item);
+    } else if (typeof item === "string") {
+      result += item.length;
+    } else {
+      result += item
+    }
+  }
+  return result / length;
 }
 
 
@@ -89,6 +101,9 @@ function averageWordLength(arr) {
 // Bonus - Iteration #4.1
 function avg(arr) {
   if (arr.length === 0) return null;
+  if (!arr.isArray() || arr === 'object') {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
   let sum = 0;
   for (const item of arr) {
     if (!arr[i].isArray() || arr[i] === 'object') {
