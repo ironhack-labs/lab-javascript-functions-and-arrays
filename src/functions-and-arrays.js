@@ -3,15 +3,16 @@ function maxOfTwoNumbers(num1, num2) {
   return num1 > num2 ? num1 : num2;
 }
 
-console.log("Maximum number: " + maxOfTwoNumbers(33, 22));
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
   if (!Array.isArray(arr)) {
     return -1;
+  } else if (arr.length === 0) {
+    return null;
   }
+
   let longest = arr[0];
   for (const item of arr) {
     if (item.length > longest.length) {
@@ -20,8 +21,6 @@ function findLongestWord(arr) {
   }
   return longest;
 }
-
-console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
@@ -41,7 +40,6 @@ function sumNumbers(arr) {
   // return result;
 }
 
-console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
@@ -59,7 +57,6 @@ function sum(arr) {
 }
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -70,7 +67,6 @@ function averageNumbers(arr) {
   return sum(arr) / length;
 }
 
-console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -83,7 +79,6 @@ function averageWordLength(arr) {
   return lengthSum / arrLength;
 }
 
-console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg(arr) {
@@ -117,13 +112,14 @@ function uniquifyArray(arr) {
   return result;
 }
 
-console.log(uniquifyArray(wordsUnique));
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  }
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === word) {
       return true
@@ -157,8 +153,6 @@ function howManyTimes(arr, word) {
   }
   return result;
 }
-
-console.log("Count: " + howManyTimes(wordsCount, 'matter'));
 
 
 // Iteration #8: Bonus
