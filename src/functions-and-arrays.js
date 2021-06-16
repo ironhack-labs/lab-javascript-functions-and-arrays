@@ -107,11 +107,11 @@ function avg(arr) {
   let sum = 0;
   for (const item of arr) {
     if (typeof item === "boolean") {
-      result += Number(item);
+      sum += Number(item);
     } else if (typeof item === "string") {
-      result += item.length;
+      sum += item.length;
     } else {
-      result += item
+      sum += item
     }
   }
   return sum / arr.length;
