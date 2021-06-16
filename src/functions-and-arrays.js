@@ -46,7 +46,7 @@ function sumNumbers ( arrayOfNumbers ) {
          sumOfNumbers += arrayOfNumbers[i];
     }
     return sumOfNumbers;
-  }
+}
   
 
 // Iteration #3.1 Bonus:
@@ -56,7 +56,6 @@ function sum(array) {
   }
   return sum;
 }
-
 
 // sum of any data which is in the array
 
@@ -70,43 +69,26 @@ function averageNumbers( arrayOfNumbers ) {
   if ( arrayOfNumbers.length === 0 ) {
     return null;
   }
-  const total = sumNumbers(arrayOfNumbers);
+  const total = sumNumbers( arrayOfNumbers );
     return total / arrayOfNumbers.length;
- 
-} 
-
-/*
-function sumNumbers( arrayOfNumbers ) {
-  
-  for ( let sumNumbers = 0, i = 0; i < arrayOfNumbers.length; i++ ) {
-        sumNumbers += arrayOfNumbers[i];
-    }
-    return sumNumbers;    
-  } 
-
-function averageNumbers( arrayOfNumbers ) {
-  return sumNumbers(arrayOfNumbers) / arrayOfNumbers.length
-}
-*/
-
-  
+ } 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(arrayOfWords) {
+function averageWordLength( arrayOfWords ) {
    if ( arrayOfWords.length === 0 ) {
     return null;
   }
-  let averageLengthOfWords = 0;
-  for ( let i = 0; i < arrayOfWords[i].length; i++ ) {
-    averageLengthOfWords += arrayOfWords[i].length;
+  let totalWords = 0;
+  for( let i = 0; i < arrayOfWords.length; i++) {
+    totalWords += arrayOfWords[i].length;
   }
-  return averageLengthOfWords;
+    return totalWords / arrayOfWords.length;
 }
 
-//mandotory to need to know the length of every word/string in the array
-// averageWordLength = sumOfWords / arrayOfWords[i].length
+// mandotory to need to know the length of every word/string in the array
+// averageWordLength = sumOfWords / arrayOfWords.length
 
 // Bonus - Iteration #4.1
 function avg() {}
