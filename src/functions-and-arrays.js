@@ -26,7 +26,7 @@ function findLongestWord( arrayOfAnyWords ) {
 // Iteration #3: Calculate the sum
 //const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers( arrayOfNumbers ) {
+/*function sumNumbers( arrayOfNumbers ) {
     if ( arrayOfNumbers.length === 0 ){
       return 0;
     } 
@@ -37,9 +37,17 @@ function sumNumbers( arrayOfNumbers ) {
     }
   }
   return sumOfNumbers;
-}
+}*/
 
 
+function sumNumbers ( arrayOfNumbers ) {
+  let sumOfNumbers = 0;
+  for ( let i = 0; i < arrayOfNumbers.length; i++ ) {
+         sumOfNumbers += arrayOfNumbers[i];
+    }
+    return sumOfNumbers;
+  }
+  
 
 // Iteration #3.1 Bonus:
 function sum(array) {
@@ -49,26 +57,38 @@ function sum(array) {
   return sum;
 }
 
+
 // sum of any data which is in the array
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 //const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arrayOfNumbers) {
-  let sumOfNumbers = 0;
-    if ( arrayOfNumbers.length === 0 ) {
+// average = sumOfNumbers / arrayOfNumbers.length
+
+function averageNumbers( arrayOfNumbers ) {
+  if ( arrayOfNumbers.length === 0 ) {
     return null;
   }
-  let averageOfNumbers = "";
-  for ( let i = 0; i < arrayOfNumbers[i].length; i++ ) {
-    averageOfNumbers += arrayOfNumbers[i];
-  }
-  return averageOfNumbers;
-}
+  const total = sumNumbers(arrayOfNumbers);
+    return total / arrayOfNumbers.length;
+ 
+} 
 
-// average = sumOfNumbers / arrayOfNumbers[i].length
-// would "count" arrayOfNumbers help in this case?
+/*
+function sumNumbers( arrayOfNumbers ) {
+  
+  for ( let sumNumbers = 0, i = 0; i < arrayOfNumbers.length; i++ ) {
+        sumNumbers += arrayOfNumbers[i];
+    }
+    return sumNumbers;    
+  } 
+
+function averageNumbers( arrayOfNumbers ) {
+  return sumNumbers(arrayOfNumbers) / arrayOfNumbers.length
+}
+*/
+
   
 
 // Level 2: Array of strings
@@ -92,7 +112,7 @@ function averageWordLength(arrayOfWords) {
 function avg() {}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+/*const wordsUnique = [
   'crab',
   'poison',
   'contagious',
@@ -105,6 +125,7 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+*/
 
 function uniquifyArray() {}
 
