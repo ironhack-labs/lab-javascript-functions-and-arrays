@@ -47,7 +47,7 @@ console.log(sumNumbers(numbers));
 function sum(arr) {
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].isArray() || arr[i] === 'object') {
+    if (Array.isArray(arr[i]) || arr[i] === 'object') {
       throw new Error('Whoops!');
     } else if (typeof arr[i] === "boolean") {
       result += Number(arr[i]);
@@ -71,7 +71,7 @@ function averageNumbers(arr) {
   let length = arr.length;
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].isArray() || arr[i] === 'object') {
+    if (Array.isArray(arr[i]) || arr[i] === 'object') {
       throw new Error('Whoops!');
     } else if (typeof arr[i] === "boolean") {
       result += Number(arr[i]);
@@ -101,7 +101,7 @@ function averageWordLength(arr) {
 // Bonus - Iteration #4.1
 function avg(arr) {
   if (arr.length === 0) return null;
-  if (!arr.isArray() || arr === 'object') {
+  if (Array.isArray(arr[i]) || arr[i] === 'object') {
     throw new Error("Unsupported data type sir or ma'am");
   }
   let sum = 0;
