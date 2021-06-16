@@ -41,14 +41,14 @@ function sumNumbers(arr) {
   return result;
 }
 
-console.log(sumNumbers(numbers));
+// console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i]) || arr[i] === 'object') {
-      throw new Error('Whoops!');
+      throw new Error("Unsupported data type sir or ma'am");
     } else if (typeof arr[i] === "boolean") {
       result += Number(arr[i]);
     } else if (typeof arr[i] === "string") {
@@ -72,7 +72,7 @@ function averageNumbers(arr) {
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i]) || arr[i] === 'object') {
-      throw new Error('Whoops!');
+      throw new Error("Unsupported data type sir or ma'am");
     } else if (typeof arr[i] === "boolean") {
       result += Number(arr[i]);
     } else if (typeof arr[i] === "string") {
@@ -107,7 +107,7 @@ function avg(arr) {
   let sum = 0;
   for (const item of arr) {
     if (!Array.isArray(arr[i]) || arr[i] === 'object') {
-      throw new Error('Whoops!');
+      throw new Error("Unsupported data type sir or ma'am");
     } else if (typeof item === "boolean") {
       result += Number(item);
     } else if (typeof item === "string") {
