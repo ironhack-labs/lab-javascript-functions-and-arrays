@@ -114,7 +114,7 @@ function avg(arr) {
       sum += item
     }
   }
-  return sum / arr.length;
+  return Number((sum / arr.length).toFixed(2));
 }
 
 
