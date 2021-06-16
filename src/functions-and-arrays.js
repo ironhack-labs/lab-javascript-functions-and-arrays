@@ -106,9 +106,7 @@ function avg(arr) {
   // }
   let sum = 0;
   for (const item of arr) {
-    if (!Array.isArray(arr[i]) || arr[i] === 'object') {
-      throw new Error("Unsupported data type sir or ma'am");
-    } else if (typeof item === "boolean") {
+    if (typeof item === "boolean") {
       result += Number(item);
     } else if (typeof item === "string") {
       result += item.length;
