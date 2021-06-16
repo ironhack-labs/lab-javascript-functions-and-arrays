@@ -138,7 +138,7 @@ function doesWordExist(arr, word) {
 const wordsCount = [
   'machine',
   'matter',
-  'subset', just in
+  'subset',
   'trouble',
   'starting',
   'matter',
@@ -149,8 +149,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(arr, word) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      result++;
+    }
+  }
+  return result;
+}
 
+console.log("Count: " + howManyTimes(wordsCount, 'matter'));
 
 
 // Iteration #8: Bonus
