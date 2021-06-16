@@ -24,22 +24,24 @@ function findLongestWord(arr) {
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6];
 
 function sumNumbers(arr) {
   // const reducer = (accumulator, currentValue) => accumulator + currentValue;
   // or within the parentheses
-  return numbers.reduce((accumulator, currentValue) => {
-    return accumulator += currentValue;
-  }, 0);
+  // return numbers.reduce((accumulator, currentValue) => {
+  //   return accumulator += currentValue;
+  // }, 0);
   // second way
-  // let result = 0;
-  // for (let i = 0; i < arr.length; i++) {
-  //   result += arr[i];
-  // }
-  // return result;
+  if (arr.length === 0) return 0;
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i];
+  }
+  return result;
 }
 
+// console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
@@ -106,8 +108,7 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
   if (arr.length === 0) return null;
-  if (arr)
-    const result = [];
+  const result = [];
   for (const [index, item] of arr.entries()) {
     if (result.indexOf(item) < 0) {
       result.push(item);
