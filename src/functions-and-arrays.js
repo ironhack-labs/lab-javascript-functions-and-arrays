@@ -87,11 +87,10 @@ console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-  const sum = this.sum(arr);
+  const sum = sum(arr);
   return sum / arr.length;
 }
 
-console.log(this.avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
