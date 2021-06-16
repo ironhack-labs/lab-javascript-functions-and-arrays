@@ -101,9 +101,9 @@ function averageWordLength(arr) {
 // Bonus - Iteration #4.1
 function avg(arr) {
   if (arr.length === 0) return null;
-  if (Array.isArray(arr) || arr === 'object') {
-    throw new Error("Unsupported data type sir or ma'am");
-  }
+  // if (Array.isArray(arr) || arr === 'object') {
+  //   throw new Error("Unsupported data type sir or ma'am");
+  // }
   let sum = 0;
   for (const item of arr) {
     if (!Array.isArray(arr[i]) || arr[i] === 'object') {
