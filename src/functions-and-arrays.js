@@ -12,7 +12,6 @@ function findLongestWord(arr) {
   } else if (arr.length === 0) {
     return null;
   }
-
   let longest = arr[0];
   for (const item of arr) {
     if (item.length > longest.length) {
@@ -21,7 +20,6 @@ function findLongestWord(arr) {
   }
   return longest;
 }
-
 
 // Iteration #3: Calculate the sum
 const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -211,7 +209,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
+function greatestProduct(arr) {
 
 }
 
