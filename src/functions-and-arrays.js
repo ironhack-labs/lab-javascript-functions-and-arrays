@@ -277,15 +277,13 @@ function greatestProduct(arr) {
     return resulth
   }
 }
-let jsjs = [
+let someArray1 = [
   [1, 2, 3, 4, 5],
   [1, 20, 3, 4, 5],
   [1, 20, 3, 4, 5],
   [1, 20, 3, 4, 5],
   [1, 4, 3, 4, 5],
 ]
-console.log(greatestProduct(jsjs))
-
 
 
 // The following is required to make unit tests work.
