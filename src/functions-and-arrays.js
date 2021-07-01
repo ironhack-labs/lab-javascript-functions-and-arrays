@@ -1,24 +1,79 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1,number2) {
+  if (number1 > number2) {
+    return number1
+  } else if (number2>number1) {
+    return number2
+  } 
+  else {
+    return number1
+  }
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  if (array.length === 0) {
+    return null
+  }
+  if (array.length === 1) {
+    return array[0]
+  }
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let total = 0
+  for (let i = 0; i < array.length; i++) {
+    total += array[i]
+  }
+  return total
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return 0
+  }
+  if (array.length === 1 && typeof array[0] === "number") {
+    return array[0]
+  }
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === 0 || array[i] === "0") {
+      return 0
+    }
+    else if (typeof array[i] === "number") {
+      sum += array[i];
+    } 
+    else if (typeof array[i] === "string") {
+      sum += array[i].length
+    }
+    else if (typeof array[i] === "boolean" && array[i] === true) {
+      sum += 1
+    }
+    else if (typeof array[i] === "boolean" && array[i] === false) {
+      sum += 0
+    }
+    else if (typeof array !== "string" && typeof array !== "number" && typeof array !== "boolean") {
+      throw new Error ("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum
+}
+
+console.log(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
+console.log(typeof true)
 
 
 
@@ -26,16 +81,72 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let total = 0;
+  if (array.length === 0) {
+    return null
+  }
+  else if (array.length === 1) {
+    return array[0]
+  }
+  else {
+    for (let i = 0; i < array.length; i++) {
+      total += array[i];
+    }
+  }
+  return total/array.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  let total = 0;
+
+  if (array.length === 0) {
+    return null
+  }
+  for (i = 0; i <  array.length; i++) {
+    total += array[i].length;
+  }
+  return total / array.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0;
+  let average
+  if (arr.length === 0) {
+    return null
+  }
+  if (arr.length === 1 && typeof arr[0] === "number") {
+    return arr[0]
+  }
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === 0 || arr[i] === "0") {
+      return 0
+    }
+    else if (typeof arr[i] === "number") {
+      sum += arr[i];
+    } 
+    else if (typeof arr[i] === "string") {
+      sum += arr[i].length
+    }
+    else if (typeof arr[i] === "boolean" && arr[i] === true) {
+      sum += 1
+    }
+    else if (typeof arr[i] === "boolean" && arr[i] === false) {
+      sum += 0
+    }
+    // else if (typeof arr !== "string" && typeof arr !== "number" && typeof arr !== "boolean") {
+    //   throw new Error ("Unsupported data type sir or ma'am");
+    // }
+  }
+  average = Number((sum/arr.length).toFixed(2))
+  return average
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,7 +163,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null
+  }
+
+  for (i = 0; i < array.length; i++) {
+
+  }
+}
+
+console.log(uniquifyArray([]))
+
 
 
 
