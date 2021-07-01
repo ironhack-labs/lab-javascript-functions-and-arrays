@@ -34,5 +34,19 @@
     "printWidth": 120,
     "singleQuote": true,
     "trailingComma": "none"
-  }
+  },
+  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Piskouille/lab-javascript-functions-and-arrays.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Piskouille/lab-javascript-functions-and-arrays/issues"
+  },
+  "homepage": "https://github.com/Piskouille/lab-javascript-functions-and-arrays#readme"
 }

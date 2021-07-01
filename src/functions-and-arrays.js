@@ -1,41 +1,107 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(x, y) {
+  return Math.max(x, y)
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+  
+function findLongestWord(words) {
+  if(words.length === 0) return null
 
-function findLongestWord() {}
+  const lengths = words.map(word => word.length)
+  const max = Math.max(...lengths)
+  const index = lengths.indexOf(max)
+
+  return words[index]
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  return numbers.reduce((acc, value) => acc + value, 0)
+}
 
 
+// Iteration #3.1 Bonus: //Tentative de try catch infructueuse ...
+function sum(tab) {
+  if(tab.length === 0) return 0
 
-// Iteration #3.1 Bonus:
-function sum() {}
+  const numTab = tab.map(elem => {
 
+    if(typeof elem === "number"){
+        if(isNaN(elem)){
+          return 0
+        }
+        
+        return elem
+    }
+    if(typeof elem === "string"){
+      return elem.length
+    }
+    if(typeof elem === "boolean"){
+      return + elem
+    }
+    
+    throw "Unsupported data type sir or ma'am"
+    
+  })
 
+  return sumNumbers(numTab)
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(tab) {
+  
+  return tab.length === 0 ? null : Math.round(tab.reduce((acc,value) => acc + value, 0) / tab.length * 100) / 100
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  return wordsArr.length === 0 ? null : wordsArr.map(word => word.length).reduce((acc,value) => acc + value, 0) / wordsArr.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(tab) {
+  if(tab.length === 0) return null
+
+  const numTab = tab.map(elem => {
+
+    if(typeof elem === "number"){
+        if(isNaN(elem)){
+          return 0
+        }
+        
+        return elem
+    }
+    if(typeof elem === "string"){
+      return elem.length
+    }
+    if(typeof elem === "boolean"){
+      return + elem
+    }
+    
+    throw "Unsupported data type sir or ma'am"
+    
+  })
+
+  return averageNumbers(numTab)
+}
+
+console.log(avg([6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]))
+console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]))
+console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +118,25 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(tab) {
+  if(tab.length === 0) return null
 
+  const res = tab.filter((value, key) => {
 
+    return (tab.slice(0, key).indexOf(value) === -1)
+  })
+
+  return res
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(tab, word) {
+  if(tab.length === 0) return null
+
+  return(tab.indexOf(word) !== -1)
+}
 
 
 
@@ -78,7 +155,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(tab, word) {
+  if(tab.length === 0) return 0
+
+  let cpt = 0
+
+  for(let e of tab){
+    if(e === word) cpt++
+  }
+
+  return cpt
+}
 
 
 
@@ -106,10 +193,41 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+  const len = matrix.length
+
+  if (len === 0) return null
+
+  let products = []
+
+  for(let i = 0 ; i < len - 3 ; i ++){
+    for(let j = 0 ; j < len - 3 ; j++){
+      const p = adjacentProducs(i, j, matrix)
+      products.push(p.pV)
+      products.push(p.pH)
+    }
+  }
+
+  return Math.max(...products)
+}
+
+//from an index [x,y] calculate the two (horizontal and vertical) adjacents products of a matrix m
+function adjacentProducs(x, y , m){
+  let pV = m[x][y] * m[x][y + 1] * m[x][y + 2] * m[x][y + 3]
+  let pH = m[x][y] * m[x + 1][y] * m[x + 2][y] * m[x + 3][y]
+
+  return {pV: pV, pH: pH}
+}
 
 
-
+console.log(greatestProduct([
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5],
+]))
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
