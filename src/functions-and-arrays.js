@@ -106,11 +106,12 @@ function uniquifyArray(anArray) {
 
   if (anArray.length == 0) {
     return null;
-  }anArray.forEach(element => {
+  }else {anArray.forEach(element => {
     if (uniqueArray.indexOf(element) == -1 ){
       uniqueArray.push(element);
-    }
-  });
+      }
+    });
+  }
 
   return uniqueArray;
 }
@@ -120,7 +121,24 @@ function uniquifyArray(anArray) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(anArray,word) {
+  
+  let wordExists = false;
+  
+  if (anArray.length == 0) {
+    return null;
+  }else { anArray.forEach(element => {
+    if (word === element) {
+      
+      wordExists = true;
+      
+    }
+
+  });
+
+  }
+  return wordExists;
+}
 
 
 
