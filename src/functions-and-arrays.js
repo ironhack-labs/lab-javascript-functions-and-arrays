@@ -72,10 +72,6 @@ function sum(array) {
   return sum
 }
 
-console.log(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
-console.log(typeof true)
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -164,18 +160,40 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
+  let counterSameElements = 0;
+  let uniqueArray = [];
+  let i
+
   if (array.length === 0) {
     return null
   }
-
+  
   for (i = 0; i < array.length; i++) {
+    if (array[i] === array[i+1]){
+      counterSameElements += 1;
+      if (counterSameElements === (array.length-1)) {
+        uniqueArray.push(array[0]);
+        return uniqueArray
+      }
+    }
+  }
 
+
+  let currentElement = array[i]
+  for (i = 0; i < array.length; i++) {
+    console.log(currentElement)
+    if (array.slice(i).includes(currentElement) === true) {
+      console.log("currentElement", currentElement);
+      console.log("array.slice(i)", array.slice(i))
+      counterSameElements += 1;
+      // if (counterSameElements === 0) {
+      //   return array
+      // }
+    }
   }
 }
 
-console.log(uniquifyArray([]))
-
-
+console.log("Result", uniquifyArray("now", "or", "never"))
 
 
 // Iteration #6: Find elements
@@ -250,3 +268,8 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+
+
+
+
