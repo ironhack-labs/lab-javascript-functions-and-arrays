@@ -20,9 +20,7 @@ function findLongestWord(anArray) {
       anArray.forEach(element => {
         if (element.length > longestWord.length) {
           longestWord = element;
-          
         }
-        
       });
     }
     return longestWord;
@@ -33,7 +31,14 @@ function findLongestWord(anArray) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(anArray) {
+  let sum = 0;
+  
+  anArray.forEach(element => {
+    sum += element;
+  });
+  return sum;
+}
 
 
 
