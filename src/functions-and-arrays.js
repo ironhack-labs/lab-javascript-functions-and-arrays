@@ -33,7 +33,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(anArray) {
   let sum = 0;
-  
+
   anArray.forEach(element => {
     sum += element;
   });
@@ -51,7 +51,18 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(anArray) {
+  let sum = 0
+  let avg = 0
+  if (anArray.length == 0) {
+    return null;
+  }else{
+    anArray.forEach(element => {
+      sum+= element;
+    });
+  }
+  return sum / anArray.length ;
+}
 
 
 // Level 2: Array of strings
