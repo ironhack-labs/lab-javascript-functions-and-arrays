@@ -66,9 +66,9 @@ console.log(temp);
 
 // Iteration #3.1 Bonus:
 function sum() {
+  
 
 }
-
 
 
 // Iteration #4: Calculate the average
