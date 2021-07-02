@@ -199,7 +199,17 @@ console.log("Result", uniquifyArray("now", "or", "never"))
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  if(array.length === 0) {
+    return null
+  }
+  if (array.includes(word) === true) {
+    return true
+  }
+  else {
+    return false
+  }
+}
 
 
 
@@ -218,7 +228,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  for (let i = 0; i < array.length; i++) {
+    if(array[i])
+  }
+}
 
 
 
