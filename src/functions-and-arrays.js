@@ -174,7 +174,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, word) {
+  let repetitionChecker = [];
+  let wordIndex = wordsArray.indexOf(word);
+
+  if (wordsArray.length > 0) {
+    for (let i = 0; i < wordsArray.length; i++) {
+      if (wordIndex != -1) {
+        repetitionChecker.push(wordIndex);
+        wordIndex = wordsArray.indexOf(word, wordIndex + 1);
+      }
+    }
+    return repetitionChecker.length;
+  }
+  return 0;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -200,7 +214,34 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestPosibleProduct = 0;
+  let productHorizontal = 0;
+  let productVertical = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      productHorizontal = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      // console.log(`ProductH equals: ${matrix[i][j]} * ${matrix[i][j+1]} * ${matrix[i][j+2]} * ${matrix[i][j+3]} // TOTAL is ${productHorizontal}`);
+      if (productHorizontal > greatestPosibleProduct) {
+        greatestPosibleProduct = productHorizontal;
+      }
+    }
+  }
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      productVertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+
+      if (productVertical > greatestPosibleProduct) {
+        greatestPosibleProduct = productVertical;
+      }
+    }
+  }
+  return greatestPosibleProduct;
+}
+
+// Iteration #8.1: Bonus
+function greatestProductOfDiagonals(matrix) {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
