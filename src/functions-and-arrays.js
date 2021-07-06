@@ -39,7 +39,27 @@ function sumNumbers(numbersArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(randomArray) {
+  let sum = 0;
+
+  if (randomArray.length > 0) {
+    randomArray.forEach((item) => {
+      if (typeof item === 'number') {
+        sum += item;
+      } else if (typeof item === 'string') {
+        sum += item.length;
+      } else if (item === true) {
+        sum += 1;
+      } else if (typeof item != 'number' && typeof item != 'string' && typeof item != 'boolean') {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    });
+
+    return sum;
+  } else {
+    return sum;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
