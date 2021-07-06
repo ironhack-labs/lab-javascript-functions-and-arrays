@@ -117,12 +117,47 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+// SOLUTION 1.
+function uniquifyArray(array) {
+  let uniqueArray = [];
+
+  if (array.length > 0) {
+    array.forEach((item) => {
+      if (uniqueArray.indexOf(item) === -1) {
+        uniqueArray.push(item);
+      }
+    });
+    return uniqueArray;
+  }
+  return null;
+}
+
+// SOLUTION 2.
+// function uniquifyArray(array) {
+//   let uniqueArray = [];
+
+//   if (array.length > 0) {
+//     array.forEach((item) => {
+//       if (!uniqueArray.includes(item)) {
+//         uniqueArray.push(item);
+//       }
+//     });
+//     return uniqueArray;
+//   }
+//   return null;
+// }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, word) {
+  if (wordsArray.length > 0) {
+    if (wordsArray.includes(word)) {
+      return true;
+    } else return false;
+  }
+  return null;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
