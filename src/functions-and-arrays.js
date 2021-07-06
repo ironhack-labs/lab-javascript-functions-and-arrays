@@ -53,24 +53,34 @@ function sum() {}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-var sumVar2 = 0;
 
-function averageNumbers(numbers) {
-  if(numbers === undefined || numbers.length === 0) {
+function averageNumbers(numbersArr) {
+  if (numbersArr === undefined || numbersArr.length === 0) {
     return null;
   }
 
-  for (var count = 0; count <= numbers.length - 1; count++) {
-    sumVar2 += numbers[count];
+  let sumVar = 0;
+  for (var count = 0; count <= numbersArr.length - 1; count++) {
+    sumVar += numbersArr[count];
   }
-  var average = sumVar2 / numbers.length;
+  var average = sumVar / numbersArr.length;
   return average;
 }
 
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words === undefined || words.length === 0) {
+    return null;
+  }
+
+  let totalLength = 0;
+  for (let index = 0; index < words.length; index++) {
+    const element = words[index];
+    totalLength += element.length;
+  }
+  return totalLength / words.length;
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -108,15 +118,16 @@ function uniquifyArray(words) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(words) {
-  if(words === undefined || words.length === 0) {
+function doesWordExist(words, word) {
+  if (words === undefined || words.length === 0) {
     return null;
   }
 
-
+  if (words.includes(word)) {
+    return true;
+  }
+  return false;
 }
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
