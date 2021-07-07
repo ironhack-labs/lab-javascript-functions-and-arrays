@@ -154,7 +154,7 @@ function howManyTimes(arr, searchWord) {
   else {
   for (let i=0; i<arr.length; i++){
     if (arr[i]==searchWord){
-      count[arr[i]] = (count[arr[i]] || 0) + 1
+      count++
     }
   }
   }
