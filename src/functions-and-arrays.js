@@ -81,7 +81,41 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+
+  let sum = 0;
+
+  if(!numbers.length) {
+    return 0;
+  }
+
+  if(numbers.length === 1) {
+    return numbers[0];
+  }
+
+  for (i = 0; i < numbers.length; i++) {
+    
+
+    switch (typeof numbers[i]) {
+      case 'number':
+        sum += numbers[i];
+        break;
+      case 'string':
+        sum += numbers[i].length;
+        break;
+      case 'boolean':
+        if (numbers[i]){
+          sum += 1;
+        }
+        break;
+      default: 
+        throw "Unsupported data type sir or ma'am";
+    }
+  }
+
+  return sum;
+  
+}
 
 
 
