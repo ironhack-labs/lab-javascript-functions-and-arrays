@@ -37,7 +37,6 @@ function findLongestWord(words) {
   for (i = 0; i < words.length; i++) {
     if (longestWord.length < words[i].length){
       longestWord = words[i];
-      console.log(longestWord);
     }
   }
 
@@ -159,7 +158,36 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(someArr) {
+
+  if(!someArr.length) {
+    return null;
+  }
+
+  let total = 0;
+  for(let i = 0; i < someArr.length; i++){
+
+    switch (typeof someArr[i]) {
+      case 'number':
+        total += someArr[i];
+        break;
+      case 'string':
+        total += someArr[i].length;
+        break;
+      case 'boolean':
+        if (someArr[i]){
+          total += 1;
+        }
+        break;
+      default: 
+        throw "Unsupported data type sir or ma'am";
+    }
+
+  }
+
+  return parseFloat((total / someArr.length).toFixed(2));
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
