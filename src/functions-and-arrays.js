@@ -18,12 +18,49 @@ function findLongestWord(array) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0
+  array.forEach(element=>{sum+=element})
+  if(sum){return sum}
+  return 0
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+//CALCULATES THE SUM OF ANYTHING INSIDE THE ARRAY. IF IT'S NOT AN ARRAY, THROWS AN ERROR!
+function sum(array,arrayIndex=0) { 
+  if(!Array.isArray(array)){return 'Error: Not an array!'}
+  switch (typeof array[arrayIndex]){
+    case 'number':
+      if(arrayIndex == array.length-1){
+        return array[arrayIndex]
+      } else {return array[arrayIndex]+sum(array,arrayIndex+1)}
+    case "string":
+      if(arrayIndex == array.length-1){
+        return +array[arrayIndex].length
+      } else {return array[arrayIndex].length+sum(array,arrayIndex+1)}
+    case "boolean":
+      if(arrayIndex == array.length-1){
+        return array[arrayIndex] ? 1:0
+      } else {return array[arrayIndex] ? 1+sum(array,arrayIndex+1):0+sum(array,arrayIndex+1)}
+    case "object":
+      if (Array.isArray(array[arrayIndex])){ // check if the element is an array or object
+        if(arrayIndex == array.length-1){
+          return sum(array[arrayIndex])
+        } else {return sum(array[arrayIndex])+sum(array,arrayIndex+1)}
+      } else { // if object, basically transform it into an array
+        if(arrayIndex == array.length-1){
+          return sum(Object.values(array[arrayIndex]))
+        } else {return sum(Object.values(array[arrayIndex]))+sum(array,arrayIndex+1)}
+      }
+    default:
+      if(arrayIndex >= array.length-1){//"greater or equals than" in order to catch an EMPTY ARRAY case, with length = 0
+        return 0
+      } else {return 0 + sum(array,arrayIndex+1)}
+  }
+}
 
 
 
