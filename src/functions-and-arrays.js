@@ -1,23 +1,57 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2){
+    console.log(`This ${num1}, is bigger than ${num2}`);
+  }
+  else if(num2 > num1){
+    console.log(`This ${num2}, is bigger than ${num1}`);
+  }
+  else{
+    console.log(`they are the same number!`)
+  }
+};
 
-
+//Testing solution 01:
+maxOfTwoNumbers(2,5);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arrayOfWords) {
+let longestWord = '';
+let i = 0;
 
+for (i = 0; i < arrayOfWords.length ; i++){
+  if(arrayOfWords[i].length >= longestWord.length){
+    longestWord = arrayOfWords[i];
+}
+}
+return longestWord;
+}
 
+//Testin solution 02 - *Need to understand better for each. 
+console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersToBeSome) {
+  sum = 0;
+  i = 0;
+  for (i = 0; i < numbersToBeSome.length ; i++){
+    sum += numbersToBeSome[i];
+  }
+return sum;
+}
 
+//Testin Solution 03
 
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
 function sum() {}
 
 
