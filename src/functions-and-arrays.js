@@ -29,17 +29,16 @@ function findLongestWord(words) {
   if(!words.length) {
     return null;
   }
-
-  if(words.length === 1) {
+  else if(words.length === 1) {
     return words[0];
   }
-
-  for (i = 0; i < words.length; i++) {
-    if (longestWord.length < words[i].length){
-      longestWord = words[i];
+  else{
+    for (i = 0; i < words.length; i++) {
+      if (longestWord.length < words[i].length){
+        longestWord = words[i];
+      }
     }
   }
-
   return longestWord;
 
 }
@@ -63,16 +62,14 @@ function sumNumbers(numbers) {
   if(!numbers.length) {
     return 0;
   }
-
-  if(numbers.length === 1) {
+  else if(numbers.length === 1) {
     return numbers[0];
   }
-
-  
-  for (i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+  else{
+    for (i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
   }
-
   return sum;
 
 }
@@ -87,28 +84,28 @@ function sum(numbers) {
   if(!numbers.length) {
     return 0;
   }
-
-  if(numbers.length === 1) {
+  else if(numbers.length === 1) {
     return numbers[0];
   }
-
-  for (i = 0; i < numbers.length; i++) {
+  else{
+    for (i = 0; i < numbers.length; i++) {
     
 
-    switch (typeof numbers[i]) {
-      case 'number':
-        sum += numbers[i];
-        break;
-      case 'string':
-        sum += numbers[i].length;
-        break;
-      case 'boolean':
-        if (numbers[i]){
-          sum += 1;
-        }
-        break;
-      default: 
-        throw "Unsupported data type sir or ma'am";
+      switch (typeof numbers[i]) {
+        case 'number':
+          sum += numbers[i];
+          break;
+        case 'string':
+          sum += numbers[i].length;
+          break;
+        case 'boolean':
+          if (numbers[i]){
+            sum += 1;
+          }
+          break;
+        default: 
+          throw "Unsupported data type sir or ma'am";
+      }
     }
   }
 
@@ -123,16 +120,19 @@ function sum(numbers) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
+
+  let total = 0;
+
   if(!numbersAvg.length) {
     return null;
   }
-  if(numbersAvg.length === 1) {
+  else if(numbersAvg.length === 1) {
     return numbersAvg[0];
   }
-  
-  let total = 0;
-  for(let i = 0; i < numbersAvg.length; i++) {
-    total += numbersAvg[i];
+  else{
+    for(let i = 0; i < numbersAvg.length; i++) {
+      total += numbersAvg[i];
+    }
   }
   return total / numbersAvg.length;
   
@@ -143,16 +143,19 @@ function averageNumbers(numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) { 
+
+  let total = 0;
+
   if(!wordsArr.length) {
     return null;
   }
-  if(wordsArr.length === 1) {
+  else if(wordsArr.length === 1) {
     return wordsArr[0].length;
   }
-  
-  let total = 0;
+  else {
   for(let i = 0; i < wordsArr.length; i++) {
     total += wordsArr[i].length;
+    }
   }
   return total / wordsArr.length;
 }
@@ -160,29 +163,31 @@ function averageWordLength(wordsArr) {
 // Bonus - Iteration #4.1
 function avg(someArr) {
 
+  let total = 0;
+
   if(!someArr.length) {
     return null;
   }
+  else{
+    for(let i = 0; i < someArr.length; i++){
 
-  let total = 0;
-  for(let i = 0; i < someArr.length; i++){
-
-    switch (typeof someArr[i]) {
-      case 'number':
-        total += someArr[i];
-        break;
-      case 'string':
-        total += someArr[i].length;
-        break;
-      case 'boolean':
-        if (someArr[i]){
-          total += 1;
-        }
-        break;
-      default: 
-        throw "Unsupported data type sir or ma'am";
+      switch (typeof someArr[i]) {
+        case 'number':
+          total += someArr[i];
+          break;
+        case 'string':
+          total += someArr[i].length;
+          break;
+        case 'boolean':
+          if (someArr[i]){
+            total += 1;
+          }
+          break;
+        default: 
+          throw "Unsupported data type sir or ma'am";
+      }
+  
     }
-
   }
 
   return parseFloat((total / someArr.length).toFixed(2));
@@ -211,12 +216,14 @@ function uniquifyArray(arr) {
   if(!arr.length) {
     return null;
   }
-
-  for(i=0; i< arr.length; i++){
-    if(uniqueArray.indexOf(arr[i]) === -1){
-      uniqueArray.push(arr[i]);
+  else{
+    for(i=0; i< arr.length; i++){
+      if(uniqueArray.indexOf(arr[i]) === -1){
+        uniqueArray.push(arr[i]);
+      }
     }
   }
+
   return uniqueArray;
 
 }
@@ -230,14 +237,14 @@ function doesWordExist(someArr, word) {
   if(!someArr.length) {
     return null;
   }
-
-  if(someArr.length === 1 && someArr[0] === word){
+  else if(someArr.length === 1 && someArr[0] === word){
     return true;
   }
-
-  for(const element of someArr) {
-    if(element === word){
-      return true;
+  else{
+    for(const element of someArr) {
+      if(element === word){
+        return true;
+      }
     }
   }
   return false;
@@ -268,8 +275,7 @@ function howManyTimes(wordsCount, word) {
   if(!wordsCount.length) {
     return 0;
   }
-
-  if(wordsCount.indexOf(word) === -1) {
+  else if(wordsCount.indexOf(word) === -1) {
     return 0;
   } else {
     for(const element of wordsCount) {
