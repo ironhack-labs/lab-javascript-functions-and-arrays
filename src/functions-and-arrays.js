@@ -314,7 +314,66 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+
+  let max = 0, result;
+
+  for (let i = 0; i < arr.length; i++)
+        {
+            // iterate the columns.
+            for (let j = 0; j < arr.length; j++)
+            {
+                // check the maximum product
+                // in horizontal row.
+                if ((j - 3) >= 0)
+                {
+                    result = arr[i][j] * arr[i][j - 1]
+                            * arr[i][j - 2]
+                            * arr[i][j - 3];
+                    if (max < result)
+                        max = result;
+                }
+ 
+                // check the maximum product
+                // in vertical row.
+                if ((i - 3) >= 0)
+                {
+                    result = arr[i][j] * arr[i - 1][j]
+                            * arr[i - 2][j]
+                            * arr[i - 3][j];
+ 
+                    if (max < result)
+                        max = result;
+                }
+ 
+                // check the maximum product in
+                // diagonal (going through down - right)
+                if ((i - 3) >= 0 && (j - 3) >= 0)
+                {
+                    result = arr[i][j] * arr[i - 1][j - 1]
+                            * arr[i - 2][j - 2]
+                            * arr[i - 3][j - 3];
+ 
+                    if (max < result)
+                        max = result;
+                }
+ 
+                // check the maximum product in
+                // diagonal (going through up - right)
+                if ((i - 3) >= 0 && (j - 1) <= 0)
+                {
+                result = arr[i][j] * arr[i - 1][j + 1]
+                            * arr[i - 2][j + 2]
+                            * arr[i - 3][j + 3];
+ 
+                    if (max < result)
+                        max = result;
+                }
+            }
+        }
+        return max;
+
+}
 
 
 
