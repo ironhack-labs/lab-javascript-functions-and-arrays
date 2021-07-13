@@ -239,7 +239,7 @@ function howManyTimes(wordsCount, word) {
   let count = 0;
 
   if (!wordsCount.length) {
-    return 0;
+    return count;
   }
 
   for (const element of wordsCount) {
