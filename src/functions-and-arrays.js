@@ -14,6 +14,7 @@ function maxOfTwoNumbers(num1, num2) {
 //Testing solution 01:
 maxOfTwoNumbers(2,5);
 
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -32,44 +33,81 @@ return longestWord;
 //Testin solution 02 - *Need to understand better for each. 
 console.log(findLongestWord(words));
 
+
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(numbersToBeSome) {
-  sum = 0;
+function sumNumbers(numbersToBeSum) {
+  resultOfSum = 0;
   i = 0;
-  for (i = 0; i < numbersToBeSome.length ; i++){
-    sum += numbersToBeSome[i];
+  for (i = 0; i < numbersToBeSum.length ; i++){
+    resultOfSum += numbersToBeSum[i];
   }
-return sum;
+return resultOfSum;
 }
 
 //Testin Solution 03
-
 console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 57
 
-function sum() {}
+function sum(sumAnything) {
+  resultOfMixed = 0;
+  i = 0;
+  for (i = 0; i < sumAnything.length ; i++){
+    if (typeof sumAnything[i] == 'number'){
+      resultOfMixed += sumAnything[i];
+    }
+  //  if(typeof sumAnything[i] === 'string'){
+   //   resultOfMixed += sumAnything.length;
+   /** else if(typeof(sumAnything[i]) === 'boolean'){
+      resultOfMixed += sumAnything[i].length;
+    } */
+    resultOfMixed += sumAnything[i].length;
+  }
+return resultOfMixed;
+//
+}
 
+//testing solution Bonus 3.1:
+console.log(sum(mixedArr)); //not done yet ***
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numberToAverage) {
+  let numAverage = 0;
+  numAverage = sumNumbers(numberToAverage) / numberToAverage.length;
+  return numAverage;
+  }
 
+//Testing solution Bonus04 - Level 01
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(stringToAverage) {
+  i=0;
+  strAverage = 0.
+  for(i = 0; i < stringToAverage.length; i++){
+    strAverage += stringToAverage[i].length;
+  }
+  strAverage /= stringToAverage.length;
+  return strAverage;
+ }
+ //Testing solution Bonus04 - Level 02
+ console.log(averageWordLength(wordsArr));
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
