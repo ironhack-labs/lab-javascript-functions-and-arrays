@@ -1,24 +1,66 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1 ,num2) {
+  if(num1 > num2){
+    return num1;
+  }
+  return num2;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if(words.length === 0){
+    return null;
+  }else{
+  let longestWord = "";
+  for(index=0; index < words.length ; index++){
+    if(words[index].length > longestWord.length){
+      longestWord = words[index];
+    }    
+  }
+  return longestWord;
+  }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayOfNumer) {
+  let sum = 0;
+  for(index=0; index< arrayOfNumer.length; index++){
+    sum += arrayOfNumer[index];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+function sum(arrayMix) {
+  let sumOf = 0;
+  for (index = 0; index < arrayMix.length; index++){
+  let typeData = typeof(arrayMix[index]);
+  console.log(typeData);
+    if(typeData == 'number'){
+      sumOf += arrayMix[index];
+    }else if(typeData === 'string'){
+      sumOf += arrayMix[index].length;
+    }else if(typeData === 'boolean'){
+      if(arrayMix[index] === true){
+        sumOf += 1;
+      }
+    }else if (typeData === 'array' | typeData === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sumOf;
+}
 
 
 
