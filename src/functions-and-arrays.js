@@ -20,11 +20,13 @@ maxOfTwoNumbers(5,-7);
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arrayOfWords) {
+  if(arrayOfWords.length === 0){
+    return null;
+  }
 let longestWord = '';
-let i = 0;
 
 for (i = 0; i < arrayOfWords.length ; i++){
-  if(arrayOfWords[i].length >= longestWord.length){
+  if(arrayOfWords[i].length > longestWord.length){
     longestWord = arrayOfWords[i];
 }
 }
@@ -56,25 +58,43 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(sumAnything) {
   let resultOfMixed = 0;
-  let i = 0;
- for (i = 0; i < sumAnything.length ; i++){
-  //  if (typeof sumAnything[i] === 'number'){
-   //   resultOfMixed += sumAnything[i];
-    //const type = typeof sumAnything[i];
 
-    if(typeof sumAnything[i] === 'string'){
-     resultOfMixed += sumAnything[i].length;
+  for (let i = 0; i < sumAnything.length ; i++){
+    
+    const dataType = typeof sumAnything[i];
+
+    switch(dataType){
+      case 'number':
+        resultOfMixed += sumAnything[i];
+        break
+      case 'string':
+        resultOfMixed += sumAnything[i].length;
+        break;
+      case 'boolean':
+        if(sumAnything[i]){
+          resultOfMixed += 1;
+        }
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am")
+
     }
-   else if(typeof sumAnything[i] === 'boolean'){
-      resultOfMixed += 1;
-    } 
-    else{
-    resultOfMixed += sumAnything[i];
- }
+
 }
 return resultOfMixed;
 }
-
+  /** if(typeof sumAnything[i] === 'string'){
+    resultOfMixed += sumAnything[i].length;
+   }
+  else if(typeof sumAnything[i] === 'boolean'){
+     if (sumAnything[i]){
+       sumAnything += 1;
+     }
+   } 
+   else{
+   resultOfMixed += sumAnything[i];
+}
+}*/
 
 //testing solution Bonus 3.1:
 console.log(`Resultado da 3.1 ${sum(mixedArr)}`); 
@@ -153,9 +173,18 @@ console.log(`Resposta da Iteration 05 ${uniquifyArray(wordsUnique)}`);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(listOfWords, wordToLook) {
+  if(listOfWords.length === 0){
+    return null;
+  }
+  for (i = 0 ; i < listOfWords.length ; i++){
+    if(listOfWords[i] === wordToLook){
+      return true;
+    }
+  }
+  return false;
 
 }
-
+console.log(`This word exists: ${doesWordExist(wordsFind, 'starting')}`)
 
 
 // Iteration #7: Count repetition
@@ -173,9 +202,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(listToCount, word) {
+  countWords = 0;
+  for(i = 0 ; i < listToCount.length ; i++){
+    if(listToCount[i] === word){
+      countWords += 1;
+    }
+  }
+  return countWords;
+}
 
-
+//testing how many times:
+console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
 const matrix = [
@@ -201,7 +239,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+
+}
 
 
 
