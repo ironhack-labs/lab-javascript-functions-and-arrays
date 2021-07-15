@@ -7,46 +7,54 @@ function maxOfTwoNumbers(num1 ,num2) {
 }
 
 
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  if(words.length === 0){
+function findLongestWord(wordsArray) { 
+  if(!wordsArray.length){   // Empty check
     return null;
-  }else{
-  let longestWord = "";
-  for(index=0; index < words.length ; index++){
-    if(words[index].length > longestWord.length){
-      longestWord = words[index];
+  }
+
+  let longestWord = ""; // Declare empty string;
+
+  for(index = 0; index < wordsArray.length ; index++){
+    if(wordsArray[index].length > longestWord.length){
+      longestWord = wordsArray[index];
     }    
   }
   return longestWord;
-  }
 }
+
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(arrayOfNumer) {
-  let sum = 0;
-  for(index=0; index< arrayOfNumer.length; index++){
-    sum += arrayOfNumer[index];
+function sumNumbers(arrayOfNumber) {
+  if(!arrayOfNumber.length){
+    return 0;   // with empty array return zero
   }
+  
+  let sum = 0;  // Declare a variable sum with value zero.
+
+  arrayOfNumber.forEach(function element(value,index,array){
+    
+   sum += value;           //Sum all elements of array
+  });
+
   return sum;
 }
 
 
 
 // Iteration #3.1 Bonus:
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];  // should return: 57
 
-// should return: 57
+
 function sum(arrayMix) {
   let sumOf = 0;
   for (index = 0; index < arrayMix.length; index++){
   let typeData = typeof(arrayMix[index]);
-  console.log(typeData);
+
     if(typeData == 'number'){
       sumOf += arrayMix[index];
     }else if(typeData === 'string'){
@@ -63,21 +71,110 @@ function sum(arrayMix) {
 }
 
 
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNum) {
+  let sumNum = 0;
+  let cont =0;
+  //return null with empty array
+  if(arrayOfNum.length === 0){
+    return(null);
+  }
 
+  for (index = 0; index < arrayOfNum.length; index++){
+    let typeData = typeof(arrayOfNum[index]);
+    if (typeData === 'number'){
+      sumNum += arrayOfNum[index];
+      cont += 1
+
+    }else if(typeData === 'array'){
+      
+      for (index1 = 0; index1 < arrayOfNum[index].length; index1++){
+        
+        if (typeData[index1] === 'number'){
+          sumNum += arrayOfNum[index][index1];
+          cont += 1
+        }
+      }
+    }
+    averageNum = sumNum/cont;
+
+    
+  }
+  return(averageNum);
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+
+function averageWordLength(arrayOfStrings) { 
+let sumString = 0;
+let cont = 0;
+//return null with empty array
+if(arrayOfStrings.length === 0){
+  return(null);
+}
+
+for (index = 0; index < arrayOfStrings.length; index++){
+  let typeData = typeof(arrayOfStrings[index]);
+  if (typeData === 'string'){
+    sumString += arrayOfStrings[index].length;
+    cont += 1
+
+  }else if(typeData === 'array'){
+    
+    for (index1 = 0; index1 < arrayOfStrings[index].length; index1++){
+      
+      if (typeData[index1] === 'string'){
+        sumString += arrayOfStrings[index][index1].length;
+        cont += 1
+      }
+    }
+  }
+  averageString = sumString/cont;
+
+  
+}
+return(averageString);
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrayAll) {
+  sumAll = 0;
+  contAll = 0
+  if(arrayAll.length === 0){
+    return(null);
+  }else{ 
+
+  for (index = 0; index < arrayAll.length; index++){
+    typeArrayAll = typeof(arrayAll[index]);
+
+    if(typeArrayAll === 'string'){
+      sumAll += arrayAll[index].length;
+      contAll += 1;
+
+    }else if(typeArrayAll === 'number'){
+      sumAll += arrayAll[index];
+      contAll += 1;
+
+    }else if(typeArrayAll === 'boolean'){
+      if(arrayAll[index] === true ){
+        sumAll += 1;
+        contAll += 1;
+      }else{
+        contAll += 1;
+      }
+
+    }
+  }
+  avgAll = +(sumAll/contAll).toFixed(2);
+  return(avgAll);
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -94,15 +191,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(someArrayOfString) {
+  if(!someArrayOfString.length){return null;}   //check empty
+  
+  let uniqueArray = [];
+  
+  for( index = 0; index < someArrayOfString.length ; index += 1){
+    if(uniqueArray.indexOf(someArrayOfString[index]) === -1){
+      uniqueArray.push(someArrayOfString[index]);
+    }
+  }
+
+  return uniqueArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayToSearch, word) {
+  let find = false;
+  if(!arrayToSearch.length){return null;}   //check empty
 
+  for( index = 0; index < arrayToSearch.length ; index += 1){
+    if(arrayToSearch[index] === word){
+      find = true;
+      break;
+    }
+        
+  }
+  return find;
+}
 
 
 // Iteration #7: Count repetition
@@ -120,7 +240,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  let cont = 0;
+
+  if(!array.length){return 0;}   //check empty
+
+  for( index = 0; index < array.length ; index += 1){
+    if(array[index] === word){
+      cont  += 1;
+      }
+        
+  }
+  return cont;
+}
+
+
 
 
 
@@ -148,7 +282,24 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array2d) {
+  
+  let greatestProduct = 0;
+
+  for( i = 0; i < array2d.length-3 ; i += 1){
+    for( j = 0; j < array2d.length-3 ; j += 1){
+      let horizontalProduct = array2d[i][j]*array2d[i][j+1]*array2d[i][j+2]*array2d[i][j+3];
+      let verticalProduct = array2d[i][j]*array2d[i+1][j]*array2d[i+2][j]*array2d[i+3][j]; 
+      
+      if(horizontalProduct>verticalProduct){
+        greatestProduct = horizontalProduct;
+      }else{
+        greatestProduct = verticalProduct;
+      }
+    }
+  }
+return greatestProduct;
+}
 
 
 
