@@ -74,6 +74,9 @@ function sum(sumAnything) {
         if(sumAnything[i]){
           resultOfMixed += 1;
         }
+        else if (!sumAnything[i]){
+          resultOfMixed += 0;
+        }
         break;
       default:
         throw new Error("Unsupported data type sir or ma'am")
@@ -105,9 +108,12 @@ console.log(`Resultado da 3.1 ${sum(mixedArr)}`);
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numberToAverage) {
+  if(!numberToAverage.length){
+    return null;
+  }
   let numAverage = 0;
-  numAverage = sumNumbers(numberToAverage) / numberToAverage.length;
-  return numAverage;
+  //numAverage = sumNumbers(numberToAverage) / numberToAverage.length;
+  return sumNumbers(numberToAverage) / numberToAverage.length;
   }
 
 //Testing solution Bonus04 - Level 01
@@ -117,6 +123,9 @@ console.log(averageNumbers(numbersAvg));
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(stringToAverage) {
+  if(!stringToAverage.length){
+    return null;
+  }
   i=0;
   strAverage = 0.
   for(i = 0; i < stringToAverage.length; i++){
@@ -131,13 +140,16 @@ function averageWordLength(stringToAverage) {
 
 // Bonus - Iteration #4.1
 function avg(arr) {
+  if(!arr.length){
+    return null;
+  }
 let averageAnyArray = 0;
-averageAnyArray = sum(arr) / arr.length;
-return averageAnyArray;
+//averageAnyArray = sum(arr) / arr.length;
+return averageAnyArray = sum(arr) / arr.length;
 }
 
 //Testing Iteration 4.1:
-console.log(avg(mixedArr));
+console.log(`4.1 - the average of the string is ${avg(mixedArr)}`);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -155,6 +167,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arrayWithDuplicate) {
+  if(!arrayWithDuplicate.length){
+    return null;
+  }
 let arrayWithoutDuplicate = [];
 
 for (let i = 0 ; i < arrayWithDuplicate.length; i++ ){
@@ -239,11 +254,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
+function greatestProduct(matrixArray) {
+  let biggestNumber = 0;
 
+  for (let i = 0; i < matrixArray.length; i++){
+    for (let j = 0; j < matrixArray[i].length; j++ ){
+      let horizontalProduct = 0;
+      let verticalProduct = 0;
+
+      if(matrixArray[i][j + 3] !== undefined){
+        horizontalProduct = matrixArray[i][j] * matrixArray[i][j + 1] * matrixArray[i][j + 2] *  matrixArray[i][j + 3];
+      }
+
+      if(horizontalProduct > biggestNumber){
+        biggestNumber = horizontalProduct;
+      }
+
+      if (matrixArray[i + 3] !== undefined){
+        verticalProduct = matrixArray[i][j] * matrixArray[i + 1][j] * matrixArray[i + 2][j] *  matrixArray[i + 3][j];
+      }
+
+      if(verticalProduct > biggestNumber){
+        biggestNumber = verticalProduct;
+      }
+    }
+  }
+  return biggestNumber;
 }
 
-
+console.log(greatestProduct(matrix));
 
 
 // The following is required to make unit tests work.
