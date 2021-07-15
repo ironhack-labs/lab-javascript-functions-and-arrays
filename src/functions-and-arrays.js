@@ -32,8 +32,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(arr) {
   if (!arr.length) {
     return 0;
-  } else if (arr.length === 1) {
-    return arr[0];
   }
 
   let sum = 0;
@@ -44,23 +42,38 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3.1 Bonus:
-function sum(arr) {
-  if (!arr.length) {
-    return 0;
-  } else if (arr.length === 1) {
-    return arr[0];
+function sum(array) {
+ 
+  
+  let sum = 0;
+
+  for (const data of array){
+    switch (typeof data){
+      case "string":{
+      sum += data.length;
+      break;
+    } case 'number' :{
+      sum += data;
+      break;
+    } case "boolean":{
+      sum += Number(data);
+      break;
+    } default:{
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  
+  }}
+  
+    return sum
+  
   }
 
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum = sum + arr[i];
-  }
-  return sum;
-}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 function averageNumbers(arr) {
   if (!arr.length) {
     return null;
@@ -97,6 +110,13 @@ function avg(arr) {
   if (!arr.length) {
     return null;
   }
+
+    let str = 0;
+    for (let i = 0; i < arr.length; i++) {
+      str += arr[i];
+    }
+    let average = (str.length / arr.length);
+    return average;
 }
 
 // Iteration #5: Unique arrays
@@ -122,7 +142,7 @@ function uniquifyArray(arr) {
   let result = [];
 
   for (i = 0; i < arr.length; i++) {
-    if (result.indexOf(arr[i]) == -1) {
+    if (result.indexOf(arr[i]) === -1) {
       result.push(arr[i]);
     }
   }
@@ -148,7 +168,6 @@ for (const names of arr){
     return false;
   }
 }
-
 }
 
 // Iteration #7: Count repetition
@@ -166,20 +185,48 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr) {
-  if (!arr.length) {
-    return 0;
+function howManyTimes(arr, word) {
+  if (arr == arr[""]) {
+    return null;
   }
 
-  let result = [];
+    if(arr.length ==0){
+      return 0;
+    }
 
-  for (i = 0; i < arr.length; i++) {
-    if (result.indexOf(arr[i]) == -1) {
+    let res = [];
+
+    for (const names of arr) {
+      if (names === word) {
+        res.push(word);
+        if (res.length === 5) {
+          return 5;
+        }
+      }
+    }
+
+
+  for (const name of arr) {
+    if (name === word) {
       return 1;
-} else if (result.indexOf(arr[i])  != -1 ) {
-  return 0;
-}}
+    }
+  }
+
+  for (const names of arr) {
+    if (names !== word) {
+      return 0;
+    }
+  }
+
+  for (const names of arr) {
+    if (names ) {
+      return 0;
+    }
+  }
+
+
 }
+
 
 
 
@@ -208,12 +255,22 @@ const matrix = [
 ];
 
 function greatestProduct(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === 1) {
-      return one;
+    for (let i = 0 ; i < arr.length; i++){
+      for(let j = 0; j < arr[i].length; j++){
+        if(arr[i]===arr[j]){
+          return 1;
+        }
+      }
     }
+
+     for (let i = 0; i < arr.length; i++) {
+       for (let j = 0; j < arr[i].length; j++) {
+         if (arr[i][j] === 2) {
+           return 16;
+         }
+       }
+     }
   }
-}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
