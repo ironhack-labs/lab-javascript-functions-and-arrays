@@ -1,41 +1,112 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  // JS's Math.max own function calculates the highest among two numbers
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  // Check for empty array
+  if (!arr.length) return null;
+  
+  // Initialize variable to contain largest word found
+  let largestWord = "";
 
-
+  // Loop to check every word in array. Largest will be stored in "largestWord"
+  arr.forEach(element => {
+    if (largestWord.length < element.length) {
+      largestWord = element;
+    }
+  });
+  return largestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(arr) {
+  let summ = 0;
+  // Loop to add each number on array to summ
+  for (item of arr) {
+    summ += item;
+  }
+  return summ;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
-
+function sum(arr) {
+  let summ = 0;
+  // Loop goes through each number in array
+  for (item of arr) {
+    // Objects throw error message
+    if (typeof item === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    // Strings have their length added to summ
+    else if (typeof item === 'string')
+    {
+      item = item.length;      
+    }
+    // Numbers are just added
+    else {
+      item = Number(item);
+    }
+    summ += item;
+  }
+  return summ;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  // Check for empty array
+  if (arr.length === 0) {
+    return null;
+  }
+
+  // Invoke "sum" to have the summage of all elements
+  summ = sum(arr);
+  
+  // Average is the division of sum by the number of array's elements
+  const avg = summ / arr.length;
+  return avg;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  // Check for empty array
+  if (!arr.length) return null;
+
+  // Invoke function 'sum' which already adds values of string lenghts
+  let summ = sum(arr);
+  
+  // Average is the division of sum by the number of array's elements
+  const avg = summ / arr.length;
+  return avg;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  // Check for empty array
+  if (arr.length === 0) {
+    return null;
+  }
+  
+  // Invoke function 'sum' which already adds data types requested
+  summ = sum(arr)
+
+  // Average is the division of sum by the number of array's elements, this time fixed to 2 decimal points
+  const avg = Number((summ / arr.length).toFixed(2));
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +123,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  // Check for empty array
+  if (!arr.length) return null;
 
-
+  let newArr = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (i === arr.indexOf(arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;  
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+word = 'subset';
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  for (let i = 0; i < arr.length; i++) {
+    if (word === arr[i]) {
+      return true;
+      break;
+    }    
+  }
+}
 
 
 
