@@ -141,7 +141,19 @@ function uniquifyArray(arr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 word = 'subset';
 
-function doesWordExist(arr, word) {}
+function doesWordExist(arr, str) {
+  // Check for empty array
+  if (!arr.length) return null;
+
+  // Loop to check if any of the elements correspond to the string
+  for (element of arr) {
+    if (element === str) {
+      return true;
+    }    
+  }
+  // If after the entire loop no match was found, return false
+  return false;
+}
 
 
 // Iteration #7: Count repetition
@@ -159,8 +171,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, str) {
+  // Check for empty array
+  if (!arr.length) return 0;
 
+  let times = 0;
+  // Loop to check if any of the elements correspond to the string
+  for (element of arr) {
+    if (element === str) {
+      times++;
+    }    
+  }
+  return times;
+}
 
 
 // Iteration #8: Bonus
@@ -187,10 +210,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  // Store all products in an array
+  let products = [];
+  // Variable to limit the last index to mutiply other 3 ahead
+  const end = arr.length - 4;
 
+  // Loop to multiply elements, from index[i][j] x 3 ahead, horizontally and vertically
+  for (let i = 0; i <= end; i++) {
+    for (let j = 0; j <= end; j++) {
+      products.push(arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j]);
+      products.push(arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3]);      
+    }
+  }
 
-
+  // loop to find the greatest number in array
+  let greatest = 0;
+  for (item of products) {
+    if (greatest < item) {
+      greatest = item;
+    }
+  }
+  return greatest;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
