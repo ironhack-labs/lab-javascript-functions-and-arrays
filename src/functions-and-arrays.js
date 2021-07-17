@@ -74,16 +74,55 @@ sum(elementsArray)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  if (numbersArray.length === 0) {
+    return null;
+  }
+
+const sumOfNumbers = sumNumbers(numbersArray);
+    return sumOfNumbers / numbersArray.length;
+
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(stringsArray) { 
+  if (stringsArray.length === 0) {
+    return null;
+  }
+
+const numbersArray = [];
+
+for (let i = 0; i < stringsArray.length; i += 1) {
+  const wordLength = stringsArray[i].length;
+
+  numbersArray.push(wordLength);
+  }
+
+  const sumOfNumbers = sumNumbers(numbersArray);
+
+  return sumOfNumbers / numbersArray.length
+}
+
+averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 5.7
+
+function avg(arr) {
+  if (arr.length === 0) {
+      return null;
+  }
+  const average = sum(arr) / arr.length;
+
+  return Number(average.toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -100,14 +139,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(stringsArray) {
+  if (stringsArray.length === 0) {
+  return null;
+  }
+  const returnArray = [];
+  for (let i = 0; i < stringsArray.length; i += 1) {
+    if (returnArray.indexOf(stringsArray[i]) === -1) {
+      returnArray.push(stringsArray[i]);
+    }
+  }
+  return returnArray
+}
 
-
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+'machine'
+
+function doesWordExist(stringsArray, string) {
+  if (stringsArray.length === 0) {
+    return null;
+    }
+  return stringsArray.includes(string);
+}
 
 
 
@@ -126,7 +183,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(stringsArray, string) {
+  let count = 0;
+
+  for (let i = 0; i < stringsArray.length; i += 1) {
+    if(stringsArray[i] === string) {
+      count += 1;
+    }
+  }
+  return count;
+}
 
 
 
@@ -154,9 +220,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let biggestNumber = 0;
 
+  for (let i = 0; i < array.length; i += 1) {
+    for (let j = 0; j < array[i].length; j += 1) {
+      let horizontalProduct = 0;
+      let verticalProduct = 0;
 
+      if (array[i][j+3] !== undefined) {
+        horizontalProduct = array[i][j] * array[i][j + 1] * array[i][j + 2] * array[i][j+3];
+      }
+      if (array[i + 3] !== undefined) {
+        verticalProduct = array[i][j] * array[i + 1][j] * array[i + 2][j] * array[i + 3][j];
+      }
+      if (horizontalProduct > biggestNumber) {
+        biggestNumber = horizontalProduct;
+      }
+      if (verticalProduct > biggestNumber) {
+        biggestNumber = verticalProduct;
+      }
+    }
+  }
+  return biggestNumber;
+}
+
+greatestProduct(matrix);
 
 
 // The following is required to make unit tests work.
