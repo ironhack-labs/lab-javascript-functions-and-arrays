@@ -1,25 +1,61 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  let compResult
+  if (number1 > number2) {
+    compResult= number1
+  }else if (number1 < number2){
+    compResult= number2
+  }else
+    compResult= number1, number2
+  return  compResult
+}
+  maxOfTwoNumbers(15,5);
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words){
+  if (words.length === 0) {
+    return null
 
+  } else if(words.length === 1){
+    return words[0]
+
+  }else {
+    let theLongestWord = "";
+    for(let wordToTest of words){
+      if (wordToTest.length > theLongestWord.length){
+        theLongestWord = wordToTest              
+      }    
+    }
+    return theLongestWord 
+  }
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers){
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];   
+  }
+  return sum 
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr){
+};
+
+  
 
 
 // Iteration #4: Calculate the average
@@ -52,7 +88,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  let result = []
+  wordsUnique.forEach((item, index) => { if (wordsUnique.indexOf(item) == index) result.push(item) });
+  return result;
+}
 
 
 
@@ -118,7 +161,7 @@ if (typeof module !== 'undefined') {
     maxOfTwoNumbers,
     findLongestWord,
     sumNumbers,
-    sum,
+//    sum,
     averageNumbers,
     averageWordLength,
     avg,
