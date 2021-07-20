@@ -1,15 +1,13 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-
-    if (num1 >= num2) {
+    //return Math.max(num1,num2);
+    if (num1 > num2) {
         return num1;
-
-    } else if (num1 => num2)
-        return num2;
-
-    else {
-        return num1, num2;
     }
+    if (num2 > num1) {
+        return num2;
+    }
+    return num1;
 }
 
 // Iteration #2: Find longest word
@@ -19,22 +17,29 @@ function findLongestWord(words) {
 
     let longestWord = "";
 
-    if (!words.length) {
+    if (!words.length) { //if (array.length===0){
         return null;
 
     } else if (words.length === 1) {
         return words[0];
-
-    } else {
-        for (i = 0; i < words.length; i++) {
-            if (longestWord.length < words[i].length) {
-                longestWord = words[i];
-            }
+    }
+    for (i = 0; i < words.length; i++) {
+        if (longestWord.length < words[i].length) {
+            longestWord = words[i];
         }
+
     }
     return longestWord;
 }
 
+//other loop (their????? for const!)
+
+//for(const variableName of array){
+//  if (variableName.length.longestWord){
+//      longestWord=variableName;
+//  }
+//  return longestWord.
+//}
 
 //function sayHello(name) {
 //  return `Hello ${name}`
@@ -54,16 +59,19 @@ function sumNumbers(numbers) {
     if (!numbers.length) {
         return 0;
     }
+
     if (numbers.length === 1) {
         return numbers[0];
     }
+
     if (numbers.length === 0) {
         return 0;
     }
-    if (!numbers.length) return;
+
     for (let i = 0; i < numbers.length; i++) {
         sum += numbers[i];
     }
+
     return sum;
 }
 
@@ -91,6 +99,8 @@ function sum(mixedArr) {
         return sum;
     }
 }
+
+//switch case better
 
 //console.log(sum(mixedArr))
 
@@ -153,16 +163,17 @@ const wordsUnique = [
     'simple',
     'bring'
 ];
+//anna=it would be -1 cuz it's not there
 
 function uniquifyArray(wordsType) {
 
     let result = [];
-
+    //-1 because the word is not there
     if (!wordsType.length) {
         return null;
     }
     for (let i = 0; i < wordsType.length; i++) {
-        if (result.indexOf(wordsType[i]) === -1) {
+        if (result.indexOf(wordsType[i]) === -1) { //=== always better  
             result.push(wordsType[i]);
         }
     }
@@ -190,10 +201,10 @@ function doesWordExist(wordAr, searchWord) {
     } else if (wordAr.length === 1 && wordAr[0] === searchWord) {
         return true;
     }
-    if (wordAr[i] === "thing") {
-        thing === searchWord;
-        return true;
-    }
+    for (const el of wordAr)
+        if (el == searchWord) {
+            return true;
+        }
     return false;
 }
 
