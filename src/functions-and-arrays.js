@@ -1,6 +1,7 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
   if (a > b) {
+    console.log(a);
     return a;
   } else {
     return b;
@@ -116,8 +117,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(arr, value) {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    let counter = 0;
+    for (e of arr) {
+      if (value === e) {
+        counter += 1;
+      }
+    }
+    return counter;
+  }
+}
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
