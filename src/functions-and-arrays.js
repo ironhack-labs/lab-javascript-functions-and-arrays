@@ -1,24 +1,96 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+
+
+// Iteration #1: Find the maximum
+
+function maxOfTwoNumbers(num1, num2){
+  
+  if(num1 > num2){
+return num1; 
+    
+  } else {
+    return num2;
+  }
+  
+} console.log(maxOfTwoNumbers(10,9));
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findTheLongestWord(array){
+  if(array.length === 0){
+    return null;
+    
+  }
+  
+  let str = '';
+  
+  for(let i = 0; i < array.length; i += 1){
+    
+    if(array[i].length > str.length){
+      
+      str = array[i];
+      
+      
+    }
+    
+    
+  }
+  
+  return str;
+  
+}
+
+console.log(findTheLongestWord(words));
 
 
 
-// Iteration #3: Calculate the sum
+
+
+// Iteração # 3: Calcule a soma
+
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+const result = numbers.reduce((result, total) => result + total);
+                              
+function sumNumbers(){
+  return result
+  
+} console.log(sumNumbers());
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixArrays = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(someArray) {
+ let soma = 0;
+  
+  for(let i = 0; i < someArray.length; i +=1){
+    const tipoDeDado = typeof someArray[i];    
+
+switch (tipoDeDado) {
+case 'number':
+  soma += someArray[i];
+break;
+    
+  case 'string':
+    soma += someArray[i].length;
+    break;
+  case 'boolean':
+    if(someArray[i]){
+      soma +=1; 
+    }
+    
+    break;
+  default:
+
+      }
+    } return soma;
+  }
+console.log(sum(mixArrays));
+
 
 
 
