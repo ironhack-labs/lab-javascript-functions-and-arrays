@@ -1,6 +1,3 @@
-
-
-
 // Iteration #1: Find the maximum
 
 function maxOfTwoNumbers(num1, num2){
@@ -16,6 +13,7 @@ return num1;
 
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findTheLongestWord(array){
@@ -50,9 +48,7 @@ console.log(findTheLongestWord(words));
 
 // Iteração # 3: Calcule a soma
 
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 const result1 = numbers.reduce((result1, total) => result1 + total);
                               
 function sumNumbers(){
@@ -61,7 +57,11 @@ function sumNumbers(){
 } console.log(sumNumbers());
 
 
+
+
+
 // Iteration #3.1 Bonus:
+
 const mixArrays = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(someArray) {
@@ -96,6 +96,7 @@ console.log(sum(mixArrays));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers() {
