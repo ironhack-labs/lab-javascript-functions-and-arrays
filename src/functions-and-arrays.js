@@ -1,24 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+  return num1
+  } 
+  return num2
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(stringArray) {
+  if (stringArray.length === 0) {
+    return null;
+  }
+  
+  let longestWord = '';
+  for (let i = 0; i < stringArray.length; i ++)
+  if (stringArray[i].length > longestWord.length) {
+    longestWord = stringArray[i]
+  }
+  return longestWord
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+let total = 0;
+for (let i = 0; i < numbersArray.length; i++){ 
+  total += numbersArray[i];
+ }
+ return total;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function sum(mixedArray) {
+  
+  let mixedSum = 0;
+  
+  for (let i = 0; i < mixedArray.length; i+=1){ 
+    const dataType = typeof mixedArray[i];
+
+    if (dataType === 'number'){
+      mixedSum += mixedArray[i];
+    } else if (dataType === 'string'){
+      mixedSum += mixedArray[i].length;
+    }else if (dataType === 'boolean') {
+      if (mixedArray[i]) {
+        mixedSum += 1;
+      }
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+   return mixedSum;
+}
 
 
 
@@ -26,13 +70,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  if (numbersArray.length === 0) {
+    return null;
+  }
+  const sumOfNumbers = sumNumbers(numbersArray)
+  return sumOfNumbers/numbersArray.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfStrings) {
+
+  if (arrayOfStrings.length === 0) {
+  return null;
+  }
+  const numbersArray = [];
+  for (let i = 0; i < arrayOfStrings.length; i++) {
+    const stringAverage = arrayOfStrings[i].length;
+    numbersArray.push(stringAverage);
+  }
+  const sumOfNumbersArray = sumNumbers(numbersArray)
+  return sumOfNumbersArray / numbersArray.length;
+  
+  // let stringAverage = 0;
+  // for(i = 0; i < arrayOfStrings.length; i++){
+  //   stringAverage += arrayOfStrings[i].length;
+  // }
+  // stringAverage /= arrayOfStrings.length;
+  // return stringAverage;
+ }
+
 
 // Bonus - Iteration #4.1
 function avg() {}
