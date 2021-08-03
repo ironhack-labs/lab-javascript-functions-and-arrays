@@ -105,7 +105,13 @@ function averageWordLength(arrayOfStrings) {
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  const avgMixedArr = sum(arr) / arr.length;
+  return +avgMixedArr.toFixed(2)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -122,14 +128,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(stringsArr) {
+  if (stringsArr.length === 0) {
+    return null;
+  }
+
+const notRepetedStrings = []; 
+for (let i = 0; i < stringsArr.length; i++) {
+  if (notRepetedStrings.indexOf(stringsArr[i]) === -1) {
+    notRepetedStrings.push(stringsArr[i])
+  }
+}
+
+ return notRepetedStrings
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayOfWords, wordToSearch) {
+  if (arrayOfWords.length === 0) {
+    return null
+  }
+  // for (let i = 0; i < arrayOfWords.length; i++) {
+  //   if (arrayOfWords[i] === wordToSearch){
+  //     return true
+  //   }
+  // }
+  // return false
+  return arrayOfWords.includes(wordToSearch)
+}
 
 
 
