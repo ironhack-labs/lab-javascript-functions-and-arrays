@@ -178,8 +178,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(arrayOfWords, wordToSearch) {
+    let number = 0;
+    for (let i = 0; i < arrayOfWords.length; i++){
+      if (arrayOfWords[i] === wordToSearch){
+          number++;
+      }
+    }
+    return number
+ }
 
 
 // Iteration #8: Bonus
@@ -206,8 +213,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let biggestNum = 0;
+  
+  for (let i =0; i < array.length; i++){
+   for (let j = 0; j <array[i].length; j++){
+     let horizontal = 0;
+     let vertical =0;
 
+    if (array[i][j+3] !== undefined){
+      horizontal = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+    }
+   
+    if (horizontal > biggestNum) {
+        biggestNum = horizontal;
+    }
+
+    if (array[i+3] !== undefined){
+      vertical = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
+    }
+
+
+    if (vertical > biggestNum) {
+      biggestNum = vertical;
+      }
+    }
+  }
+  return biggestNum
+}
+ 
 
 
 
