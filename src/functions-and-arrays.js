@@ -119,7 +119,8 @@ function avg(words) {
     
     countOfNumbers++
   }
-  return (Math.round((sumOfNumbers / countOfNumbers)*100) / 100)
+  // We're doing this because the solution rounds to two decimals
+  return (Math.round((sumOfNumbers / countOfNumbers) * 100) / 100)
 }
 
 // Iteration #5: Unique arrays
