@@ -232,14 +232,14 @@ function greatestProduct(arr) {
 function greatestProductOfDiagonals(matrix) {
   let max = 0;
   //recorrer la matriz
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
       let diagonal = 1; 
       let diagonalInverso = 1;
       //calcular producto diagonal y diagonal inverso para los 4 numeros del producto
       for (let indice = 0; indice < 4; indice++) {
-        diagonal*= getElement(arr, i + indice, j + indice);
-        diagonalInverso*= getElement(arr, i + indice, j - indice);
+        diagonal*= getElement(matrix, i + indice, j + indice);
+        diagonalInverso*= getElement(matrix, i + indice, j - indice);
       }
       //quedarse con el maximo
       if (diagonal > max){
