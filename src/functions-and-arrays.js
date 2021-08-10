@@ -148,7 +148,7 @@ function doesWordExist(wordsFind, word) {
   return wordsFind.includes(word);
 
 }
-doesWordExist(wordsFind,'casa');
+//doesWordExist(wordsFind,'casa');
 
 
 
@@ -156,19 +156,7 @@ doesWordExist(wordsFind,'casa');
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+
 
 
 function howManyTimes(wordsCount, myWord) {
@@ -181,7 +169,7 @@ function howManyTimes(wordsCount, myWord) {
 
   for(let i = 0; i < wordsCount.length; i++){
 
-    if(myWord = wordsCount[i]){
+    if(myWord === wordsCount[i]){
       numOfTimes = numOfTimes+1;
     } 
 
@@ -189,6 +177,7 @@ function howManyTimes(wordsCount, myWord) {
 
 }  return numOfTimes;
 }
+
 
 
 
