@@ -93,7 +93,21 @@ function averageNumbers(array) {
 // Level 2: Array of strings
 const wordsArr = [ 'seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace' ];
 
-function averageWordLength() {}
+function averageWordLength(array) {
+	let arrayOfWords = array;
+	let averageWordNumber = 0;
+	let divisorWordNumber = arrayOfWords.length;
+
+	if (arrayOfWords.length === 0) {
+		return null;
+	} else {
+		for (let i = 0; i < arrayOfWords.length; i++) {
+			averageWordNumber += arrayOfWords[i].length;
+		}
+		averageWordNumber = averageWordNumber / divisorWordNumber;
+	}
+	return averageWordNumber;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
