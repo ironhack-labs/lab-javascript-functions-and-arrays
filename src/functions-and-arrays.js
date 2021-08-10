@@ -68,6 +68,8 @@ const stringToNumber = (arr) =>{
           arr.splice(i,1,0)
           break;
       }
+    }else if (typeof (arr[i]) === "object" || typeof (arr[i]) === "array" ){
+       throw new Error ("Unsupported data type sir or ma'am" )
     }
   }
   return arr
@@ -116,12 +118,18 @@ function averageWordLength(arr) {
     
     result += word.length
   });
-  return result/arr.length
+
+  let avg = result/arr.length
+  avg.toFixed(2)
+  return avg
 }
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  stringToNumber(arr)
+  return averageNumbers(arr)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -233,7 +241,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  
+}
 
 
 
