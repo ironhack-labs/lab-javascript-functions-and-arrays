@@ -46,7 +46,31 @@ function sumNumbers(array) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+function sum(array) {
+	let mixedArray = array;
+
+	if (mixedArray.length === 0) {
+		return 0;
+	} else {
+		for (let i = 0; i < mixedArray.length; i++) {
+			if (typeof mixedArray[i] === 'string') {
+				mixedArray[i] = mixedArray[i].length;
+			} else if (typeof mixedArray[i] === 'boolean') {
+				if (mixedArray[i] === true) {
+					mixedArray[i] = 1;
+				} else {
+					mixedArray[i] = 0;
+				}
+			} else if (typeof mixedArray[i] === 'object' || typeof mixedArray[i] === 'array') {
+				throw new Error(`Unsupported data type sir or ma'am`);
+				return;
+			}
+		}
+	}
+
+	return sumNumbers(mixedArray);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
