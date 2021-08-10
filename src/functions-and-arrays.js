@@ -1,23 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if ( num1 > num2){
+    return num1
+  }else if (num1 < num2){
+    return num2
+  }else{
+    return num1
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+
+  let longestWord = ""
+
+  if (!arr.length){
+    return null 
+  }
+  for (i=0; i<arr.length; i++){
+    
+    if(arr[i].length > longestWord.length){
+      longestWord = `${arr[i]}`
+    }
+  }
+  return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
 
+  let result = 0
 
+  if (!arr.length) {
+    return 0;
+  }else if(arr.length === 1){
+    return arr[0]
+  }
+  arr.forEach(function(number){
+    result += number
+  });
+  return result
+}
 
 // Iteration #3.1 Bonus:
+// const stringToNumber = (arr) =>{
+//   let wordToNumber = 0
+//   for (let i=0; i<arr.length; i++){
+//     if (typeof(arr[i])==="string"){
+//       wordToNumber = arr[i].length
+//       arr.splice(i,1,wordToNumber)
+//     }else if(typeof(arr[i])==="boolean"){
+//       switch(arr[i]){
+//         case true:
+//           arr.splice(i,1,1)
+//           break;
+//         case false:
+//           arr.splice(i,1,0)
+//           break;
+//       }
+//     }
+//   }
+//   return arr
+// }
+
+
 function sum() {}
 
 
@@ -26,13 +80,40 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  
+  let result = 0
+
+  if (!arr.length) {
+    return null;
+  }else if(arr.length === 1){
+    return arr[0]
+  }
+  arr.forEach(function(number){
+    result += number
+  });
+  return result/arr.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) { 
+  let result = 0
+
+  if (!arr.length) {
+    return null;
+  }else if(arr.length === 1){
+    return arr[0].length
+  }
+  arr.forEach(function(number){
+    number= arr[i].length
+    result += number
+  });
+  return result/arr.length
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
