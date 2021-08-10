@@ -8,7 +8,7 @@ function maxOfTwoNumbers(num1, num2) {
 	// 	return num1;
 	// }
 
-	// con if ternario, just 4 fun y por testear los test, testests
+	// con if ternario
 	return num1 > num2 ? num1 : num2 > num1 ? num2 : num1;
 }
 
@@ -22,12 +22,27 @@ function findLongestWord(array) {
 	if (arrayOfWords.length === 0) {
 		return null;
 	} else {
+		// con un for...i
+		// for (const i in arrayOfWords) {
 		for (let i = 0; i < arrayOfWords.length; i++) {
 			if (arrayOfWords[i].length > longestWord.length) {
 				longestWord = arrayOfWords[i];
 			}
 		}
 	}
+	//con un for...each
+	// arrayOfWords.forEach(function(element) {
+	// 	if (element.length > longestWord.length) {
+	// 	  longestWord = element;
+	// 	}
+	// });
+
+	//con un for...of
+	// for (const i of arrayOfWords) {
+	// 	if (i.length > longestWord.length) {
+	// 		longestWord = i;
+	// 	}
+	// }
 	return longestWord;
 }
 
