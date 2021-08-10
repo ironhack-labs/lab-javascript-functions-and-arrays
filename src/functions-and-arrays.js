@@ -140,7 +140,7 @@ function averageWordLength(arr) {
 
   return totalLength / arr.length;
 
-}
+};
 
 // Bonus - Iteration #4.1
 function avg(arr) {
@@ -169,7 +169,7 @@ function avg(arr) {
   let average = total / arr.length;
   average = +average.toFixed(2);
   return average;
-}
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -205,7 +205,7 @@ function uniquifyArray(arr) {
       uniqueItems.push(arr[i])
     }
 
-  }
+  };
   return uniqueItems;
 };
 
@@ -220,7 +220,7 @@ function doesWordExist(arr, word) {
   if (arr.length === 0) {
 
     return null;
-  }
+  };
 
 
   let wordExist = 0;
@@ -254,7 +254,28 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(arr, word) {
+
+  if (arr.length === 0) {
+
+    return 0;
+  }
+
+
+  let wordCount = 0;
+  let searchTerm = word;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === searchTerm) {
+
+      wordCount++
+    }
+
+  };
+
+  return wordCount;
+
+};
 
 
 
