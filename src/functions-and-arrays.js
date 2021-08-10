@@ -1,24 +1,82 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1>number2){
+    return number1
+  } else if (number1<number2){
+    return number2
+  } else if (number1 === number2){
+    return number1
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsList) {
+  if (wordsList.length === 0){
+    return null
+  } else if (wordsList.length === 1){
+    return wordsList[0]
+  }
+  let longestWord
+  let longestWordLength = 0
+
+
+  for (let word of wordsList){
+    if(word.length > longestWordLength){
+      longestWord = word
+      longestWordLength = word.length
+    }
+  }
+  return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersList) {
+
+  if (numbersList.length === 0){
+    return 0 
+  }
+
+  if (numbersList.length === 1){
+    return numbersList[0]
+  }
+
+  let result = 0
+  for(let i = 0; i < numbersList.length; i++){
+    result += numbersList[i]
+  }
+
+  return result
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  let sumResult = 0
+
+  for (let element of mixedArr){
+    if(typeof element === 'number'){
+      sumResult += element
+    } else if (typeof element === 'string'){
+      sumResult += element.length
+    } else if (typeof element === 'boolean'){
+      if(element) {sumResult += 1}
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
+   }
+  return sumResult
+ }
+
 
 
 
@@ -26,16 +84,67 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if(numbersAvg.length === 0){
+    return null
+  }
+  let numbersAvgSum = 0
+  let resultAvg
+  for (let y = 0; y < numbersAvg.length; y++){
+    numbersAvgSum += numbersAvg[y]
+  }
+
+  resultAvg = numbersAvgSum / numbersAvg.length
+  
+  return resultAvg
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  if (wordsArr.length === 0){
+    return null
+  }
+  let oneWordAvg
+  if (wordsArr.length === 1){
+    oneWordAvg = wordsArr[0].length / 1
+    return oneWordAvg
+  }
+
+  let sumWords = 0 
+  let wordsArrAvg 
+  
+  for(let word of wordsArr){
+    sumWords += word.length
+  }
+
+  wordsArrAvg = sumWords / wordsArr.length
+  return wordsArrAvg
+
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrMixed) {
+  if(arrMixed.length === 0){
+    return null
+  }
+
+  let avgArrMixed
+  let avgArrMixedDecimal
+
+  avgArrMixed = sum(arrMixed)/arrMixed.length
+
+  avgArrMixedDecimal = Math.round(avgArrMixed*100)/100
+  
+  return avgArrMixedDecimal
+
+
+  
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +161,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length === 0){
+    return null
+  }
+
+  let uniqueArray = []
+
+  for (element of wordsUnique){
+    if (!uniqueArray.includes(element)){
+      uniqueArray.push(element)
+    }
+  }
+
+  return uniqueArray  
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0){
+    return null
+  }
+
+  return wordsFind.includes(word)
+
+}
 
 
 
@@ -78,7 +208,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let result = 0
+  for(let element of wordsCount){
+    if(element === word){
+      result+=1
+    }
+  }
+  return result
+}
 
 
 
