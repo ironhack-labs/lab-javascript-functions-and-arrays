@@ -245,13 +245,11 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-	const counterRows = matrix.length;
-	const counterColumns = matrix[0].length;
 	let totalProduct = 0;
 
 	//recorremos filas
-	for (let i = 0; i < counterRows; i++) {
-		for (let j = 0; j < counterColumns; j++) {}
+	for (let i = 0; i < matrix; i++) {
+		for (let j = 0; j < matrix[i].length; j++) {}
 	}
 
 	return totalProduct;
