@@ -107,9 +107,9 @@ function averageWordLength(arr) {
   }else if(arr.length === 1){
     return arr[0].length
   }
-  arr.forEach(function(number){
-    number= arr[i].length
-    result += number
+  arr.forEach(function(word){
+    
+    result += word.length
   });
   return result/arr.length
 }
