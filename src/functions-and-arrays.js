@@ -47,7 +47,26 @@ function sumNumbers(arr) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let totalSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    
+    if (typeof arr[i] === 'array') {
+      return "Unsupported data type sir or ma'am";
+    } else if (typeof arr[i] === 'object') {
+        return "Unsupported data type sir or ma'am";
+    } else if (typeof arr[i] === 'number') {
+        totalSum += arr[i];
+    } else if (typeof arr[i] === 'string') {
+        totalSum += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+        if (arr[i] === true) {
+          totalSum += 1;
+        }
+    }
+  }
+  return totalSum;
+  }
 
 
 
