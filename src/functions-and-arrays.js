@@ -46,7 +46,6 @@ function sumNumbers(array) {
 }
 
 // Iteration #3.1 Bonus:
-
 function sum(array) {
 	let mixedArray = array;
 
@@ -64,7 +63,6 @@ function sum(array) {
 				}
 			} else if (typeof mixedArray[i] === 'object' || typeof mixedArray[i] === 'array') {
 				throw new Error(`Unsupported data type sir or ma'am`);
-				return;
 			}
 		}
 	}
@@ -76,7 +74,21 @@ function sum(array) {
 // Level 1: Array of numbers
 const numbersAvg = [ 2, 6, 9, 10, 7, 4, 1, 9 ];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+	let arrayNumbers = array;
+	let averageNumber = 0;
+	let divisorNumber = arrayNumbers.length;
+
+	if (arrayNumbers.length === 0) {
+		return null;
+	} else {
+		for (let i = 0; i < arrayNumbers.length; i++) {
+			averageNumber += arrayNumbers[i];
+		}
+		averageNumber = averageNumber / divisorNumber;
+	}
+	return averageNumber;
+}
 
 // Level 2: Array of strings
 const wordsArr = [ 'seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace' ];
