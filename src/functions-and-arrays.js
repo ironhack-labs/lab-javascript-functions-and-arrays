@@ -244,7 +244,41 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let largestNumbersMultH = 0
+  let largestNumbersMultV = 0
+  let resultH
+  let resultV
+
+  for (let i = 0; i < matrix.length; i++){
+    for (let x = 0; x < matrix[i].length-3; x++){
+    if ((matrix[i][x] * matrix[i][x+1] * matrix[i][x+2] * matrix[i][x+3]) > largestNumbersMultH){
+
+      largestNumbersMultH = (matrix[i][x] * matrix[i][x+1] * matrix[i][x+2] * matrix[i][x+3])
+      resultH = [matrix[i][x], matrix[i][x+1], matrix[i][x+2], matrix[i][x+3]]
+      }
+    }
+  }
+
+  for (let f = 0; f < matrix.length-3; f++){
+    for (let g = 0; g < matrix[f].length; g++){
+    if ((matrix[f][g] * matrix[f+1][g] * matrix[f+2][g] * matrix[f+3][g]) > largestNumbersMultV){
+
+      largestNumbersMultV = (matrix[f][g] * matrix[f+1][g+1] * matrix[f+2][g] * matrix[f+3][g])
+      resultV = [matrix[f][g], matrix[f+1][g], matrix[f+2][g], matrix[f+3][g]]
+      }
+    }
+  }
+
+  
+  if (largestNumbersMultV>largestNumbersMultH){
+    return largestNumbersMultV
+  } else {
+    return largestNumbersMultH
+  }
+    
+}
+
 
 
 
