@@ -1,24 +1,46 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  }
+  else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(arr) {
+  let word = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+      word = arr[i];
+    }
+  }
+  return word;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(sum) {
+  let sumOf = 0
+  for (let i = 0; i < sum.length; i++) {
+    sumOf += sum[i];
+  }
+  return sumOf
+}
+sumNumbers(numbers)
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() { }
 
 
 
@@ -26,16 +48,32 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(sum) {
+  let total = 0;
+  for (let i = 0; i < sum.length; i++) {
+    total += sum[i]
+  }
+  let avg = total / sum.length;
+  return avg
+}
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
+    total += array[i].length;
+  }
+  let average = total / array.length;
+  return average
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() { }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +90,24 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  const findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) !== index)
+  const findSingles = arr => arr.filter((item, index) => arr.indexOf(item) === index)
+  const duplicates = findDuplicates(arr);
+  const singles = findSingles(arr)
+  console.log(duplicates);
+  console.log(singles)
+  return singles
+}
+
+uniquifyArray(wordsUnique)
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() { }
 
 
 
@@ -78,7 +126,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes() { }
 
 
 
@@ -106,7 +154,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
