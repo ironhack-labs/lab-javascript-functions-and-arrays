@@ -261,9 +261,16 @@ const matrix = [
 
 function greatestProduct(matrix) {
 	let totalProduct = 0;
+	// maximo filas a recorrer 3
+	//j i para recorrer, posiblemente otro for para [fila][columna]
+
+	//vertical
+	//horizontal
+	//diagonal dos sentidos
 
 	//recorremos filas
 	for (let i = 0; i < matrix; i++) {
+		//recorremos columnas
 		for (let j = 0; j < matrix[i].length; j++) {}
 	}
 
