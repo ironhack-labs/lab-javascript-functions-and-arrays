@@ -239,7 +239,7 @@ function greatestProductOfDiagonals(matrix) {
       //calcular producto diagonal y diagonal inverso para los 4 numeros del producto
       for (let indice = 0; indice < 4; indice++) {
         diagonal*= getElement(arr, i + indice, j + indice);
-        diagonalInverso*= getElement(arr, i - indice, j - indice);
+        diagonalInverso*= getElement(arr, i + indice, j - indice);
       }
       //quedarse con el maximo
       if (diagonal > max){
