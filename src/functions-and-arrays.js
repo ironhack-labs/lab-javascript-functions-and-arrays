@@ -34,7 +34,9 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(array) {
 
   let sum = 0
- 
+  if(array.length === 0){
+    return 0
+  }
   for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
@@ -49,7 +51,9 @@ sumNumbers(numbers)
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(mixedArr) {
-
+  if(mixedArr.length === 0){
+    return 0
+  }
  
 }
 
@@ -135,20 +139,19 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind) {
+function doesWordExist(wordsFind, word) {
 
   if(wordsFind.length === 0){
     return null
   }
 
-  for (let w = 0; w < wordsFind.length; w++){
-    if (wordsFind[w] === 'trouble'){}
-    
-  }return true;
-
-
+  return wordsFind.includes(word);
 
 }
+doesWordExist(wordsFind,'casa');
+
+
+
 
 
 
@@ -168,19 +171,29 @@ const wordsCount = [
 ];
 
 
-function howManyTimes(wordsCount, wordToSearch) {
-  let count = 0;
+function howManyTimes(wordsCount, val) {
+
+  let wordToSearch={};
 
   if(wordsCount.length === 0){
     return 0
   }
 
-  words.forEach((v) => (v === wordToSearch && count++));
-  return count;
+  for(let i = 0; i < wordsCount.length; i++){
+
+    if(wordToSearch.hasOwnProperty(wordsCount[i])){
+      wordToSearch[wordsCount[i]]++;
+      continue;
+    }
+
+    wordToSearch[wordsCount[i]]=1;
+  }
+
+  return wordToSearch[val];
+
 }
 
 
-howManyTimes(wordsCount, 'machine');
 
 
 
