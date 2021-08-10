@@ -171,9 +171,9 @@ const wordsCount = [
 ];
 
 
-function howManyTimes(wordsCount, val) {
+function howManyTimes(wordsCount, myWord) {
 
-  let wordToSearch={};
+  let numOfTimes= 0;
 
   if(wordsCount.length === 0){
     return 0
@@ -181,16 +181,13 @@ function howManyTimes(wordsCount, val) {
 
   for(let i = 0; i < wordsCount.length; i++){
 
-    if(wordToSearch.hasOwnProperty(wordsCount[i])){
-      wordToSearch[wordsCount[i]]++;
-      continue;
-    }
+    if(myWord = wordsCount[i]){
+      numOfTimes = numOfTimes+1;
+    } 
 
-    wordToSearch[wordsCount[i]]=1;
-  }
 
-  return wordToSearch[val];
 
+}  return numOfTimes;
 }
 
 
