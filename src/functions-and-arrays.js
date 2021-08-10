@@ -110,7 +110,34 @@ function averageWordLength(array) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+	let bonusAvgMix = array;
+	let divisorAvgMix = bonusAvgMix.length;
+
+	if (bonusAvgMix.length === 0) {
+		return null;
+	} else {
+		for (let i = 0; i < bonusAvgMix.length; i++) {
+			if (typeof bonusAvgMix[i] === 'string') {
+				bonusAvgMix[i] = bonusAvgMix[i].length;
+			} else if (typeof bonusAvgMix[i] === 'boolean') {
+				if (bonusAvgMix[i] === true) {
+					bonusAvgMix[i] = 1;
+				} else {
+					bonusAvgMix[i] = 0;
+				}
+			}
+		}
+
+		//Todo este caos de varialbes es porqué he de usar toFixed() para 2 decimales y luego parseFloat para convertirlo en número otra vez
+		let avgNumArray = sumNumbers(bonusAvgMix);
+		let result = avgNumArray / divisorAvgMix;
+		let resultTwoDecimals = result.toFixed(2);
+		let resultToFloat = parseFloat(resultTwoDecimals);
+
+		return resultToFloat;
+	}
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
