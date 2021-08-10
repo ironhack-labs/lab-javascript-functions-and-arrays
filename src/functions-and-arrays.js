@@ -61,17 +61,17 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayNum) {
   
-  let sumNumAvg = 0
+  let sumNumTotal = 0
  
   if(arrayNum.length === 0){
     return null
   }
 
   for (let i = 0; i < arrayNum.length; i++) {
-    sumNumAvg += arrayNum[i];
+    sumNumTotal += arrayNum[i];
   }
 
-  return sumNumAvg / arrayNum.length;
+  return sumNumTotal / arrayNum.length;
 }
 
 averageNumbers(numbersAvg)
@@ -82,19 +82,25 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(wordsArr) {
 
-  let sumWordsAvg = 0
+  let sumWordsLength = 0
 
-  for (let s = 0; s < wordsArr.length; i++) {
-    sumWordsAvg += wordsArr[i];
+  if(wordsArr.length === 0){
+    return null
   }
 
-  return sumWordsAvg / wordsArr.length;
+  for (let s = 0; s < wordsArr.length; s++) {
+    sumWordsLength += wordsArr[s].length;
+  }
+
+  return sumWordsLength / wordsArr.length;
 }
 
 
 
 // Bonus - Iteration #4.1
 function avg() {}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
