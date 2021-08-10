@@ -197,7 +197,60 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function getElement(arr, x, y) {
+  //comprobar que este dentro de los limites y devolver elemento 
+  if (0 <= x && x < arr.length && 0 <= y && y < arr[x].length) {
+    return arr[x][y];
+  }
+  //si esta fuera de los limites devolver 0 para que nunca sea el maximo ya que no serian 4 elementos
+  return 0;
+}
+
+function greatestProduct(arr) {
+  let max = 0;
+  //recorrer la matriz
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      let horizontal = 1; 
+      let vertical = 1;
+      //calcular producto horizontal y vertical para los 4 numeros del producto
+      for (let indice = 0; indice < 4; indice++) {
+        horizontal*= getElement(arr, i, j + indice);
+        vertical*= getElement(arr, i + indice, j);
+      }
+      //quedarse con el maximo
+      if (horizontal > max){
+        max = horizontal;
+      } else if (vertical > max) {
+        max = vertical;
+      }
+    }
+  }
+  return max;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let max = 0;
+  //recorrer la matriz
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      let diagonal = 1; 
+      let diagonalInverso = 1;
+      //calcular producto diagonal y diagonal inverso para los 4 numeros del producto
+      for (let indice = 0; indice < 4; indice++) {
+        diagonal*= getElement(arr, i + indice, j + indice);
+        diagonalInverso*= getElement(arr, i - indice, j - indice);
+      }
+      //quedarse con el maximo
+      if (diagonal > max){
+        max = diagonal;
+      } else if (diagonalInverso > max) {
+        max = diagonalInverso;
+      }
+    }
+  }
+  return max;
+}
 
 
 
