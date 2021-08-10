@@ -1,38 +1,101 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 < num2){
+    return num2;
+  } else {
+    return num1;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+function findLongestWord(arr) {
+  // the testing wanted this too
+  if (arr.length < 1){
+    return null;
+  }
+
+  let longestWord = "";
+  for (i in arr){
+    let len = longestWord.length;
+    if (arr[i].length > len){
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
-
-
+function sumNumbers(arr) {
+  let sum = 0;
+  for (num in arr){
+    if (arr[num]) {
+      sum += Number(arr[num]);
+    }
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(arr) {
+  let finalSum = 0;
+  let add = 0;
+  for (num in arr){
+    let item = arr[num];
+    switch (typeof item){
+      
+      case 'boolean':
+        console.log('bool ' + +item);
+        add = (+item);
+        break;
+        
+      case 'string':
+        console.log('string ' + item);
+        add = item.length;
+        break;
+      
+      case 'number':
+        console.log('number ' + item);
+        add = item;
+        break;
+      default:
+        return ("Unsupported data type sir or ma'am");
+    }
+  finalSum += Number(add); 
+  }
+  return finalSum;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arr) {
+  if (arr.length === 0){
+    return null;
+  }
+  return (sumNumbers(arr) /(arr.length));
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  let lengths = [];
+  for (word in arr){
+    console.log(`adding ` + arr[word])
+    lengths.push(arr[word]);
+  }
+  average = averageNumbers(lengths);
+  return average;
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
