@@ -199,7 +199,7 @@ function uniquifyArray(arr) {
   for (let i = 0; i < arr.length; i++) {
 
     //if uniqueItems indexOf array[i] does not exist --> then push to uniqueItems arr
-    //essentially if item doesn't already exist in the unique Arr then push it
+
     if (uniqueItems.indexOf(arr[i]) === -1) {
 
       uniqueItems.push(arr[i])
