@@ -244,7 +244,20 @@ const matrix = [
 	[ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48 ]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+	const counterRows = matrix.length;
+	const counterColumns = matrix[0].length;
+	let totalProduct = 0;
+
+	//recorremos filas
+	for (let i = 0; i < counterRows; i++) {
+		for (let j = 0; j < counterColumns; j++) {}
+	}
+
+	return totalProduct;
+}
+
+//console.log(greatestProduct(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
