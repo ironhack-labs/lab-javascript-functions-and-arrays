@@ -134,7 +134,7 @@ function howManyTimes(word, search) {
   if (word.length === 0) {
     return false;
   }
-  var count = 0;
+  let count = 0;
   for (i = 0; i <= word.length; i++) {
     if (search === word[i]) {
       count++;
