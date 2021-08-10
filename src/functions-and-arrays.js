@@ -51,28 +51,33 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3.1 Bonus:
-// const stringToNumber = (arr) =>{
-//   let wordToNumber = 0
-//   for (let i=0; i<arr.length; i++){
-//     if (typeof(arr[i])==="string"){
-//       wordToNumber = arr[i].length
-//       arr.splice(i,1,wordToNumber)
-//     }else if(typeof(arr[i])==="boolean"){
-//       switch(arr[i]){
-//         case true:
-//           arr.splice(i,1,1)
-//           break;
-//         case false:
-//           arr.splice(i,1,0)
-//           break;
-//       }
-//     }
-//   }
-//   return arr
-// }
 
 
-function sum() {}
+const stringToNumber = (arr) =>{
+  let wordToNumber = 0
+  for (let i=0; i<arr.length; i++){
+    if (typeof(arr[i])==="string"){
+      wordToNumber = arr[i].length
+      arr.splice(i,1,wordToNumber)
+    }else if(typeof(arr[i])==="boolean"){
+      switch(arr[i]){
+        case true:
+          arr.splice(i,1,1)
+          break;
+        case false:
+          arr.splice(i,1,0)
+          break;
+      }
+    }
+  }
+  return arr
+}
+
+
+function sum(arr) {
+  stringToNumber(arr)
+  return sumNumbers(arr)
+}
 
 
 
