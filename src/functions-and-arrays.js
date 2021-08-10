@@ -173,7 +173,21 @@ function uniquifyArray(array) {
 // Iteration #6: Find elements
 const wordsFind = [ 'machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience' ];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+	let doesWordArray = array;
+	let wordToFind = word;
+
+	if (doesWordArray.length === 0) {
+		return null;
+	} else {
+		for (let i = 0; i < doesWordArray.length; i++) {
+			if (doesWordArray[i] === wordToFind) {
+				return true;
+			}
+		}
+		return false;
+	}
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
