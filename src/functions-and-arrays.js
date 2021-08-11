@@ -61,6 +61,7 @@ function sum(array) {
       } else {
         newArray.push(0)
       }
+
     } else if (typeof (element) === 'string') {
       newArray.push(element.length)
     } else if (typeof (element) === 'number') {
