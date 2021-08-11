@@ -107,7 +107,7 @@ function avg(arrayAvg) {
       }
     }
     let resultAvg = sumAvg / arrayAvg.length;
-    return resultAvg;
+    return Math.round(resultAvg * 100)/100;
   }
 }
 let testAvg = avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]);
@@ -213,7 +213,16 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let num1, num2, num3, num4;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j <matrix[i].length; j++) {
+      if (matrix[i][j] > num1) {
+        num1 = matrix[i][j];
+      }
+    }
+  }
+}
 
 
 
