@@ -11,20 +11,19 @@ function maxOfTwoNumbers(number1, number2) {
 console.log(`The biggest number is ${maxOfTwoNumbers(25, 100)}`);
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'Manchester  City'];
 
 function findLongestWord(array) {
-  let longest =0;
+  let longest ='0';
+  if (array.length === null) {
+    return null;
+  }
   for (let i = 0; i < array.length; i++) {
-   let currentWord = array[i]; // Keep track of every word
-   if (currentWord.length > longest.length){
-     longest = currentWord; //Make sure longest contains only the longest word of the whole array
+   if (array[i].length > longest.length){
+     longest = array[i]; //Make sure longest contains only the longest word of the whole array
    }
   }
   return longest;
-  if (array.lenght === 0) {
-    return null;
-  }
 }
 
 console.log(findLongestWord(words));
@@ -49,18 +48,16 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(array) {
   let sum = 0;
+
   for (let i = 0; i < array.length; i++){
-    if(typeof array[i] === 'number'){
-      sum += array[i];
-    } else if(typeof array[i] === 'boolean'){       //Need to cover each possible scenario
-        if (array[i] === true){
-          sum += 1;
-        } 
-    } else if (typeof array[i] === 'string'){
-      sum += array[i].length;
+    if (typeof array[i] === 'boolean' || typeof array[i] === 'number' || typeof array[i] === 'string') {
+      if (typeof array[i] === 'string'){
+          sum += array[i].length;
+        } else {
+          sum += array[i];
+        }
     } else {
-      console.log('This Iteration only works with numbers, booleans and strings')
-      break;
+        console.log(`Error! inserted a ${typeof array[i]}`);
     }
 }
 return sum;
@@ -76,7 +73,7 @@ function averageNumbers(numbers) {
   if (numbers.lenght === 0){
     return null;
   }
-  total = sumNumbers(numbers);
+  total = sumNumbers(numbers); //Call to sum function, getting the total sum of the numbers in the array.
   let average = total / numbers.length;
   return average;
 }
@@ -96,7 +93,7 @@ function averageWordLength(array) {
     totalLenght += array[i].length;
   }
   let averageWord = totalLenght / array.length;
-  return (Math.round(averageWord)); // Math.round() to return a whole integer. Could be return averageWord for a result with a float.
+  return averageWord;
  }
  console.log(averageWordLength(wordsArr));
 
@@ -139,7 +136,7 @@ function uniquifyArray(array) {
 }
 
 
-console.log(uniquifyArray(wordsUnique)); // Solved this one with a little help from Google, I still have questions about it though.
+console.log(uniquifyArray(wordsUnique));
 
 
 // Iteration #6: Find elements
@@ -187,7 +184,7 @@ function howManyTimes(array, word) {
 console.log(`The word appears on the text an exact number of ${howManyTimes(wordsCount, 'matter')} times`);
 
 
-// // Iteration #8: Bonus
+// Iteration #8: Bonus
 // const matrix = [
 //   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
 //   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -211,15 +208,17 @@ console.log(`The word appears on the text an exact number of ${howManyTimes(word
 //   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 // ];
 
-function greatestProduct() {}
 
-//Ask instructor about this Iteration and Iteration 5 about uniquifyArray
+
+// function greatestProduct(doubleArray) { 
+//   }
+
 
 
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
+ if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
     findLongestWord,
@@ -231,6 +230,6 @@ if (typeof module !== 'undefined') {
     uniquifyArray,
     doesWordExist,
     howManyTimes,
-    greatestProduct
+    //greatestProduct
   };
 }
