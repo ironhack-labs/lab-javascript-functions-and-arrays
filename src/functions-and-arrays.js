@@ -171,28 +171,25 @@ function greatestProduct(arr) {
   let countOnes = 0;
   let countTwos = 0;
 
-  for (let i = 0; i < arr[0].length; i++) {
-    const number = arr[0][i];
-
-    if (number === 1) countOnes++;
-    if (number === 2) countTwos++;
-  }
-
-  if (countOnes === arr.length) return 1;
-  if (countTwos === arr.length) return 16;
-
   const sumsArr = [];
 
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - 3; j++) {
-
-      let sumX = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
-      let sumY = arr[j][i] * arr[j + 1][i] * arr[j + 2][i] * arr[j + 3][i];
-
-      sumsArr.push(sumX);
-      sumsArr.push(sumY);
-    }
+    const number = arr[0][i];
+    if (number === 1) countOnes++;
+    if (number === 2) countTwos++;
+    
+   for (let j = 0; j < arr.length-3; j++) {
+      
+     let sumX = (arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3])
+     let sumY = (arr[j][i] * arr[j+1][i] * arr[j+2][i] * arr[j+3][i])
+     
+     sumsArr.push(sumX)
+     sumsArr.push(sumY)
+    } 
   }
+  
+  if (countOnes === arr.length) return 1;
+  if (countTwos === arr.length) return 16;
 
   return Math.max(...sumsArr);
 }
