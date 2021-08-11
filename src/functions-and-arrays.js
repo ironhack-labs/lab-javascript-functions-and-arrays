@@ -14,7 +14,7 @@ console.log(`The biggest number is ${maxOfTwoNumbers(25, 100)}`);
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array) {
-  let longest =null;
+  let longest =0;
   for (let i = 0; i < array.length; i++) {
    let currentWord = array[i]; // Keep track of every word
    if (currentWord.length > longest.length){
@@ -22,6 +22,9 @@ function findLongestWord(array) {
    }
   }
   return longest;
+  if (array.lenght === 0) {
+    return null;
+  }
 }
 
 console.log(findLongestWord(words));
