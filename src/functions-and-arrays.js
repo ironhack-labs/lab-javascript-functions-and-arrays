@@ -44,7 +44,25 @@ function sumNumbers(array) {
 
 
 // Iteration #3.1 Bonus:
-// function sum() { ? }
+function sum(array) {
+
+  let sum = 0;
+
+  array.forEach((elem) => {
+    if(typeof elem === "number"){
+      sum += elem;
+
+    }else if(typeof elem === "string"){
+      sum += elem.length;
+
+    }else if(typeof elem === "boolean" && elem){
+      sum++;
+
+    }
+  })
+  
+  return sum;
+}
 
 
 
@@ -75,7 +93,11 @@ function averageWordLength(array) {
  }
 
 // Bonus - Iteration #4.1
-// function avg() {}
+function avg(array) {
+
+  return sum(array) / array.length;
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -181,7 +203,33 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+  greatestProduct = 0;
+
+  for(let i = 0; i < matrix.length - 3; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+      
+        if(matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j] > greatestProduct){
+          greatestProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+
+        }
+    }
+  }
+  
+    for(let i = 0; i < matrix.length; i++){
+      for(let j = 0; j < matrix[i].length - 3; j++){
+      
+        if(matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3] > greatestProduct){
+         greatestProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        }
+    }
+  }
+  
+
+  return greatestProduct;
+
+}
 
 
 
