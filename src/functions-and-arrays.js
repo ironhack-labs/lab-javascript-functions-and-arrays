@@ -89,13 +89,14 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arr) {
   let lengths = [];
-  for (word in arr){
+  for (word = 0; word < arr.length; word++){
     console.log(`adding ` + arr[word])
     lengths.push(arr[word]);
   }
+  console.table(lengths);
   average = averageNumbers(lengths);
   return average;
- }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
