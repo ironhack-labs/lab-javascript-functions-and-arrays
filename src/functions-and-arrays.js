@@ -2,21 +2,12 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return `${num1} is the larger number.`;
-  }
-
-  else if (num2 > num1) {
+  } else if (num2 > num1) {
     return `${num2} is the larger number.`;
-  }
-
-  else if (num1 === num2) {
+  } else {
     return `Both numbers are equal.`;
   }
-
-  else {
-    return `Please enter valid numbers.`;
-  }
 }
-
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -29,7 +20,7 @@ function findLongestWord(wordList) {
     }
   }
   return `${longestWord} is the longest word in this list.`;
- }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -40,45 +31,72 @@ function sumNumbers(numArr) {
     numSum += numArr[i];
   }
   return numSum;
- }
+}
 
 // Iteration #3.1 Bonus:
-function sum(arr) {
-  let sumArr = [];
+function sum(mixed) {
+  let sum = 0;
 
-  for (i = 0; i < numArr.length; i++) {
-
-    if (arr[i] === true) {
-      arr[i] = 1;
+  for (i = 0; i < mixed.length; i++) {
+    if (typeof mixed[i] === 'string' || typeof mixed[i] === 'number' || typeof mixed[i] === 'boolean') {
+      if (typeof mixed[i] === 'string') {
+        sum += mixed[i].length;
+      } else {
+        sum += mixed[i];
+      }
     }
-
-    else if (arr[i] === false) {
-      arr[i] = 0;
+    else {
+      return 'ERROR'
     }
-
-    else if (typeof(arr[i]) == "string")
-      arr[i] = 
-
   }
-  return numSum;
- }
-
-
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() { }
+function averageNumbers(avgArr) {
+  let sum = 0;
+  for (i = 0; i < avgArr.length; i++) {
+    sum += avgArr[i];
+  }
+  let avg = sum / avgArr.length;
+  return avg;
+}
 
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArr) {
+  let wordSum = 0;
+  for (i = 0; i < wordArr.length; i++) {
+    wordSum += wordArr[i].length;
+  }
+  let wordAvg = wordSum / wordArr.length;
+  return wordAvg;
+}
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(array) {
+  let sum = 0;
+  for (i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'string' || typeof array[i] === 'number' || typeof array[i] === 'boolean') {
+      if (typeof array[i] === 'string') {
+        sum += array[i].length;
+      }
+      else {
+        sum += array[i];
+      }
+    }
+    else {
+      return 'ERROR'
+    }
+}
+return sum / array.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -95,16 +113,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
-
-
+function uniquifyArray(array) {
+  let uniqueArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array.indexOf(array[i]) === i) {
+      uniqueArr.push(array[i]);
+    }
+    else {
+      continue;
+    }
+  }
+  return uniqueArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
-
-
+function doesWordExist(array, word) {
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      return true;
+    }
+    else {
+      continue;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -121,9 +156,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
-
-
+function howManyTimes() {}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -149,10 +182,17 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
-
-
-
+function greatestProduct(array) {
+    let greatestProduct = 1;
+  for (i = 0; i < array.length; i++) {
+    for (j = 0; j < array[i].length; j++) {
+      if (greatestProduct < ) {
+        
+      }
+    }
+  }
+  return product;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
