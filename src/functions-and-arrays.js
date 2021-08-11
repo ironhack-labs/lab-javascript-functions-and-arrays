@@ -18,8 +18,8 @@ console.log(maxOfTwoNumbers(firstnumber,secondnumber))
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWords() {
-  console.log('Hello')
+function findLongestWords(arryofwords) {
+  arryofwords
  
 
 
