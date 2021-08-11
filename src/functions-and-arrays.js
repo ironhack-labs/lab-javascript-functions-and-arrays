@@ -40,11 +40,7 @@ function sumNumbers(numbers) {
     return 0;
   }
   let sum = 0;
-  /*
-  for(let i = 0 ; i < numbers.length ; i++){
-    sum += numbers[i];
-  }
-  */
+  
   for(let thisNumber of numbers){
     sum += thisNumber;
   }
@@ -83,6 +79,9 @@ return total
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNum) {
+  if (arrOfNum.length === 0) {
+    return null;
+  }
   let total = 0
   arrOfNum.forEach(currentNumber => {
     total += currentNumber
@@ -92,10 +91,22 @@ function averageNumbers(arrOfNum) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) { 
+  if(wordsArray.length === 0){
+    return null;
+  }
+  let totalWordsLentgh = 0
+  wordsArray.forEach(currentWord => {
+    totalWordsLentgh += currentWord.length
+  })
+
+  return totalWordsLentgh/wordsArray.length
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -112,15 +123,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArr) {
+  let repeatWords = [];
+  if(wordsArr.length === 0){
+    return null;
+  }
+  wordsArr.forEach(element =>{
+    if(!repeatWords.includes(element)) {   
+      repeatWords.push(element)
+    }
+  })
+
+  return repeatWords
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArr) {
 
+  if(wordsArr.length === 0){
+    return null;
+  }
+  else if(wordsArr.length === 1){
+    return true;
+  }else if(wordsArr.length === []){
+    return true;
+  }else if(wordsArr !== []){
+    return false;
+  }
+
+}
+  
 
 
 // Iteration #7: Count repetition
