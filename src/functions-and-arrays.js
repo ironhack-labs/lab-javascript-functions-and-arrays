@@ -23,7 +23,6 @@ function findLongestWord(inputArray) {
     }
     return inputArray[0];
   }
-
 }
 
 // Iteration #3: Calculate the sum
@@ -34,13 +33,28 @@ function sumNumbers(arrayOfNumbers) {
   for (let i = 0; i < arrayOfNumbers.length; i++) {
     result += arrayOfNumbers[i];
   }
-  console.log(result);
+  // console.log(result);
   return result;
 }
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arrayOfNumbers) {
+  let result = 0;
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    if (typeof arrayOfNumbers[i] === "string") {
+      result += arrayOfNumbers[i].length;
+    } else if (typeof arrayOfNumbers[i] === "boolean") {
+      if (arrayOfNumbers[i]) result++;
+    } else if (typeof arrayOfNumbers[i] === "number") {
+      result += arrayOfNumbers[i];
+    } else {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+  }
+  //console.log(result);
+  return result;
+}
 
 
 
@@ -77,7 +91,28 @@ function averageWordLength(arrayAvgWord) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrayAvg) {
+  if (arrayAvg.length === 0) return null;
+  else {
+    let sumAvg = 0;
+    for (let i = 0; i < arrayAvg.length; i++) {
+      if (typeof arrayAvg[i] === "string") {
+        sumAvg += arrayAvg[i].length;
+      } else if (typeof arrayAvg[i] === "boolean") {
+        if (arrayAvg[i]) sumAvg++;
+      } else if (typeof arrayAvg[i] === "number") {
+        sumAvg += arrayAvg[i];
+      } else {
+        throw new Error("Unsupported data type sir or ma'am")
+      }
+    }
+    let resultAvg = sumAvg / arrayAvg.length;
+    return resultAvg;
+  }
+}
+let testAvg = avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]);
+console.log(testAvg);
+console.log(typeof testAvg);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
