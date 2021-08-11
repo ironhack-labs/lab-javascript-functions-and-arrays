@@ -77,8 +77,8 @@ const stringToNumber = (arr) =>{
 
 
 function sum(arr) {
-  stringToNumber(arr)
-  return sumNumbers(arr)
+  let newArray = stringToNumber(arr)
+  return sumNumbers(newArray)
 }
 
 
@@ -120,15 +120,25 @@ function averageWordLength(arr) {
   });
 
   let avg = result/arr.length
-  avg.toFixed(2)
+  
   return avg
 }
 
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-  stringToNumber(arr)
-  return averageNumbers(arr)
+
+  let newArray = stringToNumber(arr)
+
+  if (!arr.length){
+    return null
+  }else {
+  console.log(newArray)
+  let result = averageNumbers(newArray)
+  console.log(result)
+  return Number(result.toFixed(2))
+  }
+  
 }
 
 // Iteration #5: Unique arrays
