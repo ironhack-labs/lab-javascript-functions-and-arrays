@@ -1,19 +1,44 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  let maxNumber = " "
+  
+  if (num1 > num2){
+    maxNumber += num1;
+  } else {
+    maxNumber += num2
+  } 
+  return maxNumber
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let longestWord = ""
+  for (let i = 0; i<arr.lenght; i++){
+    if (longestWord.lenght < arr[i].lenght){
+      longestWord = arr[i]
+    }
+  }
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0
+  for ( let i = 0; i < array.lenght; i++){
+    sum += array[i]
+
+  }
+  return sum 
+}
+
 
 
 
@@ -26,13 +51,25 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let sum = 0
+  for ( let i = 0; i < array.lenght; i++){
+    sum += array[i]
+    }
+     return sum / array.lenght
+  }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageNumbers(array){
+  sumLength = 0
+  for (let word in array){
+    sumLength += word.lenght
+  }
+    return sumLength / array.lenght
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -59,7 +96,15 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, searchWord) {
+  for (let i = 0; i < array.lenght; i++){
+    if (searchWord === array[i]){
+      return true
+    } else {
+      return false
+    }
+  }
+}
 
 
 
@@ -78,7 +123,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, searchWord) {
+  let counter = 0
+  for ( let i = 0; i < array.lenght; i++){
+    if ( searchWord === array[i]){
+      counter ++
+    }
+  }
+  return counter 
+}
 
 
 
