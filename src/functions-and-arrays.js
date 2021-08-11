@@ -4,7 +4,9 @@ function maxOfTwoNumbers(number1, number2) {
     return number1;
   } else if(number1 < number2){
     return number2;
-  } 
+  } else {
+    return number2;
+  }
 }
 console.log(`The biggest number is ${maxOfTwoNumbers(25, 100)}`);
 
@@ -12,7 +14,7 @@ console.log(`The biggest number is ${maxOfTwoNumbers(25, 100)}`);
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array) {
-  let longest ='';
+  let longest =null;
   for (let i = 0; i < array.length; i++) {
    let currentWord = array[i]; // Keep track of every word
    if (currentWord.length > longest.length){
@@ -55,6 +57,7 @@ function sum(array) {
       sum += array[i].length;
     } else {
       console.log('This Iteration only works with numbers, booleans and strings')
+      break;
     }
 }
 return sum;
@@ -67,6 +70,9 @@ console.log(sum(mixedArr));
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+  if (numbers.lenght === 0){
+    return null;
+  }
   total = sumNumbers(numbers);
   let average = total / numbers.length;
   return average;
@@ -79,6 +85,9 @@ console.log(averageNumbers(numbersAvg));
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) {
+  if (array.lenght === 0) {
+    return null;
+  }
   let totalLenght = 0;
   for (let i = 0; i < array.length; i++) {
     totalLenght += array[i].length;
@@ -92,9 +101,12 @@ function averageWordLength(array) {
 // should return: 5.7
 
 function avg(array) {
+  if (array.lenght === 0) {
+    return null;
+  }
   let total = sum(array);
   let average = total / array.length; 
-  return average;
+  return average.toFixed(2);
 }
 console.log(avg(mixedArr))
 
@@ -114,6 +126,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
+  if (array.lenght === 0) {
+    return null;
+  }
   const result = array.filter((word, index) => {
     return array.indexOf(word) === index;
   })
@@ -128,6 +143,9 @@ console.log(uniquifyArray(wordsUnique)); // Solved this one with a little help f
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, word) {
+  if (array.lenght === 0) {
+    return null;
+  }
   const result = array.find(element => element === word);
   if (result === word){
     return true;
