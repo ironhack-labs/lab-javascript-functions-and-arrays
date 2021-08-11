@@ -202,7 +202,51 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function multiply(a, b, c, d){
+  console.log(`multiplying ` + a + ' ' + b + ' '+ c + ' '+ d + ' ');
+  let result = a * b * c * d
+  console.log(`multiplyRes = ${result}`);
+  return result;
+};
+
+function greatestProduct(arr) {
+  let result = 0;
+  
+  // horizontally selecting only useful nums
+  for (row in arr){
+    let len = arr[row].length - 3
+    let x = 0;
+    let temp = 2;
+    while (x < len) {
+      console.log(`checking num ${arr[row][x]}}!`)
+      let temp = multiply(arr[row][x], arr[row][x+1], arr[row][x+2], arr[row][x+3]);
+      if (temp > result){
+       result = temp;
+       console.log(`temp is ${temp} now!`);
+      } 
+      x++;
+    }
+  }
+  console.table(arr)
+  
+  // vertically
+  for (column in arr[0]){
+    let hei = arr.length - 3;
+    
+    // for ever first number of the column
+    for (let y = 0; y < hei; y++) {
+      let temp = multiply(arr[y][column], arr[y + 1][column], arr[y + 2][column], arr[y + 3][column], )
+      console.log(` temp 2ndround ${temp}`);
+      if (temp > result){
+        console.log(`${temp} is bigger`)
+        result = temp;
+      }
+    }
+  }
+  
+  return result;
+}
+
 
 
 
