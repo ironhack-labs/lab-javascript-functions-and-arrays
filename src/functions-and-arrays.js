@@ -38,25 +38,57 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
   if(numbers.length === 0){
     return 0;
-  }else if(numbers.length === 1){
-    return numbers;
   }
+  let sum = 0;
+  /*
+  for(let i = 0 ; i < numbers.length ; i++){
+    sum += numbers[i];
+  }
+  */
+  for(let thisNumber of numbers){
+    sum += thisNumber;
+  }
+  return sum;
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]
+function sum(mixedArr) {
+  if(mixedArr.length === 0){
+    return 0
+  }
 
+  let total = 0
+  mixedArr.forEach(element =>{
+    if(element === true){
+      total += 1
+    }else if ( element === false){
+      total += 0
+    }else if(typeof element === 'string'){
+      total += element.length
+    }else if(typeof element === 'number'){
+      total += element
+    }else if(typeof element === 'object'|| Array.isArray(element)=== true){
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+})
+return total
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
-
+function averageNumbers(arrOfNum) {
+  let total = 0
+  arrOfNum.forEach(currentNumber => {
+    total += currentNumber
+  })
+  return total/arrOfNum.length
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
