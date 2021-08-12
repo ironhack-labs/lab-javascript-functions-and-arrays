@@ -50,11 +50,10 @@ function sumNumbers(arr) {
 function sum(arr) {
   let totalSum = 0;
   for (let i = 0; i < arr.length; i++) {
-    
     if (typeof arr[i] === 'array') {
-      return "Unsupported data type sir or ma'am";
+      throw new Error("Unsupported data type sir or ma'am");
     } else if (typeof arr[i] === 'object') {
-        return "Unsupported data type sir or ma'am";
+      throw new Error("Unsupported data type sir or ma'am");
     } else if (typeof arr[i] === 'number') {
         totalSum += arr[i];
     } else if (typeof arr[i] === 'string') {
@@ -103,8 +102,29 @@ function averageWordLength(arr) {
   return totalLength / arr.length;
 }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.1: A generic avg() function
+function avg(arr) {
+  let totalSum = 0;
+  if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'array') {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else if (typeof arr[i] === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else if (typeof arr[i] === 'number') {
+        totalSum += arr[i];
+    } else if (typeof arr[i] === 'string') {
+        totalSum += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+        if (arr[i] === true) {
+          totalSum += 1;
+        }
+    }
+  }
+  return +(totalSum / arr.length).toFixed(2);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -208,7 +228,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+  
+}
 
 
 
