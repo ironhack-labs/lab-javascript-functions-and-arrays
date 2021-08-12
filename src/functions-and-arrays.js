@@ -15,7 +15,7 @@ function maxOfTwoNumbers(num1, num2) {
       return 'invalid entry';
   }
 }
-console.log(maxOfTwoNumbers(4, 4));
+// console.log(maxOfTwoNumbers(4, 4));
 //=============================================================================================
 // Iteration #2: Find longest word
 
@@ -32,7 +32,7 @@ function findLongestWord(arrayOfWords) {
   }
   return currentLongestWord;
 }
-console.log(findLongestWord(words));
+// console.log(findLongestWord(words));
 //=============================================================================================
 // Iteration #3: Calculate the sum
 
@@ -47,7 +47,7 @@ function sumNumbers(arrayOfNums) {
 
   return currentSum;
 }
-console.log(sumNumbers(numbers));
+// console.log(sumNumbers(numbers));
 
 //=============================================================================================
 // Iteration #3.1 Bonus:
@@ -56,31 +56,37 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(array) {
   currentSum = 0;
+
   for (let i = 0; i < array.length; i++) {
-    const value = array[i];
-    const convertedValue = convert(value);
-    currentSum = currentSum + convertedValue;
+    const currentItem = array[i];
+    const convertedValue = convert(currentItem);
+
+    if (convertedValue === 'err') {
+      return 'Error';
+    } else {
+      currentSum = currentSum + convertedValue;
+    }
   }
   return currentSum;
 }
-const convert = (value) => {
+
+function convert(value) {
   switch (typeof value) {
     case 'string':
       return value.length;
+
     case 'number':
       return value;
-    case 'boolean':
-      if (value === true) {
-        return 1;
-      } else {
-        return 0;
-      }
-    default:
-      return 'error';
-  }
-};
 
-console.log(sum(mixedArr));
+    case 'boolean':
+      return value;
+
+    default:
+      return 'err';
+  }
+}
+
+// console.log(sum(mixedArr));
 
 //=============================================================================================
 // Iteration #4: Calculate the average
@@ -89,15 +95,12 @@ console.log(sum(mixedArr));
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayOfNums) {
-  let currentSum = 0;
+  const sum = sumNumbers(arrayOfNums);
+  const total = arrayOfNums.length;
 
-  for (let i = 0; i < arrayOfNums.length; i++) {
-    currentSum = currentSum + arrayOfNums[i];
-  }
-
-  return currentSum / arrayOfNums.length;
+  return sum / total;
 }
-console.log(averageNumbers(numbersAvg));
+// console.log(averageNumbers(numbersAvg));
 //=============================================================================================
 // Level 2: Array of strings
 
@@ -112,15 +115,17 @@ function averageWordLength(arrayOfWords) {
 
   return currentSum / arrayOfWords.length;
 }
-console.log(averageWordLength(wordsArr));
+// console.log(averageWordLength(wordsArr));
 //=============================================================================================
 // Bonus - Iteration #4.1
 
 function avg(array) {
-  return sum(array) / array.length;
+  const sumValues = sum(array);
+  const totalValues = array.length;
+  return sumValues / totalValues;
 }
 
-console.log(avg(mixedArr));
+// console.log(avg(mixedArr));
 
 //=============================================================================================
 // Iteration #5: Unique arrays
@@ -152,7 +157,7 @@ function uniquifyArray(array) {
   }
   return newArray;
 }
-console.log(uniquifyArray(wordsUnique));
+// console.log(uniquifyArray(wordsUnique));
 //=============================================================================================
 // Iteration #6: Find elements
 
@@ -167,7 +172,7 @@ function doesWordExist(words, wordToSearch) {
   }
   return false;
 }
-console.log(doesWordExist(wordsFind, 'machine'));
+// console.log(doesWordExist(wordsFind, 'machine'));
 //=============================================================================================
 // Iteration #7: Count repetition
 
@@ -196,8 +201,10 @@ function howManyTimes(words, wordToCount) {
   }
   return occurences;
 }
-console.log(howManyTimes(wordsCount, 'matter'));
+// console.log(howManyTimes(wordsCount, 'matter'));
 //=============================================================================================
+
+console.log('--------------');
 // Iteration #8: Bonus
 
 // const matrix = [
@@ -232,32 +239,82 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let currentGreatestProduct = 0;
-  for (let x = 0; x < matrix.length; x++) {
-    let currentXAxisProduct = 0;
-    let currentYAxisProduct = 0;
-    for (let y = 0; y < matrix[x].length; y++) {
-      if (matrix[x + 3][y]) {
-        currentXAxisProduct = matrix[x][y] * matrix[x + 1][y] * matrix[x + 2][y] * matrix[x + 3][y];
-      }
-      if (matrix[x][y + 3]) {
-        currentYAxisProduct = matrix[x][y] * matrix[x][y + 1] * matrix[x][y + 2] * matrix[x][y + 3];
-      }
-      if (currentXAxisProduct > currentGreatestProduct) {
-        currentGreatestProduct = currentXAxisProduct;
-      }
-      if (currentYAxisProduct > currentGreatestProduct) {
-        currentGreatestProduct = currentYAxisProduct;
-      }
-      console.log(x + ',' + y);
-      console.log(currentXAxisProduct);
-      console.log(currentYAxisProduct);
+  let greatestProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      console.log(check3Down(matrix, i, j));
+
+      // const leftProduct = check3Left(matrix, i, j);
+      // const rightProduct = check3Right(matrix, i, j);
+      // const upProduct = check3Up(matrix, i, j);
+      // const downProduct = check3Down(matrix, i, j);
+      //-----
+      // if (greatestProduct < leftProduct) {
+      //   greatestProduct = leftProduct;
+      // }
+      // if (greatestProduct < rightProduct) {
+      //   greatestProduct = rightProduct;
+      // }
+      // if (greatestProduct < upProduct) {
+      //   greatestProduct = upProduct;
+      // }
+      // if (greatestProduct < downProduct) {
+      //   greatestProduct = downProduct;
+      // }
     }
   }
-  return currentGreatestProduct;
+  return greatestProduct;
 }
 
-console.log(greatestProduct(matrix));
+function check3Left(matrix, i, j) {
+  console.log('origin', matrix[i][j]);
+  if (matrix[i][j - 3]) {
+    console.log('i am mutliplying', matrix[i][j - 3], matrix[i][j - 2], matrix[i][j - 1], matrix[i][j]);
+    return matrix[i][j - 3] * matrix[i][j - 2] * matrix[i][j - 1] * matrix[i][j];
+  } else {
+    return 'skip';
+  }
+}
+
+function check3Right(matrix, i, j) {
+  console.log('origin', matrix[i][j]);
+
+  if (matrix[i][j + 3]) {
+    console.log('i am mutliplying', matrix[i][j + 3], matrix[i][j + 2], matrix[i][j + 1], matrix[i][j]);
+    return matrix[i][j + 3] * matrix[i][j + 2] * matrix[i][j + 1] * matrix[i][j];
+  } else {
+    return 'skip';
+  }
+}
+
+function check3Down(matrix, i, j) {
+  console.log('origin', matrix[i][j]);
+  console.log('i', i);
+  console.log('j', j);
+  console.log(matrix[0 - 1][0]);
+  console.log(matrix[i][1]);
+
+  if (matrix[i - 3][j]) {
+    console.log('i am mutliplying', matrix[i - 3][j], matrix[i - 2][j], matrix[i - 1][j], matrix[i][j]);
+    return matrix[i - 3][j] * matrix[i - 2][j] * matrix[i - 1][j] * matrix[i][j];
+  } else {
+    return 'skip';
+  }
+}
+
+function check3Up(matrix, i, j) {
+  console.log('origin', matrix[i][j]);
+
+  if (matrix[i + 3][j]) {
+    console.log('i am mutliplying', matrix[i + 3][j], matrix[i + 2][j], matrix[i + 1][j], matrix[i][j]);
+    return matrix[i + 3][j] * matrix[i + 2][j] * matrix[i + 1][j] * matrix[i][j];
+  } else {
+    return 'skip';
+  }
+}
+
+console.log('greatestProduct', greatestProduct(matrix));
 
 //=============================================================================================
 
