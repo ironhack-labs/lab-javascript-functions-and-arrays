@@ -95,7 +95,30 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let acc = 0;
+  if (arr.length === 0) return null;
+  for (let i = 0; i < arr.length; i++) {
+    switch (typeof arr[i]) {
+      case 'string':
+        acc += arr[i].length;
+        break;
+      case 'boolean':
+        acc += Number(arr[i]);
+        break;
+      case 'number':
+        acc += arr[i];
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
+        break;
+    }
+  }
+  let averageNum = acc / arr.length;
+  return parseFloat(averageNum.toFixed(2));
+}
+
+console.log(avg(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
