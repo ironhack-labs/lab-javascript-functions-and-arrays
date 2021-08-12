@@ -1,4 +1,4 @@
-const {
+/*const {
   maxOfTwoNumbers,
   findLongestWord,
   sumNumbers,
@@ -10,7 +10,120 @@ const {
   doesWordExist,
   howManyTimes,
   greatestProduct
-} = require('./../src/functions-and-arrays');
+} = require('./../src/functions-and-arrays');*/
+
+ function maxOfTwoNumbers (arg1,arg2){
+  if (arg1>arg2){
+    return arg1;
+  }else if (arg1<arg2){
+    return arg2;
+  }else {
+    return arg1;
+  }
+}
+
+// retorna la palabra mas larga
+function findLongestWord(words){
+  if(words.length === 0){
+    return null;
+  }
+
+  let longestWord = words[0];
+  for(i=1;i<words.length;i++){ 
+    if (longestWord.length < words[i].length){
+      longestWord=words[i];
+    }
+  }
+  return longestWord;
+}
+
+// Suma todos los numeros de un array que le pasas como parametro
+function sumNumbers(numbers){
+  let suma=0; 
+  for(i=0;i<numbers.length;i++){
+    suma = suma + numbers[i]; // suma += numbers[i];   
+  }
+  return suma;
+}
+
+function sum(){ 
+
+}
+
+// Hace el promedio de un array de numeros que le pasas como parámetro
+function averageNumbers(numbersArray){ 
+
+  if(numbersArray.length === 0){
+    return null;
+  }
+
+  let suma = sumNumbers(numbersArray);
+  return suma/numbersArray.length;
+  //return sumNumbers(numbersArray)/numbersArray.length;
+}
+
+// Hace el promedio de la suma de todas las longitudes del array de palabras que le pasas como parámetro
+function averageWordLength(wordsArray){ 
+
+  if(wordsArray.length === 0){
+    return null;
+  }
+
+  let sumLength = 0;
+  for (i=0 ; i<wordsArray.length ; i++){
+    sumLength = sumLength+wordsArray[i].length;
+  }
+  return sumLength/wordsArray.length;
+}
+
+function avg(){ 
+
+}
+// Borra los elementos duplicados del array de palabras que le pasas como parámetro
+
+// array.indexOf("palabra")---> si esta en el array devuelve la posicion (0,2,43), si no está en el array devuelve -1
+function uniquifyArray(wordsArray){ 
+
+  if(wordsArray.length === 0){
+    return null;
+  }
+
+  let newArray = [];
+  for (i=0 ; i<wordsArray.length ; i++){
+    if( newArray.indexOf(wordsArray[i]) === -1 ){
+      newArray.push(wordsArray[i]);
+    }
+  }
+  return newArray;
+}
+
+function doesWordExist( wordsArray, wordToSearch ){ 
+
+  if(wordsArray.length === 0){
+    return null;
+  }
+
+  for (i=0 ; i< wordsArray.length; i++){
+    if(wordsArray[i]===wordToSearch){
+      return true;
+    }
+  }
+  return false;
+}
+
+function howManyTimes(wordsArray, wordToSearch){ 
+  let counter=0;
+  for (i=0 ; i< wordsArray.length; i++){
+    if(wordsArray[i]===wordToSearch){
+      counter++;
+    }
+  }
+  return counter;
+}
+
+function greatestProduct(){ 
+
+}
 
 const shuffle = (currentArray) => {
   const array = [...currentArray];
