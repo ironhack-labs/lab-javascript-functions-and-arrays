@@ -23,6 +23,7 @@ function findLongestWord(array) {
 }
 
 
+
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -40,7 +41,25 @@ function sumNumbers(array) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixArr) {
+  let total = 0;
+  for (let i=0; i < mixArr.length; i++) {
+    if (typeof mixArr[i] === "number") {
+      total += mixArr[i]
+    } else if (typeof mixArr[i] === "string") {
+      total += mixArr[i].length
+    } else if (typeof mixArr[i] === "boolean")
+      if (mixArr[i] === true) {
+        total++
+      } else {
+        continue
+      }
+  }
+  return total
+}
 
 
 
