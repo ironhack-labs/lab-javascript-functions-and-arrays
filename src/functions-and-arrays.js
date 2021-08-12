@@ -61,8 +61,8 @@ function sum(arr) {
         break;
     }
   }
-  if (isNaN(acc) || typeof acc != 'number') {
-    return 'One or more values are not valid.';
+  if (isNaN(acc)) {
+    return 'One or more values in your array are NaN.';
   } else return acc;
 }
 
@@ -91,7 +91,8 @@ function averageWordLength(arr) {
     sumBox += arr[i].length;
   }
 
-  return sumBox / arr.length;
+let averageNum = acc / arr.length;
+  return +averageNum.toFixed(2);
 }
 
 // Bonus - Iteration #4.1
@@ -115,10 +116,10 @@ function avg(arr) {
     }
   }
   let averageNum = acc / arr.length;
-  return parseFloat(averageNum.toFixed(2));
+  
+  return +averageNum.toFixed(2);
 }
 
-console.log(avg(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
