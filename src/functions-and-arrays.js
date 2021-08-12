@@ -84,11 +84,11 @@ function averageNumbers(arr) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arr) {
-  let sumBox = 0;
+  let acc = 0;
   if (arr.length === 0) return null;
 
   for (let i = 0; i < arr.length; i++) {
-    sumBox += arr[i].length;
+     acc += arr[i].length;
   }
 
 let averageNum = acc / arr.length;
