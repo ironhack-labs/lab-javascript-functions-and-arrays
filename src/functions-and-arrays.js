@@ -44,6 +44,7 @@ function sumNumbers(arr) {
 // Iteration #3.1 Bonus:
 function sum(arr) {
   let acc = 0;
+
   for (let i = 0; i < arr.length; i++) {
     switch (typeof arr[i]) {
       case 'string':
@@ -54,6 +55,9 @@ function sum(arr) {
         break;
       case 'number':
         acc += arr[i];
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");
         break;
     }
   }
@@ -119,8 +123,8 @@ function uniquifyArray(arr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, word) {
-  if (arr.includes(word)) return true;
-  else return false;
+  if (arr.length === 0) return null;
+  return arr.includes(word);
 }
 
 // Iteration #7: Count repetition
@@ -138,7 +142,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let sumBox = 0;
+  if (arr.length === 0) return 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) sumBox += 1;
+  }
+
+  return sumBox;
+}
 
 // Iteration #8: Bonus
 const matrix = [
