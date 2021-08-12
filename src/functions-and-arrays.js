@@ -112,8 +112,7 @@ function avg(mixedArr) {
   mixedArr.forEach(element=>{
     totalAvg += element.length
   })
-  return totalAvg/mixedArr.length                 // ARREGLAR 
-        
+  return totalAvg/mixedArr.length                  
 }
 
 
@@ -162,7 +161,7 @@ function doesWordExist(wordsArr) {
     for(let i = 0 ; i< wordsArr.length; i++){
       if(wordsArr[i] === wordsArr){
         return true
-      }else{                                                        //ARREGLAR
+      }else{                                                        
         return false
       }
     }
