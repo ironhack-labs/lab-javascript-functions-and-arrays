@@ -104,7 +104,18 @@ function averageWordLength(wordsArray) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if(!mixedArr.length){
+    return null
+  }
+  let totalAvg = 0
+  mixedArr.forEach(element=>{
+    totalAvg += element.length
+  })
+  return totalAvg/mixedArr.length                 // ARREGLAR 
+        
+}
+
 
 
 
@@ -147,16 +158,17 @@ function doesWordExist(wordsArr) {
   if(wordsArr.length === 0){
     return null;
   }
-  else if(wordsArr.length === 1){
-    return true;
-  }else if(wordsArr.length === []){
-    return true;
-  }else if(wordsArr !== []){
-    return false;
+  else { 
+    for(let i = 0 ; i< wordsArr.length; i++){
+      if(wordsArr[i] === wordsArr){
+        return true
+      }else{                                                        //ARREGLAR
+        return false
+      }
+    }
+    
   }
-
 }
-  
 
 
 // Iteration #7: Count repetition
@@ -174,7 +186,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,words) {
+  let result = 0
+  if(!wordsCount.length){
+    return 0;
+  }
+  
+  wordsCount.forEach(element => {
+    if(element === words){
+      result += 1
+    }
+  });
+  return result
+}
 
 
 
