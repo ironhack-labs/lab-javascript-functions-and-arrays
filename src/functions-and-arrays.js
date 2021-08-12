@@ -20,6 +20,7 @@ function findLongestWord(oneArray) {
     return null;
   } else {
     let maxLength = 0;
+    let position = 0;
     for (let i = 0; i < oneArray.length; i++) {
       if (oneArray[i].length > maxLength) {
 
@@ -30,7 +31,7 @@ function findLongestWord(oneArray) {
     }
 
     return oneArray[position];
-}
+  }
 
 }
 
@@ -122,6 +123,26 @@ const wordsUnique = [
 function uniquifyArray(arrayUnique) {
 
   const newArray = [];
+
+  arrayUnique.sort();
+
+  if (arrayUnique.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arrayUnique.length; i++) {
+      if (arrayUnique[i] === arrayUnique[i+1]) {
+       newArray.push(arrayUnique[i]);
+       arrayUnique.splice(i+1, 1);
+      } else {
+       newArray.push(arrayUnique[i]);
+      }
+    }
+  return newArray;
+  }
+
+}
+  /*
+  const newArray = [];
   let index = 0;
   let arr;
   if (arrayUnique.length === 0) {
@@ -139,26 +160,7 @@ function uniquifyArray(arrayUnique) {
     arrayUnique.indexOf(arr)
 
   }
-  
-
-  /*const newArray = [];
-  arrayUnique.sort();
-  if (arrayUnique.lenght === 0){
-    return null;
-  } else {
-    for (let i = 0; i < arrayUnique.lenght; i++) {
-      if (arrayUnique[i] === arrayUnique[i+1]) {
-       newArray.push(arrayUnique[i]);
-       arrayUnique.splice(i+1, 1);
-      } else {
-       newArray.push(arrayUnique[i]);
-      }
-    }
-  return newArray;
-  }*/
-
-}
-
+  */
 
 
 // Iteration #6: Find elements
@@ -166,7 +168,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(numWords, word) {
   
-  let boolean;
+  let boolean = false;
 
   if (numWords.length === 0) {
     return null;
@@ -176,8 +178,6 @@ function doesWordExist(numWords, word) {
 
       if (oneElement === word) {
         boolean = true;
-      } else {
-      boolean = false;
       }
     } 
   return boolean;
@@ -209,13 +209,22 @@ function howManyTimes(arrayCount, wordToCount) {
   let times;
   let idx = arrayCount.indexOf(wordToCount);
   while (idx != -1) {
-    indices.push(idx);
+    arrayCount.push(idx);
     idx = arrayCount.indexOf(wordToCount, idx + 1);
   }
   times = arrayToCount.length;
   return times;
   
 }
+/*
+  let count = 0;
+  for (let i = 0; i < arrayCount.length; i++) {
+    if (array.Count[i] === wordToCount) {
+      counter++;
+    }
+  }
+  return count;
+*/ 
 
 
 
