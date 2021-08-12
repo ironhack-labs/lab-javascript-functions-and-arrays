@@ -30,9 +30,10 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
 function sumNumbers(numbers) {
   if (numbers.length === 0 ) {
-    return 0;
+    return zero;
   }
   let sum = 0;
   for (let i=0; i<numbers.length; i++){
@@ -56,23 +57,27 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
   if (numbersAvg.length === 0 ) {
-    return 0;
-  } else {
-    return numbersAvg.length;
+    return null;
   }
-  let sum = 0;
-  for (let i=0; i<numbersAvg.length; i++){
-    sum = sum +numbersAvg[i];
-  }
-    return sum / averageNumbers.length;
+  let sum = sumNumbers(numbersAvg)
+    return sum / numbersAvg.length;
 }
 
-averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(something) {
+  if (averageWordLength.length === 0){
+    return null;
+  }
+    arrLength = [];
+    for (let i = 0; i < something.length; i++) {
+      arrLength.push(something[i].length);
+    }
+    return averageNumbers(arrLength);
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -92,14 +97,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(something) {
+  if (something.length === 0){
+    return null;
+  }
+  let unique = [...new Set(something)];
+  return unique;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(something, starting) {
+  if (something.length === 0){
+    return null;
+  } 
+  for(let findFind of something){
+    if(findFind === starting){
+      return true
+    }
+  }
+  return false;
+}   
+
 
 
 
@@ -118,7 +140,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(someOtherThing, trouble) {
+    let count = 0;
+    for (let findFind of someOtherThing){
+      if (findFind === trouble) {
+        count++
+      }
+    }
+  return count;
+}
 
 
 
