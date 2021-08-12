@@ -40,7 +40,14 @@ function sumNumbers(numbers) {
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum() {}
+function sum(mixedArr) {
+  let total = 0;
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    total += mixedArr[i];
+  }
+  return total;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers *****************DONE****************
@@ -78,7 +85,19 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+let counter = 0;
+let totalValue = 0;
+
+function avg(words) {
+  for (let i = 0; i < words.length; i++) {
+    let value = parseInt(words[i]);
+    if (value) {
+      totalValue += value;
+      counter++;
+    }
+  }
+  return totalValue / counter;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
