@@ -111,14 +111,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let uniqueArray = []
+  // Remove duplicates from array
+  for (let i=0; i < array.length; i++) {
+    if (uniqueArray.includes(array[i])) {
+      continue
+    } else {
+      uniqueArray.push(array[i])
+    }
+  }
+  return uniqueArray
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  let result = false;
+
+    for (let i=0; i < array.length; i++) {
+      if (array[i] === word) {
+        result = true;
+      }
+    }
+
+  return result;
+}
 
 
 
