@@ -67,7 +67,16 @@ function sum(mixArr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+// Find the average by adding all the numbers and divide by total numbers
+// Loop through array
+// Add elements in array
+// Divide by total numbers in array
+function averageNumbers(array) {
+  let total = 0;
+  for (let i=0; i < array.length; i++) {
+    total += array[i]
+  }
+}
 
 
 // Level 2: Array of strings
