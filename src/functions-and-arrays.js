@@ -13,13 +13,13 @@ console.log(maxOfTwoNumbers(1, 2))
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
   function findLongestWord(array) {
-  let longstr = '';
-  for(let i = 0; i < array.length; i++ ) {
-    if(array[i].length > longstr,length) {
-      longstr = array[i]
+  let longstr = "";
+  for (let i = 0; i < array.length; i++ ) {
+    if (array[i].length > longstr.length) {
+      longstr = array[i];
     }
   }
-  return longest;
+  return longstr;
 }
 
 
@@ -30,11 +30,11 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
-  let sum = 0;
+  let result = 0;
   for (let i = 0; i<array.length; i++) {
-    sum += array[i];
+    result += array[i];
   }
-  return sum;
+  return result;
 }
 
 
@@ -42,6 +42,8 @@ function sumNumbers(array) {
 
 
 // Iteration #3.1 Bonus:
+//Let's implement the function sum() that calculates the sum for array filled with (almost) any type of data. 
+//Note that strings should have their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
@@ -49,12 +51,12 @@ function sum(mixArr) {
   let total = 0;
   for (let i=0; i < mixArr.length; i++) {
     if (typeof mixArr[i] === "number") {
-      total +- mixArr[i]
+      total += mixArr[i]
     } else if (typeof mixArr[i] === "string") {
-      total +- mixArr[i].length
+      total += mixArr[i].length
     } else if (typeof mixArr[i] === "boolean")
         if (mixArr[i] === true) {
-
+          total += 1
         } else {
           continue
         }
