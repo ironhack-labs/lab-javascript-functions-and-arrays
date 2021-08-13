@@ -1,22 +1,44 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+if(a > b){
+  return a;
+}else{
+  return b;
+}
+}
 
 
 
 // Iteration #2: Find longest word
+
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+
+function findLongestWord(str) {
+  if(str.length === 0){
+    return null;
+  }
+  return str.sort(function(a, b) {return b.length - a.length})[0];
+}
+findLongestWord(
+  ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']
+)
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(str) {
+ if(str.length === 0){
+   return 0;
+ }
+ const reducer = (accumulator, currentValue) => accumulator + currentValue; 
+  return str.reduce(reducer);
+}
 
-
-
+sumNumbers([6, 12, 1, 18, 13, 16, 2, 1, 8, 10])
 // Iteration #3.1 Bonus:
 function sum() {}
 
@@ -26,14 +48,32 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if(numbers.length === 0){
+    return null;
+  }
+  let sum = numbers.reduce((previous, current) => current += previous);
+  let avg = sum / numbers.length;
+  return avg;
+}
 
-
+averageNumbers([2, 6, 9, 10, 7, 4, 1, 9])
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(numbers) {
+  if(numbers.length === 0){
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++){
+      sum += numbers[i].length;
+  }
+  return sum / numbers.length;
+ }
+averageWordLength(
+  ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace']
+)
 // Bonus - Iteration #4.1
 function avg() {}
 
@@ -52,7 +92,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if(arr.length === 0){
+    return null;
+  }
+  let comp;
+  for (let i = 0; i < comp.length; i++){
+    result = comp[i]
+    if(result == comp)
+  
+}
 
 
 
