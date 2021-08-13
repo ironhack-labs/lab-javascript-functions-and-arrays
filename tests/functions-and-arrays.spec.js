@@ -139,6 +139,33 @@ const shuffle = (currentArray) => {
   return array;
 };
 
+greatestProduct(matrix){
+  let greatest = 0;
+  let greatest1 = 0;
+  let greatest2 = 0;
+  for(i=0; i<matrix.leght; i++)
+  for(j=0; j<matrix.leght; j++){
+  let biger1 = multiply (matrix[i][j]* matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]);
+  if (greates1< biger1){
+    greatest1=biger1;
+  }
+  let biger2 = multiply(matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]);  
+  if (greates1< biger1){
+    greatest1=biger2;
+  }
+  if(greatest1>greatest2){
+    greatest=greatest1
+  }else{
+    greatest=greatest2
+  }
+
+  }
+  return greatest
+
+}
+
+
+
 describe('Find the maximum', () => {
   test('should declare a function named maxOfTwoNumbers', () => {
     expect(typeof maxOfTwoNumbers).toBe('function');
