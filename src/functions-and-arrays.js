@@ -1,6 +1,6 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers() {}
-
+.
 
 
 // Iteration #2: Find longest word
