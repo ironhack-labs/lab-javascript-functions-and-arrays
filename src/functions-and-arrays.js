@@ -51,14 +51,21 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const theAverage = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arr) {
-if (arr.length === 0){
-  return null;
-} else {
-  return sumNumbers(arr) / arr.length
-}
+function averageNumbers(theAverage) {
+  let average = 0; 
+
+  if (theAverage.length === 0) {
+    return null; 
+  }
+
+  for (let i = 0; i < theAverage.length; i++) {
+    average += theAverage[i];
+  }
+  average = average / theAverage.length; 
+
+  return average; 
 }
 
 // Level 2: Array of strings
@@ -91,14 +98,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+const uniqueWord = [];
 
+for (let i = 0; i < arr.length; i++) {
+  let words = arr[i];
+
+  if (uniqueWord.indexOf(word) < 0) {
+    uniqueWord.push(word)
+  }
+}
+return uniqueWord;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrWords, findWords) {
+ for (let i = 0; i < arrWords.length; i++){
+   if (arrWords[i] === findWords) {
+     return true;
+   }
+ }
+return false
+}
 
 
 
@@ -117,7 +141,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrTimes, findWords) {
+
+  let times = 0; 
+
+  for (let i = 0; i < arrTimes.length; i++) {
+    if (arrTimes[i] === findWords) {
+      times++;
+    }
+  }
+  
+  return times; 
+}
+
 
 
 
