@@ -53,7 +53,28 @@ function sumNumbers(array) {
   }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+
+  if (!array.length){ //Empty array
+    return 0;
+  }
+  let sum = 0 
+
+  for (i in array){
+    if (typeof array [i] === 'number'){
+      sum += array[i];
+    }else if(typeof array[i] === 'string'){
+      sum +=array[i].length;
+    }else if(array[i] === true){
+      sum += 1;
+    }else if(array[i] === false){
+      sum += 0;
+    }else{
+      throw Error `Unsupported data type sir or ma'am`;
+    }
+  }
+  return sum
+}
 
 
 
@@ -100,7 +121,16 @@ function averageWordLength(array) {
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+
+  const averageNumber = sum(array) / array.length;
+
+  if (!array.length){
+    return null;
+  }
+
+  return parseFloat(averageNumber.toFixed(2))  //Calling the sum() function from above
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
