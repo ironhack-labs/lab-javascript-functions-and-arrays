@@ -47,7 +47,24 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  let sum = 0; // set default variable that will be returned at the end
+
+  // loop that checks each data type with the typeof keyword and updates the default variable accordingly
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] === "number") {
+      sum += numbers[i];
+    } else if (typeof numbers[i] === "string") {
+      sum += numbers[i].length;
+    } else if (typeof numbers[i] === "boolean") {
+      sum += numbers[i];
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+
+  return sum; // return the default variable
+}
 
 
 
@@ -81,7 +98,30 @@ if(wordsArr.length === 0) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let average = 0; // set default variable that will be returned at the end
+
+  // conditional for passing test if array is empty
+  if (arr.length === 0) {
+    return null; // the return keyword will end the function here, it will prevent the rest of the code from executing
+  }
+
+  // loop that will update the default variable depending on the type of data
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      average += arr[i];
+    } else if (typeof arr[i] === "string") {
+      average += arr[i].length;
+    } else if (typeof arr[i] === "boolean") {
+      average += arr[i];
+    }
+  }
+
+  average = average / arr.length; // to update variable with average of sum
+  average = parseFloat(average.toFixed(2)); // code to fix the decimals of the number to be only 2.
+
+  return average; // return the default variable
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
