@@ -39,28 +39,29 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-// function sum(arr) {
-//   if (!arr || arr.length === 0) return 0;
-//   let sum = 0;
-//   arr.forEach((num) => {
-//     switch (typeof num) {
-//       case 'number':
-//         sum += num;
-//         break;
-//       case 'string':
-//         sum += num.length;
-//         break;
-//       case 'boolean':
-//         if (num) sum += 1;
-//         else sum += 0;
-//         break;
-//       default:
-//       // console.log(typeof num);
-//       // throw Error("Unsupported data type sir or ma'am");
-//     }
-//   });
-//   return sum;
-// }
+function sum(arr) {
+  if (!arr || arr.length === 0) return 0;
+  let sum = 0;
+  arr.forEach((num) => {
+    switch (typeof num) {
+      case 'number':
+        sum += num;
+        break;
+      case 'string':
+        sum += num.length;
+        break;
+      case 'boolean':
+        if (num) sum += 1;
+        else sum += 0;
+        break;
+      default:
+        () => {
+          throw new Error(`Unsupported data type sir or ma'am`);
+        };
+    }
+  });
+  return sum;
+}
 // BONUS - Iteration #3.1: A generic sum() function
 function sum(arr) {
   if (!arr) return null;
@@ -106,42 +107,42 @@ function averageWordLength(words) {
 }
 
 // Bonus - Iteration #4.1
-// function avg(arr) {
-//   if (!arr || arr.length === 0) return null;
-//   let sum = 0;
-//   arr.forEach((num) => {
-//     switch (typeof num) {
-//       case 'number':
-//         sum += num;
-//         break;
-//       case 'string':
-//         sum += num.length;
-//         break;
-//       case 'boolean':
-//         if (num) sum += 1;
-//         else sum += 0;
-//       default:
-//      () => {
-          throw new Error(`Unsupported data type sir or ma'am`);
-        };
-//     }
-//   });
-//   return Math.round((sum / arr.length) * 100) / 100;
-// }
-
 function avg(arr) {
   if (!arr || arr.length === 0) return null;
-
   let sum = 0;
-  for (let el of arr) {
-    // usamos la condición "typeof" para reusar esta función en la iteración siguiente (4.2)
-    // y poder calcular directamente la suma de carácteres en el array de words
-    if (typeof el === 'string') sum += el.length;
-    else if (typeof el === 'object') throw new Error(`Unsupported data type sir or ma'am`);
-    else sum += el;
-  }
+  arr.forEach((num) => {
+    switch (typeof num) {
+      case 'number':
+        sum += num;
+        break;
+      case 'string':
+        sum += num.length;
+        break;
+      case 'boolean':
+        if (num) sum += 1;
+        else sum += 0;
+      default:
+        () => {
+          throw new Error(`Unsupported data type sir or ma'am`);
+        };
+    }
+  });
   return Math.round((sum / arr.length) * 100) / 100;
 }
+
+// function avg(arr) {
+//   if (!arr || arr.length === 0) return null;
+
+//   let sum = 0;
+//   for (let el of arr) {
+//     // usamos la condición "typeof" para reusar esta función en la iteración siguiente (4.2)
+//     // y poder calcular directamente la suma de carácteres en el array de words
+//     if (typeof el === 'string') sum += el.length;
+//     else if (typeof el === 'object') throw new Error(`Unsupported data type sir or ma'am`);
+//     else sum += el;
+//   }
+//   return Math.round((sum / arr.length) * 100) / 100;
+// }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
