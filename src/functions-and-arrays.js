@@ -220,14 +220,13 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let rows = matrix;
   let columns = [];
   let chunks = [];
   let bigNumber = 0;
   const getColumns = (array, column) => array.map((e) => e[column]);
 
-  rows.map((row, i) => {
-    columns.push(getColumns(rows, i));
+  matrix.map((row, i) => {
+    columns.push(getColumns(matrix, i));
 
     row.map((num, e) => {
       if (e + 4 <= 20) {
@@ -253,6 +252,59 @@ function greatestProduct(matrix) {
 
 // greatestProduct(matrix);
 
+function greatestProductOfDiagonals(matrix) {
+  let chunks = [];
+  let bigNumber = 0;
+
+  const getDiagonals = (array, bottomToTop) => {
+    let columnsLength = array.length;
+    let rowsLength = array[0].length;
+    let maxLength = Math.max(columnsLength, rowsLength);
+    let temp;
+    let returnArray = [];
+    for (var i = 0; i <= 2 * (maxLength - 1); ++i) {
+      temp = [];
+      for (let e = columnsLength - 1; e >= 0; --e) {
+        var x = i - (bottomToTop ? columnsLength - e : e);
+        if (x >= 0 && x < rowsLength) {
+          temp.push(array[e][x]);
+        }
+      }
+      if (temp.length >= 4) {
+        returnArray.push(temp);
+      }
+    }
+    return returnArray;
+  };
+  let topToBottomDiagonals = getDiagonals(matrix, true) || [];
+  let bottomToTopDiagonals = getDiagonals(matrix) || [];
+
+  topToBottomDiagonals.map((diagonal) => {
+    diagonal.map((num, e) => {
+      if (e + 4 <= 20) {
+        let chunk = [...diagonal.slice(e, e + 4)];
+        if (chunk.length === 4) chunks.push(chunk);
+      }
+    });
+  });
+
+  bottomToTopDiagonals.map((diagonal) => {
+    diagonal.map((num, e) => {
+      if (e + 4 <= 20) {
+        let chunk = [...diagonal.slice(e, e + 4)];
+        if (chunk.length === 4) chunks.push(chunk);
+      }
+    });
+  });
+
+  chunks.map((chunk, i) => {
+    let newNumber = chunk.reduce((product, n) => product * n, 1);
+    if (newNumber > bigNumber) bigNumber = newNumber;
+  });
+  return bigNumber;
+}
+
+console.log(greatestProductOfDiagonals(matrix));
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
