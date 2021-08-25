@@ -121,7 +121,9 @@ function averageWordLength(words) {
 //         if (num) sum += 1;
 //         else sum += 0;
 //       default:
-//         throw new Error(`Unsupported data type sir or ma'am`);
+//      () => {
+          throw new Error(`Unsupported data type sir or ma'am`);
+        };
 //     }
 //   });
 //   return Math.round((sum / arr.length) * 100) / 100;
