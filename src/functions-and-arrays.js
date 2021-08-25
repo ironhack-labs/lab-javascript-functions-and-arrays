@@ -1,19 +1,49 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1,num2) {
+  if(num1 < num2){
+    return num2
+  }else{
+    return num1
+  }
+}
+console.log(maxOfTwoNumbers(10,20))
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
-
-
+//funcion para poder imprimir el array , vaya iterando cada cadena del array
+function findLongestWord(array1){
+    if(array1.length===0){
+        return null;
+    }
+    //variable vacia  " "
+    let longestWord=""
+    for(let i=0;i<array1.length;i++){
+      //ifque compara el string de la longuitud del array con en el string vacio(0) de longestWord
+        if(array1[i].length>longestWord.length){
+          //si es asi longestWord tendrá la palabra mas larga 
+            longestWord=array1[i]
+        }
+    }
+    return longestWord
+}
+console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers){
+  //variable sum para meter el resultado de la iteracion
+  let suma = 0
+  if (numbers.length === 0) {
+    return  suma 
+  }
+  //iterar y luego e ir sumando los numeros del array en la variable suma
+  for (i = 0; i < numbers.length; i++) {
+    suma += numbers[i]
+  }
+  return suma
+}
+console.log(sumNumbers(numbers))
 
-function sumNumbers() {}
 
 
 
@@ -22,17 +52,42 @@ function sum() {}
 
 
 
-// Iteration #4: Calculate the average
+// Iteration #4: Calculate the average // Calcular el promedio
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numeros) {
+  if(numeros.length===0){
+    return null
+  }
+  //variable para guardar resultado de la suma
+  let suma=0
+  // iterar e ir sumando los numeros del array en la variable suma
+  for(let i=0;i<numeros.length;i++){
+   suma += numeros[i]
+  }
+// variable promedio para guardar el resultado del promedio( de la suma entre el largo de los numeros del array)
+  let promedio=suma/numeros.length
+  return promedio
+}
+console.log(averageNumbers(numbersAvg))
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(str1) { 
+  if(str1.length===0){
+    return null 
+  }
+  //variable sum1 para guardar resultados de la suma del array
+let suma1=0
+for(let i=0;i<str1.length;i++){
+suma1+=str1[i].length
+}
+let promedio=suma1/str1.length
+return promedio
+}
+console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -51,15 +106,43 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray() {}
-
+console.log(uniquifyArray(wordsUnique));
+//debería devolver nulo si recibe una matriz vacía cuando se llama
+function uniquifyArray(str2) {
+  if(str2.length===0){
+    return null
+  }
+  //variable unicos :para guardar el array con strings unicas(no duplicadas)
+const unicos = []
+//iterar uno por uno mis strings
+for(let i = 0; i < str2.length; i++) {
+  //si en unicos incluye el string no lo meta a unicos, en caso de que no(!) aplica el push a unicos
+    if (!unicos.includes(str2[i])) {
+      unicos.push(str2[i]);
+    }
+  }
+  return unicos
+}
+  
+  
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
+console.log(doesWordExist(wordsFind))
+function doesWordExist(str3) {
+  if(str3.length===0){
+    return null
+  }
+  const existe=[]
+  for(let i=0; i<str3.length;i++){
+    if(!existe.includes(str3[i])){
+    return true
+    }else if(existe.includes(str3[i])){
+      return false
+    }
+  }
+}
 
 
 
@@ -78,7 +161,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(str4) {
+ const counts=[]
+ for(let i=0;i<str4.length;i++){
+   let num =str4[i]
+ 
+ }
+}
 
 
 
@@ -117,8 +206,8 @@ if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
     findLongestWord,
-    sumNumbers,
-    sum,
+    sumNumbers: sumNumbers,
+    sum: sumNumbers,
     averageNumbers,
     averageWordLength,
     avg,
