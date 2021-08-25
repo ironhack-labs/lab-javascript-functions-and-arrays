@@ -1,41 +1,145 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (!num1 && !num2) return;
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2;
+  } else {
+    return num1;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(array) {
+  if (!array || array.length === 0) return null;
+  let longestWord = '';
+  // for (let index = 0; index < array.length; index++) {
+  //   const element = array[index];
+  //   if (element.length > longestWord.length) longestWord = element;
+  // }
+  array.forEach((element) => {
+    if (element.length > longestWord.length) longestWord = element;
+  });
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  if (!numbers || numbers.length === 0) return 0;
+  let sum = 0;
+  numbers.forEach((num) => {
+    sum += num;
+  });
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// function sum(arr) {
+//   if (!arr || arr.length === 0) return 0;
+//   let sum = 0;
+//   arr.forEach((num) => {
+//     switch (typeof num) {
+//       case 'number':
+//         sum += num;
+//         break;
+//       case 'string':
+//         sum += num.length;
+//         break;
+//       case 'boolean':
+//         if (num) sum += 1;
+//         else sum += 0;
+//         break;
+//       default:
+//       // console.log(typeof num);
+//       // throw Error("Unsupported data type sir or ma'am");
+//     }
+//   });
+//   return sum;
+// }
+// BONUS - Iteration #3.1: A generic sum() function
+function sum(arr) {
+  if (!arr) return null;
 
+  let sum = 0;
+  for (let el of arr) {
+    // usamos la condición "typeof" para reusar esta función en la iteración siguiente (4.2)
+    // y poder calcular directamente la suma de carácteres en el array de words
+    if (typeof el === 'string') sum += el.length;
+    else if (typeof el === 'object') throw new Error(`Unsupported data type sir or ma'am`);
+    else sum += el;
+  }
+  return sum;
+}
 
+// console.log(sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}]));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!numbers || numbers.length === 0) return null;
+  let sum = 0;
+  numbers.forEach((num) => {
+    sum += num;
+  });
+  return sum / numbers.length;
+}
 
+// console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (!words || words.length === 0) return null;
+  let sum = 0;
+  words.forEach((num) => {
+    sum += num.length;
+  });
+  return sum / words.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+// function avg(arr) {
+//   if (!arr || arr.length === 0) return null;
+//   let sum = 0;
+//   arr.forEach((num) => {
+//     switch (typeof num) {
+//       case 'number':
+//         sum += num;
+//         break;
+//       case 'string':
+//         sum += num.length;
+//         break;
+//       case 'boolean':
+//         if (num) sum += 1;
+//         else sum += 0;
+//       default:
+//         throw new Error(`Unsupported data type sir or ma'am`);
+//     }
+//   });
+//   return Math.round((sum / arr.length) * 100) / 100;
+// }
+
+function avg(arr) {
+  if (!arr || arr.length === 0) return null;
+
+  let sum = 0;
+  for (let el of arr) {
+    // usamos la condición "typeof" para reusar esta función en la iteración siguiente (4.2)
+    // y poder calcular directamente la suma de carácteres en el array de words
+    if (typeof el === 'string') sum += el.length;
+    else if (typeof el === 'object') throw new Error(`Unsupported data type sir or ma'am`);
+    else sum += el;
+  }
+  return Math.round((sum / arr.length) * 100) / 100;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +156,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (!words || words.length === 0) return null;
+  return [...new Set(words)];
+}
 
-
+// console.log(uniquifyArray(words));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(words, word) {
+  if (!words || words.length === 0) return null;
+  return words.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +186,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(words, word) {
+  if (!words || words.length === 0) return 0;
+  let count = 0;
+  words.map((wordArr) => {
+    if (wordArr === word) count++;
+  });
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +219,39 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let rows = matrix;
+  let columns = [];
+  let chunks = [];
+  let bigNumber = 0;
+  const getColumns = (array, column) => array.map((e) => e[column]);
 
+  rows.map((row, i) => {
+    columns.push(getColumns(rows, i));
 
+    row.map((num, e) => {
+      if (e + 4 <= 20) {
+        let chunk = [...row.slice(e, e + 4)];
+        chunks.push(chunk);
+      }
+    });
+  });
+  columns.map((column) => {
+    column.map((num, e) => {
+      if (e + 4 <= 20) {
+        let chunk = [...column.slice(e, e + 4)];
+        chunks.push(chunk);
+      }
+    });
+  });
+  chunks.map((chunk, i) => {
+    let newNumber = chunk.reduce((product, n) => product * n, 1);
+    if (newNumber > bigNumber) bigNumber = newNumber;
+  });
+  return bigNumber;
+}
 
+greatestProduct(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
