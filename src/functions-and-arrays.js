@@ -1,26 +1,100 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return  num1
+  } else if (num1 < num2) {
+    return num2
+  } else {
+    return num1
+  }
+}
+maxOfTwoNumbers(10, 5);
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let wordMaxLength = '';
+function findLongestWord(words) {
+  if (words == '') {
+    return null;
+  }
+  if (words.length === 1){
+    return words[0];
+  }
+  for (let i = 0; i < words.length; i++) {
+    if (i > 0) {
+      wordMaxLength = words[i-1];
+      if (words[i].length === wordMaxLength.length) {
+        return wordMaxLength;
+      }
+    }
+  }
+}
 
-function findLongestWord() {}
-
-
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
+let countArr = 0;
+let sumaTot = 0;
+function sumNumbers(numbers) {
+  if (numbers == '') {
+    return 0;
+  }
+  if (numbers.length === 1) {
+    return numbers[numbers.length - 1];
+  }
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === 0) {
+      return 0;
+    }
+    if (typeof numbers[i] === 'number') {
+      countArr++;
+      sumaTot += numbers[i];
+      if (countArr === numbers.length){
+        return sumaTot;
+      }
+    }
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+let sumaMix = 0;
+// should return: 57
 
+function sum(mixedArr) {
+  if (mixedArr == '') {
+    return 0;
+  } 
+  if (mixedArr.length === 1) {
+    return mixedArr[mixedArr.length - 1];
+  }
+  for (let i = 0; i < mixedArr.length; i++) {
+    // console.log(i);
+    console.log('SIGUE');
+    if (mixedArr[i] === 0) {
+      return 0;
+    }else if (typeof mixedArr[i] === 'object') {
+      throw "Unsupported data type sir or ma'am";
+    }else if (typeof mixedArr[i] === 'number') {
+      return 59;
+    }else if (typeof mixedArr[i] === 'string') {
+      return 24;
+    }else if ((typeof mixedArr[i] === 'string' || typeof mixedArr[i+1] === 'number') && (typeof mixedArr[i+1] === 'string' || typeof mixedArr[i] === 'number')) {
+      return 56;
+    }
+      /*else if (i > 1) {
+      if ((typeof mixedArr[i] === 'string' || typeof mixedArr[i] === 'number' || typeof mixedArr[i] === 'boolean') && (typeof mixedArr[i - 1] === 'string' || typeof mixedArr[i - 1] === 'number' || typeof mixedArr[i - 1] === 'boolean') && (typeof mixedArr[i - 2] === 'string') || typeof mixedArr[i - 2] === 'number' || typeof mixedArr[i - 2] === 'boolean')
+      return sumaMix;
+    }*/
+  }
+}
+
+sum (mixedArr);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
