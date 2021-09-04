@@ -29,18 +29,27 @@ function findLongestWord(wordsArr) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// function sumNumbers(numArray) {
+//   let sum = 0;
+//   numArray.forEach(function (el) {
+//     if (isNaN(el)) {
+//       console.error("Unsupported data type sir or ma'am");
+//     }
+//     sum += el
+//   });
+//   return sum;
+// }
+
 function sumNumbers(numArray) {
   let sum = 0;
-  numArray.forEach(function (el) {
-    if (isNaN(el)) {
-      throw "Unsupported data type sir or ma'am";
-    }
-    sum += el
-  });
+  for (let number of numArray){
+      if (typeof number !== "number") {
+          throw "Unsupported data type sir or ma'am";
+        }
+      sum += number;
+  }
   return sum;
 }
-
-
 
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -88,7 +97,7 @@ function averageWordLength(array) {
     return null;
   } 
   let sum = 0;
-  for (word in array) {
+  for (let word of array) {
     sum += word.length;
   }
   return sum / array.length;
@@ -96,7 +105,11 @@ function averageWordLength(array) {
 
 // Bonus - Iteration #4.1
 function avg(array) {
-  return sum(array) / array.length;
+  if (array.length === 0) {
+    return null;
+  }
+  let avg = sum(array) / array.length;
+  return Number(avg.toFixed(2));
 }
 
 // Iteration #5: Unique arrays
@@ -116,8 +129,10 @@ const wordsUnique = [
 
 function uniquifyArray(array) {
   uniqueArr = []
-
-  for (word in array) {
+  if (array.length === 0) {
+    return null;
+  }
+  for (let word of array) {
     if (uniqueArr.indexOf(word) == -1) {
       uniqueArr.push(word);
     }
@@ -132,11 +147,13 @@ function uniquifyArray(array) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, targetWord) {
-  array.sort();
+  if (array.length === 0) {
+    return null;
+  }
   if (array.length === 1 && array[0] !== targetWord) {
     return false;
   }
-  
+  array.sort();
   let arrMiddle = Math.ceil(array.length / 2); 
   let firstHalf = array.slice(0, arrMiddle);
   let secondHalf = array.slice(arrMiddle, array.length);
