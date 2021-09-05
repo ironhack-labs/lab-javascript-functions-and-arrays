@@ -1,8 +1,9 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(firstNumber, secondNumber) {
-  if (firstNumber > secondNumber){
-    return firstNumber;
+  if (firstNumber > secondNumber) {
+      return firstNumber;
   }
+
   return secondNumber;
 }
 
@@ -12,14 +13,14 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(wordsArr) {
   if (wordsArr.length === 0) {
-    return null;
+      return null;
   }
   longestWord = wordsArr[0];
 
   for (word of wordsArr) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
-    }
+      if (word.length > longestWord.length) {
+          longestWord = word;
+      }
   }
 
   return longestWord;
@@ -29,25 +30,17 @@ function findLongestWord(wordsArr) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// function sumNumbers(numArray) {
-//   let sum = 0;
-//   numArray.forEach(function (el) {
-//     if (isNaN(el)) {
-//       console.error("Unsupported data type sir or ma'am");
-//     }
-//     sum += el
-//   });
-//   return sum;
-// }
-
 function sumNumbers(numArray) {
   let sum = 0;
-  for (let number of numArray){
-      if (typeof number !== "number") {
+
+  numArray.forEach(function(el) {
+      if (isNaN(el)) {
           throw "Unsupported data type sir or ma'am";
-        }
-      sum += number;
-  }
+      }
+
+      sum += el
+  });
+
   return sum;
 }
 
@@ -56,20 +49,25 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(array) {
   let sum = 0
-  array.forEach(function (el) {
-    switch (typeof el) {
-      case "number":
-        sum += el;
-        break;
-      case "string":
-        sum += el.length;
-        break;
-      case "boolean":
-        sum += Number(el);
-        break;
-      default:
-        break;
-    }
+
+  array.forEach(function(el) {
+      if (typeof el == "object") {
+          throw "Unsupported data type sir or ma'am";
+      }
+
+      switch (typeof el) {
+          case "number":
+              sum += el;
+              break;
+          case "string":
+              sum += el.length;
+              break;
+          case "boolean":
+              sum += Number(el);
+              break;
+          default:
+              break;
+      }
   });
 
   return sum;
@@ -83,8 +81,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
   if (array.length === 0) {
-    return null;
+      return null;
   }
+
   return sumNumbers(array) / array.length;
 }
 
@@ -94,11 +93,11 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(array) {
   if (array.length === 0) {
-    return null;
-  } 
+      return null;
+  }
   let sum = 0;
   for (let word of array) {
-    sum += word.length;
+      sum += word.length;
   }
   return sum / array.length;
 }
@@ -106,7 +105,7 @@ function averageWordLength(array) {
 // Bonus - Iteration #4.1
 function avg(array) {
   if (array.length === 0) {
-    return null;
+      return null;
   }
   let avg = sum(array) / array.length;
   return Number(avg.toFixed(2));
@@ -130,40 +129,38 @@ const wordsUnique = [
 function uniquifyArray(array) {
   uniqueArr = []
   if (array.length === 0) {
-    return null;
+      return null;
   }
   for (let word of array) {
-    if (uniqueArr.indexOf(word) == -1) {
-      uniqueArr.push(word);
-    }
+      if (uniqueArr.indexOf(word) == -1) {
+          uniqueArr.push(word);
+      }
   }
 
   return uniqueArr;
 }
-
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, targetWord) {
   if (array.length === 0) {
-    return null;
+      return null;
   }
   if (array.length === 1 && array[0] !== targetWord) {
-    return false;
+      return false;
   }
   array.sort();
-  let arrMiddle = Math.ceil(array.length / 2); 
+  let arrMiddle = Math.floor(array.length / 2);
   let firstHalf = array.slice(0, arrMiddle);
   let secondHalf = array.slice(arrMiddle, array.length);
 
   if (array[arrMiddle] == targetWord) {
-    return true;
+      return true;
   } else if (array[arrMiddle].localeCompare(targetWord) == -1) {
-    return doesWordExist(secondHalf, targetWord);
+      return doesWordExist(secondHalf, targetWord);
   } else {
-    return doesWordExist(firstHalf, targetWord)
+      return doesWordExist(firstHalf, targetWord)
   }
 }
 
@@ -182,9 +179,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, targetWord) {
+  targetWordCount = 0;
 
+  for (word of array) {
+      if (word == targetWord) {
+          targetWordCount++;
+      }
+  }
 
+  return targetWordCount;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -219,16 +224,16 @@ function greatestProduct() {}
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
   module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct
+      maxOfTwoNumbers,
+      findLongestWord,
+      sumNumbers,
+      sum,
+      averageNumbers,
+      averageWordLength,
+      avg,
+      uniquifyArray,
+      doesWordExist,
+      howManyTimes,
+      greatestProduct
   };
 }
