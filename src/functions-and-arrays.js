@@ -1,20 +1,45 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+ 
+  if (a > b){
+    return (a) 
+  }
+  
+  if (a<b){
+    return (b)
+  }
 
-
+  if (a===b) {
+    return (a,b)
+  }
+}
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']
 
+function findLongestWord(words) {
+  for(let i = 0; i < words.length; i++){
+    if (words[i].length>long.length) {
+    LongestWord=words[i];
+    }
+  }
+return (LongestWord)
+// }
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumStr(numbers){
+  // let numbers = str.split(",")
+  let sum = numbers.reduce(function(total, num){
+    return parseFloat(total) + parseFloat(num);
+  });
 
+  return (sum);
+}
 
 
 // Iteration #3.1 Bonus:
@@ -23,36 +48,42 @@ function sum() {}
 
 
 // Iteration #4: Calculate the average
-// Level 1: Array of numbers
+Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+let total = 0;
+  
+  for(let i = 0; i < numbersAvg.length; i++) {
+    total += numbersAvg[i]
+}
+let avg = total / numbersAvg.length
+}
 
+// // Level 2: Array of strings
+// const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+// function averageWordLength() { }
 
-function averageWordLength() { }
+// // Bonus - Iteration #4.1
+// function avg() {}
 
-// Bonus - Iteration #4.1
-function avg() {}
+// // Iteration #5: Unique arrays
+// const wordsUnique = [
+//   'crab',
+//   'poison',
+//   'contagious',
+//   'simple',
+//   'bring',
+//   'sharp',
+//   'playground',
+//   'poison',
+//   'communion',
+//   'simple',
+//   'bring'
+// ];
 
-// Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
-
-function uniquifyArray() {}
+// function uniquifyArray() {}
 
 
 
