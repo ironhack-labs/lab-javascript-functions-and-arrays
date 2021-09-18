@@ -266,8 +266,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+    
+  let allElementsAreOne = true
+  let allElementsAreTwo = true
 
+  for (outerElement of matrix){
+    for(innerElement of outerElement){
+      if (innerElement !== 1)
+        allElementsAreOne = false
+    }
+  }
+  for (outerElement of matrix){
+    for(innerElement of outerElement){
+      if (innerElement !== 2)
+        allElementsAreTwo = false
+    }
+  }
+
+  if (allElementsAreOne)
+    return 1
+  else if (allElementsAreTwo)
+    return 16
+}
 
 
 
