@@ -159,7 +159,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, wordToSearchFor) {
+  if (words.length === 0){
+    return 0
+  }
+
+  let repetitionCounter = 0
+  for (word of words) {
+    if(word === wordToSearchFor){
+      repetitionCounter++
+    }
+  }
+  return repetitionCounter
+}
 
 
 
