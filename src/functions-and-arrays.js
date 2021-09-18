@@ -8,6 +8,7 @@ function maxOfTwoNumbers(numA, numB) {
   else {
     largestNumber = numB
   }
+  
   return largestNumber
 }
 
