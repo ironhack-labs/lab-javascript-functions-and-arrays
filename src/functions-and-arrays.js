@@ -80,7 +80,7 @@ function avg(array) {
 
 const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
 
-console.log(avg(mixedArr));
+//console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -176,40 +176,65 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 // NOT READY YET
+// function greatestProduct(arrays) {
+//   if (arrays.length === 0) return 0;
+//   let maxProduct = 0;
+//   let product;
+//   for (let array of arrays) {
+//     product = 1;
+//     for (let i = 0; i < array.length - 3; i++) {
+//       for (let z = 0; z < 4; z++) {
+//         product *= arrays[i][z];
+//       }
+//     }
+//     if (product > maxProduct) maxProduct = product;
+//   }
+//   //console.log(product);
+//   for (let x = 0; x < arrays.length; x++) {
+//     product = 1;
+//     for (let i = 0; i < arrays[x].length; i++) {
+//       for (let z = 0; z < 4; z++) {
+//         product *= arrays[i][x];
+//       }
+//       if (product > maxProduct) maxProduct = product;
+//     }
+//   }
+//   return maxProduct;
+// }
+
 function greatestProduct(arrays) {
-  if (arrays.length === 0) return 0;
+  let product1;
+  let product2;
   let maxProduct = 0;
-  let product;
-  for (let array of arrays) {
-    product = 1;
-    for (let i = 0; i < array.length - 3; i++) {
-      for (let z = 0; z < 4; z++) {
-        product *= arrays[i][z];
+  // Loop over all the elements
+  for (let i = 0; i < arrays.length - 3; i++) {
+    product1 = product2 = 1;
+    for (let j = 0; j < arrays[i].length - 3; j++) {
+      for (let k = 0; k < 4; k++) {
+        // To create product from the 4 elements horizontaly
+        product1 *= arrays[i][j + k];
+        // To create product from the 4 elements vertically
+        product2 *= arrays[i + k][j];
       }
-    }
-    if (product > maxProduct) maxProduct = product;
-  }
-  //console.log(product);
-  for (let x = 0; x < arrays.length; x++) {
-    product = 1;
-    for (let i = 0; i < arrays[x].length; i++) {
-      for (let z = 0; z < 4; z++) {
-        product *= arrays[i][x];
-      }
-      if (product > maxProduct) maxProduct = product;
+      if (product1 > maxProduct) maxProduct = product1;
+      if (product2 > maxProduct) maxProduct = product2;
+
+      product1 = product2 = 1;
     }
   }
+
   return maxProduct;
 }
 
 const matrix2 = [
-  [2, 2, 2, 2],
-  [2, 2, 2, 2],
-  [2, 2, 2, 2],
-  [2, 2, 2, 2]
+  [2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2],
+  [2, 2, 2, 2, 2]
 ];
 
-console.log(greatestProduct(matrix2));
+//console.log(greatestProduct(matrix2));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
