@@ -55,7 +55,41 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  if (numbers.length === 0) { //returns 0 if array is empty
+    return 0
+  }
+
+  for (element of numbers) {
+    if (typeof element === "object")
+      throw "Unsupported data type sir or ma'am"
+  }
+
+  //normalize
+  let numbersNormalized = []
+  for (element of numbers) {
+    switch (typeof element) {
+      case "boolean":
+        if (element)
+          numbersNormalized.push(1)
+        else
+          numbersNormalized.push(0)
+        break;
+      case "string":
+        numbersNormalized.push(element.length)
+        break;
+      default:
+        numbersNormalized.push(element)
+    }
+  }
+  
+  let sum = 0
+  for (element of numbersNormalized) {
+    sum += element
+  }
+
+  return sum
+}
 
 
 
