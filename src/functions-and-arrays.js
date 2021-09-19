@@ -7,7 +7,6 @@ function maxOfTwoNumbers(a,b) {
   }
 }
 
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -182,7 +181,8 @@ function avg(arr) {
   // Use Function Sum to iterate over the items and sum mixed items
   let sumMixedItems = sum(arr);
   let avgMixedItems = sumMixedItems/totalItems;
-  return avgMixedItems;
+
+  return Number(avgMixedItems.toFixed(2));
 }
 
 // Iteration #5: Unique arrays
