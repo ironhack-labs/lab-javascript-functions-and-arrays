@@ -292,11 +292,62 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+let matrixTest = [
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5]
+];
+// 32000
+
 // Find the greatest product of four adjacent numbers
-function greatestProduct(matrix) {
-  //elements adjacet to each other, horizontally or vertically 
-  const n = 4;
+function greatestProduct(arr) {
+  //elements adjacent to each other, horizontally or vertically 
+  // the number of elements adjacent should be greater than or equal to 4
+  const adjacentItems = 4;
+  const adjacentToCurrent = adjacentItems -1;
+  // grid of 20x20 --> number of rows and columns
+  const grid = arr.length;
+  
+  let max = 0;
+  let result;
+  // iterate over rows - horizontally
+  for (let i = 0; i < grid; i++) { // loop over rows
+    // iterate over columns 
+    for (let j = 0; j < grid; j++) { // loop over a column, inside each row
+      // check there are 4 adjacents inside the grid
+      // the position to start the calculation inside the row
+      // from left to right, position 0,1,2,'3, where '3' is the current j position
+      // Not count at: position j ->0, position->1, position->2. 
+      // But start to count in position j->3
+      // Check the maximum product --> horizontally in a row
+      if ((j - adjacentToCurrent) >= 0) { // j is the current, minus 3 items in the row
+        // calculate multiplication of the 4 items in the row, at positions: j, j-1, j-2, j-3
+        result =  arr[i][j] * arr[i][j - 1]
+                * arr[i][j - 2] * arr[i][j - 3];
+              // if the result is greater than the max value
+        // assign/update max with the result
+        if (result > max) {
+          max = result;
+        }
+      }
+
+      // Check the maximum product --> vertically in a colummn
+      if ((i - adjacentToCurrent) >= 0) {
+        result = arr[i][j] * arr[i - 1][j]
+               * arr[i - 2][j] * arr[i - 3][j];
+        if (result > max) {
+          max = result;
+        }
+      } 
+    }
+  }
+  return max;
 }
+
+//Bonus - Iteration #8.1: Product of diagonals
 
 
 // The following is required to make unit tests work.
