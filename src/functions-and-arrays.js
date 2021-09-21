@@ -59,11 +59,25 @@ function averageNumbers(arrNums) {
   return amountToDivide / toDivideBy;
 }
 
+//check if working
+//console.log(averageNumbers(numbersAvg));
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrWords) {
+  let word = "";
+  let indexLengthArr = arrWords.length;
+  let wordLength = word.length;
+  for (let i = 0; i < indexLengthArr; i++) {
+    return sumNumbers(wordLength) / wordLength
+  }
+}
+
+//check if working
+//console.log(averageWordLength(wordsArr))
+//doesn't work!!
 
 // Bonus - Iteration #4.1
 function avg() {}
