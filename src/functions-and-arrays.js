@@ -1,19 +1,53 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+      console.log(Math.max(a,b))
+}
+
+maxOfTwoNumbers(1,2)
+
+// Option #2
+
+function maxOfTwoNumbers(a,b) {
+  if(a>b){
+    console.log(a)
+  } else {
+    console.log(b)
+  }
+}
+
+maxOfTwoNumbers(1,2)
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(word) {
+  let longestWord = 0;
+  for(let i = 0; i < word.length; i++){
+    if (word[i].length > longestWord) {
+      longestWord = word[i].length;
+    }
+  }
+  return longestWord;
+}
 
+console.log(findLongestWord(words))
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(sum) {
+  let result = 0;
+  for (let i = 0; i < sum.length; i++){
+    result += sum[i]
+  }
+  return result;
+}
+
+console.log(sumNumbers(numbers))
 
 
 
@@ -26,13 +60,26 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  return sumNumbers(numbersAvg) /  numbersAvg.length
+}
+
+console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(key) {
+  let amount = 0;
+  for (let i = 0; i < key.length; i++){
+    amount += key[i].length / key.length
+    
+  }
+  return amount;
+ }
+
+ console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +99,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let uniqueArr = [...new Set(array)]
+  return uniqueArr;
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, key) {
+  for (let i = 0; i < arr.length; i++){
+    if(arr[i] === key) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+console.log(doesWordExist(wordsFind, 'starting'))
+
+// It is working only with first word. Why?
+
+
 
 
 
@@ -78,7 +144,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  
+  let wordCount = 0;
+  for (let i = 0; i < array.length; i++){
+          if(array[i] === word) {
+             wordCount++
+          }
+        }
+  return wordCount;
+}
+
+let otherWord = 'matter'
+console.log(howManyTimes(wordsCount, otherWord));
 
 
 
