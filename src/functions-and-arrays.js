@@ -196,6 +196,11 @@ function uniquifyArray(words) {
   })
   return unique;
 }
+//uniquifyArray(["Cat", "Dog", "Cow", "Cat"])
+// Cat will be at indexOf === index --> 0 === 0 --> true, not repeated
+// then, Cat will be at indexOf === index --> 3 === 0 --> 
+//indexOf find "Cat" at the first index, which is 0, they are not the same, so it's repeated
+
 // Option 2 -- using includes()
 // function uniquifyArray(words) {
 //   if(words.length === 0) {
@@ -269,7 +274,7 @@ function howManyTimes(arrWords, wordToCheck) {
 // 4
 
 // Iteration #8: Bonus
-//  function named greatestProduct(matrix) to find it in the 20×20 grid below!
+ //function named greatestProduct(matrix) to find it in the 20×20 grid below!
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -300,45 +305,66 @@ let matrixTest = [
 [ 1, 20, 3, 4, 5],
 [ 1,  4, 3, 4, 5]
 ];
-// 32000
+// horizontally and vertically --> 32000
+// diagonal --> 1200
 
 // Find the greatest product of four adjacent numbers
+// the four numbers need to be adjacent to each other
+// It can be top, down, left, rigth
 function greatestProduct(arr) {
   //elements adjacent to each other, horizontally or vertically 
   // the number of elements adjacent should be greater than or equal to 4
-  const adjacentItems = 4;
-  const adjacentToCurrent = adjacentItems -1;
-  // grid of 20x20 --> number of rows and columns
-  const grid = arr.length;
-  
+  const adjacentNumbers = 4;
+  // It must be 4 adjacent numbers, so, substract the current one to the others
+  const adjacentToCurrent = adjacentNumbers -1;
+  // for grid of 20x20 --> number of rows --> 20
+  // for grid of 5x5 --> number of rows  --> 5
+  const grid = arr.length; // number of rows
+  // store the maximum product
   let max = 0;
+  // stored the multiplication of the 4 adjacent numbers
   let result;
   // iterate over rows - horizontally
   for (let i = 0; i < grid; i++) { // loop over rows
-    // iterate over columns 
+    // iterate over columns from left -> to rigth
     for (let j = 0; j < grid; j++) { // loop over a column, inside each row
       // check there are 4 adjacents inside the grid
       // the position to start the calculation inside the row
-      // from left to right, position 0,1,2,'3, where '3' is the current j position
+      // from left --> to right, position 0,1,2,'3, where '3' is the current j position
       // Not count at: position j ->0, position->1, position->2. 
-      // But start to count in position j->3
       // Check the maximum product --> horizontally in a row
+
+      // Horizontally
+      // From right to left - check max product
+      // Starting point that meets the condition--> i = 0, j = 3
+      // from positions j >= 3, the condition is true
+      // from positions j < 3, the condition is false
       if ((j - adjacentToCurrent) >= 0) { // j is the current, minus 3 items in the row
-        // calculate multiplication of the 4 items in the row, at positions: j, j-1, j-2, j-3
+        // calculate multiplication with the 4 items in the row, from right --> to left
+        // at positions: j, j-1, j-2, j-3
+        // j is getting smaller, and i is the same row
         result =  arr[i][j] * arr[i][j - 1]
                 * arr[i][j - 2] * arr[i][j - 3];
-              // if the result is greater than the max value
+        // if the result is greater than the max value
         // assign/update max with the result
         if (result > max) {
-          max = result;
+          max = result; // update
         }
       }
 
-      // Check the maximum product --> vertically in a colummn
-      if ((i - adjacentToCurrent) >= 0) {
-        result = arr[i][j] * arr[i - 1][j]
+      // Vertically 
+      // From down to up - check the max product
+      // calculate multiplication with the 4 items in the row, from down to up
+      // starting point that meets the condition --> i=3, j=0
+      // from positions i >= 3, the condition is true
+      // from positions i < 3, the condition is false
+      // i is getting smaller, and j is the same column) at positions: i, i-1, i-2, i-3
+      if ((i - adjacentToCurrent) >= 0) { //i is current position, minus 3 items in the column
+        result = arr[i][j] * arr[i - 1][j] 
                * arr[i - 2][j] * arr[i - 3][j];
-        if (result > max) {
+        // if the result is greater than the max value
+        // assign/update max with the result
+        if (result > max) { 
           max = result;
         }
       } 
@@ -348,8 +374,73 @@ function greatestProduct(arr) {
 }
 
 //Bonus - Iteration #8.1: Product of diagonals
+function greatestProductOfDiagonals(arr) {
+  //elements adjacent to each other, horizontally or vertically 
+  // the number of elements adjacent should be greater than or equal to 4
+  const adjacentNumbers = 4;
 
+  // It must be 4 adjacent numbers, so, subtract the current one to the others
+  // The key is to know the number to subtract to the current position
+  const itemsToConsider = adjacentNumbers - 1; // 4 -1 --> 3
+  
+  // for grid of 20x20 --> number of rows --> 20
+  // for grid of 5x5 --> number of rows  --> 5
+  // arr.length; // number of rows to iterate
+  
+  // variables to evaluate the diagonal from down to up --> rigth direction
+  // last column: arr.length - 1
+  const positionToEvaluateJ = (arr.length -1) - itemsToConsider; // 4 - 3
 
+      
+  // store the maximum product
+  let max = 0;
+  // stored the multiplication of the 4 adjacent numbers
+  let result;
+  // iterate over rows - horizontally
+  //i < grid --> this condition mark the area of the grid or delimit the grid
+  for (let i = 0; i < arr.length; i++) { // loop over rows
+    // iterate over columns from left -> to rigth
+    for (let j = 0; j < arr.length; j++) { // loop over a column, inside each row
+      // delimit the starting point --> 
+      // Represents the diagonal --> Going through down to right 
+      // Diagonal from: i = 0, j=0, starting point that meets the condition --> i = 3, j = 3
+      if ((i - itemsToConsider) >= 0 && (j - itemsToConsider) >= 0) { // j is the current, minus 3 items in the row
+        // Evaluates to true-->  at i = 3, j = 3
+        // condition--> (i - itemsToRemove) >= 0  --> i - 3  >= 0
+        // condition--> (j - itemsToRemove) >= 0)--> i - 3  >= 0
+        // calculate with items in diagonal up to left --> j and i decreases 1 position
+        // From--> i = 3, j = 3--> arr[3][3], start the calculation "up to the left"
+        result =  arr[i][j] * arr[i - 1][j - 1]
+                * arr[i - 2][j - 2] * arr[i - 3][j - 3];
+        // if the result is greater than the max value
+        // assign/update max with the result
+        if (result > max) { 
+          max = result;
+        }
+      }      
+      // Represents the diagonal --> Starting at down to up to right
+      // 
+      // Diagonal from: i = 0, j = 4, move 3 positions down--> i = 3, and 3 positions left j = 1
+      // lastColumn = arr.length - 1 
+      // items to consider apart from the current items is --> 3
+      // j <= ((arr.length -1) - 3 ) // (5 - 1) - 3 --> 4 - 3 --> 1 
+      //  j<=  last position of the column minus 3 items to consider
+      // j <= 1
+      if ((i - itemsToConsider) >= 0 && j <= positionToEvaluateJ ) { 
+        // the columns j=0, and j=1 are the finish points
+        // From--> i = 3, j = 1--> arr[3][1], start the calculation "up to the right"
+        result = arr[i][j] * arr[i - 1][j+1]
+               * arr[i - 2][j+2] * arr[i - 3][j+3];
+        // if the result is greater than the max value
+        // assign/update max with the result
+        if (result > max) { 
+          max = result;
+        }
+      } 
+    }
+  }
+  return max;
+}
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
