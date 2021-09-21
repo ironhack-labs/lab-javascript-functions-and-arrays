@@ -1,6 +1,13 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numb1, numb2) {
+  if (numb1>numb2){
+    console.log(`${numb1} is bigger than ${numb2}`)
+  } else {
+    console.log(`${numb2} is bigger than ${numb1}`)
+  }
+}
 
+maxOfTwoNumbers(8, 2)
 
 
 // Iteration #2: Find longest word
@@ -59,7 +66,9 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+  wordsFind.includes(disobedience);
+}
 
 
 
