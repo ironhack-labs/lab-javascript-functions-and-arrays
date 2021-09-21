@@ -32,6 +32,9 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
+  if (numbers.length == 0) {
+    return 0;
+  }
   let sumOfTheNumbers = 0;
   for (let i = 0; i < numbers.length; i++) {
     sumOfTheNumbers += numbers[i];
@@ -51,6 +54,9 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
+    if (numbersAvg.length == 0) {
+    return null;
+  }
   let sum = sumNumbers(numbersAvg);
   return sum / numbersAvg.length;
 }
@@ -60,6 +66,9 @@ function averageNumbers(numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) { 
+  if (wordsArr.length == 0) {
+    return null;
+  }
   let wordCharSum = 0
   for (let i = 0; i < wordsArr.length; i++) {
     wordCharSum += wordsArr[i].length;
@@ -87,6 +96,9 @@ const wordsUnique = [
 
 
 function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length == 0) {
+    return null;
+  } 
   let wordsUniqueWithoutDuplicates = [];
   for (let i = 0; i < wordsUnique.length; i++) {
     if (wordsUniqueWithoutDuplicates.indexOf(wordsUnique[i]) === -1) {
@@ -101,7 +113,17 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length == 0) {
+    return null;
+  }
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] == word) {
+      return true;
+    }
+  }
+  return false;
+}
 
 
 
