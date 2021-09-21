@@ -1,19 +1,52 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  } else if (number2 > number1) {
+    return number2;
+  } else if (number1 === number2) {
+    return number1 , number2;
+  }  
+}
+
+console.log(maxOfTwoNumbers(25, 25));
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arrOfWords) {
+  if(!arrOfWords.length)
+    return null;
+  let longestWord = "";
+  arrOfWords.forEach(function(element) {
+    if (element.length > longestWord.length) {
+      longestWord = element;
+    }
+  });
+    return longestWord;
+}
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let result = 0;
+   for (let num of numbers) {
+   result += num;
+     if (numbers.length===0) {
+       return 0;
+     }
+   
+   }
+   return result;
+}
+
 
 
 
@@ -26,13 +59,35 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  if (!numbers.length)
+    return null;
+  let result = 0;
+  for (let num of numbers) {
+    result += num;
+  }
+    return result / numbers.length;
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (!words.length)
+    return null;
+  let wordLength = [];
+
+  for(let element of words) {
+    wordLength.push(words.length);
+  }
+  
+  return averageNumbers(wordLength);
+};
+
+
+ 
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -78,7 +133,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let counter = 0;
+  for (let element of arr){
+    if(element === word) counter++;
+  }
+  return counter;
+}
 
 
 
