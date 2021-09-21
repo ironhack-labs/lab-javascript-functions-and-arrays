@@ -1,5 +1,18 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers() {
+    if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
+
+//check if working
+//const myNumberA = 3;
+//const myNumberB = 8;
+
+//console.log(maxOfTwoNumbers(myNumberA, myNumberB));
+
 
 
 
