@@ -63,9 +63,9 @@ function sum(mixedArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-    let total = 0;
-  for(number of numbersAvg) {
-      total += number;
+  let total = 0;
+  for (number of numbersAvg) {
+    total += number;
   }
   let average = total / numbersAvg.length;
   return average;
@@ -74,10 +74,36 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(wordsArr) {
+  let total = 0;
+  for (word of wordsArr) {
+    total += word.length;
+  }
+  let average = total / wordsArr.length;
+  return average;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// function avg(mixedArr) {
+//   let total = 0;
+//   for (mix of mixedArr) {
+//     if (mix.length === undefined) {
+//       total += mix;
+//     } else if (mix.length >= 0) {
+//       total += mix.length;
+//     } else if (mix === true) {
+//       total++;
+//     } else {
+//       return "Unsupported data type sir or ma'am";
+//     }
+//   }
+//   let average = total / mixedArr.length;
+//   return average;
+// }
+
+// I missing something here ! It doesn't want to works !
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -94,7 +120,7 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
