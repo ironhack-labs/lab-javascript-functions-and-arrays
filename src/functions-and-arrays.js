@@ -25,7 +25,7 @@ function findLongestWord(words) {
   words.forEach( word => {
     //check if the length of the word is > the maximum length
     if(word.length > longestWord.length) {
-      longestWord = word; // assign/update with the longest word
+      longestWord = word; // update with the longest word
     }
   })
   return longestWord;
@@ -81,7 +81,7 @@ function sum(numbers) {
 
   let counter = 0;
 
-  numbers.forEach(item => {
+  numbers.forEach(item => { 
     // check valid values
     let notValid = typeof item === 'object' || Array.isArray(item);
     let isNumber = typeof item === 'number';
@@ -132,16 +132,18 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 //Implement the function named averageWordLength that receives as a single argument 
 //an array of words and returns the average length of the words:
 function averageWordLength(words) {
-  let wordsLength = [];
-  
+  if(words.length === 0) {
+    return null;
+  }
+
+  let wordsTotal = words.length;
+  let sumLengthWords = 0;
+ 
   //iterate to create new array with length of words
-  words.forEach(word => {
-    wordsLength.push(word.length);
-  });
-  // Reuse the function 'averageNumbers' 
-  // Average of numbers based on the length of words
-  let avgNumbers = averageNumbers(wordsLength);
-  return avgNumbers;
+  for (let word of words) {
+    sumLengthWords += word.length;
+  }
+  return sumLengthWords / wordsTotal;
 }
 
 // Bonus - Iteration #4.1
@@ -152,10 +154,9 @@ function avg(arr) {
   if(arr.length === 0) {
     return null;
   }
-
   // Reuse function 'sum' to iterate over the items and sum mixed items
   let sumMixedItems = sum(arr);
-  let avgMixedItems = sumMixedItems/arr.length;
+  let avgMixedItems = sumMixedItems / arr.length;
   // return result with 2 decimals
   return Number(avgMixedItems.toFixed(2));
 }
@@ -186,21 +187,15 @@ function uniquifyArray(words) {
   }
   let unique = [];
 
-  words.forEach( (word, index) => {
+  words.forEach( word => { debugger
     // returns the first index of the array where is present the word given
-    let isPresentIndex = words.indexOf(word); // positive number --> it's present in the index
-    let notRepeated = isPresentIndex === index; // if the index are equal, is present, if it's different--> it's repeated
-    if(notRepeated) {//is not included
+    let notRepeated = unique.indexOf(word) === -1 ; // -1 is not present
+    if(notRepeated) {// push the word that is not repeated
       unique.push(word);
     }
   })
   return unique;
 }
-//uniquifyArray(["Cat", "Dog", "Cow", "Cat"])
-// Cat will be at indexOf === index --> 0 === 0 --> true, not repeated
-// then, Cat will be at indexOf === index --> 3 === 0 --> 
-//indexOf find "Cat" at the first index, which is 0, they are not the same, so it's repeated
-
 // Option 2 -- using includes()
 // function uniquifyArray(words) {
 //   if(words.length === 0) {
@@ -263,7 +258,7 @@ function howManyTimes(arrWords, wordToCheck) {
   //iterates to check if the wordToCheck is included inside the array of words
   arrWords.forEach(word => {
     //let isWordIncluded = word.includes(word);
-    let isWordIncluded = word === wordToCheck;
+    let isWordIncluded = word === wordToCheck; //is the same word
     if(isWordIncluded) {
       counter +=1;
     }
