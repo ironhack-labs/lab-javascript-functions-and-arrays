@@ -13,14 +13,22 @@ maxOfTwoNumbers(8, 2)
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+let wordsLength = words.length - 1;
+function findLongestWord() {
+  for (let i= 0; i<=wordsLength; i++) {
+    console.log(words[i].length)
+  }
+}
+console.log (findLongestWord());
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers() {
+
+  console.log ([6, 12, 1, 18, 13, 16, 2, 1, 8, 10].reduce((a, b) => a + b, 0));
+ }
+ console.log(sumNumbers());
 
 
 
@@ -33,7 +41,11 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  const average = numbersAvg => numbersAvg.reduce( ( a, b ) => a + b, 0 ) / numbersAvg.length;
+  const result = average( [ 2, 6, 9, 10, 7, 4, 1, 9 ] );
+  console.log(result)
+}
 
 
 // Level 2: Array of strings
@@ -64,12 +76,24 @@ function uniquifyArray() {}
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const wordsFind = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience',
+];
 
-function doesWordExist() {
-  wordsFind.includes(disobedience);
+function doesWordExist(word) {
+  if (wordsFind.includes(word)){
+    console.log (`${word} is in the Array`)
+  } else {
+    console.log (`${word} is not in the Array`)
+  }
 }
-
 
 
 // Iteration #7: Count repetition
@@ -87,7 +111,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes() {
+  const counts = {};
+  wordsCount.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+  console.log(counts);
+}
+
 
 
 
