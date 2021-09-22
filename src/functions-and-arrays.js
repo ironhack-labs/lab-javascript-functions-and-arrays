@@ -1,19 +1,46 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1,number2) {
+  if (number1 > number2) {
+    return number1;
+   } else if (number1 === number2) {
+     return NaN;
+   } else {
+     return number2;
+   }
+ }
+ const result = maxOfTwoNumbers( 5,9);
+ console.log(result);
+
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord() {
+  let max = words_arr[0].length;
+  words_arr.map(v => max = Math.max(max, v.length));
+  result = words_arr.filter(v => v.length == max);
+  return result;
+}
+
+console.log(result);
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers() {
+  if (!numbers.Array.length) {
+    return;
+    for (let sum = 0; i = 0; i < numbers.Array.length; i++) {
+      sum += numbers.Array[i];
+  }
+  return sum;
+}
 
 
 
@@ -26,7 +53,18 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  if (!numbers.Array.length) {
+  return;
+  for (let sum = 0; i = 0; i < numbers.Array.length; i++) {
+    sum += numbers.Array[i];
+
+  if (!array.length) {
+    return;
+
+  return sum(array) / array.length;
+}
+}
 
 
 // Level 2: Array of strings
