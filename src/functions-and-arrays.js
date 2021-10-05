@@ -101,7 +101,7 @@ console.log("the avg number is " + averageNumbers(numbersAvg))
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 // returns 5.3
-let sumWords = (wordsArr) => wordsArr.reduce((a, b) =>
+/*let sumWords = (wordsArr) => wordsArr.reduce((a, b) =>
   {if (b.length > a.length) return b; else return a});
 
 let averageWordLength = wordsArr => {
@@ -111,12 +111,12 @@ let averageWordLength = wordsArr => {
   return sumWords(wordsArr)/wordsArr.length
 }
 console.log("the average length of the words is " + averageWordLength(wordsArr))
-
-
+*/
 
 // Bonus - Iteration #4.1
 // should return: 5.7
 function avg(arr){}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
