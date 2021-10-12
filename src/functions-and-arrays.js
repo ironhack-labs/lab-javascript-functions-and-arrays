@@ -277,8 +277,21 @@ const matrix = [
 ];
 
 function greatestProduct(allArrays) {
-
+  let productArray = [];
+  for (i=0; i<16 ; i++){
+    for (j=0; j<16; j++){
+      let product1 = allArrays[i][j]*allArrays[i][j+1]*allArrays[i][j+2]*allArrays[i][j+3]; //horizontal
+      productArray.push(product1);
+      let product2 = allArrays[i][j]*allArrays[i+1][j]*allArrays[i+2][j]*allArrays[i+3][j]; //vertical
+      productArray.push(product2);
+    }
+  }
+  //console.log(Math.max.apply(Math, productArray));
+  let maxProduct = Math.max.apply(Math, productArray);
+  return(maxProduct);
 }
+
+greatestProduct(matrix);
 
 
 
