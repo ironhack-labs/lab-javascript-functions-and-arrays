@@ -1,22 +1,56 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  let maxNumber = Math.max(num1, num2)
+  return maxNumber
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArray) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+
+  if (wordsArray.length === 1) {
+    return wordsArray[0];
+  }
+
+  //wordsArray = ['foo', 'bar']
+
+  let a = wordsArray[0]
+  for (let i = 0; i < wordsArray.length; i++) {
+    let b = wordsArray[i+1]
+    if (a.length < b.length) {
+      a = b;
+    }
+  }
+
+  return a;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+  let totalCount = 0
+
+  //if array is empty return zero
+  if (numbersArray.length === 0) {
+    return 0;
+  }
+  
+  //looping through the array and adding to variable total count returns the total count
+  for (i = 0; i<numbersArray.length; i++) {
+    totalCount = totalCount + numbersArray[i]
+  }
+  return totalCount
+}
 
 
-
+//I dont understand this, need an explanation
 // Iteration #3.1 Bonus:
 function sum() {}
 
@@ -26,14 +60,53 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  let totalCount = 0
+
+  //if array is empty return null
+  if (numbersArray.length === 0) {
+    return null;
+  }
+  
+  //looping through the array and adding to variable total count returns the total count
+  for (let i = 0; i<numbersArray.length; i++) {
+    totalCount = totalCount + numbersArray[i]
+  }
+
+  //returns the count divided by the number of elements
+  return totalCount / numbersArray.length
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+//need to know the word length of every word in the array
+//create an empty array called wordLengths
+//loop through the parameter array
+//push word length to the wordLengths array
+//loop through wordLengths array and add the numbers together
+//divide the total by number of the words in the parameter array
+function averageWordLength(wordsArray) { 
+  if (wordsArray.length === 0) {
+    return null;
+  }
 
+  let wordLengths = []
+  for (let i = 0; i<wordsArray.length; i++ ) {
+    wordLengths.push(wordsArray[i].length)
+  }
+  let letterCount = 0
+  for (let i = 0; i<wordLengths.length; i++) {
+    letterCount = letterCount + wordLengths[i]
+  }
+  return letterCount / wordsArray.length
+}
+
+
+
+//not sure how to do this one
 // Bonus - Iteration #4.1
 function avg() {}
 
