@@ -4,28 +4,26 @@ function maxOfTwoNumbers(num1, num2) {
 }
 
 // Iteration #2: Find longest word
-function findLongestWord(words) {
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(words) {
   if (words.length === 0) return null
 
-  const wordLengths = [];
-  for (let i=0; i<words.length; i++){
-    wordLengths.push(words[i].length)
-  }
+  let longWord = ''
 
-  return words[
-      wordLengths.indexOf(
-        wordLengths.reduce(function(a,b) {
-          return Math.max(a, b)
-        }, 0)
-      )]
-  
+  for (const iterator of words) { //loop through elements of array and store longest word in a variable
+    if (iterator.length > longWord.length) longWord = iterator;
+  }
+  return longWord
 }
 
 // Iteration #3: Calculate the sum
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
 function sumNumbers(numbers) {
   if (numbers.length === 0) return 0;
   if (numbers.length === 1) return numbers[0];
+
   let total = 0;
   numbers.forEach(num => total += num);
   return total;
@@ -34,9 +32,12 @@ function sumNumbers(numbers) {
 // Iteration #3.1 Bonus:
 function sum(array) {
   if (array.length === 0) return 0;
+
   let total = 0;
+
   for ( i = 0 ; i < array.length ; i++ ) {
-    const elementType = typeof array[i];
+    const elementType = typeof array[i]; //checks the type of each element
+
     switch (elementType) {
       case 'number':
         total += array[i]
@@ -56,9 +57,12 @@ function sum(array) {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
 function averageNumbers(arr) {
   if (arr.length === 0) return null
   if (arr.length === 1) return arr[0]
+
   let total = 0;
   arr.forEach(num => total += num);
   return total/arr.length
@@ -66,9 +70,12 @@ function averageNumbers(arr) {
 
 
 // Level 2: Array of strings
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
 function averageWordLength(arr) { 
   if (arr.length === 0) return null
   if (arr.length === 1) return arr[0].length
+
   let total = 0;
   arr.forEach(num => total += num.length);
   return total/arr.length
@@ -95,10 +102,23 @@ function avg(array) {
         throw new Error("Unsupported data type sir or ma'am");
     }
   }
-  return parseFloat((total/array.length).toFixed(2));  
+  return parseFloat((total/array.length).toFixed(2)); //rounds the average to 2 decimal points
 }
 
 // Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
 
 function uniquifyArray(array) {
   if (array.length === 0) return null
@@ -111,10 +131,10 @@ function uniquifyArray(array) {
     }
   }
   return uniques
-
 }
 
 // Iteration #6: Find elements
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, word) {
   if ( array.length === 0 ) return null;
@@ -126,6 +146,20 @@ function doesWordExist(array, word) {
 }
 
 // Iteration #7: Count repetition
+const wordsCount = [
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+];
+
 function howManyTimes(array, word) {
   if ( array.length === 0 ) return 0;
 
@@ -160,13 +194,13 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+/*
+imagine 'x' and 'y' as coordinates.
+the top left position of the matrix is position (x=0, y=0)
+incrementing x moves to the right, incrementing y moves downwards
+*/
 function greatestProduct(matrix) {
   let maxProduct = 0
-  
-  // imagine 'x' and 'y' as coordinates.
-  // the top left position of the matrix is position (x=0, y=0)
-  // incrementing x moves to the right, and incrementing y moves downwards
-
 
   //loop horizontally
   for ( let y = 0 ; y < matrix.length ; y++ ) {
@@ -179,7 +213,6 @@ function greatestProduct(matrix) {
       }
     }
   }   
-
   //loop vertically
   for ( let y = 0 ; y < matrix.length -3 ; y++ ) {
     for ( let x = 0 ; x < matrix.length ; x++) {
@@ -194,29 +227,36 @@ function greatestProduct(matrix) {
   return maxProduct
 }
 
+// Iteration #8.1: Bonus - Product of diagonals
 
 function greatestProductOfDiagonals(array) {
   let maxProduct = 0
-  
-  // imagine 'x' and 'y' as coordinates.
-  // the top left position of the matrix is position (x=0, y=0)
-  // incrementing x moves to the right, and incrementing y moves downwards
 
-
-  //loop horizontally
-  for ( let y = 0 ; y < matrix.length ; y++ ) {
+  //loop diagonally left to right
+  for ( let y = 0 ; y < matrix.length -3 ; y++ ) {
     for ( let x = 0 ; x < matrix.length -3 ; x++) {
 
-      let product = matrix[y][x] * matrix[y][x+1] * matrix[y][x+2] * matrix[y][x+3];
+      let product = matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3];
 
       if ( product > maxProduct) {
         maxProduct = product
       }
     }
-  } 
-}
+  }
+  //loop diagonally right to left
+  for ( let y = 0 ; y < matrix.length -3 ; y++ ) {
+    for ( let x = 3 ; x < matrix.length ; x++) {
 
-console.log(greatestProductOfDiagonals(matrix))
+      console.log(matrix[y][x], matrix[y+1][x-1], matrix[y+2][x-2], matrix[y+3][x-3]);
+      let product = matrix[y][x] * matrix[y+1][x+1] * matrix[y+2][x+2] * matrix[y+3][x+3];
+
+      if ( product > maxProduct) {
+        maxProduct = product
+      }
+    }
+  }
+  return maxProduct 
+}
 
 
 
