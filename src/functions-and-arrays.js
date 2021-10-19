@@ -10,38 +10,16 @@ maxOfTwoNumbers(3, 7)
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-// function findLongestWord(arr) {
-//   const lengths = []
-//   for (let elem of arr) {
-//     lengths.push(elem.length)
-//   }
-//   if (arr.length === 0) {
-//     return 0
-//   } 
-  
-//   return arr.filter(el => el.length === Math.max(...lengths))
-// }
-
 function findLongestWord(arr) {
-  const newArr = []
   const lengths = []
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (i !== j) {
-        if (arr[i] === arr[j]) {
-          newArr.push(arr[i])
-        }
-      }
-    }
-  }
-  for (let elem of newArr) {
+  for (let elem of arr) {
     lengths.push(elem.length)
   }
-  if (newArr.length === 0) {
+  if (arr.length === 0) {
     return 0
   } 
   
-  return newArr.filter(el => el.length === Math.max(...lengths))
+  return arr.filter(el => el.length === Math.max(...lengths))
 }
 
 findLongestWord(words)
