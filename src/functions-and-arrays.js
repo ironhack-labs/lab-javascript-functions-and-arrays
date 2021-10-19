@@ -1,41 +1,105 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+    if (num1 > num2) {
+      return num1;
+    } else if (num1 <= num2) {
+      return num2;
+    }
+  }
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(wordsArray) {
+  let x = "";
+  if (wordsArray.length === 0){
+    return null;
+  }
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i].length > x.length){
+      x = wordsArray[i];
+    } 
+  }
+  return x;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(sumArray) {
+  let x = 0;
+  for (let i = 0; i < sumArray.length; i++){
+    x += sumArray[i];
+  }
+  return x;
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(sumArray) {
+  let x = 0;
+
+  for (let i = 0; i < sumArray.length; i++) {
+    let el = sumArray[i];
+
+    if (typeof (el) === 'number' || typeof (el) === 'boolean' || typeof (el) === 'string') {
+      if (typeof (el) === 'string') {
+        x += el.length;
+      } else {
+        x += el;
+      }
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+
+  }
+
+  return x;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someArr) {
+  if (someArr.length > 0) {
+    return sumNumbers(someArr) / someArr.length;
+  } else {
+    return null;
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(someArr2) {
+  if (someArr2.length > 0) {
+    let x = 0
+    for (let i = 0; i < someArr2.length; i++) {
+      x += someArr2[i].length;
+    }
+    return x / someArr2.length;
+  } else {
+    return null;
+  }
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(someArr) {
+  if (someArr.length > 0) {
+    let calc = sum(someArr) / someArr.length;
+    return parseFloat(calc.toFixed(2));
+  } else {
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +116,41 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayOfWords) {
+  let newArrayOfWords = [];
+
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (newArrayOfWords.indexOf(arrayOfWords[i]) === -1) {
+      newArrayOfWords.push(arrayOfWords[i]);
+    }
+  }
+
+  return newArrayOfWords;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, index) {
+
+  if (wordsFind.length === 0) {
+    return null;
+  }
+
+  for (i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === index) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 
 
@@ -78,7 +169,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsFind, index) {
+  let counter = 0;
+
+  if (wordsFind.length === 0) {
+    return 0;
+  }
+
+  for (i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === index) {
+      counter++;
+    }
+  }
+
+  return counter;
+}
 
 
 
@@ -106,7 +211,39 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let horizontalBuffer = 0;
+  let horizontalStack = 0;
+  let verticalBuffer = 0;
+  let verticalStack = 0;
+
+  for (i = 0; i < matrix.length; i++) { //vertical axis
+    for (j = 0; j < matrix[i].length; j++) { //horizontal axis
+      if (j < matrix[i].length - 3) {
+        horizontalBuffer = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      }
+      if (horizontalStack < horizontalBuffer) {
+        horizontalStack = horizontalBuffer;
+      } else {
+        horizontalBuffer = 0;
+      }
+
+      //return horizontalStack;
+
+      if (i < matrix.length - 4) {
+        verticalBuffer = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+      }
+      if (verticalStack < verticalBuffer) {
+        verticalStack = verticalBuffer;
+      } else {
+        verticalBuffer = 0;
+      }
+    }
+    
+    //return verticalStack;
+  }
+}
+
 
 
 
