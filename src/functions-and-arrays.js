@@ -17,7 +17,7 @@ function findLongestWord(arrayWords) {
   let indexLongestWord = 0;
   let maxLength = 0;
   if(arrayWords.length === 0){
-    return null;
+    return null; // Check if argument is empty
   }
 
   for (let i = 0; i < arrayWords.length; i++) {
@@ -67,16 +67,37 @@ function sum(array) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayNumbers) {
+  if(arrayNumbers.length === 0){
+    return null; // Check if argument is empty
+  }
+  let sum = sumNumbers(arrayNumbers);
+  let average = sum/arrayNumbers.length;
+  return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayWords) { 
+  if(arrayWords.length === 0){
+    return null; // Check if argument is empty
+  }
+  let sumOfWords = sum(arrayWords);
+  let average = sumOfWords/arrayWords.length;
+  return average;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrayThings) {
+  if(arrayThings.length === 0){
+    return null; // Check if argument is empty
+  }
+  let sumOfThings = sum(arrayThings);
+  let average = parseFloat((sumOfThings/arrayThings.length).toPrecision(3), 10) ; // Test expects a number with two decimals
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
