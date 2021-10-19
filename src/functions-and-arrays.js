@@ -43,11 +43,17 @@ return sumNums; //result returns '18miami1truebarca200lisboa810'
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-//no se...
-function averageNumbers() {
-  
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arr) {
+  let numbersTotal = numbers.length;
+  let sumOfNumbers = 0;
+  for (let i=0; i<numbersTotal; i++){
+    sumOfNumbers += arr[i];
+  }
+  return (sumOfNumbers / numbersTotal)
 }
+//I believe the above code should work but we already have a const numbers from iteration 3 above, so unsure if this effects it? (my test worked in Run JS)
 
 
 
