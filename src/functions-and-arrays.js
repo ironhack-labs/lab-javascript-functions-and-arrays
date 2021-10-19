@@ -271,7 +271,8 @@ function greatestDiagnal(arr){
         }
       }
     }
-    return product;
+  }
+  return product;
 }
 
 
