@@ -51,7 +51,7 @@ function averageNumbers(arr) {
   for (let i=0; i<numbersTotal; i++){
     sumOfNumbers += arr[i];
   }
-  return (sumOfNumbers / numbersTotal)
+  return sumOfNumbers / numbersTotal
 }
 //I believe the above code should work but we already have a const numbers from iteration 3 above, so unsure if this effects it? (my test worked in Run JS)
 
@@ -63,7 +63,18 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength() { }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  let avgNum = 0;
+  for (let i=0; i < arr.length; i++){
+    avgNum += arr[i]
+  }
+  return avgNum / arr.length
+}
+//returns NaN, something is missing/wrong :o
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
