@@ -48,7 +48,11 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
- 
+  if(numbersAvg.length === 0){
+    return null
+  }
+  let average = sumNumbers(numbersAvg) / numbersAvg.length
+  return average
 }
 
 
