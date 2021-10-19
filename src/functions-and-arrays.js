@@ -1,5 +1,12 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 < num2) {
+    return num2
+  } else {
+    return num1
+  }
+
+}
 
 
 
@@ -32,7 +39,7 @@ function averageNumbers() {}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength() {}
 
 // Bonus - Iteration #4.1
 function avg() {}
