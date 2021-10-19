@@ -188,7 +188,7 @@ if (typeof module !== 'undefined') {
     findLongestWord,
     sumNumbers,
     sum,
-    //averageNumbers,
+    averageNumbers,
     averageWordLength,
     avg,
     uniquifyArray,
