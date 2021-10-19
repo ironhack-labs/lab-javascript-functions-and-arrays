@@ -256,7 +256,23 @@ function greatestProduct(arr) {
   return product;
 }
 
+//Iteration Bonus 8.1
 
+function greatestDiagnal(arr){
+  let product = 0;
+  let compare = 0;
+
+  for (let i = 0; i < arr.length-3; i++){
+    for (let j = 0; j < arr[i].length-3; j++){
+      if (i === j){
+        compare = arr[i][j] * arr[i+1][j+1] * arr[i+2][j+2] *arr[i+3][j+3];
+        if (compare >= product){
+          product = compare;
+        }
+      }
+    }
+    return product;
+}
 
 
 // The following is required to make unit tests work.
