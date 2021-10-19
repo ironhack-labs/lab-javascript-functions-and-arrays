@@ -72,8 +72,7 @@ function avg(arr) {
   }
   return avgNum / arr.length
 }
-//returns NaN, something is missing/wrong :o
-
+//returns NaN, something is missing/wrong
 
 
 // Iteration #5: Unique arrays
@@ -91,7 +90,15 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let removeDuplicates= [];
+  for (let i=0; i<arr.length; i++){
+    removeDuplicates += arr.splice(1,1);
+  }
+  return removeDuplicates
+}
+
+//this is as far as I got, it is returning a string joined together, was hoping for an array minus the first duplicate, then if that worked, could repeat, but I am confused.
 
 
 
