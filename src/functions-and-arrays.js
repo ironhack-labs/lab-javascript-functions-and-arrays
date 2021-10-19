@@ -1,34 +1,54 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-test
-
-
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max (num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arr) {
+  let longest = ''
+  for (let i = 0; i < words.length; i++){
+    if(arr[i].length > longest.length){
+      longest = arr[i]
+    }
+  }
+  return longest
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(arr) {
+  let arrTotal = numbers.length;
+  let totalSum = 0;
+ for (let i=0; i<arrTotal; i++){
+    totalSum += arr[i];
+ }
+  return (totalSum);
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-
+function sum(arr) {
+  let sumNums = 0;
+  for (let i=0; i < arr.length; i++){
+    sumNums += arr[i]; //here should be how to get string lengths & boolean numbers added?
+  }
+return sumNums; //result returns '18miami1truebarca200lisboa810' 
+ 
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//no se...
+function averageNumbers() {
+  
+}
 
-function averageNumbers() {}
 
 
 // Level 2: Array of strings
