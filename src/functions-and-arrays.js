@@ -224,6 +224,35 @@ function greatestProduct(matrixProduct) {
 }
 
 
+//Iteration #8.1: Product of diagonals Bonus
+function greatestProductOfDiagonals(matrixProduct) {
+  let maxProduct = 0;
+  for(let i = 0; i <  matrixProduct.length; i++){
+    for(let j = 0; j < matrixProduct[i].length; j++){
+      // Checking right diagonal
+      let horizontalRightCorrect = (j <= matrixProduct[i].length - 4 )
+      let verticalRightCorrect = (i <= matrixProduct.length - 4 )
+      // Checking left diagonal
+      let horizontalLeftCorrect = (j >= 3 )
+      let verticalLeftCorrect = (i <= matrixProduct.length - 4 )
+
+      if(verticalRightCorrect&&horizontalRightCorrect){
+        let currentRDProduct = matrixProduct[i][j] * matrixProduct[i+1][j+1] * matrixProduct[i+2][j+2] * matrixProduct[i+3][j+3];  
+        if(currentRDProduct > maxProduct){
+          maxProduct = currentRDProduct;
+        }
+      }
+      
+      if(horizontalLeftCorrect&&verticalLeftCorrect){
+        let currentLDProduct = matrixProduct[i][j] * matrixProduct[i+1][j-1] * matrixProduct[i+2][j-2] * matrixProduct[i+3][j-3];    
+        if(currentLDProduct > maxProduct){
+          maxProduct = currentLDProduct;
+        }
+      }
+    }
+  }
+  return maxProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
