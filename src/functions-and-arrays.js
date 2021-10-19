@@ -31,19 +31,19 @@ function sumNumbers(numbers) {
 // Iteration #3.1 Bonus:
 function sum(elements) {
   let sum = 0;
-  for(let element of elements){
+  for (let element of elements) {
     element = transposeElement(element);
     sum += element;
   }
   return sum;
 }
 
-function transposeElement(element){
-  if (typeof element !== 'string' && typeof element !== 'boolean' && typeof element !== 'number' ){
-    throw 'Unsupported data type sir or ma\'am';
+function transposeElement(element) {
+  if (typeof element !== 'string' && typeof element !== 'boolean' && typeof element !== 'number') {
+    throw "Unsupported data type sir or ma'am";
   }
-  if (typeof element === 'string' || element instanceof String){
-   element = element.length;
+  if (typeof element === 'string' || element instanceof String) {
+    element = element.length;
   }
   return element;
 }
@@ -71,7 +71,12 @@ function averageWordLength(words) {
 
 // Bonus - Iteration #4.1
 function avg(words) {
-  return words.length === 0? null : sum(words) / words.length;
+  return words.length === 0 ? null : roundToTwo(sum(words) / words.length);
+
+}
+
+function roundToTwo(num) {    
+  return +(Math.round(num + "e+2")  + "e-2");
 }
 
 // Iteration #5: Unique arrays
