@@ -167,16 +167,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr, filter) {
-  let counter = 0;
-  if (arr.filter(elem => elem === filter)) {
-    return counter++
-  } else {
-    return 0
-  }
+function howManyTimes(arr, word) {
+  const copyArr = [...arr]
+  const filtered = copyArr.filter((item => item === word))
+  return filtered.length
 }
 
-howManyTimes(wordsCount)
+howManyTimes(wordsCount, 'matter')
 
 // Iteration #8: Bonus
 const matrix = [
