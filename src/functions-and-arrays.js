@@ -188,7 +188,7 @@ function howManyTimes(arr, search) {
 
   }
   }
-    eturn "The word "+ search + " exist " + count + " times!"    
+    return "The word "+ search + " exist " + count + " times!"    
 }
 howManyTimes (wordsCount, search)
 
