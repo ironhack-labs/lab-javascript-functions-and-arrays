@@ -33,22 +33,29 @@ function sumNumbers(numbers) {
   return total;
 }
 
-// FIXME Iteration #3.1 Bonus:
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+////////////////////////////////////
+// Iteration #3.1 Bonus:
 
 function sum(values) {
   if (values.length === 0) {
     return 0;
   }
+
   let total = 0;
-  for (let i = 0; i < values.length; i++) {
-    if (typeof values[i] === 'string') {
-      total += Number(values[i]);
+  for (let item of values) {
+    if (Array.isArray(item) && typeof item === 'object') {
+      throw "Unsupported data type sir or ma'am";
+    } else if (typeof item === 'string') {
+      total += item.length;
+    } else if (typeof item === 'number') {
+      total += item;
     } else {
-      total += values[i];
+      total += item;
     }
   }
+  return total;
 }
+
 /////////////////////////////////////////
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -78,9 +85,29 @@ function averageWordLength(arr) {
   return arr.join('').length / arr.length;
 }
 
+////////////////////////////////////
 // Bonus - Iteration #4.1
-function avg(arr) {}
+function avg(values) {
+  if (values.length === 0) {
+    return null;
+  }
 
+  let total = 0;
+  for (let item of values) {
+    if (Array.isArray(item) && typeof item === 'object') {
+      return;
+    } else if (typeof item === 'string') {
+      total += item.length;
+    } else if (typeof item === 'number') {
+      total += item;
+    } else {
+      total += item;
+    }
+  }
+  return Number((total / values.length).toFixed(2));
+}
+
+//////////////////////////////////
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -96,13 +123,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let prims = { boolean: {}, number: {}, string: {} };
+  let objs = [];
+  return arr.filter(function (item) {
+    let type = typeof item;
+    if (type in prims) {
+      return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
+    } else {
+      return objs.indexOf(item) >= 0 ? false : objs.push(item);
+    }
+  });
+}
 
+///////////////////////////////////////
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  }
+  return arr.find((element) => element === word) ? true : false;
+}
 
-function doesWordExist() {}
-
+/////////////////////////////////////
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -118,8 +164,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  var count = 0;
+  arr.forEach((item) => {
+    if (item === word) count++;
+  });
+  return count;
+}
 
+//////////////////////////////////
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -144,7 +200,33 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr, k) {
+  let max = 0;
+  const get = (arr1, y, x) => {
+    if (0 <= y && y < arr1.length && 0 <= x && x < arr1[y].length) {
+      return arr1[y][x];
+    }
+    return 0;
+  };
+
+  for (let y = 0; y < arr.length; y++) {
+    for (let x = 0; x < arr.length; x++) {
+      let p1 = 1,
+        p2 = 1,
+        p3 = 1,
+        p4 = 1;
+
+      for (let i = 0; i < k; i++) {
+        p1 *= get(arr, y, x + i);
+        p2 *= get(arr, y + i, x);
+        p3 *= get(arr, y + i, x + i);
+        p4 *= get(arr, y + i, x - i);
+      }
+      max = Math.max(p1, p2, p3, p4, max);
+    }
+  }
+  return max;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
