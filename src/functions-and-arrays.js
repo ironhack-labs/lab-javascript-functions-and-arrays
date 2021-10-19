@@ -105,7 +105,14 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === 'subset') 
+    return true;
+  } else {
+    return false;
+  }
+  //i think I am going in the right direction, perhaps my second parameter is incorrect? I don't understand if the loop needs a specific element to search for inside the function or this should be passed as the argument when calling the function?
 
 
 
