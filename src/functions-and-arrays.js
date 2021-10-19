@@ -168,7 +168,6 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  const copyArr = [...arr]
   const filtered = copyArr.filter((item => item === word))
   return filtered.length
 }
