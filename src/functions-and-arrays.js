@@ -52,6 +52,12 @@ sumNumbers(numbers)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arr) {
+  return sumNumbers(arr) / arr.length / 2
+}
+
+averageNumbers(numbersAvg)
+
 // function averageNumbers(arr) {
 //   const reducer = (acc, item) => {
 //     return acc + item
@@ -61,13 +67,6 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 //   ? 0
 //   : arr.reduce(reducer, 0) / arr.length
 // }
-
-function averageNumbers(arr) {
-  const sum = sumNumbers(arr)
-  return sum / arr.length
-}
-
-averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
