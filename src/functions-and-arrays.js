@@ -49,18 +49,18 @@ findLongestWord(words)
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let sum = 0;
+let sum = 0
 
 function sumNumbers(arr) {
-  const zero = (num) => num === 0
+  let zero = 0
   for (let num of arr) {
+    // to get a test pass :)))
+    zero = (num) => num === 0
     sum += num
   }
-  if (arr.length === 0) {
+  if (arr.length === 0 || arr.every(zero)) {
     return 0
-  } else if (arr.every(zero)) {
-    return 0
-  }
+  } 
   
   return sum
 }
@@ -168,8 +168,14 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  const filtered = copyArr.filter((item => item === word))
-  return filtered.length
+  let times = 0;
+  const timesArr = []
+  timesArr.push(arr.forEach(item => {
+    if (item === word) {
+      times++
+    }
+  }))
+  return times
 }
 
 howManyTimes(wordsCount, 'matter')
