@@ -5,7 +5,7 @@ function maxOfTwoNumbers(number1,number2) {
     } else if (number2>number1){
   return number2;
     }else{
-  return "Son iguales";
+  return number1,number2;
  }
 }
 // Iteration #2: Find longest word
