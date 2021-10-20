@@ -42,8 +42,23 @@ sumNumbers(numbers)
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+  let sum = 0;
+  let type;
+  
+  for (let element of mixedArr) {
+    type = typeof element;
+    if (type === 'object') throw new Error('Unsupported data type sir or madam');
+    if (type === 'string') sum += element.length;
+    else sum += element;
+  }
+  return sum
+}
+
+sum(mixedArr)
 
 
 // Iteration #4: Calculate the average
@@ -81,7 +96,22 @@ function averageWordLength(wordsArr) {
 averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(mixedArr) {
+  let sum = 0;
+  let type;
+  
+  for (let element of mixedArr) {
+    type = typeof element;
+    if (type === 'object') throw new Error('Unsupported data type sir or madam');
+    if (type === 'string') sum += element.length;
+    else sum += element;
+  }
+  return sum/mixedArr.length
+}
+
+avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -181,8 +211,21 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let result = 0;
+  let horizontal = 0;
+  let vertical = 0;
+  for (let j = 0; j < 20; j++) {
+    for (let i = 0; i < 17; i++) {
+      horizontal = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      vertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      result = Math.max(horizontal, vertical, result);
+    }
+  }
+  return result;
+}
 
+greatestProduct(matrix)
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
