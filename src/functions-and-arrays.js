@@ -52,10 +52,10 @@ function sum(crazyArray) {
           sum += crazyArray[i]
           break;
         case 'boolean':
-          sum += crazyArray[i] === true ? 1 : 0
+          if (crazyArray[i]) sum += 1   // if it's true
           break;
         default:
-          throw "Unsupported data type sir or ma'am"
+          throw new Error("Unsupported data type sir or ma'am")
       }
     }
   }
