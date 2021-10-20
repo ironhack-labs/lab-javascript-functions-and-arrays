@@ -97,16 +97,22 @@ function uniquifyArray(wordsUnique) {
   if(wordsUnique.length === 0){
     return null
   }
-  for(i = 0; i < wordsUnique.length; i ++){
-    console.log(wordsUnique.indexOf(wordsUnique[i]))
+  let array = []
+  for(i = 0; i < wordsUnique.length; i++){
+    if(!array.includes(wordsUnique[i])){
+      array.push(wordsUnique[i])
+    }
   }
-//   let wordsUniqueIndex = []
-//   for(i = 0; i < wordsUnique.length; i++){
-//     wordsUniqueIndex.push(wordsUnique.indexOf(wordsUnique[i]))
-//   }
-// console.log(wordsUniqueIndex)
+  return array
+  // for(i = 0; i < wordsUnique.length; i ++){
+  //   let foundIndex = wordsUnique.indexOf(wordsUnique[i],i + 1)
+  //   if(foundIndex !== -1){
+  //     wordsUnique.splice(foundIndex, 1)
+  //   }
+  // }
+  // return wordsUnique
 }
-uniquifyArray(wordsUnique)
+// uniquifyArray(wordsUnique)
 
 
 // Iteration #6: Find elements
@@ -115,13 +121,9 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(wordsFind, word) {
   if(wordsFind.length === 0){
     return null
-  }else if(wordsFind.includes(word)){
-    return true
-  }else {
-    return false
-  }
+  } 
+  return wordsFind.includes(word)
 }
-
 
 
 // Iteration #7: Count repetition
@@ -138,8 +140,9 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(wordsCount, word) {
 
-function howManyTimes() {}
+}
 
 
 
