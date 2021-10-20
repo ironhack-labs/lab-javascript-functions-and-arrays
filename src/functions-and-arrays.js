@@ -12,7 +12,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
   let longestWord = '';
-  if (arr != "") {
+  if (arr.length !== 0) {
   arr.forEach(function(word) {
     if(word.length > longestWord.length) {
       longestWord = word;
@@ -31,7 +31,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
 let summed = 0;
 for (let i = 0; i < numbers.length; i++) {
-summed += numbers[i]
+summed += numbers[i] //at first iteration it is 0 + 6, the second will be 6+12.. we have to be careful where we put return statement.
 } return summed;
 }
 
@@ -48,7 +48,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNums) {
 let sum = 0;
-if (arrOfNums != "") {
+if (arrOfNums.length !== 0) {
   
 
 for (let i = 0; i < arrOfNums.length; i++) {
@@ -66,7 +66,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(wordsArr) { 
  let total = 0;
- if (wordsArr != "") {
+ if (wordsArr.length !== 0) {
  for (let i = 0; i < wordsArr.length; i++) {
    total = total + wordsArr[i].length
    
@@ -100,7 +100,7 @@ function uniquifyArray(uniqArr) {
         if (newArr.indexOf(uniqArr[i]) === -1) {
             newArr.push(uniqArr[i]);
         }
-    } if (uniqArr == "") {
+    } if (uniqArr.length === 0) {
       return null;
     }
   return newArr;
@@ -113,7 +113,7 @@ function uniquifyArray(uniqArr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arrOfWords, searchWord) {
-if (arrOfWords != ""){
+if (arrOfWords.length !=== 0){
   for (let i = 0; i<arrOfWords.length; i++) {
     if (arrOfWords[i] === searchWord) {
       return true
