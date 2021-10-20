@@ -67,26 +67,67 @@ sumNumbers(numbers);
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+
+function sum(arr) {
+  let counter = 0;
+  if(arr.length === 0){
+    return 0;
+  }
+
+
+ for(let i = 0; i < arr.length; i++) {
+  if(typeof arr === "number"){
+    counter += arr[i];
+    console.log(counter);
+   
+   }else if (typeof arr[i] === 'string'){
+    counter += arr[i].length;
+    console.log(counter);
+
+  }else if (typeof arr[i] === 'boolean') {
+    if(arr[i] === "true") {
+      counter += 1;
+    }
+   
+  }
+  
+  return counter;
+ }
+
+}
+
+sum(mixedArr);
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const emptyArr = [];
 
-function averageNumbers() {
+function averageNumbers(arr) {
+  if(arr.length === 0){
+    console.log(null);
+    return null;
+  }
+ 
   var count = 0;
-  for(var i=0; i < array.length; i++) { 
-   count += array[i]; 
-   console.log('sum is', count);
-   let result = count / array.length;
-   console.log('result is', result);
-}
-return Math.round(count);
+  for (let i=0; i < arr.length; i++) { 
+    count += arr[i]; 
+    //console.log('sum is', count);
+    var result = count / arr.length;
+    //console.log('result is', result);
+    
+  }
+
+  console.log(result);
+return result;
 }
 
-
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
