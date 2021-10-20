@@ -89,16 +89,12 @@ function uniquifyArray(arr) {
   if (arr.length <= 0) {
     return null;
   }
-  let wordArray = []
+  let wordArray = [arr[0]];
   for (let i = 0; i < arr.length; i++) {
-    let word = arr[i]
-    let foundIndex = arr.indexOf(word, i + 1);
-    if (foundIndex === -1) {
-      wordArray.push(word);
-    } 
-  } 
-  console.log('arry original', arr)
-  console.log(wordArray)
+    if (!wordArray.includes(arr[i])) {
+      wordArray.push(arr[i]);
+    }
+  }
   return wordArray;
 }
 
