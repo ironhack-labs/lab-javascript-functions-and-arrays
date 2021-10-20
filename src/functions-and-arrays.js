@@ -130,8 +130,7 @@ function doesWordExist(arr, searchWord) {
 
     for (let word of arr) {
         if (searchWord === word) {
-            exists = true;
-            break;
+            return true;
         }
     }
     return exists;
@@ -200,7 +199,7 @@ function greatestProduct(m) {
     let greatestProduct = 0;
 
     for (let i = 0; i < m[0].length - 3; i++) {
-        for (let j = 0; j < m[0].length - 3; j++) {
+        for (let j = 0; j < m[i].length - 3; j++) {
 
             const productH = m[i][j] * m[i][j + 1] * m[i][j + 2] * m[i][j + 3];
             const productV = m[i][j] * m[i + 1][j] * m[i + 2][j] * m[i + 3][j];
@@ -216,6 +215,24 @@ function greatestProduct(m) {
 }
 
 console.log('The greatest product is: ' + greatestProduct(matrix));
+
+
+function greatestProductDiagonally(m) {
+    let greatestProduct = 0;
+
+    for (let i = 0; i < m[0].length - 3; i++) {
+        for (let j = 0; j < m[i].length - 3; j++) {
+            const productDiagonally = m[i][j] * m[i + 1][j + 1] * m[i + 2][j + 2] * m[i + 3][j + 3];
+
+            if (productDiagonally > greatestProduct) {
+                greatestProduct = productDiagonally;
+            }
+        }
+    }
+    return greatestProduct;
+}
+
+console.log('The greatest product diagonally is: ' + greatestProductDiagonally(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
