@@ -1,6 +1,5 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-  let maxNumber = num1;
 
   if(num2 > num1){
     return num2;
