@@ -200,13 +200,13 @@ const matrix = [
 
 
 function greatestProduct(matrix) {
-  let contenedor = []
+  let allResults = [];
 
   for (let i=0; i<matrix.length; i++)
     { for (let j=0;j<matrix[i].length-3;j++){
     let multiplied = []
     multiplied = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
-    contenedor.push(multiplied)}
+    allResults.push(multiplied)}
     }
 
   for (let j=0; j<matrix.length; j++ ){ 
@@ -214,14 +214,14 @@ function greatestProduct(matrix) {
       {
         let multiplied2 = [];
         multiplied2 = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
-        contenedor.push(multiplied2)}
+        allResults.push(multiplied2)}
   }
-  let resultCool = 0;
-  for (let i = 0; i<contenedor.length; i++){
-  if (contenedor[i]> resultCool){resultCool = contenedor[i]}
-}return resultCool
+  let finalResult = 0;
+  for (let i = 0; i<allResults.length; i++){
+  if (allResults[i]> finalResult){finalResult = allResults[i]}
+}return finalResult
 }
-greatestProduct(matrix);
+console.log(greatestProduct(matrix))
 
 
 
