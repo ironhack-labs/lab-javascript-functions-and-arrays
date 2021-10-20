@@ -84,7 +84,15 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  var unqArr = []
+  for(let i = 0; i < arr.length; i++){
+    if(unqArr.indexOf(arr[i]) === -1){ //Checks whether the word from the original array has been added to the 
+      unqArr.push(arr[i])              //unique one and only adds it if it hasn't been, that way the array stays unique
+    }
+  }
+  return unqArr
+}
 
 
 
