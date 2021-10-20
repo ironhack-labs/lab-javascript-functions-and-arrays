@@ -12,7 +12,6 @@ function maxOfTwoNumbers(number1, number2) {
 }
 
 
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -269,28 +268,28 @@ function greatestProduct(givenArray) {
   /*firstly all the rows*/
   const newArr=[];
   let counter;
-  let counterV;
-  let result=0;
-  for(let i = 0; i<20 ; i++)
+  let counterv;
+  for(let j = 0; j<20; j++)
   {
-    counter = 1;
-    counterV = 1;
-    for (let j=0; i<20 ; i++)
+    for(let i=0; i<17; i++)
     {
-      counter = counter * givenArray[i][j];
-      counterV = counterV * givenArray[j][i];
-    }
-    newArr.push(counter);
-    newArr.push(counterV);
-  }
-  for (let k=0; k<40; k++)
-  {
-    if(newArr[k]>result)
-    {
-      result = newArr[k];
+      counter = 1;
+      counterv = 1;
+      counter = givenArray[j][i] * givenArray[j][i+1] * givenArray[j][i+2] * givenArray[j][i+3]; 
+      counterv= givenArray[i][j] * givenArray[i+1][j] * givenArray[i+2][j] * givenArray[i+3][j]
+      newArr[i]=counter;
+      newArr[i+18] = counterv;
     }
   }
-  return result;
+  let theBiggest = newArr[0];
+  for(let k = 1; k< newArr.length; k++)
+  {
+    if (newArr[k] > theBiggest)
+    {
+      theBiggest>newArr[k];
+    }
+  }
+  return theBiggest;
 }
 
 
