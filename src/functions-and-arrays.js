@@ -7,9 +7,10 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  let longest = ''
-  for (let i = 0; i < words.length; i++){
-    if(arr[i].length > longest.length){
+  let longest = '';
+  if (words.length === 0) return null;
+    for (let i = 0; i < words.length; i++){
+      if(arr[i].length > longest.length){
       longest = arr[i]
     }
   }
