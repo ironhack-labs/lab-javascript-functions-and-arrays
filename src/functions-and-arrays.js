@@ -57,19 +57,22 @@ function averageNumbers(numbersArray) {
   let sumResult = 0;
   for(i=0; i< numbersArray.length;i++){
     sumResult = sumResult + numbersArray[i];
-    //console.log(sumResult);
-    //console.log(totalSum);
   }
   let totalSum = sumResult / numbersArray.length
   return totalSum;
 }
 
-
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray){
+  let sumResult = 0;
+  for(i=0; i< wordsArray.length;i++){
+    sumResult = sumResult + wordsArray[i].length;
+  }
+  let totalSum = sumResult / wordsArray.length
+  return totalSum;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
