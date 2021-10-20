@@ -292,6 +292,29 @@ function greatestProduct(givenArray) {
   return theBiggest;
 }
 
+function greatestProductOfDiagonals(givenArray)
+{
+  const newArr = [];
+  let counter;
+  for(let i=0; i<17; i++)
+  {
+      counter = 1;
+      counter = givenArray[i][i] * givenArray[i+1][i+1] * givenArray[i+2][i+2] * givenArray[i+3][i+3]; 
+      newArr[i]=counter;
+      counterv= givenArray[i][20-i] * givenArray[i][19-i] * givenArray[i][18-i] * givenArray[i][17-i];
+      counter = 1;
+      newArr[i+17] = counter;
+  }
+  let theBiggest = newArr[0];
+  for(let k = 1; k< newArr.length; k++)
+  {
+    if (newArr[k] > theBiggest)
+    {
+      theBiggest=newArr[k];
+    }
+  }
+  return theBiggest;  
+}
 
 
 
