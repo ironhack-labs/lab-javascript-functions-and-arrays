@@ -85,10 +85,13 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  if(arr.length === 0){
+    return null
+  }
   var unqArr = []
   for(let i = 0; i < arr.length; i++){
-    if(unqArr.indexOf(arr[i]) === -1){ //Checks whether the word from the original array has been added to the 
-      unqArr.push(arr[i])              //unique one and only adds it if it hasn't been, that way the array stays unique
+    if(unqArr.indexOf(arr[i]) === -1){ //Checks whether the word from the original array has been added to the unique one 
+      unqArr.push(arr[i])              //and only adds it if it hasn't been, that way the array just gets unique words pushed in
     }
   }
   return unqArr
@@ -99,7 +102,19 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if(arr.length === 0){
+    return null
+  }
+  let flag = false
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === word){
+      flag = true
+      return true
+    }
+  }
+  return flag
+}
 
 
 
