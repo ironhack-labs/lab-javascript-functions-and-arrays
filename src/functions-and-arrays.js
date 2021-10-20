@@ -1,24 +1,61 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(firstNum, secondNum) {
+    if (firstNum > secondNum){
+    return firstNum
+    } else {
+    return secondNum
+    }
+  }
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  
+  if (words.length === 0){
+      return null
+  }
+  let longestWord = words[0]
+  //1. Loop Through Array
+  for (let word of words) {
+    if (word.length > longestWord.length ) {
+      longestWord = word
+    }
+  }
+  return longestWord
+  }
+
+  console.log(findLongestWord(words))
+  // else {
+  //   return null
+  // }
+
+  
+
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+  let sum = 0;
 
-function sumNumbers() {}
+for (let i = 0; i < numbers.length; i++){
+  sum += numbers[i];
+}
+
+return sum;
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() { }
 
 
 
@@ -26,7 +63,14 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  
+  if (numbersAvg.length === 0){
+    return null}
+    
+  return sumNumbers(numbersAvg) / numbersAvg.length
+}
+
 
 
 // Level 2: Array of strings
@@ -52,8 +96,12 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(array) {
+  if(array.length === 0 ){
+    return null
+  }
+  return array.filter((element, index) => array.indexOf(element) === index);
+}
 
 
 // Iteration #6: Find elements
@@ -65,20 +113,21 @@ function doesWordExist() {}
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  ‘machine’,
+  ‘matter’,
+  ‘subset’,
+  ‘trouble’,
+  ‘starting’,
+  ‘matter’,
+  ‘eating’,
+  ‘matter’,
+  ‘truth’,
+  ‘disobedience’,
+  ‘matter’
 ];
-
-function howManyTimes() {}
+    function howManyTimes(array, value) {
+    return array.filter((v) => (v === value)).length;
+}
 
 
 
