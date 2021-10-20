@@ -9,7 +9,6 @@ function maxOfTwoNumbers(number1, number2) {
   }
 }
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(someArray) {
   if (someArray.length == 0) {
@@ -27,7 +26,6 @@ function findLongestWord(someArray) {
 }
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbersArray) {
   if (numbersArray.length == 0) {
@@ -35,7 +33,6 @@ function sumNumbers(numbersArray) {
   }
   let sumResult = 0;
   for (let i = 0; i < numbersArray.length; i++) {
-    console.log(typeof numbersArray[i]);
     if (typeof numbersArray[i] === 'object') {
       throw new Error("Unsupported data type sir or ma'am");
     }
@@ -45,6 +42,7 @@ function sumNumbers(numbersArray) {
 }
 
 // Iteration #3.1 Bonus:
+
 function sum(numbersArray) {
   let newResult = 0;
   for (i = 0; i < numbersArray.length; i++) {
@@ -59,7 +57,6 @@ function sum(numbersArray) {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersArray) {
   let sumResult = 0;
@@ -74,7 +71,6 @@ function averageNumbers(numbersArray) {
 }
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArray) {
   let sumResult = 0;
@@ -107,19 +103,6 @@ function avg(arr) {
 }
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
 
 function uniquifyArray(someArray) {
   if (someArray.length == 0) {
@@ -135,7 +118,6 @@ function uniquifyArray(someArray) {
 }
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(someArray, someword) {
   if (someArray.length == 0) {
@@ -150,19 +132,6 @@ function doesWordExist(someArray, someword) {
 }
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
 
 function howManyTimes(someArray, someword) {
   let times = 0;
