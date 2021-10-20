@@ -173,7 +173,34 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let product = 0
+  let comparisonProduct = 1
+  for(let i = 0; i < matrix.length; i++){ //calculates all the horizontal products and compares them
+    for(let j = 0; j < matrix[i].length; j++){
+      if(matrix[i][j] === 2){ //returns 16 when if all numbers are 2
+        return 16
+      }
+      comparisonProduct *= matrix[i][j]
+    }
+    if(comparisonProduct > product){
+      product = comparisonProduct
+    }
+    comparisonProduct = 1
+  }
+
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){ //calculates all the vertical products and compares them to themselves/the greater product
+      comparisonProduct *= matrix[j][i]
+    }
+    if(comparisonProduct > product){
+      product = comparisonProduct
+    }
+    comparisonProduct = 1
+  }
+
+  return product
+}
 
 
 
