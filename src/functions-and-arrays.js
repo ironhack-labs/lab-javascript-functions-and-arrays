@@ -35,7 +35,17 @@ function sumNumbers(numbersArray) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbersArray) {
+  let newResult = 0;
+  for(i=0; i< numbersArray.length;i++){
+    if(typeof numbersArray[i] === "string"){
+      newResult = newResult + numbersArray[i].length;
+    } else {
+      newResult = newResult + numbersArray[i];
+    }  
+  }
+  return newResult;
+}
 
 
 
