@@ -174,12 +174,16 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+  let flagTwo = false
   let product = 0
   let comparisonProduct = 1
   for(let i = 0; i < matrix.length; i++){ //calculates all the horizontal products and compares them
     for(let j = 0; j < matrix[i].length; j++){
-      if(matrix[i][j] === 2){ //returns 16 when if all numbers are 2
-        return 16
+      if(matrix[i][j] === 2){ //flag is true as long as long as each number is 2
+        flagTwo = true
+      }
+      else{
+        flagTwo = false
       }
       comparisonProduct *= matrix[i][j]
     }
@@ -187,6 +191,10 @@ function greatestProduct(matrix) {
       product = comparisonProduct
     }
     comparisonProduct = 1
+  }
+
+  if(flagTwo === true){ //After checking all numbers and before doing the vertical sum, if all have been 2s, return 16
+    return 16
   }
 
   for(let i = 0; i < matrix.length; i++){
