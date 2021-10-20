@@ -97,25 +97,25 @@ function uniquifyArray(arr) {
   if (!arr.length) {
     return null;
   }
-  let wordsUnique = [];
+  let wordsArray = [arr[0]];
   for (let i = 0; i < arr.length; i++) {
-    let word = arr[i]
-    let foundIndex = arr.indexOf(word, i + 1)
-    if (foundIndex === -1) {
-      wordsUnique.push(word);
+    if (!wordsArray.includes(arr[i])) {
+      wordsArray.push(arr[i]);
     }
-  } 
-  return wordsUnique
+  }
+  return wordsArray;
 }
-
-
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(arr, wordToFind) {
+  if (!arr.length) {
+    return null;
+  }
+    return arr.includes(wordToFind);
+  }
 
 
 // Iteration #7: Count repetition
