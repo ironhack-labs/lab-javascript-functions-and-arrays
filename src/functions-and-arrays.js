@@ -44,22 +44,29 @@ function sum(crazyArray) {
 
     for (let i = 0; i < crazyArray.length; i++) {
       
-      if (typeof(crazyArray[i]) === 'object' || typeof(crazyArray[i]) === 'array') {
-        throw "Unsupported data type sir or ma'am"
-      }
-
-      typeof(crazyArray[i]) === 'string' ? sum += crazyArray[i].length : 0
-      typeof(crazyArray[i]) === 'number' ? sum += crazyArray[i] : 0
-
-      if (typeof(crazyArray[i]) === 'boolean') {
-        sum += crazyArray[i] === true ? 1 : 0
+      switch(typeof(crazyArray[i])) {
+        case 'string':
+          sum += crazyArray[i].length
+          break;
+        case 'number':
+          sum += crazyArray[i]
+          break;
+        case 'boolean':
+          sum += crazyArray[i] === true ? 1 : 0
+          break;
+        default:
+          throw "Unsupported data type sir or ma'am"
       }
     }
   }
 
   return sum;
-
 }
+
+
+
+
+
 
 
 // Iteration #4: Calculate the average
