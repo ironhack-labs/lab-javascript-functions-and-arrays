@@ -110,12 +110,14 @@ function uniquifyArray(arr) {
     return null
   }
 
-  for (let i = 0; i < copyArr.length; i++) {
-    if (copyArr.filter((item, index) => copyArr.indexOf(item) !== index)) {
-      copyArr.splice(i, 1)
-    }
-  }
-  return copyArr
+  return copyArr.filter((item, index) => copyArr.indexOf(item) === index)
+
+  // for (let i = 0; i < copyArr.length; i++) {
+  //   if (copyArr.filter((item, index) => copyArr.indexOf(item) !== index)) {
+  //     copyArr.splice(i, 1)
+  //   }
+  // }
+  // return copyArr
 }
 
 uniquifyArray(wordsUnique)
