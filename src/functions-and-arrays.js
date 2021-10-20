@@ -68,11 +68,12 @@ function averageWordLength(wordsArr) {
   if(wordsArr.length === 0){
     return null
   } 
+  let wordsLength = []
   for(i = 0; i < wordsArr.length; i++){
-    let wordsLength = wordsArr[i].length
-    console.log(wordsLength)
+    wordsLength.push(wordsArr[i].length)
   }
- 
+  let average = sumNumbers(wordsLength) / wordsLength.length
+  return average
 }
 averageWordLength(wordsArr)
 // Bonus - Iteration #4.1
@@ -93,7 +94,8 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+}
 
 
 
