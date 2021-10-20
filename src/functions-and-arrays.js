@@ -170,7 +170,7 @@ function doesWordExist(arr, word) {
   }
 
   if (arr.length === 1 && arr[0] === word) {
-    return true;
+     return true;
   }
 
   for (let i = 0; i < arr.length; i++) {
