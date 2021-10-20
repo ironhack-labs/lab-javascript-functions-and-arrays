@@ -37,7 +37,7 @@ function sumNumbers(numbersArray) {
   for (let i = 0; i < numbersArray.length; i++) {
     console.log(typeof numbersArray[i]);
     if (typeof numbersArray[i] === 'object') {
-      throw new Error("Unsupported data type sir or ma'am")
+      throw new Error("Unsupported data type sir or ma'am");
     }
     sumResult = sumResult + numbersArray[i];
   }
@@ -121,7 +121,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(someArray) {
+  if (someArray.length == 0) {
+    return null;
+  }
+  let clearArray = [];
+  for (let i = 0; i < someArray.length; i++) {
+    if (clearArray.indexOf(someArray[i]) === -1) {
+      clearArray.push(someArray[i]);
+    }
+  }
+  return clearArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -155,7 +166,7 @@ const wordsCount = [
 
 function howManyTimes(someArray, someword) {
   let times = 0;
-  
+
   for (let i = 0; i < someArray.length; i++) {
     if (someArray[i] === someword) {
       times = times + 1;
