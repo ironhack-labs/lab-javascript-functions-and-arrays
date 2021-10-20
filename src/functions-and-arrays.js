@@ -100,6 +100,11 @@ function uniquifyArray(wordsUnique) {
   for(i = 0; i < wordsUnique.length; i ++){
     console.log(wordsUnique.indexOf(wordsUnique[i]))
   }
+//   let wordsUniqueIndex = []
+//   for(i = 0; i < wordsUnique.length; i++){
+//     wordsUniqueIndex.push(wordsUnique.indexOf(wordsUnique[i]))
+//   }
+// console.log(wordsUniqueIndex)
 }
 uniquifyArray(wordsUnique)
 
@@ -107,7 +112,15 @@ uniquifyArray(wordsUnique)
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.length === 0){
+    return null
+  }else if(wordsFind.includes(word)){
+    return true
+  }else {
+    return false
+  }
+}
 
 
 
