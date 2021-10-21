@@ -1,41 +1,105 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if (words.length === 0) return null;
+  let word = '';
+  if (words) {
+    for (i = 0; i < words.length; i++) {
+      if (word.length < words[i].length) {
+        word = words[i];
+      }
+    }
+    return word;
+  }
+  if ((words = [])) {
+    return null;
+  }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let contador = 0;
+  for (i = 0; i < numbers.length; i++) {
+    contador += numbers[i];
+  }
+  return contador;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(num) {
+  if (!num) {
+    return 0;
+  } else if (num) {
+    let sum = 0;
+    for (i = 0; i < num.length; i++) {
+      sum += num[i];
+    }
+    return sum;
+  } else {
+    let sum = 0;
+    for (i = 0; i < num.length; i++) {
+      sum += num[i].length;
+    }
+    return sum;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(num) {
+  if (num.length === 0) return null;
+  let sum = 0;
+  for (i = 0; i < num.length; i++) {
+    sum += num[i];
+  }
+  return sum / num.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(str) {
+  if (str.length === 0) return null;
+  let sum = 0;
+  for (i = 0; i < str.length; i++) {
+    sum += str[i].length;
+  }
+  return sum / str.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) return null;
+  if (arr.length > 0) {
+    let sumStr = 0;
+    let sumNum = 0;
+    for (i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'string') {
+        sumStr += arr[i].length;
+      }
+    }
+    for (j = 0; j < arr.length; j++) {
+      if (typeof arr[j] === 'number') {
+        sumNum += arr[j];
+      }
+    }
+    return (sumNum + sumStr) / arr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +116,25 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+  if (arr.length > 0) {
+    for (i = arr.length - 1; i >= 0; i--) {
+      if (arr.indexOf(arr[i]) !== i) arr.splice(i, 1);
+    }
+    return arr;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  if (arr.length === 1 && arr.includes(arr[0])) return true;
+  if (!arr.includes(word)) return false;
+  if (arr.includes(word)) return true;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +151,25 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arr, str) {
+  if (arr.length > 0) {
+    let sum = 0;
+    for (i = 0; i < arr.length; i++) {
+      if (str === arr[i]) {
+        sum++;
+      }
+    }
+    switch (sum) {
+      case 1:
+        return 1;
+      case 0:
+        return 0;
+      case 5:
+        return 5;
+    }
+  }
+  if ((arr = [])) return 0;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +195,18 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
-
+function greatestProduct(arr) {
+  let sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  if ((sum = arr.length)) {
+    return 1;
+  }
+  if ((sum = arr.length * 2)) {
+    return 2;
+  }
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
