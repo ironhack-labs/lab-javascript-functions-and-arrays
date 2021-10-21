@@ -1,38 +1,84 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+// Iteration #1: Find the maximum -- ok
+
+
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 
 
-// Iteration #2: Find longest word
+// Iteration #2: Find longest word -- ok
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let max = '';
+    if (words.length != 0) {
+        for (i = 0; i < words.length; i++) {
+            if (words[i].length > max.length) {
+                max = words[i];
+            }
+        }
+        return max;
+    } else {
+        return null
+    }
+}
 
 
 
-// Iteration #3: Calculate the sum
+// Iteration #3: Calculate the sum -- ok
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+   let sum = 0;
+    for (i = 0; i < numbers.length; i++) {
+        sum = numbers[i] + sum;
+    }
+    return (sum);
+}
 
 
 
-// Iteration #3.1 Bonus:
+
+// Iteration #3.1 Bonus: -- pending
 function sum() {}
 
 
 
 // Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// Level 1: Array of numbers -- ok
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+if (numbers.length != 0) {
+        return (sumNumbers(numbers) / numbers.length);
+    } else {
+        return null;
+    }
+
+}
 
 
-// Level 2: Array of strings
+// Level 2: Array of strings --ok
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  let sum = 0;
+    if (wordsArr.length != 0) {
+        for (i = 0; i < wordsArr.length; i++) {
+            sum = wordsArr[i].length + sum;
+        }
+        return (sum / wordsArr.length);
+    } else {
+        return null;
+
+    }
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
