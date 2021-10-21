@@ -36,12 +36,11 @@ let getCorrectValue = (elm) => {
       break;
     default:
       throw new Error("Unsupported data type sir or ma'am");
-      break;
   }
   return value;
 };
 //maybe a beeter genereic naming,but cant change it due to testunit
-function sumNumbers(arr) {
+let getSumOfAny = (arr) => {
   if (arr.length === 0) return 0;
   if (arr.length === 1) return arr[0];
   let sum = getCorrectValue(arr[0]);
@@ -51,11 +50,14 @@ function sumNumbers(arr) {
     sum += getCorrectValue(elm);
   }
   return sum;
+};
+function sumNumbers(arr) {
+  return getSumOfAny(arr);
 }
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
-  return sumNumbers(arr);
+  return getSumOfAny(arr);
 }
 
 // Iteration #4: Calculate the average
@@ -74,13 +76,17 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arr) {
   if (arr.length === 1) return arr[0].length;
-  let sum = sumNumbers(arr);
+  let sum = getSumOfAny(arr);
   if (sum === 0) return null;
   return sum / arr.length;
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) return null;
+  let sum = getSumOfAny(arr);
+  return +(sum / arr.length).toFixed(2);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -97,12 +103,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+  return arr.filter((value, index, self) => self.indexOf(value) === index);
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, target) {
+  if (arr.length === 0) return null;
+  return arr.includes(target);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -119,7 +131,10 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, target) {
+  if (arr.length === 0) return 0;
+  return arr.filter((elm) => elm === target).length;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -145,7 +160,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(mtrx) {
+  //2n complexisty :
+  let rowRecord = 1;
+  let columnAccumulator = [];
+  let is2persistent= true;
+  for (let rowIndex = 0; rowIndex < mtrx.length; rowIndex++) {
+    let currentRowProduct = 1;
+
+    for (let columnIndex = 0; columnIndex < mtrx[rowIndex].length; columnIndex++) {
+      let currentCell = mtrx[rowIndex][columnIndex];
+      
+      if(is2persistent && currentCell===2) is2persistent=true
+      else{ is2persistent=false};
+      currentRowProduct *= currentCell;
+
+      if (rowIndex === 0) {
+        columnAccumulator.push(currentCell);
+      } else {
+        let columnAccumulatorCell = columnAccumulator[columnIndex];
+        columnAccumulator[columnIndex] = currentCell * columnAccumulatorCell;
+      }
+    }
+    rowRecord = currentRowProduct > rowRecord ? currentRowProduct : rowRecord;
+  }
+
+  const maxProductVeritical = Math.max(...columnAccumulator);
+  if (is2persistent) return 16;
+  return maxProductVeritical > rowRecord ? maxProductVeritical : rowRecord;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

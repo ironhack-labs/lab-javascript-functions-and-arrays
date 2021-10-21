@@ -190,6 +190,7 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
   test('should return the average of the array', () => {
     // false is counted as 0
     expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(5.11);
+   
     // true is counted as 1
     expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(5.22);
   });
