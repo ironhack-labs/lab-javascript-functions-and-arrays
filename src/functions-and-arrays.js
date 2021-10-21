@@ -1,38 +1,83 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  return a > b ? a : b;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  if (arr.length === 0) return null;
+  let longest = arr[0];
 
-
+  for (let i = 0; i < arr.length; i++) {
+    let elm = arr[i];
+    if (elm.length > longest.length) {
+      longest = elm;
+    }
+  }
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+let getCorrectValue = (elm) => {
+  let value;
+  switch (typeof elm) {
+    case 'boolean':
+      value = elm ? 1 : 0;
+      break;
+    case 'string':
+      value = elm.length;
+      break;
+    case 'number':
+      value = elm;
+      break;
+    default:
+      throw new Error("Unsupported data type sir or ma'am");
+      break;
+  }
+  return value;
+};
+//maybe a beeter genereic naming,but cant change it due to testunit
+function sumNumbers(arr) {
+  if (arr.length === 0) return 0;
+  if (arr.length === 1) return arr[0];
+  let sum = getCorrectValue(arr[0]);
+  for (let i = 1; i < arr.length; i++) {
+    let elm = arr[i];
 
-
+    sum += getCorrectValue(elm);
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(arr) {
+  return sumNumbers(arr);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arr) {
+  let sum = sumNumbers(arr);
+  if (sum === 0) return null;
+  let avrage = sum / arr.length;
+  return avrage;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 1) return arr[0].length;
+  let sum = sumNumbers(arr);
+  if (sum === 0) return null;
+  return sum / arr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -54,14 +99,10 @@ const wordsUnique = [
 
 function uniquifyArray() {}
 
-
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist() {}
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -79,8 +120,6 @@ const wordsCount = [
 ];
 
 function howManyTimes() {}
-
-
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +146,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
