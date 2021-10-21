@@ -149,7 +149,7 @@ function uniquifyArray(wordsUnique) {
 
   }
 
-  newArr = [];
+  let newArr = [];
 
   for (i = 0; i < wordsUnique.length; i++) {
 
@@ -202,6 +202,7 @@ function doesWordExist(wordsFind, word) {
 
 
 // Iteration #7: Count repetition
+
 const wordsCount = [
   'machine',
   'matter',
@@ -218,11 +219,26 @@ const wordsCount = [
 
 function howManyTimes(wordsCount, word) {
 
-  const counts = {};
+  if (wordsCount.length == 0) {
 
-  wordsCount.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+    return 0;
 
-  console.log(counts)
+  }
+
+  let countyWordy = 0;
+
+   for (i = 0; i < wordsCount.length; i++) {
+
+     if (word == wordsCount[i]) {
+
+      countyWordy += 1;
+
+     }
+
+   }
+
+   return countyWordy; 
+
 
 }
 
