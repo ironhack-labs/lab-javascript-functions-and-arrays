@@ -31,6 +31,7 @@ function findLongestWord(arr) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
 function sumNumbers(numbers) {
     let totalSum = 0;
     for (let i in numbers) {
@@ -111,14 +112,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrWords) {
+  if (arrWords.length == 0){
+    return null;
+  }
+  let newArr=[]
+  for(let i=0;i<arrWords.length;i++){
+    if (newArr.indexOf(arrWords[i]) == -1){
+      newArr.push(arrWords[i])
+    }
+  }
+  return newArr
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrWords,word) {
+  if(arrWords.length == 0){
+    return null;
+  } 
+    if (arrWords.includes(word)){
+      return true
+    }else{
+      return false
+    }
+  }
+
+  doesWordExist('wordsFind,machine')
 
 
 
@@ -137,7 +160,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrWords,word) {
+  if (arrWords.length == 0){
+    return 0;
+  }
+  let countWords= 0;
+  for(let i=0;i<arrWords.length;i++){
+    if((arrWords[i] === word)){
+      countWords = countWords +1;
+    }
+  }  
+  return countWords; 
+}
 
 
 
