@@ -158,16 +158,16 @@ function uniquifyArray(arr) {
 
 	let ret = [];
 
-	if (arr.length === 0){
+	if (arr.length === 0) {
 		return null;
 	}
 
-	ret = arr.filter((element) => {
-		if (arr.lastIndexOf(element) === arr.indexOf(element)) {
-			return element;
-		}
+	for (let i = 0; i < arr.length; i++) {
 
-	});
+		if (ret.indexOf(arr[i]) < 0) {
+			ret.push(arr[i]);
+		}
+	}
 
 	return ret;
 }
