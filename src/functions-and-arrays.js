@@ -332,7 +332,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(someMatrix) {
+  let j=0
+  let oneCounter = 1;
+  let twoCounter = 16
+  for (let i=0; i<someMatrix.length; i++) {
+    while ( j<someMatrix[i].length) {
+      if (someMatrix[i][j] === 1) {
+        
+        oneCounter + 0;
+      } else if (someMatrix[i][j] === 2) {
+        twoCounter + 0;
+      } else {
+        oneCounter ++;
+        twoCounter ++;
+      } j++
+    }
+   
+  }
+  console.log(oneCounter, twoCounter)
+  return oneCounter, twoCounter
+}
+
+greatestProduct(matrix);
 
 
 
