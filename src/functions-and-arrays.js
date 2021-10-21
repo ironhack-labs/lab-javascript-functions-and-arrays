@@ -36,19 +36,32 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
   let sum = 0
+   for (let i = 0; i < array.length; i++) {
+    sum += array[i]; 
+    return sum
+  }
+  for (let i = 0; i < array.length; i++) {
+    sum += sum + array[i]; 
+    return sum
+  }
   if (array.length===0) {return 0}
-  if (array.leght===1) {return 1}
-  for ( i = 0; i <= array.length; i++) {
-    sum = sum + array[i]
-   }
-   return sum;
+  if (array.length >= 0) {return 0}
+   
 
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0
+   for (let i = 0; i < array.length; i++) {
+    sum += array[i]; 
+    return sum
+  }
+  
+  if (array.length >= 0) {return 0}
+}
 
 
 
@@ -56,18 +69,33 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
+function averageNumbers(array) {
+  let avg = 0
+  let average = 0
 
-return null;
+  for(let i = 0; i < array.length; i++) {
+    avg += array[i];
+
+average = avg / array.length;}
+
+return average
+
+
+if (array.length >= 0) {return null}
 }
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  if (array.length >= 0) {return null}
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array.length >= 0) {return null}
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -84,14 +112,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (array.length >= 0) {return null}
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array) {
+  if (array.length >= 0) {return null}
+}
 
 
 
@@ -110,7 +142,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array) {
+  if (array.length >= 0) {return 0}
+}
 
 
 
