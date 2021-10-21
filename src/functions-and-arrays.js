@@ -1,24 +1,83 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if( a > b){
+    return a;
+  }else{
+    return b;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(!words.length){
+    return null; 
+  }
+
+  let la_palabra_mas_larga=words[0];
+  for (let i = 0; i<words.length; i++){
+    if (words[i].length > la_palabra_mas_larga.length) {
+      la_palabra_mas_larga = words[i];
+    }
+  }
+
+  return la_palabra_mas_larga;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if(!numbers.length){
+    return 0; 
+  }
+
+  let suma = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    suma += numbers[i];
+  }
+  return suma;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(things) {
+  if(!things.length){
+    return 0; 
+  }
+
+  let suma = 0;
+  for (let i = 0; i < things.length; i++) {
+    switch (typeof things[i]) {
+      case "number":
+        suma += things[i];
+        break;
+    
+      case "string":
+        suma += things[i].length;
+        break;
+
+      case "boolean":
+        if (things[i] === true) {
+          suma += 1;
+        }
+        break;
+
+      default:
+        throw "Unsupported data type sir or ma'am";
+        break;
+    }
+    
+  }
+
+  return suma;
+}
 
 
 
@@ -26,16 +85,68 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if(!numbersAvg.length){
+    return null;
+  }
+  let suma = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    suma += numbersAvg[i];
+  }
+  return suma / numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if(!wordsArr.length){
+    return null;
+  }
+
+  let suma = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    suma += wordsArr[i].length;
+  }
+  return suma / wordsArr.length;
+
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(things) {
+
+  if(!things.length){
+    return null;
+  }
+
+  let suma = 0;
+  for (let i = 0; i < things.length; i++) {
+    switch (typeof things[i]) {
+      case "number":
+        suma += things[i];
+        break;
+    
+      case "string":
+        suma += things[i].length;
+        break;
+
+      case "boolean":
+        if (things[i] === true) {
+          suma += 1;
+        }
+        break;
+
+      default:
+        throw "Unsupported data type sir or ma'am";
+        break;
+    }
+    
+  }
+
+  let result =  suma / things.length;
+  return Number(result.toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +163,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(!wordsUnique.length){
+    return null;
+  }
+  let result =  [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if(result.indexOf(wordsUnique[i]) === -1){
+      result.push(wordsUnique[i]);
+    }  
+  }
+  return result;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if(!wordsFind.length){
+    return null;
+  }
+
+  for (let i = 0; i < wordsFind.length; i++) {
+    if(wordsFind[i] === word){
+      return true
+    } 
+  }
+
+  return false;
+}
 
 
 
@@ -78,7 +212,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  if(!wordsCount.length){
+    return 0;
+  }
+
+  let count = 0
+  for (let i = 0; i < wordsCount.length; i++) {
+    if(wordsCount[i] === word){
+      count++
+    } 
+  }
+  return count;
+}
 
 
 
