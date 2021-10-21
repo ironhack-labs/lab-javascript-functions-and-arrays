@@ -55,7 +55,28 @@ function sum(values) {
   }
   return total;
 }
+// OR:
+// function sum(arr) {
+//   // let x = 0;
+//   let sumTotal = 0;
 
+//   for (let i=0; i < arr.length; i++) {
+//     let el = arr[i];
+//      switch (typeof el){
+//       case 'string':
+//         sumTotal += el.length;
+//         break
+//       case 'number':
+//         sumTotal += el
+//         break
+//       case 'boolean':
+//         if (el) sumTotal+= 1;
+//         // else sumTotal +=0;
+//         break
+//         default:
+//           throw new Error ("Unsupported data type sir or ma'am")}
+//       return
+// }
 /////////////////////////////////////////
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -84,6 +105,21 @@ function averageWordLength(arr) {
   }
   return arr.join('').length / arr.length;
 }
+// OR:
+// function averageWordLength(arr) {
+//   if (arr.length === 0) {
+//     return null;
+//   }
+//   let wordLengths = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     wordLengths.push(wordsArr[i].length);
+//   }
+//   let letterCount = 0;
+//   for (let i = 0; i < wordLengths.length; i++) {
+//     letterCount = letterCount + wordLengths[i];
+//   }
+//   return letterCount / wordsArr.length;
+// }
 
 ////////////////////////////////////
 // Bonus - Iteration #4.1
@@ -202,7 +238,7 @@ const matrix = [
 
 function greatestProduct(arr, k) {
   let max = 0;
-  const get = (arr1, y, x) => {
+  const range = (arr1, y, x) => {
     if (0 <= y && y < arr1.length && 0 <= x && x < arr1[y].length) {
       return arr1[y][x];
     }
@@ -217,10 +253,10 @@ function greatestProduct(arr, k) {
         p4 = 1;
 
       for (let i = 0; i < k; i++) {
-        p1 *= get(arr, y, x + i);
-        p2 *= get(arr, y + i, x);
-        p3 *= get(arr, y + i, x + i);
-        p4 *= get(arr, y + i, x - i);
+        p1 *= range(arr, y, x + i);
+        p2 *= range(arr, y + i, x);
+        p3 *= range(arr, y + i, x + i);
+        p4 *= range(arr, y + i, x - i);
       }
       max = Math.max(p1, p2, p3, p4, max);
     }
