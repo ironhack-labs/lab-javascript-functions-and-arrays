@@ -48,6 +48,7 @@ function sumNumbers(numberArray) {
   sumNumbersArray +=sumIndex;
   console.log(sumNumbersArray);
   return sumNumbersArray;
+
   
   }
 
@@ -58,7 +59,13 @@ function sumNumbers(numberArray) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numArr) {
+
+  if ((typeof numArr === 'undefined' )|| (numArr.length === 0)) {
+    return 0;
+  } 
+
+}
 
 
 
@@ -66,13 +73,103 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someArray) {
+
+  if (someArray.length === 0) {
+    return null;
+  }
+
+  let sumFirstStep = 0;
+
+  for (let i=0; i<someArray.length; i++) {
+    sumFirstStep += someArray[i];
+  }
+
+  let averageArray = [];
+  let arrayElmNumber = 0;
+  arrayElmNumber += someArray.length;
+  
+  console.log(sumFirstStep);
+  console.log(arrayElmNumber);
+  averageArray.push(sumFirstStep / arrayElmNumber);
+  console.log(averageArray);
+  return averageArray;
+
+
+}
+
+averageNumbers(numbersAvg);
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(stringsArray) { 
+
+    if (stringsArray.length === 0) {
+      console.log(null);
+      return null;
+    }
+    
+    
+    /////////////  Returns the average in an Array  /////////////
+    
+    /*function averageWordLength(stringsArray) { 
+
+      if (stringsArray.length === 0) {
+        console.log(null);
+        return null;
+      }
+      
+      
+      console.log(stringsArray.length);
+      let stringLength = 0;
+    
+      for (let i=0; i < stringsArray.length ; i++) {
+    
+        stringLength += stringsArray[i].length;
+        console.log(stringLength);
+      }
+    
+      let stringsArrayAmount = stringsArray.length;
+      console.log(stringsArrayAmount);
+      let averageStringsArray = [];
+      averageStringsArray.push(stringLength/stringsArrayAmount);
+      console.log(averageStringsArray);
+      return averageStringsArray;
+    } */
+    
+    
+    
+    /////////////  Returns the average as a number  /////////////
+
+      if (stringsArray.length === 0) {
+        console.log(null);
+        return null;
+      }
+      
+      
+      console.log(stringsArray.length);
+      let stringLength = 0;
+    
+      for (let i=0; i < stringsArray.length ; i++) {
+    
+        stringLength += stringsArray[i].length;
+        console.log(stringLength);
+      }
+    
+      let stringsArrayAmount = stringsArray.length;
+      console.log(stringsArrayAmount);
+      let averageStringsNum = 0;
+      averageStringsNum += stringLength/stringsArrayAmount;
+      console.log(averageStringsNum);
+      return averageStringsNum;
+    }
+    
+    averageWordLength(wordsArr);
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
