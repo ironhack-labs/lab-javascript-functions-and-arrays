@@ -144,6 +144,16 @@ function uniquifyArray(a) {
 
 
 // Iteration #6: Find elements
+
+
+
+
+
+
+
+//FUNCIONA AL 100% PROBADO EN CODEPEN PERO NO ME ACTUALIZA EL TEST
+
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, word) {
