@@ -189,14 +189,84 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+////////////  Returns true if there's any element repeated and false if not   ////////////
+
+/*function uniquifyArray(someArray) {
+  
+  if (someArray.length === 0) {
+    return null;
+  }
+
+  var valuesSoFar = Object.create(null);
+    for (var i = 0; i < someArray.length; ++i) {
+        var value = someArray[i];
+        if (value in valuesSoFar) {
+          console.log("true")  
+          return true;
+        }
+        valuesSoFar[value] = true;
+    }
+  console.log("false")  
+  return false;
+
+
+}*/
+
+function uniquifyArray(someArray) {
+  
+  if (someArray.length === 0) {
+    return null;
+  }
+
+  var valuesSoFar = Object.create(null);
+    for (var i = 0; i < someArray.length; ++i) {
+        var value = someArray[i];
+        if (value in valuesSoFar) {
+          let uniqueArray = [];
+          uniqueArray.push(value);
+          console.log(uniqueArray);
+          return uniqueArray;
+        }
+        valuesSoFar[value] = true;
+    }
+  console.log(someArray);
+  return someArray;
+
+}
+
+
+uniquifyArray(wordsUnique);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(someWord,someArray) {
+
+  if (someArray.length === 0) {
+    return null;
+  }
+
+    
+  for (var i = 0; i < someArray.length; ++i) {
+      let value = someArray[i];
+      console.log(value);
+      if (value === someWord) {
+          console.log('true');
+          return true;
+        } else {
+          console.log('false');
+          return false;
+        }
+  
+    }
+}
+  
+doesWordExist("trouble",wordsFind)
+  
+doesWordExist("trouble",wordsFind)
 
 
 
@@ -215,7 +285,26 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(someWord,someArray) {
+  
+  if (someArray.length === 0) {
+    return null;
+  }
+  
+  
+  let counter = 0;
+  for (var i = 0; i < someArray.length; ++i) {
+      if (someWord === someArray[i]) {
+          counter++;
+          } 
+  
+    }
+  
+  console.log(counter);
+  return counter;
+}
+
+howManyTimes("matter",wordsCount);
 
 
 
