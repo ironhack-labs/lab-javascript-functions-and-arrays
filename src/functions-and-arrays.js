@@ -12,15 +12,16 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
   let longestWord = '';
-  if (arr.length !== 0) {
+  if (arr.length === 0) {
+    return null
+  }
   arr.forEach(function(word) {
     if(word.length > longestWord.length) {
       longestWord = word;
     } 
   });
  return longestWord
-}return null
-   }
+}
 
 
 
@@ -48,16 +49,14 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNums) {
 let sum = 0;
-if (arrOfNums.length !== 0) {
-  
-
+if (arrOfNums.length === 0) {
+  return null
+}
 for (let i = 0; i < arrOfNums.length; i++) {
 sum = sum + arrOfNums[i];
 }
-
 let average = sum/arrOfNums.length;
 return average;
-} return null
 }
 
 
@@ -66,15 +65,15 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(wordsArr) { 
  let total = 0;
- if (wordsArr.length !== 0) {
+ if (wordsArr.length === 0) {
+   return null
+  }
  for (let i = 0; i < wordsArr.length; i++) {
    total = total + wordsArr[i].length
-   
-} 
+  } 
 let average = total/wordsArr.length;
 return average
- }return null
- } 
+} 
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -113,13 +112,14 @@ function uniquifyArray(uniqArr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arrOfWords, searchWord) {
-if (arrOfWords.length !=== 0){
+if (arrOfWords.length === 0){
+  return null
+}
   for (let i = 0; i<arrOfWords.length; i++) {
     if (arrOfWords[i] === searchWord) {
       return true
-    }return false
-  } 
-  }return null
+    }
+  }return false
 }
 
 
