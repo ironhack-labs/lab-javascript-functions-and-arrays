@@ -140,10 +140,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
 function howManyTimes(wordsCount, word) {
-
+  if(wordsCount.length === 0){
+    return 0
+  }
+  let counter = 0
+  for(i = 0; i < wordsCount.length; i++){
+    if(wordsCount[i] === word){
+      counter++
+    }
+  }
+  return counter
 }
-
 
 
 // Iteration #8: Bonus
