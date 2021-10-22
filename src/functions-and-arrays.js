@@ -51,7 +51,36 @@ function sumNumbers(numero) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numero) {
+
+  if (numero.length==0)
+ {
+   return 0
+ }
+
+ let sum=0;
+ for(let i = 0; i<numero.length; i++)
+ {
+   if (typeof numero[i] === 'number')
+   {
+     sum += numero[i];
+   }
+   else if (typeof numero[i] === 'string')
+   {
+     sum += numero[i].length
+   }
+   else if(numero[i]===true){
+     sum++;
+   }
+   else if(typeof numero[i] === 'object' || typeof numero[i] === 'numero')
+   {
+     throw "no soprtado"
+     break;
+   }
+ }
+ return sum
+
+ }
 
 
 
