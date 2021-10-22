@@ -82,10 +82,10 @@ function sum(a) {
       sumResult += a[i];
     } else if (typeof currentValue == "boolean" && currentValue == true) {
       sumResult++;
-      
+
     } else if (typeof currentValue == "string") {
       sumResult += a[i].length;
-    } else if (typeof currentValue == "object" || typeof currentValue == "array"){
+    } else if (typeof currentValue == "object" || typeof currentValue == "array") {
       throw "Unsupported data type sir or ma'am"
     }
   }
@@ -98,16 +98,78 @@ function sum(a) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() { }
+function averageNumbers(a) {
+
+  if (a.length === 0) {
+    return null;
+  } else if (a.length === 1) {
+    return a[0];
+  }
+
+  let avgResult = 0;
+  let sumResult = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    sumResult += a[i];
+    avgResult = sumResult / (a.length);
+  }
+
+  return avgResult
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+
+function averageWordLength(a) {
+
+  if (a.length === 0) {
+    return null;
+  } else if (a.length === 1) {
+    return a[0].length;
+  }
+
+  let avgResult = 0;
+  let sumResult = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    sumResult += a[i].length;
+    avgResult = sumResult / (a.length);
+  }
+
+  return avgResult
+
+}
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(a) {
+  if (a.length === 0) {
+    return null;
+  }
+  let avgResult = 0;
+  let sumResult = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    let currentValue = a[i];
+    if (typeof currentValue == "number") {
+      sumResult += a[i];
+      avgResult = sumResult / (a.length);
+
+    } else if (typeof currentValue == "boolean" && currentValue == true) {
+      sumResult += 1;
+      avgResult = sumResult / (a.length);
+    } else if (typeof currentValue == "string") {
+      sumResult += a[i].length;
+      avgResult = sumResult / (a.length);
+    }
+  }
+  avgResult = Number(avgResult.toFixed(2));
+  return avgResult;
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -124,14 +186,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(a) {
+  if (a.length === 0) {
+    return null;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(a) {
+  if (a.length === 0) {
+    return null;
+  }
+}
 
 
 
@@ -150,7 +220,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(a) {
+  if (a.length === 0) {
+    return 0;
+
+  }
+}
 
 
 
@@ -178,7 +253,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct(a) { }
 
 
 
