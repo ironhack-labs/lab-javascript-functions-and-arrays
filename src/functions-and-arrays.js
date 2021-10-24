@@ -63,7 +63,7 @@ function sum(ele) {
   if(ele.length === 0){
     return 0
   }
-  console.log(typeof mixedArr[4])
+  
   ele.map((a)=>{
     if(typeof a === "number"){
       count +=a  
@@ -260,6 +260,16 @@ function greatestProduct(arr) {
     }   
     return max
 }
+function greatestProductOfDiagonals(arr){
+    let max = 0
+    
+    
+     
+    return max
+}
+
+
+greatestProductOfDiagonals(matrix)
 
 
 
