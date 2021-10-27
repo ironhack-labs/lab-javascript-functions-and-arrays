@@ -40,7 +40,15 @@ let longestWord = [];
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(num) {
+  let sum = 0;
+
+  for (let i = 0; i < num.length; i++) {
+    sum += num[i];
+}
+  return sum;
+}
+console.log(sumNumbers(numbers));
 
 
 
