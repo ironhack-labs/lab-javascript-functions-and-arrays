@@ -47,8 +47,28 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixedArr) {
+  if (mixedArr === '') {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'number') {
+      sum += mixedArr[i];
+    } else if (typeof mixedArr[i] === 'string') {
+      sum += mixedArr[i].length;
+    } else if (typeof mixedArr[i] === 'boolean') {
+      sum += Number(mixedArr[i]);
+    }
+    else if (typeof mixedArr[i] === 'object' || typeof mixedArr[i] === 'array')
+      {
+       return("Unsupported data type");
+     }
+  }
+  return sum;
+}
+console.log(sum(mixedArr));
 
 
 // Iteration #4: Calculate the average
@@ -69,10 +89,38 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length == 0) return null;
+
+  let sum = 0;
+  for (let i = 0; i < words.length; i++) {
+    sum += words[i].length;
+  }
+  let promedio = sum / words.length;
+  return promedio;
+}
+averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];;
+
+// should return: 5.7
+function avg(arr) {
+  if (arr.length === 0) return null;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sum += arr[i];
+    } else if (typeof arr[i] === 'string') {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      sum += Number(arr[i]);
+    } 
+  }
+  let promedio = sum / arr.length;
+  return promedio;
+}
+avg(mixedArr1);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -88,15 +136,40 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray() {}
-
+function uniquifyArray(words) {
+  newarr = [];
+  if (words.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < words.length; i++) {
+    if (newarr.indexOf(words[i]) === -1) {
+      newarr.push(words[i]);
+    }
+  }
+  return newarr;
+}
+uniquifyArray(wordsUnique)
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, word) {
+  let count = 0;
+  if (words.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === word) {
+      count++;
+    }
+  }
+  if (count > 0) {
+    return true;
+  }
+  return false;
+}
+doesWordExist(wordsFind, "machine")
 
 
 
@@ -115,7 +188,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, word) {
+   let count = 0;
+   if (words.length === 0) {
+     return 0;
+   }
+   for (let i = 0; i < words.length; i++) {
+     if (words[i] === word) {
+       count ++;
+     }
+   }
+   if (count === 1) {
+     return 1;
+   } else if (count === 0) {
+     return 0;
+   }
+    return count;
+}
+howManyTimes(wordsCount,"eating")
 
 
 
