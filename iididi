@@ -1,0 +1,511 @@
+[33mcommit 6e60c305605181f336adff0ca51fe5e00c0029fc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Diogo <diogoascarneiro@hotmail.com>
+Date:   Sat Nov 6 15:45:55 2021 +0000
+
+    third and fourth iteration done
+
+[33mcommit d24a4df7d0c910352e46ce28b87392b074f4afde[m
+Author: Diogo <diogoascarneiro@hotmail.com>
+Date:   Sat Nov 6 15:29:10 2021 +0000
+
+    iteration 2 done
+
+[33mcommit 45c84900b38598ac3a7d0e146e0bff9a5a0a4e62[m
+Author: Diogo <diogoascarneiro@hotmail.com>
+Date:   Sat Nov 6 15:05:05 2021 +0000
+
+    first iteration done
+
+[33mcommit bbd5108eebf42b714259ad1809ad4609eba7212a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 9d7f74b 278feb3
+Author: Aleksandra Bošković <sandraboskovic@hotmail.com>
+Date:   Thu Jun 3 12:50:59 2021 +0200
+
+    Merge pull request #2423 from ironhack-labs/uros/update/jest-html-reporter-config
+    
+    Update jest reporter configuration
+
+[33mcommit 278feb3ec71670e96307f11d669b58b8a446b555[m
+Author: ross-u <cirkovic.uros.srb@gmail.com>
+Date:   Thu Jun 3 09:49:18 2021 +0200
+
+    Update jest reporter configuration
+    
+    - Update jest-html-reporter configuration to enable displaying failure messages and console.log output in the html reporter page.
+
+[33mcommit 9d7f74b3f9e78fdef8d36bf4f326741206411d7a[m
+Merge: a1c25ce 0e7e453
+Author: Uros Cirkovic <cirkovic.uros.srb@gmail.com>
+Date:   Tue Jun 1 09:30:59 2021 +0200
+
+    Merge pull request #2381 from ironhack-labs/uros/update/lab-javascript-functions-and-arrays
+    
+    Add missing function declarations, imports and exports
+
+[33mcommit 0e7e4537fa43074d953b525585299b412d1ac291[m
+Author: ross-u <cirkovic.uros.srb@gmail.com>
+Date:   Tue Jun 1 09:27:11 2021 +0200
+
+    Remove local file
+
+[33mcommit bcf07ea95652e6706ef679438012394de6b90bda[m
+Author: ross-u <cirkovic.uros.srb@gmail.com>
+Date:   Tue Jun 1 09:21:18 2021 +0200
+
+    Add missing function declarations, imports and exports
+
+[33mcommit a1c25cea7f56ee682cf6936f757d31cf1585611b[m
+Author: Aleksandra Bošković <sandraboskovic@hotmail.com>
+Date:   Mon May 31 15:02:41 2021 +0200
+
+    Update README.md
+
+[33mcommit b9c9f8d8a8a4b8099501b04d0b3a655259fc1eae[m
+Author: Aleksandra Bošković <sandraboskovic@hotmail.com>
+Date:   Mon May 31 14:51:47 2021 +0200
+
+    add step by step guidelines
+    
+    as it is intro lab, add detailed guidelines how to kick it off
+
+[33mcommit df8f8b0187ec096dd7ad6eb43a5a68954684e28f[m
+Merge: fc9f652 f5f1fa8
+Author: Ironhack Education Team <admin.education@ironhack.com>
+Date:   Thu May 27 22:45:36 2021 +0200
+
+    Merge pull request #2379 from ironhack-labs/uros/review
+    
+    Review PR
+
+[33mcommit f5f1fa825a988a5439bf42c03ba9f27f9a0db3a7[m
+Author: ross-u <cirkovic.uros.srb@gmail.com>
+Date:   Thu May 27 22:23:08 2021 +0200
+
+    Update tests - add missing import
+
+[33mcommit 578d90cd6d4f5c64dbdd7d3c49416ac289aa3517[m
+Author: ross-u <cirkovic.uros.srb@gmail.com>
+Date:   Thu May 27 22:22:44 2021 +0200
+
+    Add missing function declaration and export
+
+[33mcommit e3edebb39eda5c70e5a3ed78f97d26817c72981b[m
+Author: ross-u <cirkovic.uros.srb@gmail.com>
+Date:   Thu May 27 22:13:03 2021 +0200
+
+    Update README - rephrase instructions
+
+[33mcommit fc9f652401f947092dbd480f2b46adf0ac6ff166[m
+Merge: cb981d0 8c6e7c8
+Author: Ironhack Education Team <admin.education@ironhack.com>
+Date:   Thu May 27 16:53:13 2021 +0200
+
+    Merge pull request #2378 from ironhack-labs/automated-testing
+    
+    Add automated testing
+
+[33mcommit 8c6e7c8c93b3088cca66daa75acc29258a3a1cb0[m
+Author: Ironhack Education Team <admin.education@ironhack.com>
+Date:   Thu May 27 03:49:01 2021 +0200
+
+    Update README.md
+
+[33mcommit de52ee0b1dd8f93d8ca0fdb12c7b40fd4fc0cd76[m
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Sun May 23 19:54:41 2021 +0100
+
+    Add workflow enabling instructions
+
+[33mcommit c34b4779b0e1afe42a686be7880d677825797571[m
+Merge: cb981d0 975afdc
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Fri Apr 30 16:19:30 2021 +0100
+
+    Merge pull request #2353 from josecarneiro/master
+    
+    Merge from personal fork to automated-testing branch
+
+[33mcommit 975afdcf3c350b5b5a05bc51b057382b1ba94631[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Fri Apr 30 16:16:13 2021 +0100
+
+    Remove redundant instruction
+
+[33mcommit 2b10c3095450ebf8cc7839ecb1209b96dcd48b42[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Fri Apr 30 16:15:24 2021 +0100
+
+    Remove clutter, refactor instructions
+
+[33mcommit cb981d0b2e948c522985ac9b4a02b5144adb8121[m
+Author: Tzikas <niko.tzikas@gmail.com>
+Date:   Wed Mar 24 16:39:43 2021 -0400
+
+    ok
+
+[33mcommit 2630540868c580d4da739e22f9240e7705976ab3[m
+Author: Tzikas <niko.tzikas@gmail.com>
+Date:   Wed Mar 24 16:37:48 2021 -0400
+
+    oops
+
+[33mcommit a6e71be54b490e874eb981a234216bc40c7c7d05[m
+Author: Tzikas <niko.tzikas@gmail.com>
+Date:   Wed Mar 24 11:31:03 2021 -0400
+
+    cool beans
+
+[33mcommit 5f42b41cbab6474b689f2485b14cf447ad25883c[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 17:26:00 2021 +0000
+
+    Fixes run name for report, redundacy in test script
+
+[33mcommit 3c9df110b0743ca8ef8bcea79e4dda9af6942859[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 17:19:52 2021 +0000
+
+    Fixes jest-report-action version
+
+[33mcommit a525f3d1b711c65ec71a97aef91b52ab4b3f89f1[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 17:17:12 2021 +0000
+
+    Fixes version of jest reporting action
+
+[33mcommit df24804e01defcacd70ec509f8b64509d408a4f4[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 17:15:28 2021 +0000
+
+    Adds jest junit reporting
+
+[33mcommit d3db5778c165818b4249a3846c0373eac8fdda72[m
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Sun Mar 14 14:30:39 2021 +0000
+
+    Simplifies test workflow
+
+[33mcommit 284fe3bb0d042f48403d71aeea317233eb1da933[m
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Sun Mar 14 14:20:58 2021 +0000
+
+    Upload and download artifacts
+
+[33mcommit 795597feb2d9a98ad2d76b2589f8ba2526c45d12[m
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Sun Mar 14 14:10:34 2021 +0000
+
+    Adds all steps to test job
+
+[33mcommit 5ff4d487d9d8d6c6b0c2b75513aacc5b0189e3ce[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 14:06:15 2021 +0000
+
+    Removes run test from prepare job
+
+[33mcommit 28f0df70062237973161163c362d2383ae8c903c[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 14:01:33 2021 +0000
+
+    Change in job order
+
+[33mcommit 437161749829ceaf48b93e6a8be2dafcb4a9a392[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 13:53:47 2021 +0000
+
+    Removes needless name for step
+
+[33mcommit 95e73633f00b19010702ca1e2d1636f4d608a00f[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 13:52:26 2021 +0000
+
+    Updates github action
+
+[33mcommit 053e2db2d8c8e519968cc9a51b6da88622e1a772[m
+Author: José Carneiro <jose.carneiro@mercedes-benz.io>
+Date:   Sun Mar 14 13:45:55 2021 +0000
+
+    Switches testing library to Jest, adds test workflow
+
+[33mcommit 0f94b74c07e749dad2acf83846bf974b1c6cc935[m
+Merge: a637cc6 230a55a
+Author: Aleksandra Boskovic <sandraboskovic@hotmail.com>
+Date:   Wed Feb 26 23:35:10 2020 -0500
+
+    Merge pull request #1536 from ironhack-labs/restructure
+    
+    Restructure
+
+[33mcommit 230a55ac816694b57f01caca4d81ec026f9ce114[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Feb 22 23:51:38 2020 -0500
+
+    add reference to the test file
+
+[33mcommit 9698428906ef52c1c84e1c071bab45d4f825cee2[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Feb 22 16:22:25 2020 -0500
+
+    remove starter code, update readme
+
+[33mcommit a637cc6c2bd3362249701f8c294183ea2202d08c[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Fri Feb 21 00:49:36 2020 -0500
+
+    fix readme, adjust to new function names
+
+[33mcommit 39afd0afb588dad466fd4f9223a197200c252395[m
+Merge: eb98808 9278e24
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Mon Feb 3 12:02:12 2020 +0000
+
+    Merge pull request #1456 from ironhack-labs/tests-update
+    
+    Sandra, there was a merge conflict due to the renaming of the test spec file, I resolved it locally.
+    
+    I like the addition of the bonus iterations. I find both a considerably harder than the rest. I added an extra bit of clarification regarding how values of different types should be added up.
+    
+    Do you think we should instruct students to not do them in the normal flow of the lab, and only tackle them at the end? Could we ponder moving them to the end of the lab?
+    
+    Additionally, I split the last iteration and passed the requirement to calculate the products diagonally to an extra iteration, #8.1, since my current cohort found it significantly more complex to solve than horizontally and diagonally. Specs don't include any tests for the diagonal product.
+    
+    I'm merging this the PR into master, but I think that it would be productive to follow up on this Lab and do some additional work on it.
+    
+    Cheers!
+
+[33mcommit 9278e2406cc8fef301d13016fe871e769b7c9661[m
+Merge: c18234f eb98808
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Mon Feb 3 11:48:33 2020 +0000
+
+    Merge branch 'master' into tests-update, made small refactors in instructions and tests
+
+[33mcommit c18234fda61dbfb704f2ef6eafd78302af671696[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Fri Jan 24 17:20:53 2020 -0500
+
+    reiterate on the bonus iteration for calculatin the sum of mixed array
+
+[33mcommit 34b674f094898b88a1f7f991d8b68e67cadb868e[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Fri Jan 24 16:20:34 2020 -0500
+
+    update readme accordingly
+
+[33mcommit 8d1feeebc86a52361becf929b045643bfe7e777b[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Fri Jan 24 16:10:30 2020 -0500
+
+    update tests, add bonus sub-iteration in 3rd iteration
+
+[33mcommit eb988087a05759b73954ad8d577aa1b88c86c144[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Jan 11 11:03:18 2020 -0500
+
+    bug fix - const to let in tests
+
+[33mcommit a51985bfc63393cb418a52bf60f27b6d69149e19[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Jan 11 10:55:44 2020 -0500
+
+    bug fix - const to let in tests
+
+[33mcommit 7c53cb9df4ac1cbfabb29d26392c0276c06ad794[m
+Merge: 03c9f67 8af93b4
+Author: Aleksandra Boskovic <sandraboskovic@hotmail.com>
+Date:   Fri Jan 10 12:31:07 2020 -0500
+
+    Merge pull request #1407 from ironhack-labs/tests-update
+    
+    refresh the tests
+
+[33mcommit 03c9f672742c15b65b89b07d7232a6289435b512[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Tue Dec 17 10:43:15 2019 -0500
+
+    add stale bot
+
+[33mcommit bc3a7b876e05057cda91f3b031a6f1639c938955[m
+Author: Aleksandra Boskovic <sandraboskovic@hotmail.com>
+Date:   Tue Oct 29 18:06:43 2019 -0400
+
+    Update README.md
+
+[33mcommit 8af93b4b9f29a99a4730eb26b551002d817268fb[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Oct 26 18:57:29 2019 -0400
+
+    refresh the tests
+
+[33mcommit 306a8ff2e7f2719913d1879c1477a67234755694[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Oct 26 18:45:23 2019 -0400
+
+    correct the name of the spec file
+
+[33mcommit b57e3d0e8fec313c6fbcc2b50c661f967a32f6ca[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Thu Oct 24 14:51:32 2019 -0400
+
+    minor update in tests, update grammar
+
+[33mcommit ba1398a41fab2d095593f7acd0ab2f845a8be1d8[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Thu Oct 24 14:12:01 2019 -0400
+
+    add minor explanation
+
+[33mcommit b727b52b1bd44c2b644124d22a6467f90216e0ec[m
+Merge: a672112 de6499f
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Thu Oct 24 14:09:27 2019 -0400
+
+    Merge branch 'josecarneiro-master'
+
+[33mcommit de6499f6fa09af90df44706c55baa13a0728fd11[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Thu Oct 24 14:08:57 2019 -0400
+
+    add minor changes
+
+[33mcommit 0c285f925c5bc5ebbf72a57589f0efa856aa06d5[m
+Merge: ff6a618 a672112
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Thu Oct 24 17:51:21 2019 +0100
+
+    Merge branch 'master' into master
+
+[33mcommit a672112d62eebf2eebf733226b2c780511e317ce[m
+Author: Aleksandra Boskovic <sandraboskovic@hotmail.com>
+Date:   Tue Oct 22 15:13:35 2019 -0400
+
+    Update README.md
+
+[33mcommit ff6a618cd98bf1fd715f650b8c5b2361944e965e[m
+Author: José Carneiro <josemcarneiro@gmail.com>
+Date:   Tue Oct 22 09:21:34 2019 +0100
+
+    Refactored exercise explanation, cleaned started code
+
+[33mcommit 905ce4d8f44d1d99de3114f7b490ac862ad39727[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Tue Sep 24 21:03:58 2019 +0200
+
+    remove advanced array method
+
+[33mcommit 7a1f2f9a3ce8a584a2e47e1116fe5aa3187c197d[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Tue Sep 3 20:26:47 2019 +0200
+
+    update var declaration
+
+[33mcommit d14d5038531e7e2c39c52d1f68144b66d23a7552[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Tue Sep 3 20:25:28 2019 +0200
+
+    update var declaration
+
+[33mcommit 345ba4d90559fb19d0a09c1291f1f9ed22c6846d[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Tue Sep 3 20:21:38 2019 +0200
+
+    remove eslint, update iteartions, replace logo
+
+[33mcommit 6dcd8840c402123190fab42df96ca059925f8050[m
+Merge: aa6490c 89d6df2
+Author: Aleksandra Boskovic <sandraboskovic@hotmail.com>
+Date:   Tue Aug 13 22:52:06 2019 +0200
+
+    Merge pull request #1072 from ironhack-webdev-squad-the-best-ever/master
+    
+    updated tests w/ correct return values for empty arrays
+
+[33mcommit 89d6df25dcbbef67fcdafc6737e11b308bc9b765[m
+Author: mjarraya <mjarraya@student.42.fr>
+Date:   Tue Aug 13 19:49:55 2019 +0200
+
+    return 0 for an empty array
+
+[33mcommit 747bdbae68980585c1f271c8d86b0c43307d490b[m
+Author: mjarraya <mjarraya@student.42.fr>
+Date:   Tue Aug 13 09:01:02 2019 +0200
+
+    uniquifyArray should return [] not null
+
+[33mcommit 30e1c10901b94b0be47f2e4e55c43a25cb002c45[m
+Author: mjarraya <mjarraya@student.42.fr>
+Date:   Tue Aug 13 08:17:03 2019 +0200
+
+    no undefined
+
+[33mcommit aa6490c6b32d0563c6ebb8240e0aa6234ec4f4fe[m
+Merge: 5d23782 0427f98
+Author: Aleksandra Boskovic <sandraboskovic@hotmail.com>
+Date:   Thu Jan 24 16:11:19 2019 -0500
+
+    Merge pull request #786 from sandrabosk/master
+    
+    fix typos in tests
+
+[33mcommit 0427f988a9485e8c6770b574005bcfcb1ee90f7d[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Thu Jan 24 16:10:41 2019 -0500
+
+    fix typos in tests
+
+[33mcommit 5d237823c6fe1995e1796e898800ea2530cead65[m
+Author: Maxence Bouret <maxence.bouret@gmail.com>
+Date:   Tue Jan 8 15:03:08 2019 +0100
+
+    Fix
+
+[33mcommit 768b994b01188a39f1ecb082b6a069e11e4a089b[m
+Merge: 0875086 d2704fe
+Author: Victor Arza <papu.arza@gmail.com>
+Date:   Wed Jan 3 12:31:58 2018 +0100
+
+    Merge pull request #193 from ironhack-labs/starter-code-with-test
+    
+    starter-code-with-tests
+
+[33mcommit d2704fe7de203f9b1fc293940791aa0a40c2814c[m
+Author: Victor Arza <papu.arza@gmail.com>
+Date:   Wed Jan 3 12:31:25 2018 +0100
+
+    starter-code-with-tests
+
+[33mcommit 0875086aee81cdb85885bfa5c24b46b5c76a0715[m
+Author: ta-web-mad <ta-web-mad@ironhack.com>
+Date:   Tue Aug 1 15:18:31 2017 +0200
+
+    Update README.md
+
+[33mcommit 155b9f9f6a81b6003fdbc6dae5a20f5699d5ce3b[m
+Author: Nizar Khalife Iglesias <khalifenizar@gmail.com>
+Date:   Tue Jan 31 08:31:21 2017 -0500
+
+    Remove duplicate instructions (for real)
+
+[33mcommit fa247760ff83931eac1b9a1f3d2ceb5a68d6f44c[m
+Merge: d09c659 7dcc16c
+Author: Isaura Fontcuberta <isafontcu@gmail.com>
+Date:   Tue Jan 17 10:58:45 2017 +0100
+
+    Merge pull request #2 from Augenao/master
+    
+    Extra Resources added
+
+[33mcommit 7dcc16c2d07d950c71d41c73c2fc47a7e685f709[m
+Author: augenao <twister_ugena@hotmail.com>
+Date:   Tue Jan 17 10:52:51 2017 +0100
+
+    Extra Resources added
+
+[33mcommit d09c659cb3d312934c9f2a7976c7558a690b8ac6[m
+Merge: 18b7fd0 74f358a
+Author: Isaura Fontcuberta <isafontcu@gmail.com>
+Date:   Tue Jan 17 10:24:51 2017 +0100
+
+    Merge pull request #1 from Augenao/master
+    
+    Removed duplicated text
