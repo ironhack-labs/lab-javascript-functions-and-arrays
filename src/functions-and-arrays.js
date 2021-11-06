@@ -45,8 +45,25 @@ function sumNumbers(numbersArr) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+// should return: 57
+// Note: I feel like there should be some reference in the lab instructions for 'throw', since it's a requirement for passing the test
+function sum(arr) {
+  let sumOfArrItems = 0;
+  arr.forEach((element) => {
+    switch (typeof element) {
+        case "number": sumOfArrItems += element; break;
+        case "string": sumOfArrItems += element.length; break;
+        case "boolean": 
+          if (element === true) {
+            sumOfArrItems++;
+          }; break;
+        default: throw "Unsupported data type sir or ma'am";
+    }
+  });
+  return sumOfArrItems;
+}
 
 
 // Iteration #4: Calculate the average
@@ -83,7 +100,27 @@ function averageWordLength(array) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+// Had to round the result to two decimals to pass the test - not sure if this was intented behaviour.
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let sumOfArrItems = 0;
+  arr.forEach((element) => {
+    switch (typeof element) {
+        case "number": sumOfArrItems += element; break;
+        case "string": sumOfArrItems += element.length; break;
+        case "boolean": 
+          if (element === true) {
+            sumOfArrItems++;
+          }; break;
+        default: throw "Unsupported data type sir or ma'am";
+    }
+  });
+  return Number((sumOfArrItems / arr.length).toFixed(2));
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -185,10 +222,106 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(grid) {
+  let winningTotal = 0;
+  
+  /* Okay, so we need to check every possible combination of four consecutive numbers 
+  horizontally, then do the same vertically. We'll have a 'winner' variable going while we
+  check and update it a combination is bigger than it. Probably not the most elegant solution but
+  let's see if it works :D */
+  
+  let winningCombination = [];
 
+  /* Because I'm a masochist (and also because that's what I thought we were supposed to do :D)
+  I'm also going to write down the combination that has the greatest product!
+  
+  For the horizontal, I have to do a nested loop, with the inner portion only going to grid[i].length - 4
+  because they have to be combinations of four numbers and eventually that stops being possible when you go far enough
+  into the array.
 
+  Then, I have to do ANOTHER loop to multiply each item of each section array. OH GOD. The first item of each section
+  array has to be summed rather than multiplied otherwise everything's going to be 0. The product also has to be reset to 0
+  each iteration.
+  */
 
+let currentSection = [];
+let currentSectionProduct = 0;  
+  
+  for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j <= grid[i].length - 4; j++) {
+        currentSection = grid[i].slice(j, j + 4);
+        currentSectionProduct = 0;
+        for (k = 0; k <= 3; k++) {
+          if (k === 0) {
+            currentSectionProduct += currentSection[k];
+          } else {
+            currentSectionProduct *= currentSection[k];
+          }
+      }
+        console.log(currentSectionProduct);
+        if (currentSectionProduct > winningTotal) {
+          winningTotal = currentSectionProduct;
+          winningCombination = currentSection;
+        }
+      }
+  }
+  
+/* Sweet, the horizontal bit is done! Now we have to do it vertically. It's a bit different and it took me a while
+but here we are! At least we only needed two for loops this time :P */
+
+for (let i = 0; i < grid.length - 4; i++) {
+  currentSection = [];
+  currentSectionProduct = 0;
+  for (let j = 0; j <= 3; j++) {
+    currentSection.push(grid[i + j][i]);
+    if (j === 0) {
+      currentSectionProduct += grid[i + j][i];
+      } else {
+      currentSectionProduct *= grid[i + j][i];
+      }
+    }
+    
+    console.log(currentSectionProduct);
+        if (currentSectionProduct > winningTotal) {
+          winningTotal = currentSectionProduct;
+          winningCombination = currentSection;
+        }
+  }
+
+console.log(winningTotal, winningCombination);
+return winningTotal;
+}
+
+//Bonus iteration #8.1
+
+/*function greatestProductOfDiagonals(grid) {
+  let winningTotal = 0;
+  let winningCombination = [];
+  let currentSection = [];
+  let currentSectionProduct = 0;  
+
+  for (let i = 0; i < grid.length - 4; i++) {
+    currentSection = [];
+    currentSectionProduct = 0;
+    for (let j = 0; j <= 3; j++) {
+      currentSection.push(grid[i + j][i]);
+      if (j === 0) {
+        currentSectionProduct += grid[i + j][i];
+        } else {
+        currentSectionProduct *= grid[i + j][i];
+        }
+      }
+      
+      console.log(currentSectionProduct);
+          if (currentSectionProduct > winningTotal) {
+            winningTotal = currentSectionProduct;
+            winningCombination = currentSection;
+          }
+    }
+  
+  console.log(winningTotal, winningCombination);
+  return winningTotal;
+}*/
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
