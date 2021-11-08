@@ -177,8 +177,14 @@ return unique
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(arrayOfWords, word){
+  if (arrayOfWords.length === 0) return null;
+     for (let ar of arrayOfWords){
+       if (ar === word) return true;
+    }
+     return false;
+   }
+  
 
 
 // Iteration #7: Count repetition
@@ -196,7 +202,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfWords, word) {
+  let count = 0;
+  for (let ar of arrayOfWords) {
+    if (ar === word) count++;
+  }
+  return count;
+}
 
 
 
