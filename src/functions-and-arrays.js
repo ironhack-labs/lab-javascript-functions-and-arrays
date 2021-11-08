@@ -1,24 +1,60 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else if (a < b) {
+    return b;
+  } else if (a === b) {
+    return a;
+  } else {
+    return "Something went wrong"
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+
+
+function findLongestWord(wordsArr) {
+  let longestWord = "";
+  if (wordsArr.length === 0) {
+  return null;
+}
+  for (let i = 0; i<wordsArr.length; i++) {
+    if (wordsArr[i].length>longestWord.length) {
+      longestWord = wordsArr[i];
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sumResult = 0;
+  for (let i = 0; i<numbers.length; i++) {
+    sumResult += numbers[i];
+  }
+  return sumResult;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = parseInt([6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]);
+function sum() {
+  let total = 0;
+  for (let i = 0; i<mixedArr.length; i++) {
+      total += mixedArr[i];
+    }
+  return total;
+}
 
 
 
@@ -26,16 +62,58 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sumResult = 0;
+  let avgResult= 0;
+  if (numbersAvg.length === 0) {
+    return null;
+  } 
+  for (let i = 0; i<numbersAvg.length; i++) {
+    sumResult += numbersAvg[i];
+    avgResult = sumResult / numbersAvg.length;
+     }
+  return avgResult;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let wordLengthTotal = 0;
+  let avgLength = 0;
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i<wordsArr.length; i++) {
+    wordLengthTotal += wordsArr[i].length;
+    avgLength = wordLengthTotal / wordsArr.length;
+  }
+  return avgLength;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const arr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg(arr) {
+  let numbers = 0;
+  var sum = 0;
+    if (arr.length < 1) return null;
+    for (let i=0;i<arr.length;i++){
+      if (typeof(arr[i]) === "number"){
+        sum = sum + arr[i];
+        numbers++;   
+    }
+    if (typeof (arr[i]) === "string") {
+      sum = sum + arr[i].length;
+      numbers++;
+    }
+    if (typeof (arr[i]) === "boolean") {
+      if (arr[i]) sum = sum + 1;
+      numbers++;
+    }
+    }
+  return Number((sum/numbers).toFixed(2));
+} 
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +130,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  let uniqueChars = [];
+wordsUnique.forEach((element) => {
+    if (!uniqueChars.includes(element)) {
+        uniqueChars.push(element);
+    }
+});
+return uniqueChars;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+  function doesWordExist(wordsArr,wordSearch) {
+    if (wordsArr.length === 0) {
+      return null;
+    }
+    let i =0;
+    for (i = 0; i < wordsArr.length; i++) {
+      if (wordSearch === wordsArr[i]) {
+        return true;
+      }
+    }
+      if (i === wordsArr.length) {
+        return false;
+      }
+  };
 
 
 // Iteration #7: Count repetition
@@ -78,7 +177,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, wordToFind) {
+  let count = 0;
+  for (let i = 0; i < words.length; i++) {
+      if (words[i] === wordToFind) count++; {
+    }
+  }
+  return count;
+}
+
 
 
 
