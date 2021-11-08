@@ -1,14 +1,14 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers() {
 
-  if  (num1>num2)
+  if  (num1>num2) {
 
   return num1;
-  
-  else 
+}
+  else {
   
   return num2;
-
+}
 
 }
 
@@ -25,7 +25,7 @@ function findLongestWord(words) {
     return null
   } else {
   
-   for (word of words ){
+   for (let word of words ){
   
    if (word.length > longestWord.length) {
   
@@ -44,9 +44,22 @@ function findLongestWord(words) {
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+
+let total = 0;
+
+for (let number of numbers) {
+
+total += number
+
+}
+
+return total
+
+}
 
 
 
@@ -57,15 +70,50 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(numbersAvg) {
+
+let total = 0;
+
+for (numberAvg of numbersAvg){
+
+total += numberAvg/numbersAvg.length
+
+}
+
+
+return total
+
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  let wordLengths = []
+
+  if (wordsArr.length === 0) {
+    return null
+  }
+
+ let initWord = 0;
+
+
+wordsArr.forEach(function(word){
+
+     initWord += (word.length)
+
+  }) 
+return initWord/wordsArr.length
+  
+}
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -85,7 +133,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+
+  if (wordsUnique.length===0){
+return null
+  }
+  else {
+let unique = [];
+for (let i = 0; i < wordsUnique.length; i++){
+if (unique.includes(wordsUnique[i])){
+continue
+}
+else {
+ unique.push(wordsUnique[i])
+}
+}
+return unique
+} 
+}
+
+
+
+
+
+
+//Other way to do this code
+
+//function uniquifyArray(wordsUnique) {
+  //let unique = [];
+  //wordsUnique.forEach(function(i) {
+   
+    //if(!unique[i]) {
+
+
+      //unique[i] = true;
+   // }
+ // });
+ // return Object.keys(unique);
+//}
 
 
 
