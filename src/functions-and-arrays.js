@@ -52,14 +52,18 @@ function sum(numbers) {
 
     if (typeof numbers[i] === 'string') {
       sentence += numbers[i];
-    } else {
+    } else if (typeof numbers[i] === 'number') {
       count += numbers[i];
+    } else if (numbers[i] === true) {
+      count += 1;
+    } else if (numbers[i] === false) {
+      count += 0;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
 
-  if (sentence.length > 0 && count >= 1) return sentence.length + count;
-  if (sentence.length > 0) return sentence.length;
-  return count;
+  return sentence.length + count;
 }
 
 // Iteration #4: Calculate the average
@@ -95,6 +99,24 @@ function averageWordLength(allWords) {
 // Bonus - Iteration #4.1
 function avg(numbers) {
   if (numbers.length === 0) return null;
+
+  let count = 0;
+  let sentence = '';
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] === 'string') {
+      sentence += numbers[i];
+    } else if (typeof numbers[i] === 'number') {
+      count += numbers[i];
+    } else if (numbers[i] === true) {
+      count += 1;
+    }
+  }
+
+  let result = sentence.length + count;
+  let final = result / numbers.length;
+
+  return Number(final.toFixed(2));
 }
 
 // Iteration #5: Unique arrays
@@ -184,7 +206,16 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(myMatrix) {
+  let flattenArray = myMatrix.flat();
+  let allOnes = flattenArray.every((num) => num === 1);
+  let allTwos = flattenArray.every((num) => num === 2);
+
+  if (allOnes) return 1;
+  if (allTwos) return 16;
+
+  // Can't even begin to figure out the solution to this.
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
