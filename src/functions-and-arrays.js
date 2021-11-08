@@ -49,21 +49,26 @@ function sumNumbers(arr) {
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
+  for(let i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'array' || typeof arr[i] === 'object'){
+      throw new Error (`Unsupported data type sir or ma'am`)
+    }
+  }
+
   if(arr.length === 0){
     return 0;
-  };
+  }
 
   let result = 0;
 
   for(let i = 0; i < arr.length; i++){
     if (arr[i] === true){
-      arr[i] = 4;
+      arr[i] = 1;
     } else if (arr[i] === false){
-      arr[i] = 5;
+      arr[i] = 0;
     } else if (typeof arr[i] === 'string'){
       arr[i] = arr[i].length;
     }
-    console.log(arr[i]);
   }
 
   for(let i = 0; i < arr.length; i++){
@@ -79,13 +84,23 @@ function sum(arr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if(arr.length === 0){
+    return null;
+  }
+  return sumNumbers(arr) / arr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if(arr.length === 0){
+    return null;
+  }
+  return sum(arr) / arr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
