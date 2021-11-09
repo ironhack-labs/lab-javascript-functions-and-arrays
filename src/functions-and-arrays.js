@@ -1,24 +1,67 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a >= b) {
+    return a
+  }
+  else {
+    return b
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+
+  if (!arr.length) {
+    return null
+  }
+
+  let str = arr[0];
+  arr.forEach(word => {
+    if (word.length > str.length) {
+      str = word
+    }
+  })
+  return str
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+
+  let res = 0;
+  arr.forEach(num => {
+    res += num
+  })
+  return res
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+  let res = 0
+  arr.forEach(elem => {
+    if (typeof elem == 'string') {
+      res += elem.length
+    }
+    else if (typeof elem == 'number' || typeof elem == 'boolean') {
+      res += elem
+    }
+    else {
+      throw ("Unsupported data type sir or ma'am")
+    }
+  })
+  return res
+}
 
 
 
@@ -26,16 +69,50 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+
+  if (!arr.length) {
+    return null
+  }
+  let sum = sumNumbers(arr)
+
+  return sum / arr.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (!arr.length) {
+    return null
+  }
+
+  let acc = 0;
+  arr.forEach(val => {
+    acc += val.length
+  })
+  return acc / arr.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(arr) {
+  if (!arr.length) {
+    return null
+  }
+
+  let accum = null;
+  arr.forEach(elem => {
+    if (typeof elem == 'string') {
+      accum += elem.length
+    }
+    else {
+      accum += elem
+    }
+  })
+  return +(accum / arr.length).toFixed(2)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +129,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!arr.length) {
+    return null
+  }
+
+  let acc = []
+  arr.forEach(elem => {
+    if (!acc.includes(elem)) {
+      acc.push(elem)
+    }
+  })
+  return acc
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (!arr.length) {
+    return null
+  }
+  if (arr.includes(word)) {
+    return true
+  }
+  return false
+}
 
 
 
@@ -78,7 +175,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let counter = 0;
+
+  arr.forEach((elem, index) => {
+    if (elem === word) {
+      counter += 1
+    }
+  })
+  return counter
+}
 
 
 
@@ -106,7 +212,72 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+// traspose of a matrix.
+function transpose(matrix) {
+  return matrix[0].map((col, c) =>
+    matrix.map((row, r) =>
+      matrix[r][c]
+    )
+  );
+}
+
+function greatestProduct(matrix) {
+
+  let counter = 0;
+
+  matrix = matrix.concat(transpose(matrix)); // We need the traspose to verify vertical subarrays of length === prod
+
+  matrix.forEach(arr => {
+    arr.forEach((val, index) => {
+      let subArr4 = arr.slice(index, index + 4)
+
+      // We only check complete prod-length sub arrays ()
+      if (subArr4.length === 4) {
+        let prodAcc = subArr4.reduce((a, b) => a * b)
+        if (prodAcc > counter) {
+          counter = prodAcc
+        }
+      }
+    })
+  })
+  return counter
+}
+
+
+
+// Bonus - Iteration #8.1: Product of diagonals
+
+function greatestDiagProduct(matrix) {
+
+  let counter = {
+    array: null,
+    greatestProd: 0
+  }
+
+  /* We iterate from left to right, keeping track of indices to build sub arrays of coords
+   [ (0, 0), (1, 1), (2, 2), (3, 3) ]   ,   [ (0, 1), (1, 2), (2, 3), (3, 4) ].....etc.
+    It is important to note that we can only iterate to length - n (where n is the number of integers to calculate the product with)
+    in order to build complete n-length diagonal sub arrays.
+  */
+  for (let i = 0; i <= matrix.length - 4; i++) {
+    for (let j = 0; j <= matrix[i].length - 4; j++) {
+      subArr = []
+      for (let k = 0; k <= 3; k++) {
+        subArr.push(matrix[i + k][j + k])
+      }
+      let prodAcc = subArr.reduce((a, b) => a * b)
+      if (prodAcc > counter.greatestProd) {
+        counter.array = subArr
+        counter.greatestProd = prodAcc
+      }
+
+      /*
+      It is neccesary to do the same loop again with the reversed matrix to check both directions of the diagonal
+      */
+    }
+  }
+  return `Greatest diagonal product is ${counter.greatestProd}, from sub array ${counter.array}`
+}
 
 
 
