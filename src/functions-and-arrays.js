@@ -57,9 +57,7 @@ function sum(mixedArr) {
   let numArray = []
   mixedArr.forEach(function(element){
 
-    if ( typeof element == 'object') {
-      return "Unsupported data type sir or ma'am"
-    }
+    if ( typeof element == 'object') return "Unsupported data type sir or ma'am"
    
     if ( typeof element == 'boolean' && element == true) {
       element = 1
