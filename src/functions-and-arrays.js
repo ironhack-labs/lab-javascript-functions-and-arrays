@@ -172,10 +172,34 @@ function uniquifyArray(wordsUnique) {
 
 // Iteration #6: Find elements Michael
 
+// should return null if receives an empty array when called - Passing
+// should return true if the word we are looking for is the only one in the array - Passing
+// should return false if the word we are looking for is not in the array - Passing
+// should return true if the word we are looking for is in the array - False
 
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(someArr, word) {
+
+  if(someArr.length === 0) {
+    return null;
+  }
+
+  if(someArr.length === 1 && someArr[0] === word) {
+    return true;
+  } 
+
+  someArr.forEach(function(item){
+    if (item === word) {
+
+      return true;
+    } else {
+
+      return false;
+    }
+  });
+
+}
 
 
 
