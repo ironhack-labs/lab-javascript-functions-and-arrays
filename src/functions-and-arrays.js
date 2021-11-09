@@ -188,7 +188,21 @@ function doesWordExist(someArr, word) {
   if(someArr.length === 1 && someArr[0] === word) {
     return true;
   } 
+  
+  if (someArr.length === 0) {
+    return null;
+  } else if (someArr.length === 1 && someArr.includes(word)) {
+    return true;
+  } else if (someArr.length >= 1 && someArr.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
 
+
+
+  
+  /*
   someArr.forEach(function(item){
     if (item === word) {
 
@@ -198,7 +212,8 @@ function doesWordExist(someArr, word) {
       return false;
     }
   });
-
+  */
+ 
 }
 
 
