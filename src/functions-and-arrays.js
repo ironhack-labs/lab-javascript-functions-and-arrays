@@ -143,7 +143,8 @@ function doesWordExist(someArr, word) {
     return true;
   } else if (someArr.length >= 1 && someArr.includes(word)) {
     return true;
-  } return false;
+  } else {
+    return false;
 }
 
 
