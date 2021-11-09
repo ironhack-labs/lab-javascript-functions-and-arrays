@@ -178,7 +178,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let timesAppear = 0;
+
+  if(arr.length === 0){
+    return timesAppear;
+  }
+
+  for(let i = 0; i < arr.length; i++){
+    if(word === arr[i]){
+      timesAppear++;
+    }
+  }
+  return timesAppear;
+}
 
 
 
@@ -206,7 +219,37 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let numberOfColumns = matrix.length;
+  let numberOfRows = matrix[0].length;
+  let maxProduct = 0;
+  let result;
+
+  for(let i = 0; i < numberOfColumns; i++){
+
+    for(let j = 0; j < numberOfRows; j++){
+
+      if((j - 3) >= 0){
+        result = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+
+        if (maxProduct < result){
+          maxProduct = result;
+        }
+      }
+
+      if((i - 3) >= 0){
+        result = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+
+        if (maxProduct < result){
+          maxProduct = result;
+        }
+      }
+
+    }
+
+  }
+  return maxProduct;
+}
 
 
 
