@@ -166,7 +166,7 @@ function howManyTimes(wordsCount) {
 
       if (wordsCount.includes(count[i]) > -1){
         return 1;
-      } else if (wordsCount.includes(count[i]) === 0) {
+      } else if (wordsCount.includes(count[i]) === -1) {
         return 0;
       }
     }
