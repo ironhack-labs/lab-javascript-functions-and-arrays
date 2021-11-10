@@ -1,24 +1,86 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let result = words[0];
+  if (words.length < 1) {
+    return null;
+  } else if (words.length === 1) {
+      return words[0];
+  } else {
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > result.length) {
+          result = words[i];          
+      }
+    }
+  }
+  return result;
+}
 
+findLongestWord(words)
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+  let result = 0;
 
+  if (numbersArray.length < 1) {
+    result = 0
+  } else {
+      for (let i = 0; i < numbersArray.length; i++) {
+      result += numbersArray[i];
+    }
+  }
+  return result;
+}
 
+sumNumbers(numbers)
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(myArray) {
+  const cleanedArr = [];
+
+  if (myArray.length < 1) {
+    return 0;
+  } else {
+    for (let i = 0; i< myArray.length; i++) {
+      if (typeof myArray[i] === "string") {
+        cleanedArr.push(myArray[i].length);
+      } else if (typeof myArray[i] === "number") {
+        cleanedArr.push(myArray[i]);
+      } else if (myArray[i] === true) {
+        cleanedArr.push(1);
+      } else if (myArray[i] === false) {
+        cleanedArr.push(0);
+      }
+    }
+  }
+
+let result = 0;
+     for (let i = 0; i < cleanedArr.length; i++) {
+        result += cleanedArr[i];       
+      }
+  
+  return result;
+}
+
+sum(mixedArr);
+
+    /*IGR: I used the sumNumbers() function from iteration #3 inside my sum() function to "DRY". 
+    It worked on replit, but it didn't pass the test, so I reused the code instead.*/
 
 
 
@@ -26,16 +88,70 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(averageNumbersArray) {
+  let result = 0;
+
+    if (averageNumbersArray.length < 1) {
+      result = null;
+    } else {
+        for (let i = 0; i < averageNumbersArray.length; i++) {
+        result += averageNumbersArray[i] / averageNumbersArray.length;
+        result = Math.round(result)
+      }
+    }
+return result;
+}
+
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) {
+  let result = 0;
+
+  if (wordsArray.length < 1) {
+    result = null
+  } else {
+      for (let i = 0; i < wordsArray.length; i++) {
+        result += wordsArray[i].length / wordsArray.length
+      }
+  }
+ return result;
+}
+
+averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(myAvgArray) {
+  const cleanedArr = [];
+
+    if (myAvgArray.length < 1) {
+      return null;
+    } else {
+      for (let i = 0; i< myAvgArray.length; i++) {
+        if (typeof myAvgArray[i] === "string") {
+          cleanedArr.push(myAvgArray[i].length);
+        } else if (typeof myAvgArray[i] === "number") {
+          cleanedArr.push(myAvgArray[i]);
+        } else if (myAvgArray[i] === true) {
+          cleanedArr.push(1);
+        } else if (myAvgArray[i] === false) {
+          cleanedArr.push(0);
+        }
+      }
+    }
+
+    let result = 0;
+    let fixedResult = 0;
+        for (let i = 0; i < cleanedArr.length; i++) {
+          result += cleanedArr[i] / cleanedArr.length; 
+        }
+    return +(Math.round(result + "e+2")  + "e-2");
+}
+
+avg(mixedArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +168,42 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(myArray) {
+  const cleanArray = []
+  if (myArray.length < 1) {
+    return null
+  } else {
+      for (let i = 0; i < myArray.length; i++) {
+        if (cleanArray.indexOf(myArray[i]) === -1)
+        cleanArray.push(myArray[i])
+    }
+  } 
+
+return cleanArray
+}
+
+uniquifyArray(wordsUnique)
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(myArray, wordToSearch) {
+  if (myArray.length < 1) {
+    return null;
+  } else {
+    if (myArray.indexOf(wordToSearch) === -1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
+doesWordExist(wordsFind, "disobedience")
+
+    // IGR: I could't think of any solution without using "indexOf" :/
 
 
 
@@ -78,7 +222,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(myArray, word) {
+  let occurences = 0;
+
+  if (myArray < 1) {
+    return 0;
+  } else {
+      for (let i = 0; i < myArray.length; i++) {
+        if (word === myArray[i]) {
+          occurences++
+        }
+    }   
+  }
+return occurences;
+}
+
+howManyTimes(wordsCount, "matter")
 
 
 
