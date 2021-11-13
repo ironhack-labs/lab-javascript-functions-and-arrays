@@ -168,12 +168,24 @@ function uniquifyArray(arr) {
   return unifiquifiedArr;
 }
 
-console.log(uniquifyArray(wordsUnique));
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, hasWord) {
+  let foundWord = false;
+
+  if (arr.length > 0) {
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i] === hasWord) {
+        foundWord = true;
+        break;
+      }
+    }
+    return foundWord;
+  } else {
+    return null;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -190,7 +202,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, hasWord) {
+  let occurrences = 0;
+
+  if (arr.length > 0) {
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i] === hasWord) {
+        occurrences += 1;
+      }
+    }
+    return occurrences;
+  } else {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -216,7 +241,44 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let rows = arr.length;
+  let cols = arr[0].length;
+  let horizontal = 1;
+  let greatestHorizontal = 0;
+  let vertical = 1;
+  let greatestVertical = 0;
+
+  for (i = 0; i < rows; i++) {
+    let line = arr[i];
+
+    for (h = 0; h < cols - 3; h++) {
+      horizontal = line[i] * line[i + 1] * line[i + 2] * line[i + 3];
+    }
+
+    if (horizontal > greatestHorizontal) {
+      greatestHorizontal = horizontal;
+    }
+  }
+
+  for (v = 0; v < cols; v++) {
+    for (j = 0; j < rows - 3; j++) {
+      vertical = arr[j][v] * arr[j + 1][v] * arr[j + 2][v] * arr[j + 3][v];
+    }
+
+    if (vertical > greatestVertical) {
+      greatestVertical = vertical;
+    }
+  }
+
+  if (greatestHorizontal > greatestVertical) {
+    return greatestHorizontal;
+  } else {
+    return greatestVertical;
+  }
+}
+
+console.log(greatestProduct(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
