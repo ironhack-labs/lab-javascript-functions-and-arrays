@@ -14,8 +14,8 @@ function findLongestWord(stringsArrays) {
   }
   let longestWord = '';
   for (let i = 0; i < stringsArrays.length; i += 1){
-    if (stringsArray[i].length > longestWord.length){
-      longestWord = stringsArray[i];
+    if (stringsArrays[i].length > longestWord.length){
+      longestWord = stringsArrays[i];
     }
   }
   return longestWord;
@@ -65,7 +65,7 @@ function averageWordLength(stringsArray) {
   }
   console.log(numbersArray)
  }
-averageWordLength(wordLength)
+averageWordLength(worddlength)
 
 // Bonus - Iteration #4.1
 function avg() {}
