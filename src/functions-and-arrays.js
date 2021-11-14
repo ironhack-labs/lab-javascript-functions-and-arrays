@@ -66,19 +66,45 @@ function sum(arr) {
     }
     }
   return totalSum
-}
+} 
+
+// CONDIÇÃO DE OBJETO E ARRAY ESTÂO FEITAS, RESPOSTA ESTÀ SENDO ENVIADA NO CONSOLE, MAS NO TESTE NÃO ESTÀ PASSANDO.
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+  
+  if (arrayOfNumbers.length === 0) {
+    return null
+  } else {
+    let sum = sumNumbers(arrayOfNumbers)
 
+    let average = sum / (arrayOfNumbers.length)
+  
+    return average
+  } 
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfWords) {
+
+  if (arrayOfWords.length === 0) {
+    return null
+  } else {
+
+  let sumOfLength = 0
+
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    sumOfLength += arrayOfWords[i].length
+  }
+  let average = sumOfLength / (arrayOfWords.length)
+  return average
+  } 
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
