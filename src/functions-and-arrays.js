@@ -56,9 +56,11 @@ function sumNumbers(arr) {
 function sum(arr) {
   let sumResult = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-      
 
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "object")
+       throw `Unsupported data type sir or ma'am`;
+      
         if (typeof arr[i] === 'string') {
           sumResult += arr[i].length;
       } else if (typeof arr[i] === 'number') {
@@ -169,10 +171,6 @@ function uniquifyArray(arr) {
   return uniqueArr
 
 }
-
-//O que eu tentei fazer foi confirmar se a iteration do i era a mesma que a primeira aparição do elemento. Se fosse, 
-
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
