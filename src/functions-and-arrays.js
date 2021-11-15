@@ -59,6 +59,7 @@ function sum(arr) {
     return sum;    
   }
 
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -131,7 +132,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!arr.length){
+    return null;
+  }
+  const uniqueArray = [];
+  for (let i = 0; i < arr.length; i += 1){
+    if (uniqueArray.indexOf(arr[i]) === -1){
+      uniqueArray.push(arr[i])
+    }
+  }
+  return uniqueArray;
+}
 
 
 
