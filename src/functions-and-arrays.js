@@ -17,7 +17,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord (arr) {
 
-let maiorPalavra = " ";
+  let maiorPalavra = "";
 
   if (arr.length === 0){
     return null;
@@ -28,20 +28,33 @@ let maiorPalavra = " ";
         return arr[i];
         }
       }
-  } 
+
   
-  /*for (let k = 0; k < arr.length; k++){
-    if (arr[k] === arr[k].length){
-      return arr[k];
-    }
+  
+
+
+
+  } 
+    findLongestWord(words);
+  
+
+
+
+/*
 
   for (let palavra of maiorPalavra){      //rest parametros 
     if (palavra.length > maiorPalavra.length) maiorPalavra = palavra;
   }
-    return maiorPalavra; */
+    return maiorPalavra; 
+    
+   let longestWord = "";
+  for (let i = 0; i < arr.length; i += 1){
+    if (arr[i].length > longestWord.length){
+      longestWord = arr[i];
+    }*/
 
 
-findLongestWord(words);
+
 
 
 
