@@ -33,30 +33,23 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(arr) {
   if (!arr.length){
     return 0;
-  } else if (arr.length === 1){
-    return arr[0]
-  }else{
+  }
     let sum = 0;
     for (let i = 0; i < arr.length; i += 1){
       sum += arr[i]
     }
     return sum;    
   }
-}
-
-
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
   if (!arr.length){
     return 0;
-  } else if (arr.length === 1){
-    return arr[0]
-  }else{
+  }
     let sum = 0;
     for (let i = 0; i < arr.length; i += 1){
       if(typeof(arr[i]) === "object"){
-      return "Unsupported data type sir or ma'am"
+      throw "Unsupported data type sir or ma'am"
       }else if (typeof(arr[i]) == "string"){
         sum += arr[i].length;
       }else {
@@ -65,7 +58,6 @@ function sum(arr) {
     }
     return sum;    
   }
-}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -86,15 +78,43 @@ function averageNumbers(arr) {
   } 
 }
 
-
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) { 
+  if (!arr.length){
+    return null;
+  }
+  let wordLength = 0;
+  for (let i = 0; i < arr.length; i += 1){
+    wordLength += arr[i].length;
+  }
+  return (wordLength /  arr.length);
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr.length){
+    return null;
+  }
+  let wordLength = 0;
+  for (let i = 0; i < arr.length; i += 1){
+    if (typeof (arr[i]) === "string"){
+      wordLength += arr[i].length;
+    }
+    if (typeof (arr[i]) === "number"){
+      wordLength += arr[i];
+    } 
+    if (arr[i] === true) {
+      wordLength += 1;
+    }
+    if (arr[i] === false) {
+      wordLength += 0;
+    }
+  }
+  return parseFloat((wordLength / arr.length).toFixed(2));
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
