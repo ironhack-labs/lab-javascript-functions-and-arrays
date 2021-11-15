@@ -75,9 +75,6 @@ function sum(arr) {
   }
 
 
-//EU AINDA NÃO DESCOBRI COMO DAR O ERRO QUE O CÓDIGO QUER O ERRO DE ARRAY/OBJECT
-
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
