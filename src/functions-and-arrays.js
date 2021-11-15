@@ -1,19 +1,62 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2){
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  } else if (num1 === num2){
+    return "Os dois números são iguais";
+  } 
+}
+maxOfTwoNumbers (3,6);
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord (arr) {
+
+let maiorPalavra = " ";
+
+  if (arr.length === 0){
+    return null;
+  } 
+  
+  for (let i=0; i < arr.length; i++){
+        if(arr.length === 1){
+        return arr[i];
+        }
+      }
+  } 
+  
+  /*for (let k = 0; k < arr.length; k++){
+    if (arr[k] === arr[k].length){
+      return arr[k];
+    }
+
+  for (let palavra of maiorPalavra){      //rest parametros 
+    if (palavra.length > maiorPalavra.length) maiorPalavra = palavra;
+  }
+    return maiorPalavra; */
+
+
+findLongestWord(words);
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+
+  for (let i=0; i < numbers.length; i++){
+    sum += numbers[i];
+  }
+  return sum;
+ }
+sumNumbers(numbers); 
 
 
 
@@ -24,11 +67,22 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let media = 0;
+  let soma = 0;
 
-
+  for (let i =0; i < arr.length; i+=1){
+    soma += arr[i]; 
+    media = (soma / arr.length);
+    
+  }
+  return media;
+}
+averageNumbers(numbersAvg)
+/*
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -113,7 +167,7 @@ function greatestProduct() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
+/*if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
     findLongestWord,
@@ -128,3 +182,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+*/
