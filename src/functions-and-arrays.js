@@ -1,24 +1,48 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(numb1,numb2) {
+  if (numb1>numb2){ 
+  return (numb1)
+} 
+  else if (numb1<numb2) {
+  return (numb2) 
+}
+else {
+  return (numb1||numb2)
+}
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(arr) {
+  let words = "";
+    if (arr.length === 0){
+      return null
+    } 
+    for (let i = 0; i < words.length; i++){
+      if (words[i].length > 0){
+      }
+    }
+    return words;
+  }
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(number) {
+  if (number.length === 0){
+    return 0
+  } 
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  if (array.length === 0){
+    return 0 
+  }
+}
 
 
 
@@ -26,13 +50,21 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(avg) {
+  if (avg.length === 0) {
+    return null
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if (wordsArr.length === 0){
+    return null
+  }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +84,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqueArr) {
+  if (uniqueArr.length === 0)
+  {
+  return null
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wds) {
+  if (wds.length === 0){
+    return null
+  }
+}
 
 
 
@@ -78,7 +119,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(count) {
+  if (count.length === 0){
+    return 0
+  }  
+}
 
 
 
