@@ -1,19 +1,36 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(words) {
+  var longest = 0;
+ var word = null;
+ words.forEach(function(str) {
+     if (longest < str.length) {
+         longest = str.length;
+         word = str;
+     }
+ });
+ return word;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sumOf = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sumOf += arr[i];
+  }
+  return sumOf;
+}
 
 
 
@@ -26,13 +43,29 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sumNumb = 0;
+  for (let i=0; i<numbersAvg.length; i++){
+    sumNumb += numbersAvg[i];
+  }
+  return sumNumb/numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  let arr = [];
+  wordsArr.forEach(function (valorAtual){
+    arr.push (valorAtual.length);
+   });
+    let sumNumber = 0;
+    for (let i=0; i<arr.length; i++){
+      sumNumber += arr[i];
+    }
+    return sumNumber/wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +85,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsU) {
+  var newArr = wordsU.filter(function(item, index) {
+    if (wordsU.indexOf(item) == index)
+      return item;
+    }                              
+    )
+    return newArr;  
+}
 
 
 
@@ -78,7 +118,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimest(wordsToFind, word) {
+  wordsToFind.forEach(function (i){
+    if (i === word){
+      return true;
+    } else{
+      return false;
+    }
+  })}
 
 
 
