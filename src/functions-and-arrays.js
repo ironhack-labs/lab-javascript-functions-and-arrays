@@ -46,24 +46,25 @@ function sumNumbers(arrayOfNumbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum(arr) {
+function sum(arrItThree) {
 
-  let totalSum = 0
+  let totalSumItThree = 0
 
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arrItThree.length; i++) {
     
-    if (typeof arr[i] === "string") {
-      totalSum += arr[i].length
-    } else if (typeof arr[i] === "number") {
-      totalSum += arr[i]
-    } else if (arr[i] === true) {
-      totalSum += 1
-    } else if ((typeof arr[i] === "object") || (typeof arr[i] === "array")){
-      const message = "Unsupported data type sir or ma'am"
-      return message
+    if (typeof arrItThree[i] === "string") {
+      totalSumItThree += arrItThree[i].length
+    } else if (typeof arrItThree[i] === "number") {
+      totalSumItThree += arrItThree[i]
+    } else if (arrItThree[i] === true) {
+      totalSumItThree += 1
+    } else if ((typeof arrItThree[i] === "object")||(typeof arrItThree[i] === "array")){
+        return Error("Unsupported data type sir or ma'am")
     }
+
     }
-  return totalSum
+    
+  return totalSumItThree
 } 
 
 // CONDIÇÃO DE OBJETO E ARRAY ESTÂO FEITAS, RESPOSTA ESTÀ SENDO ENVIADA NO CONSOLE, MAS NO TESTE NÃO ESTÀ PASSANDO.
@@ -140,16 +141,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arrayofWordsIterationFive) {
+  arrayofWordsIterationFive.forEach(word => {
+    console.log(arrayofWordsIterationFive.indexOf(word))        
+  });
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist() {}
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -166,12 +167,27 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayItSeven,wordToBeChecked) {
 
+  if (arrayItSeven.length === 0) {
+    return 0
+  } else {
+      let numberOfTimes = 0
 
+      arrayItSeven.forEach(word => {
+        if (word === wordToBeChecked) {
+          numberOfTimes += 1
+      }})
+    
+    return numberOfTimes
+    } 
+
+}
+
+// CONDIÇÕES ESTÃO SENDO CUMPRIDAS, RESPOSTA ESTÀ SENDO ENVIADA NO CONSOLE, MAS NO TESTE NÃO ESTÀ PASSANDO.
 
 // Iteration #8: Bonus
-const matrix = [
+const matrixExample = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -194,13 +210,55 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(productMatrix) {
 
+  // verificação horizontal 
+  let maxValueLine = 0
 
+  for (let lineNumber = 0; lineNumber < productMatrix.length; lineNumber++) {
+    for (let indexOfItem = 0; indexOfItem < productMatrix[lineNumber].length;indexOfItem++) {
+      let productLine = productMatrix[lineNumber][indexOfItem]*productMatrix[lineNumber][indexOfItem+1]*productMatrix[lineNumber][indexOfItem+2]*productMatrix[lineNumber][indexOfItem+3]
+      console.log(productMatrix[lineNumber][indexOfItem+3])
+      if (productLine > maxValueLine) {
+        maxValueLine = productLine
+      }
+    }
+  }
+
+  // verificação vertical
+  let maxValueColumn = 0
+
+  for (let columnIndex = 0; columnIndex < productMatrix.length; columnIndex++) {
+    for (let arrayNumber = 0; arrayNumber <= productMatrix.length-4;arrayNumber++) {
+      let productColumn = productMatrix[arrayNumber][columnIndex]*productMatrix[arrayNumber+1][columnIndex]*productMatrix[arrayNumber+2][columnIndex]*productMatrix[arrayNumber+3][columnIndex]
+  
+      if (productColumn>maxValueColumn){
+        maxValueColumn = productColumn
+      }
+    }
+
+  }
+
+  if (maxValueLine > maxValueColumn) {
+    return maxValueLine
+  } else {
+    return maxValueColumn
+  }
+
+}
+
+const matrix = [
+                [2, 2, 2, 3],
+                [2, 2, 2, 1],
+                [2, 10, 2, 1]
+              ]
+
+console.log(greatestProduct(matrix))
 
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
+
 if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
