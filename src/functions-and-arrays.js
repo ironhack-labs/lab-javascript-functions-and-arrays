@@ -1,24 +1,61 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+  if (a > b) return a
+  if (b > a) return b 
+  if (a === b) return a || b
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  var longestWord = "";
+    for (let i = 0; i < words.length; i++) {
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+ }
 
+// Worked in codepen with console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+  
+  function sumNumbers() {
+    let total = 0
+    for ( let i = 0; i < numbers.length; i++) {
+      total += numbers[i]; 
+    }
+    return total;
+  } 
+  let total = 0
+  let number = ''
+  if (numbers.length === 0) {
+    return 0
+  }
+  if (numbers.length === 1) {
+    return numbers
+  }
+   if (!numbers.length) {
+     return 0
+  }
+
+  // Worked in codepen with console.log(sumNumbers(numbers));
 
 
-
-// Iteration #3.1 Bonus:
-function sum() {}
+/* // Iteration #3.1 Bonus:
+function sum() {} */
 
 
 
@@ -26,13 +63,43 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+  function averageNumbers() {
+    let total = 0 
+    for (let i = 0; i < numbersAvg.length; i++ ){
+         total += numbersAvg[i]; 
+    }
+      return total / numbersAvg.length;
+      // when console.log((averageNumbers(numbersAvg));) in codepen, I'm getting the average 6!!!
+    }
+    if (!numbersAvg.length) {
+    return null;}
+    else if (numbersAvg.length === 1) {
+    return numbersAvg
+    } else if (numbersAvg > 0) {
+      return total / numbersAvg.length;
+    }
+    
+  
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength() { 
+  let total = 0.0; 
+  for (let i = 0; i < wordsArr.length; i++) {
+    total += wordsArr[i].length
+    return total / wordsArr.length;
+  }  if (!wordsArr) { 
+    return null;}
+    if (wordsArr.length = 1) {
+      return total
+    }
+
+  }
+
+  // Did not manage to fint the correct result. 
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +119,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+ 
+}
+  
+// Tried to use ForEach on this one, but did not make it work, going back to review leasson.
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind) {
+  if (!wordsFind.length) return null
+  for (let i = 0; i > wordsFind.length; i++ ) {
+    if (wordsFind[i] === "machine" ) {
+      return true;
+    } else {
+      return false
+    }
+  }
+}
 
 
 
@@ -78,7 +159,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+let wordFound = ["machine"]
+
+function howManyTimes(wordsCount, wordsFound) {
+  
+  let count = 0 
+  wordsCount.forEach((v) => (v === "machine" && count ++ )); 
+   return count; 
+}
+
+// it worked in codepen console.log(howManyTimes(wordsCount, wordFound))
 
 
 
