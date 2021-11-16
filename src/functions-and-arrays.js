@@ -12,7 +12,6 @@ function maxOfTwoNumbers(firstNumber, secondNumber) {
 }
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arrayOfWords) {
 
@@ -33,7 +32,6 @@ function findLongestWord(arrayOfWords) {
 }
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrayOfNumbers) {
 
@@ -72,7 +70,6 @@ function sum(arr) {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayOfNumbers) {
   
@@ -81,14 +78,13 @@ function averageNumbers(arrayOfNumbers) {
   } else {
     let sum = sumNumbers(arrayOfNumbers)
 
-    let average = sum / (arrayOfNumbers.length)
+    let avgIterationFourOne = sum / (arrayOfNumbers.length)
   
-    return average
+    return avgIterationFourOne
   } 
 }
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arrayOfWords) {
 
@@ -101,13 +97,33 @@ function averageWordLength(arrayOfWords) {
   for (let i = 0; i < arrayOfWords.length; i++) {
     sumOfLength += arrayOfWords[i].length
   }
-  let average = sumOfLength / (arrayOfWords.length)
-  return average
+  let avgIterationFourTwo = sumOfLength / (arrayOfWords.length)
+  return avgIterationFourTwo
   } 
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrAvg) {
+  
+  if (arrAvg.length === 0) {
+    return null
+  } else {
+    let totalAvgSum = 0
+    for (let i = 0; i < arrAvg.length; i++) {
+      if (typeof arrAvg[i] === "string") {
+        totalAvgSum += arrAvg[i].length
+      } else if (typeof arrAvg[i] === "number") {
+        totalAvgSum += arrAvg[i]
+      } else if (arrAvg[i] === true) {
+        totalAvgSum += 1
+      }
+    }
+    
+    let avgIterationFourThree = totalAvgSum / arrAvg.length
+    
+    return parseFloat(avgIterationFourThree.toFixed(2))
+  }  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
