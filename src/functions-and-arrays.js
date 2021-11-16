@@ -1,41 +1,109 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+  return num1>=num2?num1:num2;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let aux = "";
+  let count = 0;
+  arr.forEach(element => {
+    if(element.length > aux.length){
+      aux = element;
+    } 
+    count++;
+  });
+  return !count?null:aux;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(vector) {
+  let sum = 0;
+  for(let i =0;i<vector.length;i++){
+    sum += vector[i];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(arr){
+  let total = 0;
+  arr.forEach(element => {
+      switch(typeof element){
+        case("string"):
+          total+= element.length;
+          break;
+        case("number"):
+          total += element;
+          break;
+        case("boolean"):
+          element?total+=1:total+=0;
+          break;
+        default:
+          throw "Unsupported data type sir or ma'am";
+      }
+  });
+  return arr.length = 0?0:total;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let sum = 0;
+  let divisor=0;
+  for(;divisor<arr.length;divisor++){
+    sum+=arr[divisor];
+  }
+  return arr.length?sum/divisor:null;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) { 
+  let divisor=0;
+  let sum=0;
+  for(;divisor<arr.length;divisor++){
+    sum += arr[divisor].length;
+  }
+  return arr.length?sum/divisor:null;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let total = 0;
+  let divisor = 0;
+  arr.forEach(element => {
+      switch(typeof element){
+        case("string"):
+          total+= element.length;
+          break;
+        case("number"):
+          total += element;
+          break;
+        case("boolean"):
+          element?total+=1:total+=0;
+          break;
+        default:
+          throw "Unsupported data type sir or ma'am";
+      }
+      divisor++;
+  });
+  return arr.length?parseFloat((total/divisor).toFixed(2)):null;  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +120,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr){
+  let idx=0;
+  for(let i=0;i<arr.length;i++){
+      idx = 0;
+      while(idx != -1){
+          idx = arr.indexOf(`${arr[i]}`,i+1);
+          if(idx != -1){
+              arr.splice(idx,1);
+          }
+      }
+  }
+  return arr.length?arr:null;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr,word) {
+  for(let i=0;i<arr.length;i++){
+    if(arr[i] === word){
+      return true;
+    }
+  }
+  return arr.length?false:null;
+}
 
 
 
@@ -78,7 +165,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  for(let i = 0;i<arr.length;i++){
+    arr[i] === word?count+=1:count+=0;
+  }
+  return count;
+}
 
 
 
@@ -106,8 +199,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
+function greatestProduct(arr) {
+  let aux = 0;
+  let aux2 = 0;
+  for (let i = 0; i<arr.length;i++){
+    for(let j = 0; j<arr[i].length;j++){
+      if (j<=16){
+          aux2 = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3];
+        if(aux2 > aux){
+          aux = aux2;
+        }
+      }
+      if(i<=16){
+          aux2 = arr[i][j]*arr[i+1][j]*arr[i+2][j]*arr[i+3][j];
+        if(aux2 > aux){
+          aux = aux2;         }
+      }
+    }
+  }
+  return aux;
+}
 
 
 
