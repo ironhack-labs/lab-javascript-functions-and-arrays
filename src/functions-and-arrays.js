@@ -24,10 +24,12 @@ function findLongestWord(arrayOfWords) {
         longestWord = arrayOfWords[i]
       }
     }
+    
     return longestWord
-  } else {
-    return null
+  
   }
+  
+  return null
   
 }
 
@@ -53,13 +55,13 @@ function sum(arrItThree) {
   for (let i = 0; i < arrItThree.length; i++) {
     
     if (typeof arrItThree[i] === "string") {
-      totalSumItThree += arrItThree[i].length
+        totalSumItThree += arrItThree[i].length
     } else if (typeof arrItThree[i] === "number") {
-      totalSumItThree += arrItThree[i]
+        totalSumItThree += arrItThree[i]
     } else if (arrItThree[i] === true) {
-      totalSumItThree += 1
+        totalSumItThree += 1
     } else if ((typeof arrItThree[i] === "object")||(typeof arrItThree[i] === "array")){
-        return Error("Unsupported data type sir or ma'am")
+        throw new Error("Unsupported data type sir or ma'am")
     }
 
     }
@@ -76,13 +78,14 @@ function averageNumbers(arrayOfNumbers) {
   
   if (arrayOfNumbers.length === 0) {
     return null
-  } else {
-    let sum = sumNumbers(arrayOfNumbers)
+  }
 
-    let avgIterationFourOne = sum / (arrayOfNumbers.length)
-  
-    return avgIterationFourOne
-  } 
+  let sum = sumNumbers(arrayOfNumbers)
+
+  let avgIterationFourOne = sum / (arrayOfNumbers.length)
+
+  return avgIterationFourOne
+   
 }
 
 // Level 2: Array of strings
@@ -91,40 +94,42 @@ function averageWordLength(arrayOfWords) {
 
   if (arrayOfWords.length === 0) {
     return null
-  } else {
+  }
 
   let sumOfLength = 0
 
   for (let i = 0; i < arrayOfWords.length; i++) {
     sumOfLength += arrayOfWords[i].length
   }
+  
   let avgIterationFourTwo = sumOfLength / (arrayOfWords.length)
+  
   return avgIterationFourTwo
-  } 
-}
+  }
 
 // Bonus - Iteration #4.1
 function avg(arrAvg) {
   
   if (arrAvg.length === 0) {
     return null
-  } else {
-    let totalAvgSum = 0
-    for (let i = 0; i < arrAvg.length; i++) {
-      if (typeof arrAvg[i] === "string") {
-        totalAvgSum += arrAvg[i].length
-      } else if (typeof arrAvg[i] === "number") {
-        totalAvgSum += arrAvg[i]
-      } else if (arrAvg[i] === true) {
-        totalAvgSum += 1
-      }
+  }
+
+  let totalAvgSum = 0
+
+  for (let i = 0; i < arrAvg.length; i++) {
+    if (typeof arrAvg[i] === "string") {
+      totalAvgSum += arrAvg[i].length
+    } else if (typeof arrAvg[i] === "number") {
+      totalAvgSum += arrAvg[i]
+    } else if (arrAvg[i] === true) {
+      totalAvgSum += 1
     }
+  }
     
-    let avgIterationFourThree = totalAvgSum / arrAvg.length
-    
-    return parseFloat(avgIterationFourThree.toFixed(2))
-  }  
-}
+  let avgIterationFourThree = totalAvgSum / arrAvg.length
+  
+  return parseFloat(avgIterationFourThree.toFixed(2))
+  }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -171,20 +176,19 @@ function howManyTimes(arrayItSeven,wordToBeChecked) {
 
   if (arrayItSeven.length === 0) {
     return 0
-  } else {
-      let numberOfTimes = 0
+  }
 
-      arrayItSeven.forEach(word => {
-        if (word === wordToBeChecked) {
-          numberOfTimes += 1
-      }})
-    
-    return numberOfTimes
-    } 
+  let numberOfTimes = 0
+
+  arrayItSeven.forEach(word => {
+    if (word === wordToBeChecked) {
+      numberOfTimes += 1
+  }})
+
+  return numberOfTimes
 
 }
 
-// CONDIÇÕES ESTÃO SENDO CUMPRIDAS, RESPOSTA ESTÀ SENDO ENVIADA NO CONSOLE, MAS NO TESTE NÃO ESTÀ PASSANDO.
 
 // Iteration #8: Bonus
 const matrixExample = [
