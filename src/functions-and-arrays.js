@@ -12,9 +12,8 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
   //check the arr is empty and return 'null'
-  if (arr.length === 0) {
-    return null
-  }
+  if (!arr.length) 
+    return null;
 
   let longestWord = ''
   //iterate over arr
@@ -26,7 +25,7 @@ function findLongestWord(arr) {
   return longestWord
   }
 
-findLongestWord(words)
+//findLongestWord(words)
 
 
 
@@ -39,13 +38,13 @@ function sumNumbers(numbers) {
   
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
-    console.log(i)
+    //console.log(i)
       sum = sum + numbers[i];
     
   }
   return sum;
 }
-sumNumbers(numbers);
+//sumNumbers(numbers);
 
 
 // Iteration #3.1 Bonus:
@@ -53,17 +52,42 @@ function sum() {}
 
 
 
-// Iteration #4: Calculate the average
+//Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//let sumArr = sumNumbers(numbersAvg);
+//console.log(sumArr);
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  
+  if (!arr.length) {
+    return null;
+  } else if (arr.length === 1) {
+    return arr[0];
+  }
+  return sumArr / arr.length;
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+
+function averageWordLength(arr) { 
+  if (!arr.length) 
+  return null;
+
+let total = 0;
+
+
+for (let i = 0; i < arr.length; i++) {
+total += arr[i].length;
+}
+return wordsAvg = total / arr.length;
+
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -83,14 +107,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+
+  if (!arr.length) {
+    return null;
+
+
+
+}
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr) {
+  if (!arr.length) {
+    return null;
+
+
+
+}
+
+x
+}
 
 
 
