@@ -88,7 +88,22 @@ function averageWordLength(data) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(data) {
+  if (data.length == 0) {
+    return null;
+  }
+  let sum = 0;
+  data.forEach(function (word) {
+    if (typeof word === 'object' || typeof word === 'array') {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else if (typeof word === 'string') {
+      sum += word.length;
+    } else {
+      sum += word;
+    }
+  });
+  return Number((sum / data.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -126,9 +141,9 @@ function doesWordExist(words, searchedWord) {
     return null;
   }
   if (words.includes(searchedWord) === true) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -147,15 +162,16 @@ const wordsCount = [
 
 function howManyTimes(arr, searchedWord) {
   let count = 0;
-  arr.forEach(function(word) {
-    if(word == searchedWord) {
-      count++
+  arr.forEach(function (word) {
+    if (word == searchedWord) {
+      count++;
     }
-  })
+  });
   return count;
 }
 
-// Iteration #8: Bonus
+// Iteration #8: Bonus - could not complete
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -179,7 +195,8 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
