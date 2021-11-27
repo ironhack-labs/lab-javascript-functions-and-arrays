@@ -217,21 +217,40 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+// Basicamente cópia de uma resolução da internet, mas com entendimento do que está acontecendo no código
+
 function greatestProduct(arr) {
   let max = 0;
   let result = 0;
   for (let i = 0; i < arr.length; i += 1){
-    for (let j = 0; j < arr[i].length - 3; j += 1){
-      if ((j - 3) >= 0){
+    for (let j = 0; j < arr[i].length; j += 1){
+      // Esse if vai iterar na linha, ele começa a partir do 4º elemento do array e multiplica os 3 anteriores até o último da linha
+        if ((j - 3) >= 0){
         result = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
         if (result > max){
           max = result;
-        }
+        }}
+        // Esse if vai iterar na coluna, mesma ideia do anterior.
+        if ((i - 3) >= 0){
+        result = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+        if (result > max){
+          max = result;
+        }}
+        if ((j - 3) >= 0 && (i - 3) >= 0){
+        result = arr[i][j] * arr[i - 1][j - 1] * arr[i - 2][j - 2] * arr[i - 3][j - 3];
+        if (result > max){
+          max = result;
+        }}
+        if ((i - 3) >= 0 && (j - 1) <= 0){
+        result = arr[i][j] * arr[i - 1][j + 1] * arr[i - 2][j + 2] * arr[i - 3][j + 3];
+        if (result > max){
+          max = result;
+        }}
+
       }
     }
+    return max
   }
-  return max
-}
 
 
 
