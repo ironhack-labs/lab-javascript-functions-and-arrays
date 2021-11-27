@@ -1,24 +1,59 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  return a > b ? a : b;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length === 0){
+    return null;
+  }
+
+  const sorted = words.sort((a, b) => b.length - a.length);
+  return sorted[0];
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if(numbers.length === 0){
+    return 0;
+  }
+  return numbers.reduce((a,b) => a + b);
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+
+  const numberArr = mixedArr.map(item => {
+    switch (typeof item) { 
+      case 'string':
+        return item.length;
+      case 'boolean':
+        if (item === true) {
+          return 1;
+        } else {
+          return 0;
+        }
+      case 'number':
+        return item;
+      default:
+        throw new Error('Unsupported data type sir or ma\'am');
+    }
+  })
+
+  return sumNumbers(numberArr);
+}
 
 
 
@@ -26,16 +61,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  const numberOfItems = numbersAvg.length;
+  if (numberOfItems === 0) {
+    return null;
+  }
+  const sum = sumNumbers(numbersAvg);
+  return sum / numberOfItems;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  const numberOfItems = wordsArr.length;
+  if (numberOfItems === 0) {
+    return null;
+  }
+  const numberArr = wordsArr.map(word => word.length);
+  return sum(numberArr) / numberOfItems;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  const numberOfItems = mixedArr.length;
+  if (numberOfItems === 0) {
+    return null;
+  } 
+  const mixedSum = sum(mixedArr);
+  const average = mixedSum / numberOfItems;
+  return Number(average.toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +110,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  const uniquified = [];
+  wordsUnique.map(word => {
+    if(!uniquified.includes(word)){
+      uniquified.push(word);
+    }
+    return;
+  });
+  return uniquified;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, searchWord) {
+  if(wordsFind.length === 0) {
+    return null;
+  }
+  return wordsFind.includes(searchWord);
+}
 
 
 
@@ -78,7 +153,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, searchWord) {
+  let counter = 0;
+  wordsCount.forEach(word => {
+    if (word === searchWord) {
+      counter ++;
+    }
+    return;
+  });
+  return counter;
+}
 
 
 
@@ -106,7 +190,39 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let currentGreatest = 0;
+  const checkRow = (row) => {
+    for (let i = 0; i < row.length-4; i++) {
+      const currentProduct = row.slice(i, i+4).reduce((a, b) => a * b);
+      if (currentProduct > currentGreatest) {
+        currentGreatest = currentProduct;
+      }
+    }
+    return;
+  }
+
+  const checkAllRows = (matrix) => {
+    matrix.forEach(row => checkRow(row));
+  }
+
+  const rotateMatrix = (matrix) => {
+    const rotatedMatrix = [];
+    const addRotatedRow = (matrix, index) => {
+      rotatedRow = [];
+      matrix.forEach(row => rotatedRow.push(row[index]))
+      rotatedMatrix.push(rotatedRow);
+    }
+    for (let i = 0; i < matrix[0].length; i++) {
+      addRotatedRow(matrix, i);
+    }
+    return rotatedMatrix;
+  }
+
+  checkAllRows(matrix);
+  checkAllRows(rotateMatrix(matrix));
+  return currentGreatest;
+}
 
 
 
