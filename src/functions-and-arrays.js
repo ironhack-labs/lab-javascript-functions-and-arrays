@@ -1,5 +1,7 @@
 // Iteration #1: Find the maximum
+//Function that finds the maximum of two gived numbers
 function maxOfTwoNumbers(number1, number2) {
+  //If number1 is equal to number2, number1 is returned
   if(number1>=number2){
     return number1;
   }
@@ -12,10 +14,13 @@ function maxOfTwoNumbers(number1, number2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+//Function that returns the longest word.
 function findLongestWord(words) {
-  if(words.length===0){
+  //If words is an empty array, null is returned
+  if(!words.length){
     return null;
   }
+  //I am using two variables, one stores the length of the word and the other stores the word
   let maxLength=0;
   let largestWord;
   words.forEach(function(word,index){
@@ -31,8 +36,10 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+//Function that calculates the sum of a numbers array given.
 function sumNumbers(numbers) {
-  if(numbers.length===0){
+  //If numbers is an empty array, 0 is returned
+  if(!numbers.length){
     return 0;
   }
   let sumNumbers=0;
@@ -44,30 +51,34 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum(poliphormicArray) {
-  if(poliphormicArray.length===0){
+
+//Function that calculates the sum of a polymorfic array given, but only the variables numbers, booleans, and strings are permitted.
+function sum(polimorphicArray) {
+  //If polimorphicArray is an empty array, 0 is returned
+  if(!polimorphicArray.length){
     return 0;
   }
-  let sumWhateverIs=0;
-  poliphormicArray.forEach(function(whateverIs){
-    let typeOf = typeof whateverIs;
+  //I decided use typeof to know the type of the item and this way I can add the right value 
+  let sumAll=0;
+  polimorphicArray.forEach(function(item){
+    let typeOf = typeof item;
     switch(typeOf){
       case "number":
-        sumWhateverIs += whateverIs;
+        sumAll += item;
         break;
       case "boolean":
-        if(whateverIs){
-          sumWhateverIs++;
+        if(item){
+          sumAll++;
         }
         break;
       case "string":
-        sumWhateverIs += whateverIs.length;
+        sumAll += item.length;
         break;
       default:
         throw new Error("Unsupported data type sir or ma'am");
     }
   });
-  return sumWhateverIs;
+  return sumAll;
 }
 
 
@@ -75,10 +86,12 @@ function sum(poliphormicArray) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+//Function that calculates the average of a numbers array given.
 function averageNumbers(numbersAverage) {
   //Find the sum as we did in the first exercise (or how about reusing that the sumNumbers()?)
   //Take that sum and divide it by the number of elements in the list.
-  if(numbersAverage.length===0){
+  //If numbersAverage is an empty array, null is returned
+  if(!numbersAverage.length){
     return null;
   }  
   return sumNumbers(numbersAverage)/numbersAverage.length;
@@ -88,22 +101,25 @@ function averageNumbers(numbersAverage) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+//Function that returns the average of a strings array given.
 function averageWordLength(words) {
-  if(words.length===0){
+  //If words is an empty array, null is returned
+  if(!words.length){
     return null;
   }
   let sumLetters=0;
-  words.forEach(function(word){
-    sumLetters += word.length;
-  });
+  words.forEach(word => sumLetters += word.length);
   return sumLetters/words.length;
 }
 
 // Bonus - Iteration #4.1
+//Function that returns the average of an polimorphic array given. Only numbers, booleans and strings are permitted.
 function avg(arr) {
-  if(arr.length===0){
+  //If arr is an empty array, null is returned
+  if(!arr.length){
     return null;
   }
+  //I am rounding to 2 decimals with toFixed.
   return +(sum(arr)/arr.length).toFixed(2);
 }
 
@@ -122,12 +138,15 @@ const wordsUnique = [
   'bring'
 ];
 
+//Function that returns the gived array, but without repeated elements .
 function uniquifyArray(arr) {
-  if(arr.length===0){
+  //If arr is an empty array, null is returned
+  if(!arr.length){
     return null;
   }
   const uniqueArr = [];
   for(let i=0;i<arr.length;i++){
+    //I am using includes to know if the item is already in
     if(!uniqueArr.includes(arr[i])){
       uniqueArr.push(arr[i]);
     }
@@ -140,8 +159,10 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+//Function that search the given word into the given array
 function doesWordExist(arr, word) {
-  if(arr.length===0){
+  //If arr is an empty array, null is returned
+  if(!arr.length){
     return null;
   }
   return arr.includes(word);
@@ -164,8 +185,10 @@ const wordsCount = [
   'matter'
 ];
 
+//Function that counts how many times the given word appears in the given array
 function howManyTimes(arr, word) {
-  if(arr.length===0){
+  //If arr is an empty array, null is returned
+  if(!arr.length){
     return 0;
   }
   let position = 0;
@@ -203,16 +226,19 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+//Function that returns the greatest product of 4 elements of the given matrix grouped in horizontal or vertical
 function greatestProduct(matrix) {
   let max = 0
   for(let i=0;i<matrix.length;i++){
     for(let j=0;j<matrix[i].length;j++){
+      //Only calculates the product if the variable "i" is between the first position and the fourth position starting by the end. 
       if(matrix.length-i>3){
         let horizontal = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
         if(horizontal>max){
           max=horizontal;
         }
       }
+      //Only calculates the product if the variable "j" is between the first position and the fourth position starting by the end. 
       if(matrix[i].length-j>3){
         let vertical = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
         if(vertical>max){
@@ -225,6 +251,7 @@ function greatestProduct(matrix) {
 }
 
 // Iteration #8.1: Bonus
+//Function that returns the greatest product of 4 elements of the given matrix grouped in horizontal, vertical, or diagonal
 function greatestProductOfDiagonals(matrix){
   let max = 0
   for(let i=0;i<matrix.length;i++){
@@ -271,7 +298,7 @@ function greatestProductOfDiagonals(matrix){
   return max;
 }
 
-
+//I made the necessary changes to test greatestProductOfDiagonals too
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
