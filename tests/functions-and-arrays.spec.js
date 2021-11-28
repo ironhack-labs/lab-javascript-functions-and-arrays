@@ -9,7 +9,8 @@ const {
   uniquifyArray,
   doesWordExist,
   howManyTimes,
-  greatestProduct
+  greatestProduct,
+  greatestProductOfDiagonals
 } = require('./../src/functions-and-arrays');
 
 const shuffle = (currentArray) => {
@@ -335,5 +336,118 @@ describe('Bonus Quest - greatestProduct', () => {
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
     ];
     expect(greatestProduct(matrix)).toBe(16);
+  });
+
+  test('should return 32000 when the numbers of the arrays are this', () => {
+    let matrix = [
+      [ 1, 2, 3, 4,  5],
+      [ 1, 2, 3, 4,  4],
+      [ 1, 2, 3, 4, 20],
+      [ 1, 2, 3, 4, 20],
+      [ 1, 2, 3, 4, 20]
+    ];
+    expect(greatestProduct(matrix)).toBe(32000);
+  });
+});
+
+describe('Bonus Quest - greatestProductOfDiagonals', () => {
+  test('should declare a function named greatestProductOfDiagonals', () => {
+    expect(typeof greatestProductOfDiagonals).toBe('function');
+  });
+
+  test('should return 1 (one) when all numbers of the arrays are 1', () => {
+    let matrix = [
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    ];
+    expect(greatestProductOfDiagonals(matrix)).toBe(1);
+  });
+
+  test('should return 16 when all the numbers of the arrays are 2', () => {
+    let matrix = [
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+      [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+    ];
+    expect(greatestProductOfDiagonals(matrix)).toBe(16);
+  });
+
+  test('testing diagonalSE - should return 32000 when the numbers of the arrays are this', () => {
+    let matrix = [
+      [ 1,  2,  3,  4,  5],
+      [ 1, 20,  3,  4,  5],
+      [ 1,  2, 20,  4,  5],
+      [ 1,  2,  3,  4,  5],
+      [ 1,  2,  3,  4, 20]
+    ];
+    expect(greatestProductOfDiagonals(matrix)).toBe(32000);
+  });
+
+  test('testing diagonalNE - should return 32000 when the numbers of the arrays are this', () => {
+    let matrix = [
+      [ 1,  2,  3,  4, 20],
+      [ 1,  2,  3,  4,  5],
+      [ 1,  2, 20,  4,  5],
+      [ 1, 20,  3,  4,  5],
+      [ 1,  2,  3,  4,  5]
+    ];
+    expect(greatestProductOfDiagonals(matrix)).toBe(32000);
+  });
+
+  test('testing diagonalSW - should return 32000 when the numbers of the arrays are this', () => {
+    let matrix = [
+      [  1,  2,  3,  4, 5],
+      [  1,  2,  3,  4, 5],
+      [  1,  2, 20,  4, 5],
+      [  1, 20,  3,  4, 5],
+      [ 20,  2,  3,  4, 5]
+    ];
+    expect(greatestProductOfDiagonals(matrix)).toBe(32000);
+  });
+
+  test('testing diagonalNW - should return 32000 when the numbers of the arrays are this', () => {
+    let matrix = [
+      [ 20,  2,  3,  4, 5],
+      [  1, 20,  3,  4, 5],
+      [  1,  2, 20,  4, 5],
+      [  1,  2,  3,  4, 5],
+      [  1,  2,  3,  4, 1]
+    ];
+    expect(greatestProductOfDiagonals(matrix)).toBe(32000);
   });
 });
