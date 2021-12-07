@@ -5,52 +5,51 @@ function maxOfTwoNumbers(a, b) {
   } else {
     return b;
   }
-  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
   //check the arr is empty and return 'null'
-  if (!arr.length) 
+  if (!arr.length) {
     return null;
-
-  let longestWord = ''
+  }
+  let longestWord = '';
   //iterate over arr
   for (let word of arr) {
     if (word.length > longestWord.length) {
       longestWord = word;
     }
-    }  
-  return longestWord
   }
-
-//findLongestWord(words)
-
-
-
-
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
     //console.log(i)
-      sum = sum + numbers[i];
-    
+    sum = sum + numbers[i];
   }
   return sum;
 }
 //sumNumbers(numbers);
 
-
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(arr) {
+  let sum = 0;
+  let type;
+  for (let element of arr) {
+    type = typeof element;
+    if (type === 'object') throw new Error("Unsupported data type sir or ma'am");
+    if (type === 'string') sum += element.length;
+    else sum += element;
+  }
+  return sum;
+}
 
 //Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -59,38 +58,38 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 //console.log(sumArr);
 
 function averageNumbers(arr) {
-  
   if (!arr.length) {
     return null;
   } else if (arr.length === 1) {
     return arr[0];
   }
-  return sumArr / arr.length;
+  const arrAverage = sumNumbers(numbersAvg) / numbersAvg.length;
+  return arrAverage;
 }
-
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(arr) {
+  if (!arr.length) {
+    return null;
+  }
 
-function averageWordLength(arr) { 
-  if (!arr.length) 
-  return null;
+  let total = 0;
 
-let total = 0;
-
-
-for (let i = 0; i < arr.length; i++) {
-total += arr[i].length;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i].length;
+  }
+  return total / arr.length;
 }
-return wordsAvg = total / arr.length;
-
-}
-
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr.length) {
+    return null;
+  }
+  return Number((sum(arr) / arr.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -108,33 +107,34 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-
-
   if (!arr.length) {
     return null;
+  }
+  const unique = [];
 
-
-
+  for (let word of arr) {
+    //console.log(word);
+    if (unique.indexOf(word) === -1) {
+      unique.push(word);
+    }
+  }
+  return unique;
 }
-}
-
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr) {
+function doesWordExist(arr, someword) {
   if (!arr.length) {
     return null;
-
-
-
+  }
+  for (let word of arr) {
+    if (word === someword) {
+      return true;
+    }
+  }
+  return false;
 }
-
-x
-}
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -151,9 +151,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arr, someword) {
+  let counter = 0;
+  for (let word of arr) {
+    if (word === someword) {
+      counter++;
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -179,10 +185,20 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let result = 0;
+  let horiz = 0;
+  let vertic = 0;
 
-
-
+  for (let j = 0; j < 20; j++) {
+    for (let i = 0; i < 17; i++) {
+      horiz = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      vertic = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      result = Math.max(horiz, vertic, result);
+    }
+  }
+  return result;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
