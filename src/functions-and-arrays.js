@@ -60,13 +60,22 @@ function sum(mixedArr) {
     return 0;
   }
 
-  let mixedSum = 0;
+  let counter = 0;
   
-  for (let i = 0; i < mixedArr.length; i++) {
-
-    mixedSum += mixedArr[i];
+  for (let i of mixedArr) {
+    if (typeof i === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+      return;
+    }
+    if (typeof i === "string") {
+      counter += i.length;
+    }
+    else {
+      counter += i;
+    }
   }
-  return mixedSum;
+
+  return counter;
 }
 
 
@@ -116,7 +125,31 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+
+  if (mixedArr.length === 0) {
+    return null;
+  }
+
+  let mixedSum = 0;
+  let avgTotal = 0;
+  
+  for (let i of mixedArr) {
+    if (typeof i === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+      return;
+    }
+    if (typeof i === "string") {
+      mixedSum += i.length;
+    } else {
+      mixedSum += i;
+    }
+  }
+
+  avgTotal = (mixedSum / mixedArr.length).toFixed(2);
+
+  return Number(avgTotal);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -154,24 +187,21 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind) {
+function doesWordExist(wordsFind, someWord) {
 
   if (wordsFind.length === 0) {
     return null;
   }
 
+  let wordFound = false;
+  
   for (let i = 0; i < wordsFind.length; i++) {
-    if (wordsFind[i] = "truth") {
-      return true;
-    } else {
-
-
-
-      
-      return false;
-    }
-  }
-}
+     if(wordsFind[i] === someWord){
+      wordFound = true;
+     }
+   }
+   return wordFound;
+ }
 
 
 
@@ -190,29 +220,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsCount) {
+function howManyTimes(wordsCount, searchResult) {
 
-  let result = {};
   let counter = 0;
 
   if (wordsCount.length === 0) {
     return 0;
   }
   
-  for (let i = 0; i < wordsCount.length; i++) {
-    wordsCount.forEach(function (item) {
-      if (item === wordsCount[i]) {
-        counter++;
-      }
-    });
-
-    if (!result[wordsCount[i]]) {
-      result[wordsCount[i]] = counter;
-    } 
+  for (let i of wordsCount) {
+    if (i === searchResult) {
+      counter++;
+    }
   }
 
-return result;
-
+  return counter;
 }
 
 
