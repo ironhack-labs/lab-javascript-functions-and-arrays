@@ -116,7 +116,7 @@ function avg(arr) {
         break;
     }
   }
-  return (sum / arr.length).toFixed(2);
+  return parseFloat((sum / arr.length).toFixed(2));
 }
 
 // Iteration #5: Unique arrays
