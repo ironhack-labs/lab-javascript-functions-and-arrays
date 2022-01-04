@@ -218,8 +218,21 @@ const matrix = [
 ];
 
 function greatestProduct(mat) {
-  
+  let fiveVertical = 0;
+  let fiveHorizontal = 0;
+  let y = 0;
+  let x = 0;
+  console.log(fiveHorizontal);
+  for(let y = 0; y < mat.length; y++) {
+   if(mat[y][x]*mat[y][x+1]*mat[y][x+2]*mat[y][x+3]>fiveHorizontal){
+      fiveHorizontal=mat[y][x]*mat[y][x+1]*mat[y][x+2]*mat[y][x+3];
+        }
+   for(let x = 0; x < mat[y].length; x++) {
+   }
 }
+  return fiveHorizontal;
+}
+
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
