@@ -59,7 +59,9 @@ function sum(arr) {
         sum+=elem.length;
         break;
         case "boolean":
-          sum++;
+          if (elem===true) {
+            sum++;
+          }
           break;
           default:
             throw "Unsupported data type sir or ma'am" ;
@@ -102,6 +104,7 @@ function averageWordLength(arr) {
   }
 
   const lengthSum = sum(arr);
+  
   return lengthSum/arr.length;
 
   //  const wordLengths= arr.map(function(elem){
