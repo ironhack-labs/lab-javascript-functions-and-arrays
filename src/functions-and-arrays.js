@@ -164,6 +164,10 @@ function doesWordExist(wordsFind) {
     if (wordsFind[i] = "truth") {
       return true;
     } else {
+
+
+
+      
       return false;
     }
   }
