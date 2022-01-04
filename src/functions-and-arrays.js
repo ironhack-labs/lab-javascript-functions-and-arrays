@@ -51,16 +51,30 @@ function sum(arr) {
   }
   let sum = 0;
   arr.forEach(function(elem){
-    if (typeof elem === "number") {
-     sum+=elem;
-    } else if (typeof elem === "string") {
-      sum+=elem.length;
-     } else if (typeof elem === "boolean"){
+    switch(typeof elem) {
+       case "number":
+        sum+=elem;
+       break;
+       case "string":
+        sum+=elem.length;
+        break;
+        case "boolean":
           sum++;
-     } else {
-      throw "Unsupported data type sir or ma'am";
+          break;
+          default:
+            throw "Unsupported data type sir or ma'am" ;
     }
-})
+    }
+    // if (typeof elem === "number") {
+    //  sum+=elem;
+    // } else if (typeof elem === "string") {
+    //   sum+=elem.length;
+    //  } else if (typeof elem === "boolean"){
+    //       sum++;
+    //  } else {
+    //   throw "Unsupported data type sir or ma'am";
+    // }
+)
   return sum;
 
 }
