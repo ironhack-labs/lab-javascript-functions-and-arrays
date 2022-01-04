@@ -104,6 +104,7 @@ function averageWordLength(arr) {
   }
 
   const lengthSum = sum(arr);
+
   
   return lengthSum/arr.length;
 
@@ -121,7 +122,12 @@ function avg(arr) {
   }
 
   const lengthSum = sum(arr);
-  return lengthSum/arr.length;
+
+  const average = lengthSum/arr.length;
+  averageDecimals = average.toFixed(2);
+
+
+  return parseFloat(averageDecimals);
 }
 
 // Iteration #5: Unique arrays
