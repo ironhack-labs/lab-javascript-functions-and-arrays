@@ -42,7 +42,19 @@ function sumNumbers(inputArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  /* lets sum = 0
+  for(let i = 0; i < numbers.length; i++){
+    if (typeof numbers[i] === 'number'){
+      sum += numbers[i]
+    }else if (typeof numbers[i] === 'string'){
+      sum += numbers[i].length;
+    }else if (typeof numbers[i] === 'bolean'){
+      sum += numbers[i]
+    }else 
+  }
+  return sum; */
+}
 
 
 
@@ -52,19 +64,30 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
   let num = sumNumbers(numbers)
+  if (numbers.length < 1 || numbers == undefined) {
+    return null;
+  }
+
   num = num / (numbers.length);
   return num;
 }
 
-console.log(averageNumbers(numbersAvg))
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(inputArray) {
+  let lengthOfItems = []
+  for (let i = 0; i < inputArray.length; i++) {
+    lengthOfItems.push(inputArray[i].length);
+  }
+  return averageNumbers(lengthOfItems);
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -81,16 +104,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(inputArray) {
+  if (inputArray.length < 1 || inputArray == undefined) {
+    return null;
+  }
+  return [...new Set(inputArray)];
 
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(inputArray, findWord) {
+  if (inputArray.length < 1 || inputArray == undefined) {
+    return null;
+  }
 
-
+  for (let i = 0; i < inputArray.length; i++) {
+    console.log(inputArray[i])
+    if (findWord === inputArray[i]){
+      return true;
+    }
+  }
+  return false;
+}
+console.log(doesWordExist(wordsFind, 'subset'))
 
 // Iteration #7: Count repetition
 const wordsCount = [
