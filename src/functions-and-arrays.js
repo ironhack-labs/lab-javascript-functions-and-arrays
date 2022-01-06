@@ -52,13 +52,15 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // // should return: 57
 
  function sum(mixedArr) {
-//   if (number.length === 0) {
-//     return 0
+   if (mixedArr.length === 0) {
+    return 0};
+
+  
 //   } else if (number.length === 1) {
 //     return number[0]
 //   } else {
@@ -75,17 +77,17 @@ function sumNumbers(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numberArr) {
-  let sum = 0
-  let arrLength = numberArr.length
-  if (numberArr.length === 0){
+function averageNumbers(numbersAvg) {
+  let sum = 0;
+  let arrLength = numbersAvg.length;
+  if (numbersAvg.length === 0){
     return null
-  } else if (numberArr.length === 1) {
-    return numberArr[0]
+  } else if (numbersAvg.length === 1) {
+    return numbersAvg[0]
   }
    else {
   for (i = 0; i < arrLength; i++){
-    sum += numberArr[i]
+    sum += numbersAvg[i]
   }
   return sum / arrLength
    }
@@ -136,9 +138,14 @@ uniquifyArray(wordsUnique)
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsFind, wordToCheck) {
+  for (i = 0; i < wordsFind.length; i++){
+    if (wordsFind[i] === wordToCheck){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -155,7 +162,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToSearch) {
+if (wordsCount.length === 0){
+  return null;
+}
+
+let counter = 0;
+
+for (i = 0; wordsCount.length; i++){
+  if (wordsCount[i] === wordToSearch){
+    counter++;
+  }
+}
+return counter;
+}
 
 
 
