@@ -42,18 +42,24 @@ function sumNumbers(inputArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum(numbers) {
-  /* lets sum = 0
-  for(let i = 0; i < numbers.length; i++){
-    if (typeof numbers[i] === 'number'){
-      sum += numbers[i]
-    }else if (typeof numbers[i] === 'string'){
-      sum += numbers[i].length;
-    }else if (typeof numbers[i] === 'bolean'){
-      sum += numbers[i]
-    }else 
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(inputArray) {
+  let sum = 0;
+  for(let i = 0; i < inputArray.length; i++){
+    if (typeof inputArray[i] === 'number'){
+      sum += inputArray[i]
+    }else if (typeof inputArray[i] === 'string'){
+      sum += inputArray[i].length;
+    }else if (typeof inputArray[i] === 'boolean'){
+      sum = sum + inputArray[i];
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
   }
-  return sum; */
+  
+  return sum;
 }
 
 
@@ -122,14 +128,13 @@ function doesWordExist(inputArray, findWord) {
   }
 
   for (let i = 0; i < inputArray.length; i++) {
-    console.log(inputArray[i])
     if (findWord === inputArray[i]){
       return true;
     }
   }
   return false;
 }
-console.log(doesWordExist(wordsFind, 'subset'))
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -146,7 +151,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(inputArray, findWord) {
+  let result = 0
+  if (inputArray.length < 1 || inputArray == undefined) {
+    return 0;
+
+  }
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === findWord){
+      result++
+    }
+  }
+  return result
+};
+
+console.log (howManyTimes(wordsCount, 'matter'))
+
 
 
 
