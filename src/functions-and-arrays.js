@@ -16,7 +16,6 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(arrayOfWords) {
 
   if (!arrayOfWords || arrayOfWords.length == 0) {
-    console.log("Please pass a non-empty array as function argument.")
     return null;
   }
 
@@ -37,13 +36,17 @@ function findLongestWord(arrayOfWords) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrayOfNumbers) {
+  
   let sum = 0;
-  if (arrayOfNumbers && arrayOfNumbers.length > 0) {
+
+  if (arrayOfNumbers && arrayOfNumbers.length > 0) {
     arrayOfNumbers.forEach(element => sum += element);
+    return sum;
+
   } else {
-    console.log("Please pass a non-empty array of integers as function argument.")
+    return 0;
   }
-  return sum;
+  
 }
 
 
