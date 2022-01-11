@@ -1,24 +1,66 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  if (array.length === 0) {
+    return null
+  } else {
+  let word = '';
+  for (let index = 0; index < array.length; index++) {
+     if (word.length < array[index].length) {
+      word = array[index]
+    }
+  }
+  return word
+  }
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  sum = 0
+ for (let index = 0; index < array.length; index++) {
+sum += array[index]
+ }
+ return sum
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0
+  for (let index = 0; index < array.length; index++) {
+    if (typeof array[index] === "number") {
+      sum += array[index]
+    } else if (typeof array[index] === "string") {
+      sum += array[index].length
+    } else if (typeof array[index] === "boolean" && array[index] === true) {
+      sum += 1
+    } else if (typeof array[index] === "boolean" && array[index] === false) {
+      sum += 0
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
+  }
+  return sum
+
+}
 
 
 
@@ -26,16 +68,55 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null
+  } else {
+    let average = 0
+    for (let index = 0; index < array.length; index++) {
+    average += array[index]
+    }
+    return average / array.length
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+   if (array.length === 0) {
+    return null
+  } else {
+    let average = 0
+    for (let index = 0; index < array.length; index++) {
+    average += array[index].length
+    }
+    return average / array.length
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array.length === 0) {
+    return null
+  }
+    let sum = 0
+  for (let index = 0; index < array.length; index++) {
+    if (typeof array[index] === "number") {
+      sum += array[index]
+    } else if (typeof array[index] === "string") {
+      sum += array[index].length
+    } else if (typeof array[index] === "boolean" && array[index] === true) {
+      sum += 1
+    } else if (typeof array[index] === "boolean" && array[index] === false) {
+      sum += 0
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
+  }
+  return sum / array.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +133,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let answer = [];
+  if (array.length === 0) {
+    return null
+  }
+  for (let index = 0; index < array.length; index++) {
+    if (answer.indexOf(array[index]) === -1 ) {
+      answer.push(array[index])
+    }
+  }
+  return answer
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, searchTerm) {
+  if (array.length === 0) {
+    return null
+  } else {
+    for (let index = 0; index < array.length; index++) {
+      if (array[index] === searchTerm) {
+        return true
+      }
+    }
+    return false
+  }
+}
 
 
 
@@ -78,7 +181,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, searchTerm) {
+  let counter = 0;
+  if (array.length === 0) {
+    return 0
+  } else {
+    for (let index = 0; index < array.length; index++) {
+      if (array[index] === searchTerm) {
+        counter += 1
+      }
+    }
+    return counter
+  }
+}
 
 
 
