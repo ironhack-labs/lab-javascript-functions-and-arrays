@@ -22,24 +22,63 @@ function findLongestWord(wordArray) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numArray) {
+  let runningTotal = 0;
+  for (num of numArray) {
+    runningTotal += num;
+  }
+  return runningTotal;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let runningTotal = 0;
+  for (item of arr) {
+    if (typeof item === 'string') {
+      runningTotal += item.length;
+    } else if (typeof item === 'boolean') {
+      runningTotal += Number(item);
+    } else if (typeof item === 'number') {
+      runningTotal += item;
+    } else {
+      throw Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return runningTotal;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length != 0) {
+    return sum(arr) / arr.length;
+  } else {
+    return null;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+  let lengthArray = [];
+  for (item of arr) {
+    lengthArray.push(item.length);
+  }
+  return averageNumbers(lengthArray);
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let avgResult = averageNumbers(arr);
+  if (avgResult != null) {
+    return Number(avgResult.toFixed(2));
+  } else {
+    return avgResult;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -56,7 +95,13 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length != 0) {
+    return Array.from(new Set(arr));
+  } else {
+    return null;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
