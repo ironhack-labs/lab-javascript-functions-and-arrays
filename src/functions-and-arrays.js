@@ -1,41 +1,124 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(list) {
+  if (list.length === 0) {
+    return null;
+  }
+  let longest = '';
+  for (i = 0; i < list.length; i++) {
+    if (list[i].length > longest.length) {
+      longest = list[i];
+    }
+  }
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (i = 0; i < numbers.length; i++) {
+    sum = numbers[i] + sum;
+  }
+  return sum;
+}
+//   for (i=0; i<) {
 
-
+//   }
+// }
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(mixedArr) {
+  let sum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'object' || typeof mixedArr[i] === 'array') {
+      throw "Unsupported data type sir or ma'am";
+    }
+    if (typeof mixedArr[i] === 'string') {
+      mixedArr[i] = mixedArr[i].length;
+    }
+    if (typeof mixedArr[i] === true) {
+      mixedArr[i] = 1;
+    }
+    if (typeof mixedArr[i] === false) {
+      mixedArr[i] = 0;
+    }
+    sum += mixedArr[i];
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrNumbers) {
+  if (arrNumbers.length === 0) {
+    return null;
+  }
 
+  let sum = 0;
+  for (i = 0; i < arrNumbers.length; i++) {
+    sum = arrNumbers[i] + sum;
+  }
+
+  let average = sum / arrNumbers.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArr) {
+  if (wordArr.length === 0) {
+    return null;
+  }
+  let sumWords = 0;
+  for (i = 0; i < wordArr.length; i++) {
+    sumWords = wordArr[i].length + sumWords;
+  }
+
+  let avgWordLength = sumWords / wordArr.length;
+
+  return avgWordLength;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length == 0) {
+    return null;
+  }
+  let sum = 0;
+  let average = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'string') {
+      mixedArr[i] = mixedArr[i].length;
+    }
+    if (typeof mixedArr[i] === true) {
+      mixedArr[i] = 1;
+    }
+    if (typeof mixedArr[i] === false) {
+      mixedArr[i] = 0;
+    }
+    sum += mixedArr[i];
+  }
+  average = sum / mixedArr.length;
+  return Number(average.toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +135,27 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
-
+function uniquifyArray(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+  let uniqueWords = [];
+  arr.forEach(function (word) {
+    if (!uniqueWords.includes(word)) {
+      uniqueWords.push(word);
+    }
+  });
+  return uniqueWords;
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(arr, word) {
+  if (arr.length == 0) {
+    return null;
+  }
+  return arr.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +172,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arr, word) {
+  let count = 0;
+  arr.forEach(function (val) {
+    if (val === word) {
+      count++;
+    }
+  });
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +207,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
