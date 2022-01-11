@@ -181,9 +181,9 @@ function greatestProduct(matrix) {
       numberLeft = matrix[y][x] * matrix[y][x - 1] * matrix[y][x - 2] * matrix[y][x - 3];
       numberRight = matrix[y][x] * matrix[y][x + 1] * matrix[y][x + 2] * matrix[y][x + 3];
       highestNumber = numberUp > highestNumber ? numberUp : highestNumber;
-      highestNumber = numberDown > highestNumber ? numberUp : highestNumber;
-      highestNumber = numberLeft > highestNumber ? numberUp : highestNumber;
-      highestNumber = numberRight > highestNumber ? numberUp : highestNumber;
+      highestNumber = numberDown > highestNumber ? numberDown : highestNumber;
+      highestNumber = numberLeft > highestNumber ? numberLeft : highestNumber;
+      highestNumber = numberRight > highestNumber ? numberRight : highestNumber;
     }
   }
   return highestNumber;
