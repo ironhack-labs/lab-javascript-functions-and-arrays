@@ -106,7 +106,18 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, wordToFind) {
+  if (arr.length != 0) {
+    for (testWord of arr) {
+      if (testWord === wordToFind) {
+        return true;
+      }
+    }
+    return false;
+  } else {
+    return null;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -123,7 +134,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, wordToCount) {
+  let wordCount = 0;
+  for (testWord of arr) {
+    if (testWord === wordToCount) {
+      wordCount++;
+    }
+  }
+  return wordCount;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -149,7 +168,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let highestNumber = 0;
+  let numberUp = 0;
+  let numberDown = 0;
+  let numberLeft = 0;
+  let numberRight = 0;
+  for (let y = 3; y < matrix.length - 3; y++) {
+    for (let x = 3; x < matrix[y].length - 3; x++) {
+      numberUp = matrix[y][x] * matrix[y - 1][x] * matrix[y - 2][x] * matrix[y - 3][x];
+      numberDown = matrix[y][x] * matrix[y + 1][x] * matrix[y + 2][x] * matrix[y + 3][x];
+      numberLeft = matrix[y][x] * matrix[y][x - 1] * matrix[y][x - 2] * matrix[y][x - 3];
+      numberRight = matrix[y][x] * matrix[y][x + 1] * matrix[y][x + 2] * matrix[y][x + 3];
+      highestNumber = numberUp > highestNumber ? numberUp : highestNumber;
+      highestNumber = numberDown > highestNumber ? numberUp : highestNumber;
+      highestNumber = numberLeft > highestNumber ? numberUp : highestNumber;
+      highestNumber = numberRight > highestNumber ? numberUp : highestNumber;
+    }
+  }
+  return highestNumber;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
