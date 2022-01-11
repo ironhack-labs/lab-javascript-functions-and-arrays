@@ -1,19 +1,43 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1<num2) {
+    return num2;
+  }
+  else if (num1>num2) {
+    return num1;
+  }
+  else if (num1=num2) {
+    return num1 || num2;
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(arr) {
+  if (arr.length === 0) return null;
+  let longestWord = "";
+  for (let i=0; i<arr.length; i++) {
+    if(arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  if (arr.length === 0) return 0;
+    let sum = 0;
+  arr.forEach(function(element) {
+      sum += element;
+    } );  
+  return sum;
+}
 
 
 
@@ -26,16 +50,38 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0) return null;
+  let sum = 0;
+  arr.forEach(function(element) {
+    sum = sum + element;
+  } );
+  let average = sum / arr.length;
+  return average; 
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) return null;
+  let sum = 0;
+  let average;
+  arr.forEach(function(element) {
+    sum = sum + element.length;
+  } );
+ average = sum/arr.length; 
+ return average;
+}
+ //return average length of the words
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +98,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+  let uniqueArray = [];
+  let filteredArr = arr.filter(function(item, index) {
+  if (arr.indexOf(item) == index) {
+    uniqueArray.push(arr[index])
+  }
+    });
+    return uniqueArray;   
+}
+// I tried to do this in so many different ways (with for loops and for each loops) and it didn't work; 
+// I didn't want to use this solution I found online because we never talked about "filter" in the bootcamp, but I managed to adapt it 
+// and it works, so I had to go with it...
+// Maybe I was very close to finding a solution with the loops I tried, but I can't know for sure
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  if (arr.includes(word)) {
+    return true;
+  }
+  else {
+    return false
+  }
+}
 
 
 
@@ -78,8 +144,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let i=0; i<arr.length; i++) {
+    if (arr[i] == word) {
+      count ++
+    }
+  }
+    return count;
+}
 
 
 // Iteration #8: Bonus
