@@ -1,19 +1,36 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a
+  } else if (a < b) {
+    return b
+  } else {
+    return a}
+  }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arr) { let count=0; let lenArr=[]
+  for (let i = arr.length-1; i >= 0; i--) {
+    lenArr.push(arr[i].length)}
+    
+    let lenArrMax = (Math.max(...lenArr))
+    let indLenArrMax = lenArr.indexOf(Math.max(...lenArr))
+    return longestWord= arr[indLenArrMax]
+  }
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {let sum = 0;
+    for (let i = arr.length - 1; i >= 0; i--) {
+          sum += arr[i]
+  }
+  return sum
+}
+
+
 
 
 
@@ -26,13 +43,26 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr == "") {return null}
+  else {return sumNumbers(arr) / arr.length}}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+let tempArr = [];
+if (arr == ""){
+    return null
+  }else{
+    for (
+      let i = arr.length - 1; i >= 0; i--){
+        tempArr.push(arr[i].length)
+      }
+        return (sumNumbers(tempArr))/arr.length
+}
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -59,7 +89,16 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr === ""){return null}
+  else{
+      for (let i = arr.length - 1; i >= 0; i--){
+       if (arr[i]===word){return true}
+       else {return false}
+}}}
+
+//jezeli pusty to false
+//jezeli nie to ()
 
 
 
@@ -78,8 +117,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(arr, word) { let count = 0
+  for (let elem of arr){
+    if (word===elem){count++}
+      else {count = count +0}
+  }
+    
+     return count
+  }
 
 
 // Iteration #8: Bonus
