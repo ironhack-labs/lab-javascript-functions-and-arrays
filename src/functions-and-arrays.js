@@ -255,8 +255,6 @@ function greatestProduct(matrix){
   return maxOverall;
 }
 
-greatestProduct(testMatrix);
-
 function greatestProductFourAdjacent(array) {
   let greatestProduct = 0;
   let tempProduct;
@@ -300,6 +298,55 @@ function createColumnsMatrix(matrix) {
   return columnMatrix;
 }
 
+// function createDiagonalTopHalf(matrix) {
+//   let diagonalMatrixHalf = [];
+//     for(i=0; i< matrix.length; i++) {
+//     let diagonalArray = [];
+//     let element;
+//     for (j = 0; j <= i; j++) {
+//       element = matrix[i - j][0 + j]
+//       diagonalArray.push(element);
+//     }
+//     diagonalMatrixHalf.push(diagonalArray);
+//     }
+//     console.log("First half of diagonalMaterix: ", diagonalMatrixHalf);
+//     return diagonalMatrixHalf;
+// }
+
+function createDiagonalMatrix(matrix) {
+  let diagonalMatrix = [];
+  let diagonalArray = [];
+  let element;
+  for(i=0; i< matrix.length; i++) {
+    diagonalArray = [];
+    for (j = 0; j <= i; j++) {
+      element = matrix[i - j][0 + j]
+      diagonalArray.push(element);
+    }
+    diagonalMatrix.push(diagonalArray);
+  }
+
+  for(k = matrix.length - 1; k >= 0; k--) {
+    diagonalArray = [];
+    for (l = 0; l <= k; l++) {
+      element = matrix[(matrix.length - 1) - l][(matrix.length -1) - k + l];
+      console.log("Element: ", element);
+      diagonalArray.push(element);
+    }
+    diagonalMatrix.push(diagonalArray);
+  }
+  console.log("Diagonal Matrix: ", diagonalMatrix);
+  return diagonalMatrix;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let productDiagonalArray = createProductArray(createDiagonalMatrix(matrix));
+  let maxProductDiagonalArray = getMaximumNumber(productDiagonalArray);
+  console.log("The overall maximum of diagonals is: ", maxProductDiagonalArray);
+  return maxProductDiagonalArray;
+}
+
+greatestProductOfDiagonals(testMatrix);
 
 
 // function greatestProductFourAdjacent(array) {
