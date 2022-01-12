@@ -241,19 +241,19 @@ const matrix = [
   [10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9]
 ];
 
-function greatestProductDiagonals(arr) {
+function greatestProductOfDiagonals(matrix) {
   let highestProduct = 0;
-  for (i = 0; i < arr.length - 3; i++) {
-    for (j = 0; j <= arr[i].length - 3; j++) {
-      let product = arr[i][j] * arr[i + 1][j + 1] * arr[i + 2][j + 2] * arr[i + 3][j + 3];
+  for (i = 0; i < matrix.length - 3; i++) {
+    for (j = 0; j <= matrix[i].length - 3; j++) {
+      let product = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
       if (product > highestProduct) {
         highestProduct = product;
       }
     }
   }
-  for (i = 0; i < arr.length - 3; i++) {
-    for (j = 3; j < arr.length; j++) {
-      let product = arr[i][j] * arr[i + 1][j - 1] * arr[i + 2][j - 2] * arr[i + 3][j - 3];
+  for (i = 0; i < matrix.length - 3; i++) {
+    for (j = 3; j < matrix.length; j++) {
+      let product = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
       if (product > highestProduct) {
         highestProduct = product;
       }
