@@ -5,7 +5,7 @@ function maxOfTwoNumbers(num1, num2) {
   }
   return num2
 }
-
+//  could be solved with Math.max^
 
 
 // Iteration #2: Find longest word
@@ -41,8 +41,26 @@ function sumNumbers(arr) {
 
 
 // Iteration #3.1 Bonus:
+function sum(arr) {
+  let totalSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'string') {
+      totalSum += arr[i].length
+    } else if (typeof arr[i] === 'number') {
+      totalSum += arr[i]
+    } else if (arr[i] === true) {
+      totalSum++;
+    } else if (arr[i] === false) {
+      continue;
+    } else if (typeof arr[i] === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return totalSum;
+}
 
-let sum = 0;
+
+
 
 
 
@@ -52,7 +70,6 @@ let sum = 0;
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
-  let sum = 0
   let average = 0;
   if (arr.length === 0) {
     return null;
@@ -79,7 +96,14 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(arr) {
+  let avg;
+  if (arr.length === 0) {
+    return null;
+  }
+  avg = Math.round((sum(arr) / arr.length) * 100) / 100;
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -180,7 +204,92 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+// Checking the product vertically needs fixing here.
+function greatestProduct(arr) {
+  let adjNumsArrHor;
+  let adjNumsArrVer = [];
+  let adjNumsArrProductHor = 1;
+  let adjNumsArrProductVer = 1;
+  let largestProductHor = 1;
+  let largestProductVer = 1;
+  let adjFourNumsArrVer;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      adjNumsArrVer.push(arr[i][0])
+      for (let i = 0; i < adjNumsArrVer.length; i++) {
+        adjFourNumsArrVer = adjNumsArrVer.slice(i, i + 4)
+        for (let el of adjFourNumsArrVer) {
+          adjNumsArrProductVer *= el
+        }
+        if (adjNumsArrProductVer > largestProductVer) {
+          largestProductVer = adjNumsArrProductVer
+        }
+      }
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      adjNumsArrVer.push(arr[i][0])
+      adjNumsArrHor = arr[i].slice(j, j + 4)
+      for (let el of adjNumsArrHor) {
+        adjNumsArrProductHor *= el
+      }
+      if (adjNumsArrProductHor > largestProductHor) {
+        largestProductHor = adjNumsArrProductHor
+      }
+    }
+  }
+  if (largestProductHor > largestProductVer) {
+    return largestProductHor;
+  } else {
+    return largestProductVer
+  }
+}
+
+// Product of Diagonals
+// function greatestProductOfDiogonals(matrix) {
+//   let adjNumsArrDiogL = [];
+//   let adjNumsArrProductDiogL = 1;
+//   let largestProductDiogL = 1;
+//   let adjFourNumsArrDiogL;
+//   let adjNumsArrDiogR = [];
+//   let adjNumsArrProductDiogR = 1;
+//   let largestProductDiogR = 1;
+//   let adjFourNumsArrDiogR;
+//   for (let i = 0; i < matrix.length; i++) {
+//     for (let j = 0; j < matrix[i].length; j++) {
+//       adjNumsArrDiogL.push(matrix[i][j])
+//     }
+//   }
+//   for (let i = 0; i < adjNumsArrDiogL.length; i++) {
+//     adjFourNumsArrDiogL = adjNumsArrDiogL.slice(i, i + 4)
+//     for (let el of adjFourNumsArrDiogL) {
+//       adjNumsArrProductDiogL *= el
+//     }
+//     if (adjNumsArrProductDiogL > largestProductDiogL) {
+//       largestProductDiogL = adjNumsArrProductDiogL
+//     }
+//   }
+//   for (let i = matrix.length - 1; i >= 0; i--) {
+//     for (let j = 0; j < matrix[i].length; j++) {
+//       adjNumsArrDiogR.push(matrix[i][j])
+//     }
+//   }
+//   for (let i = 0; i < adjNumsArrDiogR.length; i++) {
+//     adjFourNumsArrDiogR = adjNumsArrDiogR.slice(i, i + 4)
+//     for (let el of adjFourNumsArrDiogR) {
+//       adjNumsArrProductDiogR *= el
+//     }
+//     if (adjNumsArrProductDiogR > largestProductDiogR) {
+//       largestProductDiogR = adjNumsArrProductDiogR
+//     }
+//   }
+//   if (largestProductDiogL > largestProductDiogR) {
+//     return largestProductDiogL;
+//   } else {
+//     return largestProductDiogR
+//   }
+// }
 
 
 
