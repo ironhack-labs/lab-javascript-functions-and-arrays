@@ -149,10 +149,10 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsCount) {
-  let countWord = "matter"
+  let word = "matter"
   let counter = []
   for(i = 0; i<wordsCount.length; i++) {
-    if(wordsCount[i] === countWord){
+    if(wordsCount[i] === word){
       counter = counter + 1
     }
   }
