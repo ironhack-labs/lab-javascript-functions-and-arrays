@@ -15,7 +15,7 @@ function findLongestWord(list) {
     return null;
   }
   let longest = '';
-  for (i = 0; i < list.length; i++) {
+  for (let i = 0; i < list.length; i++) {
     if (list[i].length > longest.length) {
       longest = list[i];
     }
@@ -31,15 +31,11 @@ function sumNumbers(numbers) {
     return 0;
   }
   let sum = 0;
-  for (i = 0; i < numbers.length; i++) {
+  for (let i = 0; i < numbers.length; i++) {
     sum = numbers[i] + sum;
   }
   return sum;
 }
-//   for (i=0; i<) {
-
-//   }
-// }
 
 // Iteration #3.1 Bonus:
 function sum(mixedArr) {
@@ -70,14 +66,7 @@ function averageNumbers(arrNumbers) {
   if (arrNumbers.length === 0) {
     return null;
   }
-
-  let sum = 0;
-  for (i = 0; i < arrNumbers.length; i++) {
-    sum = arrNumbers[i] + sum;
-  }
-
-  let average = sum / arrNumbers.length;
-  return average;
+  return sum(arrNumbers) / arrNumbers.length;
 }
 
 // Level 2: Array of strings
@@ -91,9 +80,7 @@ function averageWordLength(wordArr) {
   for (i = 0; i < wordArr.length; i++) {
     sumWords = wordArr[i].length + sumWords;
   }
-
   let avgWordLength = sumWords / wordArr.length;
-
   return avgWordLength;
 }
 
@@ -206,7 +193,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let highestProduct = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    for (j = 3; j < arr[i].length; j++) {
+      let product = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
+      if (product > highestProduct) {
+        highestProduct = product;
+      }
+    }
+  }
+  for (i = 3; i < arr.length; i++) {
+    for (j = 0; j < arr[i].length; j++) {
+      let product = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+      if (product > highestProduct) {
+        highestProduct = product;
+      }
+    }
+  }
+  return highestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
