@@ -44,9 +44,34 @@ function sumNumbers(data) {
 sumNumbers(numbers);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixArr) {
+  if(mixArr.length === 0) {
+    return 0
+  } else {
+    let numArr2 = [];
+    let sumNumArr = 0;
+    for(let w = 0; w < mixArr.length; w++) {
+      if(typeof mixArr[w] === 'boolean') {
+        if(mixArr[w]) {
+          numArr2.push(1)
+        } else {
+          numArr2.push(0)
+        }
+      } else if(typeof mixArr[w] === 'string') {
+        numArr2.push(mixArr[w].length)
+      } else {
+        numArr2.push(mixArr[w])
+      }
+    }
+    numArr2.forEach(function(valor) {
+      sumNumArr += valor;
+    })
+    return sumNumArr
+  }
+}
 
-
+sum(mixedArr2)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -107,7 +132,11 @@ function avg(mixArr) {
         numArr.push(mixArr[y])
       }
     }
-    console.log(numArr)
+    numArr.forEach(function(valor) {
+      sumaNumArr += valor;
+    })
+    promNumArr = sumaNumArr / numArr.length;
+    return promNumArr
   }
 }
 
@@ -140,7 +169,6 @@ function uniquifyArray(arr) {
           unico.push(element);
     	}
     })
-    console.log(unico); //[1,2,6,5,9,'33']
     return unico;
 }
 
@@ -187,7 +215,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, palabra) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let count = 0
+  arr.forEach(function(element) {
+    if(palabra===element) {
+      count++;
+    }
+  })
+  return count;
+}
+howManyTimes(wordsCount, "matter")
 
 
 
