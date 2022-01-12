@@ -15,26 +15,26 @@ console.log(maxOfTwoNumbers(num1, num2));
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  if (!arr) {
-    return null
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.length === 1) {
+    return arr[0];
   } else {
+    let palabraMagica = ""
+    let palabraLarga = 0
     for (i = 0; i < arr.length; i++) {
-      //    console.log(words[i]);
-      //    console.log(words[i].length);
-      if (arr[i + 1] === undefined) {
-        break;
-      }
-      if (arr[i].length > arr[i + 1].length) {
-        let longestWord = arr[i];
-        console.log(longestWord);
-      } else {
-        continue;
+      //      console.log(arr[i])
+      if (palabraLarga < arr[i].length) {
+        palabraLarga = arr[i].length;
+        palabraMagica = arr[i];
       }
     }
+    console.log(palabraMagica)
+    //           }
+    //          }
   }
 }
-
-
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -50,14 +50,34 @@ function sumNumbers(arr) {
 console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum(arr) {
-  let sum = 0
-  for (i = 0; i < arr.length; i++) {
-    if (arr[i].typeOf())
-      sum += arr[i]
+
+
+function sum(mixArr) {
+  if (mixArr.length === 0) {
+    return 0
+  } else {
+    let numArr2 = [];
+    let sumNumArr = 0;
+    for (let w = 0; w < mixArr.length; w++) {
+      if (typeof mixArr[w] === 'boolean') {
+        if (mixArr[w]) {
+          numArr2.push(1)
+        } else {
+          numArr2.push(0)
+        }
+      } else if (typeof mixArr[w] === 'string') {
+        numArr2.push(mixArr[w].length)
+      } else {
+        numArr2.push(mixArr[w])
+      }
+    }
+    numArr2.forEach(function (valor) {
+      sumNumArr += valor;
+    })
+    return sumNumArr
   }
-  return (sum);
 }
+sum(mixedArr)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
