@@ -1,19 +1,56 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+//let num1 = 7
+//let num2 = 3
 
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+//console.log( "what is this?" words)
+
+function findLongestWord(arrOfWords) {
+  if ( arrOfWords.length === 0){
+  return null}
+  let longestword = ""
+  for (let i = 0; i < arrOfWords.length; i++){
+    if (arrOfWords[i].length > longestword.length){
+      longestword = arrOfWords[i];
+          } 
+   
+  }
+  return longestword
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+
+function sumNumbers(Arr) {  
+  if ( Arr.length === 0){
+    return 0
+  }
+  let countTotal = 0;
+    for(let i = 0; i < Arr.length; i++){
+         countTotal += Arr[i];
+        }
+    return countTotal
+    
+  }
+      // i need to understand wy arr.length is not counting inside the array
+      // yay???? i did it bye lossing the length? need explenation
+  sumNumbers(numbers);
+
 
 
 
@@ -26,13 +63,33 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(Avg) {
+ if (Avg.length === 0){   // need som explenation at this running out of time
+   return null
+ }
+  let counter = 0;
+  for ( let i = 0; i < Avg.length; i++){
+    counter += Avg[i];
+  }
+  return counter / Avg.length;
+}
+// I keeps getting undifinded. and i do not understand wy.
+//did i not Ierator good through //solved that i dind't put [i] after Avg.
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(Avarage) { 
+  if (Avarage.length === []){
+    return null
+  }
+  let wordlength = 0;
+  for (let i = 0; i < Avarage.length; i++){
+    wordlength += Avarage[i].length;
+  }
+  return wordlength / Avarage.length;
+
+}       //can't think straith anymore its 22:40
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +109,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(removal) {
+  if (removal.length === 0){
+    return null
+  }
 
+  // let dubble = []
+  // let discard = []
+  // for (let i = 0: i < removal.length; i++){
+  //   if (removal[i].length === dubble){
+  //     discard.push(dubble)
+
+  //   }
+  // }
+  
+}     
+// currently dieing must sleep
+// its 7 in the morning and its stil help
+// its 8 i would love a explination about how to approuch this
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+
+  
+}
 
 
 
@@ -78,8 +154,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(array, value) {
+    let AmountOfWords = 0;
+    for(i = 0; i < array.length; i++){
+      if(array[i] == value){AmountOfWords++}
+    }
+    return AmountOfWords;
+}
 
 
 // Iteration #8: Bonus
