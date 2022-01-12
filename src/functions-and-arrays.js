@@ -111,7 +111,8 @@ function averageWordLength(arr) {
 averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 78, 1, 25, 98, 200, 8, 8, 10];
 function avg(mixArr) {
   if(mixArr.length === 0) {
     return null
