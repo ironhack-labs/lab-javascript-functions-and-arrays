@@ -1,38 +1,100 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
 
-
-
+  let word = '';
+  for (let i = 0; i < words.length; i++) {
+    if (word.length < words[i].length) {
+      word = words[i];
+    }
+  }
+  return word;
+}
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let sunNumbersTotal = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sunNumbersTotal += numbers[i];
+  }
+  return sunNumbersTotal;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// function sum() {}
 
+function sum(array) {
+  let suma = 0;
 
+  for (let item of array) {
+    //En cada iteracion dependiendo del tipo de dato, añadimos a la suma segun el caso.
+    // si es numero, añadimos el numer
+    // si es string, añadimos la longitud
+    // si es un boolean y es true, añadimos 1
+    // si en caso que no es numero,string o boolean devolvemos un error.
+    switch (typeof item) {
+      case 'number':
+        suma += item;
+        break;
+      case 'string':
+        suma += item.length;
+        break;
+      case 'boolean':
+        if (item === true) {
+          suma += 1;
+        }
+        break;
+      default:
+        console.log('unsupported data');
+    }
+  }
+
+  return suma;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+  const suma = sumNumbers(numbersAvg);
+  const avgNumbers = suma / numbersAvg.length;
+  return avgNumbers;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  let total = 0;
+  for (var i = 0; i < wordsArr.length; i++) {
+    total += wordsArr[i].length;
+  }
+
+  let average = total / wordsArr.length;
+  return average;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,17 +114,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
 
-
+  let uniqueWords = [];
+  for (word of wordsUnique) {
+    // Creamos un nuevo array donde almacenamos solo las palabras que no se repiten.
+    // En cada iteracion en el caso que la palabra no esta en el array de las palabras unicas, la agregamos.
+    if (uniqueWords.indexOf(word) === -1) {
+      uniqueWords.push(word);
+    }
+  }
+  return uniqueWords;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayWords, word) {
+  if (arrayWords.length === 0) {
+    return null;
+  }
 
-
-
+  for (item of arrayWords) {
+    // En el caso que encontramos la palabra devolvemos true en caso contrario esperamos que se acabe el bluque y devolvemos false.
+    if (item === word) {
+      return true;
+    }
+  }
+  return false;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -78,9 +161,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, wordToFind) {
+  if (words.length === 0) {
+    return 0;
+  }
 
+  let count = 0;
 
+  for (word of words) {
+    //Incrementamos el contador cada vez que encontramos la palabra que buscamos.
+    if (word === wordToFind) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +202,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
