@@ -121,14 +121,14 @@ function doesWordExist(arr, str) {
     return null;
   }
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == str) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+    if (arr[i] === str) {
+     return true;
+    } 
+    
+  } return false;
 }
 
+doesWordExist(wordsFind,'machine');
 
 
 // Iteration #7: Count repetition
