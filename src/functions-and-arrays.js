@@ -70,6 +70,7 @@ function averageWordLength(wordsArr) {
   }
   return count / wordsArr.length
 }
+hh
 
 // Bonus - Iteration #4.1
 function avg() { }
