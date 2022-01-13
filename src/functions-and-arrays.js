@@ -14,14 +14,15 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
   let longest = '';
-  if (words === []) {
+  if (arr === []) {
     return null
   }
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longest.length) {
       longest = arr[i];
     } 
-  } return longest
+    return longest
+  } 
   
 }
 
