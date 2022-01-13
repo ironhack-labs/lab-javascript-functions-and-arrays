@@ -17,7 +17,7 @@ Manipulating arrays in code is a very common operation. Whether you are creating
 ## Submission
 
 Upon completion, run the following commands:
-
+  
 ```bash
 git add .
 git commit -m "Solved lab"
