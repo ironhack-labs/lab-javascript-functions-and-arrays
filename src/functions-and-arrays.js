@@ -80,8 +80,8 @@ function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
   'poison',
+  'crab',
   'contagious',
   'simple',
   'bring',
@@ -93,7 +93,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wU) {
+  let newArr = []
+  if (wU == ''){
+    return null
+  } else {
+  for (let i = 0; i < wU.length; i++) {
+    let actual = wU[i]
+    if (newArr.indexOf(wU[i]) == -1)
+      newArr.push(wU[i])
+  }
+}
+  return newArr
+}
 
 
 
