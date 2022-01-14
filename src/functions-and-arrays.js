@@ -41,11 +41,6 @@ function sum(array) {
   let suma = 0;
 
   for (let item of array) {
-    //En cada iteracion dependiendo del tipo de dato, añadimos a la suma segun el caso.
-    // si es numero, añadimos el numer
-    // si es string, añadimos la longitud
-    // si es un boolean y es true, añadimos 1
-    // si en caso que no es numero,string o boolean devolvemos un error.
     switch (typeof item) {
       case 'number':
         suma += item;
@@ -74,6 +69,7 @@ function averageNumbers(numbersAvg) {
   if (numbersAvg.length === 0) {
     return null;
   }
+
   const suma = sumNumbers(numbersAvg);
   const avgNumbers = suma / numbersAvg.length;
   return avgNumbers;
@@ -88,8 +84,9 @@ function averageWordLength(wordsArr) {
   }
 
   let total = 0;
-  for (var i = 0; i < wordsArr.length; i++) {
-    total += wordsArr[i].length;
+  for (let i = 0; i < wordsArr.length; i++) {
+    wordArr = wordsArr[i].length;
+    total += wordArr;
   }
 
   let average = total / wordsArr.length;
@@ -97,7 +94,15 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array.length === 0) {
+    return null;
+  }
+
+  const sumArrMixed = sum(array);
+  const avgArr = sumArrMixed / array.length;
+  return avgArr;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -120,13 +125,14 @@ function uniquifyArray(wordsUnique) {
   }
 
   let uniqueWords = [];
-  for (word of wordsUnique) {
-    // Creamos un nuevo array donde almacenamos solo las palabras que no se repiten.
-    // En cada iteracion en el caso que la palabra no esta en el array de las palabras unicas, la agregamos.
+
+  for (let i = 0; i < wordsUnique.length; i++) {
+    const word = wordsUnique[i];
     if (uniqueWords.indexOf(word) === -1) {
       uniqueWords.push(word);
     }
   }
+
   return uniqueWords;
 }
 
@@ -138,14 +144,15 @@ function doesWordExist(arrayWords, word) {
     return null;
   }
 
-  for (item of arrayWords) {
-    // En el caso que encontramos la palabra devolvemos true en caso contrario esperamos que se acabe el bluque y devolvemos false.
-    if (item === word) {
+  for (let i = 0; i < arrayWords.length; i++) {
+    const arrWord = arrayWords[i];
+    if (arrWord === word) {
       return true;
     }
   }
   return false;
 }
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -167,13 +174,13 @@ function howManyTimes(words, wordToFind) {
   }
 
   let count = 0;
-
-  for (word of words) {
-    //Incrementamos el contador cada vez que encontramos la palabra que buscamos.
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
     if (word === wordToFind) {
-      count = count + 1;
+      count++;
     }
   }
+
   return count;
 }
 
