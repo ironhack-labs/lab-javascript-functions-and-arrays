@@ -30,24 +30,9 @@ function findLongestWord(wordNames) {
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let total = 0;
 
-function sumNumbers(plus) {    
-    switch (plus.length) {
-        case 0:
-            return total = 0;
-        case '':
-            return total = '';
-        case undefined:
-            return total = undefined;
-        case null:
-            return total = null;
-        case NaN:
-            return total = NaN;
-        case false:
-            return total = false;
-    }
-    
+function sumNumbers(plus) {      
+    let total = 0;
     plus.forEach(number => total += number);
     return total;
 }
@@ -55,16 +40,20 @@ function sumNumbers(plus) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(plus) {
+    let total = 0;
+    plus.forEach(number => total += number);
+    return total;
+}
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-let result = 0;
 
 function averageNumbers(calculate) {
+    let result = 0;
     calculate.forEach(number => result += number);
     return result;
 }
