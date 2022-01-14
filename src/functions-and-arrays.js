@@ -90,15 +90,17 @@ function findLongestWord(words) {
 
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr, word) {
+function doesWordExist(arr, str) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === word) {
-      return true
+    if (str.typeOf === String && arr[i] == str) {
+      console.log('word exist')
     } else {
-      return false
+      console.log('word no exist')
     }
   }
 }
+
+
 
 
 // Iteration #7: Count repetition
