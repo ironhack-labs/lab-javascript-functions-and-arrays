@@ -92,14 +92,13 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(arr, str) {
   for (let i = 0; i < arr.length; i++) {
-    if (str.typeOf === String && arr[i] == str) {
+    if (typeof (str) === 'string' && arr[i] == str) {
       console.log('word exist')
     } else {
       console.log('word no exist')
     }
   }
 }
-
 
 
 
