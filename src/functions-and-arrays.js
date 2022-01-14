@@ -93,9 +93,9 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arr, str) {
   for (let i = 0; i < arr.length; i++) {
     if (typeof (str) === 'string' && arr[i] == str) {
-      console.log('word exist')
+      return true
     } else {
-      console.log('word no exist')
+      return false
     }
   }
 }
