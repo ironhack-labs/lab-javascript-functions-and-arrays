@@ -120,7 +120,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(matrix) {
+
+  let array = [];
+
+  let names = wordsUnique.length
+
+    for(let i=0; i<names;i++){
+
+            
+
+    }
+
+
+}
 
 
 
