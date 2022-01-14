@@ -90,12 +90,13 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
+function uniquifyArray(arr) {
   let newArray = [];
-  for (i = 0; i < wordsUnique.length; i++) {
-    if (wordsUnique.indexOf(wordsUnique[i], 2) !== -1);
+  for (let i = 0; i < arr.length; i++) {
+    if (newArray.indexOf(arr[i]) === -1) {
 
-    newArray.push(wordsUnique[i])
+      newArray.push(arr[i])
+    }
   }
 
   return newArray
