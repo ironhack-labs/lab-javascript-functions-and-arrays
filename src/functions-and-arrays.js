@@ -22,12 +22,37 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  if( arr.length === 0) { return 0 }
+  let sum = arr[0]
+  for(let i = 1; i < arr.length; i++){
+    sum += arr[i]
+  }
+  return sum
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if( arr.length === 0 ){ return 0 }
+
+  try{
+    return arr.reduce( (sum, el) => transform(sum) + transform(el) )
+  }catch(err){
+    throw(err)
+  }
+  
+  // return sum
+}
+
+const transform = (el) => {
+  if( typeof el === 'number') return el
+  if( typeof el === 'string') return el.length
+  if( el === true) return 1
+  if( el === false) return 0
+  if( typeof el === 'object') throw "Unsupported data type sir or ma'am"
+}
 
 
 
@@ -35,16 +60,28 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if( arr.length === 0 ){ return null }
+  if( arr.length === 1 ){ return arr[0]}
+  return arr.reduce( ( sum, el ) => sum + el) / arr.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArr) { 
+  let arr = wordArr.map( el => el.length )
+  return averageNumbers( arr )
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if( mixedArr.length === 0 ){ return null }
+  let arr = mixedArr.map( el => transform(el) )
+  console.log(arr)
+  return parseFloat ( averageNumbers(arr).toFixed(2) )
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -61,14 +98,71 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray1(wordsArr) {
+  if( wordsArr.length === 0 ){ return null }
+
+  wordsArr.sort( (a, b) => a.localeCompare(b) )
+  const res = [ wordsArr[0] ]
+
+  let index = 0;
+  for( let i = 1; i < wordsArr.length ; i++ ){
+    if( res[ index ].localeCompare(wordsArr[i])){
+      index++
+      res.push( wordsArr[i] )
+    }
+  }
+  return res
+}
+
+
+// function uniquifyArray(wordsArr) {
+//   if( wordsArr.length === 0 ){ return null }
+
+//   wordsArr.sort( (a, b) => a.localeCompare(b) )
+//   const res = [ wordsArr[0] ]
+
+//   let index = 0;
+//   for( let i = 1; i < wordsArr.length ; i++ ){
+//     if( res[ index ].localeCompare(wordsArr[i])){
+//       index++
+//       res.push( wordsArr[i] )
+//     }
+//   }
+//   return res
+// }
+
+function uniquifyArray(wordsArr) {
+  if( wordsArr.length === 0 ){ return null }
+
+  const res = [ wordsArr[0] ]
+
+  for( let i = 1; i < wordsArr.length ; i++ ){
+    if( isElement( wordsArr[i], res) === 0 ){
+      res.push( wordsArr[i] )
+    }
+  }
+  return res
+}
+
+function isElement(word, arr){
+  for( let i = 0; i < arr.length; i++){
+    if ( word.localeCompare( arr[i] ) === 0 ){
+      return 1
+    }
+  }
+  return 0
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if( arr.length === 0 ){ return null }
+  if ( isElement(word, arr) ) {return true}
+  return false
+}
 
 
 
@@ -87,7 +181,10 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if( arr.length === 0 ){ return 0 }
+  return arr.reduce( (sum, el) => sum + ( el.localeCompare(word) == 0 ? 1 : 0 ) , 0)
+}
 
 
 
