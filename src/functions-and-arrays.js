@@ -27,9 +27,11 @@ function findLongestWord(palavras) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numeros) {
+  if (numeros.length === 0) {
+    return 0;
+  };  
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -140,5 +142,5 @@ if (typeof module !== 'undefined') {
     doesWordExist,
     howManyTimes,
     greatestProduct
-  };
-}
+  }
+};
