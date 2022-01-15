@@ -28,9 +28,17 @@ function findLongestWord(palavras) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numeros) {
+  let soma = 0;
   if (numeros.length === 0) {
+    return 0
+  }; 
+  for (i = 0; i < numeros.length; i++) 
+    if (numeros[i] === 0) {
     return 0;
-  };  
+  } else if ( numeros[i] !== 0) {
+    soma += numeros[i];
+  };
+return soma;
 }
 
 // Iteration #3.1 Bonus:
