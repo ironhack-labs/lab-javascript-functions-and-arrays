@@ -1,12 +1,6 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(arg1, arg2) {
-  return arg1 > arg2 ? (
-    arg1
-  ) : (
-    arg2
-  )
-
-  return arg1
+  return arg1 > arg2 ? arg1 : arg2
 }
 
 
@@ -16,16 +10,16 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(words) {
 
-  if (words.length === 0 ) {
-    return null    
+  if (words.length === 0) {
+    return null
   }
 
   let longestWord = ''
-    for (let i = 0; i < words.length; i++) {
-      if (longestWord.length < words[i].length) {
-        longestWord = words[i]
-      }
+  for (let i = 0; i < words.length; i++) {
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i]
     }
+  }
   return longestWord
 }
 
@@ -46,24 +40,24 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum(mixedArr) { 
+function sum(mixedArr) {
   let sum = 0
   for (let i = 0; i < numbers.length; i++) {
 
-      if (typeof (mixedArr[i]) === 'array' || typeof (mixedArr[i]) === 'object') {
-        throw "Unsupported data type sir or ma'am"
-      }
+    if (typeof (mixedArr[i]) === 'array' || typeof (mixedArr[i]) === 'object') {
+      throw "Unsupported data type sir or ma'am"
+    }
 
 
-      if (typeof (mixedArr[i]) === 'string') {
-          sum += mixedArr[i].length
-      } else if (typeof(mixedArr[i]) === 'number') {
-          sum += mixedArr[i]
-      } else if (typeof(mixedArr[i]) === 'boolean') {
-          sum += mixedArr[i] ? 1 : 0
-      } else if(typeof(mixedArr[i]) === 'array' || typeof(mixedArr[i]) === 'object'){
-          sum = `Unsupported data type sir or ma'am`
-      }
+    if (typeof (mixedArr[i]) === 'string') {
+      sum += mixedArr[i].length
+    } else if (typeof (mixedArr[i]) === 'number') {
+      sum += mixedArr[i]
+    } else if (typeof (mixedArr[i]) === 'boolean') {
+      sum += mixedArr[i] ? 1 : 0
+    } else if (typeof (mixedArr[i]) === 'array' || typeof (mixedArr[i]) === 'object') {
+      sum = `Unsupported data type sir or ma'am`
+    }
   }
 
   return sum
@@ -75,15 +69,15 @@ function sum(mixedArr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) { 
+function averageNumbers(numbersAvg) {
   let sum = 0
 
-  if (numbersAvg.length === 0 ) {
-    return null    
+  if (numbersAvg.length === 0) {
+    return null
   }
 
   for (let i = 0; i < numbersAvg.length; i++) {
-      sum += numbersAvg[i]
+    sum += numbersAvg[i]
   }
 
   return sum / numbersAvg.length
@@ -93,15 +87,15 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(wordsArr) { 
+function averageWordLength(wordsArr) {
   let sum = 0
 
-  if (wordsArr.length === 0 ) {
-    return null    
+  if (wordsArr.length === 0) {
+    return null
   }
 
   for (let i = 0; i < wordsArr.length; i++) {
-      sum += wordsArr[i].length
+    sum += wordsArr[i].length
   }
 
   return sum / wordsArr.length
@@ -109,39 +103,40 @@ function averageWordLength(wordsArr) {
 
 // Bonus - Iteration #4.1
 
-function avg(mixedArr) { 
+function avg(mixedArr) {
+  // this fuctions is used to fix the problem of having extra decimal numbers. In my case, the solution should be 5.11 and mine was 5.111111111
   const round = (num, places) => {
     if (!("" + num).includes("e")) {
-      return +(Math.round(num + "e+" + places)  + "e-" + places);
+      return +(Math.round(num + "e+" + places) + "e-" + places);
     } else {
       let arr = ("" + num).split("e");
       let sig = ""
       if (+arr[1] + places > 0) {
         sig = "+";
       }
-  
+
       return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + places)) + "e-" + places);
     }
   }
-  
-  
+
+
   let sum = 0
 
   if (mixedArr.length === 0) {
-     return null
+    return null
   }
 
   for (let i = 0; i < numbers.length; i++) {
-      if (typeof (mixedArr[i]) === 'string') {
-          sum += mixedArr[i].length
-      } else if (typeof (mixedArr[i]) === 'number') {
-          sum += mixedArr[i]
-      } else if (typeof (mixedArr[i]) === 'boolean') {
-          sum += mixedArr[i] ? 1 : 0
-      }
+    if (typeof (mixedArr[i]) === 'string') {
+      sum += mixedArr[i].length
+    } else if (typeof (mixedArr[i]) === 'number') {
+      sum += mixedArr[i]
+    } else if (typeof (mixedArr[i]) === 'boolean') {
+      sum += mixedArr[i] ? 1 : 0
+    }
   }
-    sum = sum/mixedArr.length
-  return round(sum,2)
+  sum = sum / mixedArr.length
+  return round(sum, 2)
 }
 
 // Iteration #5: Unique arrays
@@ -159,14 +154,58 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(wordsUnique) {
+
+  findElements = (word, arr) => {
+    let indices = []
+    let element = word
+    let idx = arr.indexOf(element)
+    while (idx != -1) {
+      indices.push(idx);
+      idx = arr.indexOf(element, idx + 1);
+    }
+    return indices
+  }
+
+
+  if (wordsUnique.length === 0) {
+    return null
+  }
+
+  for (let i = 0; i < wordsUnique.length; i++) {
+    let equalWords = findElements(wordsUnique[i], wordsUnique)
+
+    if (equalWords.length > 1) {
+      for (let i = 1; i < equalWords.length; i++) {
+
+        wordsUnique.splice(equalWords[i], i)
+      }
+    }
+  }
+
+  return wordsUnique
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(wordsFind, wordtosearch) {
+  let result = false
+
+  if (wordsFind.length === 0) {
+    return null
+  }
+
+  for (let i = 0; i < wordsFind.length; i++) {
+
+    if (wordsFind[i] === wordtosearch) {
+      result = true
+    }
+  }
+  return result
+}
 
 
 
@@ -185,7 +224,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(wordsCount, wordtocount) {
+  let count = 0
+
+  if (wordsCount.length === 0) {
+    return 0
+  }
+
+  for (let i = 0; i < wordsCount.length; i++) {
+
+    if (wordsCount[i] === wordtocount) {
+      count++
+    }
+  }
+  return count
+}
 
 
 
@@ -213,7 +266,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct(matrix) {
+  let max = 0
+  let result = 0
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+      if ((j - 3) >= 0) {
+        result = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3]
+
+        if (max < result) {
+          max = result
+        }
+      }
+
+      if ((i - 3) >= 0) {
+        result = matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j]
+        if (max < result) {
+          max = result
+        }
+      }
+
+    }
+
+  }
+
+  return max
+}
 
 
 
