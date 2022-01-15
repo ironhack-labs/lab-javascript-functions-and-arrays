@@ -42,9 +42,19 @@ return soma;
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(numero) {
+  let somar = 0;
+  if (numero.length === 0) {
+    return 0
+  };
+  for (i = 0; i < numero.length; i++)
+  if (numero[i] === 0) {
+    return 0
+  } else if (numero[i] !== 0) {
+    somar += numero[i];
+  };
+return somar;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
