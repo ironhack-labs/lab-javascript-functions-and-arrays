@@ -212,9 +212,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matr) {
+  let max = 1
+  let dim = matr.length
+  for( let k=0; k<dim-4; k++){
+    for ( let m=0; m<dim-4; m++){
+      max = Math.max(max, helper( matr, k, m))
+    }    
+  }
+  return max
+}
 
-
+function helper(matr, i, j){
+  let l=1
+  let c=1
+  for(let k=0; k<4; k++){
+    l *= matr[i][k]
+    c *= matr[k][j]
+  }
+  return Math.max(l, c)
+}
 
 
 // The following is required to make unit tests work.
