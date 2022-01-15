@@ -69,6 +69,7 @@ function sum(mixedArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+
   if (numbers.length === 0) {
     return null
   }
@@ -80,7 +81,6 @@ function averageNumbers(numbers) {
 
   return sum / numbers.length
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -100,7 +100,24 @@ function averageWordLength(words) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+
+  if (arr.length === 0) {
+    return null
+  }
+
+  let mixedSum = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'string') {
+      mixedSum += arr[i].length
+    } else if (typeof arr[i] === 'number' || typeof arr[i] === 'boolean') {
+      mixedSum += arr[i]
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
+  }
+  return Math.round((mixedSum / arr.length) * 100) / 100
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
