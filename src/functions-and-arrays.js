@@ -31,18 +31,38 @@ function findLongestWord(words) {
 }
 
 
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
 
+  if (numbers.length === 0) {
+    return 0
+  }
 
+  let sum = 0
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+
+  return sum
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
 
-
+  let mixedSum = 0
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'string') {
+      mixedSum += mixedArr[i].length
+    } else if (typeof mixedArr[i] === 'number' || typeof mixedArr[i] === 'boolean') {
+      mixedSum += mixedArr[i]
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
+  }
+  return mixedSum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
