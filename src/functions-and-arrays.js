@@ -60,16 +60,39 @@ return somar;
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let average = sum(numbers);
+  if (!numbers.length) {
+    return null;
+  } else if (numbers.length === 0) {
+    return numbers.length;
+  }
+  return average / numbers.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(tamanhoLetra) {
+  if (!tamanhoLetra.length) {
+    return null;
+  };
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(avast) {
+  if (!avast.length) {
+    return null;
+  }
+  let soma = 0;
+  for (let i = 0; i < avast.length; i++)
+    if (avast[i].length !== 0) {
+      soma += avast[i].length
+    };
+  let average = soma / avast.length
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -86,14 +109,25 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(diferenciado) {
+  if (!diferenciado.length) {
+    return null;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(isItReal) {
+  if (!isItReal.length) {
+    return null;
+  };
+  if (isItReal === isItReal) {
+    return true;
+  };
+}
 
 
 
