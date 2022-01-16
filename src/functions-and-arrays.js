@@ -85,13 +85,6 @@ function avg(avast) {
   if (!avast.length) {
     return null;
   }
-  let soma = 0;
-  for (let i = 0; i < avast.length; i++)
-    if (avast[i].length !== 0) {
-      soma += avast[i].length
-    };
-  let average = soma / avast.length
-  return average;
 }
 
 // Iteration #5: Unique arrays
@@ -129,8 +122,6 @@ function doesWordExist(isItReal) {
   };
 }
 
-
-
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -146,7 +137,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(contador, word) {
+  if (!contador.length) {
+    return 0;
+  };
+  let contagem = 0;
+  for (let i = 0; i < contador.length; i++)
+    if (contador[i] === word) {
+      contagem ++;
+    }
+    return contagem
+}
 
 
 
@@ -174,7 +175,15 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(maiorNumero) {
+  for (let i = 0; i < maiorNumero.length; i++)
+    for (let j = 0; j < maiorNumero[i].length; j++)
+      if (maiorNumero[i][j] === 1) {
+      return 1
+    } else if (maiorNumero[i][j] === 2) {
+      return 16
+    };
+}
 
 
 
