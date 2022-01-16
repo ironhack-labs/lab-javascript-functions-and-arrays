@@ -32,7 +32,22 @@ function findLongestWord(arr) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+
+  let sum = 0; // criei a variável auxiliar para preencher com o que eu preciso para encontrar meu resultado
+
+  //preciso passar por todos os elementos da array, que neste caso são os números. Logo, preciso do for
+
+  for (let i = 0; i < arr.length; i++) {
+    if(arr.length > 0) {
+      sum += arr[i]; // estou adicionando à variável auxiliar sum os elementos (números) um a um, o que vai fazer a soma dos mesmos
+      
+    }else{
+      sum === 0
+    }
+  }
+  return sum; // retornar a sum
+  }
 
 
 
