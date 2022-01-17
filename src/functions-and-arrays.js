@@ -16,7 +16,7 @@ function findLongestWord(words) {
     if (!words.length) {
     return null;
   }
-  let longest = '';
+  let longest = ' ';
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > longest.length) {
     longest = words[i]; 
@@ -28,7 +28,6 @@ function findLongestWord(words) {
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let total = 0;
 
 function sumNumbers(numbers) {
   if (!numbers.length) {
@@ -42,7 +41,38 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+function sum(mixedArr) {
+  let mixedSumOne = 0;
+  let mixedSumTwo = 0;
+  let mixedSumTotal = 0;
+
+  if (!mixedArr.length) {
+    return 0;
+    
+} for (let i = 0; i < mixedArr.length; i++) {
+
+  if (typeof mixedArr[i] === 'object' || typeof mixedArr[i] === 'array') {
+    throw "Unsupported data type sir or ma'am";
+  }
+  if (typeof mixedArr[i] === 'number') {
+    mixedSumOne = mixedArr[i];
+    mixedSumTotal += mixedSumOne;
+  } else if (typeof mixedArr[i] === 'string') {
+    mixedSumTwo = mixedArr[i].length;
+    mixedSumTotal += mixedSumTwo;
+  } else if (typeof mixedArr[i] === 'boolean') {
+    if (mixedArr[i] === true) {
+      mixedSumTotal += 1
+    } else {
+      mixedSumTotal += 0
+  } 
+}
+}
+  return mixedSumTotal;
+}
+
+
 
 
 
@@ -69,13 +99,12 @@ function averageNumbers(numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
-  let averageLength = 0;
-  let total = 0;
-  
+
   if (!wordsArr.length) {
     return null;
     } 
-
+let averageLength = 0;
+let total = 0;
     for (let i = 0; i < wordsArr.length; i++) {
     total += wordsArr[i].length
     averageLength = total / wordsArr.length; 
@@ -105,7 +134,7 @@ function uniquifyArray(wordsUnique) {
   if (!wordsUnique.length) {
     return null;
     } 
-  let newArr = [];
+    let newArr = 0;
   for (let i = 0; i < wordsUnique.length; i++) {
   newArr = wordsUnique.filter((element, index) => {
     return wordsUnique.indexOf(element) === index;
@@ -119,7 +148,11 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+
+}
+ 
+    
 
 
 
