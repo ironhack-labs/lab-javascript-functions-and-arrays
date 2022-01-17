@@ -45,15 +45,19 @@ return soma;
 function sum(numero) {
   let somar = 0;
   if (numero.length === 0) {
-    return 0
+    return 0;
   };
   for (i = 0; i < numero.length; i++)
-  if (numero[i] === 0) {
-    return 0
-  } else if (numero[i] !== 0) {
-    somar += numero[i];
-  };
-return somar;
+    if ( typeof numero[i] === 'string') {
+      somar += numero[i].length;
+    } else if ( numero[i] !== 0) {
+        somar += numero[i];
+    } else if ( numero [i] === 0) {
+      return 0;
+    } else if ((typeof numero[i] === 'object' ) || (typeof numero[i] === 'array')) {
+      throw "Unsupported data type sir or ma'am";
+    };
+  return somar;
 }
 
 // Iteration #4: Calculate the average
