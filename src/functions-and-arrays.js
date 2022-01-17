@@ -53,12 +53,12 @@ function sum(numero) {
     } else if ( numero[i] !== 0) {
         somar += numero[i];
     } else if ( numero [i] === 0) {
-      return 0;
+        return 0;
     } else if ((typeof numero[i] === 'object' ) || (typeof numero[i] === 'array')) {
-      throw "Unsupported data type sir or ma'am";
-    };
+        throw "Unsupported data type sir or ma'am";
+    }
   return somar;
-}
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -79,17 +79,33 @@ function averageNumbers(numbers) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(tamanhoLetra) {
+  let totalElementos = 0;
   if (!tamanhoLetra.length) {
     return null;
   };
-}
+  for (let i = 0; i < tamanhoLetra.length; i++) {
+    if (tamanhoLetra[i].length !== 0) {
+      totalElementos += tamanhoLetra[i].length
+    };
+  }
+  return totalElementos / tamanhoLetra.length
+};
 
 // Bonus - Iteration #4.1
-function avg(avast) {
-  if (!avast.length) {
+function avg(arr) {
+  let somar = 0;
+  if (!arr.length) {
     return null;
-  }
-}
+  };
+  for (i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      somar += arr[i];
+    } else if ( typeof arr[i] === 'string') {
+        somar += arr[i].length;
+    }
+  return somar / arr.length
+};
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
