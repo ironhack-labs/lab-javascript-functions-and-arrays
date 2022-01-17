@@ -13,15 +13,18 @@ function maxOfTwoNumbers(num1, num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-let longestWord = '';
 
 function findLongestWord(arr) {
-  if (!arr.length){
+  if (!arr.length){ // significa que arr não tem length
     return null
   }
   
+  let longestWord = ''; // criei a variável auxiliar para preencher com o que eu preciso para encontrar meu resultado
+  let word = 0; // variável auxiliar para a contagem (????)
+
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length > longestWord.length) {
+    if (arr[i].length > word) {
+      word = arr[i].length;
       longestWord = arr[i];
     }
   }
@@ -60,39 +63,39 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
-  let sum = 0;
-  
-  for (let i = 0; i < arr.length; i++) {
-    if(arr.length > 0) {
-      sum += arr[i];
-    
-    }else{
-      return null
-    }
+
+  if (arr.length === 0) { // se igual a 0, vai me retornar null.
+    return null;
   }
-  return sum / arr.length
+
+  let average = 0; // variável auxiliar para início da contagem. 
+
+  for (let i = 0; i < arr.length; i++) { // for para passar por toda a array
+    average += arr[i]; // vou contabilizar mais um [i] a cada elemento que passar.
+  }
+
+  return average / arr.length; // faço a média, dividindo pela length da array
 }
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arr) { 
-  let sum = 0;
+  
+  if (arr.length === 0) {
+    return null;
+  }
+  
+  let averageWords = 0;
   
   for (let i = 0; i < arr.length; i++) {
-    if(arr.length > 0) {
-      sum += arr[i];
-    
-    }else{
-      return null
+      averageWords += arr[i].length;
     }
+
+    return averageWords / arr.length
   }
-  return sum / arr.length
-}
-
-
-
-
+  
 
 
 
