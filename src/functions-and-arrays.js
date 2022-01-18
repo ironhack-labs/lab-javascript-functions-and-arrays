@@ -189,7 +189,7 @@ function howManyTimes(words, word) {
       count++
     }
   }
-  
+
   return count
 }
 
@@ -219,7 +219,33 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+  let greatestProd = 0
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+
+      // Verifica linha
+      if (j+3 <= matrix[i].length-1) {
+        let product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+        if (product > greatestProd) {
+          greatestProd = product
+        }
+      }
+
+      //Verifica coluna
+      if (i+3 <= matrix.length-1) {
+        let product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+        if (product > greatestProd) {
+          greatestProd = product
+        }
+      }
+    }
+  }
+  
+  return greatestProd
+}
 
 
 
