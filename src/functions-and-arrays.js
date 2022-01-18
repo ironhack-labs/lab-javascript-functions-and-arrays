@@ -62,7 +62,7 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(arr) {
   if(arr.length === 0){
-    return null;
+    return 0;
   }
 
   let resultOfSum = 0;
@@ -86,13 +86,36 @@ function sum(arr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (array.length === 0){
+    return null;
+  }
 
+  let sum = 0;
+  array.forEach(element => {
+    sum += element
+  });
+  let resultOfAverage = (sum / array.length);
+  return resultOfAverage;
+}
+   // 1- criar uma variavel com o resultado da soma;
+  // 2- fazer um loop pra rodar em cada elemento 
+  // 3- criar uma variavel q resulte a media( soma/numero de elementos da array)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) { 
+  if(words.length === 0){
+    return null;
+  }
+  let sumOfLength = 0;
+  words.forEach(element => {
+    sumOfLength += element.length
+  });
+  let resultOfAvg= (sumOfLength/words.length);
+  return resultOfAvg;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
