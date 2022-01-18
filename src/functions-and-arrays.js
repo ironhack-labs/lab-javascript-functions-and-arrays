@@ -111,7 +111,33 @@ let total = 0;
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(someArr) {
+  let mixedSumOne = 0;
+  let mixedSumTwo = 0;
+  let mixedSumTotal = 0;
+
+  if (!someArr.length) {
+    return null;
+    
+} for (let i = 0; i < someArr.length; i++) {
+
+  if (typeof someArr[i] === 'number') {
+    mixedSumOne = someArr[i];
+    mixedSumTotal += mixedSumOne / someArr.length;
+  } else if (typeof someArr[i] === 'string') {
+    mixedSumTwo = someArr[i].length;
+    mixedSumTotal += mixedSumTwo / someArr.length;
+  } else if (typeof someArr[i] === 'boolean') {
+    if (someArr[i] === true) {
+      mixedSumTotal += 1 / someArr.length;
+    } else {
+      mixedSumTotal += 0;
+  } 
+}
+}
+  return +mixedSumTotal.toFixed(2);
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
