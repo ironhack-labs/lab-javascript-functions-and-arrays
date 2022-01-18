@@ -12,9 +12,10 @@ function maxOfTwoNumbers(x, y) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']
 
-let longestIndex = 0
-let longestLength = 0
 function findLongestWord(words) {
+
+  let longestIndex = 0
+  let longestLength = 0
 
   if (words.length === 0) {
     return null
@@ -217,7 +218,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// Iteration #8.1: Bonus
+
 function greatestProduct(matrix) {
 
   let greatestProd = 0
@@ -246,7 +247,7 @@ function greatestProduct(matrix) {
   return greatestProd
 }
 
-
+// Iteration #8.1: Bonus
 function greatestProductOfDiagonals(matrix) {
   let greatestProd = 0
 
