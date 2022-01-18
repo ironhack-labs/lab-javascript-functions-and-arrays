@@ -74,8 +74,6 @@ function sum(mixedArr) {
 
 
 
-
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
@@ -148,12 +146,18 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {
-
+function doesWordExist(wordsFind, word) {
+  if (!wordsFind.length) {
+    return null;
+  }
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind.includes(word) === true){
+      return true
+    } else {
+      return false
+    }
+  }
 }
- 
-    
-
 
 
 // Iteration #7: Count repetition
