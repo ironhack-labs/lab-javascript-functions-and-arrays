@@ -117,15 +117,42 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+  if (!arr.length) {
+    return null
+  }
+
+  let notDuplicate = []; //precisa ser uma nova array vazia, pois colocarei aqui os elementos não duplicados
+
+  for (let i = 0; i < arr.length; i++){ //preciso percorrer a array, logo, preciso do for
+    if ( i == arr.indexOf(arr[i])) {  //o método indexOf compara os elementos da array (arr[i])
+      notDuplicate.push(arr[i]); //logo, o que não for duplicado, eu coloco na variável auxiliar
+    }
+  }
+
+  return notDuplicate;
+
+}
 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience', 'book'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) { //estou recebendo dois argumentos EXTERNOS. não preciso declarar neste caso
+  
+  if (wordsFind.length === 0) {
+    return null;
+    }
 
+    for (let i = 0; i < wordsFind.length; i++){
+    if (wordsFind[i] === word) {
+      return true;
+    }
+  }
+  return false;
+}
 
 
 // Iteration #7: Count repetition
@@ -143,7 +170,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordsToLookFor) {
+
+  let repetition = 0;
+
+    for (let i = 0; i < wordsCount.length; i++){
+    if (wordsCount[i] === wordsToLookFor) {
+      repetition += 1;  // se eu colocar o return aqui, ele vai contar somente o primeiro
+  }
+}
+return repetition // peço o retorno do contador aqui, para ele passar por toda a array e fazer a conta total.
+
+}
 
 
 
