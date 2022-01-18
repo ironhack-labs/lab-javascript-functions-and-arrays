@@ -125,8 +125,13 @@ const wordsUnique = [
 function uniquifyArray(diferenciado) {
   if (!diferenciado.length) {
     return null;
+  };
+  for (let i = 0; i < diferenciado.length; i++) {
+    if (diferenciado[i] !== diferenciado[i]+1) {
+      return diferenciado
+    };
   }
-}
+};
 
 
 
@@ -137,8 +142,10 @@ function doesWordExist(isItReal) {
   if (!isItReal.length) {
     return null;
   };
-  if (isItReal === isItReal) {
-    return true;
+  for (let i = 0; i < isItReal.length; i++) {
+    if (isItReal === isItReal) {
+      return true;
+    };
   };
 }
 
