@@ -15,12 +15,12 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 
 function findLongestWord(arr) {
-  if (!arr.length){ // significa que arr não tem length
+  if (!arr.length){
     return null
   }
   
-  let longestWord = ''; // criei a variável auxiliar para preencher com o que eu preciso para encontrar meu resultado
-  let word = 0; // variável auxiliar para a contagem (????)
+  let longestWord = '';
+  let word = 0;
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > word) {
@@ -36,19 +36,17 @@ function findLongestWord(arr) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
-  let sum = 0; // criei a variável auxiliar para preencher com o que eu preciso para encontrar meu resultado
-
-  //preciso passar por todos os elementos da array, que neste caso são os números. Logo, preciso do for
+  let sum = 0;
 
   for (let i = 0; i < arr.length; i++) {
     if(arr.length > 0) {
-      sum += arr[i]; // estou adicionando à variável auxiliar sum os elementos (números) um a um, o que vai fazer a soma dos mesmos
+      sum += arr[i];
       
     }else{
       sum === 0
     }
   }
-  return sum; // retornar a sum
+  return sum;
 }
 
 
@@ -64,17 +62,17 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
 
-  if (arr.length === 0) { // se igual a 0, vai me retornar null.
+  if (arr.length === 0) { 
     return null;
   }
 
-  let average = 0; // variável auxiliar para início da contagem. 
+  let average = 0; 
 
-  for (let i = 0; i < arr.length; i++) { // for para passar por toda a array
-    average += arr[i]; // vou contabilizar mais um [i] a cada elemento que passar.
+  for (let i = 0; i < arr.length; i++) {
+    average += arr[i]; 
   }
 
-  return average / arr.length; // faço a média, dividindo pela length da array
+  return average / arr.length; 
 }
 
 
@@ -123,11 +121,11 @@ function uniquifyArray(arr) {
     return null
   }
 
-  let notDuplicate = []; //precisa ser uma nova array vazia, pois colocarei aqui os elementos não duplicados
+  let notDuplicate = []; 
 
-  for (let i = 0; i < arr.length; i++){ //preciso percorrer a array, logo, preciso do for
-    if ( i == arr.indexOf(arr[i])) {  //o método indexOf compara os elementos da array (arr[i])
-      notDuplicate.push(arr[i]); //logo, o que não for duplicado, eu coloco na variável auxiliar
+  for (let i = 0; i < arr.length; i++){ 
+    if ( i == arr.indexOf(arr[i])) {  
+      notDuplicate.push(arr[i]); 
     }
   }
 
@@ -140,7 +138,7 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience', 'book'];
 
-function doesWordExist(wordsFind, word) { //estou recebendo dois argumentos EXTERNOS. não preciso declarar neste caso
+function doesWordExist(wordsFind, word) { 
   
   if (wordsFind.length === 0) {
     return null;
@@ -176,10 +174,10 @@ function howManyTimes(wordsCount, wordsToLookFor) {
 
     for (let i = 0; i < wordsCount.length; i++){
     if (wordsCount[i] === wordsToLookFor) {
-      repetition += 1;  // se eu colocar o return aqui, ele vai contar somente o primeiro
+      repetition += 1;  
   }
 }
-return repetition // peço o retorno do contador aqui, para ele passar por toda a array e fazer a conta total.
+return repetition 
 
 }
 
