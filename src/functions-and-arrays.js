@@ -193,8 +193,6 @@ function howManyTimes(words, word) {
   return count
 }
 
-
-
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -219,6 +217,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+// Iteration #8.1: Bonus
 function greatestProduct(matrix) {
 
   let greatestProd = 0
@@ -248,7 +247,32 @@ function greatestProduct(matrix) {
 }
 
 
+function greatestProductOfDiagonals(matrix) {
+  let greatestProd = 0
 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+
+      // Verifica diagonal direita
+      if (i+3 <= matrix.length-1 && j+3 <= matrix[i].length-1) {
+        let product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3]
+        if (product > greatestProd) {
+          greatestProd = product
+        }
+      }
+
+      //Verifica diagonal esquerda
+      if (i+3 <= matrix.length-1 && j-3 >= 0) {
+        let product = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3]
+        if (product > greatestProd) {
+          greatestProd = product
+        }
+      }
+    }
+  }
+  
+  return greatestProd
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
