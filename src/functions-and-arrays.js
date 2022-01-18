@@ -35,7 +35,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
   if(array.length === 0){
-    console.log("hi");
     return 0;
   }
   let result = array[0];
@@ -59,8 +58,28 @@ function sumNumbers(array) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(arr) {
+  if(arr.length === 0){
+    return null;
+  }
+
+  let resultOfSum = 0;
+    arr.forEach(element => {
+      if(typeof element === "string"){
+        resultOfSum += element.length;
+      } else if(typeof element=== "boolean"){
+        resultOfSum += (+element);
+      } else if(typeof element === "number"){
+        resultOfSum += element;
+      } else {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    });
+
+    return resultOfSum;
+}
 
 
 // Iteration #4: Calculate the average
