@@ -129,8 +129,8 @@ function uniquifyArray(diferenciado) {
   for (let i = 0; i < diferenciado.length; i++) {
     if (diferenciado[i] !== diferenciado[i]+1) {
       return diferenciado
-    };
-  }
+    }
+  };
 };
 
 
@@ -138,16 +138,17 @@ function uniquifyArray(diferenciado) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(isItReal) {
+function doesWordExist(isItReal, word) {
   if (!isItReal.length) {
     return null;
   };
-  for (let i = 0; i < isItReal.length; i++) {
-    if (isItReal === isItReal) {
-      return true;
+  for (let j = 0; j < isItReal.length; j++) {
+    if (isItReal[j] === word) {
+      return true
     };
   };
-}
+  return false
+};
 
 // Iteration #7: Count repetition
 const wordsCount = [
