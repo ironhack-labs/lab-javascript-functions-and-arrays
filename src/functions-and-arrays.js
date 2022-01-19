@@ -12,7 +12,7 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-let longestWord = [];
+let longestWord = '';
 if (!arr.length) {
   return null;
 }
@@ -103,11 +103,14 @@ function averageWordLength(arr) {
 
  averageWordLength(wordsArr);
 
-// Bonus - Iteration #4.1
+// Bonus - Iteration #4.1 - Still working on this, tried toFixed(), but still giving same error
 let emptyArr = [];
+
+let avgCalc;
 
 function avg(arr) {
   let avgOf = 0;
+  
   if (!arr.length) {
     return null;
   }
@@ -125,14 +128,15 @@ function avg(arr) {
       avgOf += element;
     }
   })
-  return avgOf / arr.length;
+  avgCalc = avgOf / arr.length;
+  return avgCalc.toFixed(1);
 }
 
-avg(emptyArr);
+avg(mixedArr);
 
 
 
-// Iteration #5: Unique arrays
+// Iteration #5: Unique arrays - Still working on this
 const wordsUnique = [
   'crab',
   'poison',
@@ -147,7 +151,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+
+function uniquifyArray(arr) {
+  let uniqueArray;
+  arr.forEach(function(word) {
+    if (arr.indexOf(word) === -1) {
+      uniqueArray.push(word);
+  }
+  return uniqueArray;
+  })
+}
+
+uniquifyArray(wordsUnique);
 
 
 
