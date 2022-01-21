@@ -129,7 +129,7 @@ function avg(arr) {
     }
   })
   avgCalc = avgOf / arr.length;
-  return avgCalc.toFixed(1);
+  return Number(avgCalc.toFixed(2));
 }
 
 avg(mixedArr);
@@ -153,14 +153,17 @@ const wordsUnique = [
 
 
 
-function uniquifyArray(arr) {
-  let uniqueArray;
-  arr.forEach(function(word) {
-    if (arr.indexOf(word) === -1) {
-      uniqueArray.push(word);
-  }
-  return uniqueArray;
-  })
+function uniquifyArray(words) {
+ if (!words.length) {
+   return null;
+ }
+ let uniqueWords = [];
+ words.forEach(function(word) {
+      if (uniqueWords.indexOf(word) < 0) {
+          uniqueWords.push(word);
+      }});
+
+      return uniqueWords;
 }
 
 uniquifyArray(wordsUnique);
@@ -170,8 +173,19 @@ uniquifyArray(wordsUnique);
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (!arr.length) {
+    return null;
+  }
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(`${word}`) === true) {
+            return true;
+        }
+      }
+        return false;
+    }
 
+  doesWordExist(wordsFind, 'trouble');
 
 
 // Iteration #7: Count repetition
@@ -189,7 +203,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+          count++;
+      }
+  }
+  return count;
+}
+
+howManyTimes(wordsCount, 'matter');
 
 
 
@@ -218,8 +242,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
 
 
 // The following is required to make unit tests work.
