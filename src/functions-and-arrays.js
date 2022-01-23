@@ -1,41 +1,109 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  return a > b ? a : b;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arr) {
+  let longest = '';
+  for (let i = 0; i < arr.length; i++) {
+    if (longest.length < arr[i].length) {
+      longest = arr[i];
+    }
+  }
+  if (arr.length === 0) {
+    return null;
+  }
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      sum += arr[i];
+    } else if (typeof arr[i] === 'string') {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === 'boolean') {
+      if (arr[i] === true) {
+        sum += 1;
+      } else {
+        sum += 0;
+      }
+    } else {
+      throw "Unsupported data type sir or ma'am";
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let sum = 0;
 
+  if (arr.length > 0) {
+    for (let i in arr) sum += arr[i];
+  } else {
+    return null;
+  }
+
+  return sum / arr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  let sum = 0;
+
+  if (arr.length > 0) {
+    for (let i in arr) sum += arr[i].length;
+  } else {
+    return null;
+  }
+  return sum / arr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0;
+  if (arr.length > 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'number') {
+        sum += arr[i];
+      } else if (typeof arr[i] === 'string') {
+        sum += arr[i].length;
+      } else if (typeof arr[i] === 'boolean') {
+        if (arr[i] === true) {
+          sum += 1;
+        } else {
+          sum += 0;
+        }
+      }
+    }
+  } else {
+    return null;
+  }
+  let average = sum / arr.length;
+  return Math.round(average * 100) / 100;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +120,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arr) {
+  let unique = [];
+  if (arr.length > 0) {
+    for (let i = 0; i < arr.length; i++) {
+      let item = arr[i];
+      if (!unique.includes(item)) {
+        unique.push(item);
+      }
+    }
+  } else {
+    return null;
+  }
+  return unique;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  let doesItExist = false;
+  if (arr.length > 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        doesItExist = true;
+      }
+    }
+  } else {
+    return null;
+  }
 
-
+  return doesItExist;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +168,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
 
-
+  if (arr.length > 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        count++;
+      }
+    }
+  } else {
+    return 0;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +208,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
