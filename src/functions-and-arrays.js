@@ -13,9 +13,7 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arrOfWords) {
-  if (arrOfWords.length === 0) {
-    return null;
-  }
+  if (!arrOfWords.length) return null;
 
   let wordLngth = 0;
   let longestWord;
@@ -33,6 +31,8 @@ function findLongestWord(arrOfWords) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrNumbers) {
+  if (!arrNumbers.length) return 0;
+
   let sum = 0;
 
   for (let i = 0; i < arrNumbers.length; i++) {
@@ -42,15 +42,30 @@ function sumNumbers(arrNumbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum(arrOfNumbers) {
-  let sum = 0;
-  let sumOfString = '';
-  for (let i = 0; i < arrOfNumbers.length; i++) {
-    sum += arrOfNumbers[i];
-  }
-  return sum;
-}
+function sum(arrMixed) {
+  if (!arrMixed.length) return 0;
 
+  let sumMixed = 0;
+
+  // for of loop iterates over the array
+  // conditional statements delare what to do with different datatypes:
+  // if it is a string look at the length of it and add it to sum
+  // if it is a boolean ask if it is true or false. add 1 for true
+  // and 0 for false (? 1 : 0 could also be 10 : 20)
+
+  for (const item of arrMixed) {
+    if (typeof item === 'string') {
+      sumMixed += item.length;
+    } else if (typeof item === 'boolean') {
+      sumMixed += item ? 1 : 0;
+    } else if (typeof item === 'number') {
+      sumMixed += item;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sumMixed;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -89,7 +104,31 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (!mixedArr.length) return null;
+
+  let sumMixed = 0;
+
+  // for of loop iterates over the array
+  // conditional statements delare what to do with different datatypes:
+  // if it is a string look at the length of it and add it to sum
+  // if it is a boolean ask if it is true or false. add 1 for true
+  // and 0 for false (? 1 : 0 could also be 10 : 20)
+
+  for (const item of mixedArr) {
+    if (typeof item === 'string') {
+      sumMixed += item.length;
+    } else if (typeof item === 'boolean') {
+      sumMixed += item ? 1 : 0;
+    } else if (typeof item === 'number') {
+      sumMixed += item;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  let toManyDigits = sumMixed / mixedArr.length;
+  return +toManyDigits.toFixed(2);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
