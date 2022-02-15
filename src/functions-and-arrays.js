@@ -1,41 +1,89 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2) {
+    return num1;
+    } else {
+      return num2;
+    }
+  };
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(wordArray) {
+  let longestWord = "";
+  for (let i= 0; i < wordArray.length; i++) {
+    if (wordArray[i].length > longestWord.length) {
+      longestWord = wordArray[i];
+    };
+  };
+  return (wordArray[0] === undefined) ? null : longestWord;
+};
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numberArray) {
+  let totalSum = 0;
+  numberArray.forEach((number) => {
+    totalSum += number;
+  });
+  return (numberArray.length === 0) ? 0 : totalSum;
+};
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
-
+function sum(anyDataTypeArray) {
+  if (anyDataTypeArray.length === 0) {
+    return 0;
+  };
+  let totalSum = 0;
+  anyDataTypeArray.forEach((element) => {
+    switch(typeof element) {
+      case "boolean":
+        if (element) {
+          totalSum++
+        };
+        break;
+      case "number":
+        totalSum += element;
+        break;
+      case "string":
+        totalSum += element.length;
+        break;
+      case "object":
+        throw "Unsupported data type sir or ma'am";
+        break;
+    };
+  });
+  return totalSum;
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  return (numbersArray.length === 0) ? null : sumNumbers(numbersArray) / numbersArray.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(listOfWords) {
+  let totalWordLength = 0;
+  listOfWords.forEach((word) => {
+    totalWordLength += word.length;
+  });
+  return (listOfWords.length === 0) ? null : totalWordLength / listOfWords.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedElementsArray) {
+  return (mixedElementsArray.length === 0) ? null : parseFloat((sum(mixedElementsArray) / mixedElementsArray.length).toFixed(2));
+};
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +100,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arrayToCheckForDuplicates) {
+  let arrayWithoutDuplicates = [];
+  for (let i = 0; i < arrayToCheckForDuplicates.length; i++) {
+    if (arrayWithoutDuplicates.includes(arrayToCheckForDuplicates[i]) === false) {
+      arrayWithoutDuplicates.push(arrayToCheckForDuplicates[i]);
+    }
+  };
+  return (arrayToCheckForDuplicates.length === 0) ? null : arrayWithoutDuplicates;
+};
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(wordsArray, word) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  for (let i= 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === word) {
+      return true;
+    }
+  };
+  return false;
+};
 
 
 // Iteration #7: Count repetition
@@ -78,8 +141,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(array, word) {
+  let count = 0;
+  array.forEach((element)=> {
+    if (element === word) {
+      count++;
+    };
+  });
+  return count;
+}
 
 
 // Iteration #8: Bonus
@@ -106,7 +176,21 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestSum = 0;
+  for (let i=0; i < matrix.length-3; i++) { 
+      for (let j=0; j < matrix[i].length-3; j++) {
+      const matrixHorzontalCheck = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      const matrixVerticalCheck = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      if (matrixHorzontalCheck > greatestSum) {
+          greatestSum = matrixHorzontalCheck;
+      } else if (matrixVerticalCheck > greatestSum) {
+        greatestSum = matrixVerticalCheck;
+      };
+  };
+  return greatestSum;
+  };
+}
 
 
 
