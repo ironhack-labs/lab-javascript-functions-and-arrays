@@ -1,24 +1,117 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
 
+  largestNum = 0;
 
+  if (num1 > num2) {
+    return largestNum = num1;
+  } else {
+    return largestNum = num2;
+  }
+
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsList) {
 
+  // should return null when called with an empty array
+  if (wordsList.length == 0) {
+    return null;
+  }
 
+  let longestWord = "";
+
+  // should return the word when called with a single-word array
+  if (wordsList.length == 1) {
+    longestWord = wordsList[0];
+  }
+
+  // should return the first occurrence of the word when longest have multiple occurrences
+  for (i = 0; i < wordsList.length; i++) {
+
+    if (wordsList[i].length > longestWord.length) {
+      longestWord = wordsList[i];
+    }
+  }
+
+  //should return the longest occurrence when it has multiple words
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
 
+  let sumAll = 0;
 
+  //should return zero if receives an empty array when called
+  if (numbers.length == 0) {
+    return 0;
+  }
+
+  //should return the sum with one number array
+  if (numbers.length == 1) {
+    return sumAll = numbers[0];
+  }
+
+  // should return zero if all elements are zero
+  for (let j = 0; j < numbers.length; j++) {
+    while (numbers[j] == 0) {
+      return sumAll = 0;
+    }
+  }
+
+  //should return the sum when passed array of numbers
+  for (let i = 0; i < numbers.length; i++) {
+    sumAll = sumAll + numbers[i];
+  }
+
+  return sumAll;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(sum) {
+
+  let sumNumbers = 0;
+  let sumStrings = 0;
+  let sumBooleans = 0;
+
+  //should return zero if receives an empty array when called
+  if (sum.length == 0) {
+    return 0;
+  }
+
+  //should return the sum with one number array
+  if (sum.length == 1) {
+    return sumNumbers = sum[0];
+  }
+
+  for (let i = 0; i < sum.length; i++) {
+
+    if (typeof sum[i] === "string") {
+      sumStrings = sumStrings + sum[i].length;
+    }
+
+    if (typeof sum[i] === "boolean") {
+      if (sum[i]) {
+        sumBooleans = 1;
+      } else {
+        sumBooleans = 0;
+      }
+
+    }
+
+    sumNumbers = sumNumbers + sum[i] + sumStrings + sumBooleans;
+  }
+
+  return sumNumbers;
+}
 
 
 
@@ -26,7 +119,7 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() { }
 
 
 // Level 2: Array of strings
@@ -35,7 +128,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength() { }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() { }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +145,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() { }
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() { }
 
 
 
@@ -78,7 +171,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes() { }
 
 
 
@@ -106,7 +199,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
