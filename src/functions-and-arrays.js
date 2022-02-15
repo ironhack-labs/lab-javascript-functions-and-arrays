@@ -193,14 +193,14 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let product = 1;
-  let vertProduct = 1;
-  let horProduct = 1;
+  let product = 0;
+  let vertProduct = 0;
+  let horProduct = 0;
   for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      vertProduct *= matrix[i][j];
-      horProduct *= matrix[j][i];
-      let maxProduct = vertProduct > horProduct ? vertProduct : horProduct;
+    for (let j = 0; j < matrix[0].length - 3; j++) {
+      vertProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      horProduct = matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i];
+      let maxProduct = vertProduct >= horProduct ? vertProduct : horProduct;
       if (product < maxProduct) {
         product = maxProduct;
       }
