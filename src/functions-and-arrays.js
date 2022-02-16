@@ -112,20 +112,45 @@ function sum(sum) {
 
   return sumNumbers;
 }
-
-
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() { }
+function averageNumbers(numbersAvg) {
 
+  let averageNum = 0;
+  // should return null if receives an empty array when called
+  if (numbersAvg.length == 0) {
+    return null;
+  }
+
+  averageNum = sumNumbers(numbersAvg) / numbersAvg.length;
+  return averageNum;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  let averageLengthWords = 0;
+  let sumStrings = 0;
+
+  // should return null if receives an empty array when called
+  if (wordsArr.length == 0) {
+    return null;
+  }
+
+  for (let i = 0; i < wordsArr.length; i++) {
+
+    sumStrings = sumStrings + wordsArr[i].length;
+
+  }
+
+  //averageLengthWords = sum(wordsArr) / wordsArr.length;
+
+  return averageLengthWords = sumStrings / wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() { }
