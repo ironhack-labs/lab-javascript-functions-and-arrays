@@ -1,12 +1,10 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
 
-  largestNum = 0;
-
   if (num1 > num2) {
-    return largestNum = num1;
+    return num1;
   } else {
-    return largestNum = num2;
+    return num2;
   }
 
 }
@@ -22,11 +20,6 @@ function findLongestWord(wordsList) {
   }
 
   let longestWord = "";
-
-  // should return the word when called with a single-word array
-  if (wordsList.length == 1) {
-    longestWord = wordsList[0];
-  }
 
   // should return the first occurrence of the word when longest have multiple occurrences
   for (i = 0; i < wordsList.length; i++) {
@@ -76,42 +69,36 @@ function sumNumbers(numbers) {
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum(sum) {
-
-  let sumNumbers = 0;
-  let sumStrings = 0;
-  let sumBooleans = 0;
-
-  //should return zero if receives an empty array when called
-  if (sum.length == 0) {
-    return 0;
-  }
-
-  //should return the sum with one number array
-  if (sum.length == 1) {
-    return sumNumbers = sum[0];
-  }
-
-  for (let i = 0; i < sum.length; i++) {
-
-    if (typeof sum[i] === "string") {
-      sumStrings = sumStrings + sum[i].length;
+function sum(mixedArr) {
+  /*
+    let sumNumbers = 0;
+    let sumStrings = 0;
+    let sumBooleans = 0;
+  
+    //should return zero if receives an empty array when called
+    if (mixedArr.length == 0) return 0;
+  
+    //should return the sum with one number array
+    if (mixedArr.length == 1) return mixedArr[0];
+  
+    if (typeof mixedArr === "object" || typeof mixedArr === "array") {
+      throw new Error("Unsupported data type sir or ma'am");
     }
-
-    if (typeof sum[i] === "boolean") {
-      if (sum[i]) {
-        sumBooleans = 1;
+  
+    if (typeof mixedArr === "string") {
+      return sumStrings = sumStrings + mixedArr[i].length;
+    }
+  
+    if (typeof mixedArr === "boolean") {
+      if (summixedArr[i]) {
+        return sumBooleans = 1;
       } else {
-        sumBooleans = 0;
-      }
+        return sumBooleans = 0;
+      }*/
 
-    }
-
-    sumNumbers = sumNumbers + sum[i] + sumStrings + sumBooleans;
-  }
-
-  return sumNumbers;
+  //sumNumbers = sumNumbers + sum[i] + sumStrings + sumBooleans;
 }
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -153,7 +140,12 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() { }
+
+function avg(mixedArr) {
+
+  if (mixedArr.length == 0) return null;
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -170,16 +162,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(wordsUnique) {
 
+  if (wordsUnique.length == 0) return null;
 
+  let uniqueChars = [];
+
+  wordsUnique.forEach((c) => {
+    if (!uniqueChars.includes(c)) {
+      uniqueChars.push(c);
+    }
+  });
+
+  return uniqueChars;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(wordsFind, word) {
 
+  if (wordsFind.length == 0) return null;
 
+  if (wordsFind.includes(word)) return true;
+
+  for (let i = 0; i < wordsFind.length; i++) {
+
+    if (wordsFind[i] == word) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -196,7 +211,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(wordsCount, word) {
+
+  let numWords = 0;
+
+  if (wordsCount.length == 0) return 0;
+
+  if (!wordsCount.includes(word)) return 0;
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] == word) {
+      numWords = numWords + 1;
+    }
+  }
+
+  return numWords;
+}
 
 
 
