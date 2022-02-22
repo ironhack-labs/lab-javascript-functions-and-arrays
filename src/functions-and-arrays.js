@@ -1,41 +1,114 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a < b) return b;
+  else if (a > b) return a;
+  else return a;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if (!words.length) {
+    return null;
+  } else {
+    let longestWord = words[0];
+    for (let i = 1; i < words.length; i++) {
+      if (words[i].length > longestWord.length) {
+        longestWord = words[i];
+      }
+    }
+    return longestWord;
+  }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  } else return numbers.reduce((a, b) => a + b, 0);
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(mixedArr) {
+  if (mixedArr.length === 0) {
+    return 0;
+  } else {
+    let mixedArrNumbers = mixedArr.map((element) => {
+      switch (typeof element) {
+        case 'string':
+          return element.length;
+          break;
+        case 'boolean':
+          return element ? 1 : 0;
+          break;
+        case 'number':
+          return element;
+          break;
+        default:
+          return 'unsupported';
+          break;
+      }
+    });
+    if (mixedArrNumbers.includes('unsupported')) {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else return mixedArrNumbers.reduce((a, b) => a + b, 0);
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arr) {
+  if (arr.length === 0) return null;
+  else {
+    const sumArr = arr.reduce((a, b) => a + b, 0);
+    const avg = sumArr / arr.length;
+    return avg;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) return null;
+  else {
+    const arrLengths = arr.map((a) => a.length);
+    const sumArrLengths = arrLengths.reduce((a, b) => a + b, 0);
+    return sumArrLengths / arr.length;
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null;
+  } else {
+    let mixedArrNumbers = mixedArr.map((element) => {
+      switch (typeof element) {
+        case 'string':
+          return element.length;
+          break;
+        case 'boolean':
+          return element ? 1 : 0;
+          break;
+        case 'number':
+          return element;
+          break;
+        default:
+          return 'unsupported';
+          break;
+      }
+    });
+    if (mixedArrNumbers.includes('unsupported')) {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else return Number((mixedArrNumbers.reduce((a, b) => a + b, 0) / mixedArrNumbers.length).toFixed(2));
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +125,27 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+  else {
+    let uniqueArr = [];
+    uniqueArr.push(arr[0]);
+    for (let i = 0; i < arr.length; i++) {
+      if (!uniqueArr.includes(arr[i])) {
+        uniqueArr.push(arr[i]);
+      }
+    }
+    return uniqueArr;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  return arr.includes(word) ? true : false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +162,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arr, word) {
+  if (arr.length === 0) return 0;
+  else {
+    let numOcc = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) numOcc++;
+    }
+    return numOcc;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +197,78 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  // for each line, create an array of profduct of 4 adjacent elements
+  function greatestProductByLine(matrix) {
+    let maxByLine = [];
+    for (line of matrix) {
+      let i = 0;
+      let products = [];
+      while (i + 3 < line.length) {
+        products.push(line[i] * line[i + 1] * line[i + 2] * line[i + 3]);
+        i++;
+      }
+      maxByLine.push(Math.max(...products));
+    }
+    return Math.max(...maxByLine);
+  }
 
+  function transposeMatrix(matrix) {
+    let matrixTranspose = [];
+    const nbRows = matrix.length;
+    const nbCols = matrix[0].length;
+    for (let j = 0; j < nbCols; j++) {
+      let line = [];
+      for (let i = 0; i < nbRows; i++) {
+        line.push(matrix[i][j]);
+      }
+      matrixTranspose.push(line);
+    }
+    return matrixTranspose;
+  }
 
+  maxByLines = greatestProductByLine(matrix);
+  maxByCols = greatestProductByLine(transposeMatrix(matrix));
 
+  return Math.max(maxByLines, maxByCols);
+}
+
+function greatestProductOfDiagonals(matrix) {
+  function arrayMaxProducts(array) {
+    let i = 0;
+    let products = [];
+    while (i + 3 < array.length) {
+      products.push(array[i] * array[i + 1] * array[i + 2] * array[i + 3]);
+      i++;
+    }
+    return Math.max(...products);
+  }
+
+  const nbRows = matrix.length;
+  const nbCols = matrix[0].length;
+
+  let diag1 = [];
+  let diag2 = [];
+
+  for (i = 0; i < nbRows; i++) {
+    for (j = 0; j < nbCols; j++) {
+      if (j === i) {
+        diag1.push(matrix[i][j]);
+      }
+      if (j === nbCols - 1 - i) {
+        diag2.push(matrix[i][j]);
+      }
+    }
+  }
+
+  console.log(diag1);
+  console.log(diag2);
+
+  const maxDiag1 = arrayMaxProducts(diag1);
+  const maxDiag2 = arrayMaxProducts(diag2);
+
+  return Math.max(maxDiag1, maxDiag2);
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
