@@ -56,9 +56,13 @@ const averageNumbers = numbers => {
 };
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const averageWordLength = words => {
+  if (words.length === 0) return null;
 
-function averageWordLength() { }
+  const lengthNumbers = words.map(word => word.length);
+
+  return averageNumbers(lengthNumbers);
+};
 
 // Bonus - Iteration #4.1
 function avg() {}
