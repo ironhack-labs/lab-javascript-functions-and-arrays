@@ -6,16 +6,16 @@ const maxOfTwoNumbers = (num1, num2) => {
 };
 
 // Iteration #2: Find longest word
-const findLongestWord = (wordsArray) => {
-  if (wordsArray.length === 0) {
+const findLongestWord = (words) => {
+  if (words.length === 0) {
     return null;
   };
 
-  const lengthNumbers = wordsArray.map(word => word.length);
+  const lengthNumbers = words.map(word => word.length);
 
   const longestLengthNumber = Math.max(...lengthNumbers);
 
-  const longestWord = wordsArray.find(word => word.length === longestLengthNumber);
+  const longestWord = words.find(word => word.length === longestLengthNumber);
 
   return longestWord;
 };
