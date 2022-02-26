@@ -32,9 +32,26 @@ const sumNumbers = numbers => {
 };
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const sum = mixedArr => {
+  const objectOrArray = mixedArr.find(element => typeof element === "object")
 
+  if (objectOrArray !== undefined) {
+    throw new Error("Unsupported data type sir or ma'am");
+  };
 
+  const numbers = mixedArr.map(element => {
+    switch (typeof element) {
+      case "boolean":
+        return element + 0;
+      case "string":
+        return element.length;
+      default:
+        return element;
+    };
+  });
+
+  return sumNumbers(numbers);
+};
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
