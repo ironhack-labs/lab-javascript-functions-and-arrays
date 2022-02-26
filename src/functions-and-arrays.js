@@ -68,7 +68,9 @@ const averageWordLength = words => {
 const avg = mixedArr => {
   if (mixedArr.length === 0) return null;
 
-  return Math.round((sum(mixedArr) / mixedArr.length) * 100) / 100;
+  const avgNumber = sum(mixedArr) / mixedArr.length;
+
+  return Math.round(avgNumber * 100) / 100;
 };
 
 // Iteration #5: Unique arrays
