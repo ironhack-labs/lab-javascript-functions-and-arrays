@@ -21,11 +21,15 @@ const findLongestWord = words => {
 };
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = numbers => {
+  let counter = 0;
 
-function sumNumbers() {}
+  for (let i = 0; i < numbers.length; i += 1) {
+    counter += numbers[i];
+  };
 
-
+  return counter;
+};
 
 // Iteration #3.1 Bonus:
 function sum() {}
