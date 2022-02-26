@@ -6,7 +6,7 @@ const maxOfTwoNumbers = (num1, num2) => {
 };
 
 // Iteration #2: Find longest word
-const findLongestWord = (words) => {
+const findLongestWord = words => {
   if (words.length === 0) {
     return null;
   };
