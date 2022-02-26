@@ -74,23 +74,15 @@ const avg = mixedArr => {
 };
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const uniquifyArray = words => {
+  if (words.length === 0) return null;
 
-function uniquifyArray() {}
+  const uniqueWords = [];
 
+  for (let i = 0; i < words.length; i += 1) if (!uniqueWords.includes(words[i])) uniqueWords.push(words[i]);
 
+  return uniqueWords;
+};
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
