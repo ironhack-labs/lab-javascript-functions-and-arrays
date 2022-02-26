@@ -7,9 +7,7 @@ const maxOfTwoNumbers = (num1, num2) => {
 
 // Iteration #2: Find longest word
 const findLongestWord = words => {
-  if (words.length === 0) {
-    return null;
-  };
+  if (words.length === 0) return null;
 
   const lengthNumbers = words.map(word => word.length);
 
@@ -24,9 +22,7 @@ const findLongestWord = words => {
 const sumNumbers = numbers => {
   let counter = 0;
 
-  for (let i = 0; i < numbers.length; i += 1) {
-    counter += numbers[i];
-  };
+  for (let i = 0; i < numbers.length; i += 1) counter += numbers[i];
 
   return counter;
 };
@@ -35,9 +31,7 @@ const sumNumbers = numbers => {
 const sum = mixedArr => {
   const objectOrArray = mixedArr.find(element => typeof element === "object")
 
-  if (objectOrArray !== undefined) {
-    throw new Error("Unsupported data type sir or ma'am");
-  };
+  if (objectOrArray !== undefined) throw new Error("Unsupported data type sir or ma'am");
 
   const numbers = mixedArr.map(element => {
     switch (typeof element) {
@@ -55,10 +49,11 @@ const sum = mixedArr => {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const averageNumbers = numbers => {
+  if (numbers.length === 0) return null;
 
-function averageNumbers() {}
-
+  return sumNumbers(numbers) / numbers.length
+};
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
