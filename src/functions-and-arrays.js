@@ -88,7 +88,7 @@ const uniquifyArray = words => {
 const doesWordExist = (words, word) => {
   if (words.length === 0) return null;
 
-  return words.includes(word) ? true : false;
+  return words.includes(word);
 };
 
 // Iteration #7: Count repetition
