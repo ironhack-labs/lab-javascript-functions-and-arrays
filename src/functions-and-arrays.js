@@ -92,23 +92,13 @@ const doesWordExist = (words, word) => {
 };
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
+const howManyTimes = (words, word) => {
+  let counter = 0;
 
-function howManyTimes() {}
+  for (let i = 0; i < words.length; i += 1) if (words[i] === word) counter += 1;
 
-
+  return counter;
+};
 
 // Iteration #8: Bonus
 const matrix = [
