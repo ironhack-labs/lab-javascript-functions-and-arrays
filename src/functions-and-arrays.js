@@ -1,21 +1,43 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2){
+    return num1;
+  } else{
+    return num2;
+  }
+}
+maxOfTwoNumbers(3,2);
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
+const arr = []
+function findLongestWord(banana) {
+  // declare a variable store the longestWord
+  let longestWord = "";
+  // loop over the array
+  for (let i=0; i<banana.length; i++){
+    if (banana[i].length > longestWord.length){
+      longestWord = banana[i]
+    }
+    return longestWord
+  }
+}
+findLongestWord(words)
+findLongestWord(arr)
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayOfNumbers) {
+  let result = 0;
+  for(i = 0; i < arrayOfNumbers.length; i++){
+    result += arrayOfNumbers[i];
+  }
+  return result;
+}
 
-
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -24,15 +46,28 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];//6
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let average = sumNumbers(array) / array.length;
+  return average;
+}
 
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];//5,3
 
-function averageWordLength() { }
+function averageWordLength(arrOfStr) {
+  let sumOfChar = 0;
+  for(j = 0; j < arrOfStr.length; j++){
+    sumOfChar += arrOfStr[j].length;
+  }
+  let averageOfChar = sumOfChar / arrOfStr.length;
+  return averageOfChar;
+}
+
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg() {}
