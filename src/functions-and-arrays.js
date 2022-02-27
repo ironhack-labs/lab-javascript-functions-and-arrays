@@ -105,7 +105,15 @@ uniquifyArray(wordsUnique);
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, newWord){
+    if (array.includes(newWord)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+doesWordExist(wordsFind,'truth');
 
 
 
