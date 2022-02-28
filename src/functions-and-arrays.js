@@ -1,24 +1,74 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(argNum1, argNum2) {
+let varmaxNum;
+if (argNum1 <= argNum2) {
+  varmaxNum = argNum2;
+}
+else {
+  varmaxNum = argNum1;
+}
+return varmaxNum;
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(paraWords) {
+  arrayLength = paraWords.length;
+  let varMaxWord = "";
+  
+  if (arrayLength === 0) {
+    return null;
+  }
+  for (i=0;i<arrayLength;i++){
+      if (paraWords[i].length > varMaxWord.length) {
+        varMaxWord = paraWords[i];
+      }
+  }
+  return varMaxWord;
+  
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(paraNumbers) {
+let varSum = 0;
 
+for (i=0;i<paraNumbers.length;i++){
+ varSum += paraNumbers[i];
+}
+return (varSum);
+}
 
-
+const mixedArr = [6,12,'miami',1,true,'barca','200','lisboa',8,10];
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(paramixedArray) {
+  let varSum = 0;
+  for (i=0;i < paramixedArray.length;i++){
+    if (typeof paramixedArray[i] === "number") {
+      varSum += paramixedArray[i];
+    }
+    else if (typeof paramixedArray[i] === "string"){
+      varSum += paramixedArray[i].length;
+
+    }
+    else if (typeof paramixedArray[i] === "boolean"){
+      varSum += paramixedArray[i];
+    }
+    else if (typeof paramixedArray[i] === "undefined" || typeof paramixedArray[i] === "object"){
+      throw "Unsupported data type sir or ma'am";
+      
+    }
+    else {
+      varSum = VarSum;
+    }
+  }
+  return varSum;
+}
 
 
 
@@ -26,16 +76,78 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(paraNumbers) {
+let varSum, varAverage;;
+varSum = 0;
+for (i=0;i<paraNumbers.length;i++){
+ varSum += paraNumbers[i];
+}
+if (paraNumbers.length === 0) {
+  return null;
+}
+else {
+varAverage = varSum/paraNumbers.length;
+return varAverage;
+}
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(paraStrings) {
+let varAvgWordLength = 0;
+let varsumLength = 0;
+for (i = 0; i < paraStrings.length; i++){
+  varsumLength += paraStrings[i].length;
+}
+if (paraStrings.length === 0) {
+  return null;
+}
+else if (paraStrings.length === 1) {
+  return varsumLength;
+}
+else {
+varAvgWordLength = varsumLength / paraStrings.length;
+return varAvgWordLength;
+}
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const paramixedArray = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(paramixedArray) {
+  let varSum, varAvg;
+  varSum = 0;
+  varAvg = 0;
+
+  for (i=0;i < paramixedArray.length;i++){
+    if (typeof paramixedArray[i] === "number") {
+      varSum += paramixedArray[i];
+    }
+    else if (typeof paramixedArray[i] === "string"){
+      varSum += paramixedArray[i].length;
+    }
+    else if (typeof paramixedArray[i] === "boolean"){
+      varSum += paramixedArray[i];
+    }
+    else if (typeof paramixedArray[i] === "undefined" || typeof paramixedArray[i] === "object"){
+      throw "Unsupported data type sir or ma'am";
+    }
+  }
+  if (paramixedArray.length === 0){
+      varAvg = null;
+  }
+  else if (paramixedArray.length === 1){
+      varAvg =  varSum;
+  }
+  else {
+      varAvg = varSum/paramixedArray.length;      
+  }
+  return varAvg;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +164,45 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(parawordsUnique) {
+  let newwordsUnique = [];
+  let index = 0;
+  let counter = 0;
+  for (i=0;i<=parawordsUnique.length-1;i++){
+    index = parawordsUnique.indexOf(parawordsUnique[i], i+1);
+    if (index === -1) {
+      newwordsUnique[counter] = parawordsUnique[i];
+      counter += 1;
+    }
+  }
+  if (parawordsUnique.length === 0 || parawordsUnique === NaN) {
+    return null;
+  }
+  else {
+  return newwordsUnique;
+}
+}
+
 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+//const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(paraWords, parawordFind) {
+  let varIndex;
+    varIndex = paraWords.indexOf(parawordFind);
+    if (paraWords.length === 0) {
+    return null;
+    }
+    if (varIndex >= 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  
+}
 
 
 
@@ -78,8 +221,32 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
 
+function howManyTimes(paraWords,parawordFind) 
+{
+  let varIndex,varCounter;
+  varCounter = 0;
+    varIndex = paraWords.indexOf(parawordFind);
+    if (varIndex >= 0) 
+    {
+      varCounter += 1;
+    }
+    while (varIndex >= 0)
+    {
+      varIndex = paraWords.indexOf(parawordFind, varIndex+1);
+      if (varIndex >= 0) 
+      {
+        varCounter += 1;
+      }
+      else 
+      {
+        break;
+      }
+
+    }
+
+return varCounter;
+}
 
 
 // Iteration #8: Bonus
@@ -106,8 +273,25 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
+function greatestProduct(paraMatrix) {
+  let varProduct, varNewProduct;
+  varProduct = 0;
+  varNewProduct1 = 0;
+  varNewProduct2 = 0;
+  for (i = 0; i < paraMatrix.length-3;i++){
+    for (j=0; j < paraMatrix[i].length-3; j++){
+      varNewProduct1 = paraMatrix[i][j] * paraMatrix[i][j+1] * paraMatrix[i][j+2] * paraMatrix[i][j+3];
+      if (varNewProduct1 >= varProduct) {
+        varProduct = varNewProduct1;
+      }
+      varNewProduct2 = paraMatrix[i][j] * paraMatrix[i+1][j] * paraMatrix[i+2][j] * paraMatrix[i+3][j];
+      if (varNewProduct2 >= varProduct) {
+        varProduct = varNewProduct2;
+      }
+    }
+  }
+  return (varProduct);
+}
 
 
 
