@@ -187,7 +187,7 @@ function uniquifyArray(parawordsUnique) {
 
 
 // Iteration #6: Find elements
-//const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(paraWords, parawordFind) {
   let varIndex;
