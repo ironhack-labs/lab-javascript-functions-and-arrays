@@ -227,7 +227,7 @@ function howManyTimes(arrWords, word) {
     }
     };
 
-return counter
+return counter;
 }
 
 
@@ -282,7 +282,7 @@ function greatestProduct(matrix) {
     }
   }
 
-  return productMax
+  return productMax;
 }
 
 
