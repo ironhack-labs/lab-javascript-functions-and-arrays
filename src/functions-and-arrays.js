@@ -7,24 +7,23 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 maxOfTwoNumbers(3,2);
-
 //Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
 function findLongestWord(array) {
   let longestWord = null;
-  for (let i=0; i<array.length; i++){
-    if(array[i].length > longestWord.length){
-      longestWord = array[i];
+  if (array.length>0){
+    longestWord=" ";
+    for (let i=0; i<array.length; i++){
+      if(array[i].length > longestWord.length){
+        longestWord = array[i];
+      }
     }
   }
   return longestWord;
 }
 findLongestWord(words);
-
-// Iteration #3: Calculate the sum
+/// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumNumbers(arrayOfNumbers) {
   let result = 0;
   for(i = 0; i < arrayOfNumbers.length; i++){
@@ -33,35 +32,38 @@ function sumNumbers(arrayOfNumbers) {
   return result;
 }
 sumNumbers(numbers);
-
 // Iteration #3.1 Bonus:
 function sum() {}
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+// What do we do with the sum? what does the number of elements contain
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
 function averageNumbers(elements) {
-  const calc = sumNumbers(elements) / elements.length;
-  return calc;
+  let calc=null;
+  if(elements.length>0){
+     calc = sumNumbers(elements) / elements.length;
+    }
+    return calc;
 }
 averageNumbers(numbersAvg);
-
 // Level 2: Array of strings
+// What does the arrayofwords contain? Should I return the length of all words in the array?
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(words) {
-  let totalCharacters = 0;
-  for (let i=0; i<words.length; i++){
-    totalCharacters += words[i].length;
-  }
-  return totalCharacters / words.length;
+  let totalChar=null;
+    if(words.length>0){
+      for (let i=0; i<words.length; i++){
+        totalChar += words[i].length;
+      }
+      totalChar=totalChar / words.length;
+    }
+  return totalChar;
  }
- averageWordLength(wordsArr);
-
+ averageWordLength(wordsArr)
 // Bonus - Iteration #4.1
 // return array without duplicates
+//
 function avg() {}
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -77,28 +79,35 @@ const wordsUnique = [
   'bring'
 ];
 function uniquifyArray(array) {
-  let uniqueArr = [];
-  for (let i=0; i<array.length; i++){
-    if (uniqueArr.indexOf(array[i]) === -1){
-      uniqueArr.push(array[i])
+  let uniqueArr=[];
+  if(array.length===0){
+    uniqueArr=null;
+  }
+  if(array.length>0){
+    for (let i=0; i<array.length; i++){
+      if (uniqueArr.indexOf(array[i]) === -1){
+        uniqueArr.push(array[i]);
+      }
     }
   }
   return uniqueArr;
 }
 uniquifyArray(wordsUnique);
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 function doesWordExist(wordsArr, word) {
-  if (wordsArr.includes(word)){
-    return true;
-  } else {
-    return false;
+  let wordIsOk=null;
+  if(wordsArr.length>0){
+    if (wordsArr.includes(word)){
+      wordIsOk=true;
+    } else {
+      wordIsOk=false;
+    }
   }
+  return wordIsOk;
 }
-doesWordExist(wordsFind, "monkey");
-doesWordExist(wordsFind, "subset");
-
+doesWordExist(wordsFind, "monkey" )
+doesWordExist(wordsFind, "subset")
 // Iteration #7: Count repetition
 const nullTestArray = []
 const wordsCount = [
@@ -121,11 +130,10 @@ function howManyTimes(repeatingWords, thisWord ) {
       wordCounter++
     }
   }
-  return wordCounter;
+  return wordCounter
 }
-howManyTimes(wordsCount, "trouble");
-howManyTimes(nullTestArray, []);
-
+howManyTimes(wordsCount, "trouble")
+howManyTimes(nullTestArray, [])
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -150,7 +158,6 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 function greatestProduct() {}
-
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
