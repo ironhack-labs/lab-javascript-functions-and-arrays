@@ -36,43 +36,25 @@ function sumNumbers(arrayOfNumbers) {
   }
   return result;
 }
+sumNumbers(numbers);
 
 // Iteration #3.1 Bonus:
-
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-function sum(array) {
-  let varietySum=0;
-  let numIsOk;
-  array.forEach(banana){
-    if(!banana.isNaN()){
-      numIsOk=true;
-    }else{
-      numIsOk=false;
-      break;
-    }
-  }
-  if (numIsOk){
-    for(let m=0; m<array.length; m++){
-      varietySum+=array[i];
-    }
-  }else{
-    for(let i=0; i<array.length; i++){
-      let varietyTempStore=array[i].toString();
-      varietySum+=varietyTempStore.length;
-    }
-  }
-  return varietySum;
-}
-sum(mixedArr);
-
-
-sumNumbers(numbers);
+function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
-// Level 2: Array of strings
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(elements) {
+  let calc=null;
+  if(elements.length>0){
+     calc = sumNumbers(elements) / elements.length;
+    }
+    return calc;
+}
+averageNumbers(numbersAvg);
 
+// Level 2: Array of strings
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength(words) {
@@ -88,6 +70,7 @@ function averageWordLength(words) {
  averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
+// return average number
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
@@ -115,7 +98,6 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
 function uniquifyArray(array) {
   let uniqueArr=[];
   if(array.length===0){
@@ -130,7 +112,6 @@ function uniquifyArray(array) {
   }
   return uniqueArr;
 }
-
 uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
@@ -151,6 +132,7 @@ doesWordExist(wordsFind, "monkey" )
 doesWordExist(wordsFind, "subset")
 
 // Iteration #7: Count repetition
+
 const nullTestArray = []
 const wordsCount = [
   'machine',
@@ -165,7 +147,6 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
 function howManyTimes(repeatingWords, thisWord ) {
   let wordCounter = 0;
   for(let i=0; i<repeatingWords.length; i++){
@@ -202,6 +183,7 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
 function greatestProduct() {}
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
