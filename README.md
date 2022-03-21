@@ -39,12 +39,16 @@ To run the JavaScript code, open the `index.html` file using the [Live Server](h
 
 To see the output of your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
 
+<br>
+<hr>
+
 ### Note about tests
 
 This LAB is equipped with unit tests to provide automated feedback on your lab progress.
 
 **After completing the basic iterations**, go to the **"Test Your Code"** section at the bottom. There you'll be asked to install the testing dependencies and run the tests to check how many tests your code is passing. Once you run the tests, correct your code to pass the failing tests.
 
+<hr>
 <br>
 
 ### Iteration 1: Create the cards
