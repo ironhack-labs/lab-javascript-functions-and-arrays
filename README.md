@@ -33,7 +33,13 @@ git push origin master
 
 ## Instructions
 
-You will be working in the `src/clue.js` file. The test requirements (`tests/clue.spec.js`) will guide you in solving the following iterations.
+You will be working in the `src/clue.js` file, which is already loaded in the `index.html` file.
+
+To run the JavaScript code open the `index.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
+
+To see output of your JavaScript code open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
+
+
 
 <br>
 
@@ -123,6 +129,10 @@ $ cd lab-javascript-clue
 $ npm install
 $ npm run test:watch
 ```
+
+
+
+ The test requirements (`tests/clue.spec.js`) will guide you in solving the remaining test requirements.
 
 <br>
 
