@@ -27,23 +27,7 @@ git commit -m "done"
 git push origin master
 ```
 
-- Create Pull Request so your TAs can check up your work.
-
-<br>
-
-## Remember our tests!
-
-We will be working with automated tests again!
-
-Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up-to-date test results.
-
-_Hint:_
-
-```shell
-$ cd lab-javascript-clue
-$ npm install
-$ npm run test:watch
-```
+- Create a Pull Request so that your TAs can check your work.
 
 <br>
 
@@ -125,6 +109,24 @@ Declare a function named `revealMystery` that receives an _envelope_ `object` (w
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
 
 <br>
+
+## Test Your Code
+
+We will be working with automated tests again!
+
+Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up-to-date test results.
+
+_Hint:_
+
+```shell
+$ cd lab-javascript-clue
+$ npm install
+$ npm run test:watch
+```
+
+<br>
+
+
 
 ## Extra Resources
 
