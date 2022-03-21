@@ -14,7 +14,6 @@ When playing Clue, these three details are represented by a **suspect** card, a 
 
 - Fork this repo
 - Clone this repo
-- Visit the "Actions" tab in your fork, and enable workflows
 
 <br>
 
