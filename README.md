@@ -14,7 +14,6 @@ When playing Clue, these three details are represented by a **suspect** card, a 
 
 - Fork this repo
 - Clone this repo
-- Visit the "Actions" tab in your fork, and enable workflows
 
 <br>
 
@@ -28,30 +27,28 @@ git commit -m "done"
 git push origin master
 ```
 
-- Create Pull Request so your TAs can check up your work.
-
-<br>
-
-## Remember our tests!
-
-We will be working with automated tests again!
-
-Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up-to-date test results.
-
-_Hint:_
-
-```shell
-$ cd lab-javascript-clue
-$ npm install
-$ npm run test:watch
-```
+- Create a Pull Request so that your TAs can check your work.
 
 <br>
 
 ## Instructions
 
-You will be working in the `src/clue.js` file. The test requirements (`tests/clue.spec.js`) will guide you in solving the following iterations.
+You will be working in the `src/clue.js` file, which is already loaded in the `index.html` file.
 
+To run the JavaScript code, open the `index.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
+
+To see the output of your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
+
+<br>
+<hr>
+
+### Note about tests
+
+This LAB is equipped with unit tests to provide automated feedback on your lab progress.
+
+**After completing the basic iterations**, go to the **"Test Your Code"** section at the bottom. There you'll be asked to install the testing dependencies and run the tests to check how many tests your code is passing. Once you run the tests, correct your code to pass the failing tests.
+
+<hr>
 <br>
 
 ### Iteration 1: Create the cards
@@ -126,6 +123,28 @@ Declare a function named `revealMystery` that receives an _envelope_ `object` (w
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
 
 <br>
+
+## Test Your Code
+
+We will be working with automated tests again!
+
+Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up-to-date test results.
+
+_Hint:_
+
+```shell
+$ cd lab-javascript-clue
+$ npm install
+$ npm run test:watch
+```
+
+
+
+ The test requirements (`tests/clue.spec.js`) will guide you in solving the remaining test requirements.
+
+<br>
+
+
 
 ## Extra Resources
 
