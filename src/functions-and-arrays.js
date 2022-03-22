@@ -137,10 +137,9 @@ function avg(arr) {
      
     }
   mediaTotal = (total / arr.length);
-  
-  return mediaTotal.toFixed(2);
+  mediaTotal = Math.round( mediaTotal * 1e2 ) / 1e2;
+  return mediaTotal;
 }
-console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
