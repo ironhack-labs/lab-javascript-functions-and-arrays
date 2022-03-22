@@ -1,19 +1,51 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+function maxOfTwoNumbers(num1 ,num2) {
+  let result =""
+    if(num1 > num2) { 
+      console.log(num1)
+    } else if ( num2 > num1){
+      console.log(num2)  
+    } else {
+      console.log("they are same")
+    }
+    return result;
+  }
+  
+  
+  maxOfTwoNumbers(56 , 4)
 
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let longest = '';
+for (let i = 0; i < arr.length; i++) {
+if (arr[i].length > longest.length)
+longest = arr[i];
+}
+return longest;
+}
+
+findLongestWord(words);
 
 
 
 // Iteration #3: Calculate the sum
+// go to every numer and sum it to the total
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let total = 0
+  for(i=0 ; i < arr.length; i++) {
+    total += arr[i]
+  }
+  return total
+}
+
+sumNumbers(numbers);
 
 
 
@@ -26,18 +58,49 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let average = 0
+  let total = 0
+  for(i=0 ; i < arr.length; i++) {
+    total += arr[i]}
+  average = total / arr.length
+  return average
+}
+
+averageNumbers(numbersAvg);
+
 
 
 // Level 2: Array of strings
+
+//examinaar cuantas letras tiene cada palabra
+//crear un nuevo array con solo numeros
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageNumbers(arr) {
+  let totalSum= 0;
+  let newArray=[];
+  let average = 0;
+  for(let c of wordsArr){
+    newArray.push (c.length)
+  }
+  for(i=0 ; i < newArray.length; i++) {
+    totalSum += newArray[i]}
+  
+  average = totalSum / newArray.length
+  return average
+}
+
+averageNumbers(wordsArr);
+
 
 // Bonus - Iteration #4.1
 function avg() {}
 
 // Iteration #5: Unique arrays
+
+// search for similars,
+// delete one of them , create a new a new array
 const wordsUnique = [
   'crab',
   'poison',
