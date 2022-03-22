@@ -160,9 +160,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, searchWord) {
+let totalApear=0;
 
+for(let c of wordsCount){
+  if(searchWord===c){
+    totalApear+=1;
+  }
+} console.log(totalApear);
 
+}
+
+howManyTimes(wordsCount, 'matter');
 
 // Iteration #8: Bonus
 const matrix = [
