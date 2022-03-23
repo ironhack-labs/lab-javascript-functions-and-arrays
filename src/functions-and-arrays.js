@@ -270,6 +270,9 @@ function greatestProduct(inputMatrix) {
 } 
 
 //I haven't actually made certain this works properly - but I'm tired of looking at it :D
+//by my logic, the highest is 89*94*97*87 - 70600674
+//starts at matrix[12][6] going diagonally to the left ?
+//
 function greatestProductOfDiagonals(inputMatrix){
   const productOf = 3;
   let inputSize = inputMatrix.length;
@@ -277,14 +280,17 @@ function greatestProductOfDiagonals(inputMatrix){
   diaResult = [];
   let i;
   inputMatrix.forEach(function(innerArray, index){
-    i = 0;
+    i = 0;    
     while(i + productOf < inputSize && index + productOf < inputSize){
       fourDiag = inputMatrix[index][i]*inputMatrix[index+1][i+1]*inputMatrix[index+2][i+2]*inputMatrix[index+3][i+3];
+      if(i>=3){
+        fourOpposite = inputMatrix[index][i]*inputMatrix[index+1][i-1]*inputMatrix[index+2][i-2]*inputMatrix[index+3][i-3];
+        diaResult.push(fourOpposite);
+      }
       diaResult.push(fourDiag);
       i++;
     }    
   });
-
   return Math.max(...diaResult);
 }
 
