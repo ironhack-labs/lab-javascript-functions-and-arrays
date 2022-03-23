@@ -1,24 +1,61 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(Num1,Num2){
+    if(Num1>Num2){
+      return(Num1)
+    }else{
+      return(Num2)
+    }
+} 
+console.log(maxOfTwoNumbers(10,20))
 
+console.log(Math.max(10,20))
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(palabras) { 
+  let max = palabras.length;
+  palabras.map(palabra => max = Math.max(max, palabra.length)); 
+  result = palabras.filter(palabra => palabra.length == max); 
+ return result; 
+}
+
+console.log(findLongestWord(words))
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(array) {
+const suma = array.reduce((total,number)=>{
+  return total +=number
+},0)
+  return suma
+}
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum() {
+  const stringToNumber = mixedArr.map(dato=>{
+    if( typeof dato === "string"){
+      return (dato.length)
+    }
+      if( typeof dato === "boolean"){
+        dato=1
+      return (dato)
+      }
+    return dato
+  })
+    const Resultado = stringToNumber.reduce((total,number)=>{
+      return total+= number
+    },0)
+    return Resultado
+  }
+  
+  console.log(sum(mixedArr))
 
 
 
@@ -26,16 +63,49 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(Numbers) {
+  const Suma = Numbers.reduce((total,number)=>{
+    return total+=number
+  })
+  return Suma/Numbers.length
+}
+
+console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(array) {
+  const wordsArrLength = array.map(palabra=>{
+    return palabra.length
+  })
+  const suma = wordsArrLength.reduce((total,number)=>{
+    return total+=number
+  }) 
+  return suma/array.length
+}
+console.log(averageWordLength(wordsArr))
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(array) {
+  const stringToNumber = array.map(dato=>{
+    if( typeof dato === "string"){
+      return (dato.length)
+    }
+      if( typeof dato === "boolean"){
+        dato=1
+      return (dato)
+      }
+    return dato
+  })
+    const Resultado = stringToNumber.reduce((total,number)=>{
+      return total+= number
+    },0)
+    return Resultado / array.length
+  }
+  
+  console.log(sum(mixedArr))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +122,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(palabras) {
 
+  let result = palabras.filter((palabra,index)=>{
+      return palabras.indexOf(palabra) === index;
+    })
+    return result; 
+}
+
+console.log(uniquifyArray(wordsUnique))
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const palabraAbuscar = "trouble"
 
-function doesWordExist() {}
+function doesWordExist(array) {
+  const find = array.find(palabra=>palabraAbuscar === palabra)
+  if(find){
+    return "Si existe"
+  }else{
+    return "No existe"
+  }
+}
 
+console.log(doesWordExist(wordsFind))
 
 
 // Iteration #7: Count repetition
@@ -77,9 +163,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const palabra = "matter"
+function howManyTimes(array) {
+  const palabraRepetida = array.filter(palabraDeArray=>{
+    return palabraDeArray.includes(palabra) 
+  })
+  return palabraRepetida
 
-function howManyTimes() {}
-
+}
+console.log(howManyTimes(wordsCount).length)
 
 
 // Iteration #8: Bonus
@@ -108,7 +200,7 @@ const matrix = [
 
 function greatestProduct() {}
 
-
+//No entendí Iteration 8
 
 
 // The following is required to make unit tests work.
