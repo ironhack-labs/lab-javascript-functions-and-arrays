@@ -140,7 +140,6 @@ function avg(arr) {
   mediaTotal = Math.round( mediaTotal * 1e2 ) / 1e2;
   return mediaTotal;
 }
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -241,8 +240,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
+function greatestProduct(arr) {
+  
+  let result = 0
+  let count = 0
+  
+  for (let x = 0; x < arr.length; x++){
+    for (let y = 0; y < arr.length; y++){
+      if ((y - 3) >= 0){
+        count = arr[x][y] * arr[x][y - 1] * arr[x][y -2] * arr[x][y - 3];
+        if (result < count){
+          result = count;
+        }
+      }  
+      if ((x - 3) >= 0){
+        count = arr[x][y] * arr[x - 1][y] * arr[x - 2][y] * arr[x - 3][y];
+        if (result < count){
+          result = count;
+        }
+      }              
+    }
+  }
+   
+  return result;
+  
+}
 
 
 
