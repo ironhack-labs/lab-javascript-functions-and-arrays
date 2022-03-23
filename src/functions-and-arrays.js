@@ -1,21 +1,48 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+function maxOfTwoNumbers(num1, num2) {
+
+  if (num1 > num2){
+    return num1;
+  } else {
+    return num2;
+  }
+
+}
+
+console.log(maxOfTwoNumbers(35, 100));
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(words) {
+  let maxWord=[];
+  words.forEach(function(long){
+    maxWord.push(long.length)
+  })
+  let theBiggestNumber = Math.max.apply(null, maxWord);//9
+  let theBiggestNumerPosition= maxWord.indexOf(theBiggestNumber);
+  return `The longest word is: ${words[theBiggestNumerPosition]}`;
+}
+console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let total = 0;
+  for(let i in numbers){
+    total += numbers[i];
+  }
+ return total;
+ 
+ }
+ 
+ console.log(sumNumbers(numbers));
 
-
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -26,13 +53,26 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  let averageNum = sumNumbers(numbersAvg)/numbersAvg.length;
+  return averageNum; 
+}
+
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  let eachWordLength = [];
+  wordsArr.forEach(function(wordLong){
+    eachWordLength.push(wordLong.length)
+  })
+ 
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +92,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+
+  let uniqueWords = [];
+
+  wordsUnique.forEach(function(thing){
+      if(!uniqueWords.includes(thing)){
+      uniqueWords.push(thing);
+    }
+  }) 
+  return uniqueWords;
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 
 
