@@ -37,7 +37,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(inputArray) {
   let calculatedSum = 0;
   inputArray.forEach(function(inputNumber){
-    console.log(typeof inputNumber);
+    // console.log(typeof inputNumber);
     if(typeof inputNumber === "number"){
       calculatedSum = calculatedSum + inputNumber;
     }else{
@@ -110,7 +110,8 @@ function avg(inputArray) {
       arrayAsNumbers.push(+arrayItem);
     }
   });
-//return averageNumbers(Math.round(arrayAsNumbers*10)/10);    
+  //return averageNumbers(Math.round(arrayAsNumbers*10)/10);    
+  // Notes from class: Should've just used .toFixed(2) - this is over-complicated 
   let avgRounded = (Math.round(averageNumbers(arrayAsNumbers)*100)/100);
   return avgRounded;
 }
@@ -141,9 +142,23 @@ function uniquifyArray(inputArray) {
     } else {
       console.log(`${arrayItem} is already in the array.`);
     }
-
   });
   return resultArray; 
+}
+
+
+// function uniquifyArraySet(inputArray) {
+    // if(inputArray.length === 0){
+      // return null;
+  // }
+  // let returnArray = []
+  // let setOfArray = new Set(inputArray);
+  // returnArray = Array.from(setOfArray);
+  // let newArray = Array.from(new Set(inputArray));
+
+// The 'easy way'  
+function uniquifyArraySet(inputArray) {  
+  return inputArray.length === 0 ? null : Array.from(new Set(inputArray));
 }
 
 // Iteration #6: Find elements
@@ -163,6 +178,8 @@ function doesWordExist(inputArray,searchWord) {
     }
   });
   // return false;
+  // Ternary operator
+  // return arr.length ? null : found;
   return found;
 }
 
@@ -215,10 +232,6 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(inputMatrix) {
-
-} 
-
 function productByRow(inputMatrix){
   const productOf = 3;
   let inputSize = inputMatrix.length;
@@ -233,11 +246,47 @@ function productByRow(inputMatrix){
       i++;
     }
   }
-  console.log(rowResult);
-  return Math.max(...rowResult);
+  return rowResult;
 }
 
+function makeTwoDee(inputMatrix){
+  let resultArray = [];
+  //this presumes we're in A Matrix [square, so using index 0], woah
+  for ( x = 0; x < inputMatrix.length; x++){
+    let innerArray = [];
+    for ( y = 0; y < inputMatrix[0].length; y++){
+        innerArray.push(inputMatrix[y][x]);
+    }
+    resultArray[x] = innerArray;
+  }
+  return (resultArray);
+}
 
+function greatestProduct(inputMatrix) {
+  let productsByRow = Math.max(...(productByRow(inputMatrix)));
+  let productsByCol = Math.max(...(productByRow(makeTwoDee(inputMatrix))));
+  let findMax = Math.max(productsByRow,productsByCol);
+  return(findMax);
+} 
+
+//I haven't actually made certain this works properly - but I'm tired of looking at it :D
+function greatestProductOfDiagonals(inputMatrix){
+  const productOf = 3;
+  let inputSize = inputMatrix.length;
+  let fourAcross;
+  diaResult = [];
+  let i;
+  inputMatrix.forEach(function(innerArray, index){
+    i = 0;
+    while(i + productOf < inputSize && index + productOf < inputSize){
+      fourDiag = inputMatrix[index][i]*inputMatrix[index+1][i+1]*inputMatrix[index+2][i+2]*inputMatrix[index+3][i+3];
+      diaResult.push(fourDiag);
+      i++;
+    }    
+  });
+
+  return Math.max(...diaResult);
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
