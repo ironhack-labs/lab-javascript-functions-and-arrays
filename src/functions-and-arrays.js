@@ -1,6 +1,14 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+// Iteration #1: Find the maximum
+function maxOfTwoNumbers(num1, num2) {
+  if (num1>num2){
+    return num1;
+  } else {
+    return num2;
+  }
+  }
+  
+  console.log(maxOfTwoNumbers(5, 2))
 
 
 // Iteration #2: Find longest word
@@ -13,8 +21,15 @@ function findLongestWord() {}
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sum = 0
+for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+}
+  return sum;
+}
 
+console.log(sumNumbers(numbers))
 
 
 // Iteration #3.1 Bonus:
@@ -26,13 +41,37 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function sumNumbers(numbersAvg) {
+  let sum = 0
+for (let i = 0; i < numbersAvg.length; i++) {
+    sum += numbersAvg[i];
+}
+  return sum;
+}
+
+let resultSum = sumNumbers(numbersAvg)
+
+function averageNumbers(resultSum) {
+return resultSum/numbersAvg.length
+}
+
+let resultAverage=  averageNumbers(resultSum)
 
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+ let averageLength = 0
+for (let i = 0; i < wordsArr.length; i++) {
+    averageLength += wordsArr[i].length / wordsArr.length;
+}
+  return averageLength;
+}
+
+averageWordLength(wordsArr)
+console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -61,6 +100,19 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist() {}
 
+const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(words, wordSearch) {
+   let toString = words.toString();
+    if(toString === wordSearch){
+      return true;
+    } else {
+return false;
+    }
+  } 
+  
+let result = doesWordExist(words, 'subset')
+console.log(result)
 
 
 // Iteration #7: Count repetition
