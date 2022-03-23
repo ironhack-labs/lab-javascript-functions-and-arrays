@@ -153,14 +153,14 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, value) {
-  let occurenceTotal = 0; 
+  let occuranceTotal = 0; 
   
   for (let i = 0; i < arr.length; i ++) {
     if (value === arr[i]) {
-      occurenceTotal = occurenceTotal + 1
+      occuranceTotal = occuranceTotal + 1
     }
   }
- return(occurenceTotal);
+ return(occuranceTotal);
 }
 
 
