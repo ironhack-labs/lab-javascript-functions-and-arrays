@@ -39,7 +39,7 @@ return longestWord;
 } 
 
 // Iteration #3: Calculate the sum
-const numbers = [];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbersArray) {
   if (numbersArray.length === 0){
@@ -53,7 +53,7 @@ function sumNumbers(numbersArray) {
  /*
 
  alternate syntax
- 
+
  for(let i = 0; i < numbersArray.length; i++) {
    finalNumber += numbersArray[i];
 }
