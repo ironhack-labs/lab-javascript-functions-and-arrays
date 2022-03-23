@@ -356,16 +356,13 @@ function maxOfTwoNumbers (num1,num2){
 //* iteration 2
 
 function findLongestWord (arrWords){
-  let arrLen=[]
+  let arrLen=""
   for (let i=0 ; i< arrWords.length; i++){
-    if(arrWords[i+1].length>arrWords[i].length){
-      arrLen.push(arrWords[i+1])
-    } else if (arrWords[i+1].length = arrWords[i].length) {
-      arrLen.push(arrWords[i])
-    } else {
-      arrLen.push(arrWords[i])
-    }
+    if(arrWords[i].length>arrLen.length){
+      arrLen = arrWords[i]
   }
+}
+return arrLen;
 }
     
    
@@ -412,4 +409,14 @@ function doesWordExist(arrWords,element){
   }
 }
 
+// iteration 7
 
+function howManyTimes(ArrWord, elem){
+  let soma = 0;
+  for (let i = 0; i<ArrWord.length; i++){
+    if(elem ===ArrWord[i] ){
+      soma++
+    }
+  }
+  return soma
+}
