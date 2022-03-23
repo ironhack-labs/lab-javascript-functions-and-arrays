@@ -6,7 +6,7 @@ function maxOfTwoNumbers(a, b) {
       return b;
     }
 }
-maxOfTwoNumbers(3,5);
+
 
 
 
@@ -88,7 +88,6 @@ function averageNumbers(numbersAvg) {
   return average;
 }
 
-averageNumbers(numbersAvg);
 
 let avg = '';
 
@@ -116,7 +115,7 @@ if(array.length === 1) {
 return average;
 
 }
-averageWordLength(wordsArr);
+
 
 // Bonus - Iteration #4.1
 //function avg() {}
@@ -149,7 +148,7 @@ for(i= 0; i < array.length; i++) {
 }
 return uniqueArray;
 }
-uniquifyArray(wordsUnique)
+
 
 
 // Iteration #6: Find elements
@@ -168,7 +167,7 @@ for(let j = 0; j < strArray.length; j++) {
 return found;
 }
 
-doesWordExist(wordsFind, 'machine');
+
 
 
 // Iteration #7: Count repetition
@@ -199,7 +198,6 @@ function howManyTimes(strArray, str) {
   return count;
 }
 
-howManyTimes(wordsCount, 'matter')
 
 
 // Iteration #8: Bonus
