@@ -1,24 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2){
+  if(num1 > num2) {
+    return num1;
+    } if (num2 > num1){
+      return num2;
+    } else if (num1 === num2){
+      return num1;
+     }
+    }
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+ let wordsLength = (words[0]);
+  console.log(wordsLength);
+   if (!words.length){
+    return null;
+    }
 
+  for(let i = 0; i < words.length; i++){
+     if(wordsLength.length < words[i].length){
+      wordsLength = words[i];
+     }
+      //console.log(words.wordsLength);
+     }
+return wordsLength;
+}
+findLongestWord(words);
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  if (array.length === 0){
+    return 0;
+  } else {
+    
+  let soma = 0;
+  
+ for (let i =  0; i < array.length; i++) {
+   soma += array[i];
+ }
+  return soma;
+ }
+}
+
+
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+//function sum() {}
+function sum(arr) {
+  if(arr.length === 0){
+    return 0;
+  }
+
+}
 
 
 
@@ -26,13 +70,32 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if(arr.length === 0) {return null}
+
+  let soma = 0;
+  for (let i = 0; i < arr.length; i++){
+    soma += arr[i]
+}
+return soma/arr.length
+}
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) { 
+  if(arr.length === 0) {return null}
+
+  let soma = 0;
+  for (let i = 0; i < arr.length; i++){
+    soma = arr[i] ++
+}
+return soma/arr[i].length
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
