@@ -10,3 +10,88 @@
   <script src="./src/functions-and-arrays.js"></script>
 </body>
 </html>
+
+//* iteration 1 
+
+function maxOfTwoNumbers (num1,num2){
+  if (num1>num2){
+    console.log(num1)
+  }else{
+    console.log(num2)
+  }
+  return maxOfTwoNumbers
+  }
+  
+  
+
+
+//* iteration 2
+
+function findLongestWord (arrWords){
+  let arrLen=[]
+  for (let i=0 ; i< arrWords.length; i++){
+    if(arrWords[i+1].length>arrWords[i].length){
+      arrLen.push(arrWords[i+1])
+    } else if (arrWords[i+1].length = arrWords[i].length) {
+      arrLen.push(arrWords[i])
+    } else {
+      arrLen.push(arrWords[i])
+    }
+  }
+}
+    
+   
+
+//* iteration 3
+
+function sumNumbers(arrNumbers){
+  let soma =0
+  for (let i=0; i<arrNumbers.length;i++){
+    soma += arrNumbers[i];
+  }
+  return soma
+}
+
+//* iteration 4
+
+function averageNumbers(arrNumbers){
+  let soma =0
+  for (let i=0; i<arrNumbers.length;i++){
+    soma += arrNumbers[i];
+  }
+  return soma/arrNumbers.length
+}
+
+// iteration 5
+
+function uniquifyArray(arrWords){
+  let unique =[];
+  arrWords.forEach(element => {
+    if(!unique.includes(element)){
+      unique.push(element)
+    }
+  });
+  return unique
+}
+
+// iteration 6
+
+function doesWordExist(arrWords,element){
+  if (arrWords.includes(element)){
+    console.log("true")
+  } else{
+    console.log("false")
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
