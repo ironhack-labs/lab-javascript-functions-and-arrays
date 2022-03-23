@@ -128,12 +128,17 @@ const wordsCount = [
 ];
 
 function howManyTimes(arrCount, search) {
+  let count = 0
   for (let i = 0;i < arrCount.length; i++){
-    return arrCount.indexOf(search)
+    if(arrCount[i] === search){
+      return count + 1;
+    } else {
+      continue;
+    }
   }
+  return count
 }
 console.log(howManyTimes(wordsCount, 'matter'))
-
 
 
 // Iteration #8: Bonus
