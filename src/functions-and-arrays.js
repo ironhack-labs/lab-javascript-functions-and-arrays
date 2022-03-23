@@ -1,41 +1,119 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(firstNumber,secondNumber) {
+  let largestNumber;
+  if(firstNumber > secondNumber){
+    largestNumber = firstNumber;
+  }else if(firstNumber < secondNumber){
+    largestNumber = secondNumber;
+  }else{
+    largestNumber = firstNumber;
+  }
+  return largestNumber;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(inputArray) {
+  let longestWord = 0;
+  let longestWordIndex;
+  if (inputArray.length > 0 ){
+  inputArray.forEach(function(inputWord, index){
+      if(inputWord.length > longestWord){
+          console.log(`${inputWord} is the longest word so far!`);
+          longestWord = inputWord.length;
+          longestWordIndex = index;
+      }      
+  });
+  }else{
+    return null;
+  }
+ return(inputArray[longestWordIndex]);
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(inputArray) {
+  let calculatedSum = 0;
+  inputArray.forEach(function(inputNumber){
+    console.log(typeof inputNumber);
+    if(typeof inputNumber === "number"){
+      calculatedSum = calculatedSum + inputNumber;
+    }else{
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return calculatedSum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+//Re-factoring to take anything in, string, number, bool, and making it numeric to send to sumNumbers
+function sum(inputArray) {
+    arrayAsNumbers = [];
+    inputArray.forEach(function(arrayItem){
+      if(typeof arrayItem === "object" || arrayItem.isArray){
+        throw new Error("Unsupported data type sir or ma'am");
+      }else{
+      if(typeof arrayItem === "string"){
+            console.log(arrayItem.length);   
+            arrayAsNumbers.push(arrayItem.length);
+      }else{
+        arrayAsNumbers.push(+arrayItem);
+      }
+    }
+    });
+    return sumNumbers(arrayAsNumbers);
+}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+// should return: 57
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(inputArray) {
+  if (inputArray.length > 0 ){
+    let sumOfArray = sumNumbers(inputArray);
+    let averageOfArray = sumOfArray/inputArray.length;
+    return averageOfArray;
+  }else{
+    return null;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(inputArray) { 
+  let lengthOfWords = [];
+  inputArray.forEach(function(arrayItem){
+      lengthOfWords.push(arrayItem.length);
+  });
+  let getAverage = averageNumbers(lengthOfWords);
+  return getAverage;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(inputArray) {
+  if(inputArray.length === 0){
+    return null;
+  }
+  arrayAsNumbers = [];
+  inputArray.forEach(function(arrayItem){
+    if(typeof arrayItem === "string"){
+          //console.log(arrayItem.length);   
+          arrayAsNumbers.push(arrayItem.length);
+    }else{
+      arrayAsNumbers.push(+arrayItem);
+    }
+  });
+//return averageNumbers(Math.round(arrayAsNumbers*10)/10);    
+  let avgRounded = (Math.round(averageNumbers(arrayAsNumbers)*100)/100);
+  return avgRounded;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +130,41 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(inputArray) {
+  let resultArray = [];
+  if(inputArray.length === 0){
+      return null;
+  }
+  inputArray.forEach(function(arrayItem){
+    if ( resultArray.indexOf(arrayItem) < 0 ) {
+      resultArray.push(arrayItem);
+    } else {
+      console.log(`${arrayItem} is already in the array.`);
+    }
 
-
+  });
+  return resultArray; 
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(inputArray,searchWord) {
+  if(inputArray.length === 0){
+      return null;
+  }
+  let found = false;
+  inputArray.forEach(function(arrayItem){
+    // console.log(`Comparing ${arrayItem} with ${searchWord}`);
+    if (arrayItem === searchWord){
+      // return true; ah, I can't do this because I'm in a function inside a function - it only breaks out of the first
+      // making it behave differently looks very confusing to read
+      found = true;
+    }
+  });
+  // return false;
+  return found;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +181,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(inputArray,searchWord) {
+  let count = 0;
+  inputArray.forEach(function(arrayItem){
+    if (arrayItem === searchWord){
+      count++;
+    }
+  });
+  return count;  
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,8 +215,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(inputMatrix) {
 
+} 
+
+function productByRow(inputMatrix){
+  const productOf = 3;
+  let inputSize = inputMatrix.length;
+  let fourAcross;
+  rowResult = [];
+  let i;
+  for(x of inputMatrix){
+    i = 0;
+    while(i + productOf < inputSize){
+      fourAcross = x[i]*x[i+1]*x[i+2]*x[i+3];
+      rowResult.push(fourAcross);
+      i++;
+    }
+  }
+  console.log(rowResult);
+  return Math.max(...rowResult);
+}
 
 
 
