@@ -27,7 +27,9 @@ function findLongestWord(wordsArray) {
         longestWord = wordsArray[i];
     }
   }
-  /* wordsArray.forEach((element) => {
+  /* a different way of writing, possibly
+  
+  wordsArray.forEach((element) => {
   if(longestWord.length < element.length) {
     longestWord = element.length;
   }
@@ -49,6 +51,9 @@ function sumNumbers(numbersArray) {
      finalNumber += element;
  })
  /*
+
+ alternate syntax
+ 
  for(let i = 0; i < numbersArray.length; i++) {
    finalNumber += numbersArray[i];
 }
