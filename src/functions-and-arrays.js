@@ -1,24 +1,81 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1
+  } else {
+    return n2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null
+  }
+  maxLength = 0;
+  maxLengthWord = ""
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > maxLength) {
+      maxLengthWord = words[i]
+      maxLength = words[i].length
+    }
+  }
+
+  return maxLengthWord
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+
+  if (numbers.length === 0) {
+    return 0
+  }
+  sum = 0
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+  return sum
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(elements) {
+  if (elements.length === 0) {
+    return 0
+  }
+  let suma = 0
+  for (let i = 0; i < elements.length; i++) {
+
+    if (typeof (elements[i]) === "string") {
+      suma += elements[i].length
+    }
+    else if (typeof (elements[i]) === "number") {
+      suma += elements[i]
+    }
+    else if (typeof (elements[i]) === "boolean") {
+      if (elements[i] === true) {
+        suma += 1
+      }
+    }
+    else if (typeof (elements[i]) === "object") {
+      throw "Unsupported data type sir or ma'am"
+    }
+
+
+
+  }
+  return suma
+}
 
 
 
@@ -26,16 +83,59 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArr) {
+  if (numbersArr.length === 0) {
+    return null
+  }
+  let result = 0
+  result = sumNumbers(numbersArr)
+  result = result / numbersArr.length
+  return result
 
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null
+  }
+  let average = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    average += wordsArr[i].length
+  }
+  average = average / wordsArr.length
+  return average;
+}
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.1  ///PROBLEMAS
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null
+  }
+  let average = 0
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof (mixedArr[i]) === "string") {
+      average += mixedArr[i].length
+    }
+    else if (typeof (mixedArr[i]) === "number") {
+      average += mixedArr[i]
+    }
+    else if (typeof (mixedArr[i]) === "boolean") {
+      if (mixedArr[i] === true) {
+        average += 1
+      }
+    }
+
+
+  }
+
+  average = average / mixedArr.length
+  average = Math.round(average * 100) / 100
+  return average
+}
+console.log(" el valor es... ", avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +152,45 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null
+  }
+  wordsIndexDel = []
+  wordsResult = []
+  for (let i = 0; i < words.length; i++) {
+    isInside = false
+    for (let j = 0; j < wordsResult.length; j++) {
+      if (words[i] === wordsResult[j]) {
+        isInside = true
+      }
+    }
+    if (!isInside) {
+      wordsResult.push(words[i])
+    }
+  }
+  return wordsResult
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordArr, word) {
+  if (wordArr.length === 0) {
+    return null
+  }
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i] === word) {
+      return true
+    }
+  }
+
+  return false
+
+
+}
 
 
 
@@ -78,7 +209,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArr, word) {
+  let suma = 0
+  if (wordArr.length === 0) {
+    return 0
+  }
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i] === word) {
+      suma++
+    }
+  }
+
+  return suma
+
+}
 
 
 
@@ -106,7 +250,61 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const matrix2 = [
+  [4, 3, 3, 3, 3],
+  [3, 4, 3, 3, 3],
+  [3, 3, 4, 3, 3],
+  [3, 3, 3, 4, 3]]
+
+function greatestProduct(matrix) {
+  let greatestProduct = 0
+  let currentProduct = 0
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+
+      if (i + 3 < matrix.length) {
+
+        currentProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j]
+        if (currentProduct > greatestProduct) {
+          greatestProduct = currentProduct
+        }
+      }
+      if (j + 3 < matrix.length) {
+        currentProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+        if (currentProduct > greatestProduct) {
+          greatestProduct = currentProduct
+        }
+      }
+    }
+  }
+  return greatestProduct
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let greatestProduct = 0
+  let currentProduct = 0
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+
+      if (i + 3 < matrix.length && j + 3 < matrix.length) {
+
+        currentProduct = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3]
+        if (currentProduct > greatestProduct) {
+          greatestProduct = currentProduct
+        }
+      }
+      if (j - 3 > 0 && i + 3 < matrix.length) {
+        currentProduct = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j + -3]
+        if (currentProduct > greatestProduct) {
+          greatestProduct = currentProduct
+        }
+      }
+    }
+  }
+  return greatestProduct
+}
+
+console.log("greatest of diagonal is", greatestProductOfDiagonals(matrix))
 
 
 
