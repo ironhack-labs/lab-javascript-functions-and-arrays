@@ -11,30 +11,29 @@ function maxOfTwoNumbers(num1,num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(str){
-str = str.match(/[a-zA-Z0-7]+/gi);
+function findLongestWord(words){
 let largest = "";
-for(let i = 0; i < str.length; i++){
-	if(str[i].length > largest.length){
-	largest = str[i]
+for(let i = 0; i < words.length; i++){
+	if(words[i].length > largest.length){
+	largest = words[i]
 	}
 }
 return largest;
 }
 
-console.log(findLongestWord('mystery','brother','aviator','crocodile','pearl','orchard','crackpot'))
-
-
-
+console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(b1, b2, b3, b4, b5, b6, b7, b8, b9, b10) {
-  console.log(b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9 + b10)
-
+function sumNumbers(numeros) {
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++){
+    suma += numeros[i]
+  }
+  return suma
 }
-sumNumbers(6, 12, 1, 18, 13, 16, 2, 1, 8, 10)
+console.log(sumNumbers(numbers))
 
 
 // Iteration #3.1 Bonus:
@@ -46,17 +45,29 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(b1, b2, b3, b4, b5, b6, b7, b8) {
-  console.log((b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8) / 8)
-  
+function averageNumbers(average) {
+  let suma = 0;
+ for (let i = 0; i < average.length; i++){
+   suma += average[i]
+ }
+ return suma/average.length
 }
-averageNumbers(2, 6, 9, 10, 7, 4, 1, 9)
+
+console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(palabra) {
+  let sum = 0;
+  for (let i = 0; i < palabra.length; i++){
+    sum += palabra[i].length;
+  }
+  return sum/palabra.length
+ }
+
+ console.log (averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
