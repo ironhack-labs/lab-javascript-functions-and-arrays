@@ -1,21 +1,44 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(n1, n2) {
+  if(n1>n2){
+    console.log (n1)
+  } else if (n1<n2) {
+    console.log (n2)
+  } else console.log ("Son iguales")
+  
+}
 
+maxOfTwoNumbers (10, 10)
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words){
+let largest = "";
+for(let i = 0; i < words.length; i++){
+	if(words[i].length > largest.length){
+	largest = words[i]
+	}
+}
+return largest;
+}
 
+console.log(findLongestWord(words))
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numeros) {
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++){
+    suma += numeros[i]
+  }
+  return suma
+}
 
-
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -26,13 +49,33 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(promedio) {
+  let suma = 0;
+ for (let i = 0; i < promedio.length; i++){
+   suma += promedio[i]
+ }
+ return suma/promedio.length
+}
 
+console.log(averageNumbers(numbersAvg))
 
 // Level 2: Array of strings
+/*
+Implement the function named averageWordLength that receives as a single argument an array of words and returns the average length of the words:
+
+You can use the following array to test your solution: 
+ */
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(palabra) {
+  let sum = 0;
+  for (let i = 0; i < palabra.length; i++){
+    sum += palabra[i].length;
+  }
+  return sum/palabra.length
+ }
+
+ console.log (averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
