@@ -1,20 +1,54 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
 
+  if (num1 > num2){
+    return num1
+  } else if (num1 < num2){
+    return num2
+  } else {
+    return num1
+
+  }
+ 
+
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array){
 
+let longest = 0;
+let longestWord = ""
 
+if (array.length === 0){
+  return null
+} else { 
+  for(let i = 0; i<array.length; i++){
+  
+  if(array[i].length>longest){
+    longest=array[i].length
+    longestWord = array[i]
+  }
+}
+
+}
+
+return longestWord;
+}
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]
 
-function sumNumbers() {}
+function sumNumbers(numbers){
+let i = 0
 
+for (let i = 0; i < sumNumbers.length; i++) {
+  sum += array[i]
+}
+console.log(i);
+}
 
 
 // Iteration #3.1 Bonus:
@@ -59,7 +93,10 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(cadena, wordt) {
+  console.log(cadena === cadena)
+  console.log(cadena === "wordt") 
+}
 
 
 
@@ -78,7 +115,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount) {
+  console.log (wordsCount.indexOf("mach"));
+} console.log (wordsCount.indexOf("e"));
 
 
 
