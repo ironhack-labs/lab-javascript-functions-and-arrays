@@ -279,6 +279,9 @@ function howManyTimes(arrayToCompare, lookingForThis) {
 // console.log(howManyTimes(wordsCount, 'matter'))
 
 
+
+
+
 // Iteration #8: Bonus
 const matrix = [
   [1, 20, 3, 4, 50],
@@ -297,31 +300,31 @@ let maxHoriz = 0
 let maxVerti = 0
 
 // Para calcular el máximo horizontal
-// for (let i = 0; i < matrix.length; i++) {
+for (let i = 0; i < matrix.length; i++) {
 
-//   for (let j = matrix[i].length - 1; j >= 0; j--) {
+  for (let j = matrix[i].length - 1; j >= 0; j--) {
 
-//     for (let z = 0; z < 4; z++) {
+    for (let z = 0; z < 4; z++) {
 
-//       if (matrix[i][j - 3] === undefined) {
-//       } else {
+      if (matrix[i][j - 3] === undefined) {
+      } else {
 
-//         calcHoriz *= matrix[i][j - z]
-//         // console.log(calcHoriz)
+        calcHoriz *= matrix[i][j - z]
+        // console.log(calcHoriz)
 
-//       }
-//     }
+      }
+    }
 
-//     if (calcHoriz > maxHoriz) {
-//       maxHoriz = calcHoriz
-//       calcHoriz = 1
-//     }
-//     calcHoriz = 1
+    if (calcHoriz > maxHoriz) {
+      maxHoriz = calcHoriz
+      calcHoriz = 1
+    }
+    calcHoriz = 1
 
-//   }
+  }
 
-// }
-// console.log(maxHoriz)
+}
+console.log(maxHoriz)
 
 
 // Para calcular el máximo vertical
@@ -354,18 +357,9 @@ console.log(maxVerti)
 
 
 
-// greatestProduct(matrix)
 
 
 
-// calcHoriz *= matrixInput[i][j]
-// if (calcHoriz > maxHoriz) {
-//     maxHoriz = calcHoriz
-//   }
-// calcVerti *= matrixInput[j][i]
-// if (calcVerti > maxVerti) {
-//   maxVerti = calcVerti
-// }
 
 
 // The following is required to make unit tests work.
