@@ -1,24 +1,114 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers (number1, number2){
+
+  if (number1 > number2) {
+
+    return number1
+  }
+  else if (number1 < number2) {
+
+    return number2
+  } else
+  { return number1 }
+
+}
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviatorsssss', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let longer=0
 
-function findLongestWord() {}
+function findLongestWord(itemArray) {
+
+  let longer = 0
+  const numArray = []
+  
+  if (itemArray.length === 0) { return null } else { 
+
+  for (let i = 0; i < itemArray.length; i++) {
+
+    numArray.push(itemArray[i].length)
+
+  }
+  
+  
+  for (let i = 0; i < numArray.length - 1; i++) {
+    
+    
+
+    if (numArray[longer] >= numArray[i + 1]) {
+      
+    longer = longer
+    }
+    else { 
+    longer = i+1
+      
+    }
+
+    }
+}
+return itemArray[longer]
+}
+
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numberArray) {
+
+  let sum = 0
+
+  for (i = 0; i < numberArray.length; i++) {
+
+    sum += numberArray[i]
+
+   }
+
+
+return sum
+
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(value) {
+
+  let totalSum = 0
+  let typeOfVar = ""
+
+  for (i = 0; i < value.length; i++) {
+
+    typeOfVar = typeof value[i]
+
+    
+    
+    if (typeOfVar === 'number') {
+      totalSum += value[i]
+
+    } else if (typeOfVar === 'string') { 
+
+        totalSum += value[i].length
+
+    }else if (typeOfVar === 'boolean') { 
+
+      if (value[i]) {totalSum +=1 }
+    }
+
+    }
+    
+    return totalSum
+
+   }
+
 
 
 
@@ -26,16 +116,76 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numberArray) {
+
+let average = 0
+let sum = 0
+
+  for (i = 0; i < numberArray.length; i++) {
+
+    sum += numberArray[i]
+
+   }
+average = sum/numberArray.length
+
+return average
+
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(strinArray) {
+
+  let sum = 0
+
+  for (i = 0; i < strinArray.length; i++) {
+
+
+      sum += strinArray[i].length
+
+   }
+
+return sum
+
+
+}
+ 
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+
+function avg(value) {
+
+let totalSum = 0
+  let typeOfVar = ""
+
+  for (i = 0; i < value.length; i++) {
+
+    typeOfVar = typeof value[i]
+
+    
+    if (typeOfVar === 'number') {
+      totalSum += value[i]
+
+    } else if (typeOfVar === 'string') { 
+
+        totalSum += value[i].length
+
+    }else if (typeOfVar === 'boolean') { 
+
+      if (value[i]) {totalSum +=1 }
+    }
+
+    }
+    
+    return totalSum/value.length
+
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +202,64 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+
+
+function uniquifyArray(value) {
+
+  let index = 0
+  for (i = 0; i < value.length; i++) {
+    
+    
+    index = value.indexOf(value[i], i+1)
+
+    
+    
+    if (index !== -1 && index !==i) {
+      
+      
+
+      value.splice(index, 1)
+      index =0
+
+    }
+    
+      
+   }
+return value
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(value, item) {
+
+  let count = 0
+
+  for (i = 0; i < value.length; i++) {
+
+    
+
+    if (item === value[i]) {
+
+      count += 1
+
+    }
+
+  }
+  
+  if (count === 0) {
+    return false
+  }
+  else
+  { 
+    return true
+  }
+
+}
 
 
 
@@ -78,8 +278,27 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(value, item) {
 
+ let count = 0
+
+  for (i = 0; i < value.length; i++) {
+
+    
+
+    if (item === value[i]) {
+
+      count += 1
+
+    }
+
+  }
+  
+  
+    return count
+ 
+
+}
 
 
 // Iteration #8: Bonus

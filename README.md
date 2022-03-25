@@ -14,8 +14,6 @@ Manipulating arrays in code is a very common operation. Whether you are creating
 
 - Clone it to your machine
 
-  
-
 ## Submission
 
 - Upon completion, run the following commands:
@@ -30,27 +28,21 @@ git push origin master
 
 <br>
 
-
-
 ## Instructions
 
-You will work on the `src/functions-and-arrays.js` file, which is already loaded in the `index.html` file. 
+You will work on the `src/functions-and-arrays.js` file, which is already loaded in the `index.html` file.
 
-To run the JavaScript code open the `index.html` file use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension. 
+To run the JavaScript code open the `index.html` file use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
 
 To see output of your JavaScript code open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
 
 While following the instructions for each iteration, make sure to carefully read the instructions to fully understand the task requirements. Do not rush. You should take your time to carefully read every iteration.
-
-
 
 ### Note about tests
 
 This LAB, along with some of the labs you will be working on during the bootcamp, is equipped with unit tests to provide automated feedback on your lab progress.
 
 **After you’ve completed the basic iterations**, go to the **"Test Your Code"** section at the bottom. There you'll be asked to install the testing dependencies and run the tests to check how many tests your code is passing.
-
-
 
 <br>
 
@@ -268,8 +260,6 @@ Following the logic you've used in iteration #8, declare a function called `grea
 
 <br>
 
-
-
 ## Test Your Code
 
 <br>
@@ -280,15 +270,13 @@ Automated software testing is the process of automatically testing an applicatio
 
 Having strong _test suites_ can provide you ease of mind, since you will be able to confidently improve upon your work while knowing that your not breaking a previously developed feature.
 
-
-
 <br>
 
 ### Testing with Jest
 
 Jest is an automated test-runner for JavaScript.
 
-To run your tests, open your terminal at the root directory of the lab, run `npm install` to install your dependencies and `npm run test:watch` to run the tests and generate the `lab-solution.html` file. 
+To run your tests, open your terminal at the root directory of the lab, run `npm install` to install your dependencies and `npm run test:watch` to run the tests and generate the `lab-solution.html` file.
 
 ```shell
 $ cd lab-javascript-functions-and-arrays
@@ -312,6 +300,6 @@ Note that **you don't need to execute the functions yourself**, the tests are re
 
 <br>
 
-## 
+##
 
 **Happy coding!** :heart:
