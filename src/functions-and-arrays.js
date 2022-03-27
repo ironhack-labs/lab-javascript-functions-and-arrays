@@ -1,19 +1,56 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+function maxOfTwoNumbers(a, b) {
+
+  if (a > b) {
+    
+    return a;
+  } else {
+    return b;
+  }
+
+}
+
+// maxOfTwoNumbers (34, 787)
 
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord (arr) {
+  
+  let word = "";
+  
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+        word = arr[i];
+       }
+    }
+return word;          
+    
+}
+
+// console.log(findLongestWord(words))
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+	let sum = 0;
+  
+  for (let i = 0; i < numbersArray.length; i++) {
+    
+    sum = sum + numbersArray[i]
+  }
+  
+  return sum;
+  
+}
+ // console.log(sumNumbers(numbers));
 
 
 
@@ -26,13 +63,35 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function sumNumbers(numbersArray) {
+	let sum = 0;
+  
+  for (let i = 0; i < numbersArray.length; i++) {
+    
+    sum = sum + numbersArray[i] / numbersArray.length
+  }
+  
+  return sum;
+  
+}
+// console.log(sumNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < words.length; i++) {
+    sum += words[i].length;
+  }
+  return sum / words.length;
+}
+
+// console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -59,8 +118,19 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(tree, leaf) {
+  if (tree.length === 0) {
+    return null;
+  }
+  for (let word of tree) {
+    if (word === leaf) {
+      return true
+    }
+  }
+  return false;
+}
+ 
+// console.log(doesWordExist(wordsFind))
 
 
 // Iteration #7: Count repetition
@@ -78,8 +148,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(tree, leaf) {
+  let count = 0;
+  for (let word of tree) {
+    if (word === leaf) {
+      count ++
+      
+    }
+    
+  }
+   return count;
+  
+}
 
 
 // Iteration #8: Bonus
