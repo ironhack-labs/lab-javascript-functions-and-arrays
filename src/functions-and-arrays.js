@@ -73,14 +73,21 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(arr) { 
   if(arr.length === 0){
     return null;
-  } else if (arr.length === 1){
+  } else if(arr.length ===1){
     return arr[0];
   }
+//   let longestWord = "";
+//   for (let i = 0; i < arr.length; i++){   
+//   if(arr[i].length > longestWord.length){
+//     longestWord=arr[i];
+//   }
+// }
+// return longestWord;
+
   const result = arr.reduce((previousValue, currentValue) => previousValue + currentValue, initVal)/arr.length
 return result;
 
-//  for (let i = 0; i < arr.length; i++){   
-//   }
+
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 return arr
 }
@@ -111,9 +118,14 @@ function uniquifyArray(arr) {
   if (arr.length === 0){
     return null;
   }
+let newArr=[];
+for (let i=0; i<arr.length;i++) {
+  if (newArr.indexOf(arr[i])===-1) {
+    newArr.push(arr[i]);
+    }
+  }
+return newArr;
 }
-
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -121,6 +133,8 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arr) {
   if (arr.length === 0){
     return null;
+  }else if(arr.length === 1){
+    return true;
   }
 }
 
@@ -141,7 +155,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr) {
+  if(arr.length === 0){
+    return 0;
+  }
+  
+}
 
 
 
