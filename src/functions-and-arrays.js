@@ -4,8 +4,10 @@ function maxOfTwoNumbers(numb1,numb2) {
   if (numb1 > numb2){
 return numb1;
 }
-else if(numb2 < numb1){
+else if(numb1 < numb2){
   return numb2;
+} else if (numb1 === numb2){
+  return numb1 || numb2;
 }
 }
 
@@ -14,8 +16,15 @@ else if(numb2 < numb1){
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {
-  Math.max(...(x.map(el => el.length)));
+function findLongestWord(arr) {
+  if(arr.length === 0){
+    return null;
+  }else if (arr.length === [1]){
+      return arr;
+    }
+Math.max(...(x.map(el => el.length)));
+
+// for (let i = 0; i<)
 }
 
 
@@ -26,7 +35,12 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const initVal = 0;
 
 function sumNumbers(arr) {
-const result = numbers.reduce((previousValue, currentValue) => previousValue + currentValue, initVal)
+const result = numbers.reduce((previousValue, currentValue) => previousValue + currentValue, initVal);
+if(arr === []){
+  return 0;
+}else{
+  return result;
+}
 }
 
 // Iteration #3.1 Bonus:
@@ -38,16 +52,38 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if( arr.length === 0){
+    return null;
+  }else if( arr.length ===1){
+    return arr;
+  }
+  const result = numbers.reduce((previousValue, currentValue) => previousValue + currentValue, initVal)/arr.length
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) { 
+  if(arr.length === 0){
+    return null;
+  } for (let i = 0; i < arr.length; i++){
+    // if ( arr.length === 1){
+    //   return arr
+    // }
+  }
+  const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0){
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -64,14 +100,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0){
+    return null;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr) {
+  if (arr.length === 0){
+    return null;
+  }
+}
 
 
 
