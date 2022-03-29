@@ -1,24 +1,102 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2){
+    return num1
+  } else if (num2 > num1){
+    return num2
+  } else{
+    return num1
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(array){
+  let longest = array[0]
+  for (let i = 0; i < array.length; i++){
+    if (array[i].length > longest.length){
+      longest = array[i]
+    }
+  }
+  if (longest){
+    return longest
+  } else {
+    return null
+  }
+}
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let total = 0
+  array.forEach(element => {
+    total += element
+  })
+  return total
+}
 
+// In the iteration 3, you created a function that returns the sum of an array of numbers. But what if we wanted to know how much is the sum of the length of all of the words in an array? 
+// What if we wanted to add _boolean_ values to the mix? We wouldn't be able to use the same function as above, or better saying, we would have to _tweak_ it a 
+// little bit so that it can be reused no matter what is in the array that is passed as argument when function `sumNumbers()` is called.
 
+// Here we are applying a concept we call **polymorphism**, that is, dealing with a functions' input independently of the types they are passed as.
+
+// Let's implement the function `sum()` that calculates the sum for array filled with (_almost_) any type of data. Note that strings should have 
+// their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
+
+// You can use the following array to test your solution:
+
+// ```javascript
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// // should return: 57
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// function sum(array) {
+//   let arrayLength = 0
+//   for (let i = 0; i < array.length; i++){
+//     if (array[i] = false){
+//       arrayLength += 5
+//     } else if (array[i] = true){
+//       arrayLength += 4 
+//     } else if (array[i] / array[i] === 1){
+//       arrayLength += array[i]
+//     }
+//   }
+// }
+
+function sum(array){
+
+  let exampleArray = []
+  let boolean = typeof false
+  let number = typeof 1
+  let string = typeof 'string'
+  let errorArray = typeof exampleArray
+  let arrayTotal = 0
+
+  if (array.length < 0){
+      return null
+  } /* else if (array.includes(errorArray)){
+    throw new Error("Unsupported data type sir or ma'am");
+  }  Tried to fix the throw an error but couldn't get this bit to work*/ else {
+    for (let i = 0; i < array.length; i++){
+    if (typeof array[i] === boolean){
+      if (!array[i]){
+        arrayTotal += 0
+        console.log(false)
+      } else {
+        arrayTotal += 1
+      }
+    } else if (typeof array[i] === string){
+      let stringLength = array[i].length
+      arrayTotal += stringLength
+    } else if (typeof array[i] === number){
+      arrayTotal += array[i]
+    }
+  }}
+  return arrayTotal
+}
 
 
 
@@ -26,16 +104,70 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(array){
+  let total = 0
+  array.forEach( number => {
+    total += number
+  })
+  let result = total/ array.length
+  if (result){
+    return result
+  } else {
+    return null
+  }
+  
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  let total = 0
+  array.forEach( word => {
+    total += word.length
+  })
+  let result = total/ array.length
+  if (result){
+    return result
+  } else {
+    return null
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array){
+
+  let exampleArray = []
+  let boolean = typeof false
+  let number = typeof 1
+  let string = typeof 'string'
+  let errorArray = typeof exampleArray
+  let arrayTotal = 0
+
+  if (array.length <= 0){
+      return null
+  } /* else if (array.includes(errorArray)){
+    throw new Error("Unsupported data type sir or ma'am");
+  }  Tried to fix the throw an error but couldn't get this bit to work*/ else {
+    for (let i = 0; i < array.length; i++){
+    if (typeof array[i] === boolean){
+      if (!array[i]){
+        arrayTotal += 0
+        console.log(false)
+      } else {
+        arrayTotal += 1
+      }
+    } else if (typeof array[i] === string){
+      let stringLength = array[i].length
+      arrayTotal += stringLength
+    } else if (typeof array[i] === number){
+      arrayTotal += array[i]
+    }
+  }}
+  let arrayAverage = (arrayTotal / array.length)
+
+  return Math.round((arrayAverage) * 100) / 100
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +184,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array){
+  let newArray = []
+  for (let i = 0; i < array.length; i++){
+    if (!newArray.includes(array[i])){
+      newArray.push(array[i])
+    }
+  } if (array.length > 0){
+    return newArray
+  } else {
+    return null
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, searchWord) {
+    if (array.length > 0) {
+      if (array.includes(searchWord)){
+        return true
+      } else return false
+    } else {
+      return null
+    }
+}
 
 
 
@@ -78,7 +229,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, searchWord) {
+  let newArray = []
+  if (array.length === 0){
+    return 0
+  } else{
+    for (let i = 0; i < array.length; i++){
+      if (searchWord === array[i]){
+        newArray.push(searchWord)
+      }
+    }
+  }
+  return newArray.length
+}
 
 
 
