@@ -19,8 +19,8 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(arr) {
   if(arr.length === 0){
     return null;
-  }else if (arr.length === [1]){
-      return arr;
+  }else if (arr.length === 1){
+      return arr[0];
     }
 Math.max(...(x.map(el => el.length)));
 
@@ -36,12 +36,16 @@ const initVal = 0;
 
 function sumNumbers(arr) {
 const result = numbers.reduce((previousValue, currentValue) => previousValue + currentValue, initVal);
-if(arr === []){
+if(arr.length === 0){
   return 0;
-}else{
+
+}else if(arr.lenght === 1){
+return arr[0];
+
+}
   return result;
 }
-}
+
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -56,10 +60,10 @@ function averageNumbers(arr) {
   if( arr.length === 0){
     return null;
   }else if( arr.length ===1){
-    return arr;
+    return arr[0];
   }
-  const result = numbers.reduce((previousValue, currentValue) => previousValue + currentValue, initVal)/arr.length
-
+  const result = arr.reduce((previousValue, currentValue) => previousValue + currentValue, initVal)/arr.length
+return result;
 }
 
 
@@ -69,13 +73,16 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(arr) { 
   if(arr.length === 0){
     return null;
-  } for (let i = 0; i < arr.length; i++){
-    // if ( arr.length === 1){
-    //   return arr
-    // }
+  } else if (arr.length === 1){
+    return arr[0];
   }
-  const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+  const result = arr.reduce((previousValue, currentValue) => previousValue + currentValue, initVal)/arr.length
+return result;
 
+//  for (let i = 0; i < arr.length; i++){   
+//   }
+  const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+return arr
 }
 
 // Bonus - Iteration #4.1
