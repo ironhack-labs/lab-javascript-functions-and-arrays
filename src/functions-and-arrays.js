@@ -1,38 +1,104 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1 = 0, num2 = 0) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2;
+  } else {
+    return num1;
+  }
+}
 
-
+const highestNumber = maxOfTwoNumbers(12, 26);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let word = '';
+  if (arr === undefined) {
+    return null;
+  } else if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length === 0) {
+      return null;
+    } else if (word.length < arr[i].length) {
+      word = arr[i];
+    } else if (word.length === arr[i].length) {
+      continue;
+    }
+  }
+  return word;
+}
 
+const longestWord = findLongestWord([]);
 
+console.log(longestWord);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr = 0) {
+  let sum = 0;
+  if (arr.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
 
-
+const sumOfNumbers = sumNumbers(numbers);
+console.log(sumOfNumbers);
 
 // Iteration #3.1 Bonus:
 function sum() {}
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let sum = 0;
+  let avgNumber;
+  if (arr.length === 0) {
+    return null;
+  } else if (arr === undefined) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  avgNumber = sum / arr.length;
+  return avgNumber;
+}
 
+const avgNumber = averageNumbers(numbersAvg);
+console.log(avgNumber);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  let avgLength = 0;
+  if (arr.length === 0) {
+    return null;
+  } else if (arr === undefined) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    avgLength += arr[i].length;
+  }
+  avgLength = avgLength / arr.length;
+  return avgLength;
+}
+
+const avgLength = averageWordLength(wordsArr);
+
+console.log(avgLength);
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,16 +118,45 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let noDuplicates = [];
+  if (arr.length === 0) {
+    return null;
+  } else if (arr === undefined) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (noDuplicates.indexOf(arr[i]) === -1) {
+      noDuplicates.push(arr[i]);
+    } else {
+      continue;
+    }
+  }
+  return noDuplicates;
+}
 
-
+const noDuplicates = uniquifyArray(wordsUnique);
+console.log(noDuplicates);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrOfWords, word) {
+  if (arrOfWords.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (arrOfWords[i].indexOf(word) !== -1) {
+      return true;
+    } else {
+      continue;
+    }
+  }
+  return false;
+}
 
-
+const findElements = doesWordExist(wordsFind, 'disobedience');
+console.log(findElements);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +173,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrOfWords, word) {
+  let count = 0;
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (arrOfWords[i].indexOf(word) !== -1) {
+      count += 1;
+    }
+  }
+  return count;
+}
 
-
+const repeatedWordCount = howManyTimes(wordsCount, 'matter');
+console.log(repeatedWordCount);
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +211,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
