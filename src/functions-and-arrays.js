@@ -198,9 +198,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let max = 0
+  let matriz = []
+  //Iteracion Horizontal
+  for(let  i = 0;i<=19;i++){
+     matriz = matrix[i].map((numero,index)=>{
+      return numero * matrix[i][index+1] * matrix[i][index +2] * matrix[i][index + 3] 
+    })
+     matriz = matriz.slice(0,17)
+     max = Math.max(max,...matriz) 
+  }
+  //Iteración vertical
+  
+  for(let e = 0;e<20;e++){
+    for(let i = 0;i<=16;i++){
+      matriz = (matrix[i][e] * matrix[i+1][e] * matrix[i+2][e] * matrix[i+3][e])
+      max = Math.max(max,matriz)
+    }
+  }
+  return max
+}
+console.log(greatestProduct(matrix))
 
-//No entendí Iteration 8
 
 
 // The following is required to make unit tests work.
