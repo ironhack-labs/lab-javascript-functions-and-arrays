@@ -1,0 +1,18 @@
+# Query: const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];\n\nfunction sumNumbers(num) {\n  for(let x = 0; x < num ; x++){\n   let varTotal = "";\n    varTotal += num[x];\n    return varTotal;\n  }\n}\nconsole.log(sumNumbers(numbers));
+# ContextLines: 1
+
+1 result - 1 file
+
+lab-javascript-functions-and-arrays/src/functions-and-arrays.js:
+  31  // Iteration #3: Calculate the sum
+  32: const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  33: 
+  34: function sumNumbers(num) {
+  35:   for(let x = 0; x < num ; x++){
+  36:    let varTotal = "";
+  37:     varTotal += num[x];
+  38:     return varTotal;
+  39:   }
+  40: }
+  41: console.log(sumNumbers(numbers));
+  42  
