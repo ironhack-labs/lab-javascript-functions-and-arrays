@@ -1,38 +1,127 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+
+
+function maxOfTwoNumbers(harrySize, bobSize) {
+  if (harrySize < bobSize) {
+    return bobSize;
+  } 
+  
+  else if (bobSize < harrySize) {
+    return harrySize;
+   }
+
+   else  {
+     return harrySize;
+   }
+  
+};
+
+let harrySize = 7;
+let bobSize = 5;
+
+console.log(maxOfTwoNumbers(harrySize, bobSize));
+
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+//const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+/*findLongestWord("mystery brother aviator crocodile pearl orchard crackpot"); */
+
+
+const str = "mystery brother aviator crocodile pearl orchard crackpot";
+
+const myArray = str.split(" ");
+
+
+
+
+
+
+
+
+
+
+function longestStringForLoop(myArray) {
+  let longestWord = " ";
+ 
+  for(var i = 0; i < myArray.length; i++){
+    if(myArray[i].length > longestWord){
+	longestWord = myArray[i].length;
+     }
+  }
+  return longestWord;
+}
+
+console.log(longestStringForLoop(myArray));
+
+
 
 
 
 // Iteration #3: Calculate the sum
+/*function sum() {}*/
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  
+
+console.log(sum);
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
+
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+var sum = 0;
+for (var number of numbersAvg) {
+    sum += number;
+}
+
+
+
+average = sum / numbersAvg.length;
+
+console.log(average);
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+/* function averageWordLength() { } */
+
+
+
+
+
+const wordsAvg =['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+
+var total = " ";
+for(var i = 0; i < wordsAvg.length; i++) {
+    total += wordsAvg[i];
+}
+
+var avg = total / wordsAvg.length;
+
+console.log(wordsAvg);
+console.log(avg);
+
 
 // Bonus - Iteration #4.1
 function avg() {}
