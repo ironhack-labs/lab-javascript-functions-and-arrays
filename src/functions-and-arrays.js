@@ -18,7 +18,7 @@ function findLongestWord(words) {
   }
   let longestWord = '';
   words.forEach((word) => {
-    if (word.length > longestWord.length) {
+    if (words.length > longestWord.length) {
       longestWord = word;
     }
   });
@@ -58,7 +58,7 @@ function averageNumbers(numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
-  if (words.length === 0) {
+  if (wordsArr.length === 0) {
     return null;
   }
   let wordsLenghtSum = 0;
@@ -91,7 +91,13 @@ function uniquifyArray(wordsUnique) {
     return null;
   }
 
-  wordsUnique.forEach((word) => {});
+  let unique = [];
+  wordsUnique.forEach((word) => {
+    if (unique.indexOf(word) < 0) {
+      unique.push(word);
+    }
+  });
+  return unique;
 }
 
 // Iteration #6: Find elements
