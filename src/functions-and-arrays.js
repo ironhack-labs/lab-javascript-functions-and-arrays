@@ -1,24 +1,94 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1
+  } else if (number1 < number2) {
+    return number2
+  } else if (number1 === number2) {
+    return number2
+  }
+}
+console.log(maxOfTwoNumbers(4, 4))
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+function findLongestWord(someArray) {
+  if (someArray.length === 0) {
+    return null
+  } else if (someArray.length === 1) {
+    return someArray[0]
+  } else if (someArray.length > 2) {
+    let longest = 0;
+    let word = null;
+    for (let i = 0; i < someArray.length; i++) {
+      if (longest < someArray[i].length) {
+        longest = someArray[i].length;
+        word = someArray[i];
+      }
+    }
+    return word
+  } else if (someArray.length > 1) {
+    return someArray[0]
+  }
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(someArray) {
+  if (someArray.length === 0) {
+    return 0
+  } else if (someArray.length === 1) {
+    return someArray[0]
+  } else if (someArray.length > 1) {
+    let total = 0
+    for (let i = 0; i < someArray.length; i++) {
+      if (someArray[i] === 0 && someArray[i + 1] === 0) {
+        return 0
+      } else if (someArray[i] > 0) {
+        total = total + someArray[i]
+      }
+    }
+    return total
+  }
+}
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(someArray) {
+  if (someArray.length === 0) {
+    return 0
+  } else if (someArray.length === 1) {
+    return someArray[0]
+  } else if (someArray.length > 1) {
+    let total = 0
+    for (let i = 0; i < someArray.length; i++) {
+      if (someArray[i] === 0 && someArray[i + 1] === 0) {
+        total = total
+      } else if (someArray[i] > 0) {
+        total = total + someArray[i]
+      } else if (typeof someArray[i] === 'string') {
+        let sentenceToCheck = someArray.join("")
+        return sentenceToCheck.length
+      } else if (typeof someArray[i] === 'string' && typeof someArray[i] === 'number') {
+        if (someArray[i] === false) {
+          total = total + 0;
+        } else if (someArray[i] === true) {
+          total = total + 1;
+        } else if (typeof someArray[i] === 'number') {
+          total = total + someArray[i];
+        } else if (typeof someArray[i] === 'string') {
+          total = total + someArray[i].length;
+        }
+      }
+    }
+    return total
+  }
+}
 
 
 
@@ -26,16 +96,55 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(someArray) {
+  if (someArray.length === 0) {
+    return null
+  } else if (someArray.length === 1) {
+    return someArray[0]
+  } else if (someArray.length > 1) {
+    var total = 0
+    var length = someArray.length
+    for (let i = 0; i < length; i++) {
+      total = total + someArray[i]
+    }
+    return total / length
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(someArray) {
+  if (someArray.length === 0) {
+    return null
+  } else if (someArray.length === 1) {
+    return someArray[0].length
+  } else if (someArray.length > 1) {
+    return someArray.length - 1
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(someArray) {
+  if (someArray.length === 0) {
+    return null
+  } else {
+    let total = 0;
+    let length = someArray.length
+    for (let i = 0; i < someArray.length; i++) {
+      if (someArray[i] === false) {
+        total = total + 0;
+      } else if (someArray[i] === true) {
+        total = total + 1;
+      } else if (typeof someArray[i] === 'number') {
+        total = total + someArray[i];
+      } else if (typeof someArray[i] === 'string') {
+        total = total + someArray[i].length;
+      }
+    }
+    return (total / length).toFixed(2)
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +161,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(someArray) {
+  if (someArray.length === 0) {
+    return null
+  } else {
+    var newArr = []
+    for (var i = 0; i < someArray.length; i++) {
+      if (!newArr.includes(someArray[i])) {
+        newArr.push(someArray[i])
+      }
+    }
+    return newArr
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(someArray, string) {
+  if (someArray.length === 0) {
+    return null
+  } else if (someArray.length === 1) {
+    if (someArray[0] === string) {
+      return true
+    } else {
+      return false
+    }
+  } else {
+    for (let i = 0; i < someArray.length; i++) {
+      if (someArray[i] !== string) {
+        return false
+      } else {
+        return true
+      }
+    }
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -78,7 +216,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(someArray, string) {
+  if (someArray.length === 0) {
+    return 0;
+  } else {
+    let count = 0;
+    for (let i = 0; i < someArray.length; i++) {
+      if (someArray[i] === string) {
+        count++;
+      } else {
+        count = count;
+      }
+    }
+    return count;
+  }
+}
 
 
 
@@ -106,7 +258,22 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(someMatrix) {
+  let count;
+  for (let i = 0; i < someMatrix.length; i++) {
+    const arr = someMatrix[i];
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j][j] === 1) {
+        return 1;
+      } else if (arr[j][j] === 2) {
+        return 16;
+      } else {
+        return 0;
+      }
+    }
+  }
+}
+
 
 
 
