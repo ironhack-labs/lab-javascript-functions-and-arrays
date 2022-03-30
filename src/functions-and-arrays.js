@@ -1,11 +1,11 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(numb1, numb2) {
-    if (numb1 < numb2) {
+  if (numb1 < numb2) {
     return numb2;
-  } else if (numb1 > numb2) {
+} else if (numb1 > numb2) {
     return numb1;
   
-  }
+  } 
 }
 
 
@@ -29,19 +29,19 @@ function findLongestWord(arr) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {
-  let sum = 0;
+function sumNumbers(numbers) {
+let total = 0;
   for (let i = 0; i < numbers.length; i++) {
-     sum += +numbers[i];
-  }
-  return sum;
+   total += numbers[i];
+  }  
+    return total;
 }
 
 // Iteration #3.1 Bonus:
 function sum() {
   for (let i =0; i < numbers.length; i++) {
     sum += numbers[i];
-     if (numbers === []) {
+     if (numbers === 0) {
        return 0;
      }
   }
@@ -55,14 +55,16 @@ function sum() {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(array) {
-
-  if (!array.length) return;
-
-  for (let sum = 0, i = 0; i < array.length; i++) {
-    sum += array[i];
+function averageNumbers(numbersAvg) {
+  let total = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+   total += numbersAvg[i] / numbersAvg.length;
+  }  if (numbersAvg.length === 0) {
+    return null;
   }
-  return sum / array.length;
+
+  
+    return total;
 }
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -87,14 +89,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+
+
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+
+
+
+}
 
 
 
