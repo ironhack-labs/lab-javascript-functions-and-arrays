@@ -104,22 +104,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {
-  return wordsUnique.filter((item, 
-    index) => arr.indexOf(item) === index);
- if (wordsUnique === 0) {
-  return null;
-}
-}
+function uniquifyArray(arr) {
+  let wordsUnique = [];
 
+  if (arr.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    if (wordsUnique.indexOf(word) < 0) {
+      wordsUnique.push(word);
+    }
+  }
+
+return wordsUnique;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {
-  
+function doesWordExist(arrOfWords, wordToSearch) {
+  if (arrOfWords.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (arrOfWords[i] === wordToSearch) {
+      return true
+    }
+  }
+
+  return false
 }
 
 
@@ -139,8 +157,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, wordToSearch) {
+  if (arr.length === 0) {
+    return 0;
+  }
 
+  let count = 0; 
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === wordToSearch) {
+      count++;
+    }
+  }
+
+  return count;
+}
 
 
 // Iteration #8: Bonus
@@ -167,7 +198,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+}
 
 
 
