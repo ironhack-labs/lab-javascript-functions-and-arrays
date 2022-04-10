@@ -1,41 +1,114 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  let longestWord = [''];
+  if(words.length === 0) {
+    return null
+  }
+  for(let i=0; i<words.length; i++) {
+    if(words[i].length > longestWord[0].length){
+      longestWord.shift();
+      longestWord.push(words[i]);
+    }
+  }
+  return longestWord[0];
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let sum = 0;
+  if(numbers.length === 0) {
+    return 0
+  }
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(mixedArr) {
+  let suma = 0;
+  if(mixedArr.length === 0) {
+    return 0
+  }
+  for(let i=0; i<mixedArr.length; i++) {
+    if(mixedArr[i] === 'true') {
+      mixedArr[i] = 4;
+    }else if(mixedArr[i] === 'false') {
+      mixedArr[i] = 5;
+    }else if(typeof(mixedArr[i]) === 'string') {
+      mixedArr[i] = mixedArr[i].length;
+    }else if(typeof(mixedArr[i]) === 'object'){
+      throw "Unsupported data type sir or ma'am";
+    }
+    suma += mixedArr[i];
+  }
+  return suma;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbersAvg) {
+  if(numbersAvg.length === 0){
+    return null;
+  }
+  sum = sumNumbers(numbersAvg)/numbersAvg.length;
+  return sum;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let sum = 0;
+  if(wordsArr.length === 0){
+    return null;
+  }
+  for(let i = 0; i<wordsArr.length; i++){
+    sum = sum + wordsArr[i].length;
+  }
+  return sum/wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  let suma = 0;
+  if(mixedArr.length === 0){
+    return null;
+  }
+  if(mixedArr.length === 0) {
+    return 0
+  }
+  for(let i=0; i<mixedArr.length; i++) {
+    if(mixedArr[i] === 'true') {
+      mixedArr[i] = 4;
+    }else if(mixedArr[i] === 'false') {
+      mixedArr[i] = 5;
+    }else if(typeof(mixedArr[i]) === 'string') {
+      mixedArr[i] = mixedArr[i].length;
+    }else if(typeof(mixedArr[i]) === 'object'){
+      throw "Unsupported data type sir or ma'am";
+    }
+    suma += mixedArr[i];
+  }
+  suma = (suma/mixedArr.length).toFixed(2);
+  return Number(suma);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +125,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  let unique = [];
+  array.forEach((value) => {
+    if (!unique.includes(value)) {
+      unique.push(value);
+    }
+  });
+  return unique;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return null;
+  }
+  return array.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +163,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(array, word) {
+  let count = 0;
+  array.forEach((elemnt) => {
+    if (elemnt === word) {
+      count++;
+    }
+  });
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +198,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
