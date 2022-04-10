@@ -15,9 +15,8 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
   let longestWord = '';
-  if (arr.length === 0){
-    return null
-  }
+
+  if (arr.length === 0) {return null};
   arr.forEach((word) => {
     if (word.length > longestWord.length){
       longestWord = word
@@ -26,6 +25,8 @@ function findLongestWord(arr) {
   return longestWord
 }
 findLongestWord(words)
+
+
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -38,6 +39,7 @@ function sumNumbers(arr) {
   return num
 }
 sumNumbers(numbers)
+
 
 
 // Iteration #3.1 Bonus:
@@ -53,8 +55,7 @@ function sum(arr) {
   
   for (let i = 0; i < arr.length; i++){
     if (typeof arr[i] === 'object'){
-      console.log('ERROR') // ???????? ----
-      throw "Error"
+      throw "Unsupported data type sir or ma'am"
     } else if (typeof arr[i] === 'number'){
       numsum += arr[i]
     } else if (typeof arr[i] === 'string'){
@@ -75,9 +76,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arr) {
   let counter = 0;
 
-  if (arr.length === 0){
-    return null
-  }
+  if (arr.length === 0) {return null};
 
   arr.forEach( (number) => {
     counter += number
@@ -94,9 +93,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arr) {
 
-  if (arr.length === 0){
-    return null
-  }
+  if (arr.length === 0) {return null};
 
   let cuantasLetras = 0
   let cuantasPalabras = arr.length
@@ -118,8 +115,29 @@ function averageWordLength(arr) {
 const bonusTest4 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 5.7
 
-function avg() {}
+function avg(arr) {
+  let sumnum = 0;
+  let sumstr = 0;
+  let sumboo = 0;
 
+  if (arr.length === 0){
+    return null
+  };
+  
+  for (let i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'number'){
+      sumnum += arr[i]
+    } else if (typeof arr[i] === 'string'){
+      sumstr += arr[i].length
+    } else if (arr[i] === true) {
+      sumboo += 1
+    }
+  }
+  let result = (sumnum + sumstr + sumboo) / arr.length
+  result = result.toFixed(2);
+  return Number(result)
+}
+avg(bonusTest4)
 
 
 
@@ -138,7 +156,24 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+
+function uniquifyArray(arr) {
+  let newArr = []
+  
+  if (arr.length === 0) { return null };
+
+  for (let i = 0; i < arr.length; i++){
+    if (newArr.indexOf(arr[i]) === -1 ) {
+      newArr.push(arr[i])
+    }
+  }
+  console.log(newArr)
+  return newArr;
+  
+};
+
+uniquifyArray(wordsUnique)
 
 
 
@@ -148,8 +183,23 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, search) {
+  if(arr.length === 0){return null}
+  let test = []
+  for (let i = 0; i< arr.length; i++){
 
+     if (arr[i] === search){
+      test.push(arr[i])
+      console.log(test)
+    }
+  }
+  if (test.length !== 0){
+    return true
+  } else {
+    return false
+  }
+}
+doesWordExist(wordsFind,'dog')
 
 
 
@@ -169,9 +219,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, srch) {
+  let counter = []
 
+  for (let i = 0; i< arr.length; i++){
 
+     if (arr[i] === srch){
+       counter.push(arr[i])
+    }
+  }
+  return counter.length
+};
+howManyTimes(wordsCount,'matter')
 
 
 
