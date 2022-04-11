@@ -203,7 +203,6 @@ doesWordExist(wordsFind,'dog')
 
 
 
-
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -236,7 +235,8 @@ howManyTimes(wordsCount,'matter')
 
 
 // Iteration #8: Bonus
-const matrix = [
+
+   const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -259,8 +259,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
 
+
+function greatestProduct(arr) {
+  let maxnums = []
+
+  for (let i = 0; i < arr.length; i++){
+    let tempoMax = arr[i][0];
+     for (let j = 0; j < arr.length; j++){
+       if (arr[i][j] >= tempoMax){
+         tempoMax = arr[i][j]
+       }
+     }
+     maxnums.push(tempoMax)
+  }
+  console.log(maxnums)
+
+  let result = 1;
+  for (let i = 0; i < maxnums.length; i++){
+    result *= maxnums[i]
+  }
+  console.log(result)
+  return result
+
+}
+greatestProduct(matrix)
 
 
 
