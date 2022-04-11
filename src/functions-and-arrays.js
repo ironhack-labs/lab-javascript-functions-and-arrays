@@ -12,16 +12,17 @@ function maxOfTwoNumbers(number1, number2) {
 }
 
 
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  if(!arr) return;
-  let lengths = words.map(word => word.length);
-  return Math.max(...lengths);
-}
-findLongestWord(words);
+  let longest = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) return longest = arr[i];
+    return;
+  }
+ 
+ findLongestWord(words);
 
 
 // Iteration #3: Calculate the sum
@@ -119,8 +120,10 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, searchfor) {
 
+}
+doesWordExist(wordsFind, search);
 
 
 // Iteration #7: Count repetition
