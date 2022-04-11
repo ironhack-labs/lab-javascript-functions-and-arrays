@@ -1,38 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numb1, numb2) { // ..> Encuentra que número es mayor entre dos valores.
+  if(numb1 > numb2){
+    return numb1
+  } else {return numb2}
+}
+console.log(maxOfTwoNumbers(5,6) ) 
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(longestWord) {
+  if (longestWord.length === 0) { //! PORQUE RETORNARÍA 0 ? 
+    return null; 
+  } else {
+    let word = '';
 
+    for (let i = 0; i < longestWord.length; i++) {
+      if (word.length < longestWord[i].length) {
+        word = longestWord[i];
+      }
+    }
+    return word;
+  } 
+}
+console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+  
+function sumNumbers(numbers) {
+  let suma = 0 // -----------> Esto nos ayudará como contador.
 
-function sumNumbers() {}
-
-
+  if (suma.length === 0 ) {
+    return ( suma = 0)
+  } else {
+    for ( let i = 0; i < numbers.length; i++) {
+      suma += numbers[i]
+    }
+    return suma
+  }
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum() { }
+  
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+  const sum = sumNumbers(numbers);
+  const items = numbers.length;
+  const average = sum / items;
+
+  return average;
+}
+console.log(averageNumbers(numbers));
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength() { }
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+//! NO ENTIENDO LO QUE DEBE HACER LA FUNCIÓN
 
 // Bonus - Iteration #4.1
 function avg() {}
