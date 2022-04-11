@@ -1,5 +1,5 @@
 // Iteration #1: Find the maximum
-// test test test test ...
+// Resuelto por Valentin y Emmanuel :)
 function maxOfTwoNumbers(num1,num2) {
   if (num1 > num2){
     return num1
