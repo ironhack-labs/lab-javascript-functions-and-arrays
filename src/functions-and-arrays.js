@@ -101,7 +101,7 @@ let avgMixedArr=0;
 function avg(mixedArr) {
   if (mixedArr.lenght===0) return null;
   else 
-  avgMixedArr=summ(mixedArr)/mixedArr.lenght;
+  avgMixedArr=sum(mixedArr)/mixedArr.lenght;
   return avgMixedArr;
 }
 console.log(avg(mixedArr));
@@ -120,7 +120,7 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-let newUniqArray=[];
+
 function uniquifyArray(wordsUnique) {
 if (wordsUnique.lenght===0) return null;
 else if (wordsUnique.lenght===1) return wordsUnique;
@@ -139,15 +139,19 @@ console.log(uniquifyArray(wordsUnique))
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+let boolTest=0;
 function doesWordExist(wordsFind, word) {
   if(wordsFind.lenght===0) return null;
   else
-  for(i=0; i<wordsFind.lenght; i++) {
-    if(word===wordsFind[i]) return true;
-    else return false;
+  for(let i=0; i<wordsFind.lenght; i++) {
+    if(word===wordsFind[i]) {
+      boolTest=1;
+      return true;
+    }
   }
+if(boolTest=0) return false;
 }
-console.log(doesWordExist(wordsFind,"machine"))
+console.log(doesWordExist(wordsFind,'machine'))
 
 
 
@@ -168,7 +172,8 @@ const wordsCount = [
 let numberOfOccurences=0
 function howManyTimes(wordsCount, word) {
   if (wordsCount.length===0) return 0;
-  for (i=0; i<=wordsCount.length; i++) {
+  else
+  for (i=0; i<wordsCount.length; i++) {
     if (wordsCount[i]===word) numberOfOccurences++;
   }
   return numberOfOccurences;
