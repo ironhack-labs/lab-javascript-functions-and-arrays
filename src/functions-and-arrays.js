@@ -224,7 +224,7 @@ function greatestProduct(matrix) {
       ) {
         continue;
       }
-      console.log(`FILA ${i} COLUMNA ${e}`);
+      // console.log(`FILA ${i} COLUMNA ${e}`);
       actualSum = matrix[i][e] * matrix[i][e + 1] * matrix[i + 1][e] * matrix[i + 1][e + 1];
       if (actualSum > biggestSum) {
         biggestSum = actualSum;
