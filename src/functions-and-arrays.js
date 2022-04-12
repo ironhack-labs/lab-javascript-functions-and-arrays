@@ -71,7 +71,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(arr) {
   /* if (arr.length === 0){
   return null
-} else if ( arr.length !== 0 ){ */
+} else if { ( arr.length !== 0 ){ */
   let total = 0;
   for (let i = 0; i < arr.length ; i++) {
       total += arr[i].length;
@@ -155,8 +155,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+let sum = 0;
+  for ( let i= 0; i<arr.length; i++){
+    if(arr[i] === word) {
+      sum += sum[i] 
+    }
+    return sum
+  }
+}
 
+console.log(howManyTimes(wordsCount,'matter'))
 
 
 // Iteration #8: Bonus
