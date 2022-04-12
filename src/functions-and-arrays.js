@@ -1,4 +1,3 @@
-console.log("ei")
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
   if(a>b) return a
@@ -30,12 +29,9 @@ function sumNumbers(numbers) {
   sum=0;
   for (number of numbers) {
     sum+=number;
-    //console.log("number: "+number+" sum:"+sum)
-
   }
   return sum;
 }
-//sumNumbers(numbers)
 
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -89,16 +85,20 @@ function avg() {
   if(arguments[0].length===0) return null
 
   let avg=0
-  
-  for (element of mixedArr) {
-    if (typeof element === 'number') avg+=toString(element).length
+  input=arguments[0]
+  for (element of input) {
+    if (typeof element === 'number') avg+=element
     else if (typeof element === 'string') avg+=element.length
     else if (typeof element === 'boolean'){
-      if (element) avg++;
+      if (element){
+        avg++;
+      } 
     }
     else throw "Unsupported data type sir or ma'am"
   }
-  return (avg/arguments[0].length).toPrecision(2);
+  result=parseFloat((avg/arguments[0].length).toFixed(2))
+  //result="result: "+result+" with:"+arguments[0]
+  return result;
   
   //return sum(mixedArr)/mixedArr.length
 
@@ -191,14 +191,11 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  console.log("filas: "+matrix.length+" cols: "+matrix[0].length)
-
   let greatestResult=0
   let fourVertical=0
   let fourHorizontal=0
   for(let i=0; i<matrix.length; i++){
     for(let j=0; j<matrix.length; j++){
-      console.log("i: "+i+" j: "+j)
       if(matrix[i][j+3]!==undefined){
         fourVertical=matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]
         if(fourVertical>greatestResult)greatestResult=fourVertical
@@ -212,10 +209,8 @@ function greatestProduct(matrix) {
     }
 
   }
-  console.log(greatestResult)
   return greatestResult;
 }
-greatestProduct(matrix)
 
 
 
