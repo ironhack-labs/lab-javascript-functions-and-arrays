@@ -1,6 +1,8 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(number1, number2) {
-
+ if(typeof number1 !== "number" || typeof number2 !== "number") {
+  throw new Error("Unsupported data type sir or ma'am");
+ }
   if(number1 > number2) { 
     return number1; 
   }
@@ -19,11 +21,22 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arr) {
 
-  let longest = arr[0];
-  if (arr.length === 0) 
-  {
-    return null; 
+    let longest = "";
+  
+    if (arr.length === 0) 
+    {
+      return null; 
+    }
+    for (let i = 0; i < arr.length; i++) 
+    {
+      if (arr[i].length > longest.length) 
+      {
+        longest = arr[i];
+      }
+    }
+    return longest;
   }
+  findLongestWord(words);
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].length > longest.length) return longest = arr[i];
@@ -68,6 +81,10 @@ function sum(arr) {
   let sum = 0;
   for(let i = 0; i < arr.length; i++)
   {
+    if(arr.length === 0) 
+    {
+      return null;
+    } 
     if (typeof arr[i] === "number")
     {
       sum = sum + arr[i];
@@ -82,7 +99,7 @@ function sum(arr) {
     } 
     else
     {
-    throw new Error("Unsupported data type");
+    throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return sum;
@@ -133,13 +150,17 @@ averageWordLength(wordsArr);
 
 
 // Bonus - Iteration #4.1
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(arr) {
 
   let sum = 0;
   for(let i = 0; i < arr.length; i++)
   {
+    if(arr.length === 0)
+     {
+      return null;
+     }
     if (typeof arr[i] === "number")
     {
       sum = sum + arr[i];
@@ -153,13 +174,14 @@ function avg(arr) {
         sum = sum + arr[i];
       } 
     else{
-      throw new Error("Unsupported data type");
+      throw new Error("Unsupported data type sir or ma'am");
         }
   } 
       let average = sum / arr.length;
+      average = parseFloat(average.toFixed(2)); 
       return average;
 }
-avg(mixedArr);
+avg(mixArr);
 
 
 // Iteration #5: Unique arrays
@@ -179,6 +201,7 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
    let removedDuplicates = [];
+   if(!arr.length) return null;
    for(let i= 0; i < arr.length; i++) 
    {
     if(removedDuplicates.indexOf(arr[i]) === -1) 
@@ -229,7 +252,7 @@ function howManyTimes(arr, searchWord) {
 
   if(arr.length === 0)
   {
-    return null;
+    return 0;
   }
 
   let count = 0;
