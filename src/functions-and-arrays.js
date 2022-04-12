@@ -450,6 +450,7 @@ function greatestProduct(array) {
 }
 
 //should return 1 when all elements are one
+//modificacion en clase
 
 
 
