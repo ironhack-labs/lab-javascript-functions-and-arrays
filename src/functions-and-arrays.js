@@ -30,7 +30,7 @@ function sumNumbers(numbers) {
   sum=0;
   for (number of numbers) {
     sum+=number;
-    console.log("number: "+number+" sum:"+sum)
+    //console.log("number: "+number+" sum:"+sum)
 
   }
   return sum;
@@ -38,9 +38,17 @@ function sumNumbers(numbers) {
 //sumNumbers(numbers)
 
 
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // Iteration #3.1 Bonus:
-function sum() {
+function sum(mixedArr) {
+  if (mixedArr.length===0) return 0
+  sum=0
+  for (element of mixedArr) {
+    if (typeof element === 'number') sum+=element
+    else if (typeof element === 'string') sum+=element.length
+    else if (typeof element === 'boolean') sum++;
+  }
+  return sum;
 
 }
 
