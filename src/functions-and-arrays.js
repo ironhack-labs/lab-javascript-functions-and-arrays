@@ -194,11 +194,8 @@ function doesWordExist(arrOfWords, searchWord) {
     {
       return true;
     }
-    else 
-    {
-    return false;
-    }
   }
+  return false;
 }
 doesWordExist(wordsFind, 'machine');
 
@@ -218,9 +215,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, searchWord) {
 
+  if(arr.length === 0)
+  {
+    return null;
+  }
 
+  let count = 0;
+  for(let i = 0; i < arr.length; i++)
+  {
+    if(arr[i] === searchWord)
+    {
+     count++;  
+    }
+  }
+  return count;
+}
+howManyTimes(wordsCount, 'matter');
 
 // Iteration #8: Bonus
 const matrix = [
