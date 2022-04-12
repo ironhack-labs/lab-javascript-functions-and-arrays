@@ -46,10 +46,12 @@ function sum(mixedArr) {
   for (element of mixedArr) {
     if (typeof element === 'number') sum+=element
     else if (typeof element === 'string') sum+=element.length
-    else if (typeof element === 'boolean') sum++;
+    else if (typeof element === 'boolean'){
+      if (element) sum++;
+    }
+    else throw "Unsupported data type sir or ma'am"
   }
   return sum;
-
 }
 
 
@@ -60,7 +62,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
   if (numbers.length===0) return null
-  avg=0
+  let avg=0
   for (number of numbers){
     avg+=number
   }
@@ -73,16 +75,34 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(words) {
   if (words.length===0) return null
-  avg=0
+  let avg=0
   for (word of words){
     avg+=word.length;
   }
   return avg/words.length;
 }
-averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 5.7
+function avg() {
+  if(arguments[0].length===0) return null
+
+  let avg=0
+  
+  for (element of mixedArr) {
+    if (typeof element === 'number') avg+=toString(element).length
+    else if (typeof element === 'string') avg+=element.length
+    else if (typeof element === 'boolean'){
+      if (element) avg++;
+    }
+    else throw "Unsupported data type sir or ma'am"
+  }
+  return (avg/arguments[0].length).toPrecision(2);
+  
+  //return sum(mixedArr)/mixedArr.length
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -170,8 +190,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  console.log("filas: "+matrix.length+" cols: "+matrix[0].length)
 
+  let greatestResult=0
+  let fourVertical=0
+  let fourHorizontal=0
+  for(let i=0; i<matrix.length; i++){
+    for(let j=0; j<matrix.length; j++){
+      console.log("i: "+i+" j: "+j)
+      if(matrix[i][j+3]!==undefined){
+        fourVertical=matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]
+        if(fourVertical>greatestResult)greatestResult=fourVertical
+      } 
+      if(i<matrix.length-3){
+        fourHorizontal=matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]
+        if(fourHorizontal>greatestResult)greatestResult=fourHorizontal
+      }
+
+    
+    }
+
+  }
+  console.log(greatestResult)
+  return greatestResult;
+}
+greatestProduct(matrix)
 
 
 
