@@ -46,6 +46,18 @@ function sumNumbers(arr) {
 }
 sumNumbers(numbers);
 
+// extra #3
+//const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+//function sumNumbers(array) {
+// let total = 0
+// array.forEach(element => {
+//   total += element
+// })
+//  return total;
+// }
+//sumNumbers(numbers);
+
 
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
