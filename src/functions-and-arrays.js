@@ -1,41 +1,110 @@
+
+
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(nbr1, nbr2) {
+  if(nbr1>nbr2) return nbr1;
+  else if (nbr1<nbr2) return nbr2;
+  else return nbr1;
+}
+console.log(maxOfTwoNumbers(4,4));
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot','flamingobird' ];
 
-function findLongestWord() {}
+let longestWord="";
+
+function findLongestWord(words) {
+  if (!words.length) return null;
+  else if (words.lenght===1) return words;
+  else {
+   for (let i=0; i<words.length; i++) {
+    if (words[i].length>longestWord.length) longestWord=words[i];
+    }
+  }
+  return longestWord;
+}
+console.log(findLongestWord(words));
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+let sum1=0;
 
+function sumNumbers(numbers) {
+  if (numbers.lenght===0) return 0;
+  else
+  sum = numbers.forEach(element => {
+    sum1+=element;
+  });
+  return sum1;
+}
+console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+let sumOfElem=0;
+
+function sum(mixedArr) {
+  for (let i=0; i<mixedArr.lenght; i++) {
+    if (typeof mixedArr[i] ==="string") sumOfElem+=mixedArr[i].lenght;
+    else if (typeof mixedArr[i] ==="number") sumOfElem+=mixedArr[i];
+    else if (typeof mixedArr[i] ==="boolean") {
+      if (mixedArr[i]) sumOfElem+=1;
+    }
+  }
+  return sumOfElem;
+}
+console.log(sum(mixedArr));
+  
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+//console.log(sumNumbers(numbersAvg));
+
+let avgOfArrayNum=0;
+function averageNumbers(numbersAvg) {
+  avgOfArrayNum=sumNumbers(numbersAvg)/numbersAvg.lenght;
+  return avgOfArrayNum;
+}
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+let sumWordsLength=0;
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.lenght===0) return null;
+  else
+  for (i=0; i<wordsArr.lenght; i++) {
+    sumWordsLength += wordsArr[i].lenght;
+  }
+  avgWordsLength=sumWordsLength/wordsArr.lenght;
+  return avgWordsLength;
+}
+console.log(averageWordLength(wordsArr));
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+let avgMixedArr=0;
+
+function avg(mixedArr) {
+  if (mixedArr.lenght===0) return null;
+  else 
+  avgMixedArr=summ(mixedArr)/mixedArr.lenght;
+  return avgMixedArr;
+}
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -51,15 +120,34 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray() {}
+let newUniqArray=[];
+function uniquifyArray(wordsUnique) {
+if (wordsUnique.lenght===0) return null;
+else if (wordsUnique.lenght===1) return wordsUnique;
+else {
+  for (i=0; i<wordsUnique.lenght; i++) {
+    if (wordsUnique.indexOf(wordsUnique[i],i+1)!==-1) 
+    wordsUnique.splice(wordsUnique.indexOf(wordsUnique[i],i+1),1);
+  }
+}
+return wordsUnique;
+}
+console.log(uniquifyArray(wordsUnique))
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.lenght===0) return null;
+  else
+  for(i=0; i<wordsFind.lenght; i++) {
+    if(word===wordsFind[i]) return true;
+    else return false;
+  }
+}
+console.log(doesWordExist(wordsFind,"machine"))
 
 
 
@@ -77,8 +165,15 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
-function howManyTimes() {}
+let numberOfOccurences=0
+function howManyTimes(wordsCount, word) {
+  if (wordsCount.length===0) return 0;
+  for (i=0; i<=wordsCount.length; i++) {
+    if (wordsCount[i]===word) numberOfOccurences++;
+  }
+  return numberOfOccurences;
+}
+console.log(howManyTimes(wordsCount, 'eating'))
 
 
 
