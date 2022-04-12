@@ -62,7 +62,83 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+function sum(array) {
+ 
+  let sum = 0;
+ let sumString = 0;
+ let sumStringMix = 0;
+ let sumNumbMix=0
+ let sumaVerif = 0;
+ let sumBoolean = 0;
+ function check(array){
+  for (i=0;i<array.length ; i++){ 
+    sumaVerif += array[i]
+    
+}
+if(typeof sumaVerif === "number"){
+  return 1 //number
+}
+else if(typeof sumaVerif === "string"){
+  
+for (i=0;i<array.length ; i++){
+      
+if(typeof array[i] === "number"){
+      return 3}
+  else {
+      return 2}
+     }
+  
+}
+} //nested function
+ 
+ if (!array.length){
+   return 0}
+else if(array.length == 1 && check(array)==1){
+     return array[0]}
+ 
+else if (array.length > 1 && check(array)==1){
+   
+         for(i = 0;i< array.length ; i++){
+         
+         if(array[i]===0){
+           sum += array[i]
+           
+         } else if (array[i]!==0) {
+           sum += array[i]
+         }
+         }
+       return sum ;
+     }
+ else if (array.length > 1 && check(array) ==2){
+   
+   for(i = 0;i< array.length ; i++){
+     
+    if(typeof array[i] === "string"){
+     sumString +=array[i].length}
+   }
+   return sumString
+ }
+ else if(array.length > 1 && check(array) ==3){
+  for(i = 0;i< array.length ; i++){
+  
+    if (typeof array[i] === "object"){
+          throw "Unsupported data type sir or ma'am";
+        }}
+  for(i = 0;i< array.length ; i++){
+    if(typeof array[i] === "string"){
+      sumStringMix +=array[i].length}
+    
+      else if (typeof array[i] === "number"){
+    sumNumbMix += array[i]
+      }
+else if ( array [ i ] === true ) { 
+  sumBoolean += 1 }
+    
+      }
+return sumNumbMix+sumStringMix+sumBoolean;
+ }
+ }
 
 
 
@@ -109,7 +185,94 @@ function averageWordLength(wordsArr) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  let sum = 0;
+ let sumString = 0;
+ let sumStringMix = 0;
+ let sumNumbMix=0
+ let sumaVerif = 0;
+ let sumBoolean = 0;
+ let finalResult = 0
+ function check(array){
+    for (i=0;i<array.length ; i++){ 
+      sumaVerif += array[i]
+      
+  }
+  
+  if(typeof sumaVerif === "number"){
+    return 1 //number
+  }
+  
+  else if(typeof sumaVerif === "string"){
+    
+  for (i=0;i<array.length ; i++){
+        
+  if(typeof array[i] === "number"){
+        return 3}
+    else {
+        return 2}
+       }
+    
+  }
+  
+  } //nested function
+   
+  if (array.length === 0){
+    return null;}
+  
+  else if(array.length == 1 && check(array)==1){
+       return array[0]}
+   
+  else if (array.length > 1 && check(array)==1){
+     
+           for(i = 0;i< array.length ; i++){
+           
+           if(array[i]===0){
+             sum += array[i]
+             
+           } else if (array[i]!==0) {
+             sum += array[i]
+           }
+           }
+         return sum/array.length
+       }
+  
+   else if (array.length > 1 && check(array) ==2){
+     
+  
+     for(i = 0;i< array.length ; i++){
+       
+      if(typeof array[i] === "string"){
+       sumString +=array[i].length}
+     }
+  
+     return sumString/array.length
+   }
+  
+   else if(array.length > 1 && check(array) ==3){
+  
+    for(i = 0;i< array.length ; i++){
+    
+      if (typeof array[i] === "object"){
+            throw "Unsupported data type sir or ma'am";
+          }}
+  
+    for(i = 0;i< array.length ; i++){
+  
+      if(typeof array[i] === "string"){
+        sumStringMix +=array[i].length}
+      
+        else if (typeof array[i] === "number"){
+      sumNumbMix += array[i]
+        }
+  else if ( array [ i ] === true ) { 
+    sumBoolean += 1 }
+      
+        }
+        finalResult =  ((sumNumbMix+sumStringMix+sumBoolean)/array.length).toFixed(2)
+        return Number(finalResult);
+   }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
