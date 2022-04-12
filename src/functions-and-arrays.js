@@ -78,7 +78,7 @@ function sum(arr) {
     {
       return null;
     } 
-    if (typeof arr[i] === "number")
+    else if (typeof arr[i] === "number")
     {
       sum = sum + arr[i];
     }
