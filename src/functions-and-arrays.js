@@ -167,8 +167,23 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(someArray, word) {
+  let count = 0;
 
+  if(someArray.length === 0){
+    return 0;
+  } 
+    
+  for(let i=0; i < someArray.length; i++){
+    if(someArray[i] === word){
+      count++;
+    }
+    
+  } 
+  return count;
+}
+
+console.log(howManyTimes(wordsCount, "matter"));
 
 
 // Iteration #8: Bonus
