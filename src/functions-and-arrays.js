@@ -80,13 +80,16 @@ let count = 0;
 for (let i=0 ; i < mixedArray.length; i++) {
   if (typeof mixedArray[i] === 'string') {
     count += mixedArray[i].length
-  } else if (typeof mixedArray[i] === Boolean) {
-    if (Booleean === true) {
+  } else if (typeof mixedArray[i] === "boolean") {
+    if (mixedArray[i] === true) {
       count ++;
     };
+  } 
+  else if (typeof mixedArray[i] === "number") {
+    count += mixedArray[i];
   }
   else {
- count += mixedArray[i];
+  throw("Unsupported data type sir or ma'am")
   }
 }
 return count;
@@ -144,7 +147,7 @@ function avg(mixedArray) {
     return null;
   }
   else {
-    return sum(mixedArray) / mixedArray.length;
+    return Number ((sum(mixedArray) / mixedArray.length).toFixed(2));
   }
   }
 
