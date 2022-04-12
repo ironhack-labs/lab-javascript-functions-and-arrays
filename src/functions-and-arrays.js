@@ -133,7 +133,23 @@ console.log(uniquifyArray(wordsUnique))
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, element) {
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === element ){
+      return true;
+    } else if (arr[i] !== element){
+      return false;
+    } 
+    
+  }
+  if (arr.length === 0){
+    return null
+  }
+}
+
+// I don't know how to "return true" when the word we are looking for is not the only one
+
+console.log(doesWordExist(wordsFind, 'machine'))
 
 
 
@@ -152,7 +168,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, value) {
+  let count = 0;
+  for(let i = 0 ; i < arr.length; i++){
+    if(arr[i] === value){
+      count++
+    }
+  }
+  return count;
+}
+
+console.log(howManyTimes(wordsCount, 'matter'))
 
 
 
