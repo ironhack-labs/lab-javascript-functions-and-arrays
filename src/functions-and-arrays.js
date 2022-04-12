@@ -1,24 +1,173 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+if(a>b){
+  return a
+}
+else {return b}
+}
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot','yoSoyIncreible!'];
+let menu = ["pollo","papas","cafeYLeche"]
 
-function findLongestWord() {}
+function findLongestWord(array) {
+
+  let longitudArray= [];
+    let mayor =  0;
+
+if (!array.length){
+  return null} // array.length, si Array[ - vacío-] me va a salir falso/0; pero la instruccion IF solamente ejecuta
+  //si la condición es true, entonces lo niego para obtener true y ejecutar cuando la condicion orignal es falsa (array[vario])
+
+else if(array.length == 1){
+  return array[0]}
+  
+else if (array.length > 1){
+  
+for(i = 0;i< array.length ; i++){
+
+longitudArray.push(array[i].length)
+
+}
+
+  let mayor =  Math.max(...longitudArray);
+  
+ for(j = 0;j< array.length ; j++){
+    
+  if(array[j].length == mayor){
+
+    return array[j]}
+  }
+} 
+}
 
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0
+
+  if (!array.length){
+    return 0}
+
+    else if(array.length == 1){
+      return array[0]}
+
+      else if (array.length > 1){
+  
+        for(i = 0;i< array.length ; i++){
+        
+        if(array[i]===0){
+          sum += array[i]
+          
+        } else if (array[i]!==0) {
+          sum += array[i]
+        }
+        }
+  
+      return sum ;
+    }}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+
+function sum(array) {
+ 
+  let sum = 0;
+ let sumString = 0;
+ let sumStringMix = 0;
+ let sumNumbMix=0
+ let sumaVerif = 0;
+ let sumBoolean = 0;
+
+ function check(array){
+
+  for (i=0;i<array.length ; i++){ 
+    sumaVerif += array[i]
+    
+}
+
+if(typeof sumaVerif === "number"){
+  return 1 //number
+}
+
+else if(typeof sumaVerif === "string"){
+  
+for (i=0;i<array.length ; i++){
+      
+if(typeof array[i] === "number"){
+      return 3}
+  else {
+      return 2}
+     }
+  
+}
+
+} //nested function
+ 
+ if (!array.length){
+   return 0}
+
+else if(array.length == 1 && check(array)==1){
+     return array[0]}
+ 
+else if (array.length > 1 && check(array)==1){
+   
+         for(i = 0;i< array.length ; i++){
+         
+         if(array[i]===0){
+           sum += array[i]
+           
+         } else if (array[i]!==0) {
+           sum += array[i]
+         }
+         }
+       return sum ;
+     }
+
+ else if (array.length > 1 && check(array) ==2){
+   
+
+   for(i = 0;i< array.length ; i++){
+     
+    if(typeof array[i] === "string"){
+     sumString +=array[i].length}
+   }
+
+   return sumString
+ }
+
+ else if(array.length > 1 && check(array) ==3){
+
+  for(i = 0;i< array.length ; i++){
+  
+    if (typeof array[i] === "object"){
+          throw "Unsupported data type sir or ma'am";
+        }}
+
+  for(i = 0;i< array.length ; i++){
+
+    if(typeof array[i] === "string"){
+      sumStringMix +=array[i].length}
+    
+      else if (typeof array[i] === "number"){
+    sumNumbMix += array[i]
+      }
+else if ( array [ i ] === true ) { 
+  sumBoolean += 1 }
+    
+      }
+return sumNumbMix+sumStringMix+sumBoolean;
+ }
+ }
 
 
 
@@ -26,16 +175,145 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sum = 0;
+  let avg = 0;
+    if (numbersAvg.length === 0){
+      return null;
+    }else if(numbersAvg.length === 1){
+      return numbersAvg[0]/1;
+    }else if (numbersAvg.length > 1){
+      for (i=0;i<numbersAvg.length;i++){
+        sum += numbersAvg[i];
+        avg = sum/numbersAvg.length;
+      }
+    return avg;
+    }
+  }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let sum = 0;
+  let avg = 0;
+  if (wordsArr.length === 0){
+    return null;
+  }else if (wordsArr.length === 1){
+    return wordsArr[0].length;
+  }else{
+    for (i=0;i<wordsArr.length;i++){
+      sum += wordsArr[i].length;
+      avg = sum/wordsArr.length;
+    }
+    return avg
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(array) {
+
+
+  let sum = 0;
+ let sumString = 0;
+ let sumStringMix = 0;
+ let sumNumbMix=0
+ let sumaVerif = 0;
+ let sumBoolean = 0;
+ let finalResult = 0
+
+ function check(array){
+
+
+
+    for (i=0;i<array.length ; i++){ 
+      sumaVerif += array[i]
+      
+  }
+  
+  if(typeof sumaVerif === "number"){
+    return 1 //number
+  }
+  
+  else if(typeof sumaVerif === "string"){
+    
+  for (i=0;i<array.length ; i++){
+        
+  if(typeof array[i] === "number"){
+        return 3}
+    else {
+        return 2}
+       }
+    
+  }
+  
+  } //nested function
+   
+  if (array.length === 0){
+    return null;}
+  
+  else if(array.length == 1 && check(array)==1){
+       return array[0]}
+   
+  else if (array.length > 1 && check(array)==1){
+     
+           for(i = 0;i< array.length ; i++){
+           
+           if(array[i]===0){
+             sum += array[i]
+             
+           } else if (array[i]!==0) {
+             sum += array[i]
+           }
+           }
+         return sum/array.length
+       }
+  
+   else if (array.length > 1 && check(array) ==2){
+     
+  
+     for(i = 0;i< array.length ; i++){
+       
+      if(typeof array[i] === "string"){
+       sumString +=array[i].length}
+     }
+  
+     return sumString/array.length
+   }
+  
+   else if(array.length > 1 && check(array) ==3){
+  
+    for(i = 0;i< array.length ; i++){
+    
+      if (typeof array[i] === "object"){
+            throw "Unsupported data type sir or ma'am";
+          }}
+  
+    for(i = 0;i< array.length ; i++){
+  
+      if(typeof array[i] === "string"){
+        sumStringMix +=array[i].length}
+      
+        else if (typeof array[i] === "number"){
+      sumNumbMix += array[i]
+        }
+  else if ( array [ i ] === true ) { 
+    sumBoolean += 1 }
+      
+        }
+
+        finalResult =  ((sumNumbMix+sumStringMix+sumBoolean)/array.length).toFixed(2)
+
+        return Number(finalResult);
+   }
+
+}
+
+let trial = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true];
+   let x = avg(trial);
+   console.log(x);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +330,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let array = [];
+  if (wordsUnique.length === 0){
+    return null;
+  }else{
+    for (i=0;i<wordsUnique.length;i++){
+     if (array.includes(wordsUnique[i])){
+       continue;
+     }else{
+       array.push(wordsUnique[i]);
+     }
+    }
+  return array;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(wordsFind,w) {
+  let word = w;
+  if (wordsFind.length === 0){
+    return null;
+  }if (wordsFind.length > 0){
+    wordsFind.includes(word);
+    if (wordsFind.includes(word) !== true){
+      return wordsFind.includes(word);
+    }else{
+      return wordsFind.includes(word);
+    }
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -78,7 +381,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,word) {
+  let repeated = [];
+  let rep = wordsCount.indexOf(word);
+  if (wordsCount.includes(word)){
+    while (rep !== -1){
+      repeated.push(rep);
+      rep = wordsCount.indexOf(word,rep+1);
+    }
+  }else{
+    return 0;
+  }
+   return repeated.length;
+}
 
 
 
@@ -106,7 +421,54 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+let test1 = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+
+function greatestProduct(array) {
+
+  //if(){return 1}
+
+}
+
+//should return 1 when all elements are one
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
