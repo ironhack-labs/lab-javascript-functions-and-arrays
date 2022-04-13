@@ -19,7 +19,7 @@ function findLongestWord(arr) {
     if (arr[i].length > longestWord.length) {
       //console.log(arr[i]);
       longestWord = arr[i];
-      //console.log(arr[i]);
+      // console.log(arr[i]);
     }
     //console.log(longestWord);
   }
@@ -259,7 +259,7 @@ const matrix = [
 function greatestProduct(arr) {
   let newArrProd = [];
   arr.forEach((elem) => {
-    newArrProd.push(Math.max(el));
+    newArrProd.push(Math.max(elem));
   });
   let resultProd = newArrProd.reduce((a, b) => {
     return a * b;
