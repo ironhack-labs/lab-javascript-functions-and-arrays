@@ -1,6 +1,6 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(firstNumber, secondNumber) {
-  return firstNumber > secondNumber ? firstNumber : (firstNumber === secondNumber ? 'Los numeros son identicos' : secondNumber);
+  return firstNumber > secondNumber ? firstNumber : secondNumber;
 } 
 
 // Iteration #2: Find longest word
@@ -13,7 +13,7 @@ function findLongestWord(listOfWords) {
       longestWord = listOfWords[indexIteration];
     }
   }
-  return longestWord;
+  return longestWord.length === 0 ? null : longestWord;
 }
 
 
@@ -24,27 +24,32 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sumNumbers(listOfNumbers, typeVariable = 'number') {
   let resultSum = 0;
   for (let indexIteration = 0, endIteration = listOfNumbers.length; indexIteration < endIteration; indexIteration++) {
-    resultSum = sum(resultSum, listOfNumbers[indexIteration], typeVariable);
+    resultSum += listOfNumbers[indexIteration];
   }
   return resultSum;
 }
 
 // Iteration #3.1 Bonus:
-function sum(resultSum, sumNumber, typeVariable) {
-  if (typeof sumNumber === typeVariable) {
-    resultSum += sumNumber;
+function sum(listOfNumbers) {
+  let resultSum = 0;
+  for (let indexIteration = 0, endIteration = listOfNumbers.length; indexIteration < endIteration; indexIteration++) {
+    if (typeof listOfNumbers[indexIteration] === 'string') {
+      resultSum +=  listOfNumbers[indexIteration].length;
+    } else if (typeof listOfNumbers[indexIteration] === 'number' || typeof listOfNumbers[indexIteration] === 'boolean') {
+      resultSum += listOfNumbers[indexIteration];
+    } else {
+      throw "Unsupported data type sir or ma'am";
+    }
   }
   return resultSum;
 }
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(listOfAverage) {
-  return sumNumbers(listOfAverage) / listOfAverage.length;
+  return listOfAverage.length !== 0 ? sum(listOfAverage) / listOfAverage.length : null;
 }
 
 // Level 2: Array of strings
