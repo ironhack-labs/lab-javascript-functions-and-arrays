@@ -8,9 +8,9 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(listOfWords) {
   let longestWord = '';
-  for (let startIteration = 0, endIteration = listOfWords.length; startIteration < endIteration; startIteration++) {
-    if (longestWord.length < listOfWords[startIteration].length) {
-      longestWord = listOfWords[startIteration];
+  for (let indexIteration = 0, endIteration = listOfWords.length; indexIteration < endIteration; indexIteration++) {
+    if (longestWord.length < listOfWords[indexIteration].length) {
+      longestWord = listOfWords[indexIteration];
     }
   }
   return longestWord;
@@ -23,8 +23,8 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sumNumbers(listOfNumbers, typeVariable = 'number') {
   let resultSum = 0;
-  for (let startIteration = 0, endIteration = listOfNumbers.length; startIteration < endIteration; startIteration++) {
-    resultSum = sum(resultSum, listOfNumbers[startIteration], typeVariable);
+  for (let indexIteration = 0, endIteration = listOfNumbers.length; indexIteration < endIteration; indexIteration++) {
+    resultSum = sum(resultSum, listOfNumbers[indexIteration], typeVariable);
   }
   return resultSum;
 }
@@ -51,8 +51,8 @@ function averageNumbers(listOfAverage) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(listOfWords) {
-  for (let startIteration = 0, endIteration = listOfWords.length; startIteration < endIteration; startIteration++) {
-    listOfWords[startIteration] = listOfWords[startIteration].length;
+  for (let indexIteration = 0, endIteration = listOfWords.length; indexIteration < endIteration; indexIteration++) {
+    listOfWords[indexIteration] = listOfWords[indexIteration].length;
   }
   return averageNumbers(listOfWords);
 }
@@ -61,9 +61,9 @@ function averageWordLength(listOfWords) {
 
 function avg(listOfElements, typeVariable = 'string') {
   const arrStrings = []
-  for (let startIteration = 0, endIteration = listOfElements.length; startIteration < endIteration; startIteration++) {
-    if (typeof listOfElements[startIteration] === typeVariable) {
-      arrStrings.push(listOfElements[startIteration]);
+  for (let indexIteration = 0, endIteration = listOfElements.length; indexIteration < endIteration; indexIteration++) {
+    if (typeof listOfElements[indexIteration] === typeVariable) {
+      arrStrings.push(listOfElements[indexIteration]);
     }
   }
   return averageWordLength(arrStrings);
