@@ -1,25 +1,88 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+
+//****FUNCIONA****
+
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2){
+    //console.log(`${num1} it's largest than ${num2}.`)
+    return(`${num1} it's largest than ${num2}.`)
+  } 
+  //console.log(`${num2} it's largest than ${num1}.`)
+  return(`${num2} it's largest than ${num1}.`)
+}
+
+maxOfTwoNumbers(1, 3)
+maxOfTwoNumbers(5, 3)
 
 
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// Iteration #2: Find longest word 
 
-function findLongestWord() {}
+//*****FUNCIONA****
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'esternocleidomastoideo', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord() {
+  let longestWord = ''
+  let longestWordLetters = 0
+  for (let i= 0; i < words.length; i++) {
+    if (longestWordLetters < words[i].length) {
+      longestWord = words[i]
+      longestWordLetters = words[i].length
+    }
+  }
+    //console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
+    return(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
+}
+findLongestWord(words)
+//console.log(words.length)
+/*console.log(words[0].length)
+console.log(words[1].length)
+console.log(words[2].length)
+console.log(words[3].length)
+console.log(words[4].length)
+console.log(words[5].length)
+console.log(words[6].length)*/
+  
 
 
 
 // Iteration #3: Calculate the sum
+
+//*******FUNCIONA*******
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers() {
+  let numberAdded = 0
+  for (let i = 0; i < numbers.length; i++){
+    numberAdded += numbers[i]
+  }
+  //console.log(numberAdded)
+  return(numberAdded)
+}
+/*console.log(numbers.length)
+console.log(numbers[0])
+console.log(numbers[1])
+console.log(numbers[2])
+console.log(numbers[3])*/
+sumNumbers(numbers)
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+//*****NO FUNCIONA*****
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum() {
+  let numberAdded = 0
+  for (let i = 0; i < mixedArr.length; i++){
+    if (typeof mixedArr === 'number'){
+    numberAdded += mixedArr[i]
+    }
+  }
+  //console.log(numberAdded)
+  //return(numberAdded)
+}
+console.log(mixedArr[0].typeOf)
+sum(mixedArr)
 
 
 // Iteration #4: Calculate the average
