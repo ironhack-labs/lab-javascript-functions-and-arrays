@@ -64,14 +64,8 @@ function averageWordLength(listOfWords) {
 
 // Bonus - Iteration #4.1
 
-function avg(listOfElements, typeVariable = 'string') {
-  const arrStrings = []
-  for (let indexIteration = 0, endIteration = listOfElements.length; indexIteration < endIteration; indexIteration++) {
-    if (typeof listOfElements[indexIteration] === typeVariable) {
-      arrStrings.push(listOfElements[indexIteration]);
-    }
-  }
-  return averageWordLength(arrStrings);
+function avg(listOfElements) {
+  return listOfElements.length !== 0 ? Math.round((sum(listOfElements) / listOfElements.length) * 100) / 100  : null;
 }
 
 // Iteration #5: Unique arrays
@@ -90,7 +84,7 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(uniqueList) {
-  return uniqueList.filter((arrUnique, indexUnique) => {
+  return uniqueList.length === 0 ? null : uniqueList.filter((arrUnique, indexUnique) => {
     return uniqueList.indexOf(arrUnique) === indexUnique;
   })
 }
@@ -105,7 +99,7 @@ function doesWordExist(arrStrings, wordToSearch, searchingProcess = true, indexS
     }
     indexSearching++;
   }
-  return !searchingProcess;
+  return arrStrings.length === 0 ? null :!searchingProcess;
 }
 
 // Iteration #7: Count repetition
