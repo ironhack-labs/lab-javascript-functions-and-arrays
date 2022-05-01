@@ -21,7 +21,7 @@ function findLongestWord(listOfWords) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sumNumbers(listOfNumbers, typeVariable = 'number') {
+function sumNumbers(listOfNumbers) {
   let resultSum = 0;
   for (let indexIteration = 0, endIteration = listOfNumbers.length; indexIteration < endIteration; indexIteration++) {
     resultSum += listOfNumbers[indexIteration];
@@ -33,9 +33,9 @@ function sumNumbers(listOfNumbers, typeVariable = 'number') {
 function sum(listOfNumbers) {
   let resultSum = 0;
   for (let indexIteration = 0, endIteration = listOfNumbers.length; indexIteration < endIteration; indexIteration++) {
-    if (typeof listOfNumbers[indexIteration] === 'string') {
+    if (isString(listOfNumbers[indexIteration])) {
       resultSum +=  listOfNumbers[indexIteration].length;
-    } else if (typeof listOfNumbers[indexIteration] === 'number' || typeof listOfNumbers[indexIteration] === 'boolean') {
+    } else if (isNumber(listOfNumbers[indexIteration]) || isBoolean(listOfNumbers[indexIteration])) {
       resultSum += listOfNumbers[indexIteration];
     } else {
       throw "Unsupported data type sir or ma'am";
@@ -44,6 +44,17 @@ function sum(listOfNumbers) {
   return resultSum;
 }
 
+function isString(parameter) {
+  return typeof parameter === 'string';
+}
+
+function isNumber(parameter) {
+  return typeof parameter === 'number';
+}
+
+function isBoolean(parameter) {
+  return typeof parameter === 'boolean';
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -152,22 +163,21 @@ const matrix = [
 ];
 
 function greatestProduct(matrixNumbers) {
-  let maxNumber = heigthestNumber(matrixNumbers);
   const arrFinalNumbers = [];
 
-  for (let indexIteration = 0, endIteration = matrixNumbers.length; indexIteration < endIteration; indexIteration++) {
-    if (matrixNumbers[indexIteration].indexOf(maxNumber) !== -1) {
-      if (matrixNumbers[indexIteration].indexOf(maxNumber) - 3 >= 0) {
-        arrFinalNumbers.push(getProductSubtractXSubtractY(matrixNumbers, indexIteration, maxNumber, 3, 0));
+  for (let indexIterationY = 0, endIterationY = matrixNumbers.length; indexIterationY < endIterationY; indexIterationY++) {
+    for (let indexIterationX = 0, endIterationX = matrixNumbers[indexIterationY].length; indexIterationX < endIterationX; indexIterationX++) {
+      if (indexIterationX - 3 >= 0) {
+        arrFinalNumbers.push(getProductSubtractXSubtractY(matrixNumbers, indexIterationX, indexIterationY, 3, 0));
       }
-      if (matrixNumbers[indexIteration].indexOf(maxNumber) + 3 < matrixNumbers[indexIteration].length) {
-        arrFinalNumbers.push(getProductAddXAddY(matrixNumbers, indexIteration, maxNumber, 3, 0));
+      if (indexIterationX + 3 < matrixNumbers[indexIterationY].length) {
+        arrFinalNumbers.push(getProductAddXAddY(matrixNumbers, indexIterationX, indexIterationY, 3, 0));
       }
-      if (indexIteration - 3 >= 0) {
-        arrFinalNumbers.push(getProductSubtractXSubtractY(matrixNumbers, indexIteration, maxNumber, 0, 3));
+      if (indexIterationY - 3 >= 0) {
+        arrFinalNumbers.push(getProductSubtractXSubtractY(matrixNumbers, indexIterationX, indexIterationY, 0, 3));
       }
-      if (indexIteration + 3 < endIteration) {
-        arrFinalNumbers.push(getProductAddXAddY(matrixNumbers, indexIteration, maxNumber, 0, 3));
+      if (indexIterationY + 3 < endIterationY) {
+        arrFinalNumbers.push(getProductAddXAddY(matrixNumbers, indexIterationX, indexIterationY, 0, 3));
       }
     }
   }
@@ -176,25 +186,24 @@ function greatestProduct(matrixNumbers) {
 }
 
 function greatestProductOfDiagonals(matrixNumbers) {
-  let maxNumber = heigthestNumber(matrixNumbers);
   const arrFinalNumbers = [];
-
-  for (let indexIteration = 0, endIteration = matrixNumbers.length; indexIteration < endIteration; indexIteration++) {
-    if (matrixNumbers[indexIteration].indexOf(maxNumber) !== -1) {
-      if (matrixNumbers[indexIteration].indexOf(maxNumber) - 3 >= 0 && indexIteration - 3 >= 0) {
-        arrFinalNumbers.push(getProductSubtractXSubtractY(matrixNumbers, indexIteration, maxNumber, 3, 3));
+  for (let indexIterationY = 0, endIterationY = matrixNumbers.length; indexIterationY < endIterationY; indexIterationY++) {
+    for (let indexIterationX = 0, endIterationX = matrixNumbers[indexIterationY].length; indexIterationX < endIterationX; indexIterationX++) {
+      if (indexIterationX - 3 >= 0 && indexIterationY - 3 >= 0) {
+        arrFinalNumbers.push(getProductSubtractXSubtractY(matrixNumbers, indexIterationX, indexIterationY, 3, 3));
       }
-      if (matrixNumbers[indexIteration].indexOf(maxNumber) + 3 < matrixNumbers[indexIteration].length && indexIteration + 3 < endIteration) {
-        arrFinalNumbers.push(getProductAddXAddY(matrixNumbers, indexIteration, maxNumber, 3, 3));
+      if (indexIterationX + 3 < matrixNumbers[indexIterationY].length && indexIterationY + 3 < endIterationY) {
+        arrFinalNumbers.push(getProductAddXAddY(matrixNumbers, indexIterationX, indexIterationY, 3, 3));
       }
-      if (matrixNumbers[indexIteration].indexOf(maxNumber) + 3 < matrixNumbers[indexIteration].length && indexIteration - 3 >= 0) {
-        arrFinalNumbers.push(getProductAddXSubtractY(matrixNumbers, indexIteration, maxNumber, 3, 3));
+      if (indexIterationX + 3 < matrixNumbers[indexIterationY].length && indexIterationY - 3 >= 0) {
+        arrFinalNumbers.push(getProductAddXSubtractY(matrixNumbers, indexIterationX, indexIterationY, 3, 3));
       }
-      if (matrixNumbers[indexIteration].indexOf(maxNumber) - 3 >= 0 && indexIteration + 3 < endIteration) {
-        arrFinalNumbers.push(getProductSubtractXAddY(matrixNumbers, indexIteration, maxNumber, 3, 3));
+      if (indexIterationX - 3 >= 0 && indexIterationY + 3 < endIterationY) {
+        arrFinalNumbers.push(getProductSubtractXAddY(matrixNumbers, indexIterationX, indexIterationY, 3, 3));
       }
     }
   }
+
   return findHighestNumber(arrFinalNumbers);
 }
 
@@ -214,45 +223,45 @@ function heigthestNumber(arrNumbers, numMaxSearch = 100) {
   return maxNumber;
 }
 
-function getProductSubtractXSubtractY(arrNumbers, indexNumber, maxNumber, positionX = 0, positionY = 0) {
+function getProductSubtractXSubtractY(arrNumbers, indexX, indexY, positionX = 0, positionY = 0) {
   const arrProcessNums = [];
 
-  arrProcessNums.push(arrNumbers[indexNumber][arrNumbers[indexNumber].indexOf(maxNumber)]);
+  arrProcessNums.push(arrNumbers[indexY][indexX]);
   for (let indexIteration = 0, endIteration = positionX === 0 ? positionY : positionX; indexIteration < endIteration; indexIteration++) {
-    arrProcessNums.push(arrNumbers[indexNumber - (positionY === 0 ? positionY : indexIteration + 1)][arrNumbers[indexNumber].indexOf(maxNumber) - (positionX === 0 ? positionX : indexIteration + 1)]);
+    arrProcessNums.push(arrNumbers[indexY - (positionY === 0 ? positionY : indexIteration + 1)][indexX - (positionX === 0 ? positionX : indexIteration + 1)]);
   }
 
   return productArray(arrProcessNums);
 }
 
-function getProductAddXAddY(arrNumbers, indexNumber, maxNumber, positionX = 0, positionY = 0) {
+function getProductAddXAddY(arrNumbers, indexX, indexY, positionX = 0, positionY = 0) {
   const arrProcessNums = [];
 
-  arrProcessNums.push(arrNumbers[indexNumber][arrNumbers[indexNumber].indexOf(maxNumber)]);
+  arrProcessNums.push(arrNumbers[indexY][indexX]);
   for (let indexIteration = 0, endIteration = positionX === 0 ? positionY : positionX; indexIteration < endIteration; indexIteration++) {
-    arrProcessNums.push(arrNumbers[indexNumber + (positionY === 0 ? positionY : indexIteration + 1)][arrNumbers[indexNumber].indexOf(maxNumber) + (positionX === 0 ? positionX : indexIteration + 1)]);
+    arrProcessNums.push(arrNumbers[indexY + (positionY === 0 ? positionY : indexIteration + 1)][indexX + (positionX === 0 ? positionX : indexIteration + 1)]);
   }
 
   return productArray(arrProcessNums);
 }
 
-function getProductAddXSubtractY(arrNumbers, indexNumber, maxNumber, positionX = 0, positionY = 0) {
+function getProductAddXSubtractY(arrNumbers, indexX, indexY, positionX = 0, positionY = 0) {
   const arrProcessNums = [];
 
-  arrProcessNums.push(arrNumbers[indexNumber][arrNumbers[indexNumber].indexOf(maxNumber)]);
+  arrProcessNums.push(arrNumbers[indexY][indexX]);
   for (let indexIteration = 0, endIteration = positionX === 0 ? positionY : positionX; indexIteration < endIteration; indexIteration++) {
-    arrProcessNums.push(arrNumbers[indexNumber - (positionY === 0 ? positionY : indexIteration + 1)][arrNumbers[indexNumber].indexOf(maxNumber) + (positionX === 0 ? positionX : indexIteration + 1)]);
+    arrProcessNums.push(arrNumbers[indexY - (positionY === 0 ? positionY : indexIteration + 1)][indexX + (positionX === 0 ? positionX : indexIteration + 1)]);
   }
 
   return productArray(arrProcessNums);
 }
 
-function getProductSubtractXAddY(arrNumbers, indexNumber, maxNumber, positionX = 0, positionY = 0) {
+function getProductSubtractXAddY(arrNumbers, indexX, indexY, positionX = 0, positionY = 0) {
   const arrProcessNums = [];
 
-  arrProcessNums.push(arrNumbers[indexNumber][arrNumbers[indexNumber].indexOf(maxNumber)]);
+  arrProcessNums.push(arrNumbers[indexY][indexX]);
   for (let indexIteration = 0, endIteration = positionX === 0 ? positionY : positionX; indexIteration < endIteration; indexIteration++) {
-    arrProcessNums.push(arrNumbers[indexNumber + (positionY === 0 ? positionY : indexIteration + 1)][arrNumbers[indexNumber].indexOf(maxNumber) - (positionX === 0 ? positionX : indexIteration + 1)]);
+    arrProcessNums.push(arrNumbers[indexY + (positionY === 0 ? positionY : indexIteration + 1)][indexX - (positionX === 0 ? positionX : indexIteration + 1)]);
   }
 
   return productArray(arrProcessNums);
@@ -295,6 +304,7 @@ if (typeof module !== 'undefined') {
     uniquifyArray,
     doesWordExist,
     howManyTimes,
-    greatestProduct
+    greatestProduct,
+    greatestProductOfDiagonals
   };
 }
