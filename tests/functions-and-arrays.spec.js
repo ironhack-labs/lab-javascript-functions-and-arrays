@@ -24,6 +24,12 @@ const shuffle = (currentArray) => {
     array[randomIndex] = temp;
   }
   return array;
+
+// esto es una prueba
+function maxOfTwoNumbers(){
+  return maxOfTwoNumbers
+}
+
 };
 
 describe('Find the maximum', () => {
