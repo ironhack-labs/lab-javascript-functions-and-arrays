@@ -72,8 +72,6 @@ function sum(num) {
     suma += num [i]
 
     }
-
- 
   }
 
    return suma
@@ -117,7 +115,14 @@ function averageWordLength(wordsArr) {
 console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(words) {
+
+  let result= sum(words) / words.length
+
+  return result
+}
+
+console.log(avg(mixedArr))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -182,9 +187,25 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+const wordCount = "truth"
 
-function howManyTimes() {}
+function howManyTimes(words, word) {
 
+  let count = 0
+
+  for (let i = 0; i < words.length; i++) {
+    
+    if (words[i] === word){
+
+      count += 1
+
+    }
+  }
+
+  return count
+
+}
+console.log(howManyTimes(wordsCount,wordCount))
 
 
 // Iteration #8: Bonus
