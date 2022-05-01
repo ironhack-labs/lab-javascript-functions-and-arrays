@@ -120,6 +120,7 @@ function avg(words) {
   let result= sum(words) / words.length
 
   return result
+  
 }
 
 console.log(avg(mixedArr))
