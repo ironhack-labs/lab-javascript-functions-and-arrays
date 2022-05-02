@@ -54,7 +54,7 @@ function sumNumbers(array){
   }
   return sum
 }  
-console.log(sumNumbers([]))
+console.log(sumNumbers([9,8]))
 
 
 ///////////////////////////////////////////////////
@@ -65,11 +65,22 @@ function sum() {}
 ///////////////////////////////////////////////////
 
 // Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// Level 1: Array of numbers     ===============> Me da el average, pero no pasa todos los test
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+//average = sumNumbers(array) / array.length;
+function averageNumbers(arr) { 
+  let countNumbers = 0
+  for(let i = 0; i <arr.length; i++){
+    countNumbers += 1
+  }
+  return sumNumbers(arr) / countNumbers  
+}
+   
+  console.log(averageNumbers([10,20]))
+ 
 
+////////////////////////////////////////////////////
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
