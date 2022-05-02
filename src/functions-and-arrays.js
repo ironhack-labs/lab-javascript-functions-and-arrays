@@ -19,18 +19,18 @@ maxOfTwoNumbers(5, 3)
 // Iteration #2: Find longest word 
 
 //*****FUNCIONA****
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'esternocleidomastoideo', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {
+function findLongestWord(longWords) {
   let longestWord = ''
   let longestWordLetters = 0
-  for (let i= 0; i < words.length; i++) {
-    if (longestWordLetters < words[i].length) {
-      longestWord = words[i]
-      longestWordLetters = words[i].length
+  for (let i= 0; i < longWords.length; i++) {
+    if (longestWordLetters < longWords[i].length) {
+      longestWord = longWords[i]
+      longestWordLetters = longWords[i].length
     }
   }
-    //console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
+    console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
     return(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
 }
 findLongestWord(words)
@@ -51,12 +51,12 @@ console.log(words[6].length)*/
 //*******FUNCIONA*******
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {
+function sumNumbers(sum) {
   let numberAdded = 0
-  for (let i = 0; i < numbers.length; i++){
-    numberAdded += numbers[i]
+  for (let i = 0; i < sum.length; i++){
+    numberAdded += sum[i]
   }
-  //console.log(numberAdded)
+  console.log(numberAdded)
   return(numberAdded)
 }
 /*console.log(numbers.length)
@@ -66,20 +66,20 @@ console.log(numbers[2])
 console.log(numbers[3])*/
 sumNumbers(numbers)
 
-
 // Iteration #3.1 Bonus:
 
 //*****FUNCIONA*****
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-function sum() {
+
+function sum(mixed) {
   let numberAdded = 0
-  for (let i = 0; i < mixedArr.length; i++) {
-    if (typeof mixedArr[i] === 'number') {
-     numberAdded += mixedArr[i]
-    } else if (typeof mixedArr[i] === 'string') {
-       numberAdded += mixedArr[i].length
-    } else if (typeof mixedArr[i] === 'boolean') {
-       if (mixedArr[i] === true) {
+  for (let i = 0; i < mixed.length; i++) {
+    if (typeof mixed[i] === 'number') {
+     numberAdded += mixed[i]
+    } else if (typeof mixed[i] === 'string') {
+       numberAdded += mixed[i].length
+    } else if (typeof mixed[i] === 'boolean') {
+       if (mixed[i] === true) {
         numberAdded += 1
       }
     }      
@@ -90,40 +90,38 @@ function sum() {
 
 sum(mixedArr)
 
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
 //*******FUNCIONA*****
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
+function averageNumbers(numbers) {
   let numberAdded = 0
-  for (let i = 0; i < numbersAvg.length; i++){
-    numberAdded += numbersAvg[i]
+  for (let i = 0; i < numbers.length; i++){
+    numberAdded += numbers[i]
   }
   console.log(`La suma de todos los números es ${numberAdded}.`)
-  console.log(`La media de todos los números es ${numberAdded / numbersAvg.length}`)
+  console.log(`La media de todos los números es ${numberAdded / numbers.length}`)
   return(numberAdded)
-  return(numberAdded / numbersAvg.length)
+  return(numberAdded / numbers.length)
 }
 
 averageNumbers(numbersAvg)
-
 
 // Level 2: Array of strings
 
 //*********FUNCIONA*******
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {
+function averageWordLength(letters) {
   let numberOfLetters = 0
-  for (let i=0; i < wordsArr.length; i++)
-    numberOfLetters += wordsArr[i].length
+  for (let i=0; i < letters.length; i++)
+    numberOfLetters += letters[i].length
   console.log(`El número total de letras es de: ${numberOfLetters}.`)
-  console.log(`La media de letras por palabra es de: ${numberOfLetters / wordsArr.length}.`)
+  console.log(`La media de letras por palabra es de: ${numberOfLetters / letters.length}.`)
   return(numberOfLetters)
-  return(numberOfLetters / wordsArr.length)
+  return(numberOfLetters / letters.length)
 }
 
 averageWordLength(wordsArr)
@@ -132,7 +130,9 @@ averageWordLength(wordsArr)
 function avg() {}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+
+//******NO FUNCIONA*****
+const words = [
   'crab',
   'poison',
   'contagious',
@@ -146,26 +146,50 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {
-  for (let i = 0; i < words.length-1; i++) {
-    const uniqueWords[]
-    for
-
+function uniquifyArray(uniqueWords){
+  for (let i = 0; i < uniqueWords.length-1; i++) {
+    const words1 = []
+    for (let j = i + 1; j < uniqueWords.length; j++){
+      if (''[i] === ''[j]){
+        uniqueWords.slice(i, 1)
+        uniqueWords.slice(j, 1)
+      } else {
+         words1.push(i)
       }
-      }
+    }
+  console.log(words1)
+  }
+}
 
-/*for i recorre el array-1, for j recorre el array+1 y compara, si i === j .slice ambas posiciones, si no hay coincidencia .push al array vacío uniqueWords*/
-
+uniquifyArray(words)
 
 
 // Iteration #6: Find elements
+
+//********* FUNCIONA ******
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(test, compare) {
+  let comparison = false
+  for (let i = 0; i < test.length; i++){
+    if (test[i] === compare){
+      comparison = true
+      break;
+    } else {
+      comparison = false
+      continue;
+      }   
+    }
+  console.log(comparison)
+  return(comparison)
+  }
 
 
+doesWordExist(wordsFind, 'truth')
 
 // Iteration #7: Count repetition
+
+//********FUNCIONA*****
 const wordsCount = [
   'machine',
   'matter',
@@ -180,7 +204,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes() {
+  let repeated = 0
+  for (let i = 0; i < test.length; i++){
+    if (test[i] === compare){
+      repeated += 1;
+    }
+  }
+  console.log(`La palabra ${compare} está repetida ${repeated} veces.`)
+  return(repeated)
+}
+
+howManyTimes(wordsCount, 'matter')
 
 
 
