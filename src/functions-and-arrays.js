@@ -37,13 +37,46 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let theTotal = 0;
+  let result =0;
+  if (numbers.length === 1) {
+    return numbers[0] 
+  } else if (numbers.length === 0 || numbers === []) {
+    return 0
+  } else if (numbers.length === 2) {
+    let result= numbers[0]+numbers[1]
+    return result
+  } else if (numbers.length > 2 || typeof numbers !== "number"){
+    let result =0;
+    for (let i=0; i < numbers.length; i++){
+      theTotal += numbers[i];
+    }
+    return theTotal;
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(numbers) {
+  let theTotal = 0;
+  let result =0;
+  if (numbers.length === 1) {
+    return numbers[0] 
+  } else if (numbers.length === 0 || numbers === []) {
+    return 0
+  } else if (numbers.length === 2) {
+    let result= numbers[0]+numbers[1]
+    return result
+  } else if (numbers.length > 2 || typeof numbers !== "number"){
+    let result =0;
+    for (let i=0; i < numbers.length; i++) {
+      theTotal += numbers[i];
+    }
+    return theTotal;
+  } 
+}
 
 
 // Iteration #4: Calculate the average
