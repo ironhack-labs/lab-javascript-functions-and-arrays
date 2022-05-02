@@ -12,13 +12,13 @@ function maxOfTwoNumbers(a, b) {
     return b;
   }
 }
-console.log(maxOfTwoNumbers(5, 3))
+console.log(maxOfTwoNumbers(5, 8))
 
 
 //////////////////////////////////////////////////
 
 
-// Iteration #2: Find longest word    =========== > ME FALTA: Si el array está vacio  
+// Iteration #2: Find longest word    =========== > DONE: Si el array está vacio sale null
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
@@ -26,12 +26,17 @@ function findLongestWord(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (word.length < arr[i].length) {
       word = arr[i];
-      }       
-    }
-    return word;
+    }       
   }
+  if (arr.length === 0){
+    return null 
+  } else {
+      return word
+  }
+   
+}
   
-console.log(findLongestWord(['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']))
+console.log(findLongestWord([]))
 
 
 ///////////////////////////////////////////////////
@@ -49,7 +54,7 @@ function sumNumbers(array){
   }
   return sum
 }  
-console.log(sumNumbers([6, 12, 2, 10]))
+console.log(sumNumbers([]))
 
 
 ///////////////////////////////////////////////////
