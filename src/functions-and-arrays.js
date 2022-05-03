@@ -7,8 +7,6 @@ function maxOfTwoNumbers(number1, number2) {
   }
 }
 
-
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -49,8 +47,6 @@ function sumNumbers(numbers) {
     return theTotal;
   }
 }
-
-
 
 // Iteration #3.1 Bonus:
 const numbers2 = [10, 5, 4, 32, 8] //59
@@ -98,7 +94,6 @@ function averageNumbers(numbersAvg) {
     return theSumAverage/numbersAvg.length
   }
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -180,8 +175,6 @@ function uniquifyArray(wordsUnique){
 //     } 
 //   }  
 
-
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 let theWord = 'subset';
@@ -232,7 +225,6 @@ function howManyTimes(wordsCount, theWord2) {
   }
 }
 
-
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -257,8 +249,8 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
+function greatestProduct(matrix) {
+}
 
 
 
