@@ -48,8 +48,7 @@ function sumNumbers(numbers) {
     let result= numbers[0]+numbers[1]
     return result
   } else if (numbers.length > 2 || typeof numbers !== "number"){
-    let result =0;
-    for (let i=0; i < numbers.length; i++){
+    for (let i = 0; i < numbers.length; i++){
       theTotal += numbers[i];
     }
     return theTotal;
@@ -80,19 +79,50 @@ function sum(numbers) {
 
 
 // Iteration #4: Calculate the average
+// Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let theSumAverage = 0;
+  if (numbersAvg.length === 0) {
+    return null
+  } else if (numbersAvg.length === 1) {
+    return numbersAvg[0] 
+  } else if (numbersAvg.length > 1) {
+    for (let i=0; i< numbersAvg.length; i++){
+      theSumAverage += numbersAvg[i]
+    }
+    return theSumAverage/numbersAvg.length
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let averageWordsArr = 0;
+  if (wordsArr.length === 0) {
+    return null
+  } else if (wordsArr.length === 1) {
+    return wordsArr[0].length
+  } else if (wordsArr.length > 1){
+    for (let i=0; i < wordsArr.length; i++){
+      averageWordsArr += wordsArr[i].length
+    }
+    return averageWordsArr/wordsArr.length
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]; //46
+function avg(mixArr) {
+  let averageWordsArr = 0;
+  if (mixArr.length === 0) {
+    return null
+  } 
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -109,7 +139,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+function uniquifyArray(wordsUnique) {
+  wordsUnique.sort() 
+  let newWordsUnique = [];
+    if (wordsUnique.length === 0|| typeof wordsUnique !== "object") {
+      return null
+    } else {
+      for(let i=0; i < wordsUnique.length; i++){
+        let newWordsUnique = ['hola']
+        if (wordsUnique[i] === wordsUnique[i + 1]) {
+          wordsUnique.splice(i,1)
+        }
+      }
+      return wordsUnique
+    } 
+  }  
 
 
 
