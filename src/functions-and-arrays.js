@@ -159,6 +159,9 @@ const palabras = [
 ];
 
 function uniquifyArray(uniqueWords){
+  if (uniqueWords.length === 0) {
+  return null
+}
   for (let i = 0; i < uniqueWords.length-1; i++) {
     const words1 = []
     for (let j = i + 1; j < uniqueWords.length; j++){
