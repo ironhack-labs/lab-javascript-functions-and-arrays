@@ -5,10 +5,10 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2){
     //console.log(`${num1} it's largest than ${num2}.`)
-    return(`${num1} it's largest than ${num2}.`)
+    return num1
   } 
   //console.log(`${num2} it's largest than ${num1}.`)
-  return(`${num2} it's largest than ${num1}.`)
+  return num2
 }
 
 maxOfTwoNumbers(1, 3)
@@ -19,21 +19,24 @@ maxOfTwoNumbers(5, 3)
 // Iteration #2: Find longest word 
 
 //*****FUNCIONA****
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words1 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(longWords) {
   let longestWord = ''
   let longestWordLetters = 0
+  if (longWords.length === 0){
+    return null
+  }
   for (let i= 0; i < longWords.length; i++) {
     if (longestWordLetters < longWords[i].length) {
       longestWord = longWords[i]
       longestWordLetters = longWords[i].length
     }
   }
-    console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
-    return(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
+    //console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
+    return longestWord
 }
-findLongestWord(words)
+findLongestWord(words1)
 //console.log(words.length)
 /*console.log(words[0].length)
 console.log(words[1].length)
@@ -55,9 +58,12 @@ function sumNumbers(sum) {
   let numberAdded = 0
   for (let i = 0; i < sum.length; i++){
     numberAdded += sum[i]
+    /*if (sum[i] !== 'number'){
+      return 'error'
+    }*/
   }
-  console.log(numberAdded)
-  return(numberAdded)
+  //console.log(numberAdded)
+  return numberAdded
 }
 /*console.log(numbers.length)
 console.log(numbers[0])
@@ -84,8 +90,8 @@ function sum(mixed) {
       }
     }      
   }
-  console.log(numberAdded)
-  return(numberAdded)
+  //console.log(numberAdded)
+  return numberAdded
 }
 
 sum(mixedArr)
@@ -98,13 +104,16 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
   let numberAdded = 0
+  if (numbers.length === 0) {
+    return null
+  }
   for (let i = 0; i < numbers.length; i++){
     numberAdded += numbers[i]
   }
-  console.log(`La suma de todos los números es ${numberAdded}.`)
-  console.log(`La media de todos los números es ${numberAdded / numbers.length}`)
-  return(numberAdded)
-  return(numberAdded / numbers.length)
+  //console.log(`La suma de todos los números es ${numberAdded}.`)
+  //console.log(`La media de todos los números es ${numberAdded / numbers.length}`)
+
+  return numberAdded / numbers.length
 }
 
 averageNumbers(numbersAvg)
@@ -116,11 +125,14 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(letters) {
   let numberOfLetters = 0
+  if (letters.length === 0) {
+    return null
+  }
   for (let i=0; i < letters.length; i++)
     numberOfLetters += letters[i].length
-  console.log(`El número total de letras es de: ${numberOfLetters}.`)
-  console.log(`La media de letras por palabra es de: ${numberOfLetters / letters.length}.`)
-  return(numberOfLetters)
+  //console.log(`El número total de letras es de: ${numberOfLetters}.`)
+  //console.log(`La media de letras por palabra es de: ${numberOfLetters / letters.length}.`)
+
   return(numberOfLetters / letters.length)
 }
 
@@ -132,7 +144,7 @@ function avg() {}
 // Iteration #5: Unique arrays
 
 //******NO FUNCIONA*****
-const words = [
+const palabras = [
   'crab',
   'poison',
   'contagious',
@@ -157,11 +169,11 @@ function uniquifyArray(uniqueWords){
          words1.push(i)
       }
     }
-  console.log(words1)
+  //console.log(words1)
   }
 }
 
-uniquifyArray(words)
+//uniquifyArray(palabras)
 
 
 // Iteration #6: Find elements
@@ -180,8 +192,8 @@ function doesWordExist(test, compare) {
       continue;
       }   
     }
-  console.log(comparison)
-  return(comparison)
+  //console.log(comparison)
+  return comparison
   }
 
 
@@ -204,15 +216,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {
+function howManyTimes(test, compare) {
   let repeated = 0
   for (let i = 0; i < test.length; i++){
     if (test[i] === compare){
       repeated += 1;
     }
   }
-  console.log(`La palabra ${compare} está repetida ${repeated} veces.`)
-  return(repeated)
+  //console.log(`La palabra ${compare} está repetida ${repeated} veces.`)
+  return repeated
 }
 
 howManyTimes(wordsCount, 'matter')
