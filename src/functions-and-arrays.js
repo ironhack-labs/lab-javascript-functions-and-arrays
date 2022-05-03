@@ -116,12 +116,26 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-const mixArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]; //46
+const mixArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false]; //5,11
+
 function avg(mixArr) {
-  let averageWordsArr = 0;
+  let theAverageWordsArr = 0;
   if (mixArr.length === 0) {
     return null
-  } 
+  } else if (mixArr.length > 1){
+    for (let i=0; i < mixArr.length; i++){
+      if (typeof mixArr[i] === 'number' ){
+        theAverageWordsArr += mixArr[i]
+      } else if (typeof mixArr[i] === 'string'){
+        theAverageWordsArr += mixArr[i].length
+      } else if (typeof mixArr[i] === 'boolean' &&  mixArr[i] === true){
+        theAverageWordsArr += 1
+      } else if (typeof mixArr[i] === 'boolean' &&  mixArr[i] === false){
+        theAverageWordsArr += 0
+      }
+    }
+    return Math.round((theAverageWordsArr/mixArr.length)*100) /100 //rerdondear a dos decimales y no al numero entero
+  }
 }
 
 // Iteration #5: Unique arrays
