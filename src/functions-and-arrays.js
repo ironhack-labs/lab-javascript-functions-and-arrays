@@ -14,25 +14,20 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(words) {
   let longestWord = '';
-  let longestWordNumber = 0;
   if (words.length === 1 || typeof words === "string") {
     return words[0] 
-  }
-  else if (words.length === 0 || typeof words !== "object" ) {
-    return null
-  } else {
-    for (let i=0; i < words.length - 1; i++){
-      if(words[i].length === words[i + 1].length) {
-        return words[i]
-      }  else if (words[i].length > words[i + 1].length && words[i].length > longestWordNumber) {
-        let longestWordNumber = words[i].length;
-        let longestWord = words[i];
-        return longestWord
-      }
+  } else if (words.length > 1) {
+    for (let i=0; i < words.length; i++){
+      let individualWord = words[i]
+      if(individualWord.length > longestWord.length) {
+        longestWord = individualWord
+      }  
     }
-  }
+    return longestWord
+  } else if (words.length === 0 || typeof words !== "object" ) {
+    return null
+  } 
 }
-
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -58,27 +53,34 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum(numbers) {
+const numbers2 = [10, 5, 4, 32, 8] //59
+
+function sum(numbers2) {
   let theTotal = 0;
-  let result =0;
-  if (numbers.length === 1) {
-    return numbers[0] 
-  } else if (numbers.length === 0 || numbers === []) {
-    return 0
-  } else if (numbers.length === 2) {
-    let result= numbers[0]+numbers[1]
-    return result
-  } else if (numbers.length > 2 || typeof numbers !== "number"){
-    let result =0;
-    for (let i=0; i < numbers.length; i++) {
-      theTotal += numbers[i];
+  if (numbers2.length === 0) {
+    theTotal = 0
+    return theTotal
+  } else if (numbers2.length === 1) {
+    theTotal = numbers2[0]
+    return theTotal 
+  } else if (numbers2.length > 0){
+    for (let i=0; i < numbers2.length; i++){
+        if (numbers2[i].length === 0 || typeof numbers2[i] === 'object') {
+          throw theTotal = `Unsupported data type sir or ma'am`;
+        } else if (typeof numbers2[i] === 'number') {
+          theTotal += numbers2[i]
+        } else if (typeof numbers2[i] === 'string'){
+          theTotal += numbers2[i].length
+        } else if (typeof numbers2[i] === 'boolean' &&  numbers2[i] === true){
+          theTotal += 1
+        } else if (typeof numbers2[i] === 'boolean' &&  numbers2[i] === false){
+          theTotal += 0
+        }  
     }
-    return theTotal;
+    return theTotal
   } 
 }
 
-
-// Iteration #4: Calculate the average
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -124,7 +126,7 @@ function avg(mixArr) {
     return null
   } else if (mixArr.length > 1){
     for (let i=0; i < mixArr.length; i++){
-      if (typeof mixArr[i] === 'number' ){
+      if (typeof mixArr[i] === 'number') {
         theAverageWordsArr += mixArr[i]
       } else if (typeof mixArr[i] === 'string'){
         theAverageWordsArr += mixArr[i].length
