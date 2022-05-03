@@ -198,9 +198,23 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+let theWord2 = 'subset';
 
-function howManyTimes() {}
-
+function howManyTimes(wordsCount, theWord2) {
+  let theAnswer = false
+  let theCounter = 0
+  if (theWord === '' || wordsCount.length === 0) {
+      return theCounter
+  } else {
+    for (let i=0; i < wordsCount.length; i++) {
+          if (theWord2 === wordsCount[i]) {
+            theAnswer = true
+            theCounter += 1 
+          } 
+    }  
+    return theCounter 
+  }
+}
 
 
 // Iteration #8: Bonus
