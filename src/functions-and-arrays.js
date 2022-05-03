@@ -139,31 +139,50 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+  let theWordsUnique = [...new Set(wordsUnique)]
+  if (wordsUnique.length === 0|| typeof wordsUnique !== "object") {
+    return null
+  } else {
+    return  theWordsUnique 
+  }
+}
 
-function uniquifyArray(wordsUnique) {
-  wordsUnique.sort() 
-  let newWordsUnique = [];
-    if (wordsUnique.length === 0|| typeof wordsUnique !== "object") {
-      return null
-    } else {
-      for(let i=0; i < wordsUnique.length; i++){
-        let newWordsUnique = ['hola']
-        if (wordsUnique[i] === wordsUnique[i + 1]) {
-          wordsUnique.splice(i,1)
-        }
-      }
-      return wordsUnique
-    } 
-  }  
+// function uniquifyArray(wordsUnique) {
+//   wordsUnique.sort() 
+//   let newWordsUnique = [];
+//     if (wordsUnique.length === 0|| typeof wordsUnique !== "object") {
+//       return null
+//     } else {
+//       for(let i=0; i < wordsUnique.length; i++){
+//         let newWordsUnique = ['hola']
+//         if (wordsUnique[i] === wordsUnique[i + 1]) {
+//           wordsUnique.splice(i,1)
+//         }
+//       }
+//       return wordsUnique
+//     } 
+//   }  
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let theWord = 'subset';
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsFind, theWord) {
+  let theAnswer = false
+  if (theWord === '' || wordsFind.length === 0) {
+      return null
+  } else {
+    for (let i=0; i < wordsFind.length; i++) {
+          if (theWord === wordsFind[i]) {
+            theAnswer = true
+          } 
+    }  
+    return theAnswer 
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
