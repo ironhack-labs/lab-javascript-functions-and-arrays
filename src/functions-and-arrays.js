@@ -51,10 +51,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
   let sum = 0
-  for (let i=0; i < arr.length; i++){
-    sum += arr[i]
+  if(arr.length === 0){
+    return null
   }
-  return sum / arr.length
+  return sumNumbers(arr) / arr.length
 }
 
 
@@ -63,6 +63,9 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arr) {
   let sum = 0
+  if(arr.length === ''){
+    return null
+  }
   for (let i=0; i < arr.length; i++){
     sum += arr[i].length
   }
@@ -91,13 +94,11 @@ function uniquifyArray(arr) {
     let onlyWords = []
 
     for (let i = 0; i < arr.length; i++) {
-      for(let j = i + 1; j < arr.length; j++) {
-      if(arr[i] === arr[j]) {
-        onlyWords = arr.splice(j,1)
-      }
+        if(onlyWords.indexOf(arr[i]) === -1 && arr[i] !== '') {
+          onlyWords.push(arr[i]);
       }
     }
-    return;
+    return onlyWords;
 }
 
 
@@ -105,7 +106,17 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, element) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return true
+    } else if (arr[i] !== element) {
+      return false
+    } else {
+      return null
+    }
+  }
+}
 
 
 
@@ -124,7 +135,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, someWord) {
+  let countingWords = 0
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr [i] === someWord) {
+      countingWords++
+    }
+  }
+  return countingWords
+}
 
 
 
@@ -152,7 +172,16 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let productResult = 0
+  let greatestNumArray = 0
+  
+  for (let i = 0; i < arr.length; i++) {
+    const bigNumber = arr[i]
+
+    greatestNumArray *= bigNumber[i]
+  }
+}
 
 
 
