@@ -1,14 +1,15 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
-    return num1;
+    return num1
   } else if (num1 < num2) {
-    return num2;
+    return num2
   } else if (num1 === num2) {
-    return num1;
+    return num1
   }
 }
 
+maxOfTwoNumbers(num1, num2)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -27,18 +28,20 @@ function findLongestWord(arr) {
     }
   }
 
-
+findLongestWord(words);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(arr) {
+function sumNumbers(arrOfNum) {
   let sum = 0
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i]
+  for (let i = 0; i < arrOfNum.length; i++) {
+    sum += arrOfNum[i]
   }
-  return sum;
+  return sum
 }
+
+sumNumbers(numbers)
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -49,28 +52,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arr) {
+function averageNumbers(numForAverage) {
   let sum = 0
-  if(arr.length === 0){
+
+  if(numForAverage.length === 0){
     return null
   }
-  return sumNumbers(arr) / arr.length
+  for (let i = 0; i < numForAverage.length; i++) {
+    sum += numForAverage[i]
+  }
+  return sum / numForAverage.length
 }
+
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(arr) {
+function averageWordLength(arrOfWords) {
   let sum = 0
-  if(arr.length === ''){
+  if(arrOfWords.length === ''){
     return null
   }
-  for (let i=0; i < arr.length; i++){
-    sum += arr[i].length
+  for (let i=0; i < arrOfWords.length; i++){
+    sum += arrOfWords[i].length
   }
-  return sum / arr.length
+  return sum / arrOfWords.length
  }
+
+ averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -90,33 +101,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(arr) {
+function uniquifyArray(arrWithReapeatedWords) {
     let onlyWords = []
 
-    for (let i = 0; i < arr.length; i++) {
-        if(onlyWords.indexOf(arr[i]) === -1 && arr[i] !== '') {
-          onlyWords.push(arr[i]);
+    if (arrWithReapeatedWords.length === 0) {
+      return null
+    }
+
+    for (let i = 0; i < arrWithReapeatedWords.length; i++) {
+        if(onlyWords.indexOf(arr[i]) === -1 && arrWithReapeatedWords[i] !== '') {
+          onlyWords.push(arrWithReapeatedWords[i]);
       }
     }
     return onlyWords;
 }
+
+uniquifyArray(wordsUnique);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr, element) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === element) {
+function doesWordExist(searchingArr, element) {
+  if (searchingArr === ['']) {
+    return null
+  }
+  for (let i = 0; i < searchingArr.length; i++) {
+    if (searchingArr[i] === element) {
       return true
-    } else if (arr[i] !== element) {
+    } else if (searchingArr[i] !== element) {
       return false
     } else {
       return null
     }
   }
 }
+
+doesWordExist(wordsFind)
 
 
 
@@ -135,17 +157,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr, someWord) {
+function howManyTimes(arrToCount, someWord) {
   let countingWords = 0
   
-  for (let i = 0; i < arr.length; i++) {
-    if (arr [i] === someWord) {
+  if (arrToCount === ['']) {
+    return 0
+  }
+  for (let i = 0; i < arrToCount.length; i++) {
+    if (arrToCount [i] === someWord) {
       countingWords++
     }
   }
   return countingWords
 }
 
+howManyTimes(wordsCount)
 
 
 // Iteration #8: Bonus
@@ -171,18 +197,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct(arr) {
-  let productResult = 0
-  let greatestNumArray = 0
-  
-  for (let i = 0; i < arr.length; i++) {
-    const bigNumber = arr[i]
-
-    greatestNumArray *= bigNumber[i]
-  }
-}
-
 
 
 
