@@ -159,24 +159,25 @@ const palabras = [
 ];
 
 function uniquifyArray(uniqueWords){
-  if (uniqueWords.length === 0) {
-  return null
-}
+  let repeatedWords = []
+  let actualWord = ''
+  let comparisonWord = ''
+  let idx = uniqueWords.indexOf(actualWord)
   for (let i = 0; i < uniqueWords.length-1; i++) {
-    const words1 = []
-    for (let j = i + 1; j < uniqueWords.length; j++){
-      if (''[i] === ''[j]){
-        uniqueWords.slice(i, 1)
-        uniqueWords.slice(j, 1)
-      } else {
-         words1.push(i)
-      }
+    actualWord = uniqueWords[i]
+    //console.log(actualWord)
+  for (let j = 1; j < uniqueWords.length; j++) {
+    comparisonWord = uniqueWords[j]
+    //console.log(comparisonWord)
+    if (actualWord === comparisonWord) {
+      repeatedWords.push(uniqueWords[j])
     }
-  //console.log(words1)
-  }
+    }
 }
-
-//uniquifyArray(palabras)
+      console.log(repeatedWords)
+      return repeatedWords
+}
+uniquifyArray(palabras)
 
 
 // Iteration #6: Find elements
