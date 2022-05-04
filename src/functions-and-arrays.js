@@ -159,23 +159,17 @@ const palabras = [
 ];
 
 function uniquifyArray(uniqueWords){
-  let repeatedWords = []
-  let actualWord = ''
-  let comparisonWord = ''
-  let idx = uniqueWords.indexOf(actualWord)
-  for (let i = 0; i < uniqueWords.length-1; i++) {
-    actualWord = uniqueWords[i]
-    //console.log(actualWord)
-  for (let j = 1; j < uniqueWords.length; j++) {
-    comparisonWord = uniqueWords[j]
-    //console.log(comparisonWord)
-    if (actualWord === comparisonWord) {
-      repeatedWords.push(uniqueWords[j])
-    }
+  let wordsOnce = []
+  if (uniqueWords.length === 0) {
+    return null
+  }
+  for (let i = 0; i < uniqueWords.length; i++) {
+    if (wordsOnce.indexOf(uniqueWords[i]) === -1) {
+      wordsOnce.push(uniqueWords[i]);
     }
 }
-      console.log(repeatedWords)
-      return repeatedWords
+      //console.log(wordsOnce)
+      return wordsOnce
 }
 uniquifyArray(palabras)
 
