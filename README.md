@@ -299,7 +299,7 @@ $ npm run test:watch
 
 In case you want to check the tests, they are in the `tests/functions-and-arrays.spec.js` file.
 
-Open the `lab-solution.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
+Open the `lab-solution.html` file using th.e [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
 
 <br>
 
