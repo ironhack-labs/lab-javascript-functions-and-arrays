@@ -181,6 +181,9 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(test, compare) {
   let comparison = false
+  if (test.length === 0) {
+    return null
+  }
   for (let i = 0; i < test.length; i++){
     if (test[i] === compare){
       comparison = true
