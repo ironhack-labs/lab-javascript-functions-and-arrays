@@ -44,7 +44,12 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numArray) {
-  let count=0
+  let count=0;
+  
+  if (numArray.length === 0) {
+    return null  ;
+  }
+  
   for (i=0 ; i<numArray.length ; i++) {
   count += numArray[i]
   }
