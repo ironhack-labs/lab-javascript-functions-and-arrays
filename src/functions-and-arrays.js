@@ -9,14 +9,12 @@ function maxOfTwoNumbers(a, b) {
     if (a > b) {
       return a;
   } else {
-    return b;
+    return b; 
   }
 }
 console.log(maxOfTwoNumbers(5, 8))
 
-
 //////////////////////////////////////////////////
-
 
 // Iteration #2: Find longest word    =========== > DONE: Si el array está vacio sale null
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -38,10 +36,7 @@ function findLongestWord(arr) {
   
 console.log(findLongestWord([]))
 
-
 ///////////////////////////////////////////////////
-
-
 
 // Iteration #3: Calculate the sum       =========== > ME FALTA: Si el array está vacio
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -50,17 +45,31 @@ function sumNumbers(array){
   let sum = 0;
 
   for (let i = 0; i < array.length; i++) {
-    sum += array[i];
-  }
-  return sum
+    sum += array[i]; 
+  } return sum
 }  
 console.log(sumNumbers([9,8]))
 
-
 ///////////////////////////////////////////////////
 
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
+
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let result = 0
+  for (let i = 0; i < array.length; i++) {
+    if (typeof elementInArray === 'string'){
+      result += array[i].lenght
+    } else if (typeof array[i] === 'string') {
+      result += array[i].length
+    } else if (typeof array[i] === 'boolean') {
+      if (array[i] === true) {result++}
+    }    
+  }
+  return result 
+}
+console.log(sum([6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]))
 
 ///////////////////////////////////////////////////
 
@@ -75,6 +84,7 @@ function averageNumbers(arr) {
     countNumbers += 1
   }
   return sumNumbers(arr) / countNumbers  
+  
 }
    
   console.log(averageNumbers([10,20]))
@@ -85,7 +95,9 @@ function averageNumbers(arr) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) { 
+
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
