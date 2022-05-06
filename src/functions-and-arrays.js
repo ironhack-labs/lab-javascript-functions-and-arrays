@@ -58,7 +58,7 @@ function sum(sumOfAnotherArray) {
       result++
     } else if (typeof sumOfAnotherArray[i] === 'object' || typeof sumOfAnotherArray[i] === 'array')
     {
-      return "Unsupported data type sir or ma'am"
+      throw "Unsupported data type sir or ma'am"
     }
   }
   return result
@@ -90,7 +90,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arrOfWords) {
   let sum = 0
-  if (arrOfWords.length === []){
+  if (arrOfWords.length === 0){
     return null
   }
   for (let i=0; i < arrOfWords.length; i++){
@@ -102,7 +102,26 @@ function averageWordLength(arrOfWords) {
  averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArray) {
+  let sum = 0
+
+  if (mixedArray.length === 0){
+    return null
+  }
+  for (let i=0; i < mixedArray.length; i++){
+    if (mixedArray[i] === true) {
+       sum++
+    } else if (mixedArray[i] === false) {
+       sum
+    } else if (typeof mixedArray[i] === 'number') {
+       sum += mixedArray[i]
+    } else {
+      sum += mixedArray[i].length
+    }
+     
+  }
+  return sum / mixedArray.length
+ }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -142,18 +161,16 @@ uniquifyArray(wordsUnique);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(searchingArr, element) {
-  if (searchingArr.length === []) {
+  if (searchingArr.length === 0) {
     return null
   }
+  let result = false
   for (let i = 0; i < searchingArr.length; i++) {
     if (searchingArr[i] === element) {
-      return true
-    } else if (searchingArr[i] !== element) {
-      return false
-    } else {
-      return null
+      result = true
     }
   }
+  return result
 }
 
 doesWordExist(wordsFind)
