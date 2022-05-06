@@ -9,7 +9,6 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
-maxOfTwoNumbers(num1, num2)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -44,7 +43,26 @@ function sumNumbers(arrOfNum) {
 sumNumbers(numbers)
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(sumOfAnotherArray) {
+  let result = 0
+
+  if (sumOfAnotherArray.length === 0) {
+    return 0
+  }
+  for (let i= 0; i < sumOfAnotherArray.length; i++) {
+    if (typeof sumOfAnotherArray[i] === 'number') {
+      result += sumOfAnotherArray[i]
+    } else if (typeof sumOfAnotherArray[i] === 'string') {
+      result += sumOfAnotherArray[i].length
+    } else if (sumOfAnotherArray[i] === true) {
+      result++
+    } else if (typeof sumOfAnotherArray[i] === 'object' || typeof sumOfAnotherArray[i] === 'array')
+    {
+      return "Unsupported data type sir or ma'am"
+    }
+  }
+  return result
+}
 
 
 
@@ -72,7 +90,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arrOfWords) {
   let sum = 0
-  if(arrOfWords.length === ''){
+  if (arrOfWords.length === []){
     return null
   }
   for (let i=0; i < arrOfWords.length; i++){
@@ -102,14 +120,14 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arrWithReapeatedWords) {
-    let onlyWords = []
+    const onlyWords = []
 
     if (arrWithReapeatedWords.length === 0) {
       return null
     }
 
     for (let i = 0; i < arrWithReapeatedWords.length; i++) {
-        if(onlyWords.indexOf(arr[i]) === -1 && arrWithReapeatedWords[i] !== '') {
+        if(onlyWords.indexOf(arrWithReapeatedWords[i]) === -1 && arrWithReapeatedWords[i] !== '') {
           onlyWords.push(arrWithReapeatedWords[i]);
       }
     }
@@ -124,7 +142,7 @@ uniquifyArray(wordsUnique);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(searchingArr, element) {
-  if (searchingArr === ['']) {
+  if (searchingArr.length === []) {
     return null
   }
   for (let i = 0; i < searchingArr.length; i++) {
@@ -197,6 +215,8 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {}
 
 
 
