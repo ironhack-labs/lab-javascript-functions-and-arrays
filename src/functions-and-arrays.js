@@ -143,7 +143,7 @@ function avg() {}
 
 // Iteration #5: Unique arrays
 
-//******NO FUNCIONA*****
+//******FUNCIONA*****
 const palabras = [
   'crab',
   'poison',
