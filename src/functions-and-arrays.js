@@ -15,6 +15,10 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arrayOfWords) {
   let longestWord = ""
+
+  if (arrayOfWords.length === 0) {
+    return null  ;
+  }
   for (let i=0 ; i<arrayOfWords.length ; i++) {
     if (arrayOfWords[i].length > longestWord.length) {
       longestWord = arrayOfWords[i]
@@ -63,6 +67,11 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(wArray) {
   let count=0
+
+  if (wArray.length === 0) {
+    return null  ;
+  }
+
   for (i=0 ; i<wArray.length ; i++) {
   count += wArray[i].length
   }
@@ -93,6 +102,10 @@ function uniquifyArray(wordsArray) {
 
   const solution = []
 
+  if (wordsArray.length === 0) {
+    return null  ;
+  }
+
   for (let i=0 ; i<wordsArray.length ; i++) {
     
     let word = wordsArray[i]
@@ -116,6 +129,10 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(wordsArray, word) {
   
   let trueOrFalse = ""
+
+  if (wordsArray.length === 0) {
+    return null  ;
+  }
   
   for (let i=0 ; i<wordsArray.length ; i++) {
     if (word === wordsArray[i]) {
