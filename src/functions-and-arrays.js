@@ -127,24 +127,22 @@ console.log (uniquifyArray(wordsUnique))
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsArray, word) {
-  
-  let trueOrFalse = ""
 
   if (wordsArray.length === 0) {
     return null  ;
   }
-  
+  if (word === wordsArray[0]) {
+    return true
+  }
+ 
   for (let i=0 ; i<wordsArray.length ; i++) {
     if (word === wordsArray[i]) {
-      trueOrFalse = "true"
-      break
-    } else {
-      trueOrFalse = "false"
+      return true 
     }
   }
-  return trueOrFalse 
+    return false
 }
-console.log (doesWordExist(wordsFind, 'master'))
+console.log (doesWordExist(wordsFind, ''))
 
 
 
