@@ -21,20 +21,19 @@ maxOfTwoNumbers(5, 3)
 //*****FUNCIONA****
 const words1 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(longWords) {
-  let longestWord = ''
-  let longestWordLetters = 0
-  if (longWords.length === 0){
+function findLongestWord(words) {
+  if (words.length === 0) {
     return null
-  }
-  for (let i= 0; i < longWords.length; i++) {
-    if (longestWordLetters < longWords[i].length) {
-      longestWord = longWords[i]
-      longestWordLetters = longWords[i].length
+  };
+
+  let longestWord = ''
+  for (let i= 0; i < words.length; i++) {
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i]
     }
   }
     //console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
-    return longestWord
+  return longestWord
 }
 findLongestWord(words1)
 //console.log(words.length)
