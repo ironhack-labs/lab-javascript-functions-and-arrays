@@ -6,6 +6,9 @@
 
 ## Introduction
 
+![image](https://user-images.githubusercontent.com/76580/167263224-eb4c56a8-a1bb-4c0e-a7c2-2e54b7252c1b.png)
+
+
 Manipulating arrays in code is a very common operation. Whether you are creating a total for a shopping cart, grabbing only the first names out of a list of people, or moving a piece on a chessboard, you are probably going to be modifying or manipulating an array in some way.
 
 ## Requirements
