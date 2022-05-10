@@ -1,41 +1,102 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(x,y) {
+  if (x >= y){
+    return x;
+  }
+  else {
+    return y;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let maxLetters = 0;
+  let indexOfLongest = 0;
+  if (words.length === 0){
+    return null;
+  } 
+  for (let i = 0; i < words.length; i++){
+    if (words[i].length > maxLetters){
+      indexOfLongest = i;
+      maxLetters = words[i].length;
+    }
+  }
+  return words[indexOfLongest];
+}
 
-
+console.log(findLongestWord(words))
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (let number of numbers){
+    sum += number;
+  }
+  return sum
+}
 
-
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(list) {
+  if (list.length === 0){
+    return 0;
+  }
+  let sum = 0;
+  for (let item of list){
+    if (typeof(item) === "number"){
+      sum += item;
+    } else if (typeof(item) === "string"){
+      sum += item.length;
+    } else if (typeof(item) === "boolean"){
+        if (item){
+          sum += 1;
+        }
+    } else if (typeof(item) === "object"){
+        return "Unsupported data type sir or ma'am"
+    }
+  }
+  return sum;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0){
+    return null;
+  }
+  const total = sumNumbers(numbers);
+  return total / numbers.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(list) {
+  const listOfNumbers = list.map(function(item){
+    return item.length;
+  })
+  return averageNumbers(listOfNumbers);
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(list) {
+  if (list.length === 0){
+    return null;
+  }
+  let average = sum(list) / list.length
+  return +average.toFixed(2);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +113,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayWithSomeDuplicates) {
+  if (arrayWithSomeDuplicates.length === 0){
+    return null;
+  }
+  let arrayWithoutDuplicates = [];
+  for (let item of arrayWithSomeDuplicates){
+    if (arrayWithoutDuplicates.indexOf(item) === -1){
+      arrayWithoutDuplicates.push(item);
+    }
+  }
+  return arrayWithoutDuplicates;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(list, wordToSearch) {
+  if (list.length === 0){
+    return null;
+  }
+  for (let word of list){
+    if (word === wordToSearch){
+      return true
+    }
+  }
+  return false
+}
 
 
 
@@ -78,7 +160,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(list, wordToCount) {
+  let sum = 0;
+  for (let word of list){
+    if (word === wordToCount){
+      sum ++;
+    }
+  }
+  return sum;
+}
 
 
 
@@ -106,7 +196,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let max = 0;
+  for (let i = 0; i < matrix.length - 4; i++){
+    for (let j = 0; j < matrix[i].length - 4; j++){
+      let horizontalMultiplication = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      let verticalMultiplication = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+      if (horizontalMultiplication > max){
+        max = horizontalMultiplication;
+      }
+      if (verticalMultiplication > max){
+        max = verticalMultiplication;
+      }
+    }
+  }
+  return max;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  
+}
 
 
 
