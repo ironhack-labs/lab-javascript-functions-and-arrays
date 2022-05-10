@@ -94,7 +94,7 @@ function averageNumbers(array) {
   }
 
   const arrayLength = array.length;
-  
+
   if (!arrayLength) {
     return null;
   }
@@ -144,7 +144,7 @@ function uniquifyArray(array) {
   if (!Array.isArray(array)) {
     throw `TypeError: The argument passed to uniquifyArray must be an array!`;
   }
-  
+
   let uniqueArray = [];
 
   array.forEach(element => {
@@ -169,7 +169,7 @@ function doesWordExist(array, word) {
     return null;
   }
 
-  let result = false; 
+  let result = false;
   array.forEach(element => {
     if (element === word) {
       result = true;
@@ -200,7 +200,7 @@ function howManyTimes(array, word) {
   if (!Array.isArray(array)) {
     throw `Type Error: The first argument must be an array!`;
   }
-  
+
   let count = 0;
 
   array.forEach(element => {
@@ -265,6 +265,89 @@ function greatestProduct(matrix) {
 
   return greatestP;
 }
+
+
+function greatestProductOfDiagonals(matrix) {
+  let greatestProduct = 0;
+
+
+  // greatest product of 45 diagonal
+  for (let i = 0; i < matrix[0].length; i++) {
+    let h = i;
+    let v = 0;
+    let numOfEl = 1;
+    let product = matrix[v][h]
+
+    while (h > 0 && v < matrix.length) {
+
+      if (numOfEl < 5) {
+
+        h--;
+        v++;
+        numOfEl++;
+        product *= matrix[v][h];
+
+      } else {
+
+        if (product > greatestProduct) {
+          greatestProduct = product;
+        }
+        
+        numOfEl = 1;
+        v -= 2;
+        h += 2;
+        product = matrix[v][h];
+
+      }
+    }
+
+    if (product > greatestProduct) {
+      greatestProduct = product;
+    }
+  }
+
+  // greatest product of -45 diagonal
+  for (let i = matrix[0].length - 1; i <= 0; i--) {
+    let h = i;
+    let v = 0;
+    let numOfEl = 1;
+    let product = matrix[v][h]
+
+    while (h > matrix[0].length && v < matrix.length) {
+
+      if (numOfEl < 5) {
+
+        h++;
+        v++;
+        numOfEl++;
+        product *= matrix[v][h];
+
+      } else {
+
+        if (product > greatestProduct) {
+          greatestProduct = product;
+        }
+
+        numOfEl = 1;
+        v -= 2;
+        h -= 2;
+        product *= matrix[v][h];
+
+      }
+    }
+
+    if (product > greatestProduct) {
+      greatestProduct = product;
+    }
+  }
+
+
+  return greatestProduct;
+}
+
+console.log(greatestProductOfDiagonals(matrix));
+
+
 
 
 
