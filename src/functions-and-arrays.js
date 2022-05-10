@@ -1,13 +1,20 @@
 console.log('exo')
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers( nb1, nb2) {
+  if( typeof nb1 === 'number' &&  typeof nb2==='number'){
+    return nb1>nb2 ? nb1 : nb2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArr) {
+  let res=''
+  wordsArr.forEach( w=> res = w.length>res.length ? w : res)
+}
 
 
 
