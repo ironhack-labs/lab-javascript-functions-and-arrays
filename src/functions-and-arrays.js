@@ -1,24 +1,86 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  if (!Array.isArray(array)) {
+    throw `TypeError: The argument passed to findLongestWord must be an array!`;
+  }
+  if (array.length === 0) {
+    return null;
+  }
+
+  let longestWord = ``;
+  let longestWordLength = 0;
+
+  array.forEach(word => {
+    if (typeof word !== `string`) {
+      return;
+    }
+
+    const wordLength = word.length;
+
+    if (wordLength > longestWordLength) {
+      longestWordLength = wordLength;
+      longestWord = word;
+    }
+  });
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  if (!Array.isArray(array)) {
+    throw `TypeError: The argument passed to sumNumbers must be an array!`;
+  }
+
+  let sum = 0;
+
+  array.forEach(number => {
+    if (typeof number !== `number`) {
+      return;
+    }
+    sum += number;
+  });
+
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  if (!Array.isArray(array)) {
+    throw `TypeError: The argument passed to sum must be an array!`;
+  }
+
+  let sum = 0;
+
+  array.forEach(element => {
+    if (typeof element === `string`) {
+      element = element.length;
+    } else if (typeof element === `boolean`) {
+      element ? 1 : 0;
+    } else if (typeof element !== `number`) {
+      throw `Unsupported data type sir or ma'am`;
+    }
+
+    sum += element;
+  })
+
+  return sum;
+}
 
 
 
@@ -26,16 +88,42 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (!Array.isArray(array)) {
+    throw `TypeError: The argument passed to averageNumbers must be an array!`;
+  }
+
+  const arrayLength = array.length;
+  
+  if (!arrayLength) {
+    return null;
+  }
+
+  return sumNumbers(array) / arrayLength;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  return avg(array, false);
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array, fixedOn = true) {
+  if (!Array.isArray(array)) {
+    throw `TypeError: The argument passed to avg must be an array!`;
+  }
+
+  const arrayLength = array.length;
+
+  if (!arrayLength) {
+    return null;
+  }
+
+  return fixedOn ? parseFloat((sum(array) / arrayLength).toFixed(2)) : sum(array) / arrayLength;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +140,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (!Array.isArray(array)) {
+    throw `TypeError: The argument passed to uniquifyArray must be an array!`;
+  }
+  
+  let uniqueArray = [];
+
+  array.forEach(element => {
+    if (!uniqueArray.includes(element)) {
+      uniqueArray.push(element);
+    }
+  });
+
+  return uniqueArray.length ? uniqueArray : null;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  if (!Array.isArray(array)) {
+    throw `Type Error: The first argument must be an array!`;
+  }
+  if (array.length === 0) {
+    return null;
+  }
+
+  let result = false; 
+  array.forEach(element => {
+    if (element === word) {
+      result = true;
+    }
+  });
+
+  return result;
+}
 
 
 
@@ -78,7 +196,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  if (!Array.isArray(array)) {
+    throw `Type Error: The first argument must be an array!`;
+  }
+  
+  let count = 0;
+
+  array.forEach(element => {
+    if (element === word) {
+      count++;
+    }
+  });
+
+  return count;
+}
 
 
 
@@ -106,8 +238,33 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestP = 0;
 
+  // horizontal greatest product
+  matrix.forEach(array => {
+    for (let i = 3; i < array.length; i++) {
+      const hProduct = array[i] * array[i - 1] * array[i - 2] * array[i - 3];
+
+      if (hProduct > greatestP) {
+        greatestP = hProduct;
+      }
+    }
+  });
+
+  // vertical greatest product
+  for (let i = 0; i < matrix[0].length; i++) {
+    for (let j = 3; j < matrix.length; j++) {
+      const vProduct = matrix[j][i] * matrix[j - 1][i] * matrix[j - 2][i] * matrix[j - 3][i];
+
+      if (vProduct > greatestP) {
+        greatestP = vProduct;
+      }
+    }
+  }
+
+  return greatestP;
+}
 
 
 
