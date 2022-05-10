@@ -59,7 +59,7 @@ function sum(list) {
           sum += 1;
         }
     } else if (typeof(item) === "object"){
-        return "Unsupported data type sir or ma'am"
+        throw Error("Unsupported data type sir or ma'am")
     }
   }
   return sum;
@@ -198,8 +198,8 @@ const matrix = [
 
 function greatestProduct(matrix) {
   let max = 0;
-  for (let i = 0; i < matrix.length - 4; i++){
-    for (let j = 0; j < matrix[i].length - 4; j++){
+  for (let i = 0; i < matrix.length - 3; i++){
+    for (let j = 0; j < matrix[i].length - 3; j++){
       let horizontalMultiplication = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
       let verticalMultiplication = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
       if (horizontalMultiplication > max){
@@ -213,11 +213,30 @@ function greatestProduct(matrix) {
   return max;
 }
 
+console.log(greatestProduct(matrix));
+
 function greatestProductOfDiagonals(matrix) {
-  
+  let max = 0;
+  for (let i = 0; i < matrix.length - 3; i++){
+    for (let j = 0; j < matrix[i].length - 3; j++){
+      let diagonalMultiplication = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+      if (diagonalMultiplication > max){
+        max = diagonalMultiplication;
+      }
+    }
+  }
+  for (let i = matrix.length-1; i > 2; i--){
+    for (let j = 3; j < matrix[i].length; j++){
+      let diagonalMultiplication = matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3];
+      if (diagonalMultiplication > max){
+        max = diagonalMultiplication;
+      }
+    }
+  }
+  return max;
 }
 
-
+console.log(greatestProductOfDiagonals(matrix));
 
 
 // The following is required to make unit tests work.
