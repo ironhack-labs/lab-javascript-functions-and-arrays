@@ -187,10 +187,29 @@ function greatestProduct(matrix) {
   return product
 }
 
-greatestProduct(matrix)
+const greatestProductOfDiagonals = (matrix)=>{
+  let product=0
+  //upLeft -> downRight
+  for(let line=0 ; line<17 ; line++){
+    for(let row=0 ; row<17 ; row++){
+      const temp = matrix[line][row] * matrix[line+1][row+1] * matrix[line+2][row+2] * matrix[line+3][row+3]
+      //console.log( matrix[line][row] , matrix[line+1][row+1] , matrix[line+2][row+2] , matrix[line+3][row+3] )
+      product = temp > product ? temp : product
+    }
+  }
+  console.log('----------------')
+  //downLeft -> upRight 
+  for(let line=3 ; line<20 ; line++){
+    for(let row=3 ; row<20 ; row++){
+      const temp = matrix[line-3][row-3] * matrix[line-2][row-2] * matrix[line-1][row-1] * matrix[line][row]
+      //console.log( matrix[line-3][row-3] , matrix[line-2][row-2] , matrix[line-1][row-1] , matrix[line][row] )
+      product = temp > product ? temp : product
+    }
+  }
+  return product
+}
 
-
-
+console.log(greatestProductOfDiagonals(matrix))
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
