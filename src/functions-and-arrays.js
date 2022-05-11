@@ -270,74 +270,80 @@ function greatestProduct(matrix) {
 function greatestProductOfDiagonals(matrix) {
   let greatestProduct = 0;
 
-
+  let i = 0;
+  let j = 0;
   // greatest product of 45 diagonal
-  for (let i = 0; i < matrix[0].length; i++) {
-    let h = i;
-    let v = 0;
-    let numOfEl = 1;
-    let product = matrix[v][h]
+  while (j < matrix.length || i < matrix[0].length) {
+    let h = i < matrix.length ? i : i - 1;
+    let v = j;
+    let product = matrix[v][h];
 
-    while (h > 0 && v < matrix.length) {
 
-      if (numOfEl < 5) {
-
-        h--;
+    while (matrix[v] !== undefined && matrix[v][h] !== undefined) {
+      for (let j = 0; j < 3; j++) {
+        // console.log(product);
         v++;
-        numOfEl++;
-        product *= matrix[v][h];
+        h--;
 
-      } else {
-
-        if (product > greatestProduct) {
-          greatestProduct = product;
+        if (matrix[v] !== undefined && matrix[v][h] !== undefined) {
+          product *= matrix[v][h];
         }
-        
-        numOfEl = 1;
-        v -= 2;
-        h += 2;
-        product = matrix[v][h];
+      }
 
+      if (product > greatestProduct) {
+        greatestProduct = product;
+      }
+
+      v -= 2;
+      h += 2;
+      if (matrix[v] !== undefined && matrix[v][h] !== undefined) {
+        product = matrix[v][h];
       }
     }
 
-    if (product > greatestProduct) {
-      greatestProduct = product;
+    if (i < matrix[0].length) {
+      i++;
+    } else {
+      j++;
     }
   }
 
   // greatest product of -45 diagonal
-  for (let i = matrix[0].length - 1; i <= 0; i--) {
-    let h = i;
-    let v = 0;
-    let numOfEl = 1;
-    let product = matrix[v][h]
+  i = matrix[0].length - 1;
+  j = 0;
 
-    while (h > matrix[0].length && v < matrix.length) {
+  while (j < matrix.length || i >= 0) {
+    let h = i > 0 ? i : 0;
+    let v = j;
+    let product = matrix[v][h];
 
-      if (numOfEl < 5) {
 
-        h++;
+    while (matrix[v] !== undefined && matrix[v][h] !== undefined) {
+      for (let j = 0; j < 3; j++) {
+        // console.log(product);
         v++;
-        numOfEl++;
-        product *= matrix[v][h];
+        h++;
 
-      } else {
-
-        if (product > greatestProduct) {
-          greatestProduct = product;
+        if (matrix[v] !== undefined && matrix[v][h] !== undefined) {
+          product *= matrix[v][h];
         }
+      }
 
-        numOfEl = 1;
-        v -= 2;
-        h -= 2;
-        product *= matrix[v][h];
+      if (product > greatestProduct) {
+        greatestProduct = product;
+      }
 
+      v -= 2;
+      h -= 2;
+      if (matrix[v] !== undefined && matrix[v][h] !== undefined) {
+        product = matrix[v][h];
       }
     }
 
-    if (product > greatestProduct) {
-      greatestProduct = product;
+    if (i >= 0) {
+      i--;
+    } else {
+      j++;
     }
   }
 
