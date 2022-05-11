@@ -1,13 +1,10 @@
 // Iteration #1: Find the maximum
 
-//****FUNCIONA****
 
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2){
-    //console.log(`${num1} it's largest than ${num2}.`)
     return num1
   } 
-  //console.log(`${num2} it's largest than ${num1}.`)
   return num2
 }
 
@@ -18,62 +15,38 @@ maxOfTwoNumbers(5, 3)
 
 // Iteration #2: Find longest word 
 
-//*****FUNCIONA****
 const words1 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
+  let longestWord = ''
   if (words.length === 0) {
     return null
-  };
-
-  let longestWord = ''
+  };  
   for (let i= 0; i < words.length; i++) {
     if (longestWord.length < words[i].length) {
       longestWord = words[i]
     }
   }
-    //console.log(`The longest word is ${longestWord} and have ${longestWordLetters} letters.`)
   return longestWord
 }
 findLongestWord(words1)
-//console.log(words.length)
-/*console.log(words[0].length)
-console.log(words[1].length)
-console.log(words[2].length)
-console.log(words[3].length)
-console.log(words[4].length)
-console.log(words[5].length)
-console.log(words[6].length)*/
-  
-
 
 
 // Iteration #3: Calculate the sum
 
-//*******FUNCIONA*******
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(sum) {
   let numberAdded = 0
   for (let i = 0; i < sum.length; i++){
     numberAdded += sum[i]
-    /*if (sum[i] !== 'number'){
-      return 'error'
-    }*/
-  }
-  //console.log(numberAdded)
+    }
   return numberAdded
 }
-/*console.log(numbers.length)
-console.log(numbers[0])
-console.log(numbers[1])
-console.log(numbers[2])
-console.log(numbers[3])*/
 sumNumbers(numbers)
 
 // Iteration #3.1 Bonus:
 
-//*****FUNCIONA*****
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(mixed) {
@@ -89,7 +62,6 @@ function sum(mixed) {
       }
     }      
   }
-  //console.log(numberAdded)
   return numberAdded
 }
 
@@ -98,7 +70,6 @@ sum(mixedArr)
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 
-//*******FUNCIONA*****
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
@@ -109,9 +80,7 @@ function averageNumbers(numbers) {
   for (let i = 0; i < numbers.length; i++){
     numberAdded += numbers[i]
   }
-  //console.log(`La suma de todos los números es ${numberAdded}.`)
-  //console.log(`La media de todos los números es ${numberAdded / numbers.length}`)
-
+  
   return numberAdded / numbers.length
 }
 
@@ -119,7 +88,6 @@ averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 
-//*********FUNCIONA*******
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(letters) {
@@ -129,9 +97,7 @@ function averageWordLength(letters) {
   }
   for (let i=0; i < letters.length; i++)
     numberOfLetters += letters[i].length
-  //console.log(`El número total de letras es de: ${numberOfLetters}.`)
-  //console.log(`La media de letras por palabra es de: ${numberOfLetters / letters.length}.`)
-
+  
   return(numberOfLetters / letters.length)
 }
 
@@ -142,7 +108,6 @@ function avg() {}
 
 // Iteration #5: Unique arrays
 
-//******FUNCIONA*****
 const palabras = [
   'crab',
   'poison',
@@ -167,15 +132,13 @@ function uniquifyArray(uniqueWords){
       wordsOnce.push(uniqueWords[i]);
     }
 }
-      //console.log(wordsOnce)
-      return wordsOnce
+     return wordsOnce
 }
 uniquifyArray(palabras)
 
 
 // Iteration #6: Find elements
 
-//********* FUNCIONA ******
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(test, compare) {
@@ -192,7 +155,6 @@ function doesWordExist(test, compare) {
       continue;
       }   
     }
-  //console.log(comparison)
   return comparison
   }
 
@@ -201,7 +163,6 @@ doesWordExist(wordsFind, 'truth')
 
 // Iteration #7: Count repetition
 
-//********FUNCIONA*****
 const wordsCount = [
   'machine',
   'matter',
@@ -223,7 +184,6 @@ function howManyTimes(test, compare) {
       repeated += 1;
     }
   }
-  //console.log(`La palabra ${compare} está repetida ${repeated} veces.`)
   return repeated
 }
 
