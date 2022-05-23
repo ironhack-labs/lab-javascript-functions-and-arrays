@@ -1,41 +1,115 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArr) {
+  let longestWord = '';
 
+  if (wordsArr.length === 0) {
+    return null;
+  }
 
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].length > longestWord.length) {
+      longestWord = wordsArr[i];
+    }
+  }
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numberArr) {
+  let sum = 0;
+  for (let i = 0; i < numberArr.length; i++) {
+    sum += numberArr[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  let sum = 0;
 
+  if (mixedArr.includes([]) || mixedArr.includes({})) {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
 
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (mixedArr[i] == true) {
+      sum += 1;
+    } else if (mixedArr[i] == false) {
+      sum += 0;
+    } else if (typeof mixedArr[i] === 'string') {
+      sum += mixedArr[i].length;
+    } else {
+      sum += mixedArr[i];
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numberArr) {
+  let sum = 0;
 
+  if (numberArr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < numberArr.length; i++) {
+    sum += numberArr[i];
+  }
+  return sum / numberArr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) {
+  let sum = 0;
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < wordsArray.length; i++) {
+    sum += wordsArray[i].length;
+  }
+  return sum / wordsArray.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  let sum = 0;
+
+  if (mixedArr.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (mixedArr[i] == true) {
+      sum += 1;
+    } else if (mixedArr[i] == false) {
+      sum += 0;
+    } else if (typeof mixedArr[i] === 'string') {
+      sum += mixedArr[i].length;
+    } else {
+      sum += mixedArr[i];
+    }
+  }
+
+  return sum / mixedArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +126,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArr) {
+  var uniqueArr = [];
 
-
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  for (i = 0; i < wordsArr.length; i++) {
+    if (uniqueArr.indexOf(wordsArr[i]) === -1) {
+      uniqueArr.push(wordsArr[i]);
+    }
+  }
+  return uniqueArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsArr, word) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  return wordsArr.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +165,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(wordsArr, word) {
+  let wordOccurrence = 0;
+  if (wordsArr.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (word === wordsArr[i]) {
+      wordOccurrence++;
+    }
+  }
+  return wordOccurrence;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +203,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
