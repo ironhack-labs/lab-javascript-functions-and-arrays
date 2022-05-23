@@ -14,7 +14,7 @@ function findLongestWord(arrWords) {
   if (arrWords.length === 0) {
     return null;
   } else if (arrWords.length !== 0) {
-    var longestWordYet = ' ';
+    let longestWordYet = ' ';
     for (i = 0; i < arrWords.length; i++) {
       if (arrWords[i].length > longestWordYet.length) {
         longestWordYet = arrWords[i];
@@ -95,8 +95,6 @@ function averageWordLength(words) {
 
 // Bonus - Iteration #4.1
 
-
-
 function avg(mixedArray) {
   if (mixedArray.length === 0) {
     return null;
@@ -114,7 +112,7 @@ function avg(mixedArray) {
     }
   });
   result /= mixedArray.length;
-  return Math.round(result*100)/100
+  return Math.round(result * 100) / 100;
 }
 
 // Iteration #5: Unique arrays
@@ -134,7 +132,7 @@ const wordsUnique = [
 
 function uniquifyArray(someArray) {
   if (someArray.length === 0) {
-    return null
+    return null;
   }
   let uniqueArray = [];
   for (let i = 0; i < someArray.length; i++) {
@@ -150,11 +148,18 @@ function uniquifyArray(someArray) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsArr) {
+function doesWordExist(wordsArr, wordToFind) {
   if (wordsArr.length === 0) {
-    return null
+    return null;
   }
 
+  for (i = 0; i < wordsArr.length; i++) {
+    if (wordsArr.indexOf(wordToFind) === -1) {
+      return false;
+    } else if (wordsArr.indexOf(wordToFind) !== -1) {
+      return true;
+    }
+  }
 }
 
 // Iteration #7: Count repetition
@@ -172,16 +177,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsList) {
-  
-  var nonRepeatedTerms = [];
-  var repeatedTerms = [];
-  for (i = 0; i < wordsList.length; i++) {
-    if (wordsList[i] !== nonRepeatedTerms.search(wordsList[i])) {
-      nonRepeatedTerms.push(wordsList[i]);
-    }
+function howManyTimes(wordsList, wordToCount) {
+  let count = 0;
+
+  let position = wordsList.indexOf(wordToCount);
+
+  while (position !== -1) {
+    count++;
+    position = wordsList.indexOf(wordToCount, position + 1);
   }
+  return count;
 }
+
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
