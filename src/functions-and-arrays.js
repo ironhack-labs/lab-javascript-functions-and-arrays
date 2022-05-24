@@ -37,24 +37,94 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(mixedArr) {
 
+  if(mixedArr.length === 0) {
+    return 0
+  } else if(mixedArr.length === 1) {
+    return mixedArr[0]
+  }
+  let total = 0
+    mixedArr.forEach(function(element){
+      if(element == 0) {
+        console.log(element)
+        return 0
+      } else if (typeof element === 'number') {
+        total += element
+      } else if (typeof element === 'string') {
+        total += element.length
+      } else if (typeof element === 'boolean' && element === true) {
+        total += 1
+      } else if(typeof element === [] || typeof element === 'object') {
+        throw "Unsupported data type sir or ma'am"
+      }
+    })
+  return total
+}
 
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null
+  }	else if (numbersAvg.length === 1) {
+    return numbersAvg[0]
+  } else {
+    let total = 0
+    numbersAvg.forEach(function (element){
+      total += element
+    })
+    return total / numbersAvg.length
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if(wordsArr.length === 0) {
+    return null
+  } else if (wordsArr.length === 1) {
+    return wordsArr[0].length
+  } else {
+    let total = 0
+    wordsArr.forEach(function (element){
+      total += element.length
+    })
+    return total / wordsArr.length
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(mixedArr) {
+
+  if(mixedArr.length === 0) {
+    return null
+  }
+  let total = 0
+    mixedArr.forEach(function(element){
+      if(element == 0) {
+        return 0
+      } else if (typeof element === 'number') {
+        total += element
+      } else if (typeof element === 'string') {
+        total += element.length
+      } else if (typeof element === 'boolean' && element === true) {
+        total += 1
+      } else if(typeof element === [] || typeof element === 'object') {
+        throw "Unsupported data type sir or ma'am"
+      }
+    })
+  total = Number((total / mixedArr.length).toFixed(2))
+  return total
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -71,7 +141,10 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  
+}
+
 
 
 
