@@ -48,11 +48,9 @@ function sum(numbers) {
     } else if (typeof numbers[i] === 'string') {
       mixedSum += numbers[i].length;
     } else if (typeof numbers[i] === 'boolean') {
-      if (numbers[i] === true) {
-        mixedSum += 1;
-      }
-    } else if (typeof numbers[i] === 'array' || typeof numbers[i] === 'object') {
-      throw "Unsupported data type sir or ma'am";
+      mixedSum += Number(numbers[i]);
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return mixedSum;
