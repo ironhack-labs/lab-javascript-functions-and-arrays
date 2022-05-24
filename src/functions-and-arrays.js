@@ -139,7 +139,7 @@ function avg(arr) {
    
 
   
-  return (result / arr.length).toFixed(2);
+  return Number((result / arr.length).toFixed(2));
 }
 
 console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
