@@ -128,7 +128,7 @@ function avg(arr) {
 
   const average = startingSum/arr.length
 
-  return average
+  return Number(average.toFixed(2));
 };
 
 
