@@ -12,10 +12,21 @@ function maxOfTwoNumbers(num1, num2) {
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+//const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// Q: code not working overall, not understanding bug text
 
-function findLongestWord(word) {
-  
+function findLongestWord(words) {
+  let longestWord
+
+    if(words.length === 0){
+      return null
+    }else if(words.length !== 0){
+      for (u = 0; u < words.length; u++){
+        if(longestWord.length < words[u].length){
+          longestWord = words[u]
+        }
+    }
+  }return longestWord
 }
 
 
@@ -69,6 +80,8 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
+// Q: don't know why code isn't returning null
+
 function avg(mixedArr) {
   let result5 = 0
   for(p = 0; p < mixedArr.length; p++){
@@ -108,6 +121,7 @@ function uniquifyArray(wordsUnique) {}
 
 // Iteration #6: Find elements
 //const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+// Q: not retuning null, also returns false even if the word is in the array
 
 function doesWordExist(wordsFind, word) {
   for(l = 0; l < wordsFind.length; l++){
