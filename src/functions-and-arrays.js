@@ -246,16 +246,7 @@ function greatestProduct(matrix) {
   return product;
 }
 
-// const smallMatrix = [
-//   [1, 2, 3, 4, 5],
-//   [1, 20, 3, 4, 5],
-//   [1, 20, 3, 4, 5],
-//   [1, 20, 3, 4, 5],
-//   [1, 4, 3, 4, 5],
-// ];
-
-console.log(greatestProduct(matrix)); // 51267216
-// console.log(greatestProduct(smallMatrix)); // 32000
+console.log(greatestProduct(matrix));
 
 function greatestProductOfDiagonals(matrix) {
   let product = 1;
@@ -296,7 +287,7 @@ const smallMatrix = [
   [1, 20, 3, 4, 0],
   [1, 20, 3, 4, 0],
   [1, 20, 3, 4, 0]
-]; // 120000
+];
 
 console.log(greatestProductOfDiagonals(smallMatrix));
 
