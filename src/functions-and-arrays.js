@@ -13,6 +13,10 @@ const words1 = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard'
 
 function findLongestWord(word) {
     
+  if(word.length == 0){
+    return null
+  }
+
   let longestWord = word[0];
 
   for(let i = 1 ; i < word.length; i++){
@@ -29,8 +33,12 @@ function findLongestWord(word) {
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
+// 
 function sumNumbers(number) {
+  if (number.length == 0){
+    return 0;
+  }
+
   let numSum = 0
   number.forEach(function(num){
     numSum = numSum + num;
@@ -43,7 +51,34 @@ sumNumbers(numbers);
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+let otherNumbers = ["cuat" , 4 , true, false];
+
+function sum(numbers) {
+  if (numbers.length == 0){
+    return 0;
+  } else if(numbers.length == 1){
+    return numbers[0];
+  }
+  let unsupported = "Unsupported data type sir or ma'am";
+  let numbersSum = 0
+  for(i = 0 ; i < numbers.length ; i++){
+    if (typeof numbers[i] === 'number'){
+          numbersSum = numbersSum + numbers[i];
+     } else if (typeof numbers[i] === 'string'){
+          numbersSum = numbersSum + numbers[i].length;
+     } else if(numbers[i] === true){
+          numbersSum = numbersSum + 1;
+     }else if(numbers[i] === false){
+          numbersSum = numbersSum + 0;
+        } else{
+          throw ("Unsupported data type sir or ma'am");
+        }
+  }
+  console.log(numbersSum)
+  return numbersSum;
+}
+
+sum(otherNumbers);
 
 
 
@@ -52,6 +87,11 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+
+  if (numbers.length === 0){
+    return null;
+  }
+
   let sumNum = 0;
   numbers.forEach(function(num){
     sumNum = sumNum + num;
@@ -70,6 +110,10 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(words) { 
   
+  if (words.length === 0){
+    return null;
+  }
+
   let sumNumArray = 0;
 
   words.forEach(function(word){
@@ -104,6 +148,11 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arrayWords) {
+  
+  if (arrayWords.length === 0){
+    return null;
+  }
+
   let uniqueWords = [];
   arrayWords.forEach(function(word){
     let countRepetition = 0;
@@ -128,19 +177,33 @@ uniquifyArray(wordsUnique)
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(findWord) {
+  if (wordsFind.length === 0){
+    return null;
+  }
+  if (findWord.length === 0){
+    return null;
+  }
+
+  if (wordsFind.length === 1 && findWord == wordsFind[0]) {
+    console.log ("this word is the only one in the array");
+    return true;
+  }
   let repeat = 0;
   for(i=0 ; i<wordsFind.length ; i++){
     if(wordsFind[i] == findWord){
       console.log(`yeah bro, ${findWord} does exist`);
       repeat ++;
-      break;
       } 
     } 
-    if(repeat == 0){
-    console.log(`nah bro, ${findWord} does not exist`);
-  }
-}
+    if(repeat === 1) {
+    return true;
+     }else if (repeat === 0) {
+      console.log(`nah bro, ${findWord} does not exist`);
+       return false;
+     }
+  }   
 
+doesWordExist('machine')
 doesWordExist("suxset");
 
 // Iteration #7: Count repetition
