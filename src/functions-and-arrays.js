@@ -115,10 +115,10 @@ function uniquifyArray(banana) {
   banana.forEach((word) => {
     if (!resultTwo.includes(word)) {
       resultTwo.push(word);
-    }
+    } return resultTwo
   });
 
-  console.log(resultTwo)
+  
 
 }
 uniquifyArray(wordsUnique);
@@ -128,18 +128,23 @@ uniquifyArray(wordsUnique);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(apple, wordToSearch) {
-
-  if (apple.includes(wordToSearch)) {
+  
+  
+  if (apple.length ===  0 ) return null;
+  else if (apple.length !== 0) {
+     if (apple.includes(wordToSearch)) {
 
     return true;
 
   }
 
   else return false
+}
 
 }
 
 doesWordExist(wordsFind, "cacahuete")
+doesWordExist()
 
 
 // Iteration #7: Count repetition
