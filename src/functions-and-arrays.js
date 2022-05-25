@@ -35,24 +35,23 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  let resultSum = 0;
   if (numbers.length === 0) {
     return 0
   }
+  let resultSum = 0;
   numbers.forEach(number => {
     if (typeof (number) === 'string') {
       resultSum += (number.length);
-    } 
-    else if (typeof (number) === "boolean") {
-      if (Boolean === true){
+    } else if (typeof (number) === "boolean") {
+      if (number === true) {
         resultSum += 1;
-      }else {
+      } else {
         resultSum += 0;
-      }    
-    }else if (typeof (number) === "number") {
+      }
+    } else if (typeof (number) === "number") {
       resultSum += number;
-    } else {
-       return "Unsupported data type sir or ma'am";
+    } else if (typeof (number) === "object") {
+      return Error ("Unsupported data type sir or ma'am");
     }
   })
   return resultSum;
@@ -116,6 +115,7 @@ function avg(numbers) {
   if (numbers.length === 0) {
     return null
   }
+  averageNumbers(numbers);
 }
 
 
@@ -227,7 +227,13 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(numbers) {
+  numbers.forEach(number => {
+
+
+  })
+
+}
 
 
 
