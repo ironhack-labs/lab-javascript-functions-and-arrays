@@ -215,37 +215,90 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(arr, n) {
-  let max = 0,
-    result;
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      if (j - 3 >= 0) {
-        result = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
-        if (max < result) max = result;
-      }
-      if (i - 3 >= 0) {
-        result = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+function greatestProduct(matrix) {
+  let product = 1;
 
-        if (max < result) max = result;
-      }
+  const numberOfRows = matrix.length;
+  const numberOfColumns = matrix[0].length;
 
-      if (i - 3 >= 0 && j - 3 >= 0) {
-        result = arr[i][j] * arr[i - 1][j - 1] * arr[i - 2][j - 2] * arr[i - 3][j - 3];
+  for (let row = 0; row < numberOfRows; row++) {
+    for (let column = 0; column < numberOfColumns - 3; column++) {
+      let rowProduct =
+        matrix[row][column] * matrix[row][column + 1] * matrix[row][column + 2] * matrix[row][column + 3];
 
-        if (max < result) max = result;
-      }
-
-      if (i - 3 >= 0 && j - 1 <= 0) {
-        result = arr[i][j] * arr[i - 1][j + 1] * arr[i - 2][j + 2] * arr[i - 3][j + 3];
-
-        if (max < result) max = result;
+      if (rowProduct > product) {
+        product = rowProduct;
       }
     }
   }
 
-  return max;
+  for (let column = 0; column < numberOfColumns; column++) {
+    for (let row = 0; row < numberOfRows - 3; row++) {
+      let columnProduct =
+        matrix[row][column] * matrix[row + 1][column] * matrix[row + 2][column] * matrix[row + 3][column];
+
+      if (columnProduct > product) {
+        product = columnProduct;
+      }
+    }
+  }
+
+  return product;
 }
+
+// const smallMatrix = [
+//   [1, 2, 3, 4, 5],
+//   [1, 20, 3, 4, 5],
+//   [1, 20, 3, 4, 5],
+//   [1, 20, 3, 4, 5],
+//   [1, 4, 3, 4, 5],
+// ];
+
+console.log(greatestProduct(matrix)); // 51267216
+// console.log(greatestProduct(smallMatrix)); // 32000
+
+function greatestProductOfDiagonals(matrix) {
+  let product = 1;
+
+  const numberOfRows = matrix.length;
+  const numberOfColumns = matrix[0].length;
+
+  for (let row = 0; row < numberOfRows - 3; row++) {
+    for (let column = 0; column < numberOfColumns - 3; column++) {
+      console.log(row, column);
+
+      let diagonalProduct =
+        matrix[row][column] * matrix[row + 1][column + 1] * matrix[row + 2][column + 2] * matrix[row + 3][column + 3];
+
+      if (diagonalProduct > product) {
+        product = diagonalProduct;
+      }
+    }
+  }
+
+  for (let row = 0; row < numberOfRows - 3; row++) {
+    for (let column = 3; column < numberOfColumns; column++) {
+      let invertedDiagonalProduct =
+        matrix[row][column] * matrix[row + 1][column - 1] * matrix[row + 2][column - 2] * matrix[row + 3][column - 3];
+
+      if (invertedDiagonalProduct > product) {
+        product = invertedDiagonalProduct;
+      }
+    }
+  }
+
+  return product;
+}
+
+const smallMatrix = [
+  [1, 2, 3, 4, 500],
+  [1, 20, 3, 4, 0],
+  [1, 20, 3, 4, 0],
+  [1, 20, 3, 4, 0],
+  [1, 20, 3, 4, 0]
+]; // 120000
+
+console.log(greatestProductOfDiagonals(smallMatrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
