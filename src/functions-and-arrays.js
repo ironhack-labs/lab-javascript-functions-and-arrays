@@ -1,5 +1,5 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(num1, num2) {
+/*function maxOfTwoNumbers(num1, num2) {
   let higher;
   if (num1 < num2) {
     higher = num2
@@ -7,9 +7,14 @@ function maxOfTwoNumbers(num1, num2) {
     higher = num1
   }
   return higher
-}
+}*/
 
-console.log(maxOfTwoNumbers(1,2))
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 < num2) {
+    return num2
+  } 
+  return num1
+}
 
 
 // Iteration #2: Find longest word
@@ -19,7 +24,7 @@ function findLongestWord(arr) {
   if (arr.length === 0) {
     return null
   }
-  let word = "";
+  let word = '';
   for (let i = 0; i < arr.length; i++) {
     if (word.length < arr[i].length) {
       word = arr[i];
@@ -59,13 +64,13 @@ function sum(arr) {
     num = num + arr[i]
   }*/
   arr.forEach(item => {
-    if (typeof item === "string") {
+    if (typeof item === 'string') {
       result += item.length
-    } else if (typeof item ===  "number") {
+    } else if (typeof item ===  'number') {
       result +=  item
     } else if (item === true) {
       result ++
-    } else if (typeof item === "object" || typeof item === "array") {
+    } else if (typeof item === 'object' || typeof item === 'array') {
       throw new Error("Unsupported data type sir or ma'am")
     }
   })
@@ -126,13 +131,13 @@ function avg(arr) {
     return null
   }
   arr.forEach(item => {
-    if (typeof item === "string") {
+    if (typeof item === 'string') {
       result += item.length
-    } else if (typeof item ===  "number") {
+    } else if (typeof item ===  'number') {
       result +=  item
     } else if (item === true) {
       result ++
-    } else if (typeof item === "object" || typeof item === "array") {
+    } else if (typeof item === 'object') {
       throw new Error("Unsupported data type sir or ma'am")
     }
   })
@@ -142,7 +147,6 @@ function avg(arr) {
   return Number((result / arr.length).toFixed(2));
 }
 
-console.log(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
