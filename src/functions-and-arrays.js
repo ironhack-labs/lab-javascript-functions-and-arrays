@@ -2,9 +2,8 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
-  } else {
-    return num2;
   }
+  return num2;
 }
 
 // Iteration #2: Find longest word
@@ -14,7 +13,7 @@ function findLongestWord(arrWords) {
   if (arrWords.length === 0) {
     return null;
   } else if (arrWords.length !== 0) {
-    let longestWordYet = ' ';
+    let longestWordYet = '';
     for (i = 0; i < arrWords.length; i++) {
       if (arrWords[i].length > longestWordYet.length) {
         longestWordYet = arrWords[i];
@@ -25,6 +24,25 @@ function findLongestWord(arrWords) {
     return longestWordYet;
   }
 }
+
+/*
+if (arrWords.length === 0) {
+  return null
+}
+*^^^ another way: if (!arrWords.length)
+
+for (const currentWord of arrWords) {
+  if (logestWordYet.length < currentWord.length) {
+    LongestWordYet = currentWord
+  }
+}
+
+^^^ === :
+for (let i = 0; i < arrWords.length; i++) {
+  const currentWord
+}
+
+*/
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -40,6 +58,19 @@ function sumNumbers(nums) {
   }
   return sum;
 }
+
+/*
+function sumNumbers(numArray) {
+
+  let sum = 0;
+
+for (const number of numArray) {
+  sum += number
+}
+return sum
+}
+
+*/
 
 // Iteration #3.1 Bonus:
 function sum(multiArray) {
@@ -96,6 +127,7 @@ function averageWordLength(words) {
 // Bonus - Iteration #4.1
 
 function avg(mixedArray) {
+  // if (!mixedArray.length) = to below
   if (mixedArray.length === 0) {
     return null;
   }
@@ -131,10 +163,12 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(someArray) {
+  let uniqueArray = [];
+
   if (someArray.length === 0) {
     return null;
   }
-  let uniqueArray = [];
+  
   for (let i = 0; i < someArray.length; i++) {
     if (uniqueArray.includes(someArray[i]) == false) {
       uniqueArray.push(someArray[i]);
@@ -153,13 +187,13 @@ function doesWordExist(wordsArr, wordToFind) {
     return null;
   }
 
-  for (i = 0; i < wordsArr.length; i++) {
-    if (wordsArr.indexOf(wordToFind) === -1) {
-      return false;
-    } else if (wordsArr.indexOf(wordToFind) !== -1) {
-      return true;
+      for (let i = 0; i < wordsArr.length; i++) {
+        if (wordsArr.includes(wordToFind) === true) {
+            return true
+        } else if (wordsArr.includes(wordToFind) === false) {
+            return false
+        }
     }
-  }
 }
 
 // Iteration #7: Count repetition
