@@ -1,41 +1,97 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
 
+  let longest = '';
 
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (longest.length < wordsArr[i].length) {
+      longest = wordsArr[i];
+    }
+  }
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numArr) {
+  let sumArr = 0;
+  for (let i = 0; i < numArr.length; i++) {
+    sumArr += numArr[i];
+  }
+  return sumArr;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(allTypeArr) {
+  let sumResult = 0;
 
-
+  for (let i = 0; i < allTypeArr.length; i++) {
+    switch (typeof allTypeArr[i]) {
+      case 'string':
+        sumResult += allTypeArr[i].length;
+        break;
+      case 'number':
+        sumResult += allTypeArr[i];
+        break;
+      case 'boolean':
+        sumResult += Number(allTypeArr[i]);
+        break;
+      default:
+        throw Error("Unsupported data type sir or ma'am");
+        break;
+    }
+  }
+  return sumResult;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbers) {
+  if (!numbers.length) {
+    return null;
+  }
+  return sumNumbers(numbers) / numbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrOfWords) {
+  if (!arrOfWords.length) {
+    return null;
+  }
+  let sum = 0;
+  for (const word of arrOfWords) {
+    sum += word.length;
+  }
+  return sum / arrOfWords.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (!mixedArr.length) {
+    return null;
+  }
+  const sumFunction = sum(mixedArr);
+  let average = sumFunction / mixedArr.length;
+  return Number(average.toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +108,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(array) {
+  if (!array.length) {
+    return null;
+  }
+  let newArr = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array.indexOf(array[i]) === i) {
+      newArr.push(array[i]);
+    }
+  }
+  return newArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(array, search) {
+  if (!array.length) {
+    return null;
+  }
+  let answer = '';
+  for (const word of array) {
+    if (word === search) {
+      answer = true;
+      break;
+    } else {
+      answer = false;
+    }
+  }
+  return answer;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +155,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(array, search) {
+  let countRepetition = 0;
+  for (const element of array) {
+    if (element === search) {
+      countRepetition += 1;
+    }
+  }
+  return countRepetition;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +189,55 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let product = [];
+  // iterating over the matrix to get the products "horizontally"
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (j - 3 >= 0) {
+        product.push(array[i][j] * array[i][j - 1] * array[i][j - 2] * array[i][j - 3]);
+      }
+    }
+  }
+  for (let j = 0; j < array.length; j++) {
+    for (let i = 0; i < array.length; i++) {
+      if (i - 3 >= 0) {
+        product.push(array[i][j] * array[i - 1][j] * array[i - 2][j] * array[i - 3][j]);
+      }
+    }
+  }
+  let maxProduct = 0;
+  for (const element of product) {
+    if (element > maxProduct) {
+      maxProduct = element;
+    }
+  }
+  return maxProduct;
+}
 
+// Bonus Iteration 8.1:
+function greatestProductOfDiagonals(matrix) {
+  let productDiagonal = [];
 
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (i - 3 >= 0 && j - 3 >= 0) {
+        productDiagonal.push(array[i][j] * array[i - 1][j - 1] * array[i - 2][j - 2] * array[i - 3][j - 3]);
+      }
 
+      if (i - 3 >= 0 && j - 3 <= 0) {
+        productDiagonal.push(array[i][j] * array[i - 1][j + 1] * array[i - 2][j + 2] * array[i - 3][j + 3]);
+      }
+    }
+  }
+  let maxProductDiagonal = 0;
+  for (const element of product) {
+    if (element > maxProduct) {
+      maxProductDiagonal = element;
+    }
+  }
+  return maxProductDiagonal;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
