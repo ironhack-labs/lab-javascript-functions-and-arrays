@@ -74,7 +74,11 @@ function sum(numbers) {
           throw ("Unsupported data type sir or ma'am");
         }
   }
+<<<<<<< HEAD
  // console.log(numbersSum)
+=======
+  console.log(numbersSum)
+>>>>>>> 31b2c90f4d1636025fe5d548e81e1ce6ff6df522
   return numbersSum;
 }
 
@@ -173,6 +177,7 @@ const wordsUnique = [
   'bring'
 ];
 
+<<<<<<< HEAD
 function uniquifyArray(words) {
   if (words.length === 0) {
     return null
@@ -183,6 +188,24 @@ function uniquifyArray(words) {
   words.forEach(word => {
     if (uniqueArray1.indexOf(word) === -1) {
       uniqueArray1.push(word)
+=======
+function uniquifyArray(arrayWords) {
+  
+  if (arrayWords.length === 0){
+    return null;
+  }
+
+  let uniqueWords = [];
+  arrayWords.forEach(function(word){
+    let countRepetition = 0;
+    for(i=0 ; i<arrayWords.length; i++){
+      if(word == arrayWords[i]){
+        countRepetition ++;
+      }
+    };
+    if(countRepetition == 1){
+      uniqueWords.push(word);
+>>>>>>> 31b2c90f4d1636025fe5d548e81e1ce6ff6df522
     }
   })
 
@@ -195,6 +218,7 @@ function uniquifyArray(words) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+<<<<<<< HEAD
 function doesWordExist(words, findWord) {
   if (words.length === 0) {
     return null
@@ -213,6 +237,37 @@ function doesWordExist(words, findWord) {
 
   }   
 
+=======
+function doesWordExist(findWord) {
+  if (wordsFind.length === 0){
+    return null;
+  }
+  if (findWord.length === 0){
+    return null;
+  }
+
+  if (wordsFind.length === 1 && findWord == wordsFind[0]) {
+    console.log ("this word is the only one in the array");
+    return true;
+  }
+  let repeat = 0;
+  for(i=0 ; i<wordsFind.length ; i++){
+    if(wordsFind[i] == findWord){
+      console.log(`yeah bro, ${findWord} does exist`);
+      repeat ++;
+      } 
+    } 
+    if(repeat === 1) {
+    return true;
+     }else if (repeat === 0) {
+      console.log(`nah bro, ${findWord} does not exist`);
+       return false;
+     }
+  }   
+
+doesWordExist('machine')
+doesWordExist("suxset");
+>>>>>>> 31b2c90f4d1636025fe5d548e81e1ce6ff6df522
 
 // Iteration #7: Count repetition
 const wordsCount = [
