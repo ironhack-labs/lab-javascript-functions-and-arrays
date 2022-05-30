@@ -51,6 +51,7 @@ sumNumbers(numbers);
 
 
 // Iteration #3.1 Bonus:
+//resuelto en clase, no hecho por mí
 function sum() { }
 
 
@@ -128,7 +129,6 @@ uniquifyArray(wordsUnique);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(apple, wordToSearch) {
-  
   
   if (apple.length ===  0 ) return null;
   else if (apple.length !== 0) {
