@@ -1,24 +1,89 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+  return Math.max(a, b);
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(str) {
+  if(str.length === 0) {
+    return null;
+  } else {
+    let max = str[0].length;
+    let result = str[0];
 
+    for(let i = 0; i < str.length; i++) {
+      let maxI = str[i].length;
+      if(maxI > max) {
+        result = str[i];
+        max = maxI;
+      }
+    }
+    return result;
+  }
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const noNum = [];
 
-function sumNumbers() {}
 
+function sumNumbers(num) {
+  
+  if(num.length === 0) {
+    return 0;
+  } else {
+    let sum = num.reduce(function(a, b) {
+      return a + b;
+    }, 0);
+    
+    return sum;
+  }
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(num) {
+
+  let result = 0;
+  let polymorphism = [];
+
+  if(num.length === 0) {
+    return 0;
+  } else {
+    for(let i = 0; i < num.length; i++) {
+      let dataType = typeof num[i];
+
+      if(dataType === 'string') {
+        dataType = num[i];
+        result += dataType.length;
+      } else if(dataType === 'number') {
+        dataType = num[i];
+        result += dataType;
+      } else if(dataType === 'boolean') {
+        dataType = num[i];
+        if(dataType === true) {
+          result += 1;
+        } else {
+          result += 0;
+        }
+      } else if(dataType === typeof undeclaredVariable) {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    }
+    //polymorphism.push(result);
+    return result;
+  }
+}
+
+console.log(sum(mixedArr));
 
 
 
@@ -26,7 +91,19 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(num) {
+
+  if(num.length === 0) {
+    return 0;
+  } else {
+    let sum = num.reduce(function(a, b) {
+      return a + b;
+    }, 0);
+    
+    return sum / num.length;
+  }
+  
+}
 
 
 // Level 2: Array of strings
