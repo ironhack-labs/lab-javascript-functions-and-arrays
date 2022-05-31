@@ -13,9 +13,9 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 let longestWord = '';
 function findLongestWord(words) {
   if (words.length === 0) {
-    return null
+    return null;
   } else if (words.length === 1) {
-    return words[0]
+    return words[0];
   } else {
     for (word of words) {
       if (longestWord.length >= word.length) {
@@ -27,7 +27,6 @@ function findLongestWord(words) {
   }
   return longestWord;
 }
-
 
 // #########################################################
 // ################# DONE ##################################
@@ -43,7 +42,7 @@ function sumNumbers(arr) {
   if (arr.length == 0) {
     return 0;
   } else if (arr.length == 1) {
-    return  arr[0];
+    return arr[0];
   } else {
     for (num of arr) {
       total += num;
@@ -51,9 +50,6 @@ function sumNumbers(arr) {
     return total;
   }
 }
-
-
-
 
 // Iteration #3.1 Bonus:
 // function sum(arr) {
@@ -78,7 +74,7 @@ function sum(arr) {
     if (typeof arr === Number) {
       newArr = arr[0];
     } else {
-      newArr =  arr[0].length;
+      newArr = arr[0].length;
     }
   } else {
     for (let i = 0; i < arr.length; i++) {
@@ -99,10 +95,10 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(num) {
   if (num.length === 0) {
-    return null
+    return null;
   } else {
-    let subtotal = sumNumbers(num)
-    return subtotal / num.length
+    let subtotal = sumNumbers(num);
+    return subtotal / num.length;
   }
 }
 
@@ -113,36 +109,35 @@ function averageNumbers(num) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(words) {
-  let subtotal = []
+  let subtotal = [];
   if (words.length === 0) {
-    return null
+    return null;
   } else if (words.length === 1) {
-    return words[0].length
+    return words[0].length;
   } else {
     for (word of words) {
-      subtotal.push(word.length)
-    } 
+      subtotal.push(word.length);
+    }
   }
-return averageNumbers(subtotal)
+  return averageNumbers(subtotal);
 }
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-  let newArr = []
+  let newArr = [];
   if (arr.length === 0) {
-    return null
+    return null;
   } else {
     for (el of arr) {
       if (typeof el === Number) {
-        newArr.push(el)
+        newArr.push(el);
       } else {
-        newArr.push(el.length)
+        newArr.push(el.length);
       }
     }
   }
-  return newArr
+  return newArr;
 }
-
 
 // #########################################################
 // ################# DONE ##################################
@@ -163,17 +158,18 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  let newArr = []
+  let newArr = [];
   if (arr.length === 0) {
-    return null
-  } for (el of arr) {
+    return null;
+  }
+  for (el of arr) {
     if (newArr.includes(el)) {
-      continue
+      continue;
     } else {
-      newArr.push(el)
+      newArr.push(el);
     }
   }
-  return newArr
+  return newArr;
 }
 
 // #########################################################
@@ -185,12 +181,12 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(arr, word) {
   if (arr.length === 0) {
-    return null
+    return null;
   } else {
     if (arr.includes(word)) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 }
@@ -218,11 +214,10 @@ function howManyTimes(arr, word) {
   count = 0;
   for (el of arr) {
     if (el === word) {
-      ++count
+      ++count;
     }
   }
-  return count
-
+  return count;
 }
 
 // Iteration #8: Bonus
@@ -249,36 +244,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-
 function greatestProduct(arr) {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
