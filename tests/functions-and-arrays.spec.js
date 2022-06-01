@@ -26,7 +26,7 @@ const shuffle = (currentArray) => {
   return array;
 };
 
-describe('Find the maximum', () => {
+describe.skip('Find the maximum', () => {
   test('should declare a function named maxOfTwoNumbers', () => {
     expect(typeof maxOfTwoNumbers).toBe('function');
   });
@@ -46,7 +46,7 @@ describe('Find the maximum', () => {
   });
 });
 
-describe('Find the longest word', () => {
+describe.skip('Find the longest word', () => {
   test('should declare a function named findLongestWord', () => {
     expect(typeof findLongestWord).toBe('function');
   });
@@ -73,7 +73,7 @@ describe('Find the longest word', () => {
   });
 });
 
-describe('Calculate the sum of array of numbers', () => {
+describe.skip('Calculate the sum of array of numbers', () => {
   test('should declare a function named sumNumbers', () => {
     expect(typeof sumNumbers).toBe('function');
   });
@@ -95,7 +95,7 @@ describe('Calculate the sum of array of numbers', () => {
   });
 });
 
-describe('Bonus: Calculate the sum', () => {
+describe.skip('Bonus: Calculate the sum', () => {
   test('should declare a function named sum', () => {
     expect(typeof sum).toBe('function');
   });
@@ -136,7 +136,7 @@ describe('Bonus: Calculate the sum', () => {
   });
 });
 
-describe('Calculate the average of an array of numbers', () => {
+describe.skip('Calculate the average of an array of numbers', () => {
   test('should declare a function named averageNumbers', () => {
     expect(typeof averageNumbers).toBe('function');
   });
@@ -158,7 +158,7 @@ describe('Calculate the average of an array of numbers', () => {
   });
 });
 
-describe('Calculate the average of an array of strings', () => {
+describe.skip('Calculate the average of an array of strings', () => {
   test('should declare a function named averageWordLength', () => {
     expect(typeof averageWordLength).toBe('function');
   });
@@ -178,7 +178,7 @@ describe('Calculate the average of an array of strings', () => {
   });
 });
 
-describe('Bonus: Calculate the average of a mixed elements array', () => {
+describe.skip('Bonus: Calculate the average of a mixed elements array', () => {
   test('should declare a function named avg', () => {
     expect(typeof avg).toBe('function');
   });
@@ -195,7 +195,7 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
   });
 });
 
-describe('Unique array', () => {
+describe.skip('Unique array', () => {
   test('should declare a function named uniquifyArray', () => {
     expect(typeof uniquifyArray).toBe('function');
   });
@@ -219,7 +219,7 @@ describe('Unique array', () => {
   });
 });
 
-describe('Find elements', () => {
+describe.skip('Find elements', () => {
   test('should declare a function named doesWordExist', () => {
     expect(typeof doesWordExist).toBe('function');
   });
@@ -241,7 +241,7 @@ describe('Find elements', () => {
   });
 });
 
-describe('Count repetition', () => {
+describe.skip('Count repetition', () => {
   test('should declare a function named howManyTimes', () => {
     expect(typeof howManyTimes).toBe('function');
   });
