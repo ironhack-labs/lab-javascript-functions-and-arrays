@@ -26,6 +26,11 @@ const shuffle = (currentArray) => {
   return array;
 };
 
+
+
+
+
+
 describe('Find the maximum', () => {
   test('should declare a function named maxOfTwoNumbers', () => {
     expect(typeof maxOfTwoNumbers).toBe('function');
@@ -45,6 +50,8 @@ describe('Find the maximum', () => {
     expect(maxOfTwoNumbers(4, 4)).toBe(4);
   });
 });
+
+
 
 describe('Find the longest word', () => {
   test('should declare a function named findLongestWord', () => {
