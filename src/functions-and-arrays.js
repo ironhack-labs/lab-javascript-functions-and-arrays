@@ -1,19 +1,57 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
-
+function maxOfTwoNumbers(num1, num2) {
+    if(num1 > num2){
+      return num1
+    } else {
+      return num2
+    }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(listWords) {
 
+  let largeWord = listWords[0].length
+  let answer = listWords[0]
+
+  if(listWords.length === 0){
+    return null
+  } else{
+
+  for (let i = 1; i < listWords.length; i++){
+    let maximum = listWords[i].length
+    if(maximum > largeWord){
+      answer = listWords[i]
+      largeWord = maximum
+    }
+  }
+  return answer
+}
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(datos) {
+
+  if(datos.length === 0){
+    return 0
+  } else{
+
+  let sum = 0
+
+  for(let i = 0; i < datos.length; i++){
+    sum += datos[i];
+  }
+  return sum
+}
+}
+sumNumbers(numbers)
+
+
 
 
 
@@ -26,13 +64,42 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numberList) {
+
+  let sum = 0
+
+  for (let i = 0; i<numberList.length; i++){
+    sum += numberList[i]
+  }
+  let prom = (sum/numberList.length)
+
+  return prom
+}
 
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(elements) { 
+    let sumTotal = 0
+
+    for(let i = 0; i < elements.length; i++){
+      sumTotal += elements[i].length
+    }
+    let promElements = sumTotal / elements.length
+    return promElements
+}
+
+
+averageWordLength(wordsArr)
+
+
+
+
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +119,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayWords) {
+
+  let uniqueWords = [];
+
+  for(let i = 0; i < arrayWords.length; i++){
+      if(uniqueWords.indexOf(arrayWords[i] === -1)){
+        uniqueWords.push(arrayWords[i])
+      }
+      return uniqueWords
+  }
+
+
+}
 
 
 
