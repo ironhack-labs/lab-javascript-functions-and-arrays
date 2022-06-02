@@ -1,24 +1,56 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 < num2) {
+return num2
+  } else {
+    return num1
+  }
+}
+maxOfTwoNumbers(2, 13)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length === 0) {
+    return null
+  }
+  let longestWord = ''
+  for(let i = 0; i < words.length; i++) {
+    if(words[i].length > longestWord.length) {
+      longestWord = words[i]
+    }
+  }
+  return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(numbers) {
+  let sum = 0
+  for(let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]
+  }
+  return sum
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(arr) {
+  let result = 0
+  for(let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'string') {
+      result += mixedArr[i].length
+    } else {
+      result += mixedArr[i]
+    }
+  }
+  return result
+}
 
 
 
@@ -26,13 +58,28 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if(arr.length === 0) {
+    return null
+  }
+  let average = sumNumbers(numbers) / numbers.length
+  return average
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if(words.length === 0) {
+    return null
+  }
+let sum = 0
+for(let i = 0; i < words.length; i++) {
+  sum += words[i].length
+}
+  return sum / words.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -128,3 +175,25 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+
+function x(arr) {
+  const filteres = []
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].length < 4) 
+    filtered.push(arr[i])
+  }
+  return filtered
+}
+x(['ksdfj', 'ad', 'sdfs', 'asa'])
+
+function nameShuffler(str) {
+  let firstName = str.slice(0, str.indexOf(' '))
+  let lastName = str.slice(str.indexOf(' ') + 1)
+  return ${lastName} ${firstName}
+  // return lastName + ' ' + firstName
+
+}
+
+nameShuffler('john McClane')
+// 'McClane john'
