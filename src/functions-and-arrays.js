@@ -1,41 +1,120 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  }
+  else {
+    return num2
+  }
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arr) {
+  if (arr.length === 0) { return null };
+  let longestWord = ""
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i]
+    }
+  }
+  return longestWord
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+// PRIMERA SOLUCIÓN
+function sumNumbers(arr) {
+  if (arr.length === 0) { return 0 };
+  let sum = 0
+  for (let e of arr) {
+    sum += e
+  }
+  return sum
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
-
+function sum(arr) {
+  if (arr.length === 0) { return 0 };
+  let sum = 0
+  for (let e of arr) {
+    if (typeof e === "object") {
+      throw "Unsupported data type sir or ma'am"
+    }
+    else if (typeof e === "string") {
+      sum += e.length
+    }
+    else if (e === true) {
+      sum++
+    }
+    else if (e === "false") {
+      continue
+    }
+    else if (typeof e === "number") {
+      sum += e
+    }
+  }
+  return sum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0) { return null };
+  if (arr.length === 0) {
+    return null
+  }
+  let totalSum = sumNumbers(arr)
+  let averageNum = totalSum / arr.length
+  return averageNum
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) { return null };
+  let wordSum = 0
+  for (let e of arr) {
+    wordSum += e.length
+  }
+  let averageWordLength = wordSum / arr.length
+  return averageWordLength
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) { return null };
+  let wordSum = 0
+  for (let e of arr) {
+    if (e === true) {
+      wordSum++
+    }
+    else if (typeof e === "number") {
+      wordSum += e
+    }
+    else if (typeof e === "string") {
+      wordSum += e.length
+    }
+    else if (e === false) {
+      continue
+    }
+    else if (typeof e === "object") {
+      throw "Unsupported data type sir or ma'am"
+    }
+  }
+  let averageMixedSum = wordSum / arr.length
+  return parseFloat(averageMixedSum.toFixed(2))
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +131,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arr) {
+  if (arr.length === 0) { return null };
+  let newArr = []
+  for (let e of arr) {
+    if (newArr.indexOf(e) === -1) {
+      newArr.push(e)
+    }
+  }
+  return newArr
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null
+  }
+  else if (arr.includes(word)) {
+    return true
+  }
+  else {
+    return false
+  }
+}
 
 
 
@@ -78,7 +174,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let counter = 0
+  for (let e of arr) {
+    if (e === word) {
+      counter++
+    }
+  }
+  return counter
+}
 
 
 
@@ -106,10 +210,41 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  return arr[0][0] * arr[0][1] * arr[0][2] * arr[0][3]
+}
 
+// SOLUCIÓN GENÉRICA EN PROCESO:
+PRIMERA PARTE - MÁXIMO PRODUCTO DE 4 ADYACENTES HORIZONTALES ->
 
+// let findGreatestProduct = (arr) => {
+//   let product = 0
+//   for (let row of arr) {
+//     for (let j = 0; j < arr.length - 4; j++) {
+//       let newProduct = arr[j] * arr[j + 1] * arr[j + 2] * arr[j + 3]
+//       if (newProduct > product) {
+//         product = newProduct
+//       }
+//     }
+//   }
 
+// SEGUNDA PARTE - COMPARACIÓN VERTICAL Y RETURN DEL PRODUCTO MAYOR - NO ME SALE (AÚN)
+
+//   let vProduct = 0
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = 0; j < arr.length - 4; j++) {
+//     let verticalProduct = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j]
+//     if (verticalProduct > vProduct) {
+//       vProduct = verticalProduct
+//     }
+//   }
+// }
+// if (product > vProduct) {
+//   return product
+// }
+// else {
+//   return vProduct
+// }
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
