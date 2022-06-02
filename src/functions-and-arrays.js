@@ -249,9 +249,41 @@ function greatestProduct(matrix) {
   return biggestProduct;
 
 }
+function greatestProductOfDiagonals(matrix) {
+  //how many adyacents to multiply
+  const window = 4;
+  let biggestProduct = Number.MIN_VALUE;
+  //down rigth sliding window
 
-function greatestProductOfDiagonals(matrix){
+  for (let i = 0; i < matrix.length - window + 1; i++) {
+    for (let j = 0; j < matrix[i].length - window + 1; j++) {
+      let currentProduct = 1;
+      for (let k = 0; k < window; k++) {
+        currentProduct *= matrix[i + k][j + k];
+      }
 
+      if (currentProduct > biggestProduct) {
+        biggestProduct = currentProduct;
+      }
+    }
+  }
+
+  //down left sliding window
+
+  for (let i = 0; i < matrix.length - window + 1; i++) {
+    for (let j = window - 1; j < matrix[i].length; j++) {
+      let currentProduct = 1;
+      for (let k = 0; k < window; k++) {
+        currentProduct *= matrix[i + k][j - k];
+      }
+
+      if (currentProduct > biggestProduct) {
+        biggestProduct = currentProduct;
+      }
+    }
+  }
+
+  return biggestProduct;
 };
 
 // The following is required to make unit tests work.
