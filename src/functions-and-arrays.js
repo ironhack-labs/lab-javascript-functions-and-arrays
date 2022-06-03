@@ -112,7 +112,7 @@ function uniquifyArray(words) {
         return null
     }
 
-    let = wordsUnique = []
+    let wordsUnique = []
 
     for (let i = 0; i < words.length; i++) {
         if (wordsUnique.indexOf(words[i]) == -1) {
