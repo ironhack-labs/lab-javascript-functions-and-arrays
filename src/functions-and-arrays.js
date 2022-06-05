@@ -1,24 +1,63 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if(num1<num2){
+    return num1;
+  }
+  //I could also add else if
+  return num2;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arrayOfWords) {
+  if (arrayOfWords.length === 0){
+    return null;
+  }
+  let longestWord ='';
+  for (const currentWord of arrayOfWords){
+
+   if (longestWord.length<currentWord.length){
+    longestWord = currentWord;
+   }
+}
+return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numArray) {
+  let sum = 0;
+  for (const number of numArray){
+    sum += number;
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let total = 0
+  for (const whatever of array){
+    if(typeof whatever ==='string'){
+      total += whatever.length
+    }else if(typeof whatever === 'number'){
+      total += whatever
+    }else if (typeof whatever === 'boolean'){
+      total += number(whatever)
+     // if (whatever) // I didn't understand it over here.
+     // total += 1
+    }
+    }
+    return total
+  }
+
 
 
 
@@ -26,16 +65,43 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numArr) {
+  if(!numArr.length){ //can we put also numArray.length = ''?
+    return null
+  }
+  const totalLength = sum(numArr);
+  return totalLength/numArr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(stringArr) {
+  if (!stringArr.length){
+    return null
+  }
+  const totalLength = sum(stringArr)
+  return totalLength/stringArr.length; //stringArr.length means the sum of the words of the array right?
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrayOfElements) {
+  if (arrayOfElements === ''){
+    return null
+  }
+}
+  for (const element of arrayOfElements){
+    if(typeof element ==='string'){
+      arrayTotal += 'element'
+    }else if(typeof element === 'number'){
+      arrayTotal += 'element'
+    }else if (typeof element === 'boolean'){
+      arrayTotal += number
+    
+  return arrayTotal/arrayOfElements.length // got lost on this one ...
+}
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
