@@ -75,13 +75,28 @@ function averageNumbers(numbers) {
   return average;
 }
 
-// Level 2: Array of strings
+// Level 2: Array of strings 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(word) { }
+function averageWordLength(listOfWords) { 
+  if (listOfWords.length == 0) {
+    return null;
+  }
+
+  let sumOfWords = 0;
+  for (let i = 0; i < listOfWords.length; i++) {
+    sumOfWords += listOfWords[i].length;
+  }
+  return sumOfWords / listOfWords.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedOfArrays) {
+  if (mixedOfArrays.length == 0) {
+    return null;
+  }
+ return parseFloat((sum(mixedOfArrays) / mixedOfArrays.length).toFixed(2));
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -98,17 +113,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length == 0) {
+    return null;
+  };
 
+  var newArr = [];
+	wordsUnique.forEach(w => {
+  if (newArr.indexOf(w) == -1) {
+    newArr.push(w);
+  }
+}); 
+  return newArr;
+};
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, word) {
+let abc = (wordsArray.includes(word))? true : false 
+return abc;
+}
 
-
-
+doesWordExist(wordsFind, 'machine')
+  
+  
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -124,8 +154,28 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+// SOLUTION I
+function howManyTimes(array, element) {
+  let count = 0;
+	for (let i = 0; i < array.length; i++) {
+  if (array[i] === element) {
+    count ++
+  }
+}
+     return count;
+}
+howManyTimes(wordsCount, 'FUCK')
 
+// SOLUTION II
+function howManyTimes(haystack, needle) {
+  let count = 0;
+  for (let word of haystack) {
+    if (word === needle) {
+      count++
+    }
+  }
+  return count;
+}
 
 
 // Iteration #8: Bonus
