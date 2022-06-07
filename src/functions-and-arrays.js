@@ -12,37 +12,16 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(arrWords) {
   if (arrWords.length === 0) {
     return null;
-  } else if (arrWords.length !== 0) {
+  } else {
     let longestWordYet = '';
     for (i = 0; i < arrWords.length; i++) {
       if (arrWords[i].length > longestWordYet.length) {
         longestWordYet = arrWords[i];
-      } else {
-        continue;
       }
     }
     return longestWordYet;
   }
 }
-
-/*
-if (arrWords.length === 0) {
-  return null
-}
-*^^^ another way: if (!arrWords.length)
-
-for (const currentWord of arrWords) {
-  if (logestWordYet.length < currentWord.length) {
-    LongestWordYet = currentWord
-  }
-}
-
-^^^ === :
-for (let i = 0; i < arrWords.length; i++) {
-  const currentWord
-}
-
-*/
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -58,19 +37,6 @@ function sumNumbers(nums) {
   }
   return sum;
 }
-
-/*
-function sumNumbers(numArray) {
-
-  let sum = 0;
-
-for (const number of numArray) {
-  sum += number
-}
-return sum
-}
-
-*/
 
 // Iteration #3.1 Bonus:
 function sum(multiArray) {
@@ -168,17 +134,17 @@ function uniquifyArray(someArray) {
   if (someArray.length === 0) {
     return null;
   }
-  
+
   for (let i = 0; i < someArray.length; i++) {
     if (uniqueArray.includes(someArray[i]) == false) {
       uniqueArray.push(someArray[i]);
-    } else if (uniqueArray.includes(someArray[i]) == true) {
+    } else {
       continue;
     }
   }
   return uniqueArray;
 }
- 
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
@@ -187,13 +153,13 @@ function doesWordExist(wordsArr, wordToFind) {
     return null;
   }
 
-      for (let i = 0; i < wordsArr.length; i++) {
-        if (wordsArr.includes(wordToFind) === true) {
-            return true
-        } else if (wordsArr.includes(wordToFind) === false) {
-            return false
-        }
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr.includes(wordToFind) === true) {
+      return true;
+    } else if (wordsArr.includes(wordToFind) === false) {
+      return false;
     }
+  }
 }
 
 // Iteration #7: Count repetition
