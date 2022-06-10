@@ -35,7 +35,26 @@ function sumNumbers(numbersArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let result = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    for (i = 0; i < arr.length; i++) {
+      const getTypeOf = typeof arr[i];
+      if (getTypeOf === 'number') {
+        result += arr[i];
+      } else if (getTypeOf === 'string') {
+        result += arr[i].length;
+      } else if (getTypeOf === 'boolean') {
+        result += arr[i];
+      } else {
+        throw "Unsupported data type sir or ma'am";
+      }
+    }
+    return result;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
