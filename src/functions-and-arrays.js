@@ -1,27 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a  
+  }
+
+  else { return b
+}  
+}
 
 
 
 // Iteration #2: Find longest word
+//should return null when called with an empty array
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  let lw = ""
+  if (array.length == 0){
+    return null;
+  }
+  for ( let i = 0; i < array.length; i++){
+    if (lw.length < array[i].length){
+      lw = array [i]
+    }
+  }
+  return lw
+}
 
+findLongestWord(words)
+//should return null when called with an empty array
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0;
+  for (let i = 0; i < array.lenght; i++){
+    sum += array[i];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
-
+function sum(array) {
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    if(typeof array[i] == "string") {
+      sum += array[i].length
+    } 
+    else if (typeof array[i] == "number"){
+      sum += array[i]; 
+    }
+    else if(typeof array[i] == "object"){
+     throw new Error("Unsupported data type sir or ma'am")
+    } 
+    else if (typeof array[i] == "boolean" ){
+      sum += array[i]; 
+    }
+  }
+  return sum
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
