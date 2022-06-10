@@ -178,7 +178,7 @@ describe('Calculate the average of an array of strings', () => {
   });
 });
 
-describe.only('Bonus: Calculate the average of a mixed elements array', () => {
+describe('Bonus: Calculate the average of a mixed elements array', () => {
   test('should declare a function named avg', () => {
     expect(typeof avg).toBe('function');
   });

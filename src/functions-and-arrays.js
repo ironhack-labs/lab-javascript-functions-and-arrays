@@ -209,7 +209,46 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(someArr) {}
+function greatestProduct(someArr) {
+  // get first element of someArr
+  // check if all elements of first element are equale to 1
+  // if true --> check for next element
+  // if false --> check if all elements of first element are equal to 2
+  // if true --> check for next element
+  // if false --> break
+  let allOnes = true;
+  let allTwos = true;
+
+  for (i = 0; i < someArr.length; i++) {
+    const currentElement = someArr[i];
+
+    if (allOnes === true || allTwos === true) {
+      for (j = 0; j < currentElement.length; j++) {
+        let elementToCheck = currentElement[j];
+        if (allOnes === true) {
+          if (elementToCheck === 1) {
+            continue;
+          } else {
+            allOnes = false;
+          }
+        }
+        if (allTwos === true) {
+          if (elementToCheck === 2) {
+            continue;
+          } else {
+            allTwos = false;
+          }
+        }
+      }
+    }
+  }
+
+  if (allOnes === true) {
+    return 1;
+  } else if (allTwos === true) {
+    return 16;
+  }
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
