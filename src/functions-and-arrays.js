@@ -92,7 +92,19 @@ function averageWordLength(someWordsArray) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    const average = sum(arr) / arr.length;
+    // const avgTwoDec = average.toFixed(2);
+    // const result = parseFloat(avgTwoDec);
+    // return result;
+    return parseFloat(average.toFixed(2));
+  }
+}
+
+avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true]);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [

@@ -95,7 +95,7 @@ describe('Calculate the sum of array of numbers', () => {
   });
 });
 
-describe.only('Bonus: Calculate the sum', () => {
+describe('Bonus: Calculate the sum', () => {
   test('should declare a function named sum', () => {
     expect(typeof sum).toBe('function');
   });
@@ -178,7 +178,7 @@ describe('Calculate the average of an array of strings', () => {
   });
 });
 
-describe('Bonus: Calculate the average of a mixed elements array', () => {
+describe.only('Bonus: Calculate the average of a mixed elements array', () => {
   test('should declare a function named avg', () => {
     expect(typeof avg).toBe('function');
   });
