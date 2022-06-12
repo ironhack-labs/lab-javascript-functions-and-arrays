@@ -141,10 +141,48 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let product = 0;
+  let product2 = 0;
+  let greatest = 0;
 
+  matrix.forEach((number, index, array) => {
+    number.forEach((value, i)=> {
+      product = number[i] * number[i + 1] * number[i + 2] * number[i + 3];
+      if (product > greatest) greatest = product;
+    });  
+  });
+console.log(matrix[0][0], matrix[1][0]);
+    for (let c = 0; c < matrix[0].length - 3; c++){
+    for (let r = 0; r < matrix.length - 3; r++){
+      product2 = matrix[r][c] * matrix[r + 1][c] * matrix[r + 2][c] * matrix[r + 3][c];
+      if (product2 > greatest) greatest = product2;
+    }
+    
+  }
+  return greatest;
 
+}
 
+function greatestProductOfDiagonals(matrix) {
+  let product = 0;
+  let product2 = 0;
+  let greatest = 0;
+
+  for (let r = 0; r < matrix[0].length - 3; r++){
+    for (let c = 0; c < matrix.length - 3; c++){
+      product = matrix[r][c] * matrix[r + 1][c + 1] * matrix[r + 2][c + 2] * matrix[r + 3][c + 3];
+      if (product > greatest) greatest = product;
+    }
+  }
+    for (let c = 0; c < matrix[0].length - 3; c++){
+    for (let r = 0; r < matrix.length - 3; r++){
+      product2 = matrix[r][c] * matrix[r + 1][c + 1] * matrix[r + 2][c + 2] * matrix[r + 3][c + 3];
+      if (product2 > greatest) greatest = product2;
+    }
+  }
+  return greatest;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
