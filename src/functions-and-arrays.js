@@ -42,22 +42,29 @@ function sum(array) {
   },0);
   return sumAll;
 }
-//return array.reduce((acc, value) => acc + value);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(array) {
+  if (array == false) return null;
+  return sum(array)/array.length; 
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  if (array == false) return null;
+  return sum(array)/array.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array == false) return null;
+  return Math.round((sum(array)/array.length)*100)/100;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -74,16 +81,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(array) {
+  if (array == false) return null;
+  //returns only the items with the first index in the array.
+  return array.filter((item, index) => array.indexOf(item) === index);
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(array, word) {
+  if (array == false) return null;
+  return array.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -100,10 +110,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
-
+function howManyTimes(array, word) {
+  if (array == false) return 0;
+  let count = 0;
+  array.forEach(item => {if (item === word) return count += 1});
+  return count;
+}
+howManyTimes(wordsCount, 'matter');
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
