@@ -120,7 +120,7 @@ function doesWordExist(arr, word) {
   if(arr.length == 0){
     return null;
   }
-  return arr.includes(word)
+  return arr.includes(word);
 }
 
 
