@@ -1,38 +1,122 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+if (a > b){
+  return a
+} else {
+  return b
+}
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  let lw = ""
+  if (array.length == 0){
+    return null;
+  }
+  for ( let i = 0; i < array.length; i++){
+    if (lw.length < array[i].length){
+      lw = array[i]
+    }
+  }
+  return lw
+}
 
-
+findLongestWord(words)
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(array) {
+let sum = 0;
+for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+}
+return sum;
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(array) {
+  let sum = 0
+  for (let i = 0; i < array.length; i++) {
+    if(typeof array[i] == "string") {
+      sum +=   array[i].length
+    } 
+    else if (typeof array[i] == "number" ){
+      sum += array[i]; 
+    }
+    else if(typeof array[i] == "object"){
+     throw new Error("Unsupported data type sir or ma'am")
+    } 
+    else if (typeof array[i] == "boolean" ){
+      sum += array[i]; 
+    }
+  }
+  return sum
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]; /* array */
 
-function averageNumbers() {}
+function averageNumbers(array) {
+
+      if (array.length <= 0){
+        return null
+      }
+
+      let suma = 0
+
+      for (let i = 0; i < array.length; i++){
+        /*aqui esta el almacen. Esto nos
+         va a servir para realizar la operacion de suma*/ suma += array[i]
+      }
+
+      return suma / array.length
+}
+
+console.log(averageNumbers([])); /* el llamado de un array vacio */
+console.log(averageNumbers(numbersAvg)); /* al momento de llamarse la funcion debe de colocarse el array de prueba */
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  
+  if (array.length <= 0){
+    return null
+  }
+
+  let suma = 0
+
+  for (let i = 0; i < array.length; i++){
+    /*aqui esta el almacen. Esto nos
+     va a servir para realizar la operacion de suma*/ suma += array[i]
+  }
+
+  return suma / array.length
+
+}
+
+averageWordLength([]);
+averageWordLength("seat")
+averageWordLength(wordsArr);
+
+
+/*
+
+Calculate the average of an array of strings
+should return the average of a one-element array
+
+Calculate the average of an array of strings
+should return the average of a the array
+
+*/
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -53,6 +137,31 @@ const wordsUnique = [
 ];
 
 function uniquifyArray() {}
+
+
+/* 
+Take the following array, remove the duplicates,
+ and return a new array. You are more than likely going 
+ to want to check out the indexOf Array method.
+Do this in the form of a function uniquifyArray 
+that receives an array of words as a argument.
+
+You can use the following array to test your solution:
+
+const words = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+*/
 
 
 
