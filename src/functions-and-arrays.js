@@ -1,12 +1,10 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-
   if (num1 < num2) {
-    console.log(num2)
+    return num2
   } else {
-    console.log(num2)
+    return num1
   }
-  return
 }
 
 
@@ -14,27 +12,50 @@ function maxOfTwoNumbers(num1, num2) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+function findLongestWord(array) {
+  let longestWord = ""
+  if (array.length === 0) {
+    return null
+  }
+
+  array.forEach(word => {
+    if (word.length > longestWord.length) {
+      longestWord = word
+    }
+  })
+  return longestWord
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(ArrayNumbers) {
+  let total = 0
+  for (const num of ArrayNumbers) {
+    total += num
+  }
+  return total;
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
-
-
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg === 0) {
+    return null
+  } else {
+    for (let sum = 0, i = 0; i < numbersAvg.length; i++) {
+      sum += numbersAvg[i];
+    }
+  }
+
+  return sum / numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
@@ -60,7 +81,10 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArray) {
+
+
+}
 
 
 
