@@ -83,14 +83,13 @@ const wordsUnique = [
 
 function uniquifyArray(words) {
   if (!words || words.length === 0) return null;
+  const uniqueArray = [];
   for (let i = 0; i < words.length; i++) {
-    let index = words.indexOf(words[i], i + 1);
-    while (index > -1) {
-      words.splice(index, 1);
-      index = words.indexOf(words[i], index);
+    if (uniqueArray.indexOf(words[i]) === -1) {
+      uniqueArray.push(words[i]);
     }
   }
-  return words;
+  return uniqueArray;
 }
 
 // Iteration #6: Find elements
