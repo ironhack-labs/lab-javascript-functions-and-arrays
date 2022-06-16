@@ -1,24 +1,59 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return num1 > num2 ? num1 : num2
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let longestWord = ""
+  if (arr.length === 0){
+    return null
+  }
+  arr.forEach(word => {
+    if (word.length > longestWord.length){
+      longestWord = word
+    }
+  })
+  return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sum = 0
+  for (const num of arr){
+    sum += num
+  }
+  return sum
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sum = 0
+  for (const el of arr){
+    if (typeof el === "number"){
+      sum += el
+    } else if (typeof el === "string"){
+      sum += el.length
+    } else if (el === true){
+      sum++
+    } else if (el === false){
+      sum += 0
+    } else {
+      throw "Unsupported data type sir or ma'am"
+    }
+  }
+  return sum
+}
 
 
 
@@ -26,16 +61,56 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let sum = 0
+  if (arr.length === 0){
+    return null
+  }
+  for (let num of arr){
+    sum += num
+  }
+  const average = sum / arr.length
+  return average
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  let wordLength = 0
+  if (arr.length === 0){
+    return null
+  }
+  for (let word of arr){
+    wordLength += word.length
+  }
+  const averageWordLength = wordLength / arr.length
+  return averageWordLength
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0
+  if (arr.length === 0){
+    return null
+  }
+  for (let el of arr){
+    if (typeof el === "number"){
+      sum += el
+    } else if (typeof el === "string"){
+      sum += el.length
+    } else if (el === true){
+      sum ++
+    } else if (el === false){
+      sum += 0
+    } else {
+      throw new Error()
+    }
+  }
+  const average = sum / arr.length
+  return average
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +127,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arr) {
+  const newArray = []
+  if (arr.length === 0){
+    return null
+  }
+  for (let word of arr){
+    if (!newArray.includes(word)){
+      newArray.push(word)
+    }
+  }
+  return newArray
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(arr, searchTerm) {
+  if (arr.length === 0){
+    return null
+  }
+  if (arr.includes(searchTerm)){
+    return true
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,7 +168,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, searchTerm) {
+  let countNumSearchTerm = 0
+  if (arr.length === 0){
+    return 0
+  }
+  for (let word of arr){
+    if (word === searchTerm){
+      countNumSearchTerm++
+    }
+  }
+  return countNumSearchTerm
+}
 
 
 
@@ -106,7 +207,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestProd = 0
+  let currentProd
+  if (matrix.length === 0){
+    return null
+  }
+  for (let i=0; i<matrix.length; i++){
+    for (let j=0; j<matrix[0].length; j++){
+      if (j + 3 < matrix.length){
+        currentProd = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+        if (currentProd > greatestProd){
+          greatestProd = currentProd
+        }
+      }
+      if (i + 3 < matrix[0].length){
+        currentProd = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+        if (currentProd > greatestProd){
+          greatestProd = currentProd
+        }
+      }
+
+    }
+  }
+  return greatestProd
+}
 
 
 
