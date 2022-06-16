@@ -207,6 +207,37 @@ function greatestProduct(numberArr) {
   return greatestProduct;
 }
 
+function greatestProductOfDiagonals(numberArr) {
+  let greatestProduct=0;
+  let product=0;
+  //outer array
+  
+  //from upper left to bottom right
+  for (j=0; j<numberArr.length-3; j++){
+    for(i=0;i<numberArr[j].length-3;i++){
+      //put whole diagonal here index++ for every number vertikal(j), and horizontal(i)
+      product= numberArr[j][i]*numberArr[j+1][i+1]*numberArr[j+2][i+2]*numberArr[j+3][i+3];
+      if(product > greatestProduct){
+        greatestProduct = product;
+      }
+    }
+  }
+    //from bottom left to upper right
+    //start at bottom left, up to upper right 
+    //j>=3 easier to understand as j>2 (need diagonal of 4 entries)
+    for (j=numberArr.length-1; j>=3; j--){
+      for(i=0;i<numberArr[j].length-3;i++){
+        //put whole diagonal here index++ for every number vertikal(j), and horizontal(i)
+        product= numberArr[j][i]*numberArr[j-1][i+1]*numberArr[j-2][i+2]*numberArr[j-3][i+3];
+        if(product > greatestProduct){
+          greatestProduct = product;
+        }
+      }
+    }
+
+  return greatestProduct;
+}
+
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
