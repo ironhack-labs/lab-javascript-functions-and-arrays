@@ -189,10 +189,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
-
+function greatestProduct(numberArr) {
+  let greatestProduct=0;
+  let product=0;
+  //outer array
+  for (j=0; j<numberArr.length; j++){
+    console.log("outer length" + numberArr.length);
+    console.log("outer counter j " + j);
+    console.log("outer length" + numberArr[0]);
+    //nested array
+    for (i=0; i< numberArr[j].length-3; i++){
+      //this time is it better to use a helping var instead of a*b*c*d every time twice
+      //but declared outside, so it will only initiated once -->safe your ressources!
+      product = numberArr[i][j]*numberArr[i][j+1]*numberArr[i][j+2]*numberArr[i][j+3];
+      if(product > greatestProduct){
+        greatestProduct = product;
+      }
+    }
+  }
+  return greatestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
