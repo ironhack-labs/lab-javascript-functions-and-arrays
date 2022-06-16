@@ -194,9 +194,6 @@ function greatestProduct(numberArr) {
   let product=0;
   //outer array
   for (j=0; j<numberArr.length; j++){
-    console.log("outer length" + numberArr.length);
-    console.log("outer counter j " + j);
-    console.log("outer length" + numberArr[0]);
     //nested array
     for (i=0; i< numberArr[j].length-3; i++){
       //this time is it better to use a helping var instead of a*b*c*d every time twice
