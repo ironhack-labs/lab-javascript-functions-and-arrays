@@ -200,6 +200,63 @@ function greatestProduct(mat) {
   }
   return curProduct;
 }
+function greatestProductOfDiagonals(mat) {
+  let curProduct = 0;
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[i].length; j++) {
+      if (
+        mat[i][j] == undefined ||
+        mat[i + 1][j + 1] == undefined ||
+        mat[i + 2][j + 2] == undefined ||
+        mat[i + 3][j + 3] == undefined
+      ) {
+      } else {
+        let rightDownProduct = mat[i][j] * mat[i + 1][j + 1] * mat[i + 2][j + 2] * mat[i + 3][j + 3];
+        if (curProduct < rightDownProduct) {
+          curProduct = rightDownProduct;
+        }
+      }
+      if (
+        mat[i][j] == undefined ||
+        mat[i - 1][j - 1] == undefined ||
+        mat[i - 2][j - 2] == undefined ||
+        mat[i - 3][j - 3] == undefined
+      ) {
+      } else {
+        let leftUpProduct = mat[i][j] * mat[i - 1][j - 1] * mat[i - 2][j - 2] * mat[i - 3][j - 3];
+        if (curProduct < leftUpProduct) {
+          curProduct = leftUpProduct;
+        }
+      }
+      if (
+        mat[i][j] == undefined ||
+        mat[i - 1][j + 1] == undefined ||
+        mat[i - 2][j + 2] == undefined ||
+        mat[i - 3][j + 3] == undefined
+      ) {
+      } else {
+        let rightUpProduct = mat[i][j] * mat[i - 1][j + 1] * mat[i - 2][j + 2] * mat[i - 3][j + 3];
+        if (curProduct < rightUpProduct) {
+          curProduct = rightUpProduct;
+        }
+      }
+      if (
+        mat[i][j] == undefined ||
+        mat[i + 1][j - 1] == undefined ||
+        mat[i + 2][j - 2] == undefined ||
+        mat[i + 3][j - 3] == undefined
+      ) {
+      } else {
+        let leftDownProduct = mat[i][j] * mat[i - 1][j + 1] * mat[i - 2][j + 2] * mat[i - 3][j + 3];
+        if (curProduct < leftDownProduct) {
+          curProduct = leftDownProduct;
+        }
+      }
+    }
+  }
+
+  return curProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
