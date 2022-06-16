@@ -172,8 +172,8 @@ function howManyTimes(arrayArgument, wordArgument) {
       return 0;
     };
   }
-  
 }
+// somehow it doesn't count the number of elements in my array countNumberOfOccurence, and it makes the test fail when the words occrus multiple times, or 0//
 
 
 
