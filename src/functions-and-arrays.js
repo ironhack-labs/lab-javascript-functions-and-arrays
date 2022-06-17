@@ -36,26 +36,21 @@ console.log(findLongestWord(words));
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let totalSum= 0;
+let total= 0;
 function sumNumbers(numbers) {
+
 if (numbers === undefined){
   return 0;
-};
-
-else if(numbers.length === 1){
+} else if (numbers.length === 1){
   return numbers[0];
-};
-
-else if {
-  numbers.forEach (item => {
-  item === 0;
+} else if (numbers.forEach (item => {item === 0;
     return 0;
-})}
+}));
 
   else {
     numbers.forEach (item => {
-    totalSum+=item;
-      return totalSum;
+    total+=item;
+      return total;
   });
 }}
 console.log(sumNumbers(numbers));
