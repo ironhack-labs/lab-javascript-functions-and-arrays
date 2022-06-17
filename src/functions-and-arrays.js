@@ -20,7 +20,6 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  console.log(arr.length);
   if (arr.length>1) {
     longestWord='';
     for (let i=0; i<arr.length; i++) {
@@ -197,12 +196,10 @@ function doesWordExist(arr, testWord) {
     for (let i=0; i<arr.length; i++) {
       if (testWord != arr[i]) {
         wordExists = false;
-        console.log('ifi');
         continue;
       }
       else {
         wordExists = true;
-        console.log('elsi');
         break;
       }
     }
@@ -237,7 +234,6 @@ function howManyTimes(testWord, arr) {
     for (let i=0; i<arr.length; i++) {
       if (testWord == arr[i]) {
         counter++;
-        console.log(counter);
       }
     }
     return counter;
