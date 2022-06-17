@@ -1,41 +1,140 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a < b) {
+    return b;
+  } else if (a > b) {
+    return a;
+  } else if (a === b) {
+    return a;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord = null;
+  let lengthOfLongestWord = 0;
 
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > lengthOfLongestWord) {
+      lengthOfLongestWord = words[i].length;
+      longestWord = words[i];
+    }
+  }
 
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let summe = 0;
 
-
+  for (let i = 0; i < numbers.length; i++) {
+    summe += numbers[i];
+  }
+  return summe;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(mixedArr) {
+  let mixedSum = 0;
+  for (let j = 0; j < mixedArr.length; j++) {
+    if (typeof mixedArr[j] === 'boolean') {
+      mixedSum += Number(mixedArr[j]);
+    } else if (typeof mixedArr[j] === 'string') {
+      mixedSum += mixedArr[j].length;
+    } else if (typeof mixedArr[j] === 'number') {
+      mixedSum += mixedArr[j];
+    } else {
+      throw "Unsupported data type sir or ma'am";
+    }
+  }
+  return mixedSum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [5, 10];
 
-function averageNumbers() {}
-
+function averageNumbers(numbersAvg) {
+  let sumOfNumbersAvg = null;
+  const numbersInArray = numbersAvg.length - 1;
+  let average = sumOfNumbersAvg / numbersInArray;
+  for (let c = 0; c < numbersAvg.length; c++) {
+    sumOfNumbersAvg += numbersAvg[c];
+  }
+  if (numbersAvg.length === 1) {
+    return numbersAvg[0];
+  } else if (numbersAvg.length > 0) {
+    average = sumOfNumbersAvg / (numbersInArray + 1);
+    return average;
+  } else {
+    return null;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+let singleWordCount = 0;
+const lengthWordsArr = wordsArr.length - 1;
+let avgWordLength;
+function countWordsInArray(wordsArr) {
+  for (everySingleWord of wordsArr) {
+    singleWordCount += everySingleWord.length;
+  }
+}
+
+countWordsInArray(wordsArr);
+
+function averageWordLength(wordsArr) {
+  avgWordLength = singleWordCount / lengthWordsArr;
+  return avgWordLength;
+}
+
+averageWordLength(wordsArr);
+
+console.log(avgWordLength);
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+/*
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+let mixedSum = 0;
+
+function sum(mixedArr) {
+  for (let j = 0; j < mixedArr.length; j++) {
+    if (typeof mixedArr[j] === 'boolean') {
+      mixedSum += Number(mixedArr[j]);
+    } else if (typeof mixedArr[j] === 'string') {
+      mixedSum += mixedArr[j].length;
+    } else if (typeof mixedArr[j] === 'number') {
+      mixedSum += mixedArr[j];
+    }
+  }
+  return mixedSum;
+}
+
+sum(mixedArr);
+*/
+
+// INFO: The above code was already executed in the previous exercise and can be re-used for this function. The previous function calculated the sum of mixedArr and stored it in the mixedSum variable. The avg() will just divide mixedSum / mixedArr.length
+let mixedAvg = 0;
+let mixedSum = 0;
+
+function avg(mixedArr) {
+  mixedAvg = mixedSum / mixedArr.length;
+  return mixedAvg;
+}
+
+avg(mixedArr);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +151,71 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+let uniqueArray = [];
 
+function uniquifyArray(wordsUnique) {
+  for (let z = 0; z < wordsUnique.length; z++) {
+    if (uniqueArray.indexOf(wordsUnique[z]) === -1) {
+      // if indexOf can't find the word, it returns -1
+      uniqueArray.push(wordsUnique[z]);
+    }
+  }
+  return uniqueArray;
+}
 
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+let keyword = 'truth';
+let t = 0;
+let itsTrue = 0;
+let itsFalse = 0;
 
+function doesWordExist(wordsFind, keyword) {
+  while (itsTrue === 0) {
+    if (wordsFind[t].includes(keyword)) {
+      console.log('True');
+      return true;
+    } else if (t < wordsFind.length) {
+      t++;
+      console.log(t);
+    } else if (t === wordsFind.length - 1) {
+      console.log('False');
+      return false;
+    }
+  }
+}
 
+doesWordExist(wordsFind, keyword);
+
+// Alternative solution with for loop - but have to do two if/else if iterations
+
+/*function doesWordExist(wordsFind, keyword) {
+  for (t = 0; t < wordsFind.length; t++) {
+    if (wordsFind[t].includes(keyword)) {
+      console.log(wordsFind[t]);
+      itsTrue++;
+    } else {
+      console.log('Nope!');
+      itsFalse ++;
+    }
+  }
+  if (itsTrue !== 0) {
+    console.log('True');
+    return true;
+  } else if (itsFalse !== 0) {
+    console.log('False');
+    return false;
+  }
+}
+
+doesWordExist(wordsFind, keyword);
+console.log(itsTrue);
+console.log(itsFalse);
+
+*/
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +232,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+let countedWords = 0;
+let searchTerm = 'matter';
 
+function howManyTimes(wordsCount, searchTerm) {
+  for (let p = 0; p < wordsCount.length; p++) {
+    if (wordsCount[p] === searchTerm) {
+      countedWords++;
+    }
+  }
+  return countedWords;
+}
 
+howManyTimes(wordsCount, searchTerm);
 
 // Iteration #8: Bonus
 const matrix = [
@@ -107,9 +271,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
