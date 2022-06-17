@@ -57,6 +57,15 @@ This LAB, along with some of the labs you will be working on during the bootcamp
 
 Implement the function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest.
 
+function maxOfTwoNumbers(a, b){
+  if (a > b) {
+    return a; }
+    else {
+     return b;
+    }
+  }
+console.log (maxOfTwoNumbers(2, 3));
+
 <br>
 
 ### Iteration #2: Find the longest word
