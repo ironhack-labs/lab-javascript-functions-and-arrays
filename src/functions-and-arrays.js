@@ -167,24 +167,23 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-
   if (arr.length>0) {
     let uniArr=arr;
-    toErase=[];
-    for (let i=0; i<arr.length; i++) {
-      for (let j=i+1; j<arr.length;j++) {
-        if (arr[i]===arr[j]){
-          uniArr.splice(j, 1);
-        } 
+      toErase=[];
+      for (let i=0; i<arr.length; i++) {
+        for (let j=arr.length-1; j>i;j--) {
+          if (arr[i]===arr[j]){
+            uniArr.splice(j, 1);
+          } 
         }
       }
     return uniArr;
-    }
+  }
   else {
     return null;
   }
 }
-//console.log(uniquifyArray(['a','c','b','a','a','a']));
+//console.log(uniquifyArray(['a','a','a']));
 
 
 
@@ -247,7 +246,7 @@ function howManyTimes(testWord, arr) {
     return 0;
   }
 }
-// console.log(howManyTimes('truth', wordsCount));
+console.log(howManyTimes('starting', wordsCount));
 
 
 
