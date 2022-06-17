@@ -40,7 +40,7 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(mixedArr) {
   let mixedSum = 0;
@@ -80,7 +80,7 @@ function averageNumbers(numbersAvg) {
 }
 
 // Level 2: Array of strings
-const wordsArr = ['seat'];
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
   let singleWordCount = null;
@@ -98,7 +98,6 @@ function averageWordLength(wordsArr) {
     return null;
   }
 }
-
 // Bonus - Iteration #4.1
 
 /*
@@ -123,34 +122,47 @@ sum(mixedArr);
 */
 
 // INFO: The above code was already executed in the previous exercise and can be re-used for this function. The previous function calculated the sum of mixedArr and stored it in the mixedSum variable. The avg() will just divide mixedSum / mixedArr.length
-let mixedAvg = 0;
-let mixedSum = 0;
 
-function avg(mixedArr) {
-  mixedAvg = mixedSum / mixedArr.length;
-  return mixedAvg;
+/* function avg(mixedArr) {
+  let mixedAvg = 0;
+  let mixedSum = 0;
+  if (mixedArr.length === 0) {
+    return null;
+  } else {
+    mixedAvg = mixedSum / mixedArr.length;
+    return mixedAvg;
+  }
 }
 
 avg(mixedArr);
 
+*/
+
+const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
+
+// const mixedArr = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true];
+
+function avg(mixedArr) {
+  let mixedSum = 0;
+  if (mixedArr.length === 0) {
+    return null;
+  } else {
+    for (let j = 0; j < mixedArr.length; j++) {
+      if (typeof mixedArr[j] === 'boolean') {
+        mixedSum += Number(mixedArr[j]);
+      } else if (typeof mixedArr[j] === 'string') {
+        mixedSum += mixedArr[j].length;
+      } else if (typeof mixedArr[j] === 'number') {
+        mixedSum += mixedArr[j];
+      }
+    }
+    return mixedSum / mixedArr.length;
+  }
+}
+
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
 
-let uniqueArray = [];
-
-function uniquifyArray(wordsUnique) {
+/*function uniquifyArray(wordsUnique) {
   for (let z = 0; z < wordsUnique.length; z++) {
     if (uniqueArray.indexOf(wordsUnique[z]) === -1) {
       // if indexOf can't find the word, it returns -1
@@ -159,33 +171,50 @@ function uniquifyArray(wordsUnique) {
   }
   return uniqueArray;
 }
+*/
 
-uniquifyArray(wordsUnique);
+//const wordsUnique = ['hello', 'moin', 'hello', 'hello', 'moin'];
+const wordsUnique = [];
+//const wordsUnique = ["hello"];
+
+// result
+
+function uniquifyArray(wordsUnique) {
+  let lengthWordsUnique = wordsUnique.length;
+  let uniqueArray = [];
+  if (lengthWordsUnique === 0) {
+    console.log(uniqueArray);
+    return (uniqueArray = null);
+  } else {
+    for (let z = 0; z < lengthWordsUnique; z++) {
+      if (uniqueArray.indexOf(wordsUnique[z]) === -1) {
+        // if indexOf can't find the word, it returns -1
+        uniqueArray.push(wordsUnique[z]);
+      }
+    }
+    console.log(uniqueArray);
+    return uniqueArray;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 let keyword = 'truth';
-let t = 0;
-let itsTrue = 0;
-let itsFalse = 0;
 
 function doesWordExist(wordsFind, keyword) {
-  while (itsTrue === 0) {
-    if (wordsFind[t].includes(keyword)) {
-      console.log('True');
-      return true;
-    } else if (t < wordsFind.length) {
-      t++;
-      console.log(t);
-    } else if (t === wordsFind.length - 1) {
-      console.log('False');
-      return false;
+  if (wordsFind.length === 0) {
+    return null;
+  } else {
+    for (let t = 0; t < wordsFind.length; t++) {
+      if (wordsFind[t].includes(keyword)) {
+        console.log('True');
+        return true;
+      }
     }
+    return false;
   }
 }
-
-doesWordExist(wordsFind, keyword);
 
 // Alternative solution with for loop - but have to do two if/else if iterations
 
@@ -229,10 +258,13 @@ const wordsCount = [
   'matter'
 ];
 
-let countedWords = 0;
 let searchTerm = 'matter';
 
 function howManyTimes(wordsCount, searchTerm) {
+  let countedWords = 0;
+  if (wordsCount.length === 0) {
+    return 0;
+  }
   for (let p = 0; p < wordsCount.length; p++) {
     if (wordsCount[p] === searchTerm) {
       countedWords++;
