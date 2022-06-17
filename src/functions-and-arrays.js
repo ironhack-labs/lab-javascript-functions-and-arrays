@@ -80,27 +80,24 @@ function averageNumbers(numbersAvg) {
 }
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-let singleWordCount = 0;
-const lengthWordsArr = wordsArr.length - 1;
-let avgWordLength;
-function countWordsInArray(wordsArr) {
-  for (everySingleWord of wordsArr) {
-    singleWordCount += everySingleWord.length;
-  }
-}
-
-countWordsInArray(wordsArr);
+const wordsArr = ['seat'];
 
 function averageWordLength(wordsArr) {
-  avgWordLength = singleWordCount / lengthWordsArr;
-  return avgWordLength;
+  let singleWordCount = null;
+  const lengthWordsArr = wordsArr.length - 1;
+  let avgWordLength = singleWordCount / lengthWordsArr;
+  for (let a = 0; a < wordsArr.length; a++) {
+    singleWordCount += wordsArr[a].length;
+  }
+  if (wordsArr.length === 1) {
+    return wordsArr[0].length;
+  } else if (wordsArr.length > 0) {
+    avgWordLength = singleWordCount / (lengthWordsArr + 1);
+    return avgWordLength;
+  } else {
+    return null;
+  }
 }
-
-averageWordLength(wordsArr);
-
-console.log(avgWordLength);
 
 // Bonus - Iteration #4.1
 
