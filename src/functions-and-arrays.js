@@ -40,8 +40,23 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(mixedArr) {
+  let total = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof(mixedArr[i]) === "number") {
+      total += mixedArr[i];
+    } else if (typeof(mixedArr[i]) === "string") {
+      total += mixedArr[i].length;
+    } else if (typeof(mixedArr[i]) === "boolean") {
+      if (mixedArr[i] === true) {
+        total++;
+      }
+    } else {
+      throw "Unsupported data type sir or ma'am";
+    }
+  }
+  return total;
+}
 
 
 // Iteration #4: Calculate the average
@@ -72,7 +87,12 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null;
+  }
+  return sum(mixedArr) / mixedArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -170,7 +190,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maximum = matrix[0][0] * matrix[1][0] * matrix[2][0] * matrix[3][0];
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      if (matrix[i][j] *  matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3] > maximum) {
+        maximum = matrix[i][j] *  matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      }
+      if (matrix[i][j] *  matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j] > maximum) {
+        maximum = matrix[i][j] *  matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+      }
+    }
+  }
+  return maximum;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let maximum = matrix[0][0] * matrix[1][1] * matrix[2][2] * matrix[3][3];
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      if (matrix[i][j] *  matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3] > maximum) {
+        matrix[i][j] *  matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+      }
+      if (matrix[i][j+3] *  matrix[i+1][j+2] * matrix[i+2][j+1] * matrix[i+3][j] > maximum) {
+        maximum = matrix[i][j+3] *  matrix[i+1][j+2] * matrix[i+2][j+1] * matrix[i+3][j];
+      }
+    }
+  }
+  return maximum;
+}
 
 
 
