@@ -48,15 +48,36 @@ if (Array.isArray(array) && typeof array[i] === "number") {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  return sum(array)/array.length;
+}
 
-// Level 2: Array of strings
+// Level 2: Array of strings (OK)
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+let sumLetterLength = 0;
+function averageWordLength(array) {
+  let sumLetterLength = 0;
+  for (let i = 0; i < array.length; i++) {
+      sumLetterLength += array[i].length;
+  } return sumLetterLength/wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0;
+   for (let i = 0; i < arr.length; i++) {
+     if (typeof arr[i] === "number") {
+       sum += arr[i];
+     } else if (arr[i] === true) {
+       sum += 1;
+     } else if (arr[i] === false) {
+       sSum += 0;
+     } else if (typeof arr[i] === "string") {
+       sum += arr[i].length;
+     }
+ } return sum/arr.length
+ }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
