@@ -21,8 +21,6 @@ function findLongestWord(array) {
   return longestWord;
 }
 
-
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -37,7 +35,14 @@ function sumNumbers(array) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+let sumResult = 0;
+for (let i = 0; i < array.length; i++){
+if (Array.isArray(array) && typeof array[i] === "number") {
+  sumResult += array[i]
+} 
+} return sumResult;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
