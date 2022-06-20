@@ -73,15 +73,10 @@ function averageWordLength(wordsArr) {
   if (wordsArr.length === 1) return wordsArr[0];
 
   let sumWords = 0
-//for (let i = 0; i < wordsArr.length; i++) {
-  //sumWords =+ wordsArr[i].length;
-  //}
-  //return sumWords / wordsArr.length;
-//}
-wordsArr.forEach(function (w) {
-  sumWords += w.length;
-});
-return sumWords / wordsArr.length
+for (let i = 0; i < wordsArr.length; i++) {
+  sumWords += wordsArr[i].length;
+  }
+  return sumWords / wordsArr.length;
 }
 
 
