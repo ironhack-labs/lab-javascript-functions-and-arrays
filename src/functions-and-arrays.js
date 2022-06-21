@@ -48,10 +48,13 @@ function sum(array) {
   for (let i = 0; i < array.length; i++) {
     if (Array.isArray(array) && typeof array[i] === "number") {
       sumResult += array[i];
-    }
-  }
-  return sumResult;
-}
+    } else if (Array.isArray(array) && typeof array[i] === "string") {
+      sumResult += array[i].length;
+    } else if (Array.isArray(array) && typeof array[i] === "boolean" && array[i] === true) {
+      sumResult += 1;
+    } 
+    } return sumResult;
+  } 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
