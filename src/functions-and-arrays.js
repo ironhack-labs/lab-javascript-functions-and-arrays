@@ -42,8 +42,20 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {
-}
+const emptyArr = []
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixedArr) {
+  if (emptyArr.length === 0) return 0;
+ 
+  let sumNum = 0
+  for (let i = 0; i < mixedArr.length; i++) {
+   // if (typeOf mixedArr[i] === "number") {
+      return sumNum += mixedArr[i]
+    } 
+  }
+return sumNum
+//}
+
 
 
 
@@ -71,6 +83,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(wordsArr) {
   if (wordsArr.length === 0) return null;
   if (wordsArr.length === 1) return wordsArr[0];
+  
 
   let sumWords = 0
 for (let i = 0; i < wordsArr.length; i++) {
