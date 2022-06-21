@@ -37,12 +37,15 @@ function sumNumbers(numArr) {
 
 
 
-// Iteration #3.1 Bonus:
+// Iteration #3.1 Bonus: (OK)
 function sum(stringArr) {
   if (stringArr.length === 0) return 0;
   let mixSum = 0;
   for (let i = 0; i < stringArr.length; i++) {
-    if (typeof stringArr[i] === 'string') {
+    if (typeof stringArr[i] !== 'string' && typeof stringArr[i] !== 'number' && typeof stringArr[i] !== 'boolean') {
+      throw new Error('Unsupported data type sir or ma\'am');
+    }
+    else if (typeof stringArr[i] === 'string') {
       mixSum += stringArr[i].length;
     }
     else mixSum += stringArr[i];
