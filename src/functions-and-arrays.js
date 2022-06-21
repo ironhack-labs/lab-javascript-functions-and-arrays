@@ -38,14 +38,14 @@ function sumNumbers(numArr) {
 
 
 // Iteration #3.1 Bonus:
-function sum(mixArr) {
-  if (mixArr.length === 0) return 0;
+function sum(stringArr) {
+  if (stringArr.length === 0) return 0;
   let mixSum = 0;
-  for (let i = 0; i < mixArr.length; i++) {
-    if (typeof mixArr[i] === 'string') {
-      mixSum += mixArr[i].length;
+  for (let i = 0; i < stringArr.length; i++) {
+    if (typeof stringArr[i] === 'string') {
+      mixSum += stringArr[i].length;
     }
-    else mixSum += mixArr[i];
+    else mixSum += stringArr[i];
   }
   return mixSum;
 }
@@ -65,7 +65,7 @@ function averageNumbers(arrNum) {
 }
 
 
-// Level 2: Array of strings(OK)
+// Level 2: Array of strings (OK)
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arrOfWords) {
@@ -77,12 +77,15 @@ function averageWordLength(arrOfWords) {
   return wordAvg / arrOfWords.length;
 }
 
-// Bonus - Iteration #4.1
+// Bonus - Iteration #4.1 (OK)
 function avg(avgMixArr) {
   let avgMixResult = 0;
   if (avgMixArr.length === 0) return null;
   for (let i = 0; i < avgMixArr.length; i++) {
-    avgMixResult += avgMixArr[i].length;
+    if (typeof avgMixArr[i] === 'string') {
+      avgMixResult += avgMixArr[i].length;
+    }
+    else avgMixResult += avgMixArr[i];
   }
   return avgMixResult / avgMixArr.length;
 }
