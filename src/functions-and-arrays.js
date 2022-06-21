@@ -42,19 +42,19 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-const emptyArr = []
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+//const emptyArr = []
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixedArr) {
-  if (emptyArr.length === 0) return 0;
+  if (mixedArr.length === 0) return 0;
  
   let sumNum = 0
   for (let i = 0; i < mixedArr.length; i++) {
-   // if (typeOf mixedArr[i] === "number") {
-      return sumNum += mixedArr[i]
+   if (typeof mixedArr[i] === "number") {
+      sumNum += mixedArr[i]
     } 
   }
 return sumNum
-//}
+}
 
 
 
