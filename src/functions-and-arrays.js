@@ -93,7 +93,7 @@ function avg(avgMixArr) {
   return avgMixResult / avgMixArr.length;
 }
 
-// Iteration #5: Unique arrays
+// Iteration #5: Unique arrays (OK)
 const wordsUnique = [
   'crab',
   'poison',
@@ -108,7 +108,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrWords) {
+  if (arrWords.length === 0) return null;
+  let newArr = [];
+  for (let i = 0; i < arrWords.length; i++) {
+    if (newArr.indexOf(arrWords[i]) === -1) {
+    newArr.push(arrWords[i])
+    }
+  }
+  return newArr;
+}
 
 
 
