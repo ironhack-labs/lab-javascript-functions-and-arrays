@@ -6,8 +6,7 @@
 
 ## Introduction
 
-Manipulating arrays in code is a very common operation. Whether you are creating a total for a shopping cart, grabbing only the first names out of a list of people, or moving a piece on a chessboard, you are probably going to be modifying or manipulating an array in some way.
-
+Manipular matrizes no código é uma operação muito comum.Esteja você criando um total para um carrinho de compras, pegando apenas os primeiros nomes de uma lista de pessoas ou movendo uma peça em um tabuleiro de xadrez, você provavelmente estará modificando ou manipulando uma matriz de alguma forma.
 ## Requirements
 
 - Fork this repo
