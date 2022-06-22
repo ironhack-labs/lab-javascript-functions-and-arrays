@@ -42,7 +42,7 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-//const emptyArr = []
+
 //const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(mixedArr) {
   if (mixedArr.length === 0) return 0;
