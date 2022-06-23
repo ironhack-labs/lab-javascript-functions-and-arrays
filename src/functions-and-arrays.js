@@ -150,7 +150,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrToCount, wordToCount) {
+  if (arrToCount.length === 0) return 0;
+  let countResult = 0;
+  for (let i = 0; i < arrToCount.length; i++) {
+    if (arrToCount[i] === wordToCount) {
+      countResult += 1
+    }
+  }
+    return countResult;
+}
 
 
 
