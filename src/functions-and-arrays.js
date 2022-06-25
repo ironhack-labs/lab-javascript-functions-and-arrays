@@ -34,7 +34,27 @@ function sumNumbers(input) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(input) {
+  let normalizedArr = [];
+
+  for (let element of input) {
+    switch (typeof element) {
+      case 'boolean':
+        normalizedArr.push(element ? 1 : 0);
+        break;
+      case 'string':
+        normalizedArr.push(element.length);
+        break;
+      case 'number':
+        normalizedArr.push(element);
+        break;
+      default:
+        throw "Unsupported data type sir or ma'am";
+    }
+  }
+
+  return sumNumbers(normalizedArr);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
