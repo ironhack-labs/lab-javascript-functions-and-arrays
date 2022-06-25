@@ -112,9 +112,9 @@ function uniquifyArray(input) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arrToSearch, searchedWord) {
-  if (!arrToSearch || arrToSearch.length === 0) {
-    return null;
-  }
+  // if (!arrToSearch || arrToSearch.length === 0) {
+  //   return null;
+  // }
   for (let word of arrToSearch) {
     if (word === searchedWord) {
       return true;
@@ -138,7 +138,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrToSearch, searchedWord) {
+  let counter = 0;
+  for (let word of arrToSearch) {
+    if (word === searchedWord) {
+      counter++;
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
