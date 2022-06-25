@@ -189,9 +189,9 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
 
   test('should return the average of the array', () => {
     // false is counted as 0
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46/9);
+    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46 / 9);
     // true is counted as 1
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47/9);
+    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47 / 9);
   });
 });
 
@@ -283,6 +283,130 @@ describe('Count repetition', () => {
 describe('Bonus Quest - greatestProduct', () => {
   test('should declare a function named greatestProduct', () => {
     expect(typeof greatestProduct).toBe('function');
+  });
+
+  test('should return null if no matrix is passed as paramter', () => {
+    expect(greatestProduct()).toBe(null);
+  });
+  test('should return 0 when a identity matrix of 2x2', () => {
+    let matrix = [
+      [1, 0],
+      [0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(0);
+  });
+
+  test('should return 0 when a identity matrix of 4x4', () => {
+    let matrix = [
+      [1, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(0);
+  });
+
+  test('should return 1 when all elements in a matrix are 1', () => {
+    let matrix = [
+      [1, 1, 1, 1],
+      [1, 1, 1, 1],
+      [1, 1, 1, 1],
+      [1, 1, 1, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(1);
+  });
+
+  test('should return 4 when all elements in a matrix are 2 and matrix size is 2', () => {
+    let matrix = [
+      [2, 2],
+      [2, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(4);
+  });
+
+  test('should return 8 when all elements in a matrix are 2 and matrix size is 4', () => {
+    let matrix = [
+      [2, 2, 2],
+      [2, 2, 2],
+      [2, 2, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(8);
+  });
+
+  test('should return 8 when all elements in a matrix are 2 except one column with ones and matrix size is 4', () => {
+    let matrix = [
+      [1, 2, 2],
+      [1, 2, 2],
+      [1, 2, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(8);
+  });
+
+  test('should return 8 when all elements in a matrix are 2 except one row with ones and matrix size is 4', () => {
+    let matrix = [
+      [1, 1, 1],
+      [2, 2, 2],
+      [2, 2, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(8);
+  });
+
+  test('should return 64 when matrix', () => {
+    let matrix = [
+      [2, 4, 2],
+      [2, 4, 2],
+      [2, 4, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(64);
+  });
+
+  test('should return 16 when matrix', () => {
+    let matrix = [
+      [2, 4, 2],
+      [2, 4, 2],
+      [2, 2, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(32);
+  });
+
+  test('should return 2 when a identity matrix of 4x4', () => {
+    let matrix = [
+      [1, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(0);
+  });
+
+  test('should return 32000 for matrix:', () => {
+    let matrix = [
+      [1, 2, 3, 4, 5],
+      [1, 20, 3, 4, 5],
+      [1, 20, 3, 4, 5],
+      [1, 20, 3, 4, 5],
+      [1, 4, 3, 4, 5]
+    ];
+    expect(greatestProduct(matrix)).toBe(32000);
+  });
+
+  test('should return 8000 when matrix:', () => {
+    let matrix = [
+      [1, 0, 0, 0],
+      [0, 1, 0, 0],
+      [0, 0, 1, 0],
+      [0, 20, 20, 20]
+    ];
+    expect(greatestProduct(matrix)).toBe(8000);
+  });
+  test('should return 8000 when matrix:', () => {
+    let matrix = [
+      [1, 0, 0, 0],
+      [10, 1, 0, 0],
+      [10, 0, 1, 0],
+      [10, 0, 0, 0]
+    ];
+    expect(greatestProduct(matrix)).toBe(1000);
   });
 
   test('should return 1 (one) when all numbers of the arrays are 1', () => {

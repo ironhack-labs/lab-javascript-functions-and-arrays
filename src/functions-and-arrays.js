@@ -112,9 +112,9 @@ function uniquifyArray(input) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arrToSearch, searchedWord) {
-  // if (!arrToSearch || arrToSearch.length === 0) {
-  //   return null;
-  // }
+  if (!arrToSearch || arrToSearch.length === 0) {
+    return null;
+  }
   for (let word of arrToSearch) {
     if (word === searchedWord) {
       return true;
@@ -172,7 +172,65 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(inputMatrix, maxAdjacents = 4) {
+  if (!inputMatrix) {
+    return null;
+  }
+
+  let maxColumnIndex = getMaxColumnIndex(inputMatrix, maxAdjacents);
+  let maxRowIndex = getMaxRowIndex(inputMatrix, maxAdjacents);
+
+  let greatestProduct = 0;
+  for (let i = 0; i < maxRowIndex; i++) {
+    for (let j = 0; j < maxColumnIndex - 1; j++) {
+      let total = multiplyAdjacentsInRow(inputMatrix, i, j, maxAdjacents);
+      if (total > greatestProduct) {
+        greatestProduct = total;
+      }
+      total = multiplyAdjacentsInColumn(inputMatrix, i, j, maxAdjacents);
+      if (total > greatestProduct) {
+        greatestProduct = total;
+      }
+    }
+  }
+  return greatestProduct;
+}
+
+function getMaxColumnIndex(inputMatrix, maxAdjacents) {
+  const numColumns = inputMatrix[0].length;
+  return maxAdjacents > numColumns ? numColumns : maxAdjacents;
+}
+
+function getMaxRowIndex(inputMatrix, maxAdjacents) {
+  const numRows = inputMatrix.length;
+  return maxAdjacents > numRows ? numRows : maxAdjacents;
+}
+
+function multiplyAdjacentsInRow(inputMatrix, i, j, maxAdjacents) {
+  const numRows = inputMatrix.length;
+  let maxRowsToMultiply = getMaxRowIndex(inputMatrix, maxAdjacents);
+
+  let total = 1;
+  for (let z = 0; z < maxRowsToMultiply; z++) {
+    if (j + z < numRows) {
+      total *= inputMatrix[i][j + z];
+    }
+  }
+  return total;
+}
+
+function multiplyAdjacentsInColumn(inputMatrix, i, j, maxAdjacents) {
+  const numColumns = inputMatrix[0].length;
+  let maxColumnsToMultiply = getMaxColumnIndex(inputMatrix, maxAdjacents);
+
+  let total = 1;
+  for (let z = 0; z < maxColumnsToMultiply; z++) {
+    if (i + z < numColumns) {
+      total *= inputMatrix[i + z][j];
+    }
+  }
+  return total;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
