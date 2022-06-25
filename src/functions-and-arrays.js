@@ -76,7 +76,9 @@ function averageWordLength(input) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(input) {
+  return averageNumbers(input);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
