@@ -293,7 +293,7 @@ describe('Bonus Quest - greatestProduct', () => {
       [1, 0],
       [0, 1]
     ];
-    expect(greatestProduct(matrix)).toBe(0);
+    expect(greatestProduct(matrix)).toBe(1);
   });
 
   test('should return 0 when a identity matrix of 4x4', () => {
@@ -303,7 +303,7 @@ describe('Bonus Quest - greatestProduct', () => {
       [0, 0, 1, 0],
       [0, 0, 0, 1]
     ];
-    expect(greatestProduct(matrix)).toBe(0);
+    expect(greatestProduct(matrix)).toBe(1);
   });
 
   test('should return 1 when all elements in a matrix are 1', () => {
@@ -351,7 +351,34 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(greatestProduct(matrix)).toBe(8);
   });
 
-  test('should return 64 when matrix', () => {
+  test('should return 8 when all elements in a matrix are 1 except diagonal with twos and matrix size is 4', () => {
+    let matrix = [
+      [2, 1, 1],
+      [1, 2, 1],
+      [1, 1, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(8);
+  });
+
+  test('should return 8 when all elements in a matrix are 1 except backward diagonal with twos and matrix size is 4', () => {
+    let matrix = [
+      [1, 1, 2],
+      [1, 2, 1],
+      [2, 1, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(8);
+  });
+
+  test('should return 8 when all elements in a matrix are 1 except both diagonal with twos and matrix size is 4', () => {
+    let matrix = [
+      [2, 1, 2],
+      [1, 2, 1],
+      [2, 1, 2]
+    ];
+    expect(greatestProduct(matrix)).toBe(8);
+  });
+
+  test('should return 64 when matrix has the biggest product of 4x4x4 in a column', () => {
     let matrix = [
       [2, 4, 2],
       [2, 4, 2],
@@ -360,7 +387,7 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(greatestProduct(matrix)).toBe(64);
   });
 
-  test('should return 16 when matrix', () => {
+  test('should return 16 when matrix has the biggest product of 2x2x2 in both a column and a row', () => {
     let matrix = [
       [2, 4, 2],
       [2, 4, 2],
@@ -369,17 +396,17 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(greatestProduct(matrix)).toBe(32);
   });
 
-  test('should return 2 when a identity matrix of 4x4', () => {
+  test('should return 1 when a identity matrix of 4x4', () => {
     let matrix = [
       [1, 0, 0, 0],
       [0, 1, 0, 0],
       [0, 0, 1, 0],
       [0, 0, 0, 1]
     ];
-    expect(greatestProduct(matrix)).toBe(0);
+    expect(greatestProduct(matrix)).toBe(1);
   });
 
-  test('should return 32000 for matrix:', () => {
+  test('should return 32000 when matrix has the biggest product of 2x20x20x20 in a column ', () => {
     let matrix = [
       [1, 2, 3, 4, 5],
       [1, 20, 3, 4, 5],
@@ -390,7 +417,7 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(greatestProduct(matrix)).toBe(32000);
   });
 
-  test('should return 8000 when matrix:', () => {
+  test('should return 8000 when matrix has the biggest product of 20x20x20 in a row', () => {
     let matrix = [
       [1, 0, 0, 0],
       [0, 1, 0, 0],
@@ -399,7 +426,7 @@ describe('Bonus Quest - greatestProduct', () => {
     ];
     expect(greatestProduct(matrix)).toBe(8000);
   });
-  test('should return 8000 when matrix:', () => {
+  test('should return 1000 when matrix has the biggest product of 1x10x10x10 in a column', () => {
     let matrix = [
       [1, 0, 0, 0],
       [10, 1, 0, 0],
@@ -459,5 +486,65 @@ describe('Bonus Quest - greatestProduct', () => {
       [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
     ];
     expect(greatestProduct(matrix)).toBe(16);
+  });
+
+  test('should return 10000 when matrix with a diagonal of 10x10x10x10', () => {
+    let matrix = [
+      [10, 0, 0, 0],
+      [10, 10, 0, 0],
+      [10, 0, 10, 0],
+      [0, 0, 0, 10]
+    ];
+    expect(greatestProduct(matrix)).toBe(10000);
+  });
+
+  test('should return 1 when a backward identity matrix of 4x4', () => {
+    let matrix = [
+      [0, 0, 0, 1],
+      [0, 0, 1, 0],
+      [0, 1, 0, 0],
+      [1, 0, 0, 0]
+    ];
+    expect(greatestProduct(matrix)).toBe(1);
+  });
+
+  test('should return 16 when a backward diagonal has the biggest product of 4x1x1x4', () => {
+    let matrix = [
+      [1, 0, 0, 4],
+      [0, 2, 1, 0],
+      [2, 1, 2, 0],
+      [4, 0, 0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(16);
+  });
+
+  test('should return 16 when a not main backward diagonal has the biggest product of 4x4', () => {
+    let matrix = [
+      [1, 4, 0, 1],
+      [4, 2, 1, 0],
+      [2, 1, 2, 0],
+      [1, 0, 0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(16);
+  });
+
+  test('should return 16 when a not main diagonal has the biggest product of 4x4', () => {
+    let matrix = [
+      [1, 1, 0, 1],
+      [1, 2, 4, 0],
+      [1, 1, 1, 4],
+      [1, 0, 0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(16);
+  });
+
+  test('should return 64 when a not main diagonal has the biggest product of 4x4x4', () => {
+    let matrix = [
+      [1, 4, 0, 1],
+      [1, 2, 4, 0],
+      [1, 1, 1, 4],
+      [1, 0, 0, 1]
+    ];
+    expect(greatestProduct(matrix)).toBe(64);
   });
 });

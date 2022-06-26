@@ -177,39 +177,46 @@ function greatestProduct(inputMatrix, maxAdjacents = 4) {
     return null;
   }
 
-  let maxColumnIndex = getMaxColumnIndex(inputMatrix, maxAdjacents);
-  let maxRowIndex = getMaxRowIndex(inputMatrix, maxAdjacents);
+  let maxRowIndex = getUpperLimitRowIndex(inputMatrix, maxAdjacents);
+  let maxColumnIndex = getUpperLimitColumnIndex(inputMatrix, maxAdjacents);
 
   let greatestProduct = 0;
   for (let i = 0; i < maxRowIndex; i++) {
-    for (let j = 0; j < maxColumnIndex - 1; j++) {
-      let total = multiplyAdjacentsInRow(inputMatrix, i, j, maxAdjacents);
-      if (total > greatestProduct) {
-        greatestProduct = total;
-      }
-      total = multiplyAdjacentsInColumn(inputMatrix, i, j, maxAdjacents);
-      if (total > greatestProduct) {
-        greatestProduct = total;
-      }
+    for (let j = 0; j < maxColumnIndex; j++) {
+      greatestProduct = getMaxOf(greatestProduct, multiplyAdjacentsInRow(inputMatrix, i, j, maxAdjacents));
+      greatestProduct = getMaxOf(greatestProduct, multiplyAdjacentsInColumn(inputMatrix, i, j, maxAdjacents));
+      greatestProduct = getMaxOf(greatestProduct, multiplyAdjacentsInDiagonal(inputMatrix, i, j, maxAdjacents));
+      greatestProduct = getMaxOf(greatestProduct, multiplyAdjacentsInDiagonalReverse(inputMatrix, i, j, maxAdjacents));
     }
   }
   return greatestProduct;
 }
 
-function getMaxColumnIndex(inputMatrix, maxAdjacents) {
-  const numColumns = inputMatrix[0].length;
-  return maxAdjacents > numColumns ? numColumns : maxAdjacents;
+function getMaxOf(aNumber, anotherNumber) {
+  return aNumber > anotherNumber ? aNumber : anotherNumber;
 }
 
-function getMaxRowIndex(inputMatrix, maxAdjacents) {
+function getMinOf(aNumber, anotherNumber) {
+  return aNumber < anotherNumber ? aNumber : anotherNumber;
+}
+
+function getUpperLimitColumnIndex(inputMatrix, maxAdjacents) {
+  const numColumns = inputMatrix[0].length;
+  return getMinOf(maxAdjacents, numColumns);
+}
+
+function getUpperLimitRowIndex(inputMatrix, maxAdjacents) {
   const numRows = inputMatrix.length;
-  return maxAdjacents > numRows ? numRows : maxAdjacents;
+  return getMinOf(maxAdjacents, numRows);
 }
 
 function multiplyAdjacentsInRow(inputMatrix, i, j, maxAdjacents) {
   const numRows = inputMatrix.length;
-  let maxRowsToMultiply = getMaxRowIndex(inputMatrix, maxAdjacents);
+  let maxRowsToMultiply = getUpperLimitRowIndex(inputMatrix, maxAdjacents);
 
+  if (j == numRows - 1) {
+    return 0;
+  }
   let total = 1;
   for (let z = 0; z < maxRowsToMultiply; z++) {
     if (j + z < numRows) {
@@ -221,8 +228,11 @@ function multiplyAdjacentsInRow(inputMatrix, i, j, maxAdjacents) {
 
 function multiplyAdjacentsInColumn(inputMatrix, i, j, maxAdjacents) {
   const numColumns = inputMatrix[0].length;
-  let maxColumnsToMultiply = getMaxColumnIndex(inputMatrix, maxAdjacents);
+  let maxColumnsToMultiply = getUpperLimitColumnIndex(inputMatrix, maxAdjacents);
 
+  if (i == numColumns - 1) {
+    return 0;
+  }
   let total = 1;
   for (let z = 0; z < maxColumnsToMultiply; z++) {
     if (i + z < numColumns) {
@@ -232,6 +242,43 @@ function multiplyAdjacentsInColumn(inputMatrix, i, j, maxAdjacents) {
   return total;
 }
 
+function multiplyAdjacentsInDiagonal(inputMatrix, i, j, maxAdjacents) {
+  let maxColumnsToMultiply = getUpperLimitColumnIndex(inputMatrix, maxAdjacents);
+  let maxRowsToMultiply = getUpperLimitRowIndex(inputMatrix, maxAdjacents);
+
+  if (!isSquareMatrix(inputMatrix)) {
+    return 0;
+  }
+  let total = 1;
+  for (let x = 0; x < maxRowsToMultiply; x++) {
+    if (i + x < maxColumnsToMultiply && j + x < maxRowsToMultiply) {
+      total *= inputMatrix[i + x][j + x];
+    }
+  }
+  return total;
+}
+
+function multiplyAdjacentsInDiagonalReverse(inputMatrix, i, j, maxAdjacents) {
+  const numRows = inputMatrix.length;
+  const numColumns = inputMatrix[0].length;
+  if (!isSquareMatrix(inputMatrix)) {
+    return 0;
+  }
+  let totalReverseDiagonal = 1;
+  for (let x = 0; x < maxAdjacents; x++) {
+    if (i - x < 0 || j + x >= numColumns) {
+      break;
+    }
+    totalReverseDiagonal *= inputMatrix[i - x][j + x];
+  }
+  return totalReverseDiagonal;
+}
+
+function isSquareMatrix(inputMatrix) {
+  const numColumns = inputMatrix[0].length;
+  const numRows = inputMatrix.length;
+  return numColumns === numRows;
+}
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
