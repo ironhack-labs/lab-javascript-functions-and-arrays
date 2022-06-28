@@ -1,4 +1,4 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+cd![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
 # LAB | JS Functions & Arrays
 
@@ -298,7 +298,7 @@ To run your tests, open your terminal at the root directory of the lab, run `npm
 $ cd lab-javascript-functions-and-arrays
 $ npm install
 $ npm run test:watch
-```
+```npm
 
 <br>
 
