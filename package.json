@@ -19,8 +19,8 @@
         {
           "pageTitle": "Lab Solution",
           "outputPath": "lab-solution.html",
-          "includeFailureMsg": true,
-          "includeConsoleLog": true
+          "includeFailureMsg": false,
+          "includeConsoleLog": false
         }
       ]
     ]

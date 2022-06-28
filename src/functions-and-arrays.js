@@ -1,41 +1,85 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
-
-
+const maxOfTwoNumbers = (num1, num2) => {
+  if (num1 > num2) {
+    return num1;
+  } else if(num1 < num2) {
+    return num2;
+  }else{
+    return num1;
+  }
+}
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
-
+const findLongestWord = (words) => {
+  let maxLarge = "";
+  if (!words.length) {
+    return null;
+  }
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > maxLarge.length) {
+      maxLarge = words[i];
+    }
+  }
+  return maxLarge;
+  
+}
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+const sumNumbers = (numbers) => {
+  let suma = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    suma += array[i];
+  }
+  return suma;
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const sum = (mixed) => {
+  let suma = 0;
+  mixed.forEach((e) => {
+     suma =   (typeof e === "number") ? suma += e :
+              (typeof e === "boolean") ? suma += Number(e):
+              (typeof e === "string") ? suma += e.length:''
+  });
+  return suma;
+};
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+const averageNumbers = (numbersAvg) => {
+  let avg = numbersAvg.reduce((acc, num, i, array) => {
+    return acc + num / array.length;
+  }, 0);
+  return avg;
+}
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+const averageWordLength = (wordsArr) => {
+  let avgWord = 0;
+  for(let i = 0; i < wordsArr.length; i++){
+    avgWord += wordsArr[i].length;
+  }
+  return avgWord /  wordsArr.length;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const avg = (mixedArr) => {
+  let suma = 0;
+  mixed.forEach((e) => {
+    suma =  (typeof e === "number") ? suma += e :
+            (typeof e === "boolean") ? suma += Number(e):
+            (typeof e === "string") ? suma += e.length:''
+  });
+  return suma / mixedArr.length ;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
