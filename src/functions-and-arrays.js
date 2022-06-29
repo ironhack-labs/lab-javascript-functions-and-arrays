@@ -35,7 +35,7 @@ function findLongestWord(arr) {
 
 console.log(findLongestWord(words));
 
-// Iteration #3: Calculate the sum --PENDIENTE--
+// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
@@ -58,15 +58,19 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(arr) {
   let suma = 0;
-
   for (let i of arr) {
+  
+    
     if (typeof i === 'boolean') {
       suma += i;
     } else if (typeof i === 'number') {
       suma += i;
     } else if (typeof i === 'string') {
       suma += i.length;
+    } else if (typeof i === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
     }
+     
   }
 
   return suma;
@@ -221,7 +225,7 @@ function howManyTimes(arr, word) {
 
   for (let i of arr) {
     if (i.includes(word)) {
-      count++
+      count++;
     } else {
       continue;
     }
@@ -229,7 +233,7 @@ function howManyTimes(arr, word) {
   return count;
 }
 
-console.log(howManyTimes(wordsCount, 'matter'))
+console.log(howManyTimes(wordsCount, 'matter'));
 
 // Iteration #8: Bonus
 const matrix = [
@@ -255,7 +259,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matr) {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
