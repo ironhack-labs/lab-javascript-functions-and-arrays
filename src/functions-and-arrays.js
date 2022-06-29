@@ -259,7 +259,24 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matr) {}
+function greatestProduct(matr, n) {
+  let maxSum = 0;
+  let currentSum = 0;
+
+    for(row = 0; row < matr.length; row++) {
+      for(column = 0; column < matr.length - 3; column++) {       
+        currentSum = matr[row][column] * matr[row][column+1] * matr[row][column+2] * matr[row][column+3];
+        if (currentSum > maxSum) {
+          maxSum = currentSum;
+        } 
+      }
+    }
+
+
+  return maxSum;
+}
+
+console.log(greatestProduct(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
