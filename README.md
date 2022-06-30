@@ -130,7 +130,7 @@ const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
 #### Level 2: Array of strings
 
-Implement the function named `averageWordLength` that receives as a single argument an array of words and returns the average length of the words:
+Implement the function named `averageWordLength` that receives as a single argument an array of words and returns th  of the words:
 
 You can use the following array to test your solution:
 
