@@ -13,9 +13,8 @@ const maxOfTwoNumbers = (num1, num2) => {
 
 const findLongestWord = (words) => {
   let maxLarge = "";
-  if (!words.length) {
-    return null;
-  }
+  if (!words.length) return;
+
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > maxLarge.length) {
       maxLarge = words[i];
@@ -72,6 +71,8 @@ const averageWordLength = (wordsArr) => {
 
 // Bonus - Iteration #4.1
 const avg = (mixedArr) => {
+  if (!mixedArr.length) return;
+
   let suma = 0;
   mixed.forEach((e) => {
     suma =  (typeof e === "number") ? suma += e :
@@ -82,47 +83,32 @@ const avg = (mixedArr) => {
 }
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const  uniquifyArray = (wordsUnique) => {
 
-function uniquifyArray() {}
+  if (!wordsUnique.length) return;
+ //indexof retorna un bolean y filter retorna el elemento siempre que la condicion sea true
+  return wordsUnique.filter( (word, i, arr) => { return arr.indexOf(word) === i; });
+}
 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+const doesWordExist = (wordsFind, word) => {
+  if (!wordsFind.length || !word) return;
+
+  return wordsFind.some( (wrd , i , array) => { return word === array[i]; });//bolean return 
+}
 
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
 
-function howManyTimes() {}
+const howManyTimes = (wordsCount, search) => {
+  if (!wordsCount.length || !search) return;
+  return wordsCount.reduce( (acc, word) => { return acc += word === search; }, 0);
+}
+
 
 
 
@@ -150,7 +136,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const greatestProduct = (matrix) => {
+
+}
 
 
 
