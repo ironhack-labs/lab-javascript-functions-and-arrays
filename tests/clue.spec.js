@@ -1,22 +1,13 @@
-const {
-  suspectsArray,
-  roomsArray,
-  weaponsArray,
-  pickMystery,
-  revealMystery,
-  selectRandom
-} = require('./../src/clue');
-
-describe('Array "suspectsArray', () => {
+describe("Array 'suspectsArray'", () => {
   it('should be an array', () => {
-    expect(suspectsArray instanceof Array).toBeTruthy();
+    expect(Array.isArray(suspectsArray)).toBeTruthy();
   });
 
-  it('should have 6 suspects', () => {
-    expect(suspectsArray).toHaveLength(6);
+  it('should have 6 suspects (objects)', () => {
+    expect(suspectsArray.length).toBe(6);
   });
 
-  describe('Suspect Objects', () => {
+  describe('- Suspect Objects', () => {
     beforeAll(() => {
       expect(suspectsArray.length).toBeTruthy();
     });
@@ -58,16 +49,16 @@ describe('Array "suspectsArray', () => {
   });
 });
 
-describe('Array "weaponsArray', () => {
+describe("Array 'weaponsArray'", () => {
   it('should be an array', () => {
-    expect(weaponsArray instanceof Array).toBeTruthy();
+    expect(Array.isArray(weaponsArray)).toBeTruthy();
   });
 
-  it('should have 9 suspects', () => {
-    expect(weaponsArray).toHaveLength(9);
+  it('should have 9 weapons (objects)', () => {
+    expect(weaponsArray.length).toBe(9);
   });
 
-  describe('Weapon Objects', () => {
+  describe('- Weapon Objects', () => {
     beforeAll(() => {
       expect(weaponsArray.length).toBeTruthy();
     });
@@ -84,16 +75,16 @@ describe('Array "weaponsArray', () => {
   });
 });
 
-describe('Array "roomsArray', () => {
+describe("Array 'roomsArray'", () => {
   it('should be an array', () => {
-    expect(roomsArray instanceof Array).toBeTruthy();
+    expect(Array.isArray(roomsArray)).toBeTruthy();
   });
 
-  it('should have 15 rooms', () => {
-    expect(roomsArray).toHaveLength(15);
+  it('should have 15 rooms (objects)', () => {
+    expect(roomsArray.length).toBe(15);
   });
 
-  describe('Room Objects', () => {
+  describe('- Room Objects', () => {
     beforeAll(() => {
       expect(roomsArray.length).toBeTruthy();
     });
@@ -123,20 +114,20 @@ describe('Function "selectRandom" - Find a random element of the array', () => {
   });
 
   it('should return a random element of the array', () => {
-    const mathRandomSpy = jest.spyOn(global.Math, 'random');
+    const mathRandomSpy = spyOn(Math, 'random');
 
-    mathRandomSpy.mockReturnValue(0.5);
+    mathRandomSpy.and.returnValue(0.5);
 
     expect(
       selectRandom(['a', 'ab', 'abb', 'aab', 'aaa', 'sda', 'kas'])
     ).toEqual('aab');
 
-    mathRandomSpy.mockReturnValue(0.1);
+    mathRandomSpy.and.returnValue(0.1);
     expect(
       selectRandom(['a', 'ab', 'abb', 'aab', 'aaa', 'sda', 'kas'])
     ).toEqual('a');
 
-    mathRandomSpy.mockReturnValue(0.9);
+    mathRandomSpy.and.returnValue(0.9);
     expect(
       selectRandom(['a', 'ab', 'abb', 'aab', 'aaa', 'sda', 'kas'])
     ).toEqual('kas');
@@ -158,10 +149,11 @@ describe('Function "pickMystery" - Pick a random mystery', () => {
   it('should return an object with 3 properties: `suspect`, `weapon`, `room`', () => {
     const mistery = pickMystery();
 
-    expect(Object.keys(mistery)).toHaveLength(3);
-    expect(mistery).toHaveProperty('suspect');
-    expect(mistery).toHaveProperty('weapon');
-    expect(mistery).toHaveProperty('room');
+    expect(Object.keys(mistery).length).toBe(3);
+    
+    expect(Object.keys(mistery)).toContain('suspect');
+    expect(Object.keys(mistery)).toContain('weapon');
+    expect(Object.keys(mistery)).toContain('room');    
   });
 
   it('should return a suspect in the suspect property of the object', () => {
