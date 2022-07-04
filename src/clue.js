@@ -24,17 +24,3 @@ function pickMystery() {}
 
 function revealMystery() {}
 
-
-
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
-  module.exports = {
-    suspectsArray,
-    roomsArray,
-    weaponsArray,
-    pickMystery,
-    revealMystery,
-    selectRandom
-  };
-}
