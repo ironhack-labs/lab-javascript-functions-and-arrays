@@ -63,10 +63,20 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr42) { 
+  let average = 0;
+  let i = null;
+  for (let i = 0; i < arr42.length; i++) {
+    let currentNumber = arr42[i].length;
+    average += currentNumber;
+  }
+  average = average / arr42.length;
+  return average;
+}
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
+// function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
