@@ -109,20 +109,21 @@ const wordsUnique = [
   'bring'
 ];
 
-
+// feito com ajuda. Necessito de estudar mais este método
 function uniquifyArray(arr) {
-  if(arr.length === 0){
-    return null;
-  } 
-  for(let i = 0; i < arr.length; i++){
-    if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])){
-      arr.splice(i, 1)
-    }
-  }
-  return arr;
-}
 
-console.log(uniquifyArray(wordsUnique));
+    let newArr = []
+
+    if(arr.length === 0){
+      return null;}
+  
+    for (let word of arr){
+      if(!newArr.includes(word)){
+        newArr.push(word)
+      }
+    }
+    return newArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -158,9 +159,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arrayOfWords,word) {
+  let counter = 0;
+  for(let i = 0; i < arrayOfWords.length; i++) {
+    if(arrayOfWords[i] === word){
+      counter++;
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
