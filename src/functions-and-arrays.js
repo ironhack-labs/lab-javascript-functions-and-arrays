@@ -1,7 +1,13 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  } else {
+    return num1;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -13,7 +19,18 @@ function findLongestWord() {}
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(nums) {
+  let sum = 0
+  for (let i = 0 ; i < nums.length ; i++) {
+
+    sum += nums[i];
+
+  }
+
+  return sum;
+}
+
+console.log(sumNumbers(numbers));
 
 
 
@@ -26,7 +43,16 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null;
+  } else {
+    return sumNumbers(array) / array.length;
+  }
+
+}
+
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
@@ -59,7 +85,23 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, someWord) {
+  if (array.length === 0) {
+    return null
+  }
+
+  for (let i = 0 ; i < array.length ; i++) {
+    if (someWord === array[i]) {
+      return true;
+    } else {
+      continue;
+    }
+  }
+
+  return false;
+}
+
+console.log(doesWordExist(wordsFind, "luna"));
 
 
 
@@ -78,7 +120,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, anyWord) {
+  let count = 0;
+  for (let i = 0 ; i < array.length ; i++) {
+
+  }
+}
 
 
 
