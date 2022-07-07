@@ -202,8 +202,12 @@ const wordsCount = [
 function howManyTimes(someArr, someWord) {
   let count = 0;
   for (let i = 0 ; i < someArr.length ; i++) {
-    
+    if (someWord === someArr[i]) {
+      count += 1;
+    }
   }
+
+  return count;
 }
 
 
