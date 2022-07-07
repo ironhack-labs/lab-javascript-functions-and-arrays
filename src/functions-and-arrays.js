@@ -45,7 +45,7 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-// function sum() {}
+ function sum() {}
 
 
 // Iteration #4: Calculate the average
@@ -76,7 +76,7 @@ function averageWordLength(arr42) {
 console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-// function avg() {}
+ function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
