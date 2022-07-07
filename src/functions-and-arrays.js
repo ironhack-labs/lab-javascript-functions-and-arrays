@@ -49,13 +49,30 @@ return sum
 
 // Iteration #3.1 Bonus:
 function sum(elem) {
-  let separatedWords = elem.toString().split('');
-  if(elem.length === 0){
-    return 0;
-  } else {
-    return separatedWords.length;
+  let sum = 0;
+  for(element in elem){
+    if(typeof element === 'object'){
+      throw new Error("Unsupported data type sir or ma'am");
+    }
   }
-
+  if (elem.length === 0){
+    return 0;
+  } else if (elem.length === 1){
+    return elem[0];
+  } else {
+    for (let i = 0; i < elem.length; i++){
+      if (elem[i] === true){
+        sum++
+      } else if ( elem[i] === false){
+        sum += 0;
+      } else if (typeof elem[i] === 'string'){
+        sum += elem[i].length;
+      } else {
+        sum += elem[i];
+      }
+  }
+}
+return sum;
 }
 
 
@@ -84,20 +101,21 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(words) {
   let sum = 0;
-  let separatedWords = words.toString().split('');
   if(words.length === 0){
     return null;
   } else {
-    sum = separatedWords.length;
-    return sum / words.length;  
-  }
+      for (let i = 0; i < words.length; i++){
+          sum += words[i].length;
+      }
+    }
+  return sum / words.length;
 }
 
 // Bonus - Iteration #4.1
 function avg(arr) {
   let sum = 0;
   if (arr.length === 0){
-    return 0;
+    return null;
   } else if (arr.length === 1){
     return arr[0];
   } else {
@@ -113,7 +131,7 @@ function avg(arr) {
       }
   }
 }
-return sum;
+return sum / arr.length;
 }
 
 // Iteration #5: Unique arrays
@@ -132,16 +150,13 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-    let unique = [];
-    if (arr.length === 0){
-      return null;
-    } else if (arr.indexOf(unique) !== -1) {
-      unique.push(arr);
-    } else if (arr.indexOf(unique) === arr.lastIndexOf(unique)) {
-      return arr;
-    }
-  console.log(unique);
-  return unique;
+
+  if (arr.length === 0){
+    return null; 
+  } else {
+    let unique = arr.filter((v, i, a) => a.indexOf(v) === i)
+    return unique;
+  }
 }
 
 
