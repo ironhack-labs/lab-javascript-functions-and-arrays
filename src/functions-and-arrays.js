@@ -137,7 +137,7 @@ const includesNumber = wordsFind.includes(20);
 console.log(includesNumber);
 */
 
-// Iteration #7: Count repetition
+// Iteration #7: Count repetition 
 const wordsCount = [
   'machine',
   'matter',
@@ -152,7 +152,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(countArray, value) {
+  let counter = 0;
+      for(let i = 0; i < countArray.length; i++){
+        if (value === (countArray[i])) counter++;
+    }
+    return counter;
+}
+
+console.log(howManyTimes(wordsCount));
 
 
 
