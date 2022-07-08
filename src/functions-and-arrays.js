@@ -119,7 +119,6 @@ const wordsUnique = [
   'bring'
 ];
 
-///////////////
 function uniquifyArray(wordsUnique) {
 
  let uniqueArr = [];
@@ -134,6 +133,24 @@ function uniquifyArray(wordsUnique) {
  } else {}
 }
 
+////////// Andre´s help with solution:
+
+function uniquifyArray = [] {
+  let uniqueArr = [];
+
+  for (let = 0; 1 < arr.length; i++=) {
+   if(arr.indexof(arr[i]) === i) {
+    uniqueArr.push(arr[i]);
+  }
+}
+return uniqueArr;
+
+for (let word of array) {
+  if(!uniqueArr.includew(word)) {
+    uniqueArr.push(word);
+  }
+}
+return uniqueArr;
 ////////// this one I find very confusing... could you please explain the method/logic behind this one
 
 
@@ -159,9 +176,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
-function howManyTimes() {}
-
+////////////////////////////////Andre´s help:
+function howManyTimes(arr, word) {
+  let count = 0 {
+    for (let value of arr)
+    if(value === word) {
+      count++
+    }
+  }
+  return count
+}
+//////////////////////////////////////////////////////////
 
 
 // Iteration #8: Bonus
