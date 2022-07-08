@@ -42,19 +42,8 @@ return sum
 
 
 // Iteration #3.1 Bonus:
-function sum(numbers) {
-let sum = 0;
-  if(numbers.length === 0){
-    return null;
-  } else if (numbers.length === 1){
-    return numberss[0];
-  } else{
-  for (let i = 0; i < numbers.length; i++){
-    sum += numbers[i]
-  }
-} {}
-  return sum / numbers.length
-}
+
+
 
 
 
@@ -80,10 +69,40 @@ function averageNumbers(numbers) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  let sum = 0;
+  let separatedWords = words.toString().split('');
+  if(words.length === 0){
+    return null;
+  } else {
+    sum = separatedWords.length;
+    return sum / words.length;  
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(arr) {
+  let sum = 0;
+  if (arr.length === 0){
+    return 0;
+  } else if (arr.length === 1){
+    return arr[0];
+  } else {
+    for (let i = 0; i < arr.length; i++){
+      if (arr[i] === true){
+        sum++
+      } else if ( arr[i] === false){
+        sum += 0;
+      } else if (typeof arr[i] === 'string'){
+        sum += arr[i].length;
+      } else {
+        sum += arr[i];
+      }
+  }
+}
+return sum;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -100,7 +119,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+///////////////
+function uniquifyArray(wordsUnique) {
+
+ let uniqueArr = [];
+
+ for (let word of array)
+ if (uniqueArr === 0) {
+  return null;
+ } else if {
+  return uniquifyArray.splice 
+ } else if {
+  return uniquifyArray.indexof
+ } else {}
+}
+
+////////// this one I find very confusing... could you please explain the method/logic behind this one
 
 
 

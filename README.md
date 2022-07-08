@@ -149,6 +149,10 @@ The non-numerical values should be counted as follows:
 - Strings: use the string `length` as the numeric value.
 
 
+
+
+
+
 ```javascript
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
