@@ -1,24 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numOne, numTwo) {
+  if (typeof(numOne)!== "number" || typeof(numTwo)!== "number") {
+    console.log("Please, give two valid numbers")
+    return
+  }
+  if (numOne > numTwo){
+    return numOne
+  } 
+  return numTwo
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if(words.length === 0){
+    return null
+  }
+  let longWord =""
+  words.forEach(word => {
+    if (word.length > longWord.length) {
+      longWord = word
+    }    
+  });
+  return longWord
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let sum = 0;
+  numbers.forEach(number => {
+    sum += number
+  });
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArray) {
+  let sum=0;
+  mixedArray.forEach(element => {
+    switch (typeof(element)) {
+      case "number":
+        sum += element;
+        break;
+      case "string":
+        sum += element.length;
+        break;
+      case "boolean":
+        if (element){
+          sum++
+        }
+        break;
+      default:
+        console.log("Unsupported data type sir or ma'am");
+        return "Unsupported data type sir or ma'am"
+        break;
+    }
+  });
+  return sum
+}
 
 
 
@@ -26,16 +70,30 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null
+  }
+  return sumNumbers(numbers)/numbers.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(words) {
+  if (words.length === 0) {
+    return null
+  }
+  return sum(words)/words.length
+}
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArray) {
+  if (mixedArray.length === 0) {
+    return null
+  }
+  return sum(mixedArray)/mixedArray.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +110,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null
+  }
+  let cleanWords =[]
+  words.forEach(element => {
+    if (cleanWords.indexOf(element) === -1 ){
+      cleanWords.push(element)
+    } 
+  });
+  return cleanWords
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words,word) {
+  if (words.length === 0) {
+    return null
+  }
+  let find = false
+  words.forEach(element => {
+    if (element === word){
+      find = true
+    }
+  });
+  return find
+}
 
 
 
@@ -78,7 +158,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words,word) {
+  let countWord = 0
+  words.forEach(element => {
+    if (element === word){
+      countWord++
+    }
+  });
+  return countWord
+}
 
 
 
@@ -106,8 +194,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatestSum=0
+  for (let i=0; i< matrix.length - 1; i++){
+    for( let j=0; j< matrix[i].length - 4; j++){
+      if ((matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3])>greatestSum){
+        greatestSum = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3]
+      }
+    }
+  }
+  for (let i=0; i< matrix.length - 4; i++){
+    for( let j=0; j< matrix[i].length - 1; j++){
+      if ((matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j])>greatestSum){
+        greatestSum = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j]
+      }
+    }
+  }
+  return greatestSum
+}
 
+// Iteration #8.1: Product of diagonals
 
 
 
