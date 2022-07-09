@@ -72,7 +72,7 @@ function averageWordLength(array) {
     sumWords += array[i].length
   }
 
-  return sumWords
+  return sumWords / array.length
 }
 averageWordLength(wordsArr)
 
