@@ -215,7 +215,24 @@ function greatestProduct(matrix) {
 
 // Iteration #8.1: Product of diagonals
 
-
+function greatestProductDiagonal(matrix) {
+  let greatestSum=0
+  for (let i=0; i< matrix.length - 4; i++){
+    for( let j=0; j< matrix[i].length - 4; j++){
+      if ((matrix[i][j]*matrix[i+1][j+1]*matrix[i+2][j+2]*matrix[i+3][j+3])>greatestSum){
+        greatestSum = matrix[i][j]*matrix[i+1][j+1]*matrix[i+2][j+2]*matrix[i+3][j+3]
+      }
+    }
+  }
+  for (let i=0; i< matrix.length - 4; i++){
+    for( let j=3; j< matrix[i].length - 1; j++){
+      if ((matrix[i][j]*matrix[i+1][j-1]*matrix[i+2][j-2]*matrix[i+3][j-3])>greatestSum){
+        greatestSum = matrix[i][j]*matrix[i+1][j-1]*matrix[i+2][j-2]*matrix[i+3][j-3]
+      }
+    }
+  }
+  return greatestSum
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
