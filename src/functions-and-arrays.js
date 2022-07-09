@@ -1,19 +1,44 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+// let num1=1
+// let num2=0
+function maxOfTwoNumbers(num1,num2) {
+
+  if(num1>num2)
+  return num1
+  else if(num2>num1)
+  return num2
+  else console.log('Los dos numeros son iguales');
+}
+console.log(`el numero mayor es ${maxOfTwoNumbers(20,30)}`);
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
-
+function findLongestWord(words){
+  let result=""
+   words.forEach(name =>{ 
+     if (name.length>result.length){
+       result=name     }    
+     
+   })
+  return result
+ }
+ const longestWorld = findLongestWord(words)
+ console.log(longestWorld);
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let suma=0
+  numbers.forEach(element=> {
+   suma+=element})
+    return suma 
+  } 
+  const resultadoSuma = sumNumbers(numbers)
+  console.log(resultadoSuma)
 
 
 
@@ -26,7 +51,22 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+const items=numbersAvg.length
+function sumNumbers(numbersAvg) {
+    let suma=0
+    numbersAvg.forEach(element=> {
+     suma+=element})
+      return suma 
+    } 
+const resultadoSuma2 = sumNumbers(numbersAvg)//resultado de la funcion sumar
+
+function averageNumbers() {
+let media=(resultadoSuma2/items)
+
+console.log(media)
+console.log(`hay ${items} valores que suman ${resultadoSuma} y la media es ${media}`)
+}
+averageNumbers()
 
 
 // Level 2: Array of strings
