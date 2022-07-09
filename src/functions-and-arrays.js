@@ -61,8 +61,8 @@ function averageNumbers(array) {
   let sum=0
   array.forEach(element => {
     sum += element
-})
-  return sum/array.length
+});
+  return sum/array.length;
 }
 averageNumbers(numbersAvg);
 
@@ -70,7 +70,20 @@ averageNumbers(numbersAvg);
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  if (array.length == 0){
+    return null;
+  }
+  let newArr = []
+  array.forEach(element => {newArr.push(element.length)
+  });
+  let sum=0
+  newArr.forEach(element => {
+    sum += element
+})
+  return sum/array.length;
+ }
+ averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1
 function avg() {}
