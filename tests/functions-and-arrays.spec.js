@@ -73,27 +73,27 @@ describe('Find the longest word', () => {
   });
 });
 
-// describe('Calculate the sum of array of numbers', () => {
-//   test('should declare a function named sumNumbers', () => {
-//     expect(typeof sumNumbers).toBe('function');
-//   });
+describe('Calculate the sum of array of numbers', () => {
+  test('should declare a function named sumNumbers', () => {
+    expect(typeof sumNumbers).toBe('function');
+  });
 
-//   test('should return zero if receives an empty array when called', () => {
-//     expect(sumNumbers([])).toBe(0);
-//   });
+  test('should return zero if receives an empty array when called', () => {
+    expect(sumNumbers([])).toBe(0);
+  });
 
-//   test('should return the sum with one number array', () => {
-//     expect(sumNumbers([4])).toBe(4);
-//   });
+  test('should return the sum with one number array', () => {
+    expect(sumNumbers([4])).toBe(4);
+  });
 
-//   test('should return zero if all elements are zero', () => {
-//     expect(sumNumbers([0, 0, 0, 0, 0])).toBe(0);
-//   });
+  test('should return zero if all elements are zero', () => {
+    expect(sumNumbers([0, 0, 0, 0, 0])).toBe(0);
+  });
 
-//   test('should return the sum when passed array of numbers', () => {
-//     expect(sumNumbers([10, 5, 4, 32, 8])).toBe(59);
-//   });
-// });
+  test('should return the sum when passed array of numbers', () => {
+    expect(sumNumbers([10, 5, 4, 32, 8])).toBe(59);
+  });
+});
 
 // describe('Bonus: Calculate the sum', () => {
 //   test('should declare a function named sum', () => {
