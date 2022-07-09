@@ -136,27 +136,27 @@ describe('Calculate the sum of array of numbers', () => {
 //   });
 // });
 
-// describe('Calculate the average of an array of numbers', () => {
-//   test('should declare a function named averageNumbers', () => {
-//     expect(typeof averageNumbers).toBe('function');
-//   });
+describe('Calculate the average of an array of numbers', () => {
+  test('should declare a function named averageNumbers', () => {
+    expect(typeof averageNumbers).toBe('function');
+  });
 
-//   test('should return null if receives an empty array when called', () => {
-//     expect(averageNumbers([])).toBe(null);
-//   });
+  test('should return null if receives an empty array when called', () => {
+    expect(averageNumbers([])).toBe(null);
+  });
 
-//   test('should return the average of a one-element array', () => {
-//     expect(averageNumbers([9])).toBe(9);
-//   });
+  test('should return the average of a one-element array', () => {
+    expect(averageNumbers([9])).toBe(9);
+  });
 
-//   test('should return the average even with negative values', () => {
-//     expect(averageNumbers([9, -3, -4, 6])).toBe(2);
-//   });
+  test('should return the average even with negative values', () => {
+    expect(averageNumbers([9, -3, -4, 6])).toBe(2);
+  });
 
-//   test('should return the average of the array', () => {
-//     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
-//   });
-// });
+  test('should return the average of the array', () => {
+    expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
+  });
+});
 
 // describe('Calculate the average of an array of strings', () => {
 //   test('should declare a function named averageWordLength', () => {
