@@ -23,7 +23,7 @@ When playing Clue, these three details are represented by a **suspect** card, a 
 
 ```sh
 git add .
-git commit -m "done"
+git commit -m "Solved lab"
 git push origin master
 ```
 
@@ -31,25 +31,33 @@ git push origin master
 
 <br>
 
+
+## Test Your Code
+
+This LAB is equipped with unit tests to provide automated feedback on your lab progress. In case you want to check the tests, they are in the `tests/clue.spec.js` file.
+
+
+
+To run the tests and your JavaScript code, open the `SpecRunner.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
+
+
+
+To see the outputs of the `console.log` in your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
+
+<br>
+
+
+
 ## Instructions
 
-You will be working in the `src/clue.js` file, which is already loaded in the `index.html` file.
+You will be working in the `src/clue.js` file, which is already loaded in the `SpecRunner.html` file.
 
-To run the JavaScript code, open the `index.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
-
-To see the output of your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
+To run the tests and your JavaScript code, open the `SpecRunner.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
 
 <br>
-<hr>
 
-### Note about tests
 
-This LAB is equipped with unit tests to provide automated feedback on your lab progress.
 
-**After completing the basic iterations**, go to the **"Test Your Code"** section at the bottom. There you'll be asked to install the testing dependencies and run the tests to check how many tests your code is passing. Once you run the tests, correct your code to pass the failing tests.
-
-<hr>
-<br>
 
 ### Iteration 1: Create the cards
 
@@ -124,25 +132,7 @@ Declare a function named `revealMystery` that receives an _envelope_ `object` (w
 
 <br>
 
-## Test Your Code
 
-We will be working with automated tests again!
-
-Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Now, you can run the `npm run test:watch` command to run automated tests in _watch mode_. Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to always see the most up-to-date test results.
-
-_Hint:_
-
-```shell
-$ cd lab-javascript-clue
-$ npm install
-$ npm run test:watch
-```
-
-
-
- The test requirements (`tests/clue.spec.js`) will guide you in solving the remaining test requirements.
-
-<br>
 
 
 
@@ -151,5 +141,7 @@ $ npm run test:watch
 - [Data Structures: Objects and Arrays](http://eloquentjavascript.net/04_data.html)
 - [20 Mind-blowing facts about Cluedo](http://whatculture.com/offbeat/20-mind-blowing-facts-you-didnt-know-about-cluedo)
 - [Cluedo - Wikipedia](https://en.wikipedia.org/wiki/Cluedo)
+
+
 
 **Happy coding!** 💙
