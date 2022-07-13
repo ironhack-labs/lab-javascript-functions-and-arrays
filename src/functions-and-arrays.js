@@ -87,7 +87,6 @@ const wordsUnique = [
   'bring'
 ];
 
-wordsUnique.sort();
 function uniquifyArray(array) {
   return array.sort().filter(function (value, index, array) {
     return value != array[index - 1];
