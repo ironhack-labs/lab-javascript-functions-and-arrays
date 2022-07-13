@@ -103,17 +103,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(){
+function uniquifyArray(array){
     let newArray=[]
     if(array.length==0) {
       return null
     }
     array.forEach(element => {
     if (newArray.indexOf(element) === -1){
-    newArray.push(element)
-    }
-    })
-    return newArray};
+    newArray.push(element);
+    };
+    });
+    return newArray;
+  };
+
   console.log(uniquifyArray(wordsUnique))
 
 
