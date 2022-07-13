@@ -10,8 +10,6 @@ function maxOfTwoNumbers(numOne, numTwo) {
 }
 maxOfTwoNumbers(10, 12)
 
-
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -94,9 +92,13 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
-
-
+wordsUnique.sort()
+function uniquifyArray(array) {
+    return array.sort().filter(function(value, index, array) {
+        return value != array[index - 1]
+    })
+  }
+uniquifyArray(wordsUnique)                             
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
