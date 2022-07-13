@@ -121,7 +121,7 @@ const wordsCount = [
 ];
 
 function howManyTimes(array, word) {
-  return array.sort().filter(function (value, index, array) {
+  return array.sort().filter(function (valueIDontUse, index, array) {
     return word === array[index - 1]
   }).length;
 }
