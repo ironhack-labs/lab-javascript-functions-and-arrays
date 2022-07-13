@@ -195,90 +195,90 @@ describe('Calculate the average of an array of strings', () => {
 //   });
 // });
 
-// describe('Unique array', () => {
-//   test('should declare a function named uniquifyArray', () => {
-//     expect(typeof uniquifyArray).toBe('function');
-//   });
+describe('Unique array', () => {
+  test('should declare a function named uniquifyArray', () => {
+    expect(typeof uniquifyArray).toBe('function');
+  });
 
-//   test('should return null if receives an empty array when called', () => {
-//     expect(uniquifyArray([])).toEqual(null);
-//   });
+  test('should return null if receives an empty array when called', () => {
+    expect(uniquifyArray([])).toEqual(null);
+  });
 
-//   test('should return the correct uniqified array when an array of the same elements passed as argument', () => {
-//     expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
-//   });
+  test('should return the correct uniqified array when an array of the same elements passed as argument', () => {
+    expect(uniquifyArray(['Ironhack', 'Ironhack', 'Ironhack'])).toEqual(['Ironhack']);
+  });
 
-//   test('should return the same array when no element is repeated', () => {
-//     expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
-//   });
+  test('should return the same array when no element is repeated', () => {
+    expect(uniquifyArray(['Cat', 'Dog', 'Cow'])).toEqual(['Cat', 'Dog', 'Cow']);
+  });
 
-//   test('should return the uniquified array', () => {
-//     expect(
-//       uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])
-//     ).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
-//   });
-// });
+  test('should return the uniquified array', () => {
+    expect(
+      uniquifyArray(['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android'])
+    ).toEqual(['iPhone', 'Samsung', 'Android', 'iOS', 'Nokia', 'Blackberry']);
+  });
+});
 
-// describe('Find elements', () => {
-//   test('should declare a function named doesWordExist', () => {
-//     expect(typeof doesWordExist).toBe('function');
-//   });
+describe('Find elements', () => {
+  test('should declare a function named doesWordExist', () => {
+    expect(typeof doesWordExist).toBe('function');
+  });
 
-//   test('should return null if receives an empty array when called', () => {
-//     expect(doesWordExist([])).toBe(null);
-//   });
+  test('should return null if receives an empty array when called', () => {
+    expect(doesWordExist([])).toBe(null);
+  });
 
-//   test('should return true if the word we are looking for is the only one in the array', () => {
-//     expect(doesWordExist(['machine'], 'machine')).toBe(true);
-//   });
+  test('should return true if the word we are looking for is the only one in the array', () => {
+    expect(doesWordExist(['machine'], 'machine')).toBe(true);
+  });
 
-//   test('should return false if the word we are looking for is not in the array', () => {
-//     expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
-//   });
+  test('should return false if the word we are looking for is not in the array', () => {
+    expect(doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')).toBe(false);
+  });
 
-//   test('should return true if the word we are looking for is in the array', () => {
-//     expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
-//   });
-// });
+  test('should return true if the word we are looking for is in the array', () => {
+    expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
+  });
+});
 
-// describe('Count repetition', () => {
-//   test('should declare a function named howManyTimes', () => {
-//     expect(typeof howManyTimes).toBe('function');
-//   });
+describe('Count repetition', () => {
+  test('should declare a function named howManyTimes', () => {
+    expect(typeof howManyTimes).toBe('function');
+  });
 
-//   test('should return 0 (zero) if receives an empty array when called', () => {
-//     expect(howManyTimes([])).toBe(0);
-//   });
+  test('should return 0 (zero) if receives an empty array when called', () => {
+    expect(howManyTimes([])).toBe(0);
+  });
 
-//   test('should return 1 (one) when the word appears only one time in the array', () => {
-//     expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
-//   });
+  test('should return 1 (one) when the word appears only one time in the array', () => {
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'tennis')).toBe(1);
+  });
 
-//   test("should return 0 (zero) when the word doesn't appear in the array", () => {
-//     expect(howManyTimes(['basketball', 'football', 'tennis'], 'rugby')).toBe(0);
-//   });
+  test("should return 0 (zero) when the word doesn't appear in the array", () => {
+    expect(howManyTimes(['basketball', 'football', 'tennis'], 'rugby')).toBe(0);
+  });
 
-//   test('should return 5 (five) when the word appears 5 times in the array', () => {
-//     expect(
-//       howManyTimes(
-//         [
-//           'basketball',
-//           'football',
-//           'tennis',
-//           'rugby',
-//           'rugby',
-//           'ping pong',
-//           'rugby',
-//           'basketball',
-//           'rugby',
-//           'handball',
-//           'rugby'
-//         ],
-//         'rugby'
-//       )
-//     ).toBe(5);
-//   });
-// });
+  test('should return 5 (five) when the word appears 5 times in the array', () => {
+    expect(
+      howManyTimes(
+        [
+          'basketball',
+          'football',
+          'tennis',
+          'rugby',
+          'rugby',
+          'ping pong',
+          'rugby',
+          'basketball',
+          'rugby',
+          'handball',
+          'rugby'
+        ],
+        'rugby'
+      )
+    ).toBe(5);
+  });
+});
 
 // describe('Bonus Quest - greatestProduct', () => {
 //   test('should declare a function named greatestProduct', () => {
