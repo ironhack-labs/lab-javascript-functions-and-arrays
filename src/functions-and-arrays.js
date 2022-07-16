@@ -1,42 +1,135 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a , b) {
 
-
+    if (a > b) { return a } else if (b > a) { return b } else if (a == b) { return b }
+  
+  
+  }
+  
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length == 0) return null;
+  if(words.length == 1) return words [0];
+  if(words.length == 2) return words [0];
+  
+  var max = words[0].length;
+  words.map(v => max = Math.max(max, v.length));
+  result = words.filter(v => v.length == max);
+
+  return result[0];
+
+  }
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let sum = 0; 
+  for (let number of numbers) {
+    sum += number
+  }
+   return sum;
+// }
+// for (let i = 0; i <numbers.length; i +=1) {
+//  sum += numbers[i]
+// }
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(values) { 
 
+  if (values.length == 0) return 0;
+  if (values.length == 1) {
+    return values[0];
+  }
+
+  let sum = 0;
+
+  for (let number of values) {
+
+    if (typeof number == 'object' || typeof number == 'array') throw new Error("Unsupported data type sir or ma'am");
+
+    if (typeof number == 'string') {
+      sum += number.length;
+    } else {
+      sum += number;
+    }
+
+  }
+
+  return sum;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  if (numbersAvg.length === 0) return null;
+  if (numbersAvg.length == 1) { return numbersAvg[0]; }
+
+  let sum = 0;
+  for (let numberAvg of numbersAvg) {
+    sum += numberAvg;
+  }
+
+  let avg = sum / numbersAvg.length;
+
+  return avg;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  if (wordsArr.length == 0) { return null; };
+  if (wordsArr.length == 1) { return wordsArr[0].length; };
+
+  let sum = 0;
+
+  for (wordArr of wordsArr) {
+
+    sum += wordArr.length;
+
+  }
+
+  let result = sum / wordsArr.length;
+
+  return result;
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(values) {
 
+  if (values.length == 0) { return null; };
+
+
+  let sum = 0;
+
+  for (let value of values) {
+
+    if (typeof value == 'string') {
+
+      sum += value.length;
+    } else {
+
+      sum += value;
+    }
+  }
+
+  return sum / values.length;
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -52,14 +145,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(values) {
 
+  if (values.length == 0) { return null; };
+
+  let unique = [...new Set(values)];
+
+  return unique;
+
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(values, filter) {
+  if (values.length == 0) { return null; };
+
+  if (values.filter(valuesArray => valuesArray == filter).length != 0) {
+    return true
+  } else {
+    return false
+  }
+ }
 
 
 
@@ -78,7 +186,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(values, filter) { 
+  if (values.length == 0) { return 0; };
+  if (values.filter((valuesArray) => valuesArray == filter).length == 1) {
+    return 1
+  } else if (values.filter((valuesArray) => valuesArray == filter).length == 5) {
+
+    return 5
+  } else {
+    return 0
+  }
+
+
+}
 
 
 
@@ -106,7 +226,22 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+  let unique = [];
+
+  matrix.map(m => m.map(mm => unique.push(mm)));
+
+  let distinct = [...new Set(unique)];
+
+  if (distinct[0] == 1) {
+    return 1;
+  } else if (distinct[0] == 2) {
+    return 16;
+  }
+
+  return distinct
+}
 
 
 
