@@ -18,7 +18,7 @@ function findLongestWord(arr) {
 			longestWord = arr[i];
 		}
 	}
-	return longestWord;
+	return longestWord || null;
 }
 console.log(findLongestWord(words));
 
@@ -26,6 +26,9 @@ console.log(findLongestWord(words));
 const numbers = [ 6, 12, 1, 18, 13, 16, 2, 1, 8, 10 ];
 
 function sumNumbers(arr) {
+	if (arr.length === 0) {
+		return 0;
+	}
 	return arr.reduce((acc, curr) => {
 		return acc + curr;
 	});
@@ -43,6 +46,8 @@ function sum(arr) {
 			sum += arr[i];
 		} else if (typeof arr[i] === 'boolean') {
 			sum += arr[i] ? 1 : 0;
+		} else {
+			throw new Error("Unsupported data type sir or ma'am");
 		}
 	}
 	return sum;
@@ -54,7 +59,7 @@ console.log(sum(mixedArr));
 const numbersAvg = [ 2, 6, 9, 10, 7, 4, 1, 9 ];
 
 function averageNumbers(arr) {
-	return sumNumbers(arr) / arr.length;
+	return sumNumbers(arr) / arr.length || null;
 }
 console.log(averageNumbers(numbersAvg));
 
@@ -67,13 +72,13 @@ function averageWordLength(arr) {
 		sum += arr[i].length;
 	}
 
-	return sum / arr.length;
+	return sum / arr.length || null;
 }
 console.log(averageWordLength(wordsArr));
 // Bonus - Iteration #4.1
 
 function avg(arr) {
-	return sum(arr) / arr.length;
+	return sum(arr) / arr.length || null;
 }
 console.log(avg(mixedArr));
 
@@ -99,7 +104,7 @@ function uniquifyArray(arr) {
 			uniqueArr.push(arr[i]);
 		}
 	}
-	return uniqueArr;
+	return uniqueArr.length > 0 ? uniqueArr : null;
 }
 console.log(uniquifyArray(wordsUnique));
 
@@ -107,7 +112,7 @@ console.log(uniquifyArray(wordsUnique));
 const wordsFind = [ 'machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience' ];
 
 function doesWordExist(wordsToFind, searchWord) {
-	return wordsToFind.includes(searchWord);
+	return wordsToFind.length > 0 ? wordsToFind.includes(searchWord) : null;
 }
 console.log(doesWordExist(wordsFind, 'machine'));
 
@@ -172,7 +177,7 @@ function greatestProduct(matrix) {
 	}
 	const max = Math.max(...produsSum);
 	const greatestProductIndex = produsSum.indexOf(max);
-	return greatestProductIndex;
+	return max;
 	//return Math.max.apply(0, produsSum);
 }
 console.log(greatestProduct(matrix));
