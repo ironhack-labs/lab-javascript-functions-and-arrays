@@ -33,7 +33,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
   const sumArrayValues = sum(numbers)
   
-  return console.log(sumArrayValues)
+  return sumArrayValues[0]
 }
 
 
@@ -46,7 +46,7 @@ function sum(numbersArray) {
 
   })
 
-  return sum
+  return [sum, numbersArray.length]
 
 }
 
@@ -58,8 +58,14 @@ sumNumbers(numbers)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  const sumAndLengthAray = sum(array)
+  const avarageNumber = sumAndLengthAray[0]/sumAndLengthAray[1]
 
+  return console.log(avarageNumber)
+}
+
+averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
