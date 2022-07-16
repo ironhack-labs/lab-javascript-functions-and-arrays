@@ -114,8 +114,11 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  const newArray = [...new Set(wordsUnique)];
-  return newArray
+  if (wordsUnique.length !== 0){
+    const newArray = [...new Set(wordsUnique)];
+    return newArray
+  }
+  return null
 }
 
 
