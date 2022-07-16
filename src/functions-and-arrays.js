@@ -1,5 +1,10 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numberOne, numberTwo) {
+  const biggerNumber = numberOne > numberTwo ? numberOne : numberTwo;
+
+  return biggerNumber
+
+}
 
 
 
