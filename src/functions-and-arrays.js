@@ -113,8 +113,10 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(wordsUnique) {
+  const newArray = [...new Set(wordsUnique)];
+  return newArray
+}
 
 
 // Iteration #6: Find elements
