@@ -35,23 +35,37 @@ findLongestWord(words)
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
+  if (numbers.length === 0){
+    return 0
+  }
+
   const sumArrayValues = sum(numbers)
-  
-  return sumArrayValues[0]
+  return sumArrayValues
 }
 
 
 // Iteration #3.1 Bonus:
 function sum(numbersArray) {
-  let sum = 0;
+  let sum = 0
+  const e = new Error('unsupported data type (object or array) present in the array');
+
+  if (numbersArray.length === 0){
+    return 0
+  } 
 
   numbersArray.forEach((element) => {
-    (typeof element) == 'number' ? sum += element: sum = sum
-
+    if ((typeof element) == 'number'){
+      sum += element
+    } else if ((typeof element) == 'string'){
+      sum += element.length
+    } else if ((typeof element) == 'boolean'){
+      element === true ? sum += 1 : sum 
+    } else{
+      throw e
+    }
   })
 
-  return [sum, numbersArray.length]
-
+  return sum
 }
 
 sumNumbers(numbers)
@@ -65,7 +79,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   if (array.length !== 0){
     const sumAndLengthAray = sum(array)
-    const avarageNumber = sumAndLengthAray[0]/sumAndLengthAray[1]
+    const avarageNumber = sumAndLengthAray/array.length
 
     return avarageNumber
   }
