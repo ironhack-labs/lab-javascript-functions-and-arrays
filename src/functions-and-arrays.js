@@ -223,15 +223,13 @@ const matrix = [
 function greatestProduct(matrix) {
   let sumLine = []
   let sumColumn = []
-  let i = 0
-
 
   matrix.forEach((element, indexMatrix) => {
     element.forEach((interElement, index) => {
       let sumInterElement = interElement * element[index+1] * element[index+2] * element[index+3]
       sumLine.push(sumInterElement)
       if (indexMatrix < matrix.length-4){
-        let sumInterColumn = matrix[indexMatrix][index] *  matrix[indexMatrix+1][index] *  matrix[indexMatrix+2][index] *  matrix[indexMatrix+3][index]
+        let sumInterColumn = matrix[indexMatrix][index] * matrix[indexMatrix+1][index] *  matrix[indexMatrix+2][index] *  matrix[indexMatrix+3][index]
         sumColumn.push(sumInterColumn)
       }
     })
