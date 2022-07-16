@@ -12,13 +12,17 @@ maxOfTwoNumbers(1,2)
 
 
 function findLongestWord(words) {
-  let longestWord = "";
+  if (words.length !== 0){
+    let longestWord = "";
 
-  words.forEach((element) => {
-    element.length > longestWord.length ? longestWord = element: longestWord = longestWord
-  })
+    words.forEach((element) => {
+      element.length > longestWord.length ? longestWord = element: longestWord = longestWord
+    })
 
-  return longestWord
+    return longestWord
+  }
+
+  return null
 
 }
 
@@ -59,10 +63,14 @@ sumNumbers(numbers)
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-  const sumAndLengthAray = sum(array)
-  const avarageNumber = sumAndLengthAray[0]/sumAndLengthAray[1]
+  if (array.length !== 0){
+    const sumAndLengthAray = sum(array)
+    const avarageNumber = sumAndLengthAray[0]/sumAndLengthAray[1]
 
-  return avarageNumber
+    return avarageNumber
+  }
+
+  return null
 }
 
 averageNumbers(numbersAvg)
@@ -71,31 +79,39 @@ averageNumbers(numbersAvg)
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
-  let sum = 0
+  if (wordsArr.length !== 0){
+    let sum = 0
   
-  wordsArr.forEach((element) => {
-    (typeof element) === 'string' ? sum += element.length : sum == sum
-  })
+    wordsArr.forEach((element) => {
+      (typeof element) === 'string' ? sum += element.length : sum == sum
+    })
 
-  return sum/wordsArr.length
+    return sum/wordsArr.length
+  }
 
+  return null
 }
 
 // Bonus - Iteration #4.1
 function avg(array) {
-  let sum = 0
+  if (array.length !== 0){
+    let sum = 0
 
-  array.forEach((element) => {
-    if ((typeof element) === 'string'){
-      sum += element.length
-    }else if ((typeof element) === 'boolean'){
-      element === true ? sum += 4: sum += 5
-    }else{
-      sum += element
-    }
-  })
+    array.forEach((element) => {
+      if ((typeof element) === 'string'){
+        sum += element.length
+      }else if ((typeof element) === 'boolean'){
+        element === true ? sum += 1: sum += 0
+      }else{
+        sum += element
+      }
+    })
 
-  return sum/array.length
+    return sum/array.length
+
+  }
+
+  return null
 }
 
 // Iteration #5: Unique arrays
