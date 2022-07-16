@@ -47,7 +47,7 @@ function sumNumbers(numbers) {
 // Iteration #3.1 Bonus:
 function sum(numbersArray) {
   let sum = 0
-  const e = new Error('unsupported data type (object or array) present in the array');
+  const e = new Error("Unsupported data type sir or ma'am");
 
   if (numbersArray.length === 0){
     return 0
@@ -220,7 +220,38 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let sumLine = []
+  let sumColumn = []
+  let i = 0
+
+
+  matrix.forEach((element, indexMatrix) => {
+    element.forEach((interElement, index) => {
+      let sumInterElement = interElement * element[index+1] * element[index+2] * element[index+3]
+      sumLine.push(sumInterElement)
+      if (indexMatrix < matrix.length-4){
+        let sumInterColumn = matrix[indexMatrix][index] *  matrix[indexMatrix+1][index] *  matrix[indexMatrix+2][index] *  matrix[indexMatrix+3][index]
+        sumColumn.push(sumInterColumn)
+      }
+    })
+  })
+    
+  const newArrayLine = sumLine.filter(function(value){
+    return !Number.isNaN(value);
+  });
+
+  const newArrayColumn = sumColumn.filter(function(value){
+    return !Number.isNaN(value);
+  });
+
+  const maxValue = newArrayLine.concat(newArrayColumn).reduce(function(prev, current) { 
+    return prev > current ? prev : current; 
+  });
+  
+  return maxValue
+
+}
 
 
 
