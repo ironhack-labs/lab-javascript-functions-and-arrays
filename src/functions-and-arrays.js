@@ -126,7 +126,8 @@ function doesWordExist(array, element) {
   if (array.length === 0){
     return null
   }
-    return (array.includes(element))
+
+  return (array.includes(element))
 }
 
 
@@ -149,12 +150,15 @@ const wordsCount = [
 function howManyTimes(array, elementSearch) {
   const count = {};
 
+  if (array.length === 0 || array.includes(elementSearch) === false) {
+    return 0
+  }
+
   array.forEach(element => {
     count[element] = (count[element] || 0) + 1;
   });
 
   return count[elementSearch]
-
 }
 
 
