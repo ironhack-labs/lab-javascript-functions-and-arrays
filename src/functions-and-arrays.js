@@ -9,19 +9,20 @@ function maxOfTwoNumbers(a, b) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(arr) {
 
-function findLongestWord(words) {
+  let longest = "";
+  if (arr.length === 0) {
+    return null;
+  }
+  arr.forEach(word => {
 
-  if (words.length === 0) return null;
-  if (words.length === 1) return words[0];
-  if (words.length === 2) return words[0];
-
-  var max = words[0].length;
-  words.map(v => max = Math.max(max, v.length));
-  result = words.filter(v => v.length == max);
-
-  return result[0];
-}
+    if (word.length > longest.length) {
+      longest = word;
+    }
+  });
+  return (longest);
+};
 
 
 // Iteration #3: Calculate the sum
@@ -39,8 +40,8 @@ function sumNumbers(numbers) {
 }
 
 
-
 // Iteration #3.1 Bonus:
+
 function sum(values) {
 
   if (values.length == 0) return 0;
@@ -54,20 +55,16 @@ function sum(values) {
 
     if (typeof number == 'object' || typeof number == 'array') throw new Error("Unsupported data type sir or ma'am");
 
+    if (typeof number == 'boolean') number ? sum += 1 : sum += 0
     if (typeof number == 'string') {
       sum += number.length;
-    } else {
+    } else if (typeof number == 'number') {
       sum += number;
     }
 
   }
-
   return sum;
-
-
 }
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -112,10 +109,11 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
+
+
 function avg(values) {
 
   if (values.length == 0) { return null; };
-
 
   let sum = 0;
 
@@ -124,9 +122,12 @@ function avg(values) {
     if (typeof value == 'string') {
 
       sum += value.length;
-    } else {
+    } else if (typeof value == 'number') {
 
       sum += value;
+    } else if (typeof value == 'boolean') {
+
+      value ? sum += 1 : sum += 0
     }
   }
 
@@ -163,15 +164,15 @@ function uniquifyArray(values) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+doesWordExist(['machine', 'poison', 'eat', 'apple', 'horse'], 'ratatouille')
+
 function doesWordExist(values, filter) {
 
-  if (values.length == 0) { return null; };
+  if (values.length == 0) return null;
 
-  if (values.filter((valuesArray) => valuesArray == filter).length != 0) {
-    return true
-  } else {
-    return false
-  }
+  let ret = values.includes(filter);
+
+  return ret;
 }
 
 
@@ -193,19 +194,18 @@ const wordsCount = [
 
 function howManyTimes(values, filter) {
 
-  if (values.length == 0) return 0;
-
-  if (values.filter((valuesArray) => valuesArray == filter).length == 1) {
-    return 1
-  } else if (values.filter((valuesArray) => valuesArray == filter).length == 5) {
-
-    return 5
-  } else {
-    return 0
+  let count = 0;
+  if (!values.length || !values.includes(filter)) {
+    return 0;
   }
+  values.forEach(element => {
+    if (element === filter) {
+      count += 1;
+    }
+  })
 
+  return count;
 }
-
 
 
 // Iteration #8: Bonus
