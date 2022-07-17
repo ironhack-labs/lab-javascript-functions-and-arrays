@@ -1,4 +1,7 @@
 // Iteration #1: Find the maximum
+// Implement the function maxOfTwoNumbers that takes two numbers as arguments and returns the bigger number.
+
+
 function maxOfTwoNumbers(num1, num2) {
    
   if(num1 > num2) {
@@ -10,12 +13,14 @@ function maxOfTwoNumbers(num1, num2) {
   }
 
 }
-// let maxNumber= maxOfTwoNumbers(2,4);
-// console.log(maxNumber)
+
 
 /***************************************************************************************/ 
 
-               // Iteration #2: Find longest word
+  // Iteration #2: Find longest word
+  //  Implement the function findLongestWord that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+
+
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -27,25 +32,28 @@ function findLongestWord() {
 
 
 /************************************************************************************** */
-              // Iteration #3: Calculate the sum
+// Iteration #3: Calculate the sum 
+//Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+// Implement the function named sumNumbers that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array. Later in the course we will learn how to do this by using the reduce array method, which will make your work significantly easier. For now, let's practice "declarative" way adding values, using loops.
 
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];  
+
+
+  const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];  
  
 
-function sumNumbers(numbers) {
+function sumNumbers(arr) {
    let totalNumber = 0;
 
-   if(numbers.length === 0){
+   if(arr.length === 0){
     return 0;
    }
-   for(let i = 0 ; i < numbers.length ; i ++){
+   for(let i = 0 ; i < arr.length ; i ++){
     
-     totalNumber += numbers[i];
+     totalNumber += arr[i];
    }
    return totalNumber;
 }
-// let sumResult = sumNumbers(numbers);
-// console.log(sumResult)
+
 
 /************************************************************************************** */
 
@@ -67,53 +75,62 @@ function sum() {
   
 }
 }
-   sum(someMixedArray);
+  //  sum(someMixedArray);
 
 
 
 /************************************************************************************** */
 
 
-// Iteration #4: Calculate the average
+// Iteration #4: Calculate the average .
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// Implement the function averageNumbers that expects an array of numbers and returns the average of the numbers.
+const SomeNumbers = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) {
-  
-  if(numbersAvg.length ===0){
-    return null;
+function averageNumbers(arr) {
+  let total = 0;
+    
+  if(arr.length ===0){
+   return null;
   }
-    let total = 0;
-    for(let i = 0; i < numbersAvg.length; i++){
-      total += numbersAvg[i] ;
-      
-    }
-    let numberOfElements = numbersAvg.length;
-   let average = total/numberOfElements;
-   return average;
+
+  for(let i = 0 ; i < arr.length; i++){
+     total += arr[i]
+    
+  }
+  const average = total/arr.length
+  return average;
+
+
 }
+  
+
 
 /************************************************************************************** */
 
 // Level 2: Array of strings
+// Implement the function named averageWordLength that receives as a single argument an array of words and returns the average length of the words:
+
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(wordsArr){ 
+function averageWordLength(arr){ 
   
-  let countedWords = 0;
-  if(wordsArr.length ===0){
-    return null;
+  let totallengthOfWords = 0;
+
+  if(arr.length === 0){
+     return null;
   }
- 
-  for(let i = 0; i < wordsArr.length ; i++){
-    countedWords += 1;
-   
+
+  for(let i = 0 ; i < arr.length; i++){
+
+     totallengthOfWords += arr[i].length;
+    
   }
-  let numberOfWords = wordsArr.length;
-    let avg = countedWords/numberOfWords;
-   
-  return avg;
+  const average = totallengthOfWords/arr.length;
+ return average;
 }
+
 //  let averageWordArrResult = averageWordLength(wordsArr)
 //  console.log(averageWordArrResult)
 
