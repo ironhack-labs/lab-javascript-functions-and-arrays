@@ -1,41 +1,142 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+   
+  if(num1 > num2) {
+    return num1
+  } else if( num2 > num1){
+    return num2;
+  } else {
+    return num1;
+  }
 
+}
+// let maxNumber= maxOfTwoNumbers(2,4);
+// console.log(maxNumber)
 
+/***************************************************************************************/ 
 
-// Iteration #2: Find longest word
+               // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord() {
 
 
 
-// Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
+}
 
 
+/************************************************************************************** */
+              // Iteration #3: Calculate the sum
 
-// Iteration #3.1 Bonus:
-function sum() {}
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];  
+ 
 
+function sumNumbers(numbers) {
+   let totalNumber = 0;
+
+   if(numbers.length === 0){
+    return 0;
+   }
+   for(let i = 0 ; i < numbers.length ; i ++){
+    
+     totalNumber += numbers[i];
+   }
+   return totalNumber;
+}
+// let sumResult = sumNumbers(numbers);
+// console.log(sumResult)
+
+/************************************************************************************** */
+
+ // Iteration #3.1 Bonus:  
+//  Let's implement the function sum() that calculates the sum for array filled with (almost) any type of data. Note that strings should have their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
+                        
+
+ const someMixedArray  = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum() {
+  countedElements = 0;
+   
+  for(let i = 0 ; i < someMixedArray.length; i++){
+      const convertedBoolValue = Number()
+      //  if(someMixedArray[i]=== ){
+      //   countedElements += 1;
+      //  }
+  //  console.log(countedElements)
+  
+}
+}
+   sum(someMixedArray);
+
+
+
+/************************************************************************************** */
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  
+  if(numbersAvg.length ===0){
+    return null;
+  }
+    let total = 0;
+    for(let i = 0; i < numbersAvg.length; i++){
+      total += numbersAvg[i] ;
+      
+    }
+    let numberOfElements = numbersAvg.length;
+   let average = total/numberOfElements;
+   return average;
+}
 
+/************************************************************************************** */
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr){ 
+  
+  let countedWords = 0;
+  if(wordsArr.length ===0){
+    return null;
+  }
+ 
+  for(let i = 0; i < wordsArr.length ; i++){
+    countedWords += 1;
+   
+  }
+  let numberOfWords = wordsArr.length;
+    let avg = countedWords/numberOfWords;
+   
+  return avg;
+}
+//  let averageWordArrResult = averageWordLength(wordsArr)
+//  console.log(averageWordArrResult)
+
+   
+/************************************************************************************************************************************ */
 
 // Bonus - Iteration #4.1
-function avg() {}
+// Create function avg(arr) that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or strings and/or booleans.
+
+// The non-numerical values should be counted as follows:
+
+// Booleans: true counts as 1 and false counts as 0.
+// Strings: use the string length as the numeric value.
+// should return: 5.7
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function avg() {
+
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -128,3 +229,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
