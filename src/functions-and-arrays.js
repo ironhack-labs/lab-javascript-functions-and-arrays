@@ -50,7 +50,7 @@ function sumNumbers(arrayNumber) {
   }
   return soma;
 }
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 // Iteration #3.1 Bonus:
 function sum(arrayNumber) {
   if (arrayNumber.length === 0) {
@@ -58,19 +58,18 @@ function sum(arrayNumber) {
   } else {
     let soma = 0;
     for (let i = 0; i < arrayNumber.length; i++) {
-      switch(typeof arrayNumber[i]){
+      switch (typeof arrayNumber[i]) {
         case "number":
-          soma += arrayNumber[i]
+          soma += arrayNumber[i];
           break;
         case "string":
-          soma += arrayNumber[i].length
+          soma += arrayNumber[i].length;
           break;
         case "boolean":
-          arrayNumber[i] === true ? soma += 1 : soma +=0
+          arrayNumber[i] === true ? (soma += 1) : (soma += 0);
           break;
-       default:
-          throw new Error("Unsupported data type sir or ma'am")
-        
+        default:
+          throw new Error("Unsupported data type sir or ma'am");
       }
     }
     return soma;
@@ -126,28 +125,27 @@ const array = [[0, 1, 2, 3], "Ghost"];
 function avg(arrNumber) {
   if (arrNumber.length === 0) {
     return null;
-  }else{
-  let soma = 0;
-  for (let i = 0; i < arrNumber.length; i++) {
-    //soma += array[i];
-    switch(typeof arrNumber[i]){
-      case "number":
-        soma += arrNumber[i]
-        break;
-      case "string":
-        soma += arrNumber[i].length
-        break;
-      case "boolean":
-        arrNumber[i] === true ? soma += 1 : soma +=0
-        break;
-      default:
-        soma+=0
+  } else {
+    let soma = 0;
+    for (let i = 0; i < arrNumber.length; i++) {
+      //soma += array[i];
+      switch (typeof arrNumber[i]) {
+        case "number":
+          soma += arrNumber[i];
+          break;
+        case "string":
+          soma += arrNumber[i].length;
+          break;
+        case "boolean":
+          arrNumber[i] === true ? (soma += 1) : (soma += 0);
+          break;
+        default:
+          soma += 0;
+      }
     }
+    let avg = soma / arrNumber.length;
+    return avg;
   }
-  let avg = soma / arrNumber.length;
-  return avg;
-}
-  
 }
 
 // Iteration #5: Unique arrays
@@ -168,18 +166,34 @@ const wordsUnique = [
 function uniquifyArray(uniqueWord) {
   if (uniqueWord.length === 0) {
     return null;
-  }else {
+  } else {
+    let newArray = [];
     for (let i = 0; i < uniqueWord.length; i++) {
-      for( let x = 0; i < uniqueWord.length; i++){
-      if(uniqueWord[i] === uniqueWord[x]){
-        return uniqueWord[i]
+      if (uniqueWord.indexOf(uniqueWord[i]) > -1) {
+        newArray.push(uniqueWord[i]);
       }
     }
-     if(uniqueWord.includes(uniqueWord[i], uniqueWord[i]) === false){
+    return newArray;
+
+    /*
+    for (let i = 0; i < uniqueWord.length; i++) {
+      let idx = uniqueWord.indexOf(i);
+      newArray.push(idx);
+
+      idx = uniqueWord.indexOf(uniqueWord[i], idx + 1);
+
+      for (let x = 0; x < uniqueWord.length; x++) {
+    
+        if (uniqueWord.indexOf(i) === uniqueWord.indexOf(x)) {
+
+          uniqueWord.slice(i);
+        } else {
+          return uniqueWord;
+        }
+      }
+    if (uniqueWord.includes(uniqueWord[i], uniqueWord[i]) === true) {
         uniqueWord.slice(i);
-      }
-     
-    }
+      }*/
   }
 }
 
@@ -195,20 +209,16 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist(array,word) {
-  
-  if(array.length === 0){
-    return null
-  }else if(array.length === 1 && array[0] === word){
-    return true
-  }else{
-    for(let i=0; i < array.length; i++){
-      return array[i] === word ? true : false  
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      return array.includes(word);
+      //return array[i] === word ? true : false;
     }
+  }
 }
-}
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -225,19 +235,18 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes(array,word) {
-  if(array.length === 0){
-    return 0
-  }else{
-    let count = 0
-    for(let i=0;i<array.length;i++){
-      if(array[i] === word){
-        count++
+function howManyTimes(array, word) {
+  if (array.length === 0) {
+    return 0;
+  } else {
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+        count++;
       }
     }
-    return count
+    return count;
   }
-
 }
 
 // Iteration #8: Bonus
@@ -306,7 +315,8 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {
+function greatestProduct(array) {
+  for (let i = 0; i < array.length; i++) {}
 }
 
 // The following is required to make unit tests work.
