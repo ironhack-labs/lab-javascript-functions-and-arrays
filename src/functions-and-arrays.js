@@ -243,7 +243,7 @@ function doesWordExist(arr,word) {
 
 for(let i = 0 ; i < arr.length; i ++){
     let element = arr[i];
-    if(element.indexOf(word)!== -1){
+    if(element.indexOf(word.toLowerCase())!== -1){
         return true;
     }
 }
