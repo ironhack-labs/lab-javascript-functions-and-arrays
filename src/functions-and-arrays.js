@@ -315,9 +315,7 @@ const matrix = [
   ],
 ];
 
-function greatestProduct(array) {
-  for (let i = 0; i < array.length; i++) {}
-}
+function greatestProduct() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
