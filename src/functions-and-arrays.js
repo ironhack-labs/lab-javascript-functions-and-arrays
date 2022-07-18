@@ -24,11 +24,29 @@ function maxOfTwoNumbers(num1, num2) {
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {
+function findLongestWord(arr) {
 
+      
+      if(arr.length === 0){
+        return null;
+      }
+      if(arr.lenth === 1){
+        return arr[0];
+      }
+      
+      let longest_word = "";
+     for(let i = 0 ; i < arr.length ; i++){
+        let element = arr[i];
 
+        if(element.length > longest_word.length){
+          longest_word = element;
+        }
 
+     }
+     return longest_word;
 }
+
+
 
 
 /************************************************************************************** */
@@ -57,27 +75,41 @@ function sumNumbers(arr) {
 
 /************************************************************************************** */
 
- // Iteration #3.1 Bonus:  
+ //Bonus - Iteration #3.2 : Calculate the sum
 //  Let's implement the function sum() that calculates the sum for array filled with (almost) any type of data. Note that strings should have their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
                         
 
  const someMixedArray  = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum() {
-  countedElements = 0;
+function sum(arr) {
+    
+  let total = 0;
    
-  for(let i = 0 ; i < someMixedArray.length; i++){
-      const convertedBoolValue = Number()
-      //  if(someMixedArray[i]=== ){
-      //   countedElements += 1;
-      //  }
-  //  console.log(countedElements)
-  
-}
-}
-  //  sum(someMixedArray);
 
+  if(arr.length === 0){
+    return 0;
+  } 
+  for(let i = 0 ; i < arr.length; i++){
+    
+      if(typeof arr[i]==="number"){
+        total += arr[i]
+        
+      } 
+      else if (typeof arr[i] ==="string"){
+        total += arr[i].length;
+      } 
+      else if (arr[i] === true) {
+        total += 1;
+      }
 
+      
+    // else {
+    //   return "Error: unsupported data type"
+    // }
+      
+  }
+  return total;
+   }
 
 /************************************************************************************** */
 
@@ -93,12 +125,15 @@ function averageNumbers(arr) {
   if(arr.length ===0){
    return null;
   }
+  if(arr.length === 1){
+    return arr[0]
+  }
 
   for(let i = 0 ; i < arr.length; i++){
      total += arr[i]
     
   }
-  const average = total/arr.length
+  const average = total/arr.length;
   return average;
 
 
@@ -116,28 +151,27 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arr){ 
   
-  let totallengthOfWords = 0;
+  let total= 0;
 
   if(arr.length === 0){
      return null;
   }
-
+  if(arr.length === 1){
+    return arr[0].length;
+  }
+   
   for(let i = 0 ; i < arr.length; i++){
 
-     totallengthOfWords += arr[i].length;
+     total += arr[i].length;
     
   }
-  const average = totallengthOfWords/arr.length;
+  const average = Math.round(total/arr.length);
  return average;
 }
 
-//  let averageWordArrResult = averageWordLength(wordsArr)
-//  console.log(averageWordArrResult)
-
    
 /************************************************************************************************************************************ */
-
-// Bonus - Iteration #4.1
+// Bonus - iteration #4.3: a generic avg() function
 // Create function avg(arr) that receives any mixed array and calculates average. Consider as mixed array an array filled with numbers and/or strings and/or booleans.
 
 // The non-numerical values should be counted as follows:
@@ -146,14 +180,21 @@ function averageWordLength(arr){
 // Strings: use the string length as the numeric value.
 // should return: 5.7
 
+
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function avg(arr) {
 
-function avg() {
-
-
-
+    if(arr.length === 0){
+        return null;
+    }
+     const average = sum(arr)/arr.length
+  return average;
 }
+
+
+/************************************************************************************************************************************ */
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -170,14 +211,45 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+   
+  const uniqueWords = [];
 
+  if(arr.length === 0){
+    return null;
+  }
+
+   arr.forEach(function(word){
+
+    if(!uniqueWords.includes(word)){
+      uniqueWords.push(word);
+    }
+   });
+  
+   return uniqueWords;
+}
+
+/************************************************************************************************************************************ */
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr,word) {
+
+  if(arr.length === 0){
+    return null;
+  }
+
+for(let i = 0 ; i < arr.length; i ++){
+    let element = arr[i];
+    if(element.indexOf(word)!== -1){
+        return true;
+    }
+}
+
+return false;
+}
 
 
 
@@ -196,7 +268,27 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr,word) {
+   
+     let count = 0 ;
+
+  if(arr.length === 0){
+      return 0;
+  }
+
+  for(let i = 0  ; i < arr.length; i++){
+     
+      let element = arr[i];
+
+      if(element === word){
+          count += 1
+      }
+
+     
+  }
+  return count;
+
+}
 
 
 
