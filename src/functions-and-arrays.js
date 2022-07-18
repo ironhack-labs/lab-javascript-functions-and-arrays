@@ -280,7 +280,7 @@ function howManyTimes(arr,word) {
      
       let element = arr[i];
 
-      if(element === word){
+      if(element.toLowerCase() === word.toLowerCase()){
           count += 1
       }
 
