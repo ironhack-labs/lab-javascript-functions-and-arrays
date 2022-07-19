@@ -60,16 +60,16 @@ function findLongestWord(arr) {
  
 
 function sumNumbers(arr) {
-   let totalNumber = 0;
+   let total= 0;
 
    if(arr.length === 0){
     return 0;
    }
    for(let i = 0 ; i < arr.length ; i ++){
-    
-     totalNumber += arr[i];
+      let number = arr[i]
+     total += number;
    }
-   return totalNumber;
+   return total;
 }
 
 
@@ -90,15 +90,16 @@ function sum(arr) {
     return 0;
   } 
   for(let i = 0 ; i < arr.length; i++){
-    
-      if(typeof arr[i]==="number"){
-        total += arr[i]
+        
+      let element = arr[i];
+      if(typeof element==="number"){
+        total += element;
         
       } 
-      else if (typeof arr[i] ==="string"){
-        total += arr[i].length;
+      else if (typeof element==="string"){
+        total += element.length;
       } 
-      else if (arr[i] === true) {
+      else if (element === true) {
         total += 1;
       }
 
@@ -130,7 +131,8 @@ function averageNumbers(arr) {
   }
 
   for(let i = 0 ; i < arr.length; i++){
-     total += arr[i]
+    let number = arr[i];
+     total += number;
     
   }
   const average = total/arr.length;
@@ -161,8 +163,8 @@ function averageWordLength(arr){
   }
    
   for(let i = 0 ; i < arr.length; i++){
-
-     total += arr[i].length;
+     let word = arr[i]
+     total += word.length;
     
   }
   const average = Math.round(total/arr.length);
@@ -268,7 +270,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr,word) {
+function howManyTimes(arr,query) {
    
      let count = 0 ;
 
@@ -278,9 +280,9 @@ function howManyTimes(arr,word) {
 
   for(let i = 0  ; i < arr.length; i++){
      
-      let element = arr[i];
+      let word = arr[i];
 
-      if(element.toLowerCase() === word.toLowerCase()){
+      if(word.toLowerCase() === query.toLowerCase()){
           count += 1
       }
 
