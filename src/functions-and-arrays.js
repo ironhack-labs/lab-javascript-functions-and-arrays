@@ -164,36 +164,17 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(uniqueWord) {
-  if (uniqueWord.length === 0) {
+  if(uniqueWord.length === 0) {
     return null;
-  } else {
+  }else if(uniqueWord) {
     let newArray = [];
-    for (let i = 0; i < uniqueWord.length; i++) {
-      if (uniqueWord.indexOf(uniqueWord[i]) > -1) {
-        newArray.push(uniqueWord[i]);
-      }
+    for(let i = 0; i < uniqueWord.length; i++) {
+      if(!newArray.includes(uniqueWord[i])){
+        newArray.push(uniqueWord[i]);}
     }
     return newArray;
-
-    /*
-    for (let i = 0; i < uniqueWord.length; i++) {
-      let idx = uniqueWord.indexOf(i);
-      newArray.push(idx);
-
-      idx = uniqueWord.indexOf(uniqueWord[i], idx + 1);
-
-      for (let x = 0; x < uniqueWord.length; x++) {
-    
-        if (uniqueWord.indexOf(i) === uniqueWord.indexOf(x)) {
-
-          uniqueWord.slice(i);
-        } else {
-          return uniqueWord;
-        }
-      }
-    if (uniqueWord.includes(uniqueWord[i], uniqueWord[i]) === true) {
-        uniqueWord.slice(i);
-      }*/
+  }else{
+    return newArray;
   }
 }
 
