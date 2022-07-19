@@ -160,7 +160,7 @@ You can use the following array to test your solution:
 
 ```javascript
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
+6, 12, 5, 1, 5 3 6 8 10
 // should return: 57
 ```
 
