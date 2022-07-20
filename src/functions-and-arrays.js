@@ -1,5 +1,10 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(a,b) {
+
+function prohibitEmptyArray(array){
+  if(!array.length) return null;
+}
+
+function maxOfTwoNumbers (a,b) {
 if (a > b) {
   return a;
 }
@@ -11,33 +16,60 @@ else {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arrayOfWords) {
+  if(!arrayOfWords) return null;
+  let longest = " ";
+  arrayOfWords.forEach((eachWord)=> {
+    if(eachWord.length > longest.length) {
+      longest = eachWord;
+    }
+  })
+  return longest;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(arrayOfNumbers) {
+  return arrayOfNumbers.reduce((accum, current)=> {
+    return accum + current;
+  },0)
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
-
-
+function sumNumbers(arrayOfNumbers) {
+  return arrayOfNumbers.reduce((accum, current)=> {
+    if (typeof current === 'object') {
+      throw "Unsupported data type sir or ma'm"
+    }
+    if (typeof current === 'string') {
+      return accum + current.length;
+    } else {
+      return accum + Number(current)
+    }
+  },0)
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  if(!arrayOfNums)
+  return sumNumbers(arrayOfNums) / arrayOfNums.length;
+}
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfStrings) { 
+  if(!arrayOfStrings.length) return null;
+  return sum(arrayOfStrings) / arrayOfStrings.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -57,8 +89,13 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(listOfStrings) {
+  if (listOfStrings.length === 0) {
+    return null
+  }
+  let uniquify = listOfStrings.filter((v, i, a) => a.indexOf(v) === i);
+  return uniquify
+}
 
 
 // Iteration #6: Find elements
