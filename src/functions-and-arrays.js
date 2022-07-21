@@ -29,7 +29,12 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  return numbers.reduce((sum, next) => sum + next);
+  if (numbers.length===0){
+    return 0
+  }
+  else {
+  return numbers.reduce((sum, next) => sum + next)
+};
 }
 
 
@@ -42,16 +47,26 @@ function sum(numbers) {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  return numbersAvg.reduce((sum, next) => sum + next) / numbersAvg.length;
+  if (numbersAvg.length===0){
+    return null
+  }
+  else {
+  return numbersAvg.reduce((sum, next) => sum + next) / numbersAvg.length
+  };
 }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {
-  let avg = wordsArr.join('').length / wordsArr.length;
-  return avg;
+function averageWordLength(array) {
+  if (array.length===0){
+    return null
+  }
+  else {
+  let avg = array.join('').length / array.length;
+  return avg
+  };
  }
 
 // Bonus - Iteration #4.1
@@ -72,14 +87,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(array) {
+  let newArray =[];
+  if (array.length===0){
+    return null
+  }
+  array.forEach(element => {
+    if(newArray.indexOf(element) === -1){
+      newArray.push(element);
+    }
+  });
+  return newArray;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, wordToSearch) {
+  if (array.length===0){
+    return null
+  }
+  else {
+  return array.includes(wordToSearch)
+  }
+};
 
 
 
@@ -98,7 +130,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, wordToSearch){
+  let result = 0;
+  for (let i = 0; i < array.length; i++)
+  if (array[i] == wordToSearch){
+    result++
+  }
+return result
+}
 
 
 
