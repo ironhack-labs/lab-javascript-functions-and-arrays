@@ -1,19 +1,70 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+	if(!number2)return console.warn("The second number is missing");
+	
+	if(typeof number1 !== "number") return console.warn(`The value ${number1} introduced is not a number`);
+	
+	if(typeof number2 !== "number") return console.warn(`The value ${number2} introduced is not a number`);
+	
+  if (number1 > number2) {
+    return console.info(`The maximum number is  ${number1}`);
+  } else if (number2 > number1) {
+    return console.info(`The maximum number is ${number2}`);
+  } else {
+    return console.info(`${number1} and ${number2} are equal`);
+  }
+}
 
+
+maxOfTwoNumbers();
+maxOfTwoNumbers("elsa",5);
+maxOfTwoNumbers(5,"elsa");
+maxOfTwoNumbers(7,3);
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findTheLongestWord (arr) {
+	if(arr === undefined)return console.warn("There is any array");
+	
+	if(!(arr instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(arr.length === 0)return console.error("The array is empty")
+	
+	for(let word of arr) {
+		if(typeof word !== "string"){
+			return console.error(`The value ${word} introduced is not a string`);
+		}
+		const newArr = arr.map(el=>el.length);
+		
+		return console.info(`The longest word in this array has ${Math.max(...newArr)} characters`);
+	}
+}
 
-function findLongestWord() {}
-
-
+findTheLongestWord(["rosa", "margarita", "petunia"]);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers (arr) {
+	if(arr === undefined)return console.warn("There is any array");
+	
+	if(!(arr instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(arr.length === 0)return console.error("The array is empty")
+	
+	for(let word of arr) {
+		if(typeof word !== "number"){
+			return console.error(`The value ${word} introduced is not a number`);
+		}
+	}
+		let sum = 0
+		for(let i=0; i<arr.length; i++) {
+			sum += arr[i]
+		}
+		return console.info(sum);
+}
+
+sumNumbers(numbers);
 
 
 
