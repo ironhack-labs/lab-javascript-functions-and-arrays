@@ -75,15 +75,66 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersTwo = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers (arreglo) {
+	if(arreglo === undefined)return console.warn("There is any array");
+	
+	if(!(arreglo instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(arreglo.length === 0)return console.error("The array is empty");
+	
+	for(let numero of arreglo) {
+		if(typeof numero !== "number") {
+			console.error(`The value ${numero} introduced is not a number`);
+			
+		} else {
+			
+			let sum = 0
+			for(let i=0; i<arreglo.length; i++) {
+			sum += arreglo[i];
+			
+			arrayLength = arreglo.length;
+			}
+			return console.info(`The average of the array is ${((sum / arrayLength))}`);
+		}
+}
+}
+
+
+averageNumbers(numbersTwo);
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength (wordsArray) {
+		if(wordsArray === undefined)return console.warn("There is any array");
+	
+	if(!(wordsArray instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(wordsArray.length === 0)return console.error("The array is empty");
+	
+	for(let word of wordsArray) {
+		if(typeof word !== "string") {
+			console.error(`The value ${word} introduced is not a string`);
+			
+		} const newWordsArray = wordsArray.map(el=>el.length);
+			
+			let sum = 0
+			for(let i=0; i<newWordsArray.length; i++) {
+			sum += newWordsArray[i];
+			
+			newWordsArrayLength = newWordsArray.length;
+			}
+		
+		return console.info(`The average of the array is ${((sum / newWordsArrayLength))}`);	
+			
+	}
+}
+
+averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -103,14 +154,52 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+	if(arr === undefined)return console.warn("There is no array");
+	
+	if(!(arr instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(arr.length === 0)return console.error("The array is empty");
+	
+	for(let word of arr) {
+		if(typeof word !== "string") {
+			console.error(`The value ${word} introduced is not a string`);
+		} 
+		return console.info({
+    noDuplicates: arr.filter((value, index, self) => self.indexOf(value)=== index)
+  })
+}
+}
+
+uniquifyArray(wordsUnique);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+	if(arr === undefined)return console.warn("There is no array");
+	
+	if(word === undefined)return console.warn("There is no word to find");
+	
+	if(!(arr instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(typeof word !== "string")return console.error(`The value ${word} introduced is not an string`);
+	
+	if(arr.length === 0)return console.error("The array is empty");
+	
+	 if (arr.includes(word)) {
+		 return console.info(true)
+	 } else {
+		 return console.info(false);
+	 }
+}
+
+
+
+
+doesWordExist(wordsFind, "elsa");
 
 
 
@@ -129,7 +218,31 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+	if(arr === undefined)return console.warn("There is no array");
+	
+	if(word === undefined)return console.warn("There is no word to find");
+	
+	if(!(arr instanceof Array))return console.error("The value introduced is not an array");
+	
+	if(typeof word !== "string")return console.error(`The value ${word} introduced is not an string`);
+	
+	if(arr.length === 0)return console.error("The array is empty");
+	
+	let i = 0,
+    contador=0;
+  
+  while(i!==-1){
+    i = arr.indexOf(word, i)
+    if (i!==-1){
+      i++;
+      contador++;
+    }
+  }
+  return console.info(`The word ${word} is repeated ${contador} times`)   
+}
+
+howManyTimes(wordsCount, "matter");
 
 
 
