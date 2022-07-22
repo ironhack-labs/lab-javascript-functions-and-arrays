@@ -205,44 +205,44 @@ doesWordExist(wordsFind, "elsa");
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
-
-function howManyTimes(arr, word) {
-	if(arr === undefined)return console.warn("There is no array");
-	
-	if(word === undefined)return console.warn("There is no word to find");
-	
-	if(!(arr instanceof Array))return console.error("The value introduced is not an array");
-	
-	if(typeof word !== "string")return console.error(`The value ${word} introduced is not an string`);
-	
-	if(arr.length === 0)return console.error("The array is empty");
-	
-	let i = 0,
-    contador=0;
+	'machine',
+	'matter',
+	'subset',
+	'trouble',
+	'starting',
+	'matter',
+	'eating',
+	'matter',
+	'truth',
+	'disobedience',
+	'matter'
+  ];
   
-  while(i!==-1){
-    i = arr.indexOf(word, i)
-    if (i!==-1){
-      i++;
-      contador++;
-    }
+  function howManyTimes(arr, word) {
+	  if(arr === undefined)return console.warn("There is no array");
+	  
+	  if(word === undefined)return console.warn("There is no word to find");
+	  
+	  if(!(arr instanceof Array))return console.error("The value introduced is not an array");
+	  
+	  if(typeof word !== "string")return console.error(`The value ${word} introduced is not an string`);
+	  
+	  if(arr.length === 0)return console.error("The array is empty");
+	  
+	  let i = 0,
+	  contador=0;
+	
+	while(i!==-1){
+	  i = arr.indexOf(word, i)
+	  if (i!==-1){
+		i++;
+		contador++;
+	  }
+	}
+	return console.info(`The word ${word} is repeated ${contador} times`)   
   }
-  return console.info(`The word ${word} is repeated ${contador} times`)   
-}
-
-howManyTimes(wordsCount, "matter");
+  
+  howManyTimes(wordsCount, "matter");
 
 
 
