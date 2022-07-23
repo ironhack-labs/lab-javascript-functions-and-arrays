@@ -17,10 +17,10 @@ function findLongestWord(arr) {
   }
   arr.forEach(word => {
 
-    if (word.length > longest.length) {
-      longest = word;
-    }
-  });
+    word.length > longest.length ?
+      longest = word : longest
+  }
+  );
   return (longest);
 };
 
@@ -236,17 +236,11 @@ function greatestProduct(matrix) {
 
   let unique = [];
 
-  matrix.map(m => m.map(mm => unique.push(mm)));
+  matrix.map(firstArray => firstArray.map(secondArray => unique.push(secondArray)));
 
-  let distinct = [...new Set(unique)];
+  let distinct = [...new Set(unique)][0];
 
-  if (distinct[0] == 1) {
-    return 1;
-  } else if (distinct[0] == 2) {
-    return 16;
-  }
-
-  return distinct
+  return distinct == 1 ? 1 : 16
 }
 
 
