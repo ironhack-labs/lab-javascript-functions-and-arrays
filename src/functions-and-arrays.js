@@ -43,7 +43,24 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 
+function sum(Arr) {
+  let total = 0;
 
+  for (i = 0; i < Arr.length; i++) {
+
+    if (typeof Arr[i] == 'string') {
+      total += Arr[i].length;
+    } else if (typeof Arr[i] === 'number') {
+      total += Arr[i];
+    } else if (Arr[i] === true) {
+      total += 1;
+    } else if (Arr[i] === false) {
+      total += 0;
+    }
+  }
+
+  return total;
+}
 
 
 // Iteration #4: Calculate the average
@@ -211,7 +228,7 @@ if (typeof module !== 'undefined') {
     maxOfTwoNumbers,
     findLongestWord,
     sumNumbers,
-    //sum,
+    sum,
     averageNumbers,
     averageWordLength,
     avg,
