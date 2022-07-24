@@ -22,11 +22,17 @@ function findLongestWord(array) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
-  sumOfInput = 0;
-  for (i of array) {
-    sumOfInput += i;
-  }
-  return sumOfInput;
+  return !array.length ? 0 : array.reduce((a, b) => a + b);
+
+  // if (!array.length) {
+  //   return 0;
+  // } else return array.reduce((a, b) => a + b);
+
+  // sumOfInput = 0;
+  // for (i of array) {
+  //   sumOfInput += i;
+  // }
+  // return sumOfInput;
 }
 
 // Iteration #3.1 Bonus:
@@ -51,12 +57,14 @@ function sum(array) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-  let sum = 0;
-  if (!array.length) return null;
-  for (i of array) {
-    sum += i;
-  }
-  return sum / array.length;
+  return !array.length ? null : array.reduce((a, b) => a + b) / array.length;
+
+  // let sum = 0;
+  // if (!array.length) return null;
+  // for (i of array) {
+  //   sum += i;
+  // }
+  // return sum / array.length;
 }
 
 // Level 2: Array of strings
@@ -141,9 +149,12 @@ const wordsFind = [
 
 function doesWordExist(array, wordToSearch) {
   if (!array.length) return null;
-  if (array.includes(wordToSearch)) {
-    return true;
-  } else return false;
+  return array.includes(wordToSearch) ? true : false;
+
+  // if (!array.length) return null;
+  // if (array.includes(wordToSearch)) {
+  //   return true;
+  // } else return false;
 }
 
 // Iteration #7: Count repetition
@@ -163,8 +174,8 @@ const wordsCount = [
 
 function howManyTimes(array, wordToSearch) {
   wordToSearchCounter = 0;
-  for (i of array) {
-    if (i === wordToSearch) {
+  for (elem of array) {
+    if (elem === wordToSearch) {
       wordToSearchCounter++;
     }
   }
