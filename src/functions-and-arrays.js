@@ -39,7 +39,24 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+function sum(arr) {
+  let sumOfarr = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      sumOfarr += arr[i].length;
+    }
+    if (typeof arr[i] === "number") {
+      sumOfarr += arr[i];
+    }
+    typeof arr[i] === "boolean" ? sumOfarr++ : sumOfarr;
+    //     if ((typeof arr[i] === "object") || (typeof arr[i] === "array")) {
+    // throw "SOrry that isn't right"
+    //     }
+  }
+  return sumOfarr;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -76,9 +93,9 @@ function averageWordLength(arr) {
     return null;
   }
   for (let i = 0; i < arr.length; i++) {
-    charCountArr += (arr[i].length);
+    charCountArr += arr[i].length;
   }
-  return (charCountArr / arr.length);
+  return charCountArr / arr.length;
 }
 
 // Bonus - Iteration #4.1
