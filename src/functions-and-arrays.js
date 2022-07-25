@@ -72,15 +72,9 @@ console.log(averageNumbers(numbersAvg));
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 let lonLletra = 0
 
-lonly = wordsArr.length,
-espaiar = wordsArr.join(''),
-result = espaiar.length/ lonly;
-
-console.log(result)
-
 function averageWordLength() {
   for(let lletra = 0; lletra < wordsArr.length; lletra++) {
-    // lonLletra += wordsArr[lletra] / wordsArr.length
+    lonLletra += wordsArr[lletra].length / wordsArr.length
   }
   return lonLletra
  }
@@ -103,8 +97,12 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray() {}
+let count = 0
+function uniquifyArray() {
+  for(let duplicates = 0; duplicates < uniquifyArray.length; duplicates++){
+    count = uniquifyArray[duplicates] 
+  }
+}
 
 
 
