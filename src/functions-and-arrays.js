@@ -37,11 +37,12 @@ console.log(findLongestWord(wordList));
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = 0;
-function sumNumbers(numbers) {
+function sumNumbers() {
   for (let i = 0; i < numbers.length; i++){
     total += numbers[i];
-
+    
   };
+  return total;
 };
 console.log(sumNumbers(numbers));
 
@@ -57,21 +58,33 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(averageNumbers) {
+function averageNumbers() {
   let sum = 0
-  let average = sum/(numbersAvg.length)
+  // let average = sum/numbersAvg.length
   for(let units = 0; units < numbersAvg.length; units++) {
-    sum += numbersAvg[units]
-    
+    sum = (sum + numbersAvg[units]) / numbersAvg.length;
   }
+  return sum;
 }
 console.log(averageNumbers(numbersAvg));
-console.log(average)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+let lonLletra = 0
 
-function averageWordLength() { }
+lonly = wordsArr.length,
+espaiar = wordsArr.join(''),
+result = espaiar.length/ lonly;
+
+console.log(result)
+
+function averageWordLength() {
+  for(let lletra = 0; lletra < wordsArr.length; lletra++) {
+    // lonLletra += wordsArr[lletra] / wordsArr.length
+  }
+  return lonLletra
+ }
+ console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg() {}
