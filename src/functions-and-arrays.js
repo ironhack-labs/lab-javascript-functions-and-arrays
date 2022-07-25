@@ -44,7 +44,7 @@ function sumNumbers(array) {
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr) {
-  resultSum = 0
+  let resultSum = 0
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] == "number") {
       resultSum += arr[i];
@@ -98,22 +98,26 @@ function averageWordLength(arrayOfWords) {
 // Bonus - Iteration #4.1
 const mixedArray = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function avg(arr) {
-  // resultSum = 0;
-  // for (let i = 0; i < arr.length; i++) {
-  //   if (typeof arr[i] == "number") {
-  //     resultSum += arr[i];
-  //   } else if (typeof arr[i] == "string") {
-  //     resultSum += arr[i].length;
-  //   } else if (typeof arr[i] == "boolean") {
-  //     resultSum += Number(arr[i]);
-  //   } else {
-  //     throw Error("Unsupported data type sir or ma'am");
-  //   }
-  // }
-  // return resultSum;
-  if (arr.length === 0) return null
+  let resultSum = 0;
+  let resultAvg = 0
+  if (arr.length === 0) {
+    return null
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] == "number") {
+        resultSum += arr[i];
+      } else if (typeof arr[i] == "string") {
+        resultSum += arr[i].length;
+      } else if (arr[i] === true) {
+        resultSum += 1;
+      }
+    }
+  }
+  resultAvg = resultSum / arr.length
+  return resultAvg;
 
 }
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
