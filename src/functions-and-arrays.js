@@ -1,19 +1,49 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+	if(num1 === num2){
+		return("Both nbrs are the same");
+	}
+	else if(num1 > num2)
+		return num1;
+	else
+		return num2;
+}
+
+//console.log(maxOfTwoNumbers(2,3));
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordArray) {
+	let finalWord;
+	let maxLength = 0;
+	for(let word = 0; word < wordArray.length; word++){
+		if(wordArray[word].length > maxLength){
+			maxLength = wordArray[word].length;
+			finalWord = wordArray[word];
+		}
+	}
+	return finalWord;
+}
+
+// console.log(findLongestWord(words));
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numArray) {
+	let sum = 0;
+	for(let num = 0; num < numArray.length; num++){
+		sum += numArray[num];
+	}
+	return sum;
+}
+
+//console.log(sumNumbers(numbers));
 
 
 
@@ -26,34 +56,60 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numArray) {
+	let average;
+	average=((sumNumbers(numArray)) / numArray.length);
+	return average;
+}
 
+//console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) {
+	let length = 0;
+	let average;
+
+	for(let word = 0; word < wordsArray.length; word++){
+		length += wordsArray[word].length;
+	}
+	average = length / wordsArray.length;
+	return average;
+}
+
+//console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+	'crab',
+	'poison',
+	'contagious',
+	'simple',
+	'bring',
+	'sharp',
+	'playground',
+	'poison',
+	'communion',
+	'simple',
+	'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArr) {
+	
+	for(let i = 0; i < wordsArr.length; i++){
+		if (wordsArr.includes(wordsArr[i], i + 1) === true){
+			wordsArr.splice(i, 1);
+			i--;
+		}
+	}
+	return wordsArr;
+}
 
+//console.log(uniquifyArray(wordsUnique));
 
 
 // Iteration #6: Find elements
