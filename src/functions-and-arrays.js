@@ -29,11 +29,18 @@ function findLongestWord(wordListFine) {
 console.log(findLongestWord(wordList));
 
 
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArr) {
+  let sum = 0;
+  for (let num=0; numbersArr.length > num; num++) {
+    sum += numbersArr[num];
+  }
+  return sum;
+}
+
+console.log(sumNumbers(numbers));
 
 
 
