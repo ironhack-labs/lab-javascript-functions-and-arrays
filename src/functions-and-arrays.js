@@ -1,10 +1,14 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
+  let result = "";
+
   if (num1 > num2) {
-    return num1;
+    result = num1;
   } else {
-    return num2;
+    result = num2;
   }
+
+  return result;
 }
 
 console.log(maxOfTwoNumbers(4, 2));
@@ -17,7 +21,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(wordsArray) {
   let word = "";
 
-  for (possibleWord of wordsArray) {
+  for (let possibleWord of wordsArray) {
     if (possibleWord.length > word.length) {
       word = possibleWord;
     }
@@ -36,7 +40,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbersArray) {
   let total = 0;
 
-  for (number of numbersArray) {
+  for (let number of numbersArray) {
     total += number;
   }
 
@@ -58,8 +62,12 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbersArray) {
   let total = 0;
 
-  for (number of numbersArray) {
-    total += number;
+  if (!numbersArray) {
+    return null;
+  } else {
+    for (let number of numbersArray) {
+      total += number;
+    }
   }
 
   return total / numbersArray.length;
@@ -75,8 +83,12 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(wordsArray) { 
   let total = 0;
 
-  for (word of wordsArray) {
-    total += word.length;
+  if (!wordsArray.length) {
+    return null;
+  } else {
+    for (let word of wordsArray) {
+      total += word.length;
+    }
   }
 
   return total / wordsArray.length;
@@ -108,7 +120,7 @@ const wordsUnique = [
 function uniquifyArray(wordsArray) {
   let newArray = [];
 
-  for (word of wordsArray) {
+  for (let word of wordsArray) {
     if (newArray.indexOf(word) === -1) {
       newArray.push(word);
     }
@@ -127,7 +139,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(wordsArray, wordToSearch) {
   let found = false;
 
-  for (word of wordsArray) {
+  for (let word of wordsArray) {
     if (word === wordToSearch) {
       found = true;
     }
@@ -156,15 +168,15 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsArray, wordToSearch) {
-  let found = 0;
+  let count = 0;
 
-  for (word of wordsArray) {
+  for (let word of wordsArray) {
     if (word === wordToSearch) {
-      found++;
+      count++;
     }
   }
 
-  return found;
+  return count;
 }
 
 console.log(howManyTimes(wordsCount, "matter"));
