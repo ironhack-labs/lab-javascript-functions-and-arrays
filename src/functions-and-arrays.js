@@ -1,6 +1,13 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    console.log(`In this case, the biger number is the firs one. The value of this number is: ${num1}`);
+  } else {
+    console.log(`In this case, the biger number is the second one. The value of this number is: ${num2}`);
+  }
+}
 
+maxOfTwoNumbers (3, 2);
 
 
 // Iteration #2: Find longest word
