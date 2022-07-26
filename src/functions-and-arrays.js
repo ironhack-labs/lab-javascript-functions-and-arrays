@@ -2,7 +2,7 @@
 
 function maxOfTwoNumbers(num1, num2) {
   if (num1 === num2) {
-    return "Both numbers are ! ";
+    return "Both numbers are equals! ";
   } else if (num1>num2){
     return num1;
   }else {
@@ -98,17 +98,28 @@ const wordsUnique = [
   'bring'
 ];
 let count = 0
-const arrayNew = []
-function uniquifyArray() {
-  for(let duplicates = 0; duplicates < wordsUnique.length; duplicates++){
-    if(count = uniquifyArray[duplicates] === uniquifyArray[duplicates]){
-    arrayNew.push(count);
-    } 
-   }         
-   return count  
+const arrayNew = [];
+
+function uniquifyAay() {
+  for(let duplicates of wordsUnique) {
+    if(arrayNew.indexOf(duplicates) === -1) {
+      arrayNew.push(duplicates);
+    }
   }
+  return arrayNew
+  // console.log(arrayNew);
+}
+console.log(uniquifyAay(wordsUnique));
+
+//   for(let duplicates = 0; duplicates < wordsUnique.length; duplicates++){
+//     if(count = uniquifyArray[duplicates] === uniquifyArray){
+//     arrayNew.push(count);
+//     } 
+//    }         
+// //    return count  
+// //   }
   
-console.log(uniquifyArray(wordsUnique))
+// console.log(uniquifyArray(wordsUnique))
 
 
 
