@@ -37,7 +37,7 @@ console.log(findLongestWord(wordList));
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 var total = 0;
-function sumNumbers() {
+function sumNumbers(anyArr) {
   for (let i = 0; i < numbers.length; i++){
     total += numbers[i];
      
@@ -47,7 +47,24 @@ function sumNumbers() {
 console.log(sumNumbers(numbers));
 
 
+// function sumNumbers(anyArr) {
+// if(!anyArr)return null;
+// let sum = 0;
+// for(let pieceArr of anyArr) {
+//   if(typeof pieceArr === "string") sum += pieceArr.length;
+//   else sum += pieceArr
 
+// }
+// return sum;
+// }
+// console.log(`the sum ${sumNumbers(numbers)}`)
+
+
+// function sumNumbers() {
+//   let result = 0
+//   numbers.forEach((aNumberArray) =>
+
+// }
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -80,6 +97,17 @@ function averageWordLength() {
  }
  console.log(averageWordLength(wordsArr));
 
+
+// function fun2(words) {
+//   if(!words.length) return null;
+//   let wordlength = [];
+//   for (let J of words) {
+//     wordlength.push(J.length);
+//   }
+//   return fum2(wordlength);
+// }
+// console.log(`the avg is ${fun2(wordsArr)}`)
+ 
 // Bonus - Iteration #4.1
 function avg() {}
 
@@ -111,29 +139,41 @@ function uniquifyAay() {
 }
 console.log(uniquifyAay(wordsUnique));
 
-//   for(let duplicates = 0; duplicates < wordsUnique.length; duplicates++){
-//     if(count = uniquifyArray[duplicates] === uniquifyArray){
-//     arrayNew.push(count);
-//     } 
-//    }         
-// //    return count  
-// //   }
-  
-// console.log(uniquifyArray(wordsUnique))
 
+// function uniquifyAay(array){
+//   let unArray = [];
+//   array.forEach((index) => {
+//     if (uniquifyAay.indexOf(index)) === -1) {
+//       unArray.push(index);
+//     }
+//   });
+//   return unArray;
+// }
+// console.log(`es ${uniquifyAay(wordsUnique)}`);
+
+
+
+// const uniquifyAay = (words) => {
+//   let uniqueA = []
+//   for (let index of words) {
+//     if (!uniqueA.includes(index)) uniqueA.push(index);
+// }
+// return uniqueA;
+// };
+// console.log(`es ${uniquifyAay(words)}`)
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {
-  if (word in wordsfind) {
+function doesWordExist(arr, word) {
+  if (arr.includes(word)) {
     return true;
   } else {
     return false;
   }
 }
-console.log(doesWordExist(wordsFind))
+console.log(`is ${doesWordExist(wordsFind, "machine")}`)
 
 
 
@@ -152,8 +192,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(array, word) {
+  let count = 0;
+  for (let index of array) {
+    if(index === word) count++;
+    }
+  }
+  return count;
+}
+console.log(`la palabra se repite ${howManyTimes(wordsCount,"")}`);
 
 
 // Iteration #8: Bonus
