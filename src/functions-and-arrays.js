@@ -130,18 +130,20 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-
-let smaller = [
-  [ 1,  2, 3, 4, 5],
-  [ 1, 20, 0, 40, 5],
-  [ 1, 10, 3, 4, 5],
-  [ 0, 80, 10, 10, 10],
+let smallerMatrix = [
+  [ 1,  2, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
+  [ 1, 20, 3, 4, 5], 
   [ 1,  4, 3, 4, 5]
-]
+];
 
+/*
+ * Find and return the largest product in a line.
+ */
 function slideHorizontal(line){
   let max = 0;
-  for (let i = 0; i < line.length ; i++)
+  for (let i = 0; i < line.length - 3; i++)
   {
     let localMax = line[i] * line[i + 1] * line[i + 2] * line[i + 3];
     if (localMax > max)
@@ -150,38 +152,42 @@ function slideHorizontal(line){
   return (max)
 }
 
-function slideVertical(line){
+/*
+ * Find and return the largest product in a column (x).
+ */
+function slideVertical(matrix, x){
   let max = 0;
-  for (let i = 0; i < line.length ; i++)
+  for (let y = 0; y < matrix.length - 3; y++)
   {
-    let localMax = line[i] * line[i + 1] * line[i + 2] * line[i + 3];
+    let localMax = matrix[y][x] * matrix[y + 1][x]
+	* matrix[y + 2][x] * matrix[y + 3][x];
     if (localMax > max)
       max = localMax;
   }
   return (max)
 }
 
+/*
+ * Compute and return the largest product of 4 consecutive ints
+ * in each line and column.
+ */
 function greatestProduct(matrix){
   let horizontalMax = 0;
   let verticalMax = 0;
-  for (let line of matrix){
+  for (let line of matrix){		// every line
     let localMax = slideHorizontal(line);
     if (localMax > horizontalMax){
       horizontalMax = localMax;
     }
   }
-  // let verticalMatrix = getVerticalMatrix
-  // for (let line of verticalMatrix){
-  //   let localMax = slideVertical(line);
-  //   if (localMax > verticalMax){
-  //     verticalMax = localMax;
-  //   }
-  // }
-  return(horizontalMax)
-//  return(maxOfTwoNumbers(verticalMax, horizontalMax))
+  for (let column = 0; column < matrix[0].length; column++){	// every column
+    let localMax = slideVertical(matrix, column);
+    if (localMax > verticalMax){
+      verticalMax = localMax;
+    }
+  }
+  return(maxOfTwoNumbers(verticalMax, horizontalMax))
 }
-console.log(greatestProduct(smaller))
-//greatestProduct(smaller)
 
 
 // The following is required to make unit tests work.
