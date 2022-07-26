@@ -40,43 +40,19 @@ function sumNumbers(arr) {
 
 // Iteration #3.1 Bonus:
 
-<<<<<<< HEAD
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
-function sum(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === "string") {
-      sum += arr[i].length
-    } if (typeof arr[i] === "number") {
-    sum += arr[i];
-} typeof arr[i] === "boolean" ? sum++ : sum 
-
-  }
-  console.log(sum);
-}
-
-  sum(mixedArr)
-
-=======
 function sum(arr) {
   let sumOfarr = 0;
-
   for (let i = 0; i < arr.length; i++) {
     if (typeof arr[i] === "string") {
       sumOfarr += arr[i].length;
-    }
-    if (typeof arr[i] === "number") {
+    } else if (typeof arr[i] === "object" || typeof arr[i] === "array") {
+      throw Error("Unsupported data type sir or ma'am");
+    } else {
       sumOfarr += arr[i];
     }
-    typeof arr[i] === "boolean" ? sumOfarr++ : sumOfarr;
-    //     if ((typeof arr[i] === "object") || (typeof arr[i] === "array")) {
-    // throw "SOrry that isn't right"
-    //     }
   }
   return sumOfarr;
 }
->>>>>>> 2d2d50d041ffe587730b979aacbc6e9eb0c466fa
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -119,7 +95,21 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(arr) {
+  let sum = 0;
+  if (arr.length < 1) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      sum += arr[i].length;
+    } else {
+      sum += arr[i];
+    }
+  }
+  return sum / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
