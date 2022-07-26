@@ -2,7 +2,7 @@
 
 function maxOfTwoNumbers(num1, num2) {
   if (num1 === num2) {
-    return "Both numbers are the same! ";
+    return "Both numbers are ! ";
   } else if (num1>num2){
     return num1;
   }else {
@@ -40,7 +40,7 @@ var total = 0;
 function sumNumbers() {
   for (let i = 0; i < numbers.length; i++){
     total += numbers[i];
-    
+     
   };
   return total;
 };
@@ -98,18 +98,31 @@ const wordsUnique = [
   'bring'
 ];
 let count = 0
+const arrayNew = []
 function uniquifyArray() {
-  for(let duplicates = 0; duplicates < uniquifyArray.length; duplicates++){
-    count = uniquifyArray[duplicates] 
+  for(let duplicates = 0; duplicates < wordsUnique.length; duplicates++){
+    if(count = uniquifyArray[duplicates] === uniquifyArray[duplicates]){
+    arrayNew.push(count);
+    } 
+   }         
+   return count  
   }
-}
+  
+console.log(uniquifyArray(wordsUnique))
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+  if (word in wordsfind) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(doesWordExist(wordsFind))
 
 
 
