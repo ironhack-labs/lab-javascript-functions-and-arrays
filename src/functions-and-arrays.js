@@ -114,7 +114,10 @@ const mixArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(array) {
 	let sum = 0;
-	
+	let avg;
+
+	if (array == 0)
+		return null;
 	for(let num = 0; num < array.length; num++){
 		if(typeof array[num] === 'string'){
 			let len = array[num].length;
@@ -147,20 +150,23 @@ const wordsUnique = [
 	'bring'
 ];
 
+
+
 function uniquifyArray(wordsArr) {
 
 	if (wordsArr == 0)
 		return null;
+	let newArr = [];
 	for(let i = 0; i < wordsArr.length; i++){
-		if (wordsArr.includes(wordsArr[i], i + 1) === true){
-			wordsArr.splice(i, 1);
-			i--;
-		}
+		if (newArr.includes(wordsArr[i]) === true)
+			continue;
+		else
+			newArr.push(wordsArr[i]);
 	}
-	return wordsArr;
+	return newArr;
 }
 
-//console.log(uniquifyArray(wordsUnique));
+console.log(uniquifyArray(wordsUnique));
 
 
 // Iteration #6: Find elements
