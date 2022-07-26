@@ -4,10 +4,7 @@ function maxOfTwoNumbers(a, b){
 }
 
 
-
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot', 'Pneumonoultramicroscopicsilicovolcanoconiosis'];
-
 function findLongestWord(strArray){
   let maxLength = 0
   let longestWord = ''
@@ -23,16 +20,12 @@ function findLongestWord(strArray){
 }
 
 
-
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumNumbers(numberArray){
   let sum = 0;
   numberArray.forEach(number => sum += number)
   return (sum)
 }
-
 
 
 // Iteration #3.1 Bonus:
@@ -50,11 +43,8 @@ function sum(mixedArray){
 }
 
 
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
 function averageNumbers(numberArray){
   if (numberArray[0] === undefined)
     return (null);
@@ -62,10 +52,7 @@ function averageNumbers(numberArray){
 }
 
 
-
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
 function averageWordLength(strArray){
   if (strArray[0] == undefined)
     return (null);
@@ -73,7 +60,6 @@ function averageWordLength(strArray){
   strArray.forEach(str => lettersSum += str.length)
   return (lettersSum / strArray.length)
 }
-
 
 
 // Bonus - Iteration #4.1
@@ -84,22 +70,7 @@ function avg(mixedArray){
 }
 
 
-
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
-
 function uniquifyArray(strArray){
   if (strArray[0] === undefined)
     return (null);
@@ -112,10 +83,7 @@ function uniquifyArray(strArray){
 }
 
 
-
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
 function doesWordExist(strArray, strToFind){
   if (strArray[0] === undefined)
     return (null)
@@ -127,22 +95,7 @@ function doesWordExist(strArray, strToFind){
 }
 
 
-
 // Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
-];
-
 function howManyTimes(strArray, strToCount){
   let wordCount = 0
   for (const str of strArray){
@@ -151,7 +104,6 @@ function howManyTimes(strArray, strToCount){
   }
   return (wordCount)
 }
-
 
 
 // Iteration #8: Bonus
@@ -178,9 +130,58 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
 
+let smaller = [
+  [ 1,  2, 3, 4, 5],
+  [ 1, 20, 0, 40, 5],
+  [ 1, 10, 3, 4, 5],
+  [ 0, 80, 10, 10, 10],
+  [ 1,  4, 3, 4, 5]
+]
 
+function slideHorizontal(line){
+  let max = 0;
+  for (let i = 0; i < line.length ; i++)
+  {
+    let localMax = line[i] * line[i + 1] * line[i + 2] * line[i + 3];
+    if (localMax > max)
+      max = localMax;
+  }
+  return (max)
+}
+
+function slideVertical(line){
+  let max = 0;
+  for (let i = 0; i < line.length ; i++)
+  {
+    let localMax = line[i] * line[i + 1] * line[i + 2] * line[i + 3];
+    if (localMax > max)
+      max = localMax;
+  }
+  return (max)
+}
+
+function greatestProduct(matrix){
+  let horizontalMax = 0;
+  let verticalMax = 0;
+  for (let line of matrix){
+    let localMax = slideHorizontal(line);
+    if (localMax > horizontalMax){
+      horizontalMax = localMax;
+    }
+  }
+  // let verticalMatrix = getVerticalMatrix
+  // for (let line of verticalMatrix){
+  //   let localMax = slideVertical(line);
+  //   if (localMax > verticalMax){
+  //     verticalMax = localMax;
+  //   }
+  // }
+  return(horizontalMax)
+//  return(maxOfTwoNumbers(verticalMax, horizontalMax))
+}
+console.log(greatestProduct(smaller))
+//greatestProduct(smaller)
 
 
 // The following is required to make unit tests work.
