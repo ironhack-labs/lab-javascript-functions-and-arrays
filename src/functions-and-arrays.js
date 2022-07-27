@@ -71,11 +71,8 @@ function sum(listAllTypes) {
       throw new Error("Unsupported data type sir or ma'am");
     }
   }
-  console.log(newList);
   return sumNumbers(newList);
 }
-
-console.log(sum(list));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -97,7 +94,6 @@ function averageNumbers(numbersAvg) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-const mot = ['ironhack'];
 
 function averageWordLength(wordsArr) {
   let avgLength;
@@ -138,8 +134,6 @@ const wordsUnique = [
   'bring'
 ];
 
-const rien = [];
-const iphone = ['iPhone', 'Samsung', 'Android', 'iOS', 'iPhone', 'Samsung', 'Nokia', 'Blackberry', 'Android']
 
 function uniquifyArray(wordsUnique) {
   if(wordsUnique.length===0){
@@ -242,7 +236,7 @@ const matrix = [
 
 function greatestProduct() {
 
-  
+
 }
 
 
