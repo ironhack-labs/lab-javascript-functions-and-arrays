@@ -1,24 +1,74 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(nb1, nb2) {
+  if (nb1 > nb2) {
+    return nb1;
+  } else {
+    return nb2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let res = "";
+  if (words.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < words.length; i++){
+    if (words[i].length > res.length) {
+      res = words[i];
+    } else {
+      continue;
+    }
+  }
+  return res;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let res = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    res += numbers[i];
+  }
+  return res;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10,false, true,{aliciaKeys: 'valeurs'}];
+
+function sum(mixedArr) {
+  let res = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    switch (typeof mixedArr[i]) {
+      case 'number' :
+        res += mixedArr[i];
+        break;
+      case 'string':
+        res += mixedArr[i].length;
+        break;
+      case 'boolean':
+        if (mixedArr[i] === true) {
+          res += 1;
+        } else {
+          continue;
+        }
+        break;
+      default:
+        throw new Error("Unsupported data type sir or ma'am");;
+    }  
+  }
+  return res;
+}
+
 
 
 
@@ -26,16 +76,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  } else {
+    return res = sumNumbers(numbersAvg) / numbersAvg.length;
+  }
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    return res = sum(wordsArr) / wordsArr.length;
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg(mixedArr2) {
+  if (mixedArr2.length === 0) {
+    return null;
+  } else {
+    return res = sum(mixedArr2) / mixedArr2.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +122,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(wordsUnique) {
+  let res = [];
+  if (wordsUnique.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordsUnique.length; i++){
+      if (res.includes(wordsUnique[i])) {
+        continue;
+      } else {
+        res.push(wordsUnique[i]);
+      }
+    }
+  }
+  return res;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, words) {
+  if (wordsFind.length === 0) {
+    return null;
+  } else { 
+    return wordsFind.includes(words);
+  }
+}
 
 
 
@@ -78,7 +167,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,word) {
+  let count = 0;
+  if (wordsCount.length === 0) {
+    return count;
+  } else {
+    for (let i = 0; i < wordsCount.length; i++){
+      if (wordsCount[i] === word) {
+        count += 1;
+      }
+    }
+  }
+  return count;
+}
 
 
 
@@ -105,8 +206,81 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function findBiggestNumber(numbers) {
+  let res = 0;
+  if (numbers.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < numbers.length; i++){
+      if (numbers[i] > res) {
+        res = numbers[i];
+      }
+    }
+  }
+  return res;
+}
+function multiplyNumbers(numbers) {
+  let res = 1;
+  for (let i = 0; i < numbers.length; i++) {
+    switch (typeof numbers[i]) {
+      case 'number' :
+        res *= numbers[i];
+        break;
+      default:
+        continue;
+    }  
+  }
+  return res;
+}
+function greatestProduct(matrix) {
+  let tabProduct = [];
+  let tmp = 0;
+  let tabTmp = [];
+  let res = 0;
+  for (let i = 0; i < matrix.length; i++){
+    for (let j = 0; j < matrix[i].length - 3; j++){
+      if (j === matrix[i].length - 4) {
+        tabTmp = matrix[i].slice(matrix[i].indexOf(matrix[i][j]));
+        tmp = multiplyNumbers(tabTmp);
+        tabProduct.push(tmp);       
+      } else {
+        tabTmp = matrix[i].slice(matrix[i].indexOf(matrix[i][j]), matrix[i].indexOf(matrix[i][j + 4]));
+        tmp = multiplyNumbers(tabTmp);
+        tabProduct.push(tmp);
+      }
+    }
+  }
 
-function greatestProduct() {}
+  let u = 0;
+  let v = 0;
+  let tabTmp2 = [];
+  let tmp2 = 1;
+  for (let j = 0; j < matrix.length; j++){
+    for (let k = 0; k < matrix.length-3; k++) {
+      for (let i = k ; i < 4+k; i++) {
+
+        tabTmp2.push(matrix[i][j]);
+        //console.log(tabTmp2)
+      }
+      tmp2 = multiplyNumbers(tabTmp2);
+      tabTmp2 = [];
+      tabProduct.push(tmp2);
+    }
+
+    //console.log(tabProduct)
+  }
+
+  return res = findBiggestNumber(tabProduct);
+
+}
+
+console.log(greatestProduct([[1, 2, 3, 4, 5],
+[1, 20, 3, 4, 5],
+[1, 20, 3, 4, 5],
+[1, 20, 3, 4, 5],
+  [1, 4, 3, 4, 5]]));
+
+console.log(greatestProduct(matrix));
 
 
 
