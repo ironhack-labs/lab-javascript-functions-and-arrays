@@ -1,20 +1,42 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+function maxOfTwoNumbers(firstNumber,secondNumber) {
+
+  if (firstNumber > secondNumber) {
+    return firstNumber;
+  } else {
+    return secondNumber;
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord() {
+
+   
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0;
 
+  array.forEach(item => {
+    sum += item;
+    
+  });
+
+
+  return sum;
+}
+
+sumNumbers(numbers);
 
 
 // Iteration #3.1 Bonus:
@@ -26,16 +48,69 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  
+  if (array.length === 0) {
+    return null;
+  } else {
+    const average = sumNumbers(array) / array.length;
+  return average;
+  }
+ 
+}
 
+averageNumbers(numbers);
 
-// Level 2: Array of strings
+// Level 4.2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
 
-// Bonus - Iteration #4.1
-function avg() {}
+  if (array.length === 0) {
+    return null;
+  } else { 
+    let sum = 0;
+    let average = 0;
+    for(let i = 0; i < arr.length; i++) {
+    let number = arr[i].length;
+    sum += (number.length);
+    }
+    average = sum / arr.length;
+    return average;
+  }
+}
+
+averageWordLength(wordsArr);
+
+// Bonus - Iteration #4.3
+
+function avg(arrayOfWords) {
+  
+  if (arrayOfWords.length === 0) {
+    return null;
+  } else {
+
+    const average = sumNumbers(array) / array.length;
+  return average;
+  }
+ 
+}
+
+
+function avg(arrayOfWords) {
+  let sum = 0;
+
+  arrayOfWords.forEach(item => {
+    sum += item;
+    
+  });
+
+
+  return sum;
+}
+
+sumNumbers(numbers);
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
