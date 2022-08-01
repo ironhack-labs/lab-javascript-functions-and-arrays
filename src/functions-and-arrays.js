@@ -150,8 +150,6 @@ const wordsUnique = [
 	'bring'
 ];
 
-
-
 function uniquifyArray(wordsArr) {
 
 	if (wordsArr == 0)
