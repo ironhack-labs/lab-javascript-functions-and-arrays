@@ -1,6 +1,7 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
-  return a > b ? a : b;
+  // return a > b ? a : b;
+  return Math.max(a, b);
 }
 
 // Iteration #2: Find longest word
@@ -46,7 +47,8 @@ function sum(array) {
     } else if (typeof i === "string") {
       sum += i.length;
     } else if (typeof i === "boolean") {
-      sum += Number(i);
+      // sum += Number(i);
+      sum += i;
     }
   }
   return sum;
@@ -57,7 +59,8 @@ function sum(array) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-  return !array.length ? null : array.reduce((a, b) => a + b) / array.length;
+  // return !array.length ? null : array.reduce((a, b) => a + b) / array.length;
+  return !array.length ? null : sumNumbers(array) / array.length;
 
   // let sum = 0;
   // if (!array.length) return null;
@@ -68,26 +71,16 @@ function averageNumbers(array) {
 }
 
 // Level 2: Array of strings
-const wordsArr = [
-  "seat",
-  "correspond",
-  "linen",
-  "motif",
-  "hole",
-  "smell",
-  "smart",
-  "chaos",
-  "fuel",
-  "palace",
-];
+const wordsArr = ["seat", "correspond", "linen", "motif", "hole", "smell", "smart", "chaos", "fuel", "palace"];
 
 function averageWordLength(array) {
-  let sum = 0;
-  if (!array.length) return null;
-  for (i of array) {
-    sum += i.length;
-  }
-  return sum / array.length;
+  // let sum = 0;
+  // if (!array.length) return null;
+  // for (i of array) {
+  //   sum += i.length;
+  // }
+  // return sum / array.length;
+  return !array.length ? null : sum(array) / array.length;
 }
 // Bonus - Iteration #4.3
 function avg(array) {
@@ -106,19 +99,7 @@ function avg(array) {
 }
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  "crab",
-  "poison",
-  "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
-  "poison",
-  "communion",
-  "simple",
-  "bring",
-];
+const wordsUnique = ["crab", "poison", "contagious", "simple", "bring", "sharp", "playground", "poison", "communion", "simple", "bring"];
 
 function uniquifyArray(array) {
   // Elemente zu neuem Array pushen,
@@ -126,26 +107,18 @@ function uniquifyArray(array) {
   let newArray = [];
   if (!array.length) return null;
   for (i of array) {
-    if (newArray.includes(i)) {
-      continue;
-    } else {
-      newArray.push(i);
-    }
+    if (!newArray.includes(i)) newArray.push(i);
+    // if (newArray.includes(i)) {
+    //   continue;
+    // } else {
+    //   newArray.push(i);
+    // }
   }
   return newArray;
 }
 
 // Iteration #6: Find elements
-const wordsFind = [
-  "machine",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "truth",
-  "disobedience",
-];
+const wordsFind = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
 
 function doesWordExist(array, wordToSearch) {
   if (!array.length) return null;
@@ -158,19 +131,7 @@ function doesWordExist(array, wordToSearch) {
 }
 
 // Iteration #7: Count repetition
-const wordsCount = [
-  "machine",
-  "matter",
-  "subset",
-  "trouble",
-  "starting",
-  "matter",
-  "eating",
-  "matter",
-  "truth",
-  "disobedience",
-  "matter",
-];
+const wordsCount = ["machine", "matter", "subset", "trouble", "starting", "matter", "eating", "matter", "truth", "disobedience", "matter"];
 
 function howManyTimes(array, wordToSearch) {
   wordToSearchCounter = 0;
@@ -244,12 +205,11 @@ function greatestProductOfDiagonals(input) {
 
 // Both unified
 function allAxisGreatestProduct(input) {
-  return greatestProduct(input) > greatestProductOfDiagonals(input)
-    ? greatestProduct(input)
-    : greatestProductOfDiagonals(input);
+  return greatestProduct(input) > greatestProductOfDiagonals(input) ? greatestProduct(input) : greatestProductOfDiagonals(input);
 }
 
 console.log(allAxisGreatestProduct(matrix));
+console.log(greatestProductOfDiagonals(matrix));
 
 function multiplyingY(arr, a, b) {
   return arr[a][b] * arr[a][b + 1] * arr[a][b + 2] * arr[a][b + 3];
@@ -284,7 +244,7 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-console.log(makeMatrix(10, 10, 1, 100));
+// console.log(makeMatrix(10, 10, 1, 100));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

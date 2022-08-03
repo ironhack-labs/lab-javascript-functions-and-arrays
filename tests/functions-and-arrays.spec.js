@@ -118,9 +118,7 @@ describe("Bonus: Calculate the sum", () => {
   });
 
   it("should throw an error when unsupported data type (object or array) present in the array", () => {
-    expect(() => sum([6, 12, "miami", 1, "barca", "200", "lisboa", 8, [], {}])).toThrow(
-      new Error("Unsupported data type sir or ma'am")
-    );
+    expect(() => sum([6, 12, "miami", 1, "barca", "200", "lisboa", 8, [], {}])).toThrow(new Error("Unsupported data type sir or ma'am"));
   });
 });
 
@@ -160,18 +158,7 @@ describe("Calculate the average of an array of strings", () => {
   });
 
   it("should return the average of a the array", () => {
-    expect(
-      averageWordLength([
-        "Ironhack",
-        "Madrid",
-        "Barcelona",
-        "Paris",
-        "Miami",
-        "Mexico",
-        "Berlin",
-        "Programmers",
-      ])
-    ).toBe(7);
+    expect(averageWordLength(["Ironhack", "Madrid", "Barcelona", "Paris", "Miami", "Mexico", "Berlin", "Programmers"])).toBe(7);
   });
 });
 
@@ -210,19 +197,14 @@ describe("Unique array", () => {
   });
 
   it("should return the uniquified array", () => {
-    expect(
-      uniquifyArray([
-        "iPhone",
-        "Samsung",
-        "Android",
-        "iOS",
-        "iPhone",
-        "Samsung",
-        "Nokia",
-        "Blackberry",
-        "Android",
-      ])
-    ).toEqual(["iPhone", "Samsung", "Android", "iOS", "Nokia", "Blackberry"]);
+    expect(uniquifyArray(["iPhone", "Samsung", "Android", "iOS", "iPhone", "Samsung", "Nokia", "Blackberry", "Android"])).toEqual([
+      "iPhone",
+      "Samsung",
+      "Android",
+      "iOS",
+      "Nokia",
+      "Blackberry",
+    ]);
   });
 });
 
@@ -240,15 +222,11 @@ describe("Find elements", () => {
   });
 
   it("should return false if the word we are looking for is not in the array", () => {
-    expect(doesWordExist(["machine", "poison", "eat", "apple", "horse"], "ratatouille")).toBe(
-      false
-    );
+    expect(doesWordExist(["machine", "poison", "eat", "apple", "horse"], "ratatouille")).toBe(false);
   });
 
   it("should return true if the word we are looking for is in the array", () => {
-    expect(doesWordExist(["pizza", "sandwich", "snack", "soda", "book", "computer"], "book")).toBe(
-      true
-    );
+    expect(doesWordExist(["pizza", "sandwich", "snack", "soda", "book", "computer"], "book")).toBe(true);
   });
 });
 
@@ -271,22 +249,7 @@ describe("Count repetition", () => {
 
   it("should return 5 (five) when the word appears 5 times in the array", () => {
     expect(
-      howManyTimes(
-        [
-          "basketball",
-          "football",
-          "tennis",
-          "rugby",
-          "rugby",
-          "ping pong",
-          "rugby",
-          "basketball",
-          "rugby",
-          "handball",
-          "rugby",
-        ],
-        "rugby"
-      )
+      howManyTimes(["basketball", "football", "tennis", "rugby", "rugby", "ping pong", "rugby", "basketball", "rugby", "handball", "rugby"], "rugby")
     ).toBe(5);
   });
 });
@@ -402,6 +365,6 @@ describe("Extra-Bonus Quest - Product of diagonals", () => {
       [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
       [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
     ];
-    expect(greatestProduct(matrix)).toBe(51267216);
+    expect(greatestProduct(matrix)).toBe(70600674);
   });
 });
