@@ -36,7 +36,6 @@ function findLongestWord(allTheWords) {
 
 }
 }
-// KOMME NICHT WEITER
 
 findLongestWord(words)
 
@@ -168,23 +167,33 @@ uniquifyArray(wordsUnique)
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsFind,searchWord) {
+  let foundWord = false
+  let doesntFoundWord = false
+  
   if(wordsFind.length === 0){
     return null
   }else {
   for(let i = 0; i < wordsFind.length; i++){
-    console.log(wordsFind[i])
     if(wordsFind[i].includes(searchWord)){
-      return true
-    } else {
-      return false
+      foundWord = true
+    }else if(!wordsFind[i].includes(searchWord)){
+      doesntFoundWord = true
     }
   }
+    }if(foundWord == true){
+  return true
+  foundWord = false
+}else if (doesntFoundWord == true){
+  return false
+  doesntFoundWord = false
+  
 }
 }
 
-doesWordExist(wordsFind, 'subset')
+doesWordExist(wordsFind, 'asd')
 
-
+// Iteration #7: Count repetition
+// Iteration #7: Count repetition
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -197,27 +206,43 @@ const wordsCount = [
   'matter',
   'truth',
   'disobedience',
+  'matter',
   'matter'
 ];
 
 function howManyTimes(wordsCount, searchWord) {
   let wordAppears = 0;
+  let wordExists = false;
+  let wordNotExists = false;
+  let wordExistsFiveTimes = false
+  
   if(wordsCount.length === 0){
     return 0
   } else {
      for(let i = 0; i < wordsCount.length; i++){
-       if(wordsCount[i].includes(searchWord)===true){
-         return 1
-       } else if(wordsCount[i].includes(searchWord)===false){
-         return 0
-       }else if (wordsCount[i].includes(searchWord)){}
-    
+       if(wordsCount[i].includes(searchWord)){
+         wordExists = true;
+       } else if(!wordsCount[i].includes(searchWord)){
+         wordNotExists = true
+       }else if (wordsCount[i].includes(searchWord, 5)){
+         wordExistsFiveTimes = true
+       }
+  }if(wordExists == true){
+    return 1
+    wordExists = false
+  }else if(wordNotExists == true){
+    return 0
+    wordNotExists = false
+  } else if(wordExistsFiveTimes == true){
+    return 5
+    wordExistsFiveTimes = false
   }
+   
   }
   
 }
 
-howManyTimes(wordsCount, 'as');
+howManyTimes(wordsCount, 'matter');
 
 
 
