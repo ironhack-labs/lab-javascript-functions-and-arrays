@@ -2,34 +2,63 @@
 function maxOfTwoNumbers( a, b ) {
   if ( a > b) {
     return a
-  } else if ( a < b) {
+  } else if ( a < b) {  
     return b
   } else {
     return a
   }
 }
 
+// no need to 'else' see below
+
+// function maxOfTwoNumbers( a, b ) {
+//   if ( a > b) {
+//     return a
+//   }   
+//     return b   
+// }
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+// function findLongestWord(words)
+//   {
+//     if (words.length > 0) {
+//       let wordLength = words[0].length // change this part is too long -- see coment below
+//       let longestWord = words[0]
+//           for (let i = 1; i < words.length; i++) {
+//           if (words[i].length > wordLength) {
+//               longestWord = words[i]
+//               wordLength = maxi
+//           }
+//       }
+//       return longestWord;
+//     } else {
+//       return null
+//     }
+// } 
+
+
+
+// again else is not necessery 
+// let longestWord = ''
+// then for of loop
+
 function findLongestWord(words)
   {
-    if (words.length > 0) {
-      let wordLength = words[0].length
-      let longestWord = words[0]
-          for (let i = 1; i < words.length; i++) {
-          const maxi = words[i].length
-          if (maxi > wordLength) {
-              longestWord = words[i]
-              wordLength = maxi
+     if (words.length === 0) {
+       return null
+     }
+     
+       let longestWord = ''
+           for (let word of words) {
+           if (word.length > longestWord.length) {
+              longestWord = word             
           }
-      }
-      return longestWord;
-    } else {
-      return null
-    }
-} 
+       }
+       return longestWord;
+     }
 
 
 // Iteration #3: Calculate the sum
@@ -45,29 +74,32 @@ function sumNumbers(numbers) {
 
 
 
-// Iteration #3.1 Bonus:
+// Iteration #3.1 Bonus:   !!! need to check
 function sum(arr) {
   let argumentSum = 0
-    for (let argument of arr) {    
-    if (typeof argument  === 'string') {
-      argumentSum += argument.length
-    } else if (typeof argument  === "number"){
-      argumentSum += argument
-    } else if (typeof argument  === "boolean"){
-        if (argument === true) {
-          argumentSum += 1
-        } else {
-          argumentSum += 0
-        } 
-    } else {
-       return Error()
+      for (let argument of arr) {    
+      if (typeof argument  === 'string') {
+        argumentSum += argument.length
+      } else if (typeof argument  === "number"){
+        argumentSum += argument
+      } else if (typeof argument  === "boolean"){
+          if (argument === true) {
+            argumentSum += 1
+          } else {
+            argumentSum += 0
+          } 
+      } else {
+        throw 'Parameter is wrong!'
+      }
     }
-  }
-  return argumentSum
+    return argumentSum
 }
 
 console.log(sum([6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]))
 
+// can mbe done with case switch ( typeOf argument)
+// throw
+// js automaticaly add 0 or 1 for boolean --> no need to give them value
 
 
 // Iteration #4: Calculate the average
@@ -99,10 +131,12 @@ function averageWordLength(words) {
 }
  
 
-// Bonus - Iteration #4.1
+// Bonus - Iteration #4.1 
 function avg(arr) {
   return sum(arr) / arr.length
 }
+
+// return null
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -139,16 +173,24 @@ function uniquifyArray(wordsList) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+// function doesWordExist(wordsList,word) {
+//   if (wordsList.length > 0) {
+//       if (wordsList.includes(word)) {
+//         return true
+//       } else
+//     return false
+//     } else {
+//     return null
+//   }
+// }
+
 function doesWordExist(wordsList,word) {
   if (wordsList.length > 0) {
-      if (wordsList.includes(word)) {
-        return true
-      } else
-    return false
-    } else {
-    return null
+    return wordsList.includes(word)
   }
-}
+  return null
+} 
+
 
 
 
@@ -206,14 +248,34 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-// function greatestProduct(arr ) {
-//   let max = 0
-//   for (let i = 0; i < arr.length; i++){
-//     for (let j = 0; j < arr[i].length; j++){
+function greatestProduct(arr) {
+    let maxRow = 0
+    let maxColums = 0
 
-//     }
-//   }
-// }
+
+   for (let i = 0; i < arr.length ; i++){
+    for (let j = 0; j < arr[i].length - 4; j++){
+      let sumR = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3] 
+      if (sumR > maxRow) {
+        maxRow = sumR
+      }
+    }
+  }
+
+    for (let i = 0; i < arr.length - 4  ; i++){
+        for (let j = 0; j < arr[i].length ; j++){
+          let sumC = arr[i][j] * arr[i+1][j] * arr[i+2][j] * arr[i+3][j] 
+          if (sumC > maxColums) {
+            maxColums = sumC
+          }   
+     }
+    }
+    if  (maxRow > maxColums ) {
+      return maxRow
+
+    }
+    return maxColums
+}
 
 
 
