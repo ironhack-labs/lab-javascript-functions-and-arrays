@@ -15,14 +15,15 @@ maxOfTwoNumbers(3, 1);
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 const emptyWords = []
 function findLongestWord(words, emptyWords){
-  let longestWord = null;
+  if(words.length === 0){
+    return null;
+  }
+  let longestWord = 0;
   for (let i = 0; i < words.length; i++){
     if(words[i].length > words.length){
       longestWord = words[i];
       break;
-    } //else if(emptyWords.length = 0){ 
-     // return null
-   // }
+    } 
   }
   return longestWord
 };
@@ -55,7 +56,7 @@ function sumNumbers(numbers) {
 
 
 
-// Iteration #3.1 Bonus:
+// Iteration #3.1 Bonus: -> should try with an if statement 
 function sum() {
 }
 
@@ -65,16 +66,24 @@ function sum() {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-  let sumTotal = 0; 
-  numbersAvg.forEach(function(num) { sumTotal += num });
-average = sum / numbersAvg.length;
-}
+
+function averageNumbers(numbers) {
+  if(numbers.length === 0){
+    return null;
+  }
+  return sumNumbers(numbers) / numbers.length
+};
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if(words.length === 0){
+    return null;
+  }
+  return sum(words) / words.length;
+ };
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -95,6 +104,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0){
+    return null;
+  }
   for(let i = 0; i < wordsUnique.length; i++){
     for(let j = 0; j < wordsUnique.length; ++j){
       if (i !== j){
@@ -111,29 +123,17 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-/*function doesWordExist(wordToSearch, words) {
-  wordToSearch = wordsFind
-  for (let word of words) {
-    if (wordToSearch === word) {
-      return true;
-    }else {
-      return false;
-    }
+function doesWordExist(wordsFind){
+  if(wordsFind.length === 0){
+    return null;
   }
-}; */
-
-function doesWordExist(arrayOfWords, wordsToSearch){
-  arrayOfWords = null;
   for(let i = 0; i < wordsFind.length; i++){
     for(let j = 0; j < wordsFind.length; j++){
-      wordsToSearch = wordsFind[i]
-      if (wordsToSearch == wordsFind[i+j]) {
+      if (wordsFind[i] === wordsFind[i+j]) {
         return true;
-      } else if(wordsToSearch !== wordsFind[i+j]) {
+      } else if(wordsFind[i] !== wordsFind[i+j]) {
         return false; 
-      } else {
-        return null
-      }
+      } 
     }
   }
   return wordsToSearch;
