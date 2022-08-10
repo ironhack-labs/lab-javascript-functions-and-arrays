@@ -254,7 +254,7 @@ function greatestProduct(arr) {
 
 
    for (let i = 0; i < arr.length ; i++){
-    for (let j = 0; j < arr[i].length - 4; j++){
+    for (let j = 0; j < arr[i].length - 3; j++){
       let sumR = arr[i][j] * arr[i][j+1] * arr[i][j+2] * arr[i][j+3] 
       if (sumR > maxRow) {
         maxRow = sumR
@@ -262,7 +262,7 @@ function greatestProduct(arr) {
     }
   }
 
-    for (let i = 0; i < arr.length - 4  ; i++){
+    for (let i = 0; i < arr.length - 3  ; i++){
         for (let j = 0; j < arr[i].length ; j++){
           let sumC = arr[i][j] * arr[i+1][j] * arr[i+2][j] * arr[i+3][j] 
           if (sumC > maxColums) {
