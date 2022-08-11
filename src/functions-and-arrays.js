@@ -1,19 +1,43 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1 , num2) {
+  if (num1 < num2){
+    
+    return num2;
+      } else {
+        return num1;
+      }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+      
+      let longestword = "";
+      for (let i = 0 ; i < array.length; i++){
+        if (array[i].length > longestword.length){
+          longestword = array[i];
+        }
+      }
+      return longestword;
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numArray) {
+  let sum = 0;
+  for (let i = 0; i < numArray.length; i++){
+    sum += numArray[i];
+  }
+    
+  return sum;
+  }
 
 
 
@@ -26,13 +50,31 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numArray) {
+  let sum = 0;
+  for (let i = 0; i < numArray.length; i++){
+    sum += numArray[i];
+  }
+    let avg = sum / numArray.length;
+  return avg;
+  }
+
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(stringArray) {
+  let avgLength = 0;
+  for (let i = 0; i < stringArray.length; i++){
+    avgLength += stringArray[i].length;
+  }
+
+  return avgLength / stringArray.length;
+
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -59,7 +101,19 @@ function uniquifyArray() {}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordarray, searchedWord) {
+  
+ let found ="";
+
+for (let i = 0; i < wordarray.length; i++) {
+  if (wordarray[i] === searchedWord) {
+   wordFound = true;
+   }
+else wordFound = false;
+   }
+
+   return wordFound;
+}
 
 
 
