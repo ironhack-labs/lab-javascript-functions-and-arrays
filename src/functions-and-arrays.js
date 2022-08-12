@@ -14,7 +14,6 @@ maxOfTwoNumbers (5, 5)
 
 
 
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
