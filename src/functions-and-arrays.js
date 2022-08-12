@@ -1,24 +1,54 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2){
+    return num1
+  }else{
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(words) {
+  let palabra = "";
+  if (words.length !== 0) {
+    words.map(function(word) {
+      if (word.length > palabra.length) {
+        palabra = word; 
+      }
+    })
+    return palabra
+  } else {
+    return null
+  }
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+
+function sumNumbers(numbers) {
+  let sumatoria = 0
+  numbers.forEach(function (numero) {
+    sumatoria += numero
+  })
+  return sumatoria
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(matrix) {
+  if(matrix.length !== 0 ){
+
+  }else{
+    return 0
+  }
+}
 
 
 
@@ -26,16 +56,63 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let promedio = 0
+    if(numbersAvg.length !== 0 ){
+      numbersAvg.map(function (num){
+        promedio += num
+      })
+      promedio /= numbersAvg.length  
+      return promedio 
+    }else{
+      return null
+    }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let promedio = 0
+    if(wordsArr.length !== 0 ){
+      wordsArr.map((num) => {
+        promedio += num.length;
+      })
+      promedio /= wordsArr.length  
+      return promedio 
+    }else{
+      return null
+    }
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function avg(mixedArr) {
+  let promedio = 0
+  if(mixedArr.length !== 0){
+    mixedArr.map((num)=>{
+      if(typeof num === 'number'){
+        promedio += num
+      }else if (typeof num === 'boolean'){
+        if (num == true){
+          promedio += 1
+        }
+      }else if (typeof num === 'string'){
+        promedio += num.length
+      }
+     
+    })
+    promedio /= mixedArr.length
+    return promedio
+  }else{
+    return null
+  }
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +129,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let duplicado = []
+    if(wordsUnique.length !== 0){
+      wordsUnique.map((palabra)=>{
+        if(!duplicado.includes(palabra) ){
+          duplicado.push(palabra)
+        }
+      })
+      return duplicado
+    }else{
+      return null
+    }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, palabra) {
+  if (wordsFind.length !== 0){
+    return wordsFind.includes(palabra)
+  }else{
+    return null
+  }
+}
 
 
 
@@ -78,7 +173,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, palabra) {
+  let cont = 0
+  if(wordsCount!==0){
+    wordsCount.forEach((num)=>{
+      if (num === palabra){
+        cont++
+      }
+    })
+    return cont
+  }else{
+    return null
+  }
+  
+}
 
 
 
@@ -106,7 +214,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let mayor = 0
+  let product = 0
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      product = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3]
+      if (product > mayor) {
+        mayor = product
+      } 
+    }
+  }
+
+  for (let i = 3; i < matrix.length; i++) {
+    for (let j = 3; j < matrix[i].length; j++) {
+      product = matrix[i][j] * matrix[i - 1][j - 1] * matrix[i - 2][j - 2] * matrix[i - 3][j - 3]
+      if (product > mayor) {
+        mayor = product
+      } 
+    }
+  }
+  return mayor
+
+}
 
 
 
@@ -128,3 +258,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
