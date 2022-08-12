@@ -40,18 +40,12 @@ function sum(arr) {
   for (const element of arr) {
     switch (typeof element) {
       case "number":
+      case "boolean":
         total += element;
         break;
       case "string":
         total += element.length;
         break;
-      case "boolean":
-        if (element === true) {
-          total++;
-          break;
-        } else {
-          break;
-        }
       default:
         let error = new Error("Unsupported data type sir or ma'am");
         throw error;
@@ -59,7 +53,7 @@ function sum(arr) {
   }
   return total;
 }
-
+console.log(5 + false);
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -142,8 +136,17 @@ const wordsFind = [
 
 function doesWordExist(words, word) {
   if (words.length === 0) return null;
-  return words.includes(word) ? true : false;
+  return words.includes(word);
 }
+
+// with a for loop
+// function avh(words, word) {
+//   if (words.length === 0) return null;
+//   for (let element of words) {
+//     if (element === word) return true;
+//   }
+//   return false;
+// }
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -238,8 +241,8 @@ const matrix = [
 function greatestProduct(matrix) {
   let max = 0;
   // Check matrix through row and cols
-  for (let row = 0; row < matrix.length - 4; row++) {
-    for (let column = 0; column < matrix.length - 4; column++) {
+  for (let row = 0; row < matrix.length - 3; row++) {
+    for (let column = 0; column < matrix.length - 3; column++) {
       // Check row product
       let prodrow =
         matrix[row][column] *
@@ -257,8 +260,60 @@ function greatestProduct(matrix) {
       if (prodcol > max) max = prodcol;
     }
   }
+
+  // Check acendant diagonal
+  for (let row = 4; row < matrix.length; row++) {
+    for (let column = 0; column < matrix.length - 4; column++) {
+      let prod =
+        matrix[row][column] *
+        matrix[row - 2][column - 2] *
+        matrix[row - 1][column - 1] *
+        matrix[row - 3][column - 3];
+      if (prod > max) max = prod;
+    }
+  }
+
+  // Check descendant diagonal ???????????
+  for (let row = 0; row < matrix.length - 3; row++) {
+    for (let column = 0; column < matrix.length - 3; column++) {
+      let prod =
+        matrix[row][column] *
+        matrix[row + 1][column + 1] *
+        matrix[row + 2][column + 2] *
+        matrix[row + 3][column + 3];
+      if (prod > max) max = prod;
+    }
+  }
   return max;
 }
+
+console.log(greatestProduct(matrix));
+
+// // Diagonal ascendente
+// function checkMainDiagonal(matrix) {
+//   for (let row = 3; row < matrix.length; row++) {
+//     for (let column = 0; column < matrix.length - 3; column++) {
+//       let prod =
+//         matrx[row][column] *
+//         matrx[row + 1][column + 1] *
+//         matrx[row + 2][column + 2] *
+//         matrx[row + 3][column + 3];
+//     }
+//   }
+// }
+
+// // Diagonal descendente
+// function checkSecondDiagonal(matrix) {
+//   for (let row = 3; row < matrix.length; row++) {
+//     for (let column = 3; column < matrix.length; column++) {
+//       let prod =
+//         matrx[row][column] *
+//         matrx[row - 2][column - 2] *
+//         matrx[row - 1][column - 1] *
+//         matrx[row - 3][column - 3];
+//     }
+//   }
+// }
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
