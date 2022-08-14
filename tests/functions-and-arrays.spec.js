@@ -44,7 +44,7 @@ describe('Find the longest word', () => {
   });
 
   it('should return the word when called with a single-word array', () => {
-    expect(findLongestWord(['foo'])).toBe('foo');
+     expect(findLongestWord(['foo'])).toBe('foo');
   });
 
   it('should return the first occurrence of the word when longest have multiple occurrences ', () => {
