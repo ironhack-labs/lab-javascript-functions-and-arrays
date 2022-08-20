@@ -1,12 +1,13 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(num1, num2) {
-  if (num1 > num2) {
-    return num1
-  }else if (num1 < num2){
-    return num2
-  }else if (num1 = num2){
-    return num1, num2
-  }  
+function maxOfTwoNumbers(num1,num2) {
+  if(num1 > num2){
+    return num1;
+  }else if(num1 < num2){
+    return num2;
+  }
+  else{
+    return num1;
+  }
 }
 
 
@@ -15,18 +16,24 @@ function maxOfTwoNumbers(num1, num2) {
 //const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 // Q: code not working overall, not understanding bug text
 
-function findLongestWord(words) {
-  let longestWord
+function findLongestWord(array) {
 
-    if(words.length === 0){
-      return null
-    }else if(words.length !== 0){
-      for (u = 0; u < words.length; u++){
-        if(longestWord.length < words[u].length){
-          longestWord = words[u]
-        }
+  if(array.length == 0){
+    return null;
+  }
+  if(array.length == 1){
+    return array[0];
+  }
+
+  let maxLength = 0;
+  let maxPos;
+  for(let i = 0; i < array.length; i++){
+    if(array[i].length > maxLength){
+      maxLength = array[i].length;
+      maxPos = i;
     }
-  }return longestWord
+  }
+  return array[maxPos];
 }
 
 
@@ -34,34 +41,66 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 //const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(numbers) {
-  let result = 0
-  for(i = 0; i < numbers.length; i++){
-    result += numbers[i]
-    
+function sumNumbers(array) {
+  if(array.length == 0){
+    return 0;
   }
-  return result
+
+  let sum = 0;
+  array.forEach(function(num){
+    sum += num;
+  })
+
+  return sum;
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+
+  if(array.length == 0){
+    return 0;
+  }
+
+  let sum = 0;
+  array.forEach(function(item){
+    if(typeof item == "string"){
+      value = item.length;
+    }
+    else if (typeof item == "number"){
+      value = item;
+    }
+    else if(typeof item == "boolean"){
+      if(item){
+        value = 1;
+      }
+      else{
+        value = 0;
+      }
+    }
+    else{
+      throw new Error(`Unsupported data type sir or ma'am`);
+    }
+
+    sum += value;
+  })
+
+  return sum;
+  
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-//const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) {
-  let result2 = 0
-  for(j = 0; j < numbersAvg.length; j++){
-    result2 = (result2 + numbersAvg[j])
-  }if(numbersAvg.length === 0) {
-    return null
+function averageNumbers(array) {
+  if(array.length == 0){
+    return null;
   }
-  return (result2 / numbersAvg.length)
+
+  return(sum(array)/array.length);
 }
 
 
@@ -69,35 +108,23 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 //const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(wordsArr) {
-  let result3 = 0
-  for(g = 0; g < wordsArr.length; g++){
-    result3 += wordsArr[g].length
-  }if(wordsArr.length ===0){
-    return null
+function averageWordLength(array) { 
+  if(array.length == 0){
+    return null;
   }
-  return (result3 / wordsArr.length)
+  return(sum(array)/array.length);
 }
 
 // Bonus - Iteration #4.1
 // Q: don't know why code isn't returning null
 
-function avg(mixedArr) {
-  let result5 = 0
-  for(p = 0; p < mixedArr.length; p++){
-    if(mixedArr.length === 0){
-      return null
-    }else if(typeof mixedArr[p] === 'number'){
-      result5 += mixedArr[p]
-    }else if(typeof mixedArr[p] === 'string'){
-      result5 += mixedArr[p].length
-    }else if(mixedArr[p] === true){
-      result5++
-    }else if(mixedArr[p] === false){
-      continue
-    }
-  }return Number((result5 / mixedArr.length).toFixed(2))
+function avg(array) {
+  if(array.length == 0){
+    return null;
+  }
+  return(sum(array)/array.length);
 }
+
     
 
 // Iteration #5: Unique arrays
@@ -115,7 +142,22 @@ function avg(mixedArr) {
   'bring'
 ];*/
 
-function uniquifyArray(wordsUnique) {}
+function uniquifyArray(array) {
+  if(array.length == 0){
+    return null;
+  }
+
+  let finalArr = [];
+
+  for(let i = 0; i < array.length; i++){
+    if(!finalArr.includes(array[i])){
+      finalArr.push(array[i]);
+    }
+  }
+
+  return finalArr;
+
+}
 
 
 
@@ -123,16 +165,20 @@ function uniquifyArray(wordsUnique) {}
 //const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 // Q: not retuning null, also returns false even if the word is in the array
 
-function doesWordExist(wordsFind, word) {
-  for(l = 0; l < wordsFind.length; l++){
-    if(wordsFind.length === 0){
-      return null
-    }else if(word !== wordsFind[l]){
-      return false
-    }else if(word === wordsFind[l]){
-      return true
+function doesWordExist(array,word) {
+  if(array.length == 0){
+    return null;
+  }
+
+  for(let i = 0; i < array.length; i++){
+    if(array.includes(word)){
+      return true;
+    }
+    else{
+      return false;
     }
   }
+
 }
 
 
@@ -152,13 +198,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsCount, word) {
-  let result4 = 0
-  for(k = 0; k < wordsCount.length; k++){
-    if(word === wordsCount[k]){
-      result4++
+function howManyTimes(array,word) {
+  if(array.length == 0){
+    return 0;
+  }
+
+  let count = 0;
+
+  for(let i = 0; i < array.length; i++){
+    if(array[i] == word){
+      count++;
     }
-  }return result4
+  }
+
+  return count;
 }
 
 
@@ -187,7 +240,67 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function product(array){
+  let total = 1;
+
+  if(array.length == 0){
+    return 0;
+  }
+
+  array.forEach(function(num){
+    total *= num;
+  })
+
+  return total;
+}
+
+
+function greatestProduct(matrix) {
+
+  let max = 0;
+
+  for(let col = 0; col < 20-4; col++){
+    for(let row = 0; row < 20; row++){
+      let temp = [matrix[row][col], matrix[row][col+1], matrix[row][col+2], matrix[row][col+3]];
+      if(product(temp) > max){
+        max = product(temp);
+      }
+    }
+  }
+
+  for(let row = 0; row < 20-4; row++){
+    for(let col = 0; col < 20; col++){
+      let temp = [matrix[row][col], matrix[row+1][col], matrix[row+2][col], matrix[row+3][col]];
+      if(product(temp) > max){
+        max = product(temp);
+      }
+    }
+  }
+
+  return max;
+}
+
+function greatestProductOfDiagonals(matrix){
+
+  let max = 0;
+
+  for(let col = 0; col < 20-4; col++){
+    for(let row = 3; row < 20; row++){
+      let temp = [matrix[row][col], matrix[row+1][col+1], matrix[row+2][col+2], matrix[row+3][col+3]];
+    }
+  }
+
+  for(let col = 0; col < 20-4; col++){
+    for(let row = 0; row < 20; row++){
+      let temp = [matrix[row][col], matrix[row+1][col-1], matrix[row+2][col-2], matrix[row+3][col-3]];
+      if(product(temp) > max){
+        max = product(temp);
+      }
+    }
+  }
+
+  return max;
+}
 
 
 
