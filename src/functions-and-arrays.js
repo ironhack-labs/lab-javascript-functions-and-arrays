@@ -42,25 +42,54 @@ function sumNumbers(array) {
   } else {
     for (let i = 0; i < array.length; i++){
     sum += array[i];
-    
   }
     return sum;
-    
   }
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(array) {
+  let result = 0;
+  if(array.length === 0){
+    return 0;
+  } else if (array.length === 1) {
+    return array[0];
+  } else {
+    array.forEach(function(item) {
+      if (typeof item === "string")
+      result += item.length;
+      else if (typeof item === "number"){
+        result += item;
+      } else if (typeof item === "boolean"){
+        if (item) {
+          result += 1;
+        }
+      } else {
+      throw new Error("unsupported data type");
+      }
+    });
+    return result;
+  }
+  
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let result = 0;
+  if(array.length === 0){
+    return null;
+  } else if (array.length === 1) {
+    return array[0];
+  } else {
+     result = sum(array)/array.length;
+     return result;
+  }
+}
 
 
 // Level 2: Array of strings
