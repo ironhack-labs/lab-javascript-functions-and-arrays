@@ -62,7 +62,7 @@ function averageNumbers(myArr) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength( myArr) {
+function averageWordLength(myArr) {
     let wordsLength = 0;
     let divisor = myArr.length;
     let result = wordsLength / divisor;
@@ -89,14 +89,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(myArr) {
+ 
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(myArr, word) {
+    if(myArr.includes(word)){
+      return true
+    }else{
+      return false
+    }
+}
 
 
 
@@ -115,8 +123,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(myArr, word) {
+  let result = 0;
+  for( let i = 0; i< myArr.length; i++){
+  if (myArr[i].localeCompare(word) === 0 ){
+    result++
+  } return result
+}
+}
 
 
 // Iteration #8: Bonus
