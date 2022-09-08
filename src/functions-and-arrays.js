@@ -8,31 +8,40 @@ function maxOfTwoNumbers(a,b) {
       return b
     }
 } 
-console.log(maxOfTwoNumbers(10,8))
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(array){
-if (!array.length)  {
+function findLongestWord (array){
+  if (!array.length)  {
     return null
+  } else {
+    let longest = "";
+    array.forEach( function (word) {
+     if  (word.length > longest.length) {
+      longest = word 
+     }
+     })
+     return longest;
   }
-array.forEach(element => {
-  let theLongest = "";
-  if (element.lenght>0){
-    let theLongest 
-  }
-})
 }
+  
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  if (!array.length) return 0;
+   let sumNumbers = 0;
+    for (let i = 0; i < array.length; i++){
+      sumNumbers += array[i];
+    } return sumNumbers;
+  }
 
 
 
@@ -45,13 +54,19 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (!array.legnth) return null;
+  return array.reduce((a, b) => (a + b)) / array.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) { 
+  if (!array.length)  return null;
+  
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
