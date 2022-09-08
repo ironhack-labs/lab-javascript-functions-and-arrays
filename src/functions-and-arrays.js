@@ -1,24 +1,83 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numberOne,numberTwo) {
+  if(numberOne >= numberTwo){
+    return numberOne
+  }else{
+    return numberTwo
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length > 0){
+    let strWordCount=[];
+    words.forEach(function(element){
+      strWordCount.push(element.length);
+    });
+
+  let greaterIndex=0;
+  strWordCount.forEach(function(elementnew){
+    if(greaterIndex < elementnew){
+      greaterIndex = elementnew;
+    }
+  });
+    return words[strWordCount.indexOf(greaterIndex)];
+  }else{
+    return null;
+  }
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let total= 0;
+  numbers.forEach(function(element){
+    total += element;
+  })
+return total;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+  if(mixedArr.length>0){
+    mixedArr.forEach(function(element){
+      if(typeof element === 'string'){
+        let index = mixedArr.indexOf(element);
+        //console.log(index);
+        mixedArr.splice(index,1,element.length);
+      }else if(typeof element === 'boolean'){
+        let index = mixedArr.indexOf(element);
+        console.log(index);
+        console.log(mixedArr[index]);
+        if(mixedArr[index] === true){
+          mixedArr.splice(index,1,1);
+        }else{
+          mixedArr.splice(index,1,0);
+        }
+      }else if(typeof element === 'number'){
+      }else if(typeof element === 'object'){
+        return 'Unsupported data type';
+
+      }    
+    });
+    return sumNumbers(mixedArr);
+  }else{
+    return 0
+  }
+  
+}
 
 
 
@@ -26,16 +85,41 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if(numbersAvg.length > 0){
+    return sumNumbers(numbersAvg)/(numbersAvg.length);
+  }else{
+    return null;
+  }
+  
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if(wordsArr.length>0){
+  let strWordLength=[];
+  wordsArr.forEach(function(element){
+    strWordLength.push(element.length);
+  });
+    return averageNumbers(strWordLength);
+  }else if(wordsArr.length === 1){
+    return averageNumbers(wordsArr);
+  }else{
+    return null;
+  }
+  
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if(mixedArr.length>0)
+    return sum(mixedArr)/mixedArr.length;
+  else
+    return null  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +136,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length > 0) {
+    let arrayCheck = [];
+    for (let i = 0; i < wordsUnique.length; i++) {
+      if (!arrayCheck.includes(wordsUnique[i])) {
+        arrayCheck.push(wordsUnique[i]);
+      }
+    }
+    return arrayCheck;
+  }else{
+    return null;
+  }
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind,searchWord) {
+  if(wordsFind.length >0){
+    if(wordsFind.includes(searchWord)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }else{
+    return null;
+  }
+ 
+}
 
 
 
@@ -78,7 +185,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,searchWord) {
+  if(wordsCount.length >0){
+    let arrayCheck = [];
+    for (let i = 0; i < wordsCount.length; i++) {
+      if (wordsCount[i].includes(searchWord)) {
+        arrayCheck.push(searchWord);
+      }
+    }
+    return arrayCheck.length
+  }else{
+    return 0
+  }
+  
+}
 
 
 
