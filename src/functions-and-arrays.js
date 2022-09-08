@@ -97,7 +97,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(array) {
   let result = 0;
-  let wordLengths = [];
+  const wordLengths = [];
   if(array.length === 0){
     return null;
   } else if (array.length === 1) {
@@ -113,7 +113,30 @@ function averageWordLength(array) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  let numberArray = [];
+  let result = [];
+
+  if(array.length === 0){
+    return null;
+  } else {
+    array.forEach(function(item) {
+      if (typeof item == "number"){
+        numberArray.push(item);
+      } else if (typeof item == "string") {
+        numberArray.push(item.length);
+      } else if (typeof item == "boolean") {
+        if (item){
+          numberArray.push(1);
+        } else  {
+          numberArray.push(0);
+        }
+      }
+    });
+    result = averageNumbers(numberArray);
+    return result;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
