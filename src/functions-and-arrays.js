@@ -154,8 +154,6 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
-  // const copy = array.slice();
-  // copy.push('some value');
   let copy = [];
   if(array.length === 0){
     return null;
@@ -175,7 +173,16 @@ function uniquifyArray(array) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  if(array.length === 0){
+    return null;
+  } else if (array.length === 1) {
+    return true;
+  } else {
+    return (array.includes(word));
+  }
+
+}
 
 
 
