@@ -1,22 +1,51 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+
+//simple conditional to check if num1 is larger than num2
+function maxOfTwoNumbers(numOne, numTwo) {
+  if(numOne > numTwo){
+    return numOne
+  } else {
+    return numTwo
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+//condition to check first if the array has anything in it and if not then to return null
+// if the array has one word, return that word 
+// I didn't understand the instructions for the next 2 questions in this lab
+
+function findLongestWord(someArrOfWords) {
+  
+  if(someArrOfWords.length === 0) return null;
+  else if (someArrOfWords.length === 1) return someArrOfWords[0];
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+//condition to check first if the array has anything in it and if not then to return null
+//declare new variable
+//iterate through each item in the array, and then add each item to the total
+//return the total
+
+function sumNumbers(numbersArray) {
+if(numbersArray.length === 0) return 0;  
+let total = 0;
+  numbersArray.forEach(function(item){
+    total+=item;
+  })
+  return total;
+}
 
 
 
+//I didn't have time to do bonuses
 // Iteration #3.1 Bonus:
 function sum() {}
 
@@ -26,16 +55,46 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+//condition to check first if the array has anything in it and if not then to return null
+//declare new variable
+//iterate through each item in the array, and then add each item to the total
+//return the total divided by the number of items in the array
+
+function averageNumbers(someArray) {
+  if(someArray.length === 0) return null;
+  let total = 0;
+  someArray.forEach(function(item){
+    total+=item;
+  })
+  return total/someArray.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+//condition to check first if the array has anything in it and if not then to return null
+//declare new variable that will be used to store our counting of letters
+//loop through our array
+//add the length of each item in our array to letterCount variable
+//create a new variable to store the result of the letterCount divided by the length of the array
+//return that variable
 
+function averageWordLength(arrOfStr) { 
+  if(arrOfStr.length===0){return null}
+  let letterCount=0;
+  for(let i=0; i<arrOfStr.length; i++){
+    letterCount+= arrOfStr[i].length
+  }
+let averageLength = letterCount/arrOfStr.length
+return averageLength
+}
+
+// did not have time for this bonus
 // Bonus - Iteration #4.1
 function avg() {}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +111,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+function uniquifyArray(anotherArray) {
+  if(anotherArray.length === 0) return null
+
+}
+
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+//condition to check first if the array has anything in it and if not then to return null
+//checking if my array includes the word i'm looking for and if it does returning true
 
+function doesWordExist(listOfWords,wordToFind) {
+  if(listOfWords.length===0)return null
+  if(listOfWords.includes(wordToFind))
+    return true;
+    else return false
+  }
 
+//need two diff arguments
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -77,9 +150,26 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+//condition to check first if the array has anything in it and if not then to return null
+// declaring a new variable where i'll store the word count
+// using forEach to iterate through each element of the array, and for each item..
+// check if the item is equal to word(our argument for the function)
+//if the item in the array is the word we're looking for, add 1 to our wordCount variable
+//then return wordCount
 
-function howManyTimes() {}
 
+function howManyTimes(someWordsToSearch,word) {
+  if(someWordsToSearch.length === 0) return 0;
+  let wordCount = 0;
+  someWordsToSearch.forEach(item => {
+    if(item === word){
+      wordCount+=1
+    }
+  })
+  return wordCount
+};
+
+//need two diff arguments
 
 
 // Iteration #8: Bonus
