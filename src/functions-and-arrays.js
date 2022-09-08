@@ -1,5 +1,11 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numA, numB) {
+  if (numA > numB){
+    return numA;
+  } else {
+    return numB;
+  }
+}
 
 
 
@@ -52,7 +58,10 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+  const copy = array.slice();
+  copy.push('some value');
+}
 
 
 
