@@ -67,7 +67,7 @@ function sum(array) {
           result += 1;
         }
       } else {
-      throw new Error("unsupported data type");
+      throw new Error("Unsupported data type sir or ma'am");
       }
     });
     return result;
@@ -241,7 +241,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+
+}
 
 
 
