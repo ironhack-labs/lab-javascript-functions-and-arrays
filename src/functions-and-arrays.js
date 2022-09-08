@@ -153,9 +153,21 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {
-  const copy = array.slice();
-  copy.push('some value');
+function uniquifyArray(array) {
+  // const copy = array.slice();
+  // copy.push('some value');
+  let copy = [];
+  if(array.length === 0){
+    return null;
+  } else {
+    array.forEach(function(item){
+      if (!copy.includes(item)){
+        copy.push(item);
+      }
+    });
+    return copy;
+  }
+
 }
 
 
