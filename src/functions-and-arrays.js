@@ -66,7 +66,7 @@ function sum(mixedOfArr) {
         if (mixedOfArr[i] === true) {sum += 1}
       break;
       default:
-        throw "Error";
+        return Error('Type of data is wrong!');
 
     }
 
