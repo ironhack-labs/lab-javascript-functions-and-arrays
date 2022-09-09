@@ -63,6 +63,9 @@ function sum(elements) {
           sum += 0;
         }
       }
+      else {
+        throw new Error("Unsupported data type sir or ma'am")
+      }
     }
   return sum;
 }
@@ -138,7 +141,7 @@ function uniquifyArray(wordsUnique) {
     return uniqueArr;
     }
   }
-}
+} 
 
 
 
