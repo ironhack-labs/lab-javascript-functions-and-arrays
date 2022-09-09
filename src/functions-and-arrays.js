@@ -100,19 +100,17 @@ function uniquifyArray(uniqOfArray) {
   if (uniqOfArray.length === 0) {
     return null;
   }
-  const copyOfUnic = uniqOfArray;
-  let k = 0;
-  for (let i in copyOfUnic) {
-    
-    if (copyOfUnic[k] === copyOfUnic[i]) {
-      copyOfUnic.splice(i,1);
+  let copyOfUnic = uniqOfArray;
+  let wordSpliced;
+  for (let i in uniqOfArray) {
+    wordSpliced = copyOfUnic.splice(i, 1);
+    if (copyOfUnic.includes(wordSpliced[0])) {
       continue;
     } else {
-      k = i;
+      copyOfUnic.splice(i, 0, wordSpliced[0]);
     }
-    
   }
-  return copyOfUnic;
+  return copyOfUnic
 }
 
 
