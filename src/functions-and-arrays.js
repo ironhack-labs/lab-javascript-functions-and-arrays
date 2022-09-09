@@ -46,7 +46,33 @@ function sumNumbers(numbersArr) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+function sum(mixedOfArr) {
+  let sum = 0;
+  if (mixedOfArr.length === 0) {
+    return sum;
+  }
+  for (let i in mixedOfArr) {
+    switch (typeof mixedOfArr[i]) {
+      case 'number':
+        sum += mixedOfArr[i];
+      break;
+      case 'string':
+          sum += mixedOfArr[i].length;
+      break;
+      case 'boolean':
+        if (mixedOfArr[i] === true) {sum += 1}
+      break;
+      default:
+        throw "Error";
+
+    }
+
+  }
+  return sum;
+}
 
 
 
@@ -100,7 +126,7 @@ function uniquifyArray(uniqOfArray) {
   if (uniqOfArray.length === 0) {
     return null;
   }
-  let copyOfUnic = uniqOfArray;
+  const copyOfUnic = uniqOfArray;
   let wordSpliced;
   for (let i in uniqOfArray) {
     wordSpliced = copyOfUnic.splice(i, 1);
