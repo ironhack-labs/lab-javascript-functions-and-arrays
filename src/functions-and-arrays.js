@@ -51,8 +51,6 @@ function averageNumbers(array) {
   return array.reduce((a, b) => a + b) / array.length;
 }
 
-console.log(averageNumbers(numbersAvg));
-
 // Level 2: Array of strings
 const wordsArr = [
   "seat",
@@ -101,13 +99,12 @@ function uniquifyArray(wordsUnique) {
   if (wordsUnique.length === 0) {
     return null;
   }
-// console.log(wordsUnique);
+  // console.log(wordsUnique);
   let uniqueChars = wordsUnique.filter((value, index) => {
     return wordsUnique.indexOf(value) === index;
   });
 
   return uniqueChars;
-
 }
 
 // Iteration #6: Find elements
@@ -122,7 +119,28 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+const words2 = [
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience",
+];
+
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null;
+  }
+  if (wordsFind.length === 1) {
+    return true;
+  }
+  if (wordsFind.search(word)) {
+    return wordsFind === word;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -139,7 +157,25 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, val) {
+  if (wordsCount.length === 0) {
+    return 0;
+  }
+  let counter = 0;
+  let notIncluded = !wordsCount.includes(val);
+  console.log(notIncluded);
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i].includes(val)) {
+      counter++;
+      return counter;
+    } 
+    if (notIncluded === false) {
+      return 0; 
+    } else {
+      return counter;
+    }
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
