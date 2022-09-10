@@ -51,6 +51,7 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 57
 function sum(mixedOfArr) {
   let sum = 0;
+  
   if (mixedOfArr.length === 0) {
     return sum;
   }
@@ -66,7 +67,7 @@ function sum(mixedOfArr) {
         if (mixedOfArr[i] === true) {sum += 1}
       break;
       default:
-        return Error('Type of data is wrong!');
+        throw new Error('Type of data is wrong!');
 
     }
 
@@ -122,21 +123,16 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(uniqOfArray) {
-  
   if (uniqOfArray.length === 0) {
     return null;
   }
-  const copyOfUnic = uniqOfArray;
-  let wordSpliced;
-  for (let i in uniqOfArray) {
-    wordSpliced = copyOfUnic.splice(i, 1);
-    if (copyOfUnic.includes(wordSpliced[0])) {
-      continue;
-    } else {
-      copyOfUnic.splice(i, 0, wordSpliced[0]);
+  const copyOfUnic = [];
+  uniqOfArray.forEach(function(item) {
+    if (!copyOfUnic.includes(item)) {
+      copyOfUnic.push(item);
     }
-  }
-  return copyOfUnic
+  });
+  return copyOfUnic;
 }
 
 
