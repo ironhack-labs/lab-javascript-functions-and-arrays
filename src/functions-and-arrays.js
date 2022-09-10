@@ -47,31 +47,19 @@ function sum(arr) {
   if (arr.length === 0) {
     return 0;
   }
+  let sum = 0;
   for (i in arr) {
     if (typeof arr[i] === 'number') {
-      let sum = arr.reduce((num, num1) => num + num1);
-      return sum;
+      sum += arr[i];
     } else if (typeof arr[i] === 'string') {
-      let sum = arr.reduce((word, word1) => word + word1);
-      return sum;
-      // return arr.join();
-    } else if (typeof arr[i] === null || undefined) {
-      return 'error';
+      sum += arr[i].length;
+    } else if (arr[i] === true) {
+      sum += 1;
+    } else if (typeof arr[i] === 'object') {
+      throw new Error("unsupported data type sir or ma'ma");
     }
   }
-  // sorry i didn't understand these question
-  // should return the sum when passed array of strings
-  // should return the sum when passed array of mixed strings and numbers -
-  // should return the sum when passed array of mixed strings, numbers and booleans -
-
-  //i also tried the code below but didnt work
-  //   if (arr.every((element) => typeof element === 'number')) {
-  //     let sum = arr.reduce((num, num1) => num + num1);
-  //     return sum;
-  //   } else if (arr.every((element) => typeof element === 'string')) {
-  //     return arr.join();
-  //   }
-  // }
+  return sum;
 }
 
 // Iteration #4: Calculate the average
@@ -81,17 +69,13 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arr) {
   if (arr.length === 0) {
     return null;
-  }
-  if (arr.length === 1) {
+  } else if (arr.length === 1) {
     return arr[0];
   }
-  const sum = aar.reduce((x, y) => x + y);
+  const sum = arr.reduce((x, y) => x + y);
   const avg = sum / arr.length;
-  if (avg < 0) {
-    return 'Average even';
-  } else {
-    return avg;
-  }
+
+  return avg;
 }
 
 // Level 2: Array of strings
@@ -112,12 +96,7 @@ function averageWordLength(arr) {
   if (arr.length === 0) {
     return null;
   }
-  if (arr.length === 1) {
-    return arr[0].length;
-  }
-  const newArr = arr.map((i) => i.length);
-  const avg = newArr.reduce((x, y) => x + y) / newArr.length;
-  return avg;
+  return sum(arr) / arr.length;
 }
 
 // Bonus - Iteration #4.1
@@ -125,16 +104,7 @@ function avg(arr) {
   if (arr.length === 0) {
     return null;
   }
-  let sum,
-    count = 0;
-  for (let i = 0; i <= arr.length; i++) {
-    const value = parseInt(arr[i]);
-    if (value) {
-      sum += value;
-      count++;
-    }
-  }
-  return sum / count;
+  return sum(arr) / arr.length;
 }
 
 // Iteration #5: Unique arrays
@@ -156,6 +126,8 @@ function uniquifyArray(arr) {
   if (arr.length === 0) {
     return null;
   }
+  let unique = arr.filter((item, i, arr) => arr.indexOf(item) === i);
+  return unique;
 }
 
 // Iteration #6: Find elements
@@ -170,7 +142,11 @@ const wordsFind = [
   'disobedience',
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -187,7 +163,11 @@ const wordsCount = [
   'matter',
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
