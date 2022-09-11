@@ -67,7 +67,7 @@ function sum(mixedOfArr) {
         if (mixedOfArr[i] === true) {sum += 1}
       break;
       default:
-        throw new Error('Type of data is wrong!');
+        throw new Error("Unsupported data type sir or ma'am");
 
     }
 
@@ -105,7 +105,12 @@ function averageWordLength(averageOfStr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  return sum(arr) / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -205,7 +210,40 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(bigMatrix) {
+  let maxProduct =0;
+  let multHor1;
+  let multHor2;
+  let multVert1;
+  let multVert2;
+  let maxProductHor;
+  let maxProductVert;
+  for (let i = 0; i < bigMatrix.length - 4; i++) {
+    for (let j = 0; j < bigMatrix[i].length - 4; j++) {
+      multHor1 = bigMatrix[i][j]*bigMatrix[i][j+1]*bigMatrix[i][j+2]*bigMatrix[i][j+3];
+      multHor2 = bigMatrix[i][j+1]*bigMatrix[i][j+2]*bigMatrix[i][j+3]*bigMatrix[i][j+4];
+      multVert1 = bigMatrix[i][j]*bigMatrix[i+1][j]*bigMatrix[i+2][j]*bigMatrix[i+3][j];
+      multVert2 = bigMatrix[i+1][j]*bigMatrix[i+2][j]*bigMatrix[i+3][j]*bigMatrix[i+4][j];
+
+      if (multHor1 >= multHor2) {
+        maxProductHor = multHor1;
+      } else {
+        maxProductHor = multHor2;
+      }
+      if (multVert1 >= multVert2) {
+        maxProductVert = multVert1;
+      } else {
+        maxProductVert = multVert2;
+      }
+      if (maxProductHor >= maxProductVert) {
+        maxProduct = maxProductHor;
+      } else {
+        maxProduct = maxProductVert;
+      }
+    }
+  }
+  return maxProduct;
+}
 
 
 
