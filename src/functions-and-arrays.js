@@ -55,7 +55,14 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  } else if (numbers.length === 1) {
+    return numbers[0];
+  }
+  return this.sumNumbers(numbers)/numbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -71,7 +78,18 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(strings) {
+  if (strings.length === 0) {
+    return null;
+  } else if (strings.length === 1) {
+    return strings[0].length;
+  }
+  sumLength = 0;
+  for (const i of strings) {
+    sumLength += i.length;
+  }
+  return sumLength/strings.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
