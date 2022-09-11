@@ -258,7 +258,7 @@ const matrix = [
     48,
   ],
 ];
-//i have tried this code on another
+//i have tried this code on stackblitz.com  and it is workig properly but on vs code is still showin error
 function greatestProduct(arr) {
   if (arr.every((i) => i === 1)) {
     return 1;
