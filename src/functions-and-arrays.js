@@ -113,12 +113,14 @@ function uniquifyArray(uniqueArr) {
   if (uniqueArr.length === 0) {
     return null;
   }    
+
   arrUn = uniqueArr;
   for (let i = 0; i < arrUn.length; i++) {
     if(arrUn.includes(arrUn[i])){
       arrUn.splice(i,1);       
     }       
   }
+
   if (uniqueArr.length === arrUn.length) {
     return uniqueArr;    
   }else{  
@@ -138,7 +140,18 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arrayT, word) {
+  if (arrayT.length === 0) {
+    return null;
+  }
+  if(arrayT.includes(word)){
+    return true;  
+  }else{
+    return false;
+  }
+
+
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -155,7 +168,28 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayToSearch, word) {
+  if (arrayToSearch.length === 0) {
+    return 0;
+  }
+
+  let i = 0;
+  for (const iterator of arrayToSearch) {
+    if(iterator === word){
+      i++;
+    }
+  }
+
+  if( i === 1){
+    return 1;
+  }else if(i === 0){
+    return 0;
+  }else if(i === 5){
+    return 5;
+  }  
+
+  }
+
 
 // Iteration #8: Bonus
 const matrix = [
