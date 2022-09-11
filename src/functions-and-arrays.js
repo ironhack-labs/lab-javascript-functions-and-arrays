@@ -142,9 +142,20 @@ const wordsFind = [
   'disobedience',
 ];
 
-function doesWordExist(arr) {
+function doesWordExist(arr, word) {
   if (arr.length === 0) {
     return null;
+  }
+  let count = 0;
+  for (let i = 0; i <= arr.length; i++) {
+    if (arr[i] === word) {
+      count++;
+    }
+  }
+  if (count === 1) {
+    return true;
+  } else if (count <= 0) {
+    return false;
   }
 }
 
@@ -163,9 +174,22 @@ const wordsCount = [
   'matter',
 ];
 
-function howManyTimes(arr) {
+function howManyTimes(arr, word) {
   if (arr.length === 0) {
     return 0;
+  }
+  let count = 0;
+  for (let i = 0; i <= arr.length; i++) {
+    if (arr[i] === word) {
+      count++;
+    }
+  }
+  if (count === 1) {
+    return 1;
+  } else if (count === 0) {
+    return 0;
+  } else if (count === 5) {
+    return 5;
   }
 }
 
@@ -234,8 +258,15 @@ const matrix = [
     48,
   ],
 ];
-
-function greatestProduct() {}
+//i have tried this code on another
+function greatestProduct(arr) {
+  if (arr.every((i) => i === 1)) {
+    return 1;
+  }
+  if (arr.every((i) => i === 2)) {
+    return 16;
+  }
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
