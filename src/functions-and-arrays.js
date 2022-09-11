@@ -1,6 +1,11 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers() {
+  if (numA > numB) {
+    return (numA)
+  } else { 
+    return (numB)
+  }
+  }
 
 
 // Iteration #2: Find longest word
