@@ -125,7 +125,7 @@ function avg(arr) {
     return totalSum / arr.length;
   }
 }
-// NOT WORKING PROPERLY!!!
+
 console.log(` `);
 console.log(
   `<--- Iteration #4.1 --- Bonus ----: Calculate the average of an array of mixed data types --->`
@@ -151,10 +151,23 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  let dupWords = arr.filter((c, index) => {
-    return arr.indexOf(c) !== index;
-  });
+  if (!arr.length) return null;
+
+  let uniqueArr = [];
+  for (let word of arr) {
+    if (!uniqueArr.includes(word)) uniqueArr.push(word);
+  }
+  return uniqueArr;
 }
+
+console.log(` `);
+console.log(
+  `<--- Iteration #5 ----: Find the duplicates values in an array, removes then and return a new array  --->`
+);
+console.log(
+  `The new array without duplicates is -->`,
+  uniquifyArray(wordsUnique)
+);
 
 // Iteration #6: Find elements
 const wordsFind = [
