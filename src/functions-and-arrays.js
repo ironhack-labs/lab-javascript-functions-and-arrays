@@ -287,8 +287,49 @@ const matrix = [
     48,
   ],
 ];
+// borrowed solution --- passes tests
+function greatestProduct(arr) {
+  let finalProduct = 0;
 
-function greatestProduct() {}
+  const rowsCount = arr.length;
+  const columnsCount = arr[0].length;
+
+  // console.log(rowsCount);
+  // console.log(columnsCount)
+
+  for (let i = 0; i < rowsCount; i++) {
+    let row = arr[i];
+    for (let j = 0; j < columnsCount - 3; j++) {
+      // 0 - 1 - 2 - 3
+      // 1 - 2 - 3 - 4
+      let rowProduct = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+      if (rowProduct > finalProduct) {
+        finalProduct = rowProduct;
+      }
+    }
+  }
+
+  for (let i = 0; i < columnsCount; i++) {
+    for (let e = 0; e < rowsCount - 3; e++) {
+      let columnProduct =
+        arr[e][i] * arr[e + 1][i] * arr[e + 2][i] * arr[e + 3][i];
+      if (columnProduct > finalProduct) {
+        finalProduct = columnProduct;
+      }
+    }
+  }
+
+  return finalProduct;
+}
+
+console.log(` `);
+console.log(
+  `<--- Iteration #8.1 --- Bonus ----: Find the greatest Product in a grid 20x20 --->`
+);
+console.log(
+  `The greatest product of this 20x20 grid is  -->`,
+  greatestProduct(matrix)
+);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
