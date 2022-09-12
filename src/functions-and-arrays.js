@@ -205,7 +205,22 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let el of arr) {
+    if (el === word) count++;
+  }
+  return count;
+}
+
+console.log(` `);
+console.log(
+  `<--- Iteration #7 ----: Find how many times an element exists in the array --->`
+);
+console.log(
+  `The word appears this many times  -->`,
+  howManyTimes(wordsCount, "matter")
+);
 
 // Iteration #8: Bonus
 const matrix = [
