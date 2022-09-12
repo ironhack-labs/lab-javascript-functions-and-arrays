@@ -20,7 +20,8 @@ const words = [
 // function find the longest word in a array of words
 
 function findLongestWord(arr) {
-  return arr.reduce((a, b) => (a.length < b.length ? b : a), "");
+  if (!arr.length) return null;
+  else return arr.reduce((a, b) => (a.length < b.length ? b : a), "");
 }
 console.log(` `);
 console.log(`<--- Iteration #2: Find longest word --->`);
@@ -44,7 +45,19 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (!arr.length) return null;
+  else return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
+console.log(` `);
+console.log(
+  `<--- Iteration #4 --- Level 1 ----: Calculate the average of an array of numbers --->`
+);
+console.log(
+  `The average of the array of numbers is -->`,
+  averageNumbers(numbersAvg)
+);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -60,7 +73,18 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+  return arr.join("").length / arr.length;
+}
+
+console.log(` `);
+console.log(
+  `<--- Iteration #4 --- Level 2 ----: Calculate the average of an array of strings --->`
+);
+console.log(
+  `The average word lenght of the array of strings is -->`,
+  averageWordLength(wordsArr)
+);
 
 // Bonus - Iteration #4.1
 function avg() {}
