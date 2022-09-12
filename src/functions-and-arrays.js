@@ -43,15 +43,13 @@ const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function sum(arr) {
   if (!arr.length) return 0;
-  for (let i of arr) {
-    if (typeof arr[i] === "object") throw new Error("Data type not supported");
-  }
-
   let totalSum = 0;
   for (let element of arr) {
     if (typeof element === "string") totalSum += element.length;
     if (typeof element === "number") totalSum += element;
     if (typeof element === "boolean" && true) totalSum += 1;
+    if (typeof element === "object" || typeof element === "array")
+      throw new Error("Data type not supported");
   }
   return totalSum;
 }
@@ -181,7 +179,16 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  return arr.includes(word);
+}
+
+console.log(` `);
+console.log(
+  `<--- Iteration #6 ----: Find if an element exists in the array --->`
+);
+console.log(`The word is  -->`, doesWordExist(wordsFind, "matter"));
 
 // Iteration #7: Count repetition
 const wordsCount = [
