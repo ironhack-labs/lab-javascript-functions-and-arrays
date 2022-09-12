@@ -51,8 +51,8 @@ function sum(array) {
       result += array[i].length;
     } else if (typeof array[i] == "number" || typeof array[i] == "boolean") {
       result += array[i];
-    } else {
-      return "ERROR, NOT SUMMABLE TYPE OF VARIABLE";
+    } else if (typeof array[i] == "object" || typeof array[i] == "array") {
+      throw "ERROR, NOT SUMMABLE TYPE OF VARIABLE";
     }
   }
   return result;
