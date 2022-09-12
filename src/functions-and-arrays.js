@@ -92,7 +92,9 @@ function averageWordLength(strings) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -114,18 +116,14 @@ function uniquifyArray(uniqueArr) {
     return null;
   }    
 
-  arrUn = uniqueArr;
+  let arrUn = uniqueArr;
   for (let i = 0; i < arrUn.length; i++) {
-    if(arrUn.includes(arrUn[i])){
+    if(!(arrUn.indexOf(arrUn[i]) === arrUn.lastIndexOf(arrUn[i]))){
       arrUn.splice(i,1);       
     }       
   }
-
-  if (uniqueArr.length === arrUn.length) {
-    return uniqueArr;    
-  }else{  
-    return arrUn;
-  }
+  return arrUn;
+  
 }
 
 // Iteration #6: Find elements
