@@ -39,7 +39,31 @@ console.log(`<--- Iteration #3: Calculate the sum --->`);
 console.log(`The total sum of the numbers is -->`, sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(arr) {
+  if (!arr.length) return 0;
+  for (let i of arr) {
+    if (typeof arr[i] === "object") throw new Error("Data type not supported");
+  }
+
+  let totalSum = 0;
+  for (let element of arr) {
+    if (typeof element === "string") totalSum += element.length;
+    if (typeof element === "number") totalSum += element;
+    if (typeof element === "boolean" && true) totalSum += 1;
+  }
+  return totalSum;
+}
+
+console.log(` `);
+console.log(
+  `<--- Iteration #3 --- Bonus: Calculate the sum of a mixed data types array--->`
+);
+console.log(
+  `The total sum of the mixed data types array is -->`,
+  sum(mixedArr)
+);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -74,7 +98,8 @@ const wordsArr = [
 ];
 
 function averageWordLength(arr) {
-  return arr.join("").length / arr.length;
+  if (!arr.length) return null;
+  else return arr.join("").length / arr.length;
 }
 
 console.log(` `);
@@ -87,7 +112,28 @@ console.log(
 );
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(arr) {
+  if (!arr.length) return null;
+  else {
+    let totalSum = 0;
+    for (let element of arr) {
+      if (typeof element === "string") totalSum += element.length;
+      if (typeof element === "number") totalSum += element;
+      if (typeof element === "boolean" && true) totalSum += 1;
+    }
+    return totalSum / arr.length;
+  }
+}
+// NOT WORKING PROPERLY!!!
+console.log(` `);
+console.log(
+  `<--- Iteration #4.1 --- Bonus ----: Calculate the average of an array of mixed data types --->`
+);
+console.log(
+  `The average of the array of mixed data types is -->`,
+  avg(mixedArr)
+);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -104,7 +150,11 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let dupWords = arr.filter((c, index) => {
+    return arr.indexOf(c) !== index;
+  });
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
