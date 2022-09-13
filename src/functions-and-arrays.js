@@ -4,7 +4,7 @@ function maxOfTwoNumbers(a, b) {
 }
 console.log(` `);
 console.log(`<--- Iteration #1: Find the maximum --->`);
-console.log(`The max of this two numbers is -->`, maxOfTwoNumbers(2, 8));
+console.log(`The max of this two numbers is ${maxOfTwoNumbers(2, 8)}`);
 
 // Iteration #2: Find longest word
 const words = [
@@ -25,7 +25,7 @@ function findLongestWord(arr) {
 }
 console.log(` `);
 console.log(`<--- Iteration #2: Find longest word --->`);
-console.log(`The longest word is -->`, findLongestWord(words));
+console.log(`The longest word is ${findLongestWord(words)}`);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -36,32 +36,43 @@ function sumNumbers(arr) {
 
 console.log(` `);
 console.log(`<--- Iteration #3: Calculate the sum --->`);
-console.log(`The total sum of the numbers is -->`, sumNumbers(numbers));
+console.log(`The total sum of the numbers is ${sumNumbers(numbers)}`);
 
-// Iteration #3.1 Bonus:
+// Iteration #3.2 Bonus:
 const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function sum(arr) {
-  if (!arr.length) return 0;
-  let totalSum = 0;
-  for (let element of arr) {
-    if (typeof element === "string") totalSum += element.length;
-    if (typeof element === "number") totalSum += element;
-    if (typeof element === "boolean" && true) totalSum += 1;
-    if (typeof element === "object" || typeof element === "array")
-      throw new Error("Data type not supported");
-  }
-  return totalSum;
+  // my version -- correct result but not passing two tests
+
+  // if (!arr.length) return 0;
+  // let totalSum = 0;
+  // for (let element of arr) {
+  //   if (typeof element === "string") totalSum += element.length;
+  //   if (typeof element === "number") totalSum += element;
+  //   if (typeof element === "boolean" && true) totalSum += 1;
+  //   if (typeof element === "object" || typeof element === "array")
+  //     throw new Error("Unsupported data type sir or ma'am");
+  // }
+  // return totalSum;
+
+  // Bogdan version -- does pass all the tests!
+  return arr.reduce((totalSum, currentValue) => {
+    if (typeof currentValue === "object" || typeof currentValue === "array")
+      throw new Error("Unsupported data type sir or ma'am");
+    if (typeof currentValue === "boolean") {
+      return currentValue === true ? totalSum + 1 : totalSum + 0;
+    } else if (typeof currentValue === "string") {
+      return totalSum + currentValue.length;
+    }
+    return totalSum + currentValue;
+  }, 0);
 }
 
 console.log(` `);
 console.log(
-  `<--- Iteration #3 --- Bonus: Calculate the sum of a mixed data types array--->`
+  `<--- Iteration #3.2 --- Bonus: Calculate the sum of a mixed data types array--->`
 );
-console.log(
-  `The total sum of the mixed data types array is -->`,
-  sum(mixedArr)
-);
+console.log(`The total sum of the mixed data types array is ${sum(mixedArr)}`);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -77,8 +88,7 @@ console.log(
   `<--- Iteration #4 --- Level 1 ----: Calculate the average of an array of numbers --->`
 );
 console.log(
-  `The average of the array of numbers is -->`,
-  averageNumbers(numbersAvg)
+  `The average of the array of numbers is ${averageNumbers(numbersAvg)}`
 );
 
 // Level 2: Array of strings
@@ -105,8 +115,9 @@ console.log(
   `<--- Iteration #4 --- Level 2 ----: Calculate the average of an array of strings --->`
 );
 console.log(
-  `The average word lenght of the array of strings is -->`,
-  averageWordLength(wordsArr)
+  `The average word lenght of the array of strings is ${averageWordLength(
+    wordsArr
+  )}`
 );
 
 // Bonus - Iteration #4.1
@@ -128,10 +139,7 @@ console.log(` `);
 console.log(
   `<--- Iteration #4.1 --- Bonus ----: Calculate the average of an array of mixed data types --->`
 );
-console.log(
-  `The average of the array of mixed data types is -->`,
-  avg(mixedArr)
-);
+console.log(`The average of the array of mixed data types is ${avg(mixedArr)}`);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -188,7 +196,7 @@ console.log(` `);
 console.log(
   `<--- Iteration #6 ----: Find if an element exists in the array --->`
 );
-console.log(`The word is  -->`, doesWordExist(wordsFind, "matter"));
+console.log(`The word is ${doesWordExist(wordsFind, "matter")}`);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -217,10 +225,7 @@ console.log(` `);
 console.log(
   `<--- Iteration #7 ----: Find how many times an element exists in the array --->`
 );
-console.log(
-  `The word appears this many times  -->`,
-  howManyTimes(wordsCount, "matter")
-);
+console.log(`The word appears ${howManyTimes(wordsCount, "matter")} times`);
 
 // Iteration #8: Bonus
 const matrix = [
@@ -327,9 +332,9 @@ console.log(
   `<--- Iteration #8.1 --- Bonus ----: Find the greatest Product in a grid 20x20 --->`
 );
 console.log(
-  `The greatest product of this 20x20 grid is  -->`,
-  greatestProduct(matrix)
+  `The greatest product of this 20x20 grid is ${greatestProduct(matrix)}`
 );
+console.log(` `);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
