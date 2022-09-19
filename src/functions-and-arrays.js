@@ -89,16 +89,18 @@ const wordsUnique = [
 
 function uniquifyArray(wordList) {
   if (!wordList.length) return null;
-  for (i=0; i<wordList.length;i++){
-    for (j=i+1;j<wordList.length;j++){
-      if(wordList[i]===wordList[j]){
-        wordList.splice(j,1)
-      }
-      }
-    }
-    return wordList
-  }
-  
+ // for (i=0; i<wordList.length;i++){
+//  for (j=i+1;j<wordList.length;j++){
+//      if(wordList[i]===wordList[j]){
+//        wordList.splice(j,1)
+//        continue;
+//      }
+//      }
+//    }
+//    return wordList
+//  }
+return [... new Set(wordList)]
+}
   
 
 
