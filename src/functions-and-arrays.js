@@ -1,5 +1,6 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a,b) {
+// Condicion
   if (a<b){
     return b;
   } else return a;
@@ -11,10 +12,21 @@ function maxOfTwoNumbers(a,b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-
-  // condcional y bucle con .lentg
-  // return longestOne
-  }
+// Declaro un nuevo array con el elemento 0 de words
+  let newArr = words[0]
+// Clausula de guardia
+  if (words.length === 0){
+    return null;
+  } 
+// Itero los elementos del array
+  for(let i=1;i<words.length;i++){
+// Condicion con la iteracion.length cuando es menor a newArr.length
+if (words[i].length>newArr.length) {
+  newArr=(words[i]);
+    }
+  }  
+  return newArr;
+}
 
 
 
@@ -22,10 +34,14 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
+//  Declaro variable = 0
   totalNumbers= 0;
+// Itero el Array
   for (let i=0;i<numbers.length;i++) {
+// Por cada iteracion, se realiza una suma
     totalNumbers += numbers[i]   
   }
+// Retorna el total de la suma
     return totalNumbers;
 }
 
@@ -36,17 +52,45 @@ function sum() {}
 
 
 
-// Iteration #4: Calculate the average
+// Iteration #4: Calculate the average 
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someNums) {
+// Declaro una variable = 0
+  totalNumbers = 0;
+// Clausula de guardia
+  if (someNums.length === 0){
+    return null;
+  } 
+// retorna el porcentaje total, invocando la funcion #3, con el Array de numeros como argumento sobre la cantidad de elementos del array
+  return sumNumbers (someNums)/someNums.length;
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let sumLength = [];
+  let averageLength = 0
+// Clausula de guardia
+  if (wordsArr.length === 0){
+    return null;
+  }
+// Itero los elementos del array
+ for(let i=0; i<wordsArr.length;i++){
+// agrego la cantidad de caracteres de cada elemento a un nuevo array 
+   sumLength.push(wordsArr[i].length)
+  }
+// Itero el array que posee la cantidad de caracteres 
+  for (let i=0;i<sumLength.length;i++) {
+// por cada iteracion, se realiza una suma
+    averageLength += sumLength[i]   
+  }
+// retorna la suma total de caracteres sobre la cantidad de elementos del array, dando como resultado un porcentaje
+  return averageLength/wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -66,15 +110,49 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let newArr = [];
+// Clausula de guardia
+  if (wordsUnique.length === 0){
+    return null;
+  }
+  for (let i = 0; i < wordsUnique.length; i++) {
+    
+    // console.log(wordsUnique[i])
+    
 
+    // if (wordsUnique[i + 1] === wordsUnique[i]) {
+    //   newArr.push(wordsUnique[i]);
+    
+    // wordsUnique.indexOf()
+    // wordsUnique.includes()
+    // const element = array[i];
+    //  }
+  }
+  return wordsUnique;
+}
+uniquifyArray(wordsUnique)
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(wordsFind, wordSearch) {
+// Clausula de guardia
+    if (wordsFind.length === 0){
+      return null;
+    }
+    for(let i=0;i<wordsFind.length;i++){ 
+      if(wordsFind[i].includes(wordSearch)){
+        return true
+      }else if(wordsFind[i].indexOf(wordSearch) != -1){
+        return true
+      }/*else if(wordsFind[i].includes(wordSearch) === 'false'){
+        return false
+      } */
+    }
+}
+console.log(doesWordExist(wordsFind,'machine'))
 
 
 // Iteration #7: Count repetition
@@ -92,7 +170,27 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,wordSearch) {
+// Clausula de guardia
+  if (wordsCount.length === 0){
+    return 0;
+  }
+// Reccorro el array, si wordSearch se encuentra en el, le paso el valor a counter
+  let counter = 0
+  for(let i=0;i<wordsCount.length;i++){
+    if (wordsCount[i] === wordSearch){
+      counter ++
+    }
+  }
+// Modifica el contador dependiendo de la cantidad de veces que se encuentre wordSearch dentro del array
+  if (counter === 0 ){
+    return 0
+  }else if(counter === 1){
+    return 1
+  }else {
+    return counter
+  }
+}
 
 
 
