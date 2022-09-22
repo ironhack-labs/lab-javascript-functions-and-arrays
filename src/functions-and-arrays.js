@@ -115,23 +115,21 @@ function uniquifyArray(wordsUnique) {
 // Clausula de guardia
   if (wordsUnique.length === 0){
     return null;
+  } else {
+// Iteracion
+      for (let i of wordsUnique) { 
+// Condicion, si dentro de la iteracion se encuentra repetido un elemento, continue.
+        if (newArr.includes(i)) {
+          continue;
+        }else {
+// sino, introducirlo
+          newArr.push(i);
+          }
+      }
+        return newArr;
   }
-  for (let i = 0; i < wordsUnique.length; i++) {
-    
-    // console.log(wordsUnique[i])
-    
-
-    // if (wordsUnique[i + 1] === wordsUnique[i]) {
-    //   newArr.push(wordsUnique[i]);
-    
-    // wordsUnique.indexOf()
-    // wordsUnique.includes()
-    // const element = array[i];
-    //  }
-  }
-  return wordsUnique;
 }
-uniquifyArray(wordsUnique)
+
 
 
 // Iteration #6: Find elements
@@ -141,20 +139,12 @@ function doesWordExist(wordsFind, wordSearch) {
 // Clausula de guardia
     if (wordsFind.length === 0){
       return null;
+//else si el array incluye wordSearch retorna true, else false.
+    } else {
+      return wordsFind.includes(wordSearch);
     }
-    for(let i=0;i<wordsFind.length;i++){ 
-      if(wordsFind[i].includes(wordSearch)){
-        return true
-      }else if(wordsFind[i].indexOf(wordSearch) != -1){
-        return true
-      }/*else if(wordsFind[i].includes(wordSearch) === 'false'){
-        return false
-      } */
-    }
-}
-console.log(doesWordExist(wordsFind,'machine'))
-
-
+  }
+  
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
