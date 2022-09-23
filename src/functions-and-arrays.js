@@ -80,24 +80,12 @@ function averageWordLength(stringArray) {
   for (let i = 0; i < stringArray.length; i++) {
     totalCharacters += stringArray[i].length;
     averageOfCharacters = totalCharacters / stringArray.length;
-    
   }
   return averageOfCharacters;
 }
 
-/*let total = 0;
-  for(var i = 0; i < numsArray.length; i++){
-    total += numsArray[i].length;
-}
-  let average = total / numsArray.length;
-  return average;*/
 
-/*  else if (stringArray.length === 1) {
-    totalCharacters = totalCharacters[0].length;
-    averageOfCharacters = totalCharacters / stringArray[0].length;
-    return averageOfCharacters;*/
-
-// Bonus - Iteration #4.1
+// Bonus - Iteration #4.3
 function avg() {}
 
 // Iteration #5: Unique arrays
@@ -115,7 +103,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayOfWords) {
+  const uniqueWords = [];
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (uniqueWords.indexOf(arrayOfWords[i]) === -1) {
+      uniqueWords.push(arrayOfWords[i]);
+    }
+  }
+  return uniqueWords;
+}
 
 
 
