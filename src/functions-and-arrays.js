@@ -136,7 +136,6 @@ function doesWordExist(arrayOfWords, word) {
 }
 
 
-
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -152,7 +151,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfWords, word) {
+  if (arrayOfWords.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    if (word === arrayOfWords[i]) {
+      count++;
+    }
+  }
+  return count;
+}
 
 
 
