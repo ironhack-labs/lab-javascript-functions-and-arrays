@@ -19,14 +19,10 @@ const words = [
 function findLongestWord(arr) {
   let word = "";
   for (let i = 0; i < arr.length; i++) {
-    if (word.length < arr[i].length) 
-    word = arr[i];
-    else if (arr.length < 0)
-    console.log(Null);
+    if (word.length < arr[i].length) word = arr[i];
   }
   return word;
 }
-
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
