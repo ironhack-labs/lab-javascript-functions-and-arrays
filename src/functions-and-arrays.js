@@ -53,11 +53,11 @@ function sum(arr) {
 
   let sumElem = 0;
   for(let i = 0; i < arr.length; i++) {
-    if (typeof i === 'number') {
+    if (typeof arr[i] === 'number') {
       sumElem += arr[i];
-    } else if (typeof i === 'string') {
+    } else if (typeof arr[i] === 'string') {
       sumElem += arr[i].length;
-    } else if (i === true) {
+    } else if (arr[i] === true) {
       sumElem ++;
     } else {
       sumElem += 0;
@@ -124,7 +124,6 @@ const wordsUnique = [
 function uniquifyArray(arr) {
   let unifiedArr = [];
   for(let i = 0; i < arr.length; i++) {
-    unifiedArr.push(arr[i])
     if (unifiedArr.includes[arr[i]]) {
       continue;
     } else {
