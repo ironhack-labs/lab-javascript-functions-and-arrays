@@ -116,7 +116,19 @@ return uniqueArr;
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, wordToSearch) {
+
+for(let i = 0; i < arr.length; i++){
+  if(wordToSearch = arr[i]) {
+    return true;
+  }
+  else {
+    return false;
+    }
+}
+}
+
+doesWordExist(wordsFind);
 
 
 
@@ -135,7 +147,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, value) {
+  let counter = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] == value){
+      counter++
+    }
+  } return counter;
+}
 
 
 
