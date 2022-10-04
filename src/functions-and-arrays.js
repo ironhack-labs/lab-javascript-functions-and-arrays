@@ -135,7 +135,8 @@ function uniquifyArray(arr) {
   return unifiedArr
 }
 
-console.log(uniquifyArray(wordsUnique))
+/* console.log(uniquifyArray(wordsUnique))
+ */
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -148,8 +149,8 @@ function doesWordExist(arr, word) {
   }
 }
 
-console.log(doesWordExist(wordsFind, 'some'))
-
+/* console.log(doesWordExist(wordsFind, 'some'))
+ */
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -166,9 +167,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (word === arr[i]) {
+      count ++;
+    }
+  }
+  return count;
+}
 
-
+/* console.log(howManyTimes(wordsCount,'matter'))
+ */
 
 // Iteration #8: Bonus
 const matrix = [
