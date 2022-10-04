@@ -71,7 +71,7 @@ function averageNumbers(arr) {
 averageNumbers(numbersAvg); */
 
 // Level 2: Array of strings
-const wordsArr = [
+/* const wordsArr = [
   "seat",
   "correspond",
   "linen",
@@ -84,20 +84,24 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength(arr) {
-  let sum = 0;
-
-  for (let i = 0; i < arr.length; i++) {
+function averageWordLength(wordsArr) {
+  let total = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    total += wordsArr[i].length;
     console.log(wordsArr[i].length);
+    //return total;
   }
+  let avg = total / wordsArr.length;
+  return avg;
 }
-averageWordLength(wordsArr);
+ */
+//averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1
-function avg() {}
+/* function avg() {}*/
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+/* const wordsUnique = [
   "crab",
   "poison",
   "contagious",
@@ -111,7 +115,10 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+
+function uniquifyArray {
+
+} */
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -125,7 +132,14 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(array, search) {
+
+
+for (let i=0; i < wordsFind.length; i++) {
+
+}
+
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
