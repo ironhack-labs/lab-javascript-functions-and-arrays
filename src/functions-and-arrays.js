@@ -1,4 +1,4 @@
-let whatIsNull = null;
+//let whatIsNull = null;  (did this because thought that you could [] === [])
 
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
@@ -18,7 +18,8 @@ function findLongestWord(arr) {
   let bigWord = "";
   
   if (arr.length === 0) {
-    return whatIsNull;
+    return null;
+    
   }
 
   for (let i = 0; i < arr.length; i++){
@@ -30,7 +31,7 @@ function findLongestWord(arr) {
   return bigWord;
 }
 
-findLongestWord(words)
+findLongestWord([])
 
 
 
@@ -48,8 +49,29 @@ function sumNumbers(arrOfNumbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(arrOfAnything) {
+ let sumOfAnything = 0;
+ for(let i = 0; i < arrOfAnything.length; i++){
+  switch (typeof arrOfAnything[i]){
+    case "number":
+      sumOfAnything += arrOfAnything[i];
+      break;
+    case "string":
+      sumOfAnything += arrOfAnything[i].length;
+      break;
+    case "boolean":
+      if (arrOfAnything[i] === true){
+        sumOfAnything += 1;
+      } else {
+        sumOfAnything += 0;
+      }
+      break;
+    default:
+      throw new Error("Unsupported data type sir or ma'am");      
+ } 
+}
+return sumOfAnything;
+}
 
 
 // Iteration #4: Calculate the average
@@ -59,7 +81,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arrOfNumbers) {
   let average = sumNumbers(arrOfNumbers)/arrOfNumbers.length;
   if (arrOfNumbers.length === 0) {
-    return whatIsNull;
+    return null;
   } else {
     return average;
   }
@@ -77,13 +99,19 @@ function averageWordLength(arrOfWords) {
   wordLengthAverage = totalWordLength/arrOfWords.length;
 
   if (arrOfWords.length === 0){
-    return whatIsNull;
+    return null;
   }
   return wordLengthAverage;
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrOfAnything) {
+  if (arrOfAnything.length === 0){
+    return null;
+  }
+  let averageOfAnything = sum(arrOfAnything)/arrOfAnything.length;
+  return averageOfAnything;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -102,21 +130,37 @@ const wordsUnique = [
 
 function uniquifyArray(arrOfWords) {
   let uniqueArr = [];
-  for (let i = 0; i < arrOfWords.length; i++) {
-   if(!(arrOfWords.includes(arrOfWords[arrOfWords.indexOf(arrOfWords[i+1], arrOfWords.length)]))){
-    uniqueArr.push(arrOfWords[i]);
+
+  if (arrOfWords.length === 0){
+    return null;
   }
-  }
-  console.log (uniqueArr);
+  // code commented: first try, works but is complicated and returns in incorrect order
+  //for (let i = 0; i < arrOfWords.length; i++) {
+  // if(!(arrOfWords.includes(arrOfWords[arrOfWords.indexOf(arrOfWords[i], i+1)]))){
+  //  uniqueArr.push(arrOfWords[i]);
+ // }
+ // }
+
+   for (let i = 0; i < arrOfWords.length; i++) {
+    if(!uniqueArr.includes(arrOfWords[i])){
+      uniqueArr.push(arrOfWords[i]);
+    }
+   }
   return uniqueArr;
 }
-uniquifyArray(wordsUnique)
+uniquifyArray(wordsUnique);
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrOfWords, word) {
+  if(arrOfWords.length === 0){
+    return null
+  } else {
+  return arrOfWords.includes(word);
+  }
+}
 
 
 
@@ -135,7 +179,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrOfWords, word) {
+  let sumOfWord = 0
+  for (let i = 0; i < arrOfWords.length; i++){
+    if(word === arrOfWords[i]){
+      sumOfWord += 1;
+    }
+  }
+  return sumOfWord;
+}
 
 
 
@@ -163,7 +215,36 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+
+function greatestProduct(matrix) {
+  let arrOfProductsXAxis = [];
+  for (let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+      if(matrix[i][j+3]){
+        arrOfProductsXAxis.push(matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]);
+        
+      }
+    }
+  }
+
+  let arrOfProductsYAxis = [];
+  for (let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+      if(matrix[i+3]){
+       arrOfProductsYAxis.push(matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]);
+      }
+    }
+  }
+
+  const biggestProductXAxis = Math.max(...arrOfProductsXAxis);
+  const biggestProductYAxis = Math.max(...arrOfProductsYAxis);
+
+  if(biggestProductXAxis > biggestProductYAxis){
+    return biggestProductXAxis;
+  } else {
+    return biggestProductYAxis;
+  }
+}
 
 
 
