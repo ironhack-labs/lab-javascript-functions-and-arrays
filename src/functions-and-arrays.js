@@ -13,7 +13,10 @@ function maxOfTwoNumbers(numb1, numb2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
-  
+  if (arr.length === 0) {
+    return null;
+  }
+
   let lengthArr = [];
   let maxWordLength = [];
   for(let i = 0; i < arr.length; i++) {
@@ -53,6 +56,13 @@ function sum(arr) {
 
   let sumElem = 0;
   for(let i = 0; i < arr.length; i++) {
+
+    if (typeof arr[i] === 'array' || typeof arr[i] === 'object') {
+      throw 'Error. Unsuported data type'
+      return sumElem;
+    }
+    
+    
     if (typeof arr[i] === 'number') {
       sumElem += arr[i];
     } else if (typeof arr[i] === 'string') {
@@ -77,6 +87,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
   let arrLength = arr.length;
+  if (arrLength === 0) {
+    return null;
+  }
   let avg = sumNumbers(arr)/arrLength;
   return avg;
 }
@@ -90,6 +103,9 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(arr) {
 
   let arrLength = arr.length;
+  if (arrLength === 0) {
+    return null;
+  }
   let wordLengthArr = 0;
   for(let i = 0; i < arr.length; i++) {
     wordLengthArr += arr[i].length;
@@ -123,6 +139,9 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
   
+  if (arr.length === 0) {
+    return null;
+  }
   let unifiedArr = [];
   for(let i = 0; i < arr.length; i++) { 
     if (unifiedArr.includes(arr[i])) {
@@ -142,6 +161,11 @@ function uniquifyArray(arr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, word) {
+
+  if (arr.length === 0) {
+    return null;
+  }
+  
   if (arr.includes(word)) {
     return true;
   } else {
