@@ -53,12 +53,15 @@ return average;
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) { 
-  let words = '';
-  for (let i = 0; i < wordsArr[i].length; i++) {
-    
-  }
+  let total = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+  total += wordsArr[i].length;
+  console.log(total); 
+} 
+let average1 = total / wordsArr.length
+return average1
 }
-
+/*
 // Bonus - Iteration #4.1
 function avg() {}
 
@@ -77,16 +80,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+  idx = [];
+  let idx = wordsUnique.indexOf(element) {  
+  if wordsUnique.indexOf(element).includes('poison') {
 
+  }
 
+}
+*/  
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+let neWord = []
 
-
+  wordsFind.forEach(function(element) {
+    console.log(element); 
+    if ( WordsFind(element) === neWord ) {
+      returns = true;
+    else 
+      returns = false; 
+  }  
+  }
+doesWordExist;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -106,7 +125,7 @@ const wordsCount = [
 function howManyTimes() {}
 
 
-
+/*
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -132,9 +151,7 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
+*/
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
@@ -153,4 +170,3 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
-
