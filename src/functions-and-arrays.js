@@ -116,19 +116,15 @@ return uniqueArr;
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arr, wordToSearch) {
-
-for(let i = 0; i < arr.length; i++){
-  if(wordToSearch = arr[i]) {
-    return true;
-  }
-  else {
-    return false;
-    }
-}
+function doesWordExist(arr, value) {
+ if(arr.indexOf(value) > -1) {
+  return true;
+ } else {
+  return false;
+ }
 }
 
-doesWordExist(wordsFind);
+
 
 
 
