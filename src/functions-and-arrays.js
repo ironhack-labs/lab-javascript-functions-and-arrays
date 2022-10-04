@@ -67,7 +67,7 @@ function sum(arr) {
   return sumElem;
 }
 
-console.log(sum(mixedArr)); 
+/* console.log(sum(mixedArr)); */ 
 
 
 
@@ -122,14 +122,16 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  
   let unifiedArr = [];
-  for(let i = 0; i < arr.length; i++) {
-    if (unifiedArr.includes[arr[i]]) {
+  for(let i = 0; i < arr.length; i++) { 
+    if (unifiedArr.includes(arr[i])) {
       continue;
     } else {
       unifiedArr.push(arr[i]);
     }
   }
+
   return unifiedArr
 }
 
@@ -138,8 +140,15 @@ console.log(uniquifyArray(wordsUnique))
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
+console.log(doesWordExist(wordsFind, 'some'))
 
 
 // Iteration #7: Count repetition
