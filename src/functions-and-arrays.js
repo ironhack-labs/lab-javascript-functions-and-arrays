@@ -1,38 +1,67 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+return num1
+  } else {
+    return num2
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arr) {
+  let word = "";
+  for (let i = 0; i < arr.length; i++){
+    if (word.length < arr[i].length) {
+      word = arr[i]
+    }
+  }
+  return word;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++){
+    sum += arr[i]
+  }
+return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
 function sum() {}
 
-
+// each letter in the string is 1, boolean true is 1, then add it all up
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arr) {
+  let sum = sumNumbers(arr);
+  let avg = sum / arr.length;
+  
+  return avg;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+// function averageWordLength() { }
+
+function averageWordLength(arr) { 
+  let total = 0;
+  for (let i = 0; i < arr.length; i++){
+    total += arr[i].length;
+  }
+  let average = total / arr.length;
+  return average
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +81,24 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let repeated = [];
+  arr.forEach(element => {
+    if (!repeated.includes(element)) {
+      repeated.push(element);
+    }
+  });
+  return repeated;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, search) {
+  return arr.includes(search)
+}
 
 
 
@@ -78,7 +117,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+arr.forEach(element => {
+  if (element === word) {
+    count += 1;
+  }
+});
+return count
+}
 
 
 
@@ -106,7 +153,43 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct( matrix, n=4 ) {
+  let greatest = [];
+
+  //Horizontal adjacents
+  for ( let a = 0; a < matrix.length; a++ ) {
+    for ( let i = 0; i <= matrix[a].length - n; i++) {
+      let prod = 1;
+      for (let j = i; j < i + n; j++) {
+        prod *= matrix[a][j];
+      }
+      greatest.push(prod);
+    }
+  }
+
+  // Vertical adjacents
+  for ( let a = 0; a < matrix.length; a++ ) {
+    for ( let i = 0; i <= matrix.length - n; i++ ) {
+      let prod = 1;
+      for ( let j = i; j < i + n; j++ ) {
+        prod *= matrix[j][a];
+      }
+      greatest.push(prod);
+    }
+  }
+
+  // Diagonal adjacents
+  for ( let a = 0; a <= matrix.length - n; a++ ) {
+    for ( let i = 0; i <= matrix[a].length - n; i++ ) {
+      let prod = 1;
+      for ( let j = 0; j < n; j++ ) {
+        prod *= matrix[a + j][i + j];
+      }
+      greatest.push(prod);
+    }
+  }
+  return Math.max(...greatest);
+}
 
 
 
