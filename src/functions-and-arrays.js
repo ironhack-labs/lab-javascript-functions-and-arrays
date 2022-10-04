@@ -246,7 +246,33 @@ function greatestProduct(matrix) {
   }
 }
 
+//Bonus 8.2 - biggest product of diagonals
 
+greatestProductOfDiagonals = (matrix) => {
+  let biggestProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+
+      if(matrix[i+3] && matrix[i][j+3]){
+        let multiplyDiagonal = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+        if(biggestProduct < multiplyDiagonal){
+          biggestProduct = multiplyDiagonal;
+        }
+
+      }
+if(matrix[i-3] && matrix[i][j-3]){
+        let multiplyDiagonal_2 = matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3];
+        if(biggestProduct < multiplyDiagonal_2){
+          biggestProduct = multiplyDiagonal_2;
+        }
+      }
+    }
+  }
+  console.log(biggestProduct);
+  return biggestProduct;
+}
+greatestProductOfDiagonals(matrix);
 
 
 // The following is required to make unit tests work.
