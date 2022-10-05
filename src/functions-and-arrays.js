@@ -1,19 +1,40 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+  if(num1>num2){
+    return num1;
+  } else {
+    return num2;
+  }
+  
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let longestWord = "";
+  let sum = arr.reduce((a,b) => a.length > b.length ? longestWord = a : longestWord = b);
+  console.log(longestWord);
+}
 
-
+findLongestWord(words)
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+let p ;
+
+function sumNumbers(arr) {
+  let result = arr.reduce((a,b) => a + b);
+
+  p = result;
+
+}
+sumNumbers(numbers);
+console.log(p);
 
 
 
@@ -26,13 +47,35 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+let r ;
+
+function averageNumbers(arr) {
+  let result = arr.reduce((a,b) => a+b);
+
+  r = result / 8;
+
+}
+averageNumbers(numbersAvg)
+console.log(r);
+
+
+
 
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+let g = 0;
+
+function averageWordLength(arr) {
+   for(let i = 0; i < arr.length; i++){
+     g = g + arr[i].length /10
+   }
+}
+
+averageWordLength(wordsArr)
+console.log(g)
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +95,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  
+}
 
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const words2 = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if ("trouble" === arr[i]){
+    console.log("true");
+    } else {
+    console.log("false");
+    } 
+  }
+}
+
+
+
+doesWordExist(words2)
 
 
 
