@@ -40,78 +40,22 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(numbers) {
-  let result = 0;
   if (numbers.length > 0) {
-    let arrayTypes = [];
-    //S N B O A
     numbers.forEach((item) => {
-      switch (typeof item) {
-        case 'string':
-          arrayTypes.push('S');
-          break;
-        case 'number':
-          arrayTypes.push('N');
-          break;
-        case 'boolean':
-          arrayTypes.push('B');
-          break;
-        case 'object':
-          arrayTypes.push('O');
-          break;
-        default:
-          break;
-      }
-
-      arrayTypes = [...new Set(arrayTypes)].sort();
-
-      if (arrayTypes.length == 1 && arrayTypes[0] === 'N') {
-        result = numbers.reduce((acc, number) => acc + number);
-      }
-
-      if (arrayTypes.length == 1 && arrayTypes[0] === 'S') {
-        let acc = 0;
-        numbers.forEach((number) => {
-          acc += number.length;
-        });
-        result = acc;
-      }
-
-      if (
-        arrayTypes.length == 2 &&
-        arrayTypes[0] === 'N' &&
-        arrayTypes[1] == 'S'
-      ) {
-        let acc = 0;
-        numbers.forEach((number) => {
-          if (typeof number == 'number') acc += number;
-          else acc += number.length;
-        });
-        result = acc;
-      }
-
-      if (
-        arrayTypes.length == 3 &&
-        arrayTypes[0] === 'B' &&
-        arrayTypes[1] === 'N' &&
-        arrayTypes[2] == 'S'
-      ) {
-        let acc = 0;
-        numbers.forEach((number) => {
-          if (typeof number == 'number') acc += number;
-          else if (typeof number == 'boolean') {
-            if (number == true) acc += 1;
-          } else acc += number.length;
-        });
-        result = acc;
-      }
-
-      if (arrayTypes.find((itemType) => itemType === 'O') != undefined) {
+      if (typeof item == 'object') {
         throw new Error("Unsupported data type sir or ma'am");
       }
     });
-  } else result = 0;
 
-  return result;
+    let acc = 0;
+    numbers.forEach((number) => {
+      if (typeof number == 'number') acc += number;
+      else if (typeof number == 'boolean') {
+        if (number == true) acc += 1;
+      } else acc += number.length;
+    });
+    return acc;
+  } else return 0;
 }
 
 // Iteration #4: Calculate the average
