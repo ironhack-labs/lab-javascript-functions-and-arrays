@@ -28,7 +28,14 @@ function findLongestWord(palabras) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNumbers) {
+  if (arrayNumbers.length === 0){
+    return 0; 
+  } else {
+    const sumArray = arrayNumbers.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return sumArray;
+  }
+}
 
 
 
