@@ -40,7 +40,24 @@ function sumNumbers(arrayNumbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arrayCombined) {
+  switch (true){
+    case arrayCombined.length === 0:
+      return 0;
+    case typeof arrayCombined[0] === 'number':
+      const sumArray = arrayCombined.reduce((previousValue, currentValue) => previousValue + currentValue);
+      return sumArray;
+    case typeof arrayCombined[0] === 'string':
+      function sumStrings(arr){
+        let sumElements = 0; 
+        arr.map(function(element) {
+          sumElements += element  
+        })
+        return sumElements;
+      } 
+      return sumStrings(arrayCombined);
+  }
+}
 
 
 
@@ -48,14 +65,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(averageArray) {
+  if (averageArray.length === 0){
+    return null;
+  } else if (averageArray.length === 1) {
+    const sumArray = averageArray.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return sumArray / averageArray.length;
+  } else if (averageArray.some(v => v < 0) === true){
+    const sumArray = averageArray.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return sumArray / averageArray.length;
+  } else {
+    const sumArray = averageArray.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return sumArray / averageArray.length;
+  }
+  
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(stringArray) { 
+  if (stringArray.length === 0){
+    return null;
+  } else if (stringArray.length > 0) {
+    let words  = stringArray.map(w => w.length);
+    return words.reduce((previousValue, currentValue) => previousValue + currentValue) / words.length;  
+  } else {
+    return 0;
+  }
+}
 // Bonus - Iteration #4.1
 function avg() {}
 
