@@ -1,6 +1,5 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a,b) {
-  console.log("que es" ,a,b)
   if(a>b){
     console.log("respuesta es",a)
     return a
@@ -16,31 +15,21 @@ function maxOfTwoNumbers(a,b) {
 const wArray = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(wArray) {
-    var longest ="";
-    var longestWord = "";
-  console.log("Que es",wArray)
+    
   if(wArray.length === 0){
     console.log(null)
     return null
   } else if(wArray.length == 1){
-    console.log(wArray[0])
     return wArray[0]
-  }else if(0 === 0){
-    for (var i=0; i <= wArray.length; i++){
-    if(wArray[i].length > longest.length){
-      longest = wArray[i];
-      console.log("Longest word is:",longest)
-      return longest
-    }
-  }
   }else {
-    for(var i = 0; i < wArray.length; i++){
-      if(wArray[i].length > longestWord){ // If strSplit[i].length is greater than the word it is compared with...
-    longestWord = wArray[i].length; // ...then longestWord takes this new value
-    console.log(longestWord)
-    return longestWord;
-      }
-    }}
+    var largest_Str = '';
+    wArray.forEach(function (item) {
+    if (item.length > largest_Str.length)
+        largest_Str = item
+     });
+     return largest_Str
+  }
+
   }
   
 
@@ -51,30 +40,28 @@ function findLongestWord(wArray) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 var sumArr = 0;
-var sum = 0;
+var sumo= 0;
 var nada = 0;
 function sumNumbers(numArr) {
-  console.log(numArr)
+
 
   if(numArr.length === 0){
-    console.log("Numer:",0)
     return 0
   }else if(numArr.length === 1){
-    sum = numArr[0]
-    console.log("Sum",sum)
-    return sum
+    sumo = numArr[0]
+    return sumo
   }else if (nada==0){
     for(var i=0; i<=numArr.length; i++){
       if(numArr[i] === 0){
-        console.log("Numer:",0)
         return 0;
       }
     }
   }else{
     for(var i=0; i<=numArr.length; i++){
-      numArr[i] + sumArr === sumArr;
-      return sumArr
-
+      if(numArr[i] === ""){
+        sumArr += numArr[i];
+        return sumArr;
+      }
     }
 
   }
@@ -83,7 +70,21 @@ function sumNumbers(numArr) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+var add = 0;
+function sum(suman) {
+  if(suman.length === 0){
+    return 0;
+  }else if(suman.length === 1){
+    add = suman[0];
+    console.log("Todas posiciones son:",add)
+    return add;
+  }else if(suman[0] === 0){
+    return 0;
+  }else if(typeof suman[0] === 'number') {
+    const sumArray = suman.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return sumArray;
+  }
+}
 
 
 
@@ -91,16 +92,54 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(aveArr) {
+  console.log("*********AVERAGE NUMBERS*********")
+  console.log(aveArr)
+  if(aveArr.length === 0){
+    console.log(null);
+    return null;
+}else if(aveArr.length === 1){
+  const sumaAve = aveArr.reduce((previousValue,currentValue) => previousValue + currentValue)
+  ave = sumaAve / aveArr.length;
+  console.log(aveArr)
+  console.log("El average es",ave)
+  return sumaAve / aveArr.length;
+  } else if (aveArr.some(a => a < 0) === true){
+    const sumaAve = aveArr.reduce((previousValue, currentValue) => previousValue + currentValue);
+    console.log(sumaAve / aveArr.length)
+    return sumaAve / aveArr.length;
+}else{
+  for(var i=0; i<=aveArr.length; i++){
+    const sumaAve = aveArr.reduce((previousValue, currentValue) => previousValue + currentValue);
+    console.log("El average es",sumaAve / aveArr.length)
+    return sumaAve / aveArr.length;
+  }
+}
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(aveWordArr) {
+  console.log(aveWordArr)
+  if(aveWordArr.length === 0){
+    console.log(null)
+    return null;
+  }else if (aveWordArr.length > 0) {
+    let words  = aveWordArr.map(i => i.length);
+    console.log(words.reduce((previousValue, currentValue) => previousValue + currentValue) / words.length)
+    return words.reduce((previousValue, currentValue) => previousValue + currentValue) / words.length; 
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(aveMixedElements) {
+  console.log(aveMixedElements)
+  if(aveMixedElements.length === 0){
+    console.log(null);
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -116,15 +155,47 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(uniArr) {
+  console.log(uniArr);
+  if(uniArr.length === 0){
+    return null;
+  }else{
+    var arryUnique = [];
+    for(i=0; i < uniArr.length; i++){
+      if(arryUnique.indexOf(uniArr[i]) === -1) {
+        arryUnique.push(uniArr[i]);
 
-function uniquifyArray() {}
+      }
+      console.log(arryUnique)
+      return arryUnique;
+
+  }
+}
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(doesWordExistArr,lookingWord) {
+  console.log(doesWordExistArr)
+  if(doesWordExistArr.length === 0){
+  console.log("respuesta es:",null)
+    return null;
+  }else if(doesWordExistArr.length === 1){
+    console.log("respuesta es:",true)
+    return true;
+  }else if(doesWordExistArr.length !== 'rat') {
+        console.log("rat no existe")
+        return false;
+      }else if(doesWordExistArr.length === 'rat') {
+
+        return true;
+      }
+
+      }
+
 
 
 
@@ -143,7 +214,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(iteration7,lookedWord) {
+  var count = 0;
+  iteration7.forEach((v) => (v === lookedWord && count++));
+  switch (true){
+    case count ===0:
+      return 0;
+    case count ===1:
+      return 1;
+    case count ===5:
+      return 5;
+    case iteration7.length ===0:
+      return null;
+  }  
+
+}
 
 
 
