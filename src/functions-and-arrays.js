@@ -40,14 +40,19 @@ function sumNumbers(arr) {
 // Iteration #3.1 Bonus:
 
 function sum(arr) {
-  let sum = 0;
+let sum = 0;
   for (const num of arr) {
     if (typeof num === 'number') {
       sum += num
-    } else {
+    } else if (typeof num === 'string') {
       sum += num.length
-  } return sum;
-}
+    } else if (num === true) {
+      sum ++
+    } else if (num === false) {
+      sum = sum
+    }
+    return sum;
+  }
 }
 
 console.log(sum(numbers))
