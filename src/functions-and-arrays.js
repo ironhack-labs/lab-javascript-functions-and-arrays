@@ -21,7 +21,16 @@ const words = [
 ];
 
 function findLongestWord(array) {
-  array.forEach((element) => console.log(element));
+  let longest = 0;
+  let word = null;
+
+  for (let i = 0; i < array.length; i++) {
+    if (longest < array[i].length) {
+      longest = array[i].length;
+      word = array[i];
+    }
+  }
+  return word;
 }
 
 console.log(findLongestWord(words));
