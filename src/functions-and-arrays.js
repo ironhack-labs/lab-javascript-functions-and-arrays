@@ -25,7 +25,6 @@ function findLongestWord(array) {
   let word = null; // j'initialise une var à null
 
   for (let i = 0; i < array.length; i++) {
-    // console.log(array[i]);
     // loop sur le tableau
     if (longest < array[i].length) {
       // si la longueur du tableau est supérieur à 0
@@ -38,12 +37,24 @@ function findLongestWord(array) {
 
 findLongestWord(words);
 
-// console.log(findLongestWord(words));
-
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let tab = 0;
+
+  if (!array.length) {
+    return 0;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    tab += array[i];
+  }
+  return tab;
+}
+
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum() {}
