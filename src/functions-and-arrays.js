@@ -21,19 +21,24 @@ const words = [
 ];
 
 function findLongestWord(array) {
-  let longest = 0;
-  let word = null;
+  let longest = 0; // j'initialise un compteur
+  let word = null; // j'initialise une var à null
 
   for (let i = 0; i < array.length; i++) {
+    // console.log(array[i]);
+    // loop sur le tableau
     if (longest < array[i].length) {
-      longest = array[i].length;
+      // si la longueur du tableau est supérieur à 0
+      longest = array[i].length; // 0 devient l'élement du tableau
       word = array[i];
     }
   }
   return word;
 }
 
-console.log(findLongestWord(words));
+findLongestWord(words);
+
+// console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
