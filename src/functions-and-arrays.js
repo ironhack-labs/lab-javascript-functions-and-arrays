@@ -42,6 +42,7 @@ function sumNumbers(arr) {
 function sum(arr) {
 let sum = 0;
   for (const num of arr) {
+    console.log('toto', typeof num)
     if (typeof num === 'number') {
       sum += num
     } else if (typeof num === 'string') {
@@ -50,11 +51,12 @@ let sum = 0;
       sum ++
     } else if (num === false) {
       sum = sum
+    } else {
+      throw Error("Unsupported data type sir or ma'am")
     }
-    return sum;
   }
+  return sum;
 }
-
 console.log(sum(numbers))
 
 // const arr = [1,2,3,4,5,"4","12","2",6,7,"4",3,"2"];
@@ -111,7 +113,6 @@ function avg(arr) {
       totalWordLength += word.length
       }
     return Number(totalWordLength / arr.length)
-
 }
 
 // Iteration #5: Unique arrays
@@ -197,7 +198,7 @@ console.log(averageNumbers(numbersAvg))
 
 // Iteration #8: Bonus
 const matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+  [8, 2, 22, 97,  38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
   [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
@@ -219,13 +220,65 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+const matrixBis = [ 
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5],
+];
+
 function greatestProduct(arr) {
-  for (const number of arr)
-  if (arr.length === 0) return null;
+let maximumOfAll = 0
+  for (let x = 0; x < arr.length - 3; x++) {
+    // console.log(arr[x])
+    for (let y = 0; y < arr[x].length - 3; y++) {
+      // console.log('toto', arr[x][y])
+
+      console.log(arr[x][y] * arr[x][y+1] * arr[x][y+2] * arr[x][y+3])
+      console.log(arr[x+1][y] * arr[x+1][y+1] * arr[x+1][y+2] * arr[x+1][y+3])
+      console.log(arr[x+2][y] * arr[x+2][y+1] * arr[x+2][y+2] * arr[x+2][y+3])
+      console.log(arr[x+3][y] * arr[x+3][y+1] * arr[x+3][y+2] * arr[x+3][y+3])
+      
+      let productOfFourElementsOnX = arr[x][y] * arr[x][y+1] * arr[x][y+2] * arr[x][y+3];
+      let productOfFourElementsOnXLineTwo = arr[x+1][y] * arr[x+1][y+1] * arr[x+1][y+2] * arr[x+1][y+3];
+      let productOfFourElementsOnXLineThree = arr[x+2][y] * arr[x+2][y+1] * arr[x+2][y+2] * arr[x+2][y+3];
+      let productOfFourElementsOnXLineFour = arr[x+3][y] * arr[x+3][y+1] * arr[x+3][y+2] * arr[x+3][y+3];
+      
+      console.log(arr[y][x] * arr[y][x+1] * arr[y][x+2] * arr[y][x+3])
+      let productOfFourElementsOnY = arr[y][x] * arr[y][x+1] * arr[y][x+2] * arr[y][x+3];
+      let productOfFourElementsOnYColumnTwo = arr[y+1][x] * arr[y+1][x+1] * arr[y+1][x+2] * arr[y+1][x+3];
+      let productOfFourElementsOnYColumnThree = arr[y+1][x] * arr[y+1][x+1] * arr[y+1][x+2] * arr[y+1][x+3];
+      let productOfFourElementsOnYLineFour = arr[y+1][x] * arr[y+1][x+1] * arr[y+1][x+2] * arr[y+1][x+3];
+      
+
+      let maximumOfX = Math.max(productOfFourElementsOnX, productOfFourElementsOnXLineTwo, productOfFourElementsOnXLineThree, productOfFourElementsOnXLineFour)
+      console.log(maximumOfX)
+      let maximumOfY = Math.max(productOfFourElementsOnY, productOfFourElementsOnYColumnTwo, productOfFourElementsOnYColumnThree, productOfFourElementsOnYLineFour)
+      console.log(maximumOfY)
+
+      let maximumCarre = 0
+      if (maximumOfX > maximumOfY) {
+        maximumCarre = maximumOfX
+      } else {
+        maximumCarre = maximumOfY
+      }
+      
+      if (maximumOfAll < maximumCarre) {
+        maximumOfAll = maximumCarre
+      }
+
+      return maximumCarre
+      }
+    }
 }
+  
 
 
+greatestProduct(matrixBis)
 
+
+  var test;
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
