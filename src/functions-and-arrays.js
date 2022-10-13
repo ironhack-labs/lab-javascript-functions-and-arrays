@@ -42,28 +42,60 @@ findLongestWord(words);
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
-  let tab = 0;
+  let result = 0;
 
   if (!array.length) {
     return 0;
   }
 
   for (let i = 0; i < array.length; i++) {
-    tab += array[i];
+    result += array[i];
   }
-  return tab;
+  return result;
 }
 
 console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(array) {
+  let result = 0;
+  if (!array.length) {
+    return 0;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "string") {
+      result += array[i].length;
+    } else if (typeof array[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    } else result += array[i];
+  }
+
+  return result;
+}
+
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let result = 0;
+  if (!array.length) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    result += array[i];
+  }
+
+  return result / array.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = [
