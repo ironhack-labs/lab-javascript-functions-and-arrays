@@ -33,8 +33,10 @@ function findLongestWord(words) {
 
 // Iteration #3: Calculate the sum
 const sumOfNumbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumNumbers(sumOfNumbers) {
+  if (sumOfNumbers.length === 0) {
+    return 0;
+  }
   let sumOfNum = 0;
   for (i = 0; i < sumOfNumbers.length; i++) {
     sumOfNum += sumOfNumbers[i];
@@ -44,7 +46,7 @@ function sumNumbers(sumOfNumbers) {
 
 // Iteration #3.1 Bonus:
 function sum(sumOfArray) {
-  if (sumOfArray = []) {
+  if ((sumOfArray = [])) {
     return 0;
   }
 }
@@ -54,15 +56,14 @@ function sum(sumOfArray) {
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbersAvg) {
-  if ((numbersAvg = [])) {
+  if (numbersAvg.length === 0) {
     return null;
   }
-  const sum = 0;
+  let sum = 0;
   for (i = 0; i < numbersAvg.length; i++) {
     sum += numbersAvg[i];
-    const average = sum / numbersAvg.length;
-    return average;
   }
+  return sum / numbersAvg.length;
 }
 
 // Level 2: Array of strings
@@ -79,7 +80,16 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let length = 0 ;
+  for (i=0; i<wordsArr.length;i++){
+    length += wordsArr[i].length
+  }
+  return length / wordsArr.length
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -138,8 +148,15 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(wordsCount, wordToSearch) {
+  let counter = 0;
+  for (i = 0; i < wordsCount.length; i++) {
+    if (wordsCount.includes(wordToSearch)) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
