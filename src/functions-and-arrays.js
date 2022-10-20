@@ -50,22 +50,24 @@ sumNumbers(numbers)
 function sum(numbers) {
     let addition = 0
     if (numbers === 0) {
-        return 0}
+        return 0
+    }
     for (let i = 0; i < numbers.length; i++) {
-    
-        if (typeof numbers[i] === "string" ){
+
+        if (typeof numbers[i] === "string") {
             addition += numbers[i].length
         } else if (typeof numbers[i] === "boolean") {
             if (numbers[i] === true) {
-            addition += 1 }
+                addition += 1
+            }
         } else if (typeof numbers[i] === "number") {
             addition += numbers[i]
         } else {
             throw new Error("Unsupported data type sir or ma'am")
         }
     }
-    
-  
+
+
     return addition
 }
 
@@ -122,11 +124,28 @@ averageWordLength(wordsArr)
 
 
 
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // Bonus - Iteration #4.1
-function avg() {
-
+function avg(value) {
+    additionContainer = 0;
+    if (value.length === 0) {
+        return null
+    }
+    for ( let i = 0 ; i< value.length; i++) {
+        if (typeof value[i] === "string") {
+            additionContainer += value[i].length
+        } else if (typeof value[i] === "boolean") {
+            if (value[i] === true) {
+                additionContainer += 1
+            }
+        } else if (typeof value[i] === "number") {
+            additionContainer += value[i]
+        } else {
+            throw new Error("Unsupported data type sir or ma'am")
+        }
+    }
+ return additionContainer/value.length
 }
 
 
@@ -198,14 +217,15 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(word, wordToSearch) {
     if (word.length === 0) {
-        return null}
-        if (word.indexOf(wordToSearch) === -1) { 
+        return null
+    }
+    if (word.indexOf(wordToSearch) === -1) {
         return false
     } else {
         return true
     }
 }
-doesWordExist(wordsFind,wordToSearch)
+// doesWordExist(wordsFind,wordToSearch)
 
 
 // Iteration #7: Count repetition
@@ -223,7 +243,33 @@ const wordsCount = [
     'matter'
 ];
 
-function howManyTimes() { }
+
+
+
+//revisar 
+
+
+
+
+function howManyTimes(cArray, value1) {
+    let container = 0;
+    if (cArray.length === 0) {
+        return 0
+    }
+    for (let i = 0; i < value1.length; i++) {
+
+        if (!cArray.includes(value1[i])) {
+            return 0
+        } else if (cArray.indexOf(value1) === -1) {
+            return 1
+        }
+        return 1
+    }
+    return cArray
+}
+howManyTimes()
+
+
 
 
 
