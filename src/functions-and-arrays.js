@@ -99,8 +99,9 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
   if (arr.length === 0) return null
-  wordsUnique.splice()
-
+  let result = ''
+  for ()
+    
 
 
 }
