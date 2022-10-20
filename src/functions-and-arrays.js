@@ -1,25 +1,105 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(number1,number2) {
+  if (number1 > number2) {
+    return number1
+  } else if (number1 < number2) {
+    return number2
+  }
+    return number2
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  // Checking how big is the array.
+  const wordsLength = words.length;
 
+  if (Array.isArray(words) === true) {
+    if (wordsLength === 0) return null;
+    if (wordsLength === 1) return words[0];
 
+    // Start with a string and set to 0
+    let longestString = "";
+
+    // Loop throug the array and check if the current longestString is smaller than
+    //current world for litterration.
+
+    if (wordsLength > 1) {
+      for (let i = 0; i < wordsLength; i++) {
+        if (words[i].length > longestString.length) {
+          longestString = words[i];
+        }
+      }
+      return longestString;
+    }
+  }
+  return "We expected a array";
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+
+  // Checking how big is the array.
+  const numbersLength = numbers.length;
+
+  if (Array.isArray(numbers) === true) {
+    if (numbersLength === 0) return 0;
+    if (numbersLength === 1) return numbers[0];
+
+    let sumAddition = 0;
+    for(let i = 0; i < numbersLength; i++){
+      sumAddition += numbers[i];
+    }
+    return sumAddition;
+  }
+  return "We expected a array";
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(numbers) {
+  // Checking how big is the array.
+  const numbersLength = numbers.length;
+
+  if (Array.isArray(numbers) === true) {
+    if (numbersLength === 0) return 0;
+    if (numbersLength === 1) return numbers[0];
+
+    let sumAddition = 0;
+
+    for (let i = 0; i < numbersLength; i++) {
+      if (typeof numbers[i] === "object") {
+        throw new Error("Unsupported data type sir or a'am");
+      } else {
+        if (typeof numbers[i] === "number") {
+          sumAddition += numbers[i];
+        } else if (typeof numbers[i] === "string") {
+          let holdNumberLenghtString = numbers[i].length;
+          sumAddition += holdNumberLenghtString;
+        } else if (typeof numbers[i] === "boolean") {
+          // Checking if Boolean are True or False
+          if (numbers[i] === false) {
+            let booleanAdd = 0;
+            sumAddition += booleanAdd;
+          } else if (numbers[i] === true) {
+            let booleanAdd = 1;
+            sumAddition += booleanAdd;
+          }
+        }
+      }
+    }
+
+    return sumAddition;
+  }
+  return "We expected a array";
+}
 
 
 // Iteration #4: Calculate the average
