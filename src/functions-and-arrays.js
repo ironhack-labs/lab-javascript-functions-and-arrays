@@ -106,16 +106,72 @@ function sum(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  // Checking how big is the array.
+  const numbersAvgLength = numbersAvg.length;
 
+  if (Array.isArray(numbersAvg) === true) {
+    if (numbersAvgLength === 0) return null;
+
+    let averageNumberHolder = 0;
+
+    for (let i = 0; i < numbersAvgLength; i++) {
+      if (numbersAvg[i] > 0) {
+        averageNumberHolder += numbersAvg[i];
+      } else {
+        averageNumberHolder -= -numbersAvg[i];
+      }
+    }
+
+    let averageNumberMedia = averageNumberHolder / numbersAvgLength;
+
+    return averageNumberMedia;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  const wordsArrLength = wordsArr.length;
+
+  if (Array.isArray(wordsArr) === true) {
+    if (wordsArrLength === 0) return null;
+
+    let wordsArrHolder = 0;
+
+    for (let i = 0; i < wordsArrLength; i++) {
+      wordsArrHolder += wordsArr[i].length;
+    }
+      return wordsArrHolder / wordsArrLength;
+  }
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  const mixedArrLength = mixedArr.length;
+
+  if (Array.isArray(mixedArr) === true) {
+    if (mixedArrLength === 0) return null;
+
+    let mixedArrHolder = 0;
+
+    for (let i = 0; i < mixedArrLength; i++) {
+      if (typeof mixedArr[i] === "number") {
+        mixedArrHolder += mixedArr[i];
+      } else if (typeof mixedArr[i] === "string") {
+        mixedArrHolder += mixedArr[i].length;
+      } else if (typeof mixedArr[i] === "boolean") {
+        if (mixedArr[i] === true) {
+          mixedArrHolder++;
+        }
+      }
+    }
+
+    return mixedArrHolder / mixedArrLength;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -132,14 +188,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+function uniquifyArray(wordsUnique) {
+  const mixedArrLength = wordsUnique.length;
+  let arrNew = [];
+  if (Array.isArray(wordsUnique) === true) {
+    if (mixedArrLength === 0) return null;
+
+    for (let i = 0; i < mixedArrLength; i++) {
+      if (arrNew.includes(wordsUnique[i])) {
+      } else {
+        arrNew.push(wordsUnique[i]);
+      }
+    }
+    return arrNew;
+  }
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, wordsFind2) {
+  const wordsFindLength = wordsFind.length;
+
+  if (Array.isArray(wordsFind) === true) {
+    if (wordsFindLength === 0) return null;
+    return wordsFind.includes(wordsFind2);
+  }
+}
 
 
 
@@ -158,8 +237,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(wordsCount, wordsCount1) {
+  const wordsCountLength = wordsCount.length;
+  if (wordsCountLength === 0) return 0;
+  let wordsCounter = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount1 === wordsCount[i]) {
+      wordsCounter++;
+    }
+  }
+  return wordsCounter;
+}
 
 
 // Iteration #8: Bonus
