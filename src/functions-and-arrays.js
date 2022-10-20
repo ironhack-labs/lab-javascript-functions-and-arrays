@@ -14,7 +14,7 @@ function findLongestWord(array) {
       longestWord = array[i];
     }
   }
-  return (array === [] ? null : longestWord);
+  return (array.length ? longestWord : null);
 }
 findLongestWord(test);
 
@@ -31,13 +31,21 @@ function sumNumbers(array) {
 
 // Iteration #3.1 Bonus:
 function sum(array) {
-  const nums = [];
+  let nums = 0;
   for (let i = 0; i < array.length; i++) {
-    nums.push(Number(array[i]));
+    if (typeof array[i] === "string") {
+      nums += array[i].length;
+    } else if (typeof array[i] === "boolean") {
+      nums += Number(array[i]);
+    } else if (typeof array[i] === "number") {
+      nums += array[i];
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
   }
-  return sumNumbers(nums);
+  return (array.length ? nums : 0);
 }
-
+console.log(sum(["1", "2", {}]));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -46,7 +54,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   const sum = sumNumbers(array);
   const average = sum / array.length;
-  return average;
+  return (array.length ? average : null);
 }
 
 
@@ -58,7 +66,7 @@ function averageWordLength(array) {
   for(let i = 0; i < array.length; i++) {
     lengths.push(array[i].length);
   }
-  return (array === [] ? null : averageNumbers(lengths));
+  return (array.length ? averageNumbers(lengths) : null);
  }
 
 
@@ -66,7 +74,7 @@ function averageWordLength(array) {
 function avg(array) {
   const mixedSum = sum(array);
   const average = mixedSum / array.length;
-  return average;
+  return (array.length ? average : null);
 }
 
 // Iteration #5: Unique arrays
@@ -91,7 +99,7 @@ function uniquifyArray(array) {
       filteredArray.push(array[i]);
     }
   }
-  return filteredArray;
+  return (array.length ? filteredArray : null);
 }
 
 
@@ -99,7 +107,7 @@ function uniquifyArray(array) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, word) {
-  return array.includes(word);
+  return (array.length ? array.includes(word) : null);
 }
 
 
