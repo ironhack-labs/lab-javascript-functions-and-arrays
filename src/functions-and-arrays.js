@@ -4,10 +4,9 @@ function maxOfTwoNumbers(num1, num2) {
 }
 
 
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+const test = [];
 function findLongestWord(array) {
   let longestWord = "";
   for (let i = 0; i < array.length; i++) {
@@ -15,10 +14,9 @@ function findLongestWord(array) {
       longestWord = array[i];
     }
   }
-  return longestWord;
+  return (array === [] ? null : longestWord);
 }
-
-
+findLongestWord(test);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -31,27 +29,45 @@ function sumNumbers(array) {
   return sum;
 }
 
-
-
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(array) {
+  const nums = [];
+  for (let i = 0; i < array.length; i++) {
+    nums.push(Number(array[i]));
+  }
+  return sumNumbers(nums);
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  const sum = sumNumbers(array);
+  const average = sum / array.length;
+  return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  const lengths = [];
+  for(let i = 0; i < array.length; i++) {
+    lengths.push(array[i].length);
+  }
+  return (array === [] ? null : averageNumbers(lengths));
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  const mixedSum = sum(array);
+  const average = mixedSum / array.length;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -68,15 +84,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(array) {
+  const filteredArray = [];
+  for(let i = 0; i < array.length; i++) {
+    if (!filteredArray.includes(array[i])) {
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(array, word) {
+  return array.includes(word);
+}
 
 
 // Iteration #7: Count repetition
@@ -94,9 +118,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(array, word) {
+  let counter = 0;
+  for(let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      counter++
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -122,9 +152,53 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const twos = [
+  [2,2,2,2,2,2,2],
+  [2,2,2,2,2,2,2],
+  [2,2,2,2,2,2,2],
+  [2,2,2,2,2,2,2],
+  [2,2,2,2,2,2,2]
+]
 
+function multiplyArray(array) {
+  let sum = array[0];
+  for(let i = 1; i < array.length; i++) {
+    sum = sum * array[i];
+  }
+  return sum;
+}
 
+function greatestProduct(grid) {
+  let horizontalMax = 0;
+  let verticalMax = 0;
+  let verticalLine = [];
+  // Iterate through all arrays
+  for(let i = 0; i < grid.length; i++) {
+    const array = grid[i];
+    // Iterate through all elements in array
+    for(let j = 0; j < array.length; j++) {
+      const horProduct = (array[j]*array[j+1]*array[j+2]*array[j+3]);
+      if (horProduct > horizontalMax) {
+        horizontalMax = horProduct;
+      }
+    }
+    for(let k = 0; k < array.length; k++) {
+      verticalLine.push(array[k])
+      for (let l = 0; l < verticalLine.length; l++ ) {
+        const verProduct = (verticalLine[l]*verticalLine[l+1]*verticalLine[l+2]*verticalLine[l+3]);
+        if (verProduct > verticalMax) {
+          verticalMax = verProduct;
+        }
+      }
+    }
+
+    console.log(`Biggest horizontal value of 4 adjacent elements: ${horizontalMax} `);
+    console.log(`Biggest vertical value of 4 adjacent elements: ${verticalMax} `)
+    return (horizontalMax > verticalMax ? horizontalMax : verticalMax);
+  }
+}
+
+greatestProduct(twos);
 
 
 // The following is required to make unit tests work.
