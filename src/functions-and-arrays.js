@@ -1,24 +1,81 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(par) {
+  let longestWord = ""
+
+  if (par.length == 0) {
+    return null;
+  }
+
+  for (let i = 0; i < par.length; i++) {
+    if (longestWord.length < par[i].length) {
+      longestWord = par[i]
+    }
+  }
+  return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(number) {
+
+
+  let arrSum = 0;
+
+  if (number.length == 0) {
+    return 0
+  }
+
+  for (let i = 0; i < number.length; i++) {
+    arrSum += number[i]
+  }
+
+
+
+  return arrSum
+
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(elements) {
+
+  if (elements.length == 0) {
+    return 0
+  }
+
+  let elmSum = 0
+  for (let i = 0; i < elements.length; i++) {
+    if (typeof elements[i] === 'number') {
+      elmSum += elements[i];
+    } else if (typeof elements[i] === 'string') {
+      elmSum += elements[i].length
+    } else if (typeof elements[i] === 'boolean') {
+      if (elements[i] === true) {
+        elmSum += 1;
+      }
+
+    }
+
+  }
+  return elmSum
+}
 
 
 
@@ -26,16 +83,70 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(array) {
+
+  if (array.length == 0) {
+    return null;
+  }
+
+  let sumArr = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    sumArr += array[i]
+  }
+
+  return sumArr / array.length
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+
+  let sumArr = 0;
+
+
+  if (array.length == 0) {
+
+    return null
+
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    sumArr += array[i].length
+  }
+
+  return sumArr / array.length
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(elements) {
+
+  if (elements.length == 0) {
+
+    return null
+
+  }
+  let elSum = 0
+
+  for (let i = 0; i < elements.length; i++) {
+    if (typeof elements[i] === 'number') {
+      elmSum += elements[i];
+    } else if (typeof elements[i] === 'string') {
+      elmSum += elements[i].length
+    } else if (typeof elements[i] === 'boolean') {
+      if (elements[i] === true) {
+        elSum += 1;
+      }
+
+    }
+  }
+  return elSum / elements.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +163,51 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+
+function uniquifyArray(array) {
+
+  let arrayTwo = []
+
+  if (array.length == 0) {
+
+    return null
+
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (arrayTwo.includes(array[i])) {
+    } else {
+      arrayTwo.push(array[i])
+    }
+  }
+  return arrayTwo
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayWord, search) {
+
+  let existOrNot = false //Don't understand why i can't make an else {existOrNot = false} at line 156. But it doesn't works.
+
+  if (arrayWord.length == 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrayWord.length; i++) {
+    if (arrayWord[i] === search) {
+
+      existOrNot = true
+    }
+
+  }
+  return existOrNot
+
+}
 
 
 
@@ -78,7 +226,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayWords, wordSearch) {
+
+  if (arrayWords.length == 0) {
+    return 0
+  }
+
+  let repetition = 0
+
+  for (let i = 0; i < arrayWords.length; i++) {
+    if (wordSearch === arrayWords[i]) {
+      repetition++
+    }
+
+  }
+  return repetition;
+}
 
 
 
@@ -106,7 +269,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
