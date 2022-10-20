@@ -76,7 +76,7 @@ function sum(numbers) {
 
     for (let i = 0; i < numbersLength; i++) {
       if (typeof numbers[i] === "object") {
-        throw new Error("Unsupported data type sir or a'am");
+        throw new Error("Unsupported data type sir or ma'am");
       } else {
         if (typeof numbers[i] === "number") {
           sumAddition += numbers[i];
