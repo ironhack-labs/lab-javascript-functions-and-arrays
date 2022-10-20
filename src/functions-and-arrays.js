@@ -21,24 +21,19 @@ else {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 
-function findLongestWord(words) {
-let longestWord = "";
-for (let i = 0; i < words.length; i++) {
-
-  if (words.length = 0) {
-
-return null;
-
-  }
-
-
-  else  if (words.length > longestWord.length) {
-    longestWord = words;
+function findLongestWord (words) {
+ let longestWord = "";
+if (words.length == 0) {
+  return null;
 }
+for (let i=0; i < words.length; i++) {
+
+if (longestWord.length < words[i].length) {
+longestWord = words[i];
+} 
+
 }
 return longestWord;
-
-
 
 }
 
@@ -47,7 +42,19 @@ return longestWord;
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+
+
+function sumNumbers(numbers) {
+  if (numbers.length == 0) {
+    return 0;
+  }
+let suma = 0;
+for (let i = 0; i < numbers.length; i++){
+
+suma+=numbers[i];
+}
+return suma;
+}
 
 
 
@@ -60,13 +67,44 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+
+  if (numbersAvg.length === 0) {
+return null;
+
+
+
+}
+else {
+  return sumNumbers(numbersAvg) / numbersAvg.length;
+}
+}
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+
+  if (wordsArr.length === 0) {
+
+  return null;
+
+  }
+  let wordsLength = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    
+    wordsLength+=wordsArr[i].length;
+   
+  }
+  return wordsLength / wordsArr.length;
+  
+  }
+ 
+
 
 // Bonus - Iteration #4.1
 function avg() {}
