@@ -51,7 +51,36 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr3) {
+
+  let finalSum = 0;
+
+  for(let i = 0; i < arr3.length; i++) {
+    if (typeof arr3[i] === "string") {
+      finalSum += arr3[i].length;
+    } else if (typeof arr3[i] === "number") {
+      finalSum += arr3[i];
+    } else if (typeof arr3[i] === "boolean") {
+      arr3[i] === true ? finalSum += 1 : finalSum += 0;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+
+  return finalSum;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -92,12 +121,23 @@ function averageWordLength(average) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
-
-
-
-
-
+function avg(mixedArr4) {
+  if (mixedArr4.length === 0) {
+    return null;
+  }
+  let totalAverage = 0;
+  for (let i = 0; i < mixedArr4.length; i++) {
+    if (typeof mixedArr4[i] === "number") {
+      totalAverage += mixedArr4[i];
+    } else if (typeof mixedArr4[i] === "string") {
+      totalAverage += mixedArr4[i].length;
+    } else if (typeof mixedArr4[i] === "boolean") {
+      mixedArr4[i] === true ? totalAverage += 1 : totalAverage += 0;
+    } 
+    
+  }
+  return totalAverage / mixedArr4.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
