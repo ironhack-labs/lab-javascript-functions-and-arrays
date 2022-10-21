@@ -107,7 +107,12 @@ function averageWordLength(wordsArr) {
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(wordsArr) {
+
+  if (wordsArr.length == 0) {
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -124,7 +129,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+
+for (let i=0; i < wordsUnique.length; i++) {
+
+  if (wordsUnique[i] == wordsUnique[i]) {
+
+
+  } 
+
+
+}
+
+}
 
 
 
