@@ -44,12 +44,27 @@ function sumNumbers(ArrNum) {
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arry) {
-  // let num=0
-  // for (let i = 0; i < arry.length; i++){
-  //   num=num+ArrNum[i]
+  let newArry = []
+  for (let i = 0; i < arry.length; i++){
+    if (arry[i] / 1 === 0) {
+      newArry.push(0)
+   
+    }else if (arry[i]/1===1){
+      newArry.push(1)
+    } else if (arry[i] / 1 > 1) {
+      newArry.push(arry[i])
+    } else {
+      newArry.push(arry[i].length)
+    }
+    // return newArry
+  }
+  let sumofnumeber=0
+  for (let j = 0; j < newArry.length; j++){
+   sumofnumeber=sumofnumeber+newArry[j]
+  }
+  return sumofnumeber
 }
-
-
+sum( mixedArr)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -156,7 +171,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arry, element) {
+  // let obj = {}
+  // for (let i = 0; i < arry.length; i++){
+  //   if (obj[arry[i]]) {
+  //    
+  //   }
+  // }
+}
 
 
 
