@@ -58,7 +58,11 @@ function sumNumbers(num) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() {
+
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 
 
@@ -66,13 +70,31 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(num) {
+  if(num.length == 0){
+    return null
+  }
+  let average = sumNumbers(num) / num.length
+  return average
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsList) { 
+  if(wordsList.length == 0){
+    return null
+  }
+
+  let sum = 0
+
+  wordsList.forEach(function(words) {
+    sum += words.length
+  }) 
+
+  return sum / wordsList.length
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
