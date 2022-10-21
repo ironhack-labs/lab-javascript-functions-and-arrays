@@ -221,7 +221,7 @@ function greatestProduct(mat) {
   for (i = 0; i < mat.length; i++) {
     for (j = 0; j < mat[i].length; j++) {
       if ((mat[index1][j] * mat[index2][j] * mat[index3][j] * mat[index4][j]) > multi) {
-        multi = mat[index2][j] * mat[index2][j] * mat[index3][j] * mat[index4][j];
+        multi = mat[j+index1][j] * mat[j+index2][j] * mat[j+index3][j] * mat[j+index4][j];
       }
     }
   }
