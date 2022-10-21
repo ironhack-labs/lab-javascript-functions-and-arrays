@@ -43,12 +43,8 @@ function sum(array) {
   for (element of array) {
     if (typeof element === 'string') {
       num += element.length
-    } else if (typeof element === 'number') {
-      num += element
-    } else if (typeof element === 'boolean') {
-      if (element === true) {
-        num++
-      }
+    } else if (typeof element === 'number' || typeof element === 'boolean') {
+      num += Number(element)
     } else if (typeof element === 'array' || 'boolean') {
       throw new Error("Unsupported data type sir or ma'am")
     }
