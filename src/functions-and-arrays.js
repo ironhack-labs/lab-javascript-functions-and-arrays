@@ -1,11 +1,16 @@
-// Iteration #1: Find the maximum
+/****************************************/
+/**** Iteration #1: Find the maximum ****/
+/****************************************/
+
 function maxOfTwoNumbers(num1, num2) {
   return Math.max(num1, num2);
 }
 
 
 
-// Iteration #2: Find longest word
+/***************************************/
+/*** Iteration #2: Find longest word ***/
+/***************************************/
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
@@ -21,7 +26,11 @@ function findLongestWord(arr) {
 }
 
 
-// Iteration #3: Calculate the sum
+
+/****************************************/
+/*** Iteration #3: Calculate the sum ****/
+/****************************************/
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
@@ -33,7 +42,11 @@ function sumNumbers(arr) {
 }
 
 
-// Iteration #3.1 Bonus:
+
+/****************************************/
+/********* Iteration #3.1 Bonus *********/
+/****************************************/
+
 function sum(arr) {
   let onlyNumbers = [];
   
@@ -54,10 +67,12 @@ function sum(arr) {
   return totalSum;
 }
 
-/* An error is still showing! */
 
 
-// Iteration #4: Calculate the average
+/****************************************/
+/** Iteration #4: Calculate the average */
+/****************************************/
+
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -117,7 +132,11 @@ function avg(arr) {
 }
 
 
-// Iteration #5: Unique arrays
+
+/****************************************/
+/***** Iteration #5: Unique arrays ******/
+/****************************************/
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -146,7 +165,11 @@ function uniquifyArray(arr) {
 }
 
 
-// Iteration #6: Find elements
+
+/****************************************/
+/***** Iteration #6: Find elements ******/
+/****************************************/
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arr, word) {
@@ -160,7 +183,10 @@ function doesWordExist(arr, word) {
 
 
 
-// Iteration #7: Count repetition
+/****************************************/
+/**** Iteration #7: Count repetition ****/
+/****************************************/
+
 const wordsCount = [
   'machine',
   'matter',
@@ -187,7 +213,10 @@ function howManyTimes(arr, word) {
 
 
 
-// Iteration #8: Bonus
+/****************************************/
+/********** Iteration #8: Bonus *********/
+/****************************************/
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -226,7 +255,33 @@ function greatestProduct(array) {
   return Math.max(...productArray);
 }
 
+// Bonus - Iteration #8.2: Product of diagonals
+function greatestProductOfDiagonals(matrix) {
+  let product = 0;
+  let biggestProduct = 0;
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      let product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+      if (product > biggestProduct) {
+        biggestProduct = product;
+      }
+    }
+  }
+  return biggestProduct; 
+}
 
+// Alternative solution
+function greatestProductOfDiagonals(matrix) {
+  let product = 0;
+  let productArr = [];
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      let product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+      productArr.push(product);
+    }
+   }
+  return Math.max(...productArr);
+}
 
 
 // The following is required to make unit tests work.
