@@ -37,39 +37,37 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
-  let sumTotal = 0
   if (arr.length === 0) {
     return 0}
-  for (let i = 0; i< arr.length; i++){
-    sumTotal += arr[i];
-    }
-  return sumTotal
-  }
-
-
-
-
+  const totalSum = arr.reduce(
+    (sum, arrIndex) => sum + arrIndex
+    );
+  // for (let i = 0; i< arr.length; i++){
+  //   sumTotal += arr[i]; 
+  return totalSum
+}
 // Iteration #3.1 Bonus:
 
 function sum(arr) {
-  let absoluteSum = 0;
+  let absoluteSum = 0
   if (arr.length === 0) {
-    return 0;
+    return 0
     }
   for (let index of arr){
     if (typeof index == "number"){
-      absoluteSum += index;
+      absoluteSum += index
     } else if (index === true){
-      absoluteSum += 1;
+      absoluteSum += 1
     } else if (index === false){
-      absoluteSum += 0;
+      absoluteSum += 0
     } else if (typeof index == "string"){
-      absoluteSum += index.length;
-    }
-  }
-  return absoluteSum;  
+      absoluteSum += index.length
+    } else if (typeof index == "object"){
+      throw new Error("Unsupported data type sir or ma'am")};
+  } return absoluteSum
+  
 }
-
+/* This solution seems to work with all of the tests but kicks up error in Jasmine */ 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -110,16 +108,15 @@ function avg(arr) {
     return null
   }
    let totalSum = 0;
+  
     for (let arrValue of arr) {
       if (typeof arrValue === "string") {
         totalSum += arrValue.length
-      } else if (typeof arrValue === "boolean"){
+      } else if (arrValue === true){
         totalSum += 1
       } else if (typeof arrValue === "number"){
         totalSum += arrValue
-      } else {
-        throw "This is not a proper input"
-      }   
+      }
 }
  return totalSum / arr.length
 }
@@ -143,17 +140,20 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-    let uniqueArray = []
-    if (arr.length === 0) {
-      return null}
-    for(let word of arr){
-      if (!uniqueArray.includes(word)) {
-        uniqueArray.push(word)
-      }
-    
-  return uniqueArray
+  let uniqueArray = []
+  if (arr.length === 0) {
+    return null}
+  for(let word of arr){
+    if (!uniqueArray.includes(word)) {
+      uniqueArray.push(word)
     }
+   }
+if (uniqueArray === arr){
+    return arr
+  } else {
+     return uniqueArray
   }
+}
 
 
 
