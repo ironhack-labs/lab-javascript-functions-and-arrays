@@ -35,30 +35,32 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numberArray) {
   if (!numberArray.length) return 0;
 
-  return numberArray.reduce((curr, num) => curr + num, 0)
+  return numberArray.reduce((curr, num) => curr + num, 0);
 }
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
   if (!arr.length) return 0;
-  
-  const res = arr.reduce((curr, num) =>{
-    console.log(typeof num, "**")
-    if (typeof num === "object") throw new Error("Unsupported data type sir or ma'am")
-    
-    if (typeof num === "string") return curr + num.length
-    else return curr + num
-  }, 0)
-  console.log(res, "***");
-  return res
 
+  const res = arr.reduce((curr, num) => {
+    if (typeof num === "object")
+      throw new Error("Unsupported data type sir or ma'am");
+
+    if (typeof num === "string") return curr + num.length;
+    else return curr + num;
+  }, 0);
+  return res;
 }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!numbers.length) return null;
+
+  return numbers.reduce((curr, num) => curr + num, 0) / numbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -74,10 +76,23 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+  if (!arr.length) return null;
+
+  return arr.reduce((curr, num) => curr + num.length, 0) / arr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr.length) return null;
+
+  return (
+    arr.reduce(
+      (prev, curr) => prev + (typeof curr === "string" ? curr.length : curr),
+      0
+    ) / arr.length
+  );
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
