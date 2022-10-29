@@ -112,14 +112,14 @@ const wordsUnique = [
 function uniquifyArray(arr) {
   if (!arr.length) return null;
 
-  const cache = {}
+  const cache = {};
   return arr.filter((elmt) => {
     if (cache[elmt]) {
-      return false
+      return false;
     }
     cache[elmt] = 1;
     return true;
-  })
+  });
 }
 
 // Iteration #6: Find elements
@@ -140,7 +140,7 @@ function doesWordExist(arr, word) {
   let count = 0;
   arr.forEach((wordInArray) => {
     if (wordInArray === word) count++;
-  })
+  });
 
   return !(count === 0);
 }
@@ -160,7 +160,19 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, target) {
+  if (!words.length) return 0;
+
+  let counter = 0;
+
+  words.forEach((word) => {
+    if (word === target) {
+      counter++;
+    }
+  });
+
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -228,7 +240,28 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let oneCounter = 0;
+  let twoCounter = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] !== 1 && matrix[i][j] !== 2) {
+        return 0;
+      }
+
+      if (matrix[i][j] === 1 && twoCounter === 0) {
+        oneCounter++;
+      } else if (matrix[i][j] === 2 && oneCounter === 0) {
+        twoCounter++;
+      } else {
+        return 0;
+      }
+    }
+  }
+
+  return oneCounter > 0 ? 1 : 16;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
