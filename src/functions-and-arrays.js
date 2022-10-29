@@ -109,7 +109,18 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!arr.length) return null;
+
+  const cache = {}
+  return arr.filter((elmt) => {
+    if (cache[elmt]) {
+      return false
+    }
+    cache[elmt] = 1;
+    return true;
+  })
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -123,7 +134,16 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (!arr.length) return null;
+
+  let count = 0;
+  arr.forEach((wordInArray) => {
+    if (wordInArray === word) count++;
+  })
+
+  return !(count === 0);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
