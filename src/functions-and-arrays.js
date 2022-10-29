@@ -54,12 +54,19 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+// Find the sum as we did in the first exercise (or how about reusing that the function sumNumbers()?)
+// Take that sum and divide it by the number of elements in the array.
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+let sum = 0;
 
-function averageNumbers() {
-
-  
+function averageNumbers(arr) {
+  for(let i=0; i < arr.length; i++){
+    sum += parseInt(arr[i])
+  }
+  return (sum / (arr.length))
 }
+
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
@@ -71,6 +78,10 @@ function averageWordLength() { }
 function avg() {}
 
 // Iteration #5: Unique arrays
+// Take the following array, remove the duplicates, and return a new array. 
+// You are more than likely going to want to check out the Array methods indexOf and includes.
+// Do this in the form of a function uniquifyArray that receives an array of words as a argument.
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -90,6 +101,11 @@ function uniquifyArray() {}
 
 
 // Iteration #6: Find elements
+
+// Let's create a simple array search.
+// Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. 
+// Return true if the word exists in the array, otherwise, return false.
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist() {}
@@ -97,6 +113,9 @@ function doesWordExist() {}
 
 
 // Iteration #7: Count repetition
+// Declare a function named howManyTimes that will take in an array of words as the first argument, and a word to search for as the second argument. 
+// The function will return the number of times that word appears in the array.
+
 const wordsCount = [
   'machine',
   'matter',
