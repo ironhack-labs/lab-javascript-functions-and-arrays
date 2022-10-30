@@ -268,31 +268,38 @@ function greatestProduct(matrix) {
 function greatestProductOfDiagonals(matrix) {
   let prodMax = 0;
 
-  let currFor = 0;
-  let currBack = 0;
+  let currFor;
+  let currBack;
 
-  for (let i = 0; i < matrix.length; i++) {
-    currRow = matrix[i].slice(0,4).reduce((prev, curr) => prev*curr, 1)
-    currCol = matrix.slice(0,4).map(row => row[i]).reduce((prev, curr) => prev*curr, 1)
+  for (let i = 0; i <= matrix.length - 4; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      currFor = 1;
+      currBack = 1;
 
-    if (currRow > prodMax) prodMax = currRow;
-    if (currCol > prodMax) prodMax = currCol;
-    
-    for (let j = 4; j < matrix[i].length; j++) {
-      currRow *= matrix[i][j]
-      currRow /= matrix[i][j-4]
-      
-      currCol *= matrix[j][i]
-      currCol /= matrix[j-4][i]
-      
-      if (currRow > prodMax) prodMax = currRow;
-      if (currCol > prodMax) prodMax = currCol;
+      for (let k = 0; k < 4; k++) {
+        if (i+k < matrix.length) {
+          if (j+k < matrix[i+k].length) currFor *= matrix[i+k][j+k]
+          if (j-k >= 0) currBack *= matrix[i+k][j-k]
+        } 
+      }
+
+      if (currFor > prodMax) prodMax = currFor;
+      if (currBack > prodMax) prodMax = currBack;
     }
   }
 
   return prodMax;
 }
 
+const matrix2 = [
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5],
+]
+
+console.log(greatestProductOfDiagonals(matrix2))
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
