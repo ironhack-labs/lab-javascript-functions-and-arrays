@@ -140,7 +140,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, str) {
+  let newString = arr.toString();
+  let splittedString = newString.split(str);
+  return splittedString.length - 1
+}
 
 
 
