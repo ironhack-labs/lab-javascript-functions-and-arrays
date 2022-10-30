@@ -177,10 +177,7 @@ function howManyTimes(words, target) {
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
-  [
-    49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62,
-    0,
-  ],
+  [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62,0],
   [
     81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36,
     65,
@@ -241,27 +238,61 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let oneCounter = 0;
-  let twoCounter = 0;
+  let prodMax = 0;
+
+  let currRow = 0;
+  let currCol = 0;
 
   for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] !== 1 && matrix[i][j] !== 2) {
-        return 0;
-      }
+    currRow = matrix[i].slice(0,4).reduce((prev, curr) => prev*curr, 1)
+    currCol = matrix.slice(0,4).map(row => row[i]).reduce((prev, curr) => prev*curr, 1)
 
-      if (matrix[i][j] === 1 && twoCounter === 0) {
-        oneCounter++;
-      } else if (matrix[i][j] === 2 && oneCounter === 0) {
-        twoCounter++;
-      } else {
-        return 0;
-      }
+    if (currRow > prodMax) prodMax = currRow;
+    if (currCol > prodMax) prodMax = currCol;
+    
+    for (let j = 4; j < matrix[i].length; j++) {
+      currRow *= matrix[i][j]
+      currRow /= matrix[i][j-4]
+      
+      currCol *= matrix[j][i]
+      currCol /= matrix[j-4][i]
+      
+      if (currRow > prodMax) prodMax = currRow;
+      if (currCol > prodMax) prodMax = currCol;
     }
   }
 
-  return oneCounter > 0 ? 1 : 16;
+  return prodMax;
 }
+
+function greatestProductOfDiagonals(matrix) {
+  let prodMax = 0;
+
+  let currFor = 0;
+  let currBack = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    currRow = matrix[i].slice(0,4).reduce((prev, curr) => prev*curr, 1)
+    currCol = matrix.slice(0,4).map(row => row[i]).reduce((prev, curr) => prev*curr, 1)
+
+    if (currRow > prodMax) prodMax = currRow;
+    if (currCol > prodMax) prodMax = currCol;
+    
+    for (let j = 4; j < matrix[i].length; j++) {
+      currRow *= matrix[i][j]
+      currRow /= matrix[i][j-4]
+      
+      currCol *= matrix[j][i]
+      currCol /= matrix[j-4][i]
+      
+      if (currRow > prodMax) prodMax = currRow;
+      if (currCol > prodMax) prodMax = currCol;
+    }
+  }
+
+  return prodMax;
+}
+
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
