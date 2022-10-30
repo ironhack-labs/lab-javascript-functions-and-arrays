@@ -291,16 +291,6 @@ function greatestProductOfDiagonals(matrix) {
   return prodMax;
 }
 
-const matrix2 = [
-[ 1,  2, 3, 4, 5],
-[ 1, 20, 3, 4, 5],
-[ 1, 20, 3, 4, 5],
-[ 1, 20, 3, 4, 5],
-[ 1,  4, 3, 4, 5],
-]
-
-console.log(greatestProductOfDiagonals(matrix2))
-
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== "undefined") {
@@ -316,5 +306,6 @@ if (typeof module !== "undefined") {
     doesWordExist,
     howManyTimes,
     greatestProduct,
+    greatestProductOfDiagonals,
   };
 }
