@@ -10,8 +10,6 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
-maxOfTwoNumbers(10, 15);
-
 // Iteration #2: Find longest word
 // Implement the function findLongestWord that takes as an argument an array of words 
 // and returns the longest one. 
@@ -30,9 +28,6 @@ function findLongestWord(arr) {
   return longestWord;
 }
 
-findLongestWord(words);
-    
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 let sum = 0;
@@ -43,9 +38,6 @@ function sumNumbers(arr) {
   }
   return sum
 }
-
-sumNumbers(numbers);
-
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -96,9 +88,17 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
 
 
+function uniquifyArray(arr) {
+  let newArr = [];
+  for(let i=0; i < arr.length; i++) {
+    if(newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
 
 // Iteration #6: Find elements
 
