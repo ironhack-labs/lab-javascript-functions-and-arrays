@@ -79,7 +79,7 @@ function sum(mixedArr) {
         }
       }
       else {
-        return new Error("Unsupported data type sir or ma'am")
+        throw new Error("Unsupported data type sir or ma'am")
       }
     }
     return mixedArrResult
