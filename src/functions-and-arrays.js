@@ -59,7 +59,23 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(numbersAvg) {
+
+  let result = 0;
+ 
+  if(!numbersAvg.length){
+    return null;
+  } else {
+    for(let i= 0; i < numbersAvg.length; i++){
+      result += numbersAvg[i];
+    }
+    return result/numbersAvg.length;
+    }
+  }
+  
+
+
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -75,7 +91,18 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(wordsArr) {
+  let result = 0;
+ 
+  if(!wordsArr.length){
+    return null;
+  } else {
+    for(let i= 0; i < wordsArr.length; i++){
+      result += wordsArr[i].length;
+    }
+    return result/wordsArr.length;
+    }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -95,7 +122,11 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let uniqueArr = []; 
+
+
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -108,8 +139,23 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
+const theWord = "machine"
 
-function doesWordExist() {}
+function doesWordExist(wordsFind,theWord) {
+
+ if(!wordsFind.length){
+  return null; 
+ } else if (wordsFind.length === 1 && wordsFind.includes(theWord)){
+  return true;
+ } else if(wordsFind.includes(theWord)){
+  return true;
+ } else {
+  return false;
+ }
+}
+
+
+console.log(doesWordExist(wordsFind,theWord));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -126,7 +172,21 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+let searchWord = "machine"
+
+function howManyTimes(wordsCount,searchWord) {
+  
+  let result = 0; 
+  
+  for(let i = 0; i < wordsCount.length; i++){
+    
+    if(wordsCount[i] === searchWord){
+      result++;
+    }
+  }
+
+  return result;
+}
 
 // Iteration #8: Bonus
 const matrix = [
