@@ -61,19 +61,17 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 //Jessica's solution
 function averageNumbers(numbersAvg) {
-
   let result = 0;
- 
-  if(!numbersAvg.length){
+
+  if (!numbersAvg.length) {
     return null;
   } else {
-    for(let i= 0; i < numbersAvg.length; i++){
+    for (let i = 0; i < numbersAvg.length; i++) {
       result += numbersAvg[i];
     }
-    return result/numbersAvg.length;
-    }
+    return result / numbersAvg.length;
   }
-  
+}
 
 //Aziza's solution
 function averageNumbers(numbersAvg) {
@@ -110,21 +108,21 @@ const wordsArr = [
 
 function averageWordLength(wordsArr) {
   let result = 0;
- 
-  if(!wordsArr.length){
+
+  if (!wordsArr.length) {
     return null;
   } else {
-    for(let i= 0; i < wordsArr.length; i++){
+    for (let i = 0; i < wordsArr.length; i++) {
       result += wordsArr[i].length;
     }
-    return result/wordsArr.length;
-    }
+    return result / wordsArr.length;
+  }
 }
-
 
 // Bonus - Iteration #4.1
 function avg() {}
 
+// Aziza's solution
 // Iteration #5: Unique arrays
 const wordsUnique = [
   "crab",
@@ -141,10 +139,19 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  let uniqueArr = []; 
+  let newArray = [];
+  if (wordsUnique.length === 0) {
+    return null;
+  }
 
-
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (newArray.indexOf(wordsUnique[i]) === -1) {
+      newArray.push(wordsUnique[i]);
+    }
+  }
+  return newArray;
 }
+
 //Jessica's solution
 // Iteration #6: Find elements
 const wordsFind = [
@@ -157,25 +164,30 @@ const wordsFind = [
   "truth",
   "disobedience",
 ];
-const theWord = "machine"
+const theWord = "machine";
 
-function doesWordExist(wordsFind,theWord) {
-
- if(!wordsFind.length){
-  return null; 
- } else if (wordsFind.length === 1 && wordsFind.includes(theWord)){
-  return true;
- } else if(wordsFind.includes(theWord)){
-  return true;
- } else {
-  return false;
- }
+function doesWordExist(wordsFind, theWord) {
+  if (!wordsFind.length) {
+    return null;
+  } else if (wordsFind.length === 1 && wordsFind.includes(theWord)) {
+    return true;
+  } else if (wordsFind.includes(theWord)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+console.log(doesWordExist(wordsFind, theWord));
 
-console.log(doesWordExist(wordsFind,theWord));
+// Aziza's solution
+// Iteration #6: Find elements
+function doesWordExist(wordsFind, word) {
+  return wordsFind.includes(word);
+}
+console.log(wordsFind.includes("trouble"));
 
-//Jessica's solutiong
+//Jessica's solution
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -192,21 +204,33 @@ const wordsCount = [
   "matter",
 ];
 
-let searchWord = "machine"
+let searchWord = "machine";
 
-function howManyTimes(wordsCount,searchWord) {
-  
-  let result = 0; 
-  
-  for(let i = 0; i < wordsCount.length; i++){
-    
-    if(wordsCount[i] === searchWord){
+function howManyTimes(wordsCount, searchWord) {
+  let result = 0;
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === searchWord) {
       result++;
     }
   }
 
   return result;
 }
+
+// Aziza's solution
+// Iteration #7: Count repetition
+function howManyTimes(wordsCount, wordSearch) {
+  let count = 0;
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === wordSearch) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(howManyTimes(wordsCount, "matter"));
 
 // Iteration #8: Bonus
 const matrix = [
