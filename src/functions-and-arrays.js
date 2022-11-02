@@ -183,9 +183,13 @@ console.log(doesWordExist(wordsFind, theWord));
 // Aziza's solution
 // Iteration #6: Find elements
 function doesWordExist(wordsFind, word) {
-  return wordsFind.includes(word);
+  if (wordsFind.length === 0) {
+    return null;
+  } else {
+    return wordsFind.includes(word);
+  }
 }
-console.log(wordsFind.includes("trouble"));
+console.log(wordsFind.includes("hello"));
 
 //Jessica's solution
 
