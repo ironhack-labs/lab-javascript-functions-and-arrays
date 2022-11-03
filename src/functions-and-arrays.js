@@ -52,12 +52,11 @@ function sumNumbers(arrNumbers) {
   }
 
   else{
-    for (let i = 0; i < arrNumbers.length; i ++) {
-      if (arrNumbers[i] === 0) {
-    continue
-           }
-          }
-    return 0
+    let sumNum = 0
+    arrNumbers.forEach(function (num, index) {
+      sumNum += num
+    })
+    return sumNum
   }
 
 
