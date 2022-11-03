@@ -26,10 +26,11 @@ function findLongestWord(arrWords) {
     return arrWords[0]
   }
 
-  //CORREGIR should return the first occurrence of the word when longest have multiple occurrences
+  //should return the first occurrence of the word when longest have multiple occurrences
+  //should return the longest occurrence when it has multiple words
   let longestWord = ''
 
-  words.forEach (function (word, index) {
+  arrWords.forEach (function (word, index) {
 
     if (word.length > longestWord.length) {
       longestWord = word
@@ -37,7 +38,6 @@ function findLongestWord(arrWords) {
   })
 
   return longestWord
-
 }
 
 // ITERATION #3: Calculate the sum
@@ -56,61 +56,50 @@ function sumNumbers(arrNums) {
   }
 
   //should return zero if all elements are zero
-  let sumZero = 0
+  //should return the sum when passed array of numbers
+  let sumNums = 0
 
-  numbers.forEach (function (num, index) {
-    if (num === 0) {
-      sumZero += num
-    }
-  })
-
-  if (sumZero === 0) {
-    return 0
+  for (let i = 0; i < arrNums.length; i++) {
+    sumNums += arrNums[i]
   }
+
+  return sumNums
 }
-
-
 
 // ITERATION #3.1 Bonus:
 function sum(arrNums) {
 
-  //should return zero if receives an empty array when called
-  if (arrNums.length === 0) {
-    return 0
-  }
-
-  //should return the sum with one number array
-  if (arrNums.length === 1) {
-    return arrNums[0]
-  }
-
-  //should return zero if all elements are zero
-  let sumZero = 0
-
-  numbers.forEach (function (num, index) {
-    if (num === 0) {
-      sumZero += num
-    }
-  })
-
-  if (sumZero === 0) {
-    return 0
-  }
 }
-
-
 
 // ITERATION #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrNums) {
 
+  if (arrNums.length === 0) {
+    return null
+  } 
+
+  const sumNums = sumNumbers(arrNums)
+
+  return sumNums / arrNums.length
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrWords) {
+
+  const emptyArr = findLongestWord(arrWords)
+
+  return emptyArr
+
+
+  
+
+  
+}
 
 // Bonus - ITERATION #4.1
 function avg() {}
