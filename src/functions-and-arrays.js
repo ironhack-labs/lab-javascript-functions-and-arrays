@@ -207,7 +207,21 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let productCount = 0
+  for (let totalIndex = 0; totalIndex < matrix.length; totalIndex++) {
+    let line = matrix[totalIndex]
+    for (let lineIndex = 0; lineIndex < line.length; lineIndex++) {
+      if (totalIndex < matrix.length - 3) {
+        productCount = matrix[totalIndex][lineIndex] * matrix[totalIndex + 1][lineIndex] * matrix[totalIndex + 2][lineIndex] * matrix[totalIndex + 3][lineIndex]
+      }
+      if (lineIndex < line.length - 3) {
+        productCount = line[lineIndex] * line[lineIndex + 1] * line[lineIndex + 2] * line[lineIndex + 3]
+      }
+    }
+  }
+  return productCount
+}
 
 
 
