@@ -171,7 +171,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArr, wordToSearchFor) {
+  let count = 0
+  wordsArr.forEach(function (word) {
+    if (word === wordToSearchFor) {
+      count++
+    }
+  })
+  return count
+}
 
 
 
