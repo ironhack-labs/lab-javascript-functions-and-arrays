@@ -25,7 +25,7 @@ function findLongestWord(arrWords) {
     return arrWords[0]
   }
 
-  else{
+  
     let longestWord = ''
     arrWords.forEach (function (word, index) {
   if (longestWord.length < word.length) {
@@ -33,7 +33,7 @@ function findLongestWord(arrWords) {
   }
 })
   return longestWord
-}
+
   }
 
 
@@ -51,13 +51,14 @@ function sumNumbers(arrNumbers) {
       return arrNumbers[0]
   }
 
-  else{
+
     let sumNum = 0
     arrNumbers.forEach(function (num, index) {
       sumNum += num
     })
     return sumNum
-  }
+  
+  
 
 
 
@@ -67,7 +68,46 @@ function sumNumbers(arrNumbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+
+function sum(arrSum) {
+  if (arrSum.length === 0) {
+      return 0
+  }
+
+  if (arrSum.length === 1) {
+    return arrSum[0]
+  }
+
+let total = 0
+let totalNums = 0
+let totalLetters = 0
+
+
+
+arrSum.forEach(function(elem){
+  if (typeof elem === 'number') {
+    total += elem
+  } else if (typeof elem === 'string') {
+    total += elem.length
+  } else {
+    totalNums += elem
+    totalLetters += elem.length
+    total = totalNums + totalLetters 
+  }
+})
+  return total
+
+
+/*let totalCharacter = 0
+ arrSum.forEach(function(wor) {
+    totalCharacter += wor.length
+})
+return totalCharacter*/
+
+
+
+}
 
 
 
