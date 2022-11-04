@@ -91,14 +91,22 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arrWords) {
 
-  const emptyArr = findLongestWord(arrWords)
+  //should return the average of a one-element array
+  //should return the average of a the array
+  let lettersInArr = 0
 
+  arrWords.forEach(function (word) {
+    lettersInArr += word.length
+  })
+
+  if (arrWords.length > 0) {
+    return lettersInArr / arrWords.length
+  }
+
+  //should return null if receives an empty array when called
+  const emptyArr = findLongestWord(arrWords)
   return emptyArr
 
-
-  
-
-  
 }
 
 // Bonus - ITERATION #4.1
