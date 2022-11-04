@@ -32,7 +32,9 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numSum) {
   if (numSum.length === 0){
     return 0
-  }
+  } else if ( numSum.length === 1) {
+    return numSum [0]
+  } 
 }
 
 
@@ -41,6 +43,8 @@ function sumNumbers(numSum) {
 function sum(bonusSum) {
   if (bonusSum.length === 0){
     return 0
+}  else if ( bonusSum.length === 1) {
+  return bonusSum [0]
 }
 }
 
@@ -49,10 +53,11 @@ function sum(bonusSum) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
 function averageNumbers(calculateNumAvg) {
   if (calculateNumAvg.length === 0){
     return null
-}
+} 
 }
 
 
