@@ -80,34 +80,27 @@ function sum(arrSum) {
   }
 
 let total = 0
-let totalNums = 0
-let totalLetters = 0
+
 
 
 
 arrSum.forEach(function(elem){
-  if (typeof elem === 'number') {
+
+  if (typeof elem === 'number' || typeof elem === 'boolean') {
     total += elem
+    
   } else if (typeof elem === 'string') {
     total += elem.length
+    
   } else {
-    totalNums += elem
-    totalLetters += elem.length
-    total = totalNums + totalLetters 
+    throw TypeError ("Tipo de dato erróneo")
   }
 })
   return total
 
-
-/*let totalCharacter = 0
- arrSum.forEach(function(wor) {
-    totalCharacter += wor.length
-})
-return totalCharacter*/
-
-
-
 }
+
+
 
 
 
@@ -115,16 +108,62 @@ return totalCharacter*/
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrNumbers) {
+  if (arrNumbers.length === 0) {
+    return null
+  }
+  
+  let averageNums = 0
+  let numsArray = 0
+  let sumNums = 0
+  arrNumbers.forEach(function(num){
+    numsArray += 1
+    sumNums += num
+    averageNums = sumNums/numsArray
+  })
+  return averageNums
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrWords) {
+
+  let arrLength = arrWords.length
+  let totalLetters = 0
+
+  if (arrWords.length === 0) {
+    return null
+  }
+
+  arrWords.forEach(function(wor){
+    totalLetters += wor.length
+  })
+    return totalLetters/arrLength
+
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arrMixed) {
+
+  if (arrMixed.length === 0) {
+    return null
+  }
+
+  let total = 0
+  let arrLength = arrMixed.length
+
+  arrMixed.forEach(function(elem) {
+    if (typeof elem === 'number' || typeof elem === 'boolean') {
+      total += elem
+    } if (typeof elem === 'string') {
+      total += elem.length
+    }
+  })
+  return total/arrLength
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -141,14 +180,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrUniq) {
+  if (arrUniq.length === 0) {
+    return null
+  }
+
+  for (let i=0; i < arrUniq.length; i ++) {
+    if (arrUniq[i] === arrUniq[i+1]) {
+      continue
+    }
+  } return arrUniq[0]
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+let valor = prompt("introduce una palabra", 0)
+
+function doesWordExist(arrWords) {
+  if (arrWords.length === 0) {
+    return null
+  }
+
+  if (arrWords.length === 1) {
+    return true
+  }
+
+
+}
 
 
 
