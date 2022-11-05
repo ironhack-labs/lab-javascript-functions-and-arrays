@@ -73,7 +73,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numArray) {
   if (!numArray || numArray.length === 0) return null;
 
-  sumOfNumbers = sum(numArray);
+  sumOfNumbers = sum(numArray); //Use previous function from #3
 
   return sumOfNumbers / numArray.length;
 }
@@ -102,6 +102,7 @@ function averageWordLength(wordsArray) {
 
 const mixedArr = [6, 12, 'January', true];
 
+avg(wordsArr);
 // Bonus - Iteration #4.1
 function avg(elemArray) {
   let sumOfWords = sum(elemArray);
@@ -238,9 +239,9 @@ greatestProduct(matrix);
 
 function greatestProduct(matrix) {
   let horizontalProduct = 0;
-  let horizontalArr = [];
+  let horizontalNumbers = [];
   let verticalProduct = 0;
-  let verticalArr = [];
+  let verticalNumbers = [];
 
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
