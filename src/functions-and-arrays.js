@@ -1,13 +1,10 @@
 // ITERATION #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
 
-  //should return greater of two arguments - if the first argument greater
   if (num1 > num2) {
     return num1
   }
 
-  //should return greater of two arguments - if the second argument greater
-  //should return either arguments - if both arguments are equal
   return num2
 }
 
@@ -16,18 +13,14 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arrWords) {
 
-  //should return null when called with an empty array
   if (arrWords.length === 0) {
     return null
   } 
   
-  //should return the word when called with a single-word array
   if (arrWords.length === 1) {
     return arrWords[0]
   }
 
-  //should return the first occurrence of the word when longest have multiple occurrences
-  //should return the longest occurrence when it has multiple words
   let longestWord = ''
 
   arrWords.forEach (function (word, index) {
@@ -45,18 +38,14 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrNums) {
 
-  //should return zero if receives an empty array when called
   if (arrNums.length === 0) {
     return 0
   }
 
-  //should return the sum with one number array
   if (arrNums.length === 1) {
     return arrNums[0]
   }
 
-  //should return zero if all elements are zero
-  //should return the sum when passed array of numbers
   let sumNums = 0
 
   for (let i = 0; i < arrNums.length; i++) {
@@ -67,7 +56,41 @@ function sumNumbers(arrNums) {
 }
 
 // ITERATION #3.1 Bonus:
-function sum(arrNums) {
+function sum(mixArr) {
+
+  if (mixArr.length === 0) {
+    return 0
+  }
+
+  let sumNum = 0
+  let sumStr = 0
+  let sumBol = 0
+
+  mixArr.forEach ((elem) => {
+    if (typeof elem === "string") {
+      sumStr += elem.length
+    } else if (typeof elem === "number") {
+      sumNum += elem
+    } else if (typeof elem === "boolean") {
+      if (elem) {
+        sumBol += 1
+      }
+    }
+
+    if (typeof elem === "object" || typeof elem === "array") {
+      throw new Error("Unsupported data type sir or ma'am");
+      return;
+    }
+
+    sumTotal = sumNum + sumStr + sumBol
+
+    return sumTotal
+  })
+
+  return sumTotal
+
+  
+
 
 }
 
@@ -91,11 +114,9 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arrWords) {
 
-  //should return the average of a one-element array
-  //should return the average of a the array
   let lettersInArr = 0
 
-  arrWords.forEach(function (word) {
+  arrWords.forEach (function (word) {
     lettersInArr += word.length
   })
 
@@ -103,14 +124,21 @@ function averageWordLength(arrWords) {
     return lettersInArr / arrWords.length
   }
 
-  //should return null if receives an empty array when called
   const emptyArr = findLongestWord(arrWords)
   return emptyArr
 
 }
 
 // Bonus - ITERATION #4.1
-function avg() {}
+function avg(mixArr) {
+
+  if (mixArr.length === 0) {
+    return null
+  }
+
+  let sumMixArr = sum(mixArr)
+  return sumMixArr / mixArr.length
+}
 
 // ITERATION #5: Unique arrays
 const wordsUnique = [
@@ -127,16 +155,27 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrWords) {
 
+  if (arrWords.length === 0) {
+    return null
+  }
 
+  const removeDuplicates = arrWords.filter((word, index) => arrWords.indexOf(word) === index)
+  return removeDuplicates
+}
 
 // ITERATION #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrWords, wordToSearch) {
 
+  if (arrWords.length === 0) {
+    return null
+  }
 
+  return arrWords.includes(wordToSearch)
+}
 
 // ITERATION #7: Count repetition
 const wordsCount = [
@@ -153,9 +192,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrWords, wordToSearch) {
 
+  if (arrWords.length === 0) {
+    return 0
+  }
 
+  let countWord = 0
+
+  arrWords.forEach ((word) => {
+    if (word === wordToSearch) {
+      countWord += 1
+    }
+  })
+
+  return countWord
+}
 
 // ITERATION #8: Bonus
 const matrix = [
@@ -181,7 +233,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arrNums) {
+  
+}
 
 
 
