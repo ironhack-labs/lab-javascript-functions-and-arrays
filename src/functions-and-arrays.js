@@ -89,12 +89,13 @@ arrSum.forEach(function(elem){
   if (typeof elem === 'number' || typeof elem === 'boolean') {
     total += elem
     
-  } else if (typeof elem === 'string') {
+  } if (typeof elem === 'string') {
     total += elem.length
     
-  } else {
-    throw TypeError ("Tipo de dato erróneo")
+  } if (typeof elem === 'object') {
+    throw new Error("Unsupported data type sir or ma'am")
   }
+   
 })
   return total
 
@@ -180,34 +181,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(arrUniq) {
-  if (arrUniq.length === 0) {
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
     return null
   }
 
-  for (let i=0; i < arrUniq.length; i ++) {
-    if (arrUniq[i] === arrUniq[i+1]) {
-      continue
-    }
-  } return arrUniq[0]
+  const setArray = []
+
+  arr.forEach(function(elem){
+    if (! setArray.includes(elem)){
+      setArray.push(elem)
+     } 
+  })
+
+  return setArray
 
 }
-
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-let valor = prompt("introduce una palabra", 0)
 
-function doesWordExist(arrWords) {
+function doesWordExist(arrWords, setWord) {
   if (arrWords.length === 0) {
     return null
   }
 
-  if (arrWords.length === 1) {
-    return true
-  }
+if (arrWords.includes(setWord) !== true) {
+  return false
+}return true
 
 
 }
@@ -229,7 +231,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrWord, setWord) {
+  if (arrWord.length === 0) {
+      return 0
+  }
+
+  let count = 0
+  arrWord.forEach (function(word){
+    if (word === setWord) {
+   ++count  
+  }
+  })
+    return count
+  } 
 
 
 
@@ -257,7 +271,24 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(bigArr) {
+
+  let totalArr = 0
+
+  bigArr.forEach(function(elem){
+    let totalsum = 0
+      elem.forEach(function(num){
+        totalSum += num
+      }) totalArr +=1
+          })
+      
+   if () {
+
+   }   
+    
+  }
+
+
 
 
 
