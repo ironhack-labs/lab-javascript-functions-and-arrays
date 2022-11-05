@@ -133,13 +133,12 @@ function doesWordExist(findElement, words) {
     return null
 }
 let elementRepeated = findElement.filter ((findElement) => findElement === words);
-if (findElement.indexof(words) === - 1) {
+if (findElement.indexOf(words) === -1) {
   return false ; 
 } else { 
-  if (elementRepeated.length === 1 ) {
+  if (elementRepeated.length === 1) {
    return true;
-} 
-}
+} }
 }
 
 
