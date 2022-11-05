@@ -71,7 +71,7 @@ function sum(numArray) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numArray) {
-  if (!numArray || numArray.length === 0) return null;
+  if (!numArray || !numArray.length) return null;
 
   sumOfNumbers = sum(numArray); //Use previous function from #3
 
@@ -95,7 +95,7 @@ const wordsArr = [
 function averageWordLength(wordsArray) {
   let sumOfWordLength = sum(wordsArray);
 
-  if (!wordsArray || wordsArray.length === 0) return null;
+  if (!wordsArray || !wordsArray.length) return null;
 
   return sumOfWordLength / wordsArray.length;
 }
@@ -107,7 +107,7 @@ avg(wordsArr);
 function avg(elemArray) {
   let sumOfWords = sum(elemArray);
 
-  if (!elemArray || elemArray.length === 0) return null;
+  if (!elemArray || !elemArray.length) return null;
 
   return sumOfWords / elemArray.length;
 }
@@ -116,7 +116,7 @@ function avg(elemArray) {
 const wordsUnique = ['crab', 'poison'];
 
 function uniquifyArray(wordsArray) {
-  if (!wordsArray || wordsArray.length === 0) return null;
+  if (!wordsArray || !wordsArray.length ) return null;
 
   let uniqueArr = wordsArray.filter((item, pos) => {
     return wordsArray.indexOf(item) === pos;
@@ -138,7 +138,7 @@ const wordsFind = [
 ];
 
 function doesWordExist(wordsArray, searchWord) {
-  if (!wordsArray || wordsArray.length === 0) return null;
+  if (!wordsArray || !wordsArray.length) return null;
   return wordsArray.includes(searchWord);
 }
 
@@ -160,7 +160,7 @@ const wordsCount = [
 function howManyTimes(wordsArray, searchWord) {
   let count = 0;
 
-  if (!wordsArray || wordsArray.length === 0) return 0;
+  if (!wordsArray || !wordsArray.length) return 0;
 
   wordsArray.forEach((word) => {
     if (word === searchWord) count++;
@@ -271,10 +271,6 @@ function greatestProduct(matrix) {
       }
     }
   }
-  console.log('horizontalProduct - ' + horizontalProduct);
-  console.log('horizontalNumbers - ' + horizontalNumbers);
-  console.log('verticalProduct - ' + verticalProduct);
-  console.log('verticalNumbers - ' + verticalNumbers);
 
   return Math.max(horizontalProduct, verticalProduct);
 }
