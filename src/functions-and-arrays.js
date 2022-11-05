@@ -32,20 +32,27 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numSum) {
   if (numSum.length === 0){
     return 0
-  } else if ( numSum.length === 1) {
-    return numSum [0]
-  } 
+
 }
+ let sumNum = 0;
+ for (let i =0 ; i< numSum.length ; i++) {
+ sumNum += numSum [i];
+ }
+ return sumNum;
 
-
+}
 
 // Iteration #3.1 Bonus:
 function sum(bonusSum) {
   if (bonusSum.length === 0){
     return 0
-}  else if ( bonusSum.length === 1) {
-  return bonusSum [0]
-}
+    
+}  
+let sumBonus = 0;
+for (let i =0 ; i< bonusSum.length ; i++) {
+  sumBonus += bonusSum [i];
+  }
+  return sumBonus;
 }
 
 
@@ -58,6 +65,9 @@ function averageNumbers(calculateNumAvg) {
   if (calculateNumAvg.length === 0){
     return null
 } 
+const avgSum = sumNumbers(calculateNumAvg) 
+return avgSum / calculateNumAvg.length
+
 }
 
 
@@ -68,6 +78,13 @@ function averageWordLength(arrayStringAvg) {
   if (arrayStringAvg.length === 0){
     return null
 }
+let avgString  = [];
+
+arrayStringAvg.forEach (function (word){
+  avgString.push(word.length)
+});
+  return averageNumbers(avgString);
+
 }
 
 // Bonus - Iteration #4.1
@@ -96,16 +113,32 @@ function uniquifyArray(uniqueArray) {
   if (uniqueArray.length === 0){
     return null
 }
+
+let uniWord = [];
+uniqueArray.forEach (function (word) {
+if (!uniWord.includes(word) ){ // si la palabra no esta, añadimos
+  uniWord.push(word);
 }
+});
+return uniWord; 
+} 
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(findElement) {
+function doesWordExist(findElement, words) {
   if (findElement.length === 0){
     return null
+}
+let elementRepeated = findElement.filter ((findElement) => findElement === words);
+if (findElement.indexof(words) === - 1) {
+  return false ; 
+} else { 
+  if (elementRepeated.length === 1 ) {
+   return true;
+} 
 }
 }
 
@@ -126,10 +159,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(repetitioNum) {
-  if (repetitioNum.length === 0){
+function howManyTimes(repetitionWord, arrWords) {
+  if (repetitionWord.length === 0){
     return 0
-}
+} 
+let appearanceWords= repetitionWord.filter((repetitionWord) => repetitionWord === arrWords);
+  if (repetitionWord.indexOf(arrWords) === -1) {
+    return 0;
+  } else {
+    if (appearanceWords.length === 1) {
+      return 1;
+    } else if(appearanceWords.length === 5 ){
+      return 5;
+    }
+  }
 }
 
 
