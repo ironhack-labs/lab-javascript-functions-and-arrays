@@ -143,13 +143,16 @@ const wordsUnique = [
   'bring'
 ];
 /* NO ENTIENDO LO QUE PIDE */
+
 function uniquifyArray(arrWordsUnique){
   if (arrWordsUnique.length === 0){
     return null;
   }
   let otherArr = [];
   arrWordsUnique.forEach(function(elem, index){
-    otherArr.push(elem);
+    if (!otherArr.includes(elem)) {
+      otherArr.push(elem);
+    }
   })
     return otherArr;
 }
@@ -159,18 +162,16 @@ function uniquifyArray(arrWordsUnique){
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(arrWordsFind) {
+
+function doesWordExist(arrWordsFind, word) {
   if (arrWordsFind.length === 0){
     return null;
   }
-  let wordToFind = "";
-  if (arrWordsFind.includes(wordToFind)){
+  if (arrWordsFind.includes(word)){
     return true;
   }
-  else { return false };
-/* POR QUÉ NO FUNCIONA */
+  return false;
 }
-
 
 
 // Iteration #7: Count repetition
@@ -188,22 +189,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arrWordsCount) {
+function howManyTimes(arrWordsCount, wordToFind) {
   if (arrWordsCount.length === 0){
     return 0;
   }
-  let wordToFind = "";
-  let numberOfTimes = 0;
-  arrWordsCount.forEach(function(word, index){
-    if(word === wordToFind){
-      numberOfTimes += numberOfTimes
-    }
-  }
-  )
-  return numberOfTimes
+  let count = 0;
+  arrWordsCount.forEach(function (word){
+      if (wordToFind === word){
+        count++
+      }
+    })
+  return count
 }
-
-
 
 // Iteration #8: Bonus
 const matrix = [
@@ -242,8 +239,6 @@ function greatestProduct(arrMatrix) {
 
   })
 }
-
-
 
 
 // The following is required to make unit tests work.
