@@ -273,18 +273,7 @@ const matrix = [
 
 function greatestProduct(bigArr) {
 
-  let totalArr = 0
-
-  bigArr.forEach(function(elem){
-    let totalsum = 0
-      elem.forEach(function(num){
-        totalSum += num
-      }) totalArr +=1
-          })
-      
-   if () {
-
-   }   
+ 
     
   }
 
