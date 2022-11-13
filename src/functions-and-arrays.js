@@ -169,7 +169,7 @@ const matrix = [
   [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
   [24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
   [32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70],
-  [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21],
+  [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 100],
   [24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72],
   [21, 36, 23, 9, 75, 0, 76, 44, 20, 45, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95],
   [78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 9, 53, 56, 92],
@@ -185,64 +185,37 @@ const matrix = [
 ];
 
 
-
 function greatestProduct(matrix) {
-  let biggest = 0;
-  let xPos = [];
-  let yPos = [];
-  for(y=0; y<matrix.length; y++){
-    for(x=0; x<matrix[y].length; x++){
-      if(matrix[y][x] >= biggest){
-        biggest = matrix[y][x];
-        xPos.push(x);
-        yPos.push(y);
-        if(matrix[yPos[0]][xPos[0]] < biggest){
-          xPos.shift();
-          yPos.shift();
-        }
-      }
-    }
-  }
   let biggestProduct = 0;
   let products = [];
-  let prodSum = 0
-  let temp = biggest;
-
-  for(i=0; i<xPos.length; i++){
+  let prod = 0
+  let temp = 0;
+  for(y=0; y<matrix.length; y++){
+    for(x=0; x<matrix[y].length; x++){
+      temp = matrix[y][x];
+      for(j=1; j<4; j++){
+        prod = temp * matrix[y][x+j];
+        temp = prod;
+      }
+      products.push(prod)
+      temp = matrix[y][x];
+    
     for(j=1; j<4; j++){
-      prodSum = temp * matrix[yPos[i]][xPos[i]+j];
-        temp = prodSum;
-    }
-    products.push(prodSum)
-    temp = biggest;
-    for(j=1; j<4; j++){
-      prodSum = temp * matrix[yPos[i]][xPos[i]-j];
-      temp = prodSum;
-    }
-    products.push(prodSum)
-    temp = biggest;
-    for(j=1; j<4; j++){
-      if(yPos[i] >= 3){
-        prodSum = temp * matrix[yPos[i]-j][xPos[i]];
-        temp = prodSum;
+      if(y <= 16){
+        prod = temp * matrix[y+j][x];
+        temp = prod;
       }
     }
-    products.push(prodSum)
-    temp = biggest;
-    for(j=1; j<4; j++){
-      if(yPos[i] <= 16){
-        prodSum = temp * matrix[yPos[i]+j][xPos[i]];
-        temp = prodSum;
-      }
-    }
-    products.push(prodSum)
-    temp = biggest;
+    products.push(prod)
+    temp = matrix[y][x];
+  }
     for(p of products){
       if(p > biggestProduct) biggestProduct = p;
     }
   }
-return biggestProduct;
+  return biggestProduct;
 }
+
 
 
 function greatestProductOfDiagonals(matrix){
@@ -254,7 +227,6 @@ function greatestProductOfDiagonals(matrix){
     for(x=0; x<matrix[y].length; x++){
       temp = matrix[y][x]
       if(y<=16){
-        
         for(i=1; i<4; i++){
           prod = temp * matrix[y+i][x+i];
           temp = prod;
