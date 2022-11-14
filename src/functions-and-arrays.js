@@ -243,29 +243,22 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+
   let max= 0;
-  for(let i= 0; i<5; i++){
-    for(let j = 0; j<5; j++){
-      if ((j - 3) >= 0)
-      {
-      result = arr[i][j] * arr[i][j - 1]
-      * arr[i][j - 2]
-      * arr[i][j - 3];
-      if (max < result)
-       max = result;
-      }
-      if ((i - 3) >= 0)
-      {
-       result = arr[i][j] * arr[i - 1][j]
-        * arr[i - 2][j]
-        * arr[i - 3][j];
- 
-       if (max < result)
-         max = result;
-      }
+ for (let arr of matrix){
+  for(let i= 0; i< arr.length; i++){
+    if(arr[i]* arr[i+1]* arr[i+2]*arr[i+3] > arr[i+2]*arr[i+3]*arr[i+4]* arr[i+5]){
+      max = arr[i]* arr[i+1]* arr[i+2]*arr[i+3];
+
+    }else if(arr[i+2]*arr[i+3]*arr[i+4]* arr[i+5] > arr[i]* arr[i+1]* arr[i+2]*arr[i+3] ){
+      max = arr[i+2]*arr[i+3]*arr[i+4]* arr[i+5]
+    }
+    else if(arr[i+3] === undefined){
+      break
     }
   }
-  return max;
+ }
+  
 }
 
 
