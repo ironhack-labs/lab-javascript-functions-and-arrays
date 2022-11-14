@@ -62,7 +62,24 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sum = 0;
+  
+ for(let i = 0; i < arr.length; i++){
+  let position = arr[i]
+  if( typeof position === "object" ) throw new Error(`Unsupported data type sir or ma'am`);
+  else if( typeof position === "string"){
+    sum += position.length;
+  }else if( typeof position === "number"){
+    sum += position;
+  }else if(typeof position === "boolean"){
+    sum += +position;
+  }else{
+    sum += position;
+  }
+ }
+ return sum
+}
 
 
 
