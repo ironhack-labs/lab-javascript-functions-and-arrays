@@ -201,7 +201,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes( wordsCount, word) {
+  let acc = 0;
+  if( wordsCount.length === 0){
+    return 0;
+  }
+  else {
+    for(element of wordsCount){
+      if (element === word){
+        acc ++;
+      }
+    }
+    return acc;
+  }
+};
 
 
 
