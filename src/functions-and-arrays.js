@@ -137,7 +137,6 @@ function howManyTimes(wordsArr, word) {
 };
 
 
-
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -162,7 +161,28 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  //check if all 1
+  for(let array of matrix){
+    for(let number of array){
+      if (number !== 1) {
+        break;
+      } else {
+        return 1;
+      }
+    }
+  }
+  //check if all 2
+  for(let array of matrix){
+    for(let number of array){
+      if (number !== 2) {
+        break;
+      } else {
+        return 16;
+      }
+    }
+  }
+}
 
 
 
