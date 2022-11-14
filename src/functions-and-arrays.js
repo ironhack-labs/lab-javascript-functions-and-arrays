@@ -1,24 +1,59 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+    return a > b ?  a : b
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+    if( array.length === 0 ){
+        return null
+    }
+
+    return array.reduce((acc, cur) => {
+        return cur.length > acc.length 
+            ? cur
+            : acc
+    })    
+} 
+
+findLongestWord(words)
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+    if( array.length === 0 ) return 0
+    return array.reduce((acc, cur) => acc + cur)  
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+    if( array.length === 0 ) return 0
+    
+    let total = 0
+
+    for(let i = 0; i < array.length; i++){
+        let cur = array[i]
+        console.log(cur)
+        if(typeof cur === 'object') {
+            throw new Error("Unsupported data type sir or ma'am")
+        }
+        
+        typeof cur === 'string' 
+            ? total += cur.length
+            : total += +cur // implicit conversion boolean & numbers
+    }
+
+    return total
+}
 
 
 
@@ -26,16 +61,37 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+    if( array.length === 0 ) return null
+
+    const average = array.reduce((acc, cur) => acc + cur)  
+    return average / array.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) { 
+    if( array.length === 0 ) return null
+
+    const average = array.reduce((acc, cur) => acc + cur.length, 0)  
+    console.log('')
+    return average / array.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+    if( array.length === 0 ) return null
+
+    const average = array.reduce((acc, cur) => {
+        return typeof cur === 'string' 
+            ? acc + cur.length
+            : acc + cur
+    }, 0)  
+
+    return average / array.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +108,26 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+    const uArray = []
+    if( array.length === 0 ) return null
 
-
+    for (let i = 0; i < array.length; i++){
+        let current = array[i]
+        if(!uArray.includes(current)){
+            uArray.push(current)
+        }
+    }
+    return uArray
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+    if( array.length === 0) return null
+    return array.includes(word)
+}
 
 
 
@@ -78,7 +146,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+    let counter = 0
+    for( i in array){
+        if (array[i] === word) counter++
+    }
+    return counter
+}
 
 
 
@@ -106,7 +180,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+    let greatest = 0
+    let rowGreatest = 0
+    let columnGreatest = 0
+    for( let i = 0; i < array.length; i++){
+        const currentRow = array[i]
+        
+        let row = 0
+
+        for( let x = i; x < array.length; x++){
+            if( currentRow[x+3] === undefined ) break 
+
+            const sectionSum = currentRow[x] * currentRow[x+1] * currentRow[x+2] * currentRow[x+3]
+            const verticalSectionSum = array[i] * array[i+1] * array[i+2] * array[i+3]
+
+            if ( sectionSum > row){
+                row = sectionSum
+            }
+
+            if ( verticalSectionSum > columnGreatest ){
+                columnGreatest = verticalSectionSum
+            } 
+        }
+        rowGreatest = rowGreatest > row ? rowGreatest : row
+        greatest = rowGreatest > columnGreatest ? rowGreatest : columnGreatest
+    }
+    console.log(greatest)
+    return greatest
+}
 
 
 
