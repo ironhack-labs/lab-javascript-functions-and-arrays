@@ -39,8 +39,8 @@ function sumNumbers(numsArr) {
     return numsArr.reduce((a,b) => a+b);
   } else {
     return 0;
-  }
-}
+  };
+};
 
 
 // Iteration #3.1 Bonus:
@@ -57,14 +57,20 @@ function averageNumbers(numsArr) {
     return null;
   } else {
     return sumNumbers(numsArr) / numsArr.length;
-  }
-}
+  };
+};
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(stringArr) {
+  if (stringArr.length === 0) {
+    return null;
+  } else {
+    return sumNumbers(stringArr.map(word => word.length))/stringArr.length;
+  };
+};
 
 // Bonus - Iteration #4.1
 function avg() {}
