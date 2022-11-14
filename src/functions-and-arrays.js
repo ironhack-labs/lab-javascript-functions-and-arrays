@@ -108,11 +108,21 @@ function uniquifyArray(array) {
 }
 
 
-
+/* 
+-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+-.-.-.-.-.-..-.-.-.-.-.-.-.-.-.-.-.-
+*/
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(array, word) {
+  return !array.length ? null : array.includes(word)
+}
+
+/* 
+-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+-.-.-.-.-.-..-.-.-.-.-.--.-.-.-.-.-.
+*/
 
 
 
@@ -131,10 +141,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(array, word) {
+  repeatWord = 0;
+  for (const i of array) {
+    if (word == i) {
+      repeatWord++;
+    }
+  }
+  return !array.length ? 0 : repeatWord;
 
-
-
+}
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -159,8 +175,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct(matrix) {
+  const areOne = (currentValue) => currentValue = 1;
+  let ones = []
+  let two = []
+  for (const array of matrix) {
+    if (array.every(areOne)) {
+      ones.push(1);
+    }
+  }
+  for (const array of matrix) {
+    if (array.every(areTwo)) {
+      two.push(2);
+    }
+  }
 
+  return 1;
+
+}
+
+console.log(greatestProduct(matrix));
 
 
 
