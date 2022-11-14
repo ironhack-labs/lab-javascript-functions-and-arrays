@@ -44,7 +44,24 @@ function sumNumbers(numsArr) {
 
 
 // Iteration #3.1 Bonus:
-function sum(mixedArr) {}
+function sum(mixedArr) {
+  
+  total = 0; 
+  for (let item of mixedArr) {
+    if (typeof(item) === "number") {
+      total += item;
+    } else if (typeof(item) === "string") {
+      total += item.length;
+    } else if (typeof(item) === "boolean") {
+      total += +item;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return total;
+
+  
+};
 
 
 
