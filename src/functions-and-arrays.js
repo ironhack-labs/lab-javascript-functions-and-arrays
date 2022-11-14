@@ -159,7 +159,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let newArr = new Set(wordsUnique);
+  if(wordsUnique.length === 0){
+    return null;
+  }
+
+  let result = [...newArr];
+  return result;
+  
+}
 
 
 
