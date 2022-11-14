@@ -75,6 +75,7 @@ function averageWordLength(stringArr) {
 // Bonus - Iteration #4.1
 function avg() {}
 
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -95,16 +96,20 @@ function uniquifyArray(wordsArr) {
     return null;
   } else {
     return [...new Set(wordsArr)];
-
   };
 };
-
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArr, word) {
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    return wordsArr.includes(word);
+  }
+}
 
 
 
