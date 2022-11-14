@@ -60,9 +60,7 @@ function sum(mixedArr) {
   }
   return total;
 
-  
 };
-
 
 
 // Iteration #4: Calculate the average
@@ -90,7 +88,14 @@ function averageWordLength(stringArr) {
 };
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length !== 0) {
+    return sum(mixedArr) / mixedArr.length;
+  } else {
+    return null;
+  }
+  
+}
 
 
 // Iteration #5: Unique arrays
