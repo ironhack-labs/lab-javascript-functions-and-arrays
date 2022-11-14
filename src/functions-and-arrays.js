@@ -247,18 +247,21 @@ function greatestProduct(matrix) {
   let maxHorizontal= 0;
   let maxVertical = 0;
  for (let arr of matrix){
+
   for(let i= 0; i< arr.length; i++){
     let first = arr[i] * arr[i+1] * arr[i+2] * arr[i+3];
-    
-    if(first > maxHorizontal){
-      maxHorizontal = first;
-    }
-    
-    
-    else if(arr[i+3] === undefined){
+    if(arr[i+3] === undefined){
       break
     }
+    
+    else if(first > maxHorizontal){
+      maxHorizontal = first;
+    }
+
+    
+   
   }
+
    console.log(maxHorizontal)
  }
   
