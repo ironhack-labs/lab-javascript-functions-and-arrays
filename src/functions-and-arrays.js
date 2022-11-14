@@ -257,6 +257,9 @@ function greatestProduct(matrix) {
       break
     }
   }
+
+  
+   console.log(max)
  }
   
 }
