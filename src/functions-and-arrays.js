@@ -108,9 +108,8 @@ function doesWordExist(wordsArr, word) {
     return null;
   } else {
     return wordsArr.includes(word);
-  }
-}
-
+  };
+};
 
 
 // Iteration #7: Count repetition
@@ -128,7 +127,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArr, word) {
+  counter = 0;
+  for (let w of wordsArr) {
+    if (w === word) {
+      counter ++
+    }}
+  return counter;
+};
 
 
 
