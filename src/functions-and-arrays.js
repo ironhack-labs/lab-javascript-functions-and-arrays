@@ -90,7 +90,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    return [...new Set(wordsArr)];
+
+  };
+};
 
 
 
