@@ -34,7 +34,7 @@ function findLongestWord(words) {
     return longest;
     }
     
-  }
+  };
 
 
 
@@ -44,7 +44,20 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let acc = 0;
+  if(numbers.length === 0){
+    return acc;
+  }
+  
+  else if(numbers.length !==0){
+    for(number of numbers){
+      acc += number;
+    }
+    return acc;
+  }
+  
+}
 
 
 
