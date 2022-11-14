@@ -20,7 +20,7 @@ function findLongestWord(array) {
   } else if(array.length == 1){
     return array[0]
   }else {
-    var largest_Str = '';
+    let largest_Str = '';
     array.forEach(function (item) {
     if (item.length > largest_Str.length)
         largest_Str = item
@@ -44,13 +44,13 @@ function sumNumbers(numArr) {
   }else if(numArr.length == 1){
     return numArr[i];
   }else if (nada==0){
-    for(var i=0; i<=numArr.length; i++){
+    for(let i=0; i<=numArr.length; i++){
       if(numArr[i] === 0){
         return 0;
       }
     }
   }else{
-    for(var i=0; i<=numArr.length; i++){
+    for(let i=0; i<=numArr.length; i++){
       if(numArr[i] === ""){
         sumArr += numArr[i];
         return sumArr;
@@ -62,7 +62,7 @@ function sumNumbers(numArr) {
 
 
 // Iteration #3.1 Bonus:
-var add = 0;
+let add = 0;
 function sum(suman) {
   if(suman.length == 0){
     return 0;
