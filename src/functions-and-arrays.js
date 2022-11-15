@@ -137,7 +137,7 @@ function averageWordLength(arrayParam) {
   return averageResult;
 }
 
-//!------------------------------------------ Bonus - Iteration #4.1
+//*------------------------------------------ Bonus - Iteration #4.1
 
 const words1 = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function avg(arrayParam) {
@@ -166,7 +166,7 @@ function avg(arrayParam) {
 
 console.log(avg(words1))
 
-//!---------------------------------------- Iteration #5: Unique arrays
+//*---------------------------------------- Iteration #5: Unique arrays
 const wordsUnique = [
   "crab",
   "poison",
@@ -187,9 +187,9 @@ function uniquifyArray(arrayParam) {
   }
 
   let newArr = [];
-  for (let i = 0; i < array.length; i++) {
-    if (!newArr.includes(array[i])) {
-      newArr.push(array[i]);
+  for(let i of arrayParam){
+    if(!newArr.includes(i)){
+      newArr.push(i)
     }
   }
   return newArr;
@@ -221,7 +221,7 @@ function doesWordExist(arrayParam, wordToSearch) {
   }
 }
 
-//------------------------------ Iteration #7: Count repetition
+//*------------------------------ Iteration #7: Count repetition
 const wordsCount = [
   "machine",
   "matter",
@@ -250,7 +250,7 @@ function howManyTimes(arrayParam, wordToSearch) {
   return counter;
 }
 
-// Iteration #8: Bonus
+//!----------------------------- Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [
@@ -316,7 +316,9 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrixParam) {
+  
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
