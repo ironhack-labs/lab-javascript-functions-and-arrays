@@ -262,7 +262,17 @@ function greatestProduct(matrix) {
   return maxHorizontal;
  }
 
- for(let i=0;i< matrix.length; i++ )
+ for(let i=0;i< matrix.length; i++){
+  let product= arr[i][0]*arr[i+1][0]*arr[i+2][0]*arr[i+2];
+  if(product > maxVertical){
+    maxVertical = product;
+  }
+ }
+ let solution=  maxHorizontal>maxVertical?  maxHorizontal: maxVertical;
+
+ return solution;
+
+
   
 }
 
