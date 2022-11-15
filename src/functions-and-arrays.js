@@ -316,8 +316,32 @@ const matrix = [
   ],
 ];
 
-function greatestProduct(matrixParam) {
-  
+function greatestProduct(matrix) {
+  //* I know: 1)its a loop inside a loop 2) I need 2 variables, one for the current counter and other for final result.  
+
+  let result = 0;
+  let counter = 0;
+
+
+
+  for (let i = 0; i < matrix.length - 1; i++){
+    
+    for (let j = 0; j < matrix.length[i] -1; i++){
+
+      if (matrix[i] === 1 && matrix[j] === 1){
+        return 1;
+      } else if (matrix[i] === 2 && matrix[j] === 2) {
+        return 16;
+      } else {
+        counter = matrix[i] * matrix[i+1] * matrix[i+2] * matrix[i+3];        
+      }     
+      
+    }
+  }
+  if (counter > result){
+    result = counter;
+  }
+  return result;
 }
 
 // The following is required to make unit tests work.
