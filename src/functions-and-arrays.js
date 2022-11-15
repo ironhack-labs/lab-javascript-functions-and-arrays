@@ -23,67 +23,54 @@ const words = [
 ];
 
 function findLongestWord(wordsArr) {
-  if(wordsArr.length === 0) {
+  if (wordsArr.length === 0) {
     return null;
   }
 
-  if(wordsArr.length === 1) {
+  if (wordsArr.length === 1) {
     return wordsArr[0];
   }
 
   let longestWord = "";
 
-
-  wordsArr.forEach(function (word, index){
-    
-    if (longestWord.length < word.length ){
-      longestWord = word 
+  wordsArr.forEach(function (word, index) {
+    if (longestWord.length < word.length) {
+      longestWord = word;
     }
-  })
-    return longestWord;
-
+  });
+  return longestWord;
 }
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-  
-
 function sumNumbers(arrNum) {
- 
-  
-  
+  if (arrNum.length === 0) {
+    return 0;
   }
-  
-
-
-
+  let sum = 0;
+  arrNum.forEach((number, index) => {
+    sum = sum + number;
+  });
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
 
-
-
-
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrNum) {
+  if (arrNum.length === 0) {
+    return null;
+  }
 
-return arrNum[0]
-
-
+  const calculateAverage = sumNumbers(arrNum);
+  return calculateAverage / arrNum.length;
 }
-
-
-
-
-
-
-
-
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -99,7 +86,17 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(arrayStringAvg) {
+  if (arrayStringAvg.length === 0) {
+    return null;
+  }
+  let averageString = [];
+  arrayStringAvg.forEach(function (word) {
+    averageString.push(word.length);
+  });
+
+  return averageNumbers(averageString);
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -119,7 +116,21 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrUnico) {
+  if (arrUnico.length === 0) {
+    return null;
+  }
+
+  let WordArr = [];
+
+  arrUnico.forEach(function (word) {
+    if (!WordArr.includes(word)) {
+      WordArr.push(word);
+    }
+  });
+
+  return WordArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -133,7 +144,13 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(findElement, words) {
+  
+    if (findElement.length === 0) {
+      return null;
+    }
+  }
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
