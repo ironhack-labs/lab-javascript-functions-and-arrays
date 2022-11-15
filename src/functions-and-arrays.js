@@ -179,9 +179,9 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist(arr) {
+function doesWordExist(arr, word) {
   if (arr.length) {
-    return sum(arr) / arr.length;
+    return arr.includes(word);
   }
   return null;
 }
@@ -201,7 +201,18 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  if (arr.length) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        count++;
+      }
+    }
+    return count;
+  }
+  return 0;
+}
 
 // Iteration #8: Bonus
 const matrix = [
