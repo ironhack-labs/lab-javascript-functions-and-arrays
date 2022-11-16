@@ -303,15 +303,19 @@ function greatestProduct(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     // const nestedArray = matrix[i];
     for (let j = 0; j < matrix.length; j++) {
-      let number =
-        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
-      let number2 =
-        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
-      if (number > gratest) {
-        gratest = number;
+      if (j < matrix.length - 3) {
+        let number =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        if (number > gratest) {
+          gratest = number;
+        }
       }
-      if (number2 > gratest) {
-        gratest = number2;
+      if (i < matrix.length - 3) {
+        let number2 =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (number2 > gratest) {
+          gratest = number2;
+        }
       }
     }
   }
