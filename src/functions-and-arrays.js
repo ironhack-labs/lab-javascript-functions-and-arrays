@@ -43,7 +43,22 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+
+function sum(mixedArr) {
+  let counter = 0;
+  for (elem of mixedArr) {
+    if (typeof elem === 'string') {
+      counter += elem.length;
+    } else {
+      counter += elem;
+    }
+  }
+
+  return counter;
+}
 
 
 
@@ -52,6 +67,9 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
   return sumNumbers(numbersAvg) / numbersAvg.length;
 }
 
@@ -59,11 +77,24 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  count = 0;
+  for (number of wordsArr) {
+    count += number.length;
+  }
+  return count / wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
-
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null;
+  }
+  return sum(mixedArr) / mixedArr.length;
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -79,14 +110,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  let uniques = [];
+  for (word of wordsUnique) {
+    if (!uniques.includes(word)) {
+      uniques.push(word);
+    }
+  }
+  return uniques;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, word) {
+  if (words.length === 0) {
+    return null;
+  }
+  for (elem of words) {
+    if (words.includes(word)) {
+      return true;
+    } else if (!words.includes(word)){
+      return false;
+    }
+  }
+}
 
 
 
@@ -105,7 +158,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, word) {
+  let count = 0;
+  for (elem of words) {
+    if (elem === word) {
+      count++;
+    }
+  }
+  return count;
+}
 
 
 
