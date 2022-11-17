@@ -189,7 +189,7 @@ function doesWordExist(words, word) {
   if (!words.length) {
     return null
   }
-  
+
   return words.includes(word)
 }
 
@@ -210,7 +210,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, searchWord) {
+  let countWord = 0;
+  for (let word of words) {
+    if (word === searchWord) {
+      countWord++
+    }
+  }
+  return countWord
+}
 
 
 
