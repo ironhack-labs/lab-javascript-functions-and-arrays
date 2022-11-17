@@ -246,7 +246,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(squareMatrix) {
+  let product = 0;
+  for (let rowIndex = 0; rowIndex < squareMatrix.length; rowIndex++) {
+    for (let colIndex = 0; colIndex < squareMatrix.length; colIndex++) {
+      let tempRowProduct = 0;
+      let tempColProduct = 0;
+      if (squareMatrix.length - colIndex >= 4) {
+        tempRowProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex][colIndex + 1] * squareMatrix[rowIndex][colIndex + 2] * squareMatrix[rowIndex][colIndex + 3]
+      }
+      if (squareMatrix.length - rowIndex >= 4) {
+        tempColProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex + 1][colIndex] * squareMatrix[rowIndex + 2][colIndex] * squareMatrix[rowIndex + 3][colIndex]
+      }
+      if (tempRowProduct > tempColProduct && tempColProduct > product) {
+        product = tempColProduct;
+      } else if (tempColProduct > tempRowProduct && tempColProduct > product) {
+        product = tempColProduct;
+      }
+    }
+  }
+  return product;
+}
 
 
 
