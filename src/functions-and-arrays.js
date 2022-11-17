@@ -5,7 +5,7 @@ function maxOfTwoNumbers(num1, num2) {
   } else if (num1 > num2) {
     return num1;
   } else if (num1 === num2) {
-    return "Both numbers are equal";
+    return num1;
   }
 }
 
@@ -21,7 +21,7 @@ function findLongestWord(words) {
   }
 
   let longestWord = "";
-  for (word of words) {
+  for (let word of words) {
     if (word.length > longestWord.length) {
       longestWord = word;
     }
@@ -49,9 +49,11 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(mixedArr) {
   let counter = 0;
-  for (elem of mixedArr) {
+  for (let elem of mixedArr) {
     if (typeof elem === 'string') {
       counter += elem.length;
+    } else if ( typeof elem === 'object') {
+      throw new Error("Unsupported data type sir or ma'am");
     } else {
       counter += elem;
     }
@@ -81,8 +83,8 @@ function averageWordLength(wordsArr) {
   if (wordsArr.length === 0) {
     return null;
   }
-  count = 0;
-  for (number of wordsArr) {
+  let count = 0;
+  for (let number of wordsArr) {
     count += number.length;
   }
   return count / wordsArr.length;
@@ -115,7 +117,7 @@ function uniquifyArray(wordsUnique) {
     return null;
   }
   let uniques = [];
-  for (word of wordsUnique) {
+  for (let word of wordsUnique) {
     if (!uniques.includes(word)) {
       uniques.push(word);
     }
@@ -132,7 +134,7 @@ function doesWordExist(words, word) {
   if (words.length === 0) {
     return null;
   }
-  for (elem of words) {
+  for (let elem of words) {
     if (words.includes(word)) {
       return true;
     } else if (!words.includes(word)){
@@ -160,7 +162,7 @@ const wordsCount = [
 
 function howManyTimes(words, word) {
   let count = 0;
-  for (elem of words) {
+  for (let elem of words) {
     if (elem === word) {
       count++;
     }
