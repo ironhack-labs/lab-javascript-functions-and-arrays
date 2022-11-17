@@ -48,9 +48,32 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(inputs) {
+  let result = 0;
+  if (inputs.length > 0) {
+    for (let input of inputs) {
+      switch(typeof input) {
+        case 'number':
+          result += input;
+          break;
+        case 'string':
+          result += input.length;
+          break;
+        case 'boolean':
+          if (input) {
+            result++
+          }
+          break; 
+        case 'object':
+          throw new Error("Unsupported data type sir or ma'am")
+          break;
+      }
+     }
+     return result;
+  } else {
+    return 0;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
