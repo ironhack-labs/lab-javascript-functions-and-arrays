@@ -258,10 +258,32 @@ function greatestProduct(squareMatrix) {
       if (squareMatrix.length - rowIndex >= 4) {
         tempColProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex + 1][colIndex] * squareMatrix[rowIndex + 2][colIndex] * squareMatrix[rowIndex + 3][colIndex]
       }
-      if (tempRowProduct > tempColProduct && tempColProduct > product) {
-        product = tempColProduct;
+      if (tempRowProduct > tempColProduct && tempRowProduct > product) {
+        product = tempRowProduct;
       } else if (tempColProduct > tempRowProduct && tempColProduct > product) {
         product = tempColProduct;
+      }
+    }
+  }
+  return product;
+}
+
+function greatestProductDiagonals(squareMatrix) {
+  let product = 0;
+  for (let rowIndex = 0; rowIndex < squareMatrix.length; rowIndex++) {
+    for (let colIndex = 0; colIndex < squareMatrix.length; colIndex++) {
+      let tempRightDiagProduct = 0;
+      let tempLeftDiagProduct = 0;
+      if (squareMatrix.length - colIndex >= 4 && squareMatrix.length - rowIndex >= 4) {
+        tempRightDiagProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex + 1][colIndex + 1] * squareMatrix[rowIndex + 2][colIndex + 2] * squareMatrix[rowIndex + 3][colIndex + 3]
+      }
+      if (colIndex - squareMatrix.length >= 4 && rowIndex - squareMatrix.length >= 4) {
+        tempLeftDiagProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex - 1][colIndex - 1] * squareMatrix[rowIndex - 2][colIndex - 2] * squareMatrix[rowIndex - 3][colIndex - 3]
+      }
+      if (tempRightDiagProduct > tempLeftDiagProduct && tempRightDiagProduct > product) {
+        product = tempRightDiagProduct;
+      } else if (tempLeftDiagProduct > tempRightDiagProduct && tempLeftDiagProduct > product) {
+        product = tempLeftDiagProduct;
       }
     }
   }
