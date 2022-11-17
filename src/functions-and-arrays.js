@@ -277,7 +277,7 @@ function greatestProductDiagonals(squareMatrix) {
       if (squareMatrix.length - colIndex >= 4 && squareMatrix.length - rowIndex >= 4) {
         tempRightDiagProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex + 1][colIndex + 1] * squareMatrix[rowIndex + 2][colIndex + 2] * squareMatrix[rowIndex + 3][colIndex + 3]
       }
-      if (colIndex - squareMatrix.length >= 4 && rowIndex - squareMatrix.length >= 4) {
+      if (squareMatrix.length - colIndex >= 4 && rowIndex >= 4) {
         tempLeftDiagProduct = squareMatrix[rowIndex][colIndex] * squareMatrix[rowIndex - 1][colIndex - 1] * squareMatrix[rowIndex - 2][colIndex - 2] * squareMatrix[rowIndex - 3][colIndex - 3]
       }
       if (tempRightDiagProduct > tempLeftDiagProduct && tempRightDiagProduct > product) {
@@ -289,8 +289,6 @@ function greatestProductDiagonals(squareMatrix) {
   }
   return product;
 }
-
-
 
 
 // The following is required to make unit tests work.
