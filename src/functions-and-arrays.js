@@ -12,21 +12,96 @@ function maxOfTwoNumbers(n,m) {
 }
 
 // Iteration #2: Find longest word
+
+/*Implement the function findLongestWord that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+You can use the following array to test your solution:*/
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord = '';
+
+  for (let wildcard of words){
+
+    if (wildcard.length > longestWord.length){
+      longestWord = wildcard;
+    }
+
+  }
+
+  if (longestWord === ''){
+    longestWord = null;
+  }
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
+
+/*Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+
+Implement the function named sumNumbers that takes an array of numbers as an argument, and returns the sum of all of 
+the numbers in the array. Later in the course we will learn how to do this by using the reduce array method, which will
+ make your work significantly easier. For now, let's practice "declarative" way adding values, using loops.
+*/
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  
+  let sum = 0;
+
+  for (let wildcard of numbers) {
+    sum += wildcard;
+  }
+
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+
+  let sum = 0;
+
+  for (let wildcard of mixedArr){
+    
+    if ( typeof(wildcard) === 'boolean'){
+        
+      if (wildcard === true){
+        
+        sum++;
+      }
+
+    }
+
+    else if ( typeof(wildcard) === 'string'){
+      
+      sum += wildcard.length;
+
+    }
+
+    else if ( typeof(wildcard) === 'number'){
+      
+      sum += wildcard;
+
+    }
+
+    else {
+      throw new Error("Unsupported data type sir or ma'am")// IN PROGRESSSSSSSSSSSSSSSSSSSSSSSSSS
+    }
+
+  }
+
+  
+  return sum;
+}
 
 
 
@@ -34,7 +109,20 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  let result = 0; 
+  
+  if (numbersAvg.length === 0) {
+    result = null;
+  }
+  else {
+    result = sumNumbers(numbersAvg) / numbersAvg.length;
+  }
+
+
+  return result;
+}
 
 
 // Level 2: Array of strings
