@@ -21,7 +21,7 @@ function findLongestWord(words) {
   let longestWord = '';
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > longestWord.length) {
-      longestWord = words[i]
+      longestWord = words[i];
     }
   }
    
@@ -137,9 +137,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
 
-
+  let filteredWords = [];
+  
+  for (let word of wordsUnique) {
+    if (!filteredWords.includes(word)) {
+      filteredWords.push(word);
+    }  
+  }
+  return filteredWords;
+ }
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
