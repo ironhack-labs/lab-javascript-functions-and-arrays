@@ -182,8 +182,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordSearch) {
+  if (wordsCount.length === 0) {
+    return 0;
+  } 
 
+  let count = 0;
+  for (let word of wordsCount) {
+    if (word === wordSearch) {
+      count++;
+    }
+  }
+  return count;
+}
 
 
 // Iteration #8: Bonus
