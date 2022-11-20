@@ -72,7 +72,13 @@ function sum(mixedArray) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg ) {
+  if (numbersAvg.length === 0) {
+    return null;
+  } else {
+    return sumNumbers(numbersAvg) / numbersAvg.length;
+  }
+}
 
 
 // Level 2: Array of strings
