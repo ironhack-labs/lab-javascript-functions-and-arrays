@@ -43,18 +43,25 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(mixedArray) {
-  let sum = 0;
+  
   for (let i = 0; i < mixedArray.length; i++) {
-    if (typeof[i] === 'string'){
+    if (typeof mixedArray[i] === 'object'){
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  } 
+
+  let sum = 0;
+
+  for (let i = 0; i < mixedArray.length; i++) {
+    if (typeof mixedArray[i] === 'string'){
       sum += mixedArray[i].length;
     } else if (mixedArray[i] === true) {
       sum++;
     } else if (mixedArray[i] === false) {
       continue;
-    } else {
-      sum += mixedArray[i];
+    } else if (typeof mixedArray[i] === 'number') {
+      sum += mixedArray[i];  
     }
-    
   }
   return sum;
 }
