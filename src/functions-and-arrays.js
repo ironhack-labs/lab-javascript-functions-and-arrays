@@ -102,16 +102,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(newArrays) {
+function uniquifyArray(newArray) {
   let unique = []
-  if (newArrays.length === 0)
-  return null
-  for(let newArray of newArrays){
-   if(!unique.includes(newArray)){
-    unique.push(newArray)                              
-    return unique
- }
+  if (newArray.length === 0)
+  return null 
+  for(let word of newArray){
+   if(!unique.includes(word)){
+    unique.push(word)                              
 }
+}
+return unique
 }
 
 
@@ -120,7 +120,34 @@ function uniquifyArray(newArrays) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+// function doesWordExist(search) {
+//   let compare = []
+//   if (search.length === 0)
+//   return null 
+//  for (let word of search){
+//   if(!compare.includes(word)){
+//    return true
+//   }else {
+//     return false
+//   }
+//  }
+//  return compare
+// }
+function doesWordExist(words, search) {
+  let compare = []
+  if (words.length === 0)
+  return null
+  for (let word of search) {
+    if(words.includes(search)) {
+    return true
+    } else if (!words.includes(search)) { 
+      return false
+  }
+}
+    return compare 
+}
+
+
 
 
 
@@ -139,7 +166,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(words, search) { 
+  let total = []
+  let count = 0
+  if (words.length === 0)
+  return 0
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === search) {
+       count++
+    } else if (!words.includes(search)) { 
+        return 0
+    }
+  }
+  return count
+}
 
 
 
