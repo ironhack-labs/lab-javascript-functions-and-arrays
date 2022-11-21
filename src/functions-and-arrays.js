@@ -50,21 +50,39 @@ function sum() { }
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(number) {
-  let total = 0;
-  // let average = total / number[i]
-  for (let i = 0; i < number.length; i++) {
-    total += number[i]
+function averageNumbers(numbers) {
+  let average = 0
+  if (numbers.length === 0){
+    return null
+  } else {
+    average = sumNumbers(numbers) / numbers.length
   }
-
-  return total
+  return average
 }
 
+
+    // let negatives = numbersAvg.filter(e => e < 0);
+ 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) { 
+  let total = 0
+  if (words.length === 0)
+  return null
+  
+  for(let i = 0; i < words.length; i++) {
+        total += words[i].length
+      }
+      total = total / words.length
+      
+      return total 
+    }
+    
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() { }
@@ -84,7 +102,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(newArrays) {
+  let unique = []
+  if (newArrays.length === 0)
+  return null
+  for(let newArray of newArrays){
+   if(!unique.includes(newArray)){
+    unique.push(newArray)                              
+    return unique
+ }
+}
+}
+
 
 
 
