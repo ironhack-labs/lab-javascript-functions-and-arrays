@@ -29,7 +29,7 @@ function findLongestWord(words) {
 
 
 
-// Iteration #3: Calculate the sum
+// Iteration #3.1: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
   let sum = 0
@@ -42,8 +42,23 @@ function sumNumbers(numbers) {
 
 
 
-// Iteration #3.1 Bonus:
-function sum() { }
+// Iteration #3.2 Bonus:
+function sum(total) { 
+ let longuest = 0
+ for (let i = 0; i < total.length; i++){ 
+  if (typeof(total[i]) === "string") {
+    longuest += total[i].length
+  } else if (typeof(total[i]) === "number") {
+    longuest += total[i]
+  } else if (typeof(total[i]) === "boolean") {
+    longuest += total[i]
+  } else {
+    throw new Error ("unsupported data type (object or array) present in the array")
+  }
+ }
+  
+ return longuest
+}
 
 
 
@@ -85,7 +100,23 @@ function averageWordLength(words) {
 
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(words) {
+  let total = 0
+  if (words.length === 0)
+  return null
+  for (let i = 0; i < words.length; i++) {
+     total += words[i].length
+   if (typeof(words) === "string") {
+    total += words[i].length
+  } else if (typeof(words) === "number") {
+    total += words[i]
+  } else if (typeof(words) === "boolean") {
+    total += words[i]
+  }
+ }
+  total = total / words.length
+  return total
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
