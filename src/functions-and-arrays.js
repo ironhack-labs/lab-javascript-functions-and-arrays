@@ -28,16 +28,26 @@ const numbersExample = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
   let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];    
+  for (let number of numbers) {
+    sum += number;    
   }
   return sum;
 }
 
-
-
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(items) {
+  let sum = 0;
+  for (let item of items) {
+    if (typeof item === "string") {
+      sum += item.length
+    } else if (typeof item === "boolean" || typeof item === "number") {
+      sum += item
+    } else if (typeof item === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }    
+  return sum;  
+}
 
 
 
@@ -45,16 +55,58 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let average = 0;
+  if (numbers.length === 0) {
+    average = null;
+  } else {
+    average = sumNumbers(numbers) / (numbers.length);   
+  }
+  return average;
+  }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+ let average = 0;
+  if (words.length === 0) {
+    average = null;
+ } else {
+    average = sum(words) / (words.length);
+ }
+ return average;
+}
+
+//otra opción más larga
+
+  /*function averageWordLength(words) {
+    let average = 0;
+    let lengths = [];
+    if (words.length === 0) {
+      average = null;
+  } else {
+      for (let i = 0; i < words.length; i++) {
+        lengths.push(words[i].length);
+      }
+      average = sumNumbers(lengths) / (words.length);
+  }
+  return average;
+  }*/
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(items) {
+  let average = 0;
+  if (items.length === 0) {
+    average = null;
+  } else {
+    average = sum(items) / (items.length);   
+  }
+  return average;
+  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -71,14 +123,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  let uniquifyArray = [];
+  if (words.length === 0) {
+    uniquifyArray = null;
+  }   
+  for (let word of words) {
+    if (!uniquifyArray.includes(word)) {
+      uniquifyArray.push(word)
+    }
+  }
+  return uniquifyArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, word) {
+  if (words.length === 0) {
+    return null;
+  } else if (words.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 
@@ -97,7 +168,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, searchedword) {
+  count = 0;
+    for (let word of words) {
+      if (searchedword === word) {
+        count ++
+      }
+    }
+  return count
+}
 
 
 
