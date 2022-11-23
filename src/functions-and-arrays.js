@@ -224,20 +224,47 @@ const matrix = [
 function greatestProduct(matrix) {
   let result = 0;
 
-for (let i = 0; i < matrix.length-3; i++) {
-  for (let j = 0; j < matrix[i].length-3; j++) {
-  if (result < (matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j])) {
+for (let i = 4; i < matrix.length-3; i++) {
+  for (let j = 4; j < matrix[i].length-3; j++) {
+  
+    if (result < (matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j])) {
       result = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
   }
   
   if(result < (matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3])) {
     result = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
-  }  
+  }     
+  }
+}
+return result;
+}
+
+
+// Iteration #8.2: Bonus
+// No hay tests para el bonus 8.2, en el que se pide que se use la misma lógica que en Bonus 8.1 pero comprobando diagnolaes en todas direcciones. 
+//La dejamos planteada pero, al no haber test, no podemos asegurar que esté correcta.
+
+
+function greatestProductOfDiagonals(matrix) {
+  let result = 0;
+
+for (let i = 0; i < matrix.length-3; i++) {
+  for (let j = 0; j < matrix[i].length-3; j++) {
+  
+    if (result < (matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3])) {
+      result = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+  }
+  
+  if(result < (matrix[i][j] * matrix[i-1][j+1] * matrix[i-2][j+2] * matrix[i-3][j+3])) {
+    result = (matrix[i][j] * matrix[i-1][j+1] * matrix[i-2][j+2] * matrix[i-3][j+3]);
+  } 
     
   }
 }
 return result;
 }
+
+
 
 
 
