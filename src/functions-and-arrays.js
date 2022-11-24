@@ -1,24 +1,46 @@
+//helper functions
+
+const isArrayEmpty = (arr) => Array.isArray(arr) && arr.length === 0
+
+
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return num1 > num2 ? num1 : num2
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+const findLongestWord = (words) => isArrayEmpty(words) ? null : words.reduce((acc, w) => w.length > acc.length ? w : acc)
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumNumbers = (numbers) => isArrayEmpty(numbers) ? 0 : numbers.reduce((acc, n) => acc + n, 0)
 
-function sumNumbers() {}
 
+
+// Bonus: Calculate the average of a mixed elements array
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+// ! test file expects (line 124) this very specific  Error("Unsupported data type sir or ma'am") => maybe test  should be updated to be more generic. Otherwise, it is impossible to pass the test without checking the test file.
+
+
+const sum = (arr) => isArrayEmpty(arr) ? 0 : arr.reduce((acc, item) => {
+  switch (typeof item) {
+    case "string": return acc + item.length
+    case "boolean": return acc + item
+    case "number": return acc + item
+    default: throw new Error("Unsupported data type sir or ma'am") // check comment above function
+  }
+}, 0)
+
+
 
 
 
@@ -26,16 +48,47 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  const sumAll = arr.reduce((acc, n) => acc + n, 0)
+  const average = sumAll / arr.length
+  return isArrayEmpty(arr) ? null : average
+}
+
+
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  const sumWords = arr.reduce((acc, n) => acc + n, "")
+  const averageLength = sumWords.length / arr.length
+  return isArrayEmpty(arr) ? null : averageLength
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+
+
+function avg(arr) {
+  const sumAll = arr.reduce((acc, item) => {
+    switch (typeof item) {
+      case "string": return acc + item.length
+      case "boolean": return acc + item
+      case "number": return acc + item
+      default: throw new Error("error") // check comment above function
+    }
+  }, 0)
+  const average = sumAll / arr.length
+  return isArrayEmpty(arr) ? null : average
+
+}
+
+
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +105,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  return isArrayEmpty(arr) ? null : arr.filter((word, index) => arr.indexOf(word) === index)
+
+
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  return isArrayEmpty(arr) ? null : arr.includes(word)
+}
+
+
 
 
 
@@ -78,7 +140,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+
+  return isArrayEmpty(arr) ? 0 : arr.filter((w) => w === word).length
+
+}
 
 
 
@@ -106,7 +172,16 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+
+
+// should declare a function named greatestProduct
+// should return 1 (one) when all numbers of the arrays are 1
+// should return 16 when all the numbers of the arrays are 2
+
+function greatestProduct() {
+
+
+}
 
 
 
