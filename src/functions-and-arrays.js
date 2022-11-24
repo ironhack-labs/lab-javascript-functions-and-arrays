@@ -38,16 +38,69 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(someArray) {
+  if (someArray.length === 0) {
+    return 0;
+  }
+  if (someArray.length === 1) {
+    return someArray[0];
+  }
+  for(let i = 0; i < someArray.length; i++) {
+    if(someArray[i] !== 0) {
+      break;
+    } else {
+      return 0;
+    }
+  }
+  let sum = 0;
+  for (let i = 0; i < someArray.length; i++) {
+      if (typeof i === "number") {
+        sum += someArray[i];
+      }
+  }
+  if (sum !== 0) {
+    return sum;
+  }
+  /*
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    console.log(numbers[i]);
+      sum = sum + numbers[i];
+  }
+  let sumAsArray = sum.toString().split('');
+  for (i = 0; i < sumAsString.length; i++){
+    sumAsArray[i] = +sumAsArray[i]
+  } 
+  return sumAsArray;
+  */
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(someArray) {
+  if (someArray.length === 0) {
+    return 
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someArray) {
+  if (someArray.length === 0) {
+    return null;
+  }
+  if (someArray.length === 1) {
+    return someArray[0];
+  }
+  let sum = 0;
+  let average = 0;
+  for (let i = 0; someArray.length; i++) {
+    sum += someArray[i];
+  }
+  average = sum / someArray.length;
+  return average;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
