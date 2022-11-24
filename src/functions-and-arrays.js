@@ -20,6 +20,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(words) {
   let longestWord = ""
   let occurrence = 0
+
   if (words.length === 0){
     return null
    }
@@ -40,6 +41,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(number) {
   let sumCalculation = 0
+
   for (let i = 0; i < number.length; i++){
    sumCalculation += number[i];    
   }
@@ -50,7 +52,7 @@ function sumNumbers(number) {
 
 // Iteration #3.1 Bonus:
 
-//working on it
+//it is wrong, I still need to work on it
 function sum (number) {
   let sumCalculation = 0
 
@@ -69,6 +71,8 @@ function sum (number) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers (numbersAvg) {
+  let average = 0;
+  
     if (numbersAvg.length === 0) {
       return null;
     } else {
@@ -82,6 +86,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength (wordsArr) {
   let sumLength = 0;
+
   if (wordsArr.length === 0) {
     return null; 
   } for ( let i = 0; i < wordsArr.length; i ++) {
@@ -108,14 +113,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray (array) {
+  let newArray = [];
+
+  if (array.length === 0) {
+    return null
+  } for (let i = 0; i < array.length; i++) {
+    let newWord = array[i];
+
+    if (newArray.indexOf(newWord) < 0) {
+        newArray.push(newWord)
+    }
+  }
+  return newArray
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayWords, word) {
+  if (arrayWords.length === 0) {
+    return null;
+  } else {
+    return arrayWords.includes (word)
+  }
+}
 
 
 
@@ -134,7 +158,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayWords, word) {
+  let count  = 0;
+  for (let newWord of arrayWords) {
+  if (newWord === word) {
+    count ++
+  }
+ }
+  return count;
+}
 
 
 
