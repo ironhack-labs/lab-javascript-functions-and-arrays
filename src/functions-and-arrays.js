@@ -1,24 +1,71 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b){
+  if (a>b){
+    return a;
+  }else if (a<b){
+    return b;
+  }else{
+    return a;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  let longestWord = ""
+
+  if(array.length === 0){
+    return null;
+  }
+  for(let word of array){
+    
+    if(word.length>longestWord.length){
+      longestWord = word
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let total=0;
+  
+  
+  for(let num of array ){
+    
+      	total+= num;
+  
+}
+return total;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let total= 0;
+  
+  for(let num of array ){
+    
+    if(typeof num == "number"){
+      total+= num;
+    }else if(typeof num == `string`){
+      total+= num.length
+    }else if((typeof num == "boolean") && num ){
+      total+=1
+  }else if(typeof num == `object`){
+    return error
+  }
+}
+return total
+}
 
 
 
@@ -26,16 +73,41 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let solution= sumNumbers(array) / array.length;
+return solution;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) { 
+  let numberOfLetters = 0;
+  for(let word of array){
+    numberOfLetters += word.length;
+  }
+  let sol = numberOfLetters/array.length;
+  return sol;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  let sumTotal = 0
+  for(let element of array){
+    if(typeof element === 'number'){
+      sumTotal += element
+    }else if(typeof element === "boolean" && element === true){
+      sumTotal ++;
+      
+    }else if(typeof element === "string"){
+      sumTotal += element.length;
+    }
+
+  }
+  let sol = sumTotal / array.length
+  return sol 
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -51,15 +123,55 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+// -------------------------------------the hard way
+function uniquifyArray2(array) {
 
-function uniquifyArray() {}
+  let sol = array
+ // first i loop through the array
+  for(let i=0;i<sol.length;i++){
+   let word = sol[i] // now we get one word whit index i 
+     for(let j=0; j<sol.length; j++){ 
+      //now we compare the word with every word in the array `sol`, if the words are the same and its index are diferent we remove the last object.
+        if( sol[j] === word  && i !== j){
+          console.log(sol[j])
+          sol.splice(j,1)
+           
+        } 
+      }
+   
+
+    }
+    return sol;
+}
+
+// -------------------------------------the easy way
+  function uniquifyArray(array){
+    sol=[]
+    for(let element of array)
+
+      if(!sol.includes(element)) {
+        sol.push(element)
+      }  
+      
+
+      return sol
+  }
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array,word) {
+ for(element of array){
+  if (array.includes(word)){
+    return true;
+  }else{
+    return false
+  }
+ }
+
+}
 
 
 
@@ -78,7 +190,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array,word) {
+  let counter=0
+
+  array.forEach(function(element){
+ 
+    if (element === word){
+      counter++
+    }
+  })
+  return counter
+
+}
 
 
 
@@ -106,7 +229,52 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+  let sol= []
+  
+  let value1 = 0
+  let value2 = 0
+
+//first we check horizontaly
+  for(let j=0; j<matrix.length;j++){
+
+  //we compare the sol in one array 
+    for(let i=3;i<matrix[j].length;i++){
+        let hor1 =[matrix[j][i-3],matrix[j][i-2],matrix[j][i-1],matrix[j][i]]
+        let value2 = matrix[j][i] * matrix[j][i-1]* matrix[j][i-2] * matrix[j][i-3] 
+
+            if(value2 > value1){
+              value1 = value2
+              sol= hor1
+            }
+
+    }
+
+  }
+
+  // now we check verticaly
+  for(let v=0; v<matrix.length;v++){
+
+     
+      for(let j=3;j<matrix.length;j++){
+          let ver1 =[matrix[j-3][v],matrix[j-2][v],matrix[j-1][v],matrix[j][v]]
+          let value2 = matrix[j-3][v] * matrix[j-2][v] * matrix[j-1][v] * matrix[j][v] 
+              if(value2 > value1){
+                value1 = value2
+                sol= ver1
+              }
+  
+    }
+  
+  }
+  
+return (value1)
+
+}
+
+
+console.log(greatestProduct(matrix))
 
 
 
