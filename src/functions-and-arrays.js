@@ -1,38 +1,139 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1,num2) {
+  if(num1<num2){
+    return num2;
+  } else if(num1>num2){
+    return num1;
+  }else{
+    return num1;
+  }
+  }
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let longestWord="";
+  let longestWordArr=[];
+  for(let i=0; i<arr.length;i++){
+    if(arr[i].length>longestWord.length){
+      longestWord=arr[i];
+    }
+    longestWordArr.push(longestWord);    
+  }  
+  
+  if(longestWordArr.length===0){
+    return null;
+  }else if(longestWordArr.length===1){
+    return longestWord;
+  }else if(longestWordArr.length>1){
+    return longestWordArr[0];
+  }else{
+    return longestWordArr;
+  }
+}
+  findLongestWord(words);
 
+
+  
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  
+  for(let i=0;i<arr.length;i++){
+    let sumNum=0;
+    sumNum+=arr[i];
+    return sumNum; 
+  }
+  if(arr.length===0){
+    return 0;
+  }else if(arr.length===1){
+    return arr[0];
+  }else if(arr[i]===0){
+    return 0;
+  }else{
+    return sumNum;
+  }
+  } 
+
+sumNumbers(numbers);
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(arr) {
+for(let i=0;i<arr.length;i++){
+  let sumNum=0;
+  sumNum+=arr[i];
+  return sumNum; 
+}
+if(arr.length===0){
+  return 0;
+}else if(arr.length===1){
+  return arr[0];
+}else if(arr[i]===0){
+  return 0;
+}else if(Array.isArray(arr[i])===`array`||typeof arr[i]===`object`){
+  return error;
+}else if(typeof arr[i]===`number`){
+  return sumNum;
+}else if(typeof arr[i]===`string`){
+  sumNum += arr[i].length;
+  return sumNum;
+}else if(typeof arr[i]===`number`||typeof arr[i]===`string`){
+  return sumNum;
+}
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  for(let i=0;i<arr.length;i++){
+    let sumNum=0;
+   
+    sumNum += arr[i];
+    let result=sumNum/arr.length;
+    
+    if(arr.length===0){
+      return null;
+    }else{
+      return sumNum;
+    }
+           
+    }     
+     }  
+  averageNumbers(numbersAvg);
+ 
+ 
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  for(let i=0;i<arr.length;i++){
+    let sumNum=0;
+   
+    sumNum += arr[i].length;
+    let result=sumNum/arr.length;
+    
+    if(arr.length===0){
+      return null;
+    }else if(arr.length===1){
+      return arr[0].length;
+    }else{
+      return result;
+    }
+    
+  }
+ }
+ averageWordLength(wordsArr);
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +153,43 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let uniqArray=[];
+  arr.forEach(function(elementArr){
+    if(!uniqArray.includes(elementArr)){
+      uniqArray.push(elementArr);
+      if(arr.length===0){
+        return null;
+      }else if(!arr.length===0){
+        return uniqArray;
+      }
+    }
+    else{
+      return arr;
+    }
+  })
+  
+};
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr) {
+  let searchElement="";
+  for(let i=0;i<arr.length;i++){
+  if(arr.length===0){
+    return null;
+  }else if(arr.length===1&&searchElement===arr[0]){
+  return true;
+  }else if(arr.indexOf(arr[i])===-1){
+    return false;
+  }else if(arr.indexOf(arr[i])!==-1){
+    return true;
+  }
+  }
+}
 
 
 
@@ -78,7 +208,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr) {
+  let i={};
+  arr.forEach(function(i){counts[i]=(counts[i]||0)+1;});
+  return i;
+}
 
 
 
