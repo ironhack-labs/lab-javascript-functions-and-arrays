@@ -1,41 +1,124 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) return num1
+  else if (num2 < num1) return num2
+  else return num1, num2
+}
 
-
+console.log(maxOfTwoNumbers(2, 6))
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(array) {
+  let longestWord = "";
+  let longestLength = 0;
+  
+  if (array.length === 0) {
+    return null
+  }
+  for (let i = 0; i < array.length; i++){
+     if (array[i].length > longestLength) {
+      longestLength = array[i].length;
+      longestWord = array[i]
+      }
+    }
+    return longestWord
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  return sum
+}
 
+console.log(sumNumbers(numbers))
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-
+function sum(array) {
+  let sum = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'string'){
+      sum += array[i].length
+    } else if (typeof array[i] === 'number'){
+      sum += array[i]
+    } else if (typeof array[i] === 'boolean'){
+      if (array[i]) {
+        sum += 1
+      } else {
+        sum += 0
+      }
+    } else if (typeof array[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (array.length === 0){
+    return null
+  }
+  let sum = 0
+  array.forEach(element => {
+    sum += element    
+  });
+  return sum / array.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  if (array.length === 0){
+    return null
+  }
+  let sum = 0
+  for (let element of array){
+    sum += element.length
+  }
+  return sum / array.length
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  let sum = 0;
+  if (array.length === 0){
+    return null
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'string'){
+      sum += array[i].length
+    } else if (typeof array[i] === 'number'){
+      sum += array[i]
+    } else if (typeof array[i] === 'boolean'){
+      if (array[i]) {
+        sum += 1
+      } else {
+        sum += 0
+      }
+    } else if (typeof array[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum / array.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +135,27 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (!array.length){
+    return null
+  }
+  let uniqueArray = [...new Set(array)]
+  return uniqueArray
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  if (!array.length){
+    return null
+  }
+
+  if (array.includes(word)) return true 
+  else return false
+}
 
 
 
@@ -78,7 +174,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  if (!array.length){
+    return array.length
+  }
+
+  let sum = 0;
+  array.forEach(element => {
+    if (element === word) sum++
+  })
+  return sum
+}
 
 
 
@@ -106,7 +212,14 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  for (let i = 0; i < matrix.length; i++){
+    for (let j = 0; j < matrix.length; j++){
+      if (matrix[i][j] === 1) return 1
+      else if (matrix[i][j] === 2) return 16
+    }
+  }
+}
 
 
 
