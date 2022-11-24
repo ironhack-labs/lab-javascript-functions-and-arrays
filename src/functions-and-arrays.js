@@ -79,11 +79,11 @@ function sum(arrayOfNumbers) {
 
 
 // Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// Level 1: Array of numbers// COMPLETED 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayOfNumbers) {
-  if (arrayOfNumbers.length === 0) {
+ if (arrayOfNumbers.length === 0) {
     return null;
   }
   else if (arrayOfNumbers.length === 1) {
@@ -91,35 +91,60 @@ function averageNumbers(arrayOfNumbers) {
   }
   else {
     let total = 0;
+    let average = 0;
     for (let i = 0; i < arrayOfNumbers.length; i++) {
       total = total + arrayOfNumbers[i];
-    }
-    let average = total / arrayOfNumbers.lenght;
-    return average;
+      }
+    average = total/arrayOfNumbers.length;
+    return average
   }
 }
-  
-// Level 2: Array of strings
+
+
+/*--------------------------DONE------------------------------*/
+
+// Level 2: Array of strings// Completed
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) {
-  if (array.length === 0) {
+if (array.length === 0) {
     return null;
   }
+  else if (array.length === 1){
+    return array[0].length;
+  }
+  else {
+    let sum = 0;
+    let average = 0;
+    for (let i = 0; i < array.length; i++){
+      sum = sum + array[i].length;
+    }
+    average = sum/array.length
+    return average
+  }
 }
-// Bonus - Iteration #4.1
+
+/*----------------------------DONE-------------------------------*/
+
+// Bonus - Iteration #4.1 //Worked In CodePen
 function avg(array) {
   if (array.length === 0) {
     return null;
   }
-  else if (array.length > 1){
+  else {
+    for (let i = 0; i < array.length; i++){
+      if (typeof array[i] !== "number"){
+        array[i] = Number(array[i]);
+      }
+    }
+    console.log(array)
     let sum = 0;
-    let avg = 0;
-    for (let i = 0; i < array.lenght; i++){
+    let average = 0;
+    for (let i = 0; i < array.length; i++){
       sum = sum + array[i];
     }
-    avg = sum / (array.length - 1);
-    return avg;
+    average = sum/array.length
+    return average
   }
 }
 
@@ -146,16 +171,24 @@ function uniquifyArray(array) {
 
 
 
-// Iteration #6: Find elements
+// Iteration #6: Find elements// COMPLETED
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(array) {
-   if (array.length === 0) {
+function doesWordExist(array, word) {
+  if (array.length === 0) {
     return null;
   }
+  else if (array.length === 1 && array.indexOf(word) === 0) {
+    return true;
+  }
+  else if (array.indexOf(word) === -1) {
+    return false;
+  }
+  else if (array.indexOf(word) >= 0)
+    return true;
 }
 
-
+/*-------------------DONE---------------------------*/
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -204,9 +237,33 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
+function greatestProduct(array) {
   if (array.length === 0) {
     return 0;
+  }
+  else {
+    let howManyOnes = 0;
+    let howManyTwos = 0;
+    let howManyElements = 0;
+    for(let i = 0; i < array.length; i++){
+      for(let j = 0; j < array[i].length; j++){
+        howManyElements = howManyElements + 1;
+        if(matrix[i][j] === 1){
+          howManyOnes = howManyOnes + 1
+        }
+        else if(matrix[i][j] === 2){
+          howManyTwos = howManyTwos + 1;
+        }
+      }
+     } 
+    if (howManyElements === howManyOnes){
+      return 1;
+    }
+    else if(howManyElements === howManyTwos){
+      return 16;
+    }
+    
+   
   }
 }
 
