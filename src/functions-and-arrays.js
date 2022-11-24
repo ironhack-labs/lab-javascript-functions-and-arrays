@@ -57,12 +57,32 @@ function sumNumbers(arr) {
 }
 
 let result = sumNumbers(numbers);
-console.log(result);
+//console.log(result);
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const newNumber = [6, 12, 1, 18, "13", 16, 2, 1, 8, 10, true];
+
+function sum(arr) {
+  let sum=0;
+  /*
+  arr.forEach(number => {
+    sum += number;
+  });*/
+  for (let i=0; i<arr.length; i++){
+    if (typeof arr[i] === "number"){
+      sum += arr[i];
+    } else if (typeof arr[i] === "string" || typeof arr[i] ==="boolean"){
+      sum += Number(arr[i]);
+    } 
+  }
+   
+  return sum;
+}
+
+let result1 = sum(newNumber);
+console.log(result1);
 
 
 
@@ -70,7 +90,17 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let sum=0;
+  if (arr.length === 0){
+    return null;
+  }
+  
+  arr.forEach(number => {
+    sum += number;
+  });
+  return sum/arr.length;
+}
 
 
 // Level 2: Array of strings
