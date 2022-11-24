@@ -1,24 +1,80 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+// Iteration #1: Find the maximum//COMPLETED
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  else if (num1 < num2) {
+    return num2;
+  }
+  else {
+    return num1;
+  }
+}
+/*---------------------DONE------------------------------------*/
 
-
-
-// Iteration #2: Find longest word
+// Iteration #2: Find longest word// COMPLETED
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  let longestWord = array[0];
+  if (array.length === 0) {
+    return null;
+  }
+  else if (array.length === 1) {
+    return array[0];
+  }
+  else {
+    let longestWord = "";
+    array.forEach(findLongestWord);
 
+    function findLongestWord(word) {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    }
+    return array[array.indexOf(longestWord)];
+  }
+}
+/* --------DONE-----------------*/
+// Iteration #3: Calculate the sum//COMPLETED
 
-
-// Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayOfNumbers) {
+  if (arrayOfNumbers.length === 0) {
+    return 0;
+  }
+  else if (arrayOfNumbers.length === 1) {
+    return arrayOfNumbers[0];
+  }
+  else {
+    let sum = 0;
+    for (let i = 0; i < arrayOfNumbers.length; i++){
+      sum = sum + arrayOfNumbers[i];
+    }
+    return sum;
+  }
+}
 
-
+/*----------------DONE------------------------*/
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arrayOfNumbers) {
+  if (arrayOfNumbers.length === 0) {
+    return 0;
+  }
+  else if (arrayOfNumbers.length === 1) {
+    return arrayOfNumbers[0];
+  }
+  else {
+    let sum = 0;
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+      arrayOfNumbers[i] = Number(arrayOfNumbers[i])
+      sum = sum + arrayOfNumbers[i];
+    }
+    return sum
+  }
+}
 
 
 
@@ -26,16 +82,46 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
-
+function averageNumbers(arrayOfNumbers) {
+  if (arrayOfNumbers.length === 0) {
+    return null;
+  }
+  else if (arrayOfNumbers.length === 1) {
+    return arrayOfNumbers[0];
+  }
+  else {
+    let total = 0;
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+      total = total + arrayOfNumbers[i];
+    }
+    let average = total / arrayOfNumbers.lenght;
+    return average;
+  }
+}
+  
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(array) {
+  if (array.length === 0) {
+    return null;
+  }
+}
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array.length === 0) {
+    return null;
+  }
+  else if (array.length > 1){
+    let sum = 0;
+    let avg = 0;
+    for (let i = 0; i < array.lenght; i++){
+      sum = sum + array[i];
+    }
+    avg = sum / (array.length - 1);
+    return avg;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +138,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+   if (array.length === 0) {
+    return null;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array) {
+   if (array.length === 0) {
+    return null;
+  }
+}
 
 
 
@@ -78,7 +172,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array) {
+   if (array.length === 0) {
+    return 0;
+  }
+}
 
 
 
@@ -106,7 +204,11 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+  if (array.length === 0) {
+    return 0;
+  }
+}
 
 
 
