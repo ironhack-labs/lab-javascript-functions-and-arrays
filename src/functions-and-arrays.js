@@ -47,13 +47,22 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(numbers) {
-  let value = null;
+  let value = 0;
+  const total = [];
   if (numbers != '') {
-    // still to do
+    numbers.forEach(function (number, index) {
+      value += number;
+    });
+    total.push(value);
+    return total;
+  } else if (numbers.length === 0) {
+    return value;
   } else {
+    value = null;
     return value;
   }
 }
+/// Finally ended here... ran out of time!
 
 
 
