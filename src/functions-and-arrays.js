@@ -49,7 +49,7 @@ function sumNumbers(arrayOfNumbers) {
   }
   else {
     let sum = 0;
-    for (let i = 0; i < arrayOfNumbers.length; i++){
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
       sum = sum + arrayOfNumbers[i];
     }
     return sum;
@@ -83,7 +83,7 @@ function sum(arrayOfNumbers) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrayOfNumbers) {
- if (arrayOfNumbers.length === 0) {
+  if (arrayOfNumbers.length === 0) {
     return null;
   }
   else if (arrayOfNumbers.length === 1) {
@@ -94,8 +94,8 @@ function averageNumbers(arrayOfNumbers) {
     let average = 0;
     for (let i = 0; i < arrayOfNumbers.length; i++) {
       total = total + arrayOfNumbers[i];
-      }
-    average = total/arrayOfNumbers.length;
+    }
+    average = total / arrayOfNumbers.length;
     return average
   }
 }
@@ -107,19 +107,19 @@ function averageNumbers(arrayOfNumbers) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) {
-if (array.length === 0) {
+  if (array.length === 0) {
     return null;
   }
-  else if (array.length === 1){
+  else if (array.length === 1) {
     return array[0].length;
   }
   else {
     let sum = 0;
     let average = 0;
-    for (let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       sum = sum + array[i].length;
     }
-    average = sum/array.length
+    average = sum / array.length
     return average
   }
 }
@@ -132,18 +132,18 @@ function avg(array) {
     return null;
   }
   else {
-    for (let i = 0; i < array.length; i++){
-      if (typeof array[i] !== "number"){
+    for (let i = 0; i < array.length; i++) {
+      if (typeof array[i] !== "number") {
         array[i] = Number(array[i]);
       }
     }
     console.log(array)
     let sum = 0;
     let average = 0;
-    for (let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       sum = sum + array[i];
     }
-    average = sum/array.length
+    average = sum / array.length
     return average
   }
 }
@@ -164,7 +164,7 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(array) {
-   if (array.length === 0) {
+  if (array.length === 0) {
     return null;
   }
 }
@@ -190,7 +190,7 @@ function doesWordExist(array, word) {
 
 /*-------------------DONE---------------------------*/
 
-// Iteration #7: Count repetition
+// Iteration #7: Count repetition// COMPLETED
 const wordsCount = [
   'machine',
   'matter',
@@ -205,13 +205,25 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(array) {
-   if (array.length === 0) {
+function howManyTimes(array, word) {
+if (array.length === 0) {
     return 0;
   }
+  else if (array.indexOf(word) === -1) {
+    return 0;
+  }
+ else {
+   let sum = 0; 
+   for ( let i = 0; i < array.length; i++){
+     if(array[i] === word){
+       sum++;
+     }
+   }
+    return sum;
+ }
 }
 
-
+/*----------------------------------------Done--------------------------*/
 
 // Iteration #8: Bonus
 const matrix = [
@@ -238,33 +250,31 @@ const matrix = [
 ];
 
 function greatestProduct(array) {
-  if (array.length === 0) {
+ if (array.length === 0) {
     return 0;
   }
   else {
     let howManyOnes = 0;
     let howManyTwos = 0;
     let howManyElements = 0;
-    for(let i = 0; i < array.length; i++){
-      for(let j = 0; j < array[i].length; j++){
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array[i].length; j++) {
         howManyElements = howManyElements + 1;
-        if(matrix[i][j] === 1){
+        if (matrix[i][j] === 1) {
           howManyOnes = howManyOnes + 1
         }
-        else if(matrix[i][j] === 2){
+        else if (matrix[i][j] === 2) {
           howManyTwos = howManyTwos + 1;
         }
       }
-     } 
-    if (howManyElements === howManyOnes){
+    }
+    if (howManyElements === howManyOnes) {
       return 1;
     }
-    else if(howManyElements === howManyTwos){
+    else if (howManyElements === howManyTwos) {
       return 16;
     }
-    
-   
-  }
+  } 
 }
 
 
