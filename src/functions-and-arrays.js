@@ -224,6 +224,14 @@ function greatestProduct(matrix) {
       }
     }
   }
+  for ( let i = 0; i < 2; i++ ){ //vertical
+    for ( let j = 0; j <= vLength; j++ ){
+      tempProduct = matrix[j][i]*matrix[j+1][i]*matrix[j+2][i]*matrix[j+3][i];
+      if (tempProduct > maxProduct) {
+        maxProduct = tempProduct;
+      }
+    }
+  }
   console.log(maxProduct);
 };
 
