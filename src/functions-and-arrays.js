@@ -72,9 +72,9 @@ function sum(arrayOfNumbers) {
       if (typeof arrayOfNumbers[i] === "boolean") {
         sum += arrayOfNumbers[i];
       }
-      /*if (typeof arrayOfNumbers[i] === "object") {
+      if (typeof arrayOfNumbers[i] === "object") {
         throw Error("Unsupported data type sir or ma'am");
-      }*/
+      }
     }
     return sum;
   }
@@ -135,26 +135,26 @@ function averageWordLength(array) {
 /*----------------------------DONE-------------------------------*/
 
 // Bonus - Iteration #4.1 //Worked In CodePen
-function avg(array) {
-  let average = 0;
-  let sum2 = 0;
-  if (array.length === 0) {
+
+function avg(arr) {
+  if (arr.length === 0) {
     return null;
   } else {
     let sum = 0;
-    for (let i = 0; i < array.length; i++) {
-      array[i] = Number(array[i]);
-      sum = sum + array[i];
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "number") {
+        sum += arr[i];
+      }
+      if (typeof arr[i] === "string") {
+        sum += arr[i].length;
+      }
+      if (typeof arr[i] === "boolean") {
+        sum += arr[i];
+      }
     }
-    console.log(array);
-    for (let i = 0; i < array.length; i++) {
-      sum2 = sum2 + array[i];
-    }
+    return sum / arr.length;
   }
-  average = sum2 / array.length;
-  return average;
 }
-
 // Iteration #5: Unique arrays
 const wordsUnique = [
   "crab",
