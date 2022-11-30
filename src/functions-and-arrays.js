@@ -1,19 +1,64 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numero1,numero2) {
+  console.log("El numero mayor es", numero1, numero2)
+  // Comparar el numero1 con el numero2
+  // 1) if si el numero1 es mayor al numero2 regrese el numero1
+  // 2) si el numero2 es mayor al numero1 regrese e; numero2
+  // Regresda cualquier si son el mismo valor
+
+  // return condicional
+  if( numero1 > numero2) {
+    return numero1
+  } else{
+    return numero2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+// contar caracteres --> proceso que tengo que repetir
+function findLongestWord(letters) {
+      console.log(letters)
+
+    if (letters.length == 0) {
+      return null
+    }
+
+    let laPalabraMasLarga = ""
+
+    for(let index = 0; index < letters.length; index++){
+     // arreglo[posicion]-> accedemos al contenido de arreglo
+     let letter = letters[index]
+     if (letter.length > LaPalabraMasLarga.length) {
+        laPalabraMasLarga = letters
+     }
+       return laPalabraMasLarga
+    }
+      
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numeros) {
+
+  if (numeros.length == 0) {
+    return 0
+  }
+
+  let contador = 0
+  for(let posicion = 0; posicion < numeros.length; posicion++) {
+    console.log(numeros[posicion])
+    contador += numeros[posicion]
+  }
+  return contador
+}
+
 
 
 
