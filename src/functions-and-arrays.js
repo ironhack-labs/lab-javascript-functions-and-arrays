@@ -18,12 +18,10 @@ function findLongestWord(words) {
 if (words.length === 0) return null;
   else if (words.length === 1) return words[0]
   else if (words.length > 1) return sortedWords[0]
-  else if (multipleOccurrences.length > 1) //if array contains more than one word, return the first occurrence of longest word
+  else if (words.indexOf(sortedWords[0]) != words.lastIndexOf(sortedWords[0])) //if items appear at more than one places in the array
   return words.indexOf(sortedWords[0])
 
-
 }
-
 
 
 // Iteration #3: Calculate the sum
@@ -41,61 +39,94 @@ function sumNumbers(numbers) {
     return sum
   }
   else {}
-
 }
-
-
 
 // Iteration #3.1 Bonus:
 function sum(input) {
   let sum = 0;
+
   if (input.length === 0) return 0
   else if (input.length === 1) return input[0]
   else if (input.every(entry => entry === 0)) return 0
-  else if (input.some(entry => typeof(entry) === 'number')) return input.reduce((a,b) => a+b, 0)
-  else if (input.some(entry => typeof(entry) === 'string')) {
-    for (let i = 0; i < input.length; i++) {
-      sum = sum + input[i].length;
-    }
-    return sum
-  }
-  else if (input.some(entry => typeof(entry) === 'number' && typeof(entry) === 'string')) {
-    for (let i = 0; i < input.length; i++) {
-      if (typeof(input[i]) === 'number') {
-        sum = sum + input[i]
-      } else if (typeof(input[i]) === 'string') {
-        sum = sum + input[i].length
-      }
-    }
-    return sum
-  }
-  else if (input.every(entry => entry === 0)) return 0
-  else if (input.some(entry => typeof(entry) === 'object' || typeof(entry) === 'array' )) {console.error} //works, how to throw error?
 
+try {
+  input.forEach((item) => {
+    if (typeof item === 'object') {
+      throw "Unsupported data type present!"
+    } else if (typeof item === 'number') {
+      sum = sum + item
+    } else if (typeof item === 'string') {
+      sum = sum + item.length
+    } else if (typeof item === 'boolean') {
+      item === true ? sum = sum + 1 : sum = sum
+    }
+  })
+  return sum
+} catch (error) {
+  console.log(error)
 }
 
+// throwing error not working/how to?
 
+// as a for loop
+/*
 
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+  for (let i = 0; i < input.length; i++) {
+     if (typeof(input[i]) === 'number') {
+      sum = sum + input[i]
+    } else if (typeof(input[i]) === 'string') {
+      sum = sum + input[i].length
+    } else if (typeof(input[i]) === 'boolean') {
+      input[i] === true ? sum = sum + 1 : sum = sum
+    }
+  }
+  return sum
+*/
+  }
 
 function averageNumbers(numbersAvg) {
   if (numbersAvg.length === 0) return null;
   else if (numbersAvg.length === 1) return numbersAvg[0]
   else if (numbersAvg.some(item => item < 0)) return sumNumbers(numbersAvg) / numbersAvg.length
   else { return sumNumbers(numbersAvg) / numbersAvg.length}
-
 }
 
 
-// // Level 2: Array of strings
-// const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+// Level 2: Array of strings
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-// function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let allWords = 0;
 
-// // Bonus - Iteration #4.1
-// function avg() {}
+  if (wordsArr.length === 0) return null;
+  else if (wordsArr.length === 1) return wordsArr[0].length / wordsArr.length
+
+    for(let i = 0; i < wordsArr.length; i++) {
+      allWords += wordsArr[i].length
+    }
+    return allWords / wordsArr.length
+  }
+
+
+// Bonus - Iteration #4.1
+function avg(mixedArray) {
+
+  let averageCount = 0;
+
+  if (mixedArray.length === 0) return null;
+
+  for (let i = 0; i < mixedArray.length; i++) {
+    if (typeof(mixedArray[i]) === 'number') {
+      averageCount += mixedArray[i]
+    } else if (typeof(mixedArray[i]) === 'string') {
+      averageCount += mixedArray[i].length
+    } else if (typeof(mixedArray[i]) === 'boolean') {
+    mixedArray[i] === true ? averageCount += 1 : averageCount = averageCount
+    }
+}
+  return averageCount / mixedArray.length
+
+}
 
 // // Iteration #5: Unique arrays
 // const wordsUnique = [
