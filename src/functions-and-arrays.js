@@ -1,24 +1,57 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2){return num1} 
+  else {return num2}
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0){return null}
+  let longest = "";
+  for (i=0; i < words.length; i++){
+    if (words[i].length > longest.length){
+      longest = words[i];
+    } else {continue}
+  }
+  return longest;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (i=0; i < numbers.length; i++){
+    if (typeof numbers[i] === "number"){
+    sum += numbers[i];}
+    else if (typeof numbers[i] === "string"){
+    sum += numbers[i].length;}
+    else (typeof numbers[i] === "boolean"){
+      numbers[i] = true ? 1 : 0;}
+  } 
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {  
+  let sum = 0;
+  for (i=0; i < mixedArr.length; i++){
+    if (typeof mixedArr[i] === "number"){
+    sum += mixedArr[i];}
+    else if (typeof mixedArr[i] === "string"){
+    sum += nmixedArr[i].length;}
+    else (typeof mixedArr[i] === "boolean"){
+      mixedArr[i] = true ? 1 : 0;}
+  } 
+return sum;}
 
 
 
@@ -26,16 +59,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let avg = 0;
+  for (i=0; i<numbersAvg.length; i++){
+    avg += numbersAvg[i];
+  }
+  return (avg/numbersAvb.length);
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {  
+  let avg = 0;
+  for (i=0; i<wordsArr.length; i++){
+    avg += wordsArr[i].length;
+  }
+  return (avg/wordsArr.length);
+} 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0;
+  for (i=0; i < arr.length; i++){
+    if (typeof arr[i] === "number"){
+    sum += arr[i];}
+    else if (typeof arr[i] === "string"){
+    sum += arr[i].length;}
+    else (typeof aar[i] === "boolean"){
+      arr[i] = true ? 1 : 0;}
+  } 
+  return (sum/arr.length);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +108,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  return wordsUnique.filter(onlyUnique);
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, doesExist) {
+  return words.includes(doesExist)
+}
 
 
 
@@ -78,7 +138,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, howMany) {
+  return words.filter((val)=>(val === howMany)).length;
+}
 
 
 
@@ -106,7 +168,62 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  // let highestValue that starts at 0. everytime we find a higher value it gets overwritten
+  let highestValue = 0;
+  let horizontalValue = 0;
+  let verticalValue = 0;
+  // loop through every arrays vertically
+  for (i=0; i < matrix.length; i++){
+    // loop through matrix horizontally 
+    for (j=0; j < (matrix[i].length-3); j++){
+        //calculate horizontal value
+        horizontalValue = (matrix[i][j]+matrix[i][j+1]+matrix[i][j+2]+matrix[i][j+3]);
+         // if value higher overwrite highestvalue
+        if (horizontalValue > highestValue) {highestValue = horizontalValue}
+    }
+  }
+  for (i=0; i <(matrix.length-3); i++){
+    for (j=0; j < (matrix[i].length); j++){
+        // calculate vertical value
+        verticalValue = matrix[i][j]+matrix[i+1][j]+matrix[i+2][j]+matrix[i+3][j];
+        // if value higher overwrite highestvalue
+        if (verticalValue > highestValue) {highestValue = verticalValue};
+    }
+  }
+  // when loops done return highest value
+  return highestValue; // Tested in Codepen.io, highest value 342.
+}
+
+
+
+function greatestProductOfDiagonals(matrix){
+  // let highestValue that starts at 0. everytime we find a higher value it gets overwritten
+  let highestValue = 0;
+  let diagonalLeft = 0;
+  let diagonalRight = 0;
+  // loop through every arrays vertically
+  for (i=0; i < (matrix.length-3); i++){
+     // loop through matrix horizontally 
+     for (j=3; j < matrix[i].length; j++){
+        //calculate diagonalLeft Value
+        diagonalLeft = (matrix[i][j]+matrix[i+1][j-1]+matrix[i+2][j-2]+matrix[i+3][j-3]);
+         // if value higher overwrite highestvalue
+        if (diagonalLeft > highestValue) {highestValue = diagonalLeft}
+     }
+   }
+   for (i=0; i < (matrix.length-3); i++){
+      // loop through matrix horizontally 
+      for (j=0; j < (matrix[i].length-3); j++){
+        // calculate horizontalRight value
+        diagonalRight = (matrix[i][j]+matrix[i+1][j+1]+matrix[i+2][j+2]+matrix[i+3][j+3]);
+        // if value higher overwrite highestvalue
+        if (diagonalRight > highestValue) {highestValue = diagonalRight}
+     }
+  }
+  // when loops done return highest value
+  return highestValue; // Tested in Codepen.io, highest value 367.
+}
 
 
 
