@@ -48,11 +48,10 @@ function sum(mixedArr) {
     sum += mixedArr[i];}
     else if (typeof mixedArr[i] === "string"){
     sum += nmixedArr[i].length;}
-    else (typeof mixedArr[i] === "boolean"){
+    else if(typeof mixedArr[i] === "boolean"){
       mixedArr[i] = true ? 1 : 0;}
   } 
 return sum;}
-
 
 
 // Iteration #4: Calculate the average
@@ -64,7 +63,7 @@ function averageNumbers(numbersAvg) {
   for (i=0; i<numbersAvg.length; i++){
     avg += numbersAvg[i];
   }
-  return (avg/numbersAvb.length);
+  return (avg/numbersAvg.length);
 }
 
 
@@ -77,7 +76,8 @@ function averageWordLength(wordsArr) {
     avg += wordsArr[i].length;
   }
   return (avg/wordsArr.length);
-} 
+}
+
 
 // Bonus - Iteration #4.1
 function avg(arr) {
@@ -87,7 +87,7 @@ function avg(arr) {
     sum += arr[i];}
     else if (typeof arr[i] === "string"){
     sum += arr[i].length;}
-    else (typeof aar[i] === "boolean"){
+    else if(typeof aar[i] === "boolean"){
       arr[i] = true ? 1 : 0;}
   } 
   return (sum/arr.length);
@@ -109,7 +109,8 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  return wordsUnique.filter(onlyUnique);
+  const uniqueValues = new Set(wordsUnique);
+  return [...uniqueValues];
 }
 
 
