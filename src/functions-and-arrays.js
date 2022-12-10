@@ -124,7 +124,55 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+  //iterate the rows
+  for (i = 0; i < arr.length; i++) {
+    //iterate the columns
+    for (j = 0; j < arr.length; j++) {
+      //check the horizontal
+      if (j - 3 >= 0) {
+        result = arr[i][j] * arr[i][j - 1] * arr[i][j - 2] * arr[i][j - 3];
+        if (result > maxProduct) {
+          maxProduct = result;
+        }
+      }
+      //check the vertical
+      if (i - 3 >= 0) {
+        result = arr[i][j] * arr[i - 1][j] * arr[i - 2][j] * arr[i - 3][j];
+        if (result > maxProduct) {
+          maxProduct = result;
+        }
+      }
+    }
+  }
+  return maxProduct; //result 51267216
+}
+
+function greatestProductOfDiagonals(arr) {
+  let maxProduct = 0;
+  //iterate the rows
+  for (i = 0; i < arr.length; i++) {
+    //iterate the columns
+    for (j = 0; j < arr.length; j++) {
+      //check the diaginal (down-right)
+      if (i - 3 >= 0 && j - 3 >= 0) {
+        result = arr[i][j] * arr[i - 1][j - 1] * arr[i - 2][j - 2] * arr[i - 3][j - 3];
+        if (result > maxProduct) {
+          maxProduct = result;
+        }
+      }
+      //check the diaginal (up-right)
+      if (i - 3 >= 0 && j - 3 <= 0) {
+        result = arr[i][j] * arr[i - 1][j + 1] * arr[i - 2][j + 2] * arr[i + -3][j + 3];
+        if (result > maxProduct) {
+          maxProduct = result;
+        }
+      }
+    }
+  }
+  return maxProduct; //result 70600674
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
