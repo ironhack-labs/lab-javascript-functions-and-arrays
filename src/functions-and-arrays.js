@@ -7,10 +7,12 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
+console.log(maxOfTwoNumbers(10, 15))
+
 //ES6 ternary
-const maxOfTwoNumbers = (a, b) => {
-  return a > b ? a : b;
-};
+//const maxOfTwoNumbers = (a, b) => {
+  //return a > b ? a : b;
+//};
 
 // Iteration #2: Find longest word
 const words = [
@@ -66,7 +68,7 @@ const sumNumbers = numbers => {
 
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-const sumMixArray = (mixedArr) => {
+const sum = (mixedArr) => {
   let sum = 0
   for(let i = 0; i<mixedArr.length; i++){
     if(typeof mixedArr[i] === 'string'){
@@ -118,28 +120,14 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-//const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+// const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
-function avg(mixedArr) {
+const avg = (mixedArr) => {
   if (!mixedArr.length) {
-    return null;
+    return null
   }
-  let moyenne = 0;
-  for (i = 0; i < mixedArr.length; i++) {
-    if (mixedArr[i].typeof === "boolean" && mixedArr[i] === "true") {
-      mixedArr[i] === 1;
-    } else if (mixedArr[i].typeof === "boolean" && mixedArr[i] === "false") {
-      mixedArr[i] === 0;
-    } else if (mixedArr[i].typeof === "string") {
-      mixedArr[i] === mixedArr[i].length;
-    } else {
-      mixedArr[i] = mixedArr[i];
-    }
-    moyenne += mixedArr[i];
-  }
-  return moyenne / mixedArr.length;
+  return sum(mixedArr) / mixedArr.length
 }
-console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -156,7 +144,14 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length) {return null}
+  let cleanArray = []
+  for (let i = 0; i < wordsUnique.length; i++){
+    if (!cleanArray.includes(wordsUnique[i])) {cleanArray.push(wordsUnique[i])}
+  }
+  return cleanArray
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -170,7 +165,13 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+const doesWordExist = (wordsFind, string) => {
+  if (!wordsFind.length) {return null}
+  for (let i = 0; i < wordsFind.length; i++){
+    if (wordsFind[i].includes(string)) {return true}
+  }
+  return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -187,7 +188,14 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+const howManyTimes = (wordsCount, secondArgument) => {
+  if (!wordsFind.length) {return 0}
+  let arr = []
+  for (let i = 0; i < wordsCount.length; i++){
+    if (wordsCount[i].includes(secondArgument)) {arr.push(secondArgument)}
+  }
+  return arr.length
+}
 
 // Iteration #8: Bonus
 const matrix = [
