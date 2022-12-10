@@ -10,12 +10,12 @@ function maxOfTwoNumbers(num1,num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-  if (words.length === 0){return null}
   let longest = "";
+  if (words.length === 0){return null} 
   for (i=0; i < words.length; i++){
     if (words[i].length > longest.length){
       longest = words[i];
-    } else {continue}
+    }
   }
   return longest;
 }
@@ -27,13 +27,10 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
   let sum = 0;
-  for (i=0; i < numbers.length; i++){
+  for (let i=0; i < numbers.length; i++){
     if (typeof numbers[i] === "number"){
     sum += numbers[i];}
-    else if (typeof numbers[i] === "string"){
-    sum += numbers[i].length;}
-    else (typeof numbers[i] === "boolean"){
-      numbers[i] = true ? 1 : 0;}
+    else {return "Error"}
   } 
   return sum;
 }
@@ -47,9 +44,10 @@ function sum(mixedArr) {
     if (typeof mixedArr[i] === "number"){
     sum += mixedArr[i];}
     else if (typeof mixedArr[i] === "string"){
-    sum += nmixedArr[i].length;}
+    sum += mixedArr[i].length;}
     else if(typeof mixedArr[i] === "boolean"){
-      mixedArr[i] = true ? 1 : 0;}
+    sum += mixedArr[i] ? 1 : 0;}
+    else {return "Error"}
   } 
 return sum;}
 
@@ -60,6 +58,9 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
   let avg = 0;
+  if (numbersAvg.length === 0) {
+    return null;
+  }
   for (i=0; i<numbersAvg.length; i++){
     avg += numbersAvg[i];
   }
@@ -72,6 +73,9 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(wordsArr) {  
   let avg = 0;
+  if (wordsArr.length === 0) {
+    return null;
+  }
   for (i=0; i<wordsArr.length; i++){
     avg += wordsArr[i].length;
   }
@@ -82,13 +86,16 @@ function averageWordLength(wordsArr) {
 // Bonus - Iteration #4.1
 function avg(arr) {
   let sum = 0;
+  if (arr.length === 0) {
+    return null;
+  }
   for (i=0; i < arr.length; i++){
     if (typeof arr[i] === "number"){
     sum += arr[i];}
     else if (typeof arr[i] === "string"){
     sum += arr[i].length;}
-    else if(typeof aar[i] === "boolean"){
-      arr[i] = true ? 1 : 0;}
+    else if(typeof arr[i] === "boolean"){
+    sum += arr[i] ? 1 : 0;}
   } 
   return (sum/arr.length);
 }
@@ -109,6 +116,9 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
   const uniqueValues = new Set(wordsUnique);
   return [...uniqueValues];
 }
@@ -119,6 +129,9 @@ function uniquifyArray(wordsUnique) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(words, doesExist) {
+  if (words.length === 0) {
+    return null;
+  }
   return words.includes(doesExist)
 }
 
@@ -170,60 +183,42 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  // let highestValue that starts at 0. everytime we find a higher value it gets overwritten
   let highestValue = 0;
-  let horizontalValue = 0;
-  let verticalValue = 0;
-  // loop through every arrays vertically
-  for (i=0; i < matrix.length; i++){
-    // loop through matrix horizontally 
-    for (j=0; j < (matrix[i].length-3); j++){
-        //calculate horizontal value
-        horizontalValue = (matrix[i][j]+matrix[i][j+1]+matrix[i][j+2]+matrix[i][j+3]);
-         // if value higher overwrite highestvalue
-        if (horizontalValue > highestValue) {highestValue = horizontalValue}
+  let currentValue = 0;
+
+  // Loop through the matrix horizontally and vertically
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      // Calculate the horizontal and vertical product for the current position
+      currentValue = matrix[i][j] * (matrix[i][j + 1] || 1) * (matrix[i][j + 2] || 1) * (matrix[i][j + 3] || 1);
+      if (currentValue > highestValue) {
+        highestValue = currentValue;
+      }
+      currentValue = matrix[i][j] * (matrix[i + 1] ? matrix[i + 1][j] : 1) * (matrix[i + 2] ? matrix[i + 2][j] : 1) * (matrix[i + 3] ? matrix[i + 3][j] : 1);
+      if (currentValue > highestValue) {
+        highestValue = currentValue;
+      }
     }
   }
-  for (i=0; i <(matrix.length-3); i++){
-    for (j=0; j < (matrix[i].length); j++){
-        // calculate vertical value
-        verticalValue = matrix[i][j]+matrix[i+1][j]+matrix[i+2][j]+matrix[i+3][j];
-        // if value higher overwrite highestvalue
-        if (verticalValue > highestValue) {highestValue = verticalValue};
-    }
-  }
-  // when loops done return highest value
-  return highestValue; // Tested in Codepen.io, highest value 342.
+
+  return highestValue;
 }
 
 
 
-function greatestProductOfDiagonals(matrix){
-  // let highestValue that starts at 0. everytime we find a higher value it gets overwritten
+function greatestProductOfDiagonals(matrix) {
   let highestValue = 0;
-  let diagonalLeft = 0;
-  let diagonalRight = 0;
-  // loop through every arrays vertically
-  for (i=0; i < (matrix.length-3); i++){
-     // loop through matrix horizontally 
-     for (j=3; j < matrix[i].length; j++){
-        //calculate diagonalLeft Value
-        diagonalLeft = (matrix[i][j]+matrix[i+1][j-1]+matrix[i+2][j-2]+matrix[i+3][j-3]);
-         // if value higher overwrite highestvalue
-        if (diagonalLeft > highestValue) {highestValue = diagonalLeft}
-     }
-   }
-   for (i=0; i < (matrix.length-3); i++){
-      // loop through matrix horizontally 
-      for (j=0; j < (matrix[i].length-3); j++){
-        // calculate horizontalRight value
-        diagonalRight = (matrix[i][j]+matrix[i+1][j+1]+matrix[i+2][j+2]+matrix[i+3][j+3]);
-        // if value higher overwrite highestvalue
-        if (diagonalRight > highestValue) {highestValue = diagonalRight}
-     }
+
+  for (let i = 0; i < matrix.length - 4; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      const diagonalLeft = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+      const diagonalRight = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+
+      highestValue = Math.max(highestValue, diagonalLeft, diagonalRight);
+    }
   }
-  // when loops done return highest value
-  return highestValue; // Tested in Codepen.io, highest value 367.
+
+  return highestValue;
 }
 
 
