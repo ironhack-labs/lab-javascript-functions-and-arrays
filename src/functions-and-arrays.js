@@ -26,30 +26,43 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  let sum = 0;
-  for (let i=0; i < numbers.length; i++){
-    if (typeof numbers[i] === "number"){
-    sum += numbers[i];}
-    else {return "Error"}
+  
+  try {
+    let sum = 0;
+    for (let i=0; i < numbers.length; i++){
+      if (typeof numbers[i] === "number"){
+      sum += numbers[i];}
+      else { throw new Error("Unsupported data type");}
+    }
+    return sum;
   } 
-  return sum;
+  catch (error) {
+    console.error(error);
+  }
 }
 
 
 
 // Iteration #3.1 Bonus:
-function sum(mixedArr) {  
-  let sum = 0;
-  for (i=0; i < mixedArr.length; i++){
-    if (typeof mixedArr[i] === "number"){
-    sum += mixedArr[i];}
-    else if (typeof mixedArr[i] === "string"){
-    sum += mixedArr[i].length;}
-    else if(typeof mixedArr[i] === "boolean"){
-    sum += mixedArr[i] ? 1 : 0;}
-    else {return "Error"}
-  } 
-return sum;}
+function sum(mixedArr) { 
+  try{
+    let sum = 0;
+    for (let i=0; i < mixedArr.length; i++){
+      if (typeof mixedArr[i] === "number"){
+      sum += mixedArr[i];}
+      else if (typeof mixedArr[i] === "string"){
+      sum += mixedArr[i].length;}
+      else if(typeof mixedArr[i] === "boolean"){
+      sum += mixedArr[i] ? 1 : 0;}
+      else { throw new Error("Unsupported data type");}
+    }
+    return sum;
+  }
+  catch (error) {
+    console.error(error);
+  }
+}    
+
 
 
 // Iteration #4: Calculate the average
