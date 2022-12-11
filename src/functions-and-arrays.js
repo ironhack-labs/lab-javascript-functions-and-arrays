@@ -167,7 +167,7 @@ const wordsCount = [
   'matter',
   'eating',
   'matter',
-  'truth',^Ì
+  'truth',Ì
   'disobedience',
   'matter'
 ];
