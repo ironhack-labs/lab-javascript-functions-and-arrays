@@ -12,14 +12,20 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(words) {
 
-  let sortedWords = [...words].sort((a,b) => (a.length > b.length) ? -1 : 1 )
-  let multipleOccurrences = sortedWords.filter(item => item.length >= sortedWords[0].length) //looks for words with same length as longest word
+  let longestWord = 0;
 
-if (words.length === 0) return null;
+  if (words.length === 0) return null;
   else if (words.length === 1) return words[0]
-  else if (words.length > 1) return sortedWords[0]
-  else if (words.indexOf(sortedWords[0]) != words.lastIndexOf(sortedWords[0])) //if items appear at more than one places in the array
-  return words.indexOf(sortedWords[0])
+
+
+  for (let i = 0; i < words.length; i++) {
+
+    if (words[i].length > longestWord) {
+      longestWord = words[i]
+    }
+  }
+  return longestWord
+
 
 }
 
@@ -43,7 +49,7 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(input) {
-  try {
+
   let sum = 0;
 
   if (input.length === 0) return 0
@@ -52,8 +58,8 @@ function sum(input) {
 
 
   input.forEach((item) => {
-    if (typeof item === 'object') throw "Unsupported data type present!"
-     else if (typeof item === 'number') {
+    if (typeof item === 'object') throw new Error("Unsupported data type sir or ma'am");
+    else if (typeof item === 'number') {
       sum = sum + item
     } else if (typeof item === 'string') {
       sum = sum + item.length
@@ -62,8 +68,6 @@ function sum(input) {
     }
   })
   return sum
-} catch (error) {
-  console.log(error)
 }
 
 // throwing error not working/how to?
@@ -82,7 +86,7 @@ function sum(input) {
   }
   return sum
 */
-  }
+
 
 function averageNumbers(numbersAvg) {
   if (numbersAvg.length === 0) return null;
@@ -155,10 +159,8 @@ let uniqueArray = []
     if (!uniqueArray.includes(wordsUnique[i])) {
       uniqueArray.push(wordsUnique[i])
     }
-
     }
   return uniqueArray
-
   }
 
 
@@ -180,9 +182,7 @@ function doesWordExist(wordsFind, wordToSearch) {
   }
 }
 
-
-
-// // Iteration #7: Count repetitionÌ
+// Iteration #7: Count repetitionÌ
 const wordsCount = [
   'machine',
   'matter',
@@ -198,9 +198,24 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsCount, wordToSearch) {
+  let counter = 0;
 
   if (wordsCount.length === 0) return 0;
   else if (!wordsCount.includes(wordToSearch)) return 0;
+
+  wordsCount.forEach(word => word === wordToSearch ? counter += 1 : counter = counter )
+  return counter
+
+  // as for-loop:
+  /*
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === wordToSearch) {
+      counter += 1
+    }
+
+  }
+  return counter
+  */
 }
 
 
