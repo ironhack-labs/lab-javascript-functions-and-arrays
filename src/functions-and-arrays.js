@@ -157,7 +157,7 @@ function doesWordExist(wordsFind) {}
 
 
 
-// Iteration #7: Count repetition
+// // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
   'matter',
@@ -167,7 +167,7 @@ const wordsCount = [
   'matter',
   'eating',
   'matter',
-  'truth',Ì
+  'truth',
   'disobedience',
   'matter'
 ];
@@ -202,7 +202,7 @@ const matrix = [
 
 function greatestProduct(product) {
 
-  if (product.every(number => number === 1)) return 1
+
 }
 
 
