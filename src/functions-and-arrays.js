@@ -144,20 +144,40 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+let uniqueArray = []
 
   if (wordsUnique.length === 0) return null;
-}
+
+  for (let i = 0; i < wordsUnique.length; i++) {
+
+    //check if next word is not included in new array yet - if it is, it's a duplicate and won't get added to new array again
+
+    if (!(uniqueArray.includes(wordsUnique[i]))) {
+      uniqueArray.push(wordsUnique[i])
+    }
+
+    }
+  return uniqueArray
+
+  }
+
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind, word) {
+let wordToSearch = 'machine'
+
+function doesWordExist(wordsFind, wordToSearch) {
 
   if (wordsFind.length === 0) return null;
   else if (wordsFind.length === 1) return true;
-
+  else if (wordsFind.includes(wordToSearch)) return true;
+  else {
+    return false
+  }
 }
 
 
