@@ -13,7 +13,7 @@ function findLongestWord(words) {
 
   let longestWord = words[0];
 
-  if (words.length === 0) return null;
+  if (!words.length) return null;
   else if (words.length === 1) return words[0]
 
   for (let i = 0; i < words.length; i++) {
@@ -31,7 +31,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
   let sum = 0;
-  if (numbers.length === 0) return 0
+  if (!numbers.length) return 0
   else if (numbers.length === 1) return numbers[0]
   else if (numbers.every(number => number === 0)) return 0
   else if (numbers.length > 1) {
@@ -48,7 +48,7 @@ function sum(input) {
 
   let sum = 0;
 
-  if (input.length === 0) return 0
+  if (!input.length) return 0
   else if (input.length === 1) return input[0]
   else if (input.every(entry => entry === 0)) return 0
 
@@ -82,7 +82,7 @@ function sum(input) {
 */
 
 function averageNumbers(numbersAvg) {
-  if (numbersAvg.length === 0) return null;
+  if (!numbersAvg.length) return null;
   else if (numbersAvg.length === 1) return numbersAvg[0]
   else if (numbersAvg.some(item => item < 0)) return sumNumbers(numbersAvg) / numbersAvg.length
   else { return sumNumbers(numbersAvg) / numbersAvg.length}
@@ -94,7 +94,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(wordsArr) {
   let allWords = 0;
 
-  if (wordsArr.length === 0) return null;
+  if (!wordsArr.length) return null;
   else if (wordsArr.length === 1) return wordsArr[0].length / wordsArr.length
 
     for(let i = 0; i < wordsArr.length; i++) {
@@ -109,7 +109,7 @@ function avg(mixedArray) {
 
   let averageCount = 0;
 
-  if (mixedArray.length === 0) return null;
+  if (!mixedArray.length) return null;
 
   for (let i = 0; i < mixedArray.length; i++) {
     if (typeof(mixedArray[i]) === 'number') {
@@ -142,7 +142,7 @@ const wordsUnique = [
 function uniquifyArray(wordsUnique) {
 let uniqueArray = []
 
-  if (wordsUnique.length === 0) return null;
+  if (!wordsUnique.length) return null;
 
   for (let i = 0; i < wordsUnique.length; i++) {
 
@@ -163,7 +163,7 @@ let wordToSearch = 'machine'
 
 function doesWordExist(wordsFind, wordToSearch) {
 
-  if (wordsFind.length === 0) return null;
+  if (!wordsFind.length) return null;
   else if (wordsFind.length === 1) return true;
   else if (wordsFind.includes(wordToSearch)) return true;
   else {
@@ -189,7 +189,7 @@ const wordsCount = [
 function howManyTimes(wordsCount, wordToSearch) {
   let counter = 0;
 
-  if (wordsCount.length === 0) return 0;
+  if (!wordsCount.length) return 0;
   else if (!wordsCount.includes(wordToSearch)) return 0;
 
   wordsCount.forEach(word => word === wordToSearch ? counter += 1 : counter = counter )
