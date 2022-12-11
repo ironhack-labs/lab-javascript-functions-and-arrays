@@ -208,7 +208,45 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(product) {
+function greatestProduct(matrix) {
+
+  let size = matrix.length
+  let maxValue = 0;
+  let result;
+
+  //count down the columns
+  for (let i = 0; i < size; i++) {
+
+    //count down the rows
+    for (let j = 0; j < size; j++) {
+
+      //only compute when there are four numbers in a row
+      if (j + 3 <= size - 1) {
+
+        //multiply four adjacent numbers in each row
+        result = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+
+        //assign a new value to maxValue if the current product resolut is higher than the previous result
+        if (maxValue < result) {
+          maxValue = result
+        }
+
+      }
+
+
+
+    }
+
+
+
+
+
+
+
+  }
+
+
+
 
 
 }
