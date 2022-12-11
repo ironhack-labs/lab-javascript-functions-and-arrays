@@ -12,7 +12,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(words) {
 
-  let longestWord = 0;
+  let longestWord = words[0];
 
   if (words.length === 0) return null;
   else if (words.length === 1) return words[0]
@@ -20,7 +20,7 @@ function findLongestWord(words) {
 
   for (let i = 0; i < words.length; i++) {
 
-    if (words[i].length > longestWord) {
+    if (words[i].length > longestWord.length) {
       longestWord = words[i]
     }
   }
