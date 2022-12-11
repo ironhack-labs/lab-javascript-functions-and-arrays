@@ -1,10 +1,9 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(a,b) {
-  if(a>b) return a;
-  else if (a<b) return b;
-  else return a, b;
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2) return num1 ;
+  else if (num1 < num2) return num2;
+  else return num1 , num2;
 }
-
 
 
 // Iteration #2: Find longest word
@@ -17,7 +16,6 @@ function findLongestWord(words) {
   if (words.length === 0) return null;
   else if (words.length === 1) return words[0]
 
-
   for (let i = 0; i < words.length; i++) {
 
     if (words[i].length > longestWord.length) {
@@ -25,8 +23,6 @@ function findLongestWord(words) {
     }
   }
   return longestWord
-
-
 }
 
 
@@ -70,8 +66,6 @@ function sum(input) {
   return sum
 }
 
-// throwing error not working/how to?
-
 // as a for loop
 /*
 
@@ -87,14 +81,12 @@ function sum(input) {
   return sum
 */
 
-
 function averageNumbers(numbersAvg) {
   if (numbersAvg.length === 0) return null;
   else if (numbersAvg.length === 1) return numbersAvg[0]
   else if (numbersAvg.some(item => item < 0)) return sumNumbers(numbersAvg) / numbersAvg.length
   else { return sumNumbers(numbersAvg) / numbersAvg.length}
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -162,9 +154,6 @@ let uniqueArray = []
     }
   return uniqueArray
   }
-
-
-
 
 
 // Iteration #6: Find elements
@@ -266,27 +255,60 @@ function greatestProduct(matrix) {
         if (maxValue < result) {
           maxValue = result
         }
-
       }
+      if (i + 3 <= size - 1) {
 
+        //multiply four adjacent numbers in each column
+        result = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
 
-
+        if (maxValue < result) {
+          maxValue = result
+        }
+      }
     }
 
-
-
-
-
-
+return maxValue
 
   }
 
-
-
-
-
 }
 
+// Bonus - Iteration #8.2: Product of diagonals
+
+function greatestProductOfDiagonals(matrix) {
+
+  let size = matrix.length
+  let maxDiagonalValue = 0;
+  let result;
+
+  for (let i = 0; i < size; i++) {
+
+
+    for (let j = 0; j < size; j++) {
+
+      if (j + 3 <= size - 1 && i + 3 <= size - 1) {
+
+        result = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+2][j+3]
+
+
+        if (maxDiagonalValue < result) {
+          maxDiagonalValue = result
+        }
+      }
+      //look at array items from bottom row in direction to top for bottom-left top-right diagonal
+      if (i - 3 >= 0 && j + 3 <= size -1) {
+
+        //multiply four adjacent numbers in each column
+        result = matrix[size - i][j] * matrix[size - i -1][j + 1] * matrix[size - i - 2][j + 2] * matrix[size - i -3][j + 3]
+
+        if (maxDiagonalValue < result) {
+          maxDiagonalValue = result
+        }
+      }
+    }
+    return maxDiagonalValue
+}
+}
 
 
 
