@@ -152,7 +152,7 @@ let uniqueArray = []
 
     //check if next word is not included in new array yet - if it is, it's a duplicate and won't get added to new array again
 
-    if (!(uniqueArray.includes(wordsUnique[i]))) {
+    if (!uniqueArray.includes(wordsUnique[i])) {
       uniqueArray.push(wordsUnique[i])
     }
 
@@ -197,9 +197,10 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsCount) {
+function howManyTimes(wordsCount, wordToSearch) {
 
   if (wordsCount.length === 0) return 0;
+  else if (!wordsCount.includes(wordToSearch)) return 0;
 }
 
 
