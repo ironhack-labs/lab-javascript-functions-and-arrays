@@ -22,6 +22,14 @@ function findLongestWord(words) {
     return null;
   }
 
+  let longestWord = "";
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+
+  return longestWord;
   
 }
 
@@ -35,7 +43,7 @@ function sumNumbers(numbers) {
   let totalSum = 0;
 
   for (let i = 0; i < numbers.length; i++) {
-    totalSum +=numbers[i];
+    totalSum += numbers[i];
   }
   return totalSum;
 }
@@ -43,18 +51,33 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum(arbitraryArr) {
-  if (arbitraryArr.length === 0) {
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+  if (mixedArr.length === 0) {
     return 0;
   }
 
-  for (let i = 0; i < arbitraryArr.length; i++) {
-    if (typeof arbitraryArr[i] === "object" || "array") {
-      
+  let totalSum = 0;
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === "object") {
+      throw new Error ("Unsupported data type sir or ma'am");
     }
 
-
+    switch (typeof mixedArr[i]) {
+      case "number":
+      case "boolean":
+        totalSum += mixedArr[i];
+        break;
+      case "string":
+        totalSum += mixedArr[i].length
+        break;
+    }
   }
+
+  return totalSum;
+
 }
 
 
@@ -69,7 +92,7 @@ function averageNumbers(numbersAvg) {
     return null;
   }
 
-  return sumNumbers(numbersAvg)/numbersAvg.length
+  return sum(numbersAvg)/numbersAvg.length;
 
 }
 
@@ -83,12 +106,19 @@ function averageWordLength(wordsArr) {
     return null;
   }
 
-  return 
+  return sum(wordsArr)/wordsArr.length;
 
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+
+  if (mixedArr.length === 0) {
+    return null;
+  }
+
+  return sum(mixedArr)/mixedArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -105,7 +135,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+
+  for (let i = wordsUnique.lenth - 1; i >= 0; i--) {
+    if (wordsUnique.includes(wordsUnique[i], [i + 1]) === true) {
+      wordsUnique.splice(wordsUnique.indexOf(wordsUnique[i], [i+1]), 1);
+    }
+  }
+
+  return wordsUnique;
+}
 
 
 
