@@ -50,19 +50,17 @@ function sum(arr) {
   let total = 0;
 
   for (let i = 0; i < arr.length; i++){
-    if (typeof arr[i] == 'object' ) {
-      console.log('Error. One of the elements is a wrong datatype.')
-    } else if (typeof arr[i] == 'number'){
-      total += arr[i]
-    } else if (typeof arr[i] == true){
-      total += 1
-    } else if (typeof arr[i] == false){
-      total += 0
-    } else if (typeof arr[i] == 'string'){
-      total += arr[i].length
-    }
-  }
-  return total
+    if (typeof arr[i] == 'number'){
+     total += arr[i]
+   } else if (typeof arr[i] == 'boolean'){
+     total += Number(arr[i])
+   } else if (typeof arr[i] == 'string'){
+     total += arr[i].length
+   } else {
+     console.log('Error. One of the elements is a wrong datatype.')
+   }
+ }
+ return total
 }
 
 
@@ -107,7 +105,7 @@ const mixArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(arr) {
   if (arr.length === 0) return null;
-  
+
   let total = 0;
   let count = 0;
 
@@ -117,11 +115,8 @@ function avg(arr) {
     } else if (typeof arr[i] == 'number'){
       total += arr[i]
       count++
-    } else if (typeof arr[i] == true){
-      total += 1
-      count++
-    } else if (typeof arr[i] == false){
-      total += 0
+    } else if (typeof arr[i] == 'boolean'){
+      total += Number(arr[i])
       count++
     } else if (typeof arr[i] == 'string'){
       total += arr[i].length
@@ -147,14 +142,28 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) return null;
+  
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] == word){
+      return true
+    } else if (arr[i] == !word) {
+      return false
+    }
+  }
+}
 
 
 
@@ -173,7 +182,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) return 0;
+  let count = 0;
+
+  return arr.filter((v) => (v === word)).length;
+
+
+}
 
 
 
@@ -201,7 +217,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  
+}
 
 
 
