@@ -141,13 +141,9 @@ function uniquifyArray(wordsUnique) {
     return null;
   }
 
-  for (let i = wordsUnique.lenth - 1; i >= 0; i--) {
-    if (wordsUnique.includes(wordsUnique[i], [i + 1]) === true) {
-      wordsUnique.splice(wordsUnique.indexOf(wordsUnique[i], [i+1]), 1);
-    }
-  }
+  let uniquified = [...new Set(wordsUnique)];
+  return uniquified;
 
-  return wordsUnique;
 }
 
 
@@ -155,7 +151,14 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, searchTerm) {
+
+  if (wordsFind.length === 0) {
+    return null;
+  }
+
+  return wordsFind.includes(searchTerm);
+}
 
 
 
@@ -174,7 +177,10 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, searchTerm) {
+
+  return wordsCount.filter(element => element === searchTerm).length;
+}
 
 
 
@@ -202,10 +208,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
-
+// Screw this
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
