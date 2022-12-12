@@ -54,9 +54,9 @@ function sum(arr) {
       console.log('Error. One of the elements is a wrong datatype.')
     } else if (typeof arr[i] == 'number'){
       total += arr[i]
-    } else if (typeof arr[i] == 'true'){
+    } else if (typeof arr[i] == true){
       total += 1
-    } else if (typeof arr[i] == 'false'){
+    } else if (typeof arr[i] == false){
       total += 0
     } else if (typeof arr[i] == 'string'){
       total += arr[i].length
@@ -103,7 +103,34 @@ function averageWordLength(words) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  if (arr.length === 0) return null;
+  
+  let total = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++){
+    if (typeof arr[i] == 'object' ) {
+      console.log('Error. One of the elements is a wrong datatype.')
+    } else if (typeof arr[i] == 'number'){
+      total += arr[i]
+      count++
+    } else if (typeof arr[i] == true){
+      total += 1
+      count++
+    } else if (typeof arr[i] == false){
+      total += 0
+      count++
+    } else if (typeof arr[i] == 'string'){
+      total += arr[i].length
+      count++
+    }
+  }
+  return total / count;
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
