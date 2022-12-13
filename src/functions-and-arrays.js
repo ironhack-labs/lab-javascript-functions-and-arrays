@@ -150,6 +150,13 @@ function uniquifyArray(arr){
     return null
   }
   return arr.filter((item, index) => arr.indexOf(item) === index)
+  
+  /*  if (arr.length == 0){
+    return null
+  }
+  let newArr = [...new Set(arr)];
+  return newArr */
+  
  }
 
 
