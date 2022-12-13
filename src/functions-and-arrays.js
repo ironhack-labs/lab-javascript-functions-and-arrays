@@ -279,24 +279,21 @@ const matrix = [
 ];
 
 function greatestProduct(matrix2) {
-  let result = matrix2[0][0] * matrix2[0][1] * matrix2[0][2] * matrix2[0][3];
+  let result = 0;
   for (let i = 0; i < matrix2.length; i++) {
-    for (let j = 0; j < matrix2[i].length - 4; j++) {
+    for (let j = 0; j < matrix2[i].length - 3; j++) {
       if (
-        matrix2[i][j + 1] *
-          matrix2[i][j + 2] *
-          matrix2[i][j + 3] *
-          matrix2[i][j + 4] >
         matrix2[i][j] *
           matrix2[i][j + 1] *
           matrix2[i][j + 2] *
-          matrix2[i][j + 3]
+          matrix2[i][j + 3] >
+        result
       ) {
         result =
+          matrix2[i][j] *
           matrix2[i][j + 1] *
           matrix2[i][j + 2] *
-          matrix2[i][j + 3] *
-          matrix2[i][j + 4];
+          matrix2[i][j + 3];
       }
     }
   }
@@ -304,31 +301,67 @@ function greatestProduct(matrix2) {
 }
 
 // using diagonals
-
-function greatestProductOfDiagonals(matrix3) {
-  let result = matrix3[0][0] * matrix3[1][1] * matrix3[2][2] * matrix3[3][3];
-  for (let i = 0; i < matrix3.length - 4; i++) {
-    for (let j = 0; j < matrix3[i].length - 4; j++) {
+let result = 0;
+function greatestProductOfDiagonals(matrix) {
+  let result = 0;
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
       if (
-        matrix3[i + 1][j + 1] *
-          matrix3[i + 2][j + 2] *
-          matrix3[i + 3][j + 3] *
-          matrix3[i + 4][j + 4] >
-        matrix3[i][j] *
-          matrix3[i + 1][j + 1] *
-          matrix3[i + 2][j + 2] *
-          matrix3[i + 3][j + 3]
+        matrix[i][j] *
+          matrix[i + 1][j + 1] *
+          matrix[i + 2][j + 2] *
+          matrix[i + 3][j + 3] >
+        result
       ) {
         result =
-          matrix3[i + 1][j + 1] *
-          matrix3[i + 2][j + 2] *
-          matrix3[i + 3][j + 3] *
-          matrix3[i + 4][j + 4];
+          matrix[i][j] *
+          matrix[i + 1][j + 1] *
+          matrix[i + 2][j + 2] *
+          matrix[i + 3][j + 3];
       }
     }
   }
   return result;
 }
+// let result2 = 0
+function greatestProductOfDiagonalsInversed(matrix3) {
+  let result2 = 0;
+  for (let i = 0; i < matrix3.length - 3; i++) {
+    for (let j = 0; j < matrix3[i].length + 3; j++) {
+      if (
+        matrix3[i][j] *
+          matrix3[i + 1][j - 1] *
+          matrix3[i + 2][j - 2] *
+          matrix3[i + 3][j - 3] >
+        result2
+      ) {
+        result2 =
+          matrix3[i][j] *
+          matrix3[i + 1][j - 1] *
+          matrix3[i + 2][j - 2] *
+          matrix3[i + 3][j - 3];
+      }
+    }
+  }
+  return result2;
+}
+
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  } // if num2 is superior to numb1 then add numb2 in the variable
+}
+
+console.log(greatestProductOfDiagonals(matrix2));
+console.log(greatestProductOfDiagonalsInversed(matrix2));
+console.log(
+  maxOfTwoNumbers(
+    greatestProductOfDiagonals(matrix2),
+    greatestProductOfDiagonalsInversed(matrix2)
+  )
+);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
