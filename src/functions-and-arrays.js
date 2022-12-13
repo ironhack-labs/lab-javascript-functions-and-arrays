@@ -49,10 +49,16 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(someArray) {
-  try {
+  if (someArray.length === 0) {
+    return 0;
+  }
+  
   let arrayElement;
   let sumElements = 0;
   for (let i = 0; i< someArray.length; i++) {
+    if (typeof someArray[i] == 'array' || typeof someArray[i] == 'object') {
+      throw Error (`Unsupported data type sir or ma'am`);
+    }
     arrayElement = someArray[i];
     if (typeof arrayElement == 'number') {
       sumElements += arrayElement;
@@ -63,18 +69,12 @@ function sum(someArray) {
     else if (typeof arrayElement == 'boolean') {
       sumElements += Number(arrayElement);
     }
-    else if (typeof arrayElement != 'number' || typeof arrayElement != 'string' || typeof arrayElement != 'boolean') {
-      throw "arrayElement has the wrong type!!!";
-    }
   }
 
 return sumElements;
 
 }
-catch (error) {
-  console.log("Some of the elements in the array have the wrong type.");
-}
-}
+
 
 
 
@@ -154,12 +154,13 @@ function uniquifyArray(wordsUnique) {
     return null;
    }
     let uniqueWordsArray =[];
+    uniqueWordsArray.push(wordsUnique[0])
     for (let i = 0; i < wordsUnique.length; i++) {
-        let wordContainer = wordsUnique[i] 
-        if (wordsUnique.includes(wordContainer, i+1) == false) {
-            uniqueWordsArray.push(wordContainer);
+      let wordContainer = wordsUnique[i]
+      if (uniqueWordsArray.includes(wordContainer) == false)
+      uniqueWordsArray.push(wordContainer);
         }
-    }
+
     return uniqueWordsArray;
   }
 
