@@ -55,7 +55,7 @@ function sum(mixedArr) {
     if ( typeof mixedArr[i] === 'string') {
       mixedSum += mixedArr[i].length
     } else if (typeof mixedArr[i] === 'object') {
-      //throw "ERROR"
+      throw new Error ("Unsupported data type sir or ma'am");
     }
     else {
       mixedSum += mixedArr[i]
@@ -96,9 +96,25 @@ function averageWordLength(wordsArr) {
 
 }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.3
+function avg(arr) {
 
+  let arrSum = 0;
+
+  if (arr.length == 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+
+      if ( typeof arr[i] === 'string') {
+        arrSum += arr[i].length
+      } else {
+        arrSum += arr[i]
+      } 
+    } 
+  } return arrSum / arr.length;
+
+}
 
 
 
