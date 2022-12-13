@@ -155,13 +155,12 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(arr, word) {
   if (arr.length === 0) return null;
-
+  let isTrue = false;
   for (let i = 0; i < arr.length; i++){
     if (arr[i] == word){
-      return true
-    } else if (arr[i] == !word) {
-      return false
-    }
+      isTrue = true;
+    } 
+    return isTrue;
   }
 }
 
@@ -218,7 +217,7 @@ const matrix = [
 ];
 
 function greatestProduct(arr) {
-  
+
 }
 
 
