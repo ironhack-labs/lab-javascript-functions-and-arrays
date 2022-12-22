@@ -44,7 +44,27 @@ function sumNumbers(someArray) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// calculates the sum for array filled with (almost) any type of data
+function sum(someArray) {
+  let sum = 0;
+  //1. booleans: add 1 or 0 -> true + true = 2, so we good
+  //2. string: add length
+  //3. integers: add value
+  if (someArray.length === 0) {
+    return null;
+  } else {
+      for (let i = 0; i < someArray.length; i++) {
+        if (typeof someArray[i] === "string" || typeof someArray[i] === "boolean") {
+          sum += someArray[i].length;
+        } else if (typeof someArray[i] === "number"){
+          sum += someArray[i];
+        }
+      }
+    }
+    return sum;
+  }
+  
+
 
 
 
@@ -82,7 +102,11 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+//calc avg of array filled w numbers, strings, booleans
+function avg(someArray) {
+  let avg = sum(someArray)/someArray.length;
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -185,7 +209,30 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+
+//find the greates product of 4 adjacent number
+
+function greatestProduct(someMatrix) {
+  //create empty variable to store values
+  //get the product of n1 n2 n3 n4, store it.
+  //get the product of n2 n3 n4 n5, compare it with what's in the variable.
+  //if second product is larger, replace it.
+  //so on, for rows
+  let greatestProduct = "";
+  let productOfFour = "";
+  let n1 = someMatrix.length[i][j];
+  let n2 = someMatrix.length[i][j+1];
+  let n3 = someMatrix.length[i][j+2];
+  let n4 = someMatrix.length[i][j+3];
+  for (i = 0; i > someMatrix.length; i++) {
+    for (j = 0; j > someMatrix.length[j]; j++) {
+      productOfFour = j*
+    }
+  }  
+
+}
+
+//
 
 
 
