@@ -1,160 +1,262 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(a, b){
-  if(a > b){
+
+function maxOfTwoNumbers(a, b) {
+  if (a >= b) {
     return a;
-  } else if(a < b){
+  } else if (b > a) {
     return b;
-  } else {
-    return a;
   }
 }
-
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = [
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot",
+];
 
-function findLongestWord(word){
-  let longestWord = "";
-  let words = word;
+function findLongestWord(words) {
+  let longest = ""; // set default variable that will be returned at the end
 
-  if(words.length === 0){
-    return null;
-  } else {
-    for(let text of words){
-      if(text.length > longestWord.length){
-        longestWord = text
-      } else if(word === []) {
-          longestWord = null
-      } else {
-        continue
-      }
-    } 
-    return longestWord;
+  // conditional for passing test if array is empty
+  if (words.length === 0) {
+    return null; // the return keyword will end the function here, it will prevent the rest of the code from executing
   }
-}
 
+  // loop that will check each word of the array against the default variable and update accordingly
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longest.length) {
+      longest = words[i];
+    }
+  }
+
+  return longest; // return the default variable
+}
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(numbers){
-  let sum = 0;
+function sumNumbers(numbers) {
+  let sum = 0; // set default variable that will be returned at the end
 
-  for(let num of numbers){
-    sum += num
+  // loop that will add all the elements in the array to the default variable
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
   }
-  return sum;
+
+  return sum; // return the default variable
 }
 
+function sum(numbers) {
+  let sum = 0; // set default variable that will be returned at the end
 
+  // loop that checks each data type with the typeof keyword and updates the default variable accordingly
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] === "number") {
+      sum += numbers[i];
+    } else if (typeof numbers[i] === "string") {
+      sum += numbers[i].length;
+    } else if (typeof numbers[i] === "boolean") {
+      sum += numbers[i];
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
 
-// Iteration #3.1 Bonus:
-function sum() {}
-
+  return sum; // return the default variable
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbers){
-  if (numbers.length === 0) {
-    return null;
+function averageNumbers(numbersAvg) {
+  let average = 0; // set default variable that will be returned at the end
+
+  // conditional for passing test if array is empty
+  if (numbersAvg.length === 0) {
+    return null; // the return keyword will end the function here, it will prevent the rest of the code from executing
   }
 
-  let sum = 0;
-  for (let number of numbers) {
-    sum += number;
+  // loop to add all of the numbers in the array to the default variable
+  for (let i = 0; i < numbersAvg.length; i++) {
+    average += numbersAvg[i];
   }
-  if (sum === 0) {
-    return 0;
-  } else {
-    return sum/numbers.length;
-  }
+
+  average = average / numbersAvg.length; // to update variable with average of sum
+
+  return average; // return the default variable
 }
 
-
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = [
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace",
+];
 
-function averageWordLength(wordsArr){
-  if (wordsArr.length === 0){
-    return null;
-  }
-  
-  let avgWord = 0;
-  for(let i = 0; i < wordsArr.length; i++){
-    avgWord += wordsArr[i].length;
-    return avgWord / wordsArr.length;
-  }
- }
+function averageWordLength(wordsArr) {
+  let average = 0; // set default variable that will be returned at the end
 
-// Bonus - Iteration #4.1
-function avg() {}
+  // conditional for passing test if array is empty
+  if (wordsArr.length === 0) {
+    return null; // the return keyword will end the function here, it will prevent the rest of the code from executing
+  }
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    average += wordsArr[i].length;
+  }
+
+  average = average / wordsArr.length; // to update variable with average of sum
+
+  return average; // return the default variable
+}
+
+function avg(arr) {
+  let average = 0; // set default variable that will be returned at the end
+
+  // conditional for passing test if array is empty
+  if (arr.length === 0) {
+    return null; // the return keyword will end the function here, it will prevent the rest of the code from executing
+  }
+
+  // loop that will update the default variable depending on the type of data
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      average += arr[i];
+    } else if (typeof arr[i] === "string") {
+      average += arr[i].length;
+    } else if (typeof arr[i] === "boolean") {
+      average += arr[i];
+    }
+  }
+
+  average = average / arr.length; // to update variable with average of sum
+  average = parseFloat(average.toFixed(2)); // code to fix the decimals of the number to be only 2.
+
+  return average; // return the default variable
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring",
 ];
 
-function uniquifyArray(arr){
-  if (arr.length === 0){
+function uniquifyArray(arr) {
+  const uniqueArr = []; // set default variable that will be returned at the end
+
+  // conditional for passing test if array is empty
+  if (arr.length === 0) {
     return null;
   }
-}
 
+  // loop that will check if the uniqueArr includes the words of the arr parameter, and add them only if they don't exist already.
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    // indexOf() => returns 1 (true) if the word already exists in the array
+    // indexOf() => returns -1 (false) if the word doesn't exist in the array
+    if (uniqueArr.indexOf(word) < 0) {
+      uniqueArr.push(word);
+    }
+  }
+
+  return uniqueArr; // return the default variable
+}
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const wordsFind = [
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience",
+];
 
-function doesWordExist(wordsFind, wordSearch){
-  if (wordsFind.length === 0) {
+function doesWordExist(arrOfWords, wordToSearch) {
+
+  // conditional for passing test if array is empty
+  if (arrOfWords.length === 0) {
     return null;
   }
-  return wordsFind.includes(wordSearch);
-}
 
+  // a loop that will check each for of the array against the wordSearch. return true only if it encounters it.
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (arrOfWords[i] === wordToSearch) {
+      return true // if at some point the word is found, they function will return true and stop executing the rest of the function.
+    }
+  }
+
+  return false // if the loop runs and it does not encounters the words (doesn't return true) then it will return false.
+
+  // another approach using ES6 and the method .includes to check if the word is inside the array
+  // if (arrOfWords.includes(wordToSearch)) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter",
 ];
 
-function howManyTimes(wordsCount, wordSearch){
-  if (wordsCount.length === 0){
+function howManyTimes(arr, wordToSearch) {
+
+  // conditional for passing test if array is empty
+  if (arr.length === 0) {
     return 0;
   }
-  let counter = 0;
-  for(let i = 0; i < wordsCount.length; i++){
-    if(wordsCount[i] === wordSearch){
-      counter++
+
+  var count = 0; // set default variable that will be returned at the end
+
+  // a loop that will add 1 to the default variable everytime it encounters the word
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === wordToSearch) {
+      count++;
     }
   }
-  return counter;
+
+  return count; // return the default variable
 }
 
-
-
 // Iteration #8: Bonus
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -178,25 +280,79 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(){}
+// fixed solution
+function greatestProduct(matrix) {
+  let greatest = 0;
+  
+  let horizontal = 0;
+  let vertical = 0;
+  let diagonal = 0;
+  let inverseDiagonal = 0
+  
+  for (let ver = 0; ver < matrix.length - 3; ver++) {
+    for (let hor = 0; hor < matrix.length - 3; hor++) {
+      horizontal = matrix[ver][hor] * matrix[ver][hor+1] * matrix[ver][hor+2] * matrix[ver][hor+3]
+      if (horizontal > greatest) { greatest = horizontal}
+      
+      vertical = matrix[ver][hor] * matrix[ver+1][hor] * matrix[ver+2][hor] * matrix[ver+3][hor]
+      if (vertical > greatest) { greatest = vertical}
+      
+      diagonal = matrix[ver][hor] * matrix[ver+1][hor+1] * matrix[ver+2][hor+2] * matrix[ver+3][hor+3]
+      if (diagonal > greatest) { greatest = diagonal}
+      
+      inverseDiagonal = matrix[ver][hor+3] * matrix[ver+1][hor+2] * matrix[ver+2][hor+1] * matrix[ver+3][hor]
+      if (inverseDiagonal > greatest) { greatest = inverseDiagonal}
+      
+      // first iteration:  ver 0 hor 0
+      // horizontal:       0 0 * 0 1 * 0 2 * 0 3
+      // vertical:         0 0 * 1 0 * 2 0 * 3 0
+      // diagonal:         0 0 * 1 1 * 2 2 * 3 3
+      // inverseDiagonal:  0 3 * 1 2 * 2 1 * 3 0
+      
+    }
+  }
+  return greatest
+}
 
+function greatestProductOfDiagonals(matrix) {
+  const productsOfFourNumbers = [];
 
+  // pushing all products into the array productsOfFourNumbers
+  matrix.forEach((arr, index) => {
+    // vertical products
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i + 3]) {
+        let product = arr[i] * arr[i + 1] * arr[i + 2] * arr[i + 3];
+        productsOfFourNumbers.push(product);
+      }
+    }
+    // horizontal products
+    for (let i = 0; i < arr.length; i++) {
+      if (matrix[index + 3] && matrix[index + 3][i]) {
+        let product =
+          matrix[index][i] * matrix[index + 1][i] * matrix[index + 2][i] * matrix[index + 3][i];
+        productsOfFourNumbers.push(product);
+      }
+    }
+    // diagonal products
+    for (let i = 0; i < arr.length; i++) {
+      if (matrix[index + 3] && matrix[index + 3][i + 3]) {
+        let product =
+          matrix[index][i] *
+          matrix[index + 1][i + 1] *
+          matrix[index + 2][i + 2] *
+          matrix[index + 3][i + 3];
+        productsOfFourNumbers.push(product);
+      }
+    }
+  });
 
-
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined'){
-  module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct
-  };
+  // finding the greatest number in the array productOfFourNumbers
+  let result = 0;
+  productsOfFourNumbers.forEach(num => {
+    if (num > result) {
+      result = num;
+    }
+  });
+  return result;
 }
