@@ -1,38 +1,102 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+/*Implement the function maxOfTwoNumbers that takes
+two numbers as arguments and returns the bigger number.*/
 
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2){
+    return num1
+  }
+  else {
+    return num2
+  }
+}
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+/*Implement the function findLongestWord that takes as an argument
+ an array of words and returns the longest one. If there are 2 with the same length,
+  it should return the first occurrence.*/
 
-function findLongestWord() {}
+function findLongestWord(words) {
+let longestWord = "";
+if (words.length == 0){
+  return null;
+}
+for (let i = 0; i < words.length; i++) {
+  if (words[i].length > longestWord.length){
+    longestWord = words[i]
+  }
+}
+return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
+/*Implement the function named sumNumbers
+that takes an array of numbers as an argument,
+and returns the sum of all of the numbers in the array.
+Later in the course, we will learn how to do this by using the reduce array method,
+which will make your work significantly easier.
+For now, let's practice the "declarative" way of adding values, using loops.*/
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sum = 0;
+  for (let i=0; i<arr.length; i++){
+    sum = sum + arr[i]
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
 function sum() {}
 
-
+//I am skipping the bonus challenges :) 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+/*Find the sum as we did in the first exercise (or how about reusing the function sumNumbers()?)
+Take that sum and divide it by the number of elements in the array. */
 
-function averageNumbers() {}
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(numbersAvg) {
+let average = 0;
+average= sumNumbers(numbersAvg) / numbersAvg.length;
+if (numbersAvg == 0){
+  return null
+}
+
+return average;
+}
 
 
 // Level 2: Array of strings
+/*Implement the function named averageWordLength
+that receives as a single argument an array of words
+and returns the average length of the words: */
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+let wordLength = 0;
+let average = 0;
+
+if (wordsArr.length == 0){
+
+return null;
+}
+
+  for (let i = 0; i < wordsArr.length; i++){
+    wordLength = wordsArr[i].length + wordLength;
+   average = wordLength / wordsArr.length;
+  }
+
+return average;
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
