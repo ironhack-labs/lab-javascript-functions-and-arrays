@@ -1,41 +1,92 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+const maxOfTwoNumbers = (a,b) => a > b ? a : b;
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arrayOfWords) {
+  if (arrayOfWords.length === 0){
+    return null;
+  } else {
+    let longestWord = arrayOfWords.sort(function(a,b) {
+      return b.length - a.length;})
+    return longestWord[0];
+  } 
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numArray) {
+  let sum = 0;
+  for (let number of numArray){
+    sum += number;
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+
+function sum(array) {
+  sumScore = 0;
+  for (item of array){
+    if (typeof item === "string"){
+      sumScore += item.length
+    } else if (typeof item === "boolean"){
+      sumScore += item;
+    } else if (typeof item === "number"){
+      sumScore += item;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sumScore;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbers) {
+  if (numbers.length === 0){
+    return null;
+  } else {
+    let sum = 0;
+    for (number of numbers){
+      sum += number;
+    }
+    return sum/numbers.length;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  if (array.length === 0){
+    return null;
+  } else {
+    let sum = 0;
+    for (let word of array){
+      sum += word.length;
+    }
+    return sum /array.length;
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array.length === 0){
+    return null;
+  } else {
+    return sum(array)/array.length;
+  }
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +103,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
 
 
+function uniquifyArray(array) {
+  if (array.length===0){
+    return null;
+  } else {
+    let filteredArray =[];
+    for (let word of array){
+      if (!filteredArray.includes(word)){
+        filteredArray.push(word)
+      }
+    }    
+    return filteredArray;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(array, word) {
+  if (array.length === 0 ){
+    return null;
+  } else {
+    let wordCheck = false;
+    for (let item of array){
+      if (item === word){
+        wordCheck = true;
+      } else {
+        continue
+      }
+    }
+    return wordCheck
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -78,7 +154,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  let sum = 0;
+  for (let item of array){
+    if (item === word)
+    sum++
+  }
+  return sum;
+}
 
 
 
@@ -106,7 +189,49 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+/* Creates a helper function to transpose the matrix */
+const transposeMatrix = function(matrixA) {
+  const matrixB = [];
+  for (let i = 0; i < matrixA[0].length; i++){
+    let col = [];
+    for (let j = 0; j < matrixA.length; j++){
+      col.push(matrixA[j][i]);
+    }
+    matrixB.push(col);
+  }
+  return matrixB;
+}
+
+
+const checkSumRows = function(addMatrix){
+  scoreArray =[];
+  for (let row of addMatrix){
+    tempScore = [];
+    for (let i of row){
+      tempScore.push(row[i]*row[i+1]*row[i+2]*row[i+4])
+    }
+    scoreArray.push(tempScore)
+  }
+  return scoreArray
+}
+
+console.log(checkSumRows(matrix));
+
+
+function greatestProduct(addMatrix) {
+  for (row in matrix){
+
+
+  }
+}
+
+  /* First I create vertical arrays */
+
+  /* Then I add the horisontal */
+
+  /* Then I check the which one of the horizontal and vertcal arrays has 4 concecutive numbers with the greatest sum */
+
+
 
 
 
