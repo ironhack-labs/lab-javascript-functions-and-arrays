@@ -71,15 +71,12 @@ function sum(mixedArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  let total = 0;
+  // let total = 0;
   let avg = 0;
   if (numbersAvg.length == 0) {
     return null;
   }
-  for (let i = 0; i < numbersAvg.length; i++) {
-    total += numbersAvg[i];
-    avg = total / numbersAvg.length;
-  }
+  avg = sumNumbers(numbersAvg) / numbersAvg.length;
   return avg;
 }
 
@@ -273,7 +270,21 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let biggestProduct = 0;
+  let product = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+      product =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > biggestProduct) {
+        biggestProduct = product;
+      }
+    }
+  }
+  console.log(biggestProduct);
+  return biggestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
