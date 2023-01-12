@@ -1,38 +1,92 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+return a;
+} else {
+return b; 
+};
+return a,b;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(words) {
+  if (!words.length) {
+    return null;
+  } else if (words.length === 1) {
+    return words[0]; 
+  } else {
+    return words.sort((a,b) => b.length - a.length)[0];
+  }
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
-
+let sum = 0;
+for (let i = 0; i < numbers.length; i++) {
+  sum += numbers[i]
+}
+console.log(sum);
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+  let sum = 0;
+  for (let element of mixedArr) {
+    switch (typeof element) {
+      case 'number':
+      case 'boolean':
+        sum += element;
+        break;
+      case 'string':
+        sum += element.length;
+        break;
+      default:
+        throw new Error('Unsupported data type');
+        break;
+    }
+  }
+  return sum;
+}
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+let sum = 0; 
+
+numbersAvg.forEach(function averageNumbers(num) {sum += num});
+
+average = sum / numbersAvg.length; 
+
+console.log(average); // returns 6
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength() 
+  {
+    let sumOfStrings = 0;
+    if(wordsArr.length == 0 ){
+      return null
+    }
+  for ( let i = 0 ; i < wordsArr.length; i++){
+    sumOfStrings += wordsArr[i].length
+  
+  }
+  return sumOfStrings / wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
