@@ -52,8 +52,56 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum(numbers) {
-  let sum = sumNumbers(numbers);
+function sum(mixedArray) {
+  let uniqueObjects = [
+    ...new Set(
+      mixedArray.map((item) => {
+        return typeof item;
+      })
+    ),
+  ];
+
+  allowedObjects = ["number", "string", "boolean"];
+
+  let nonAllowedObjects = uniqueObjects.filter((item) => {
+    return item !== "number" && item !== "string" && item !== "boolean";
+  });
+
+  if (nonAllowedObjects.length > 0) {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
+
+  let sumNum = mixedArray
+    .filter((item) => {
+      return typeof item === "number";
+    })
+    .reduce((acc, num) => {
+      return acc + num;
+    }, 0);
+
+  let sumStr = mixedArray
+    .filter((item) => {
+      return typeof item === "string";
+    })
+    .map((item) => {
+      return item.length;
+    })
+    .reduce((acc, num) => {
+      return acc + num;
+    }, 0);
+
+  let sumBool = mixedArray
+    .filter((item) => {
+      return typeof item === "boolean";
+    })
+    .map((item) => {
+      return Number(item);
+    })
+    .reduce((acc, num) => {
+      return acc + num;
+    }, 0);
+
+  let sum = sumNum + sumStr + sumBool;
   return sum;
 }
 
