@@ -1,21 +1,49 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(x,y) {
+  if (x>y) {
+    return x;
+  } else if (x<y){
+    return y;
+  };
+  return x,y;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  if (array.length===0) {return null;};
+
+  let longestWord = array[0];
+  for (let i=1; i < array.length; i++){
+    if (array[i].length > longestWord.length) {
+      longestWord = array[i];
+    } 
+  }
+  
+  return longestWord;
+}
+  
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(array){
+  if (array.length === 0){
+    return 0;
+  };
+  let sum = 0;
+  for (let i=0; i<array.length; i++){
+    sum+=array[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -26,16 +54,33 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+
+  if (array.length === 0) {
+    return null;
+  };
+
+  return sumNumbers(array)/array.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) { 
+  let wordLengths = [];
+  for (let i=0; i<array.length; i++){
+    wordLengths.push(array[i].length);
+  }
+  return averageNumbers(wordLengths);
+}
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +97,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let uniqueWords = [];
+  if (array.length === 0) {
+    return null;
+  };
+  uniqueWords[0] = array[0];
+  for (let i=1; i<array.length; i++) {
+    if (uniqueWords.includes(array[i]) === false){
+      uniqueWords.push(array[i]);
+    }
+  }
+  return uniqueWords;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, string) {
+  if (array.length === 0) {
+    return null;
+  };
+  return array.includes(string);
+}
 
 
 
@@ -78,7 +140,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, string) {
+  if (array.length === 0){
+    return 0;
+  }
+  let repetitionCount = 0;
+  for (let i=1; i<array.length;i++){
+    if(array[i] === string){
+      repetitionCount++;
+    }
+  }
+  return repetitionCount;
+}
 
 
 
@@ -106,8 +179,72 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function horizontalProducts(array2D) {
+  let products = [];
+  for (let j=0; j < array2D.length-3; j++){
+    for (let i=0; i < array2D.length-3; i++){
+      let product = array2D[j][i]*array2D[j][i+1]*array2D[j][i+2]*array2D[j][i+3];
+      products.push(product);
+    }
+  }
+  return products;
+}
+console.log("Horizontal Products:")
+console.log(horizontalProducts(matrix));
 
+
+function transposedMatrix(array2D){
+  
+  let array2DTransposed = [];
+  for (let i=0; i < matrix[0].length; i++){
+    array2DTransposed.push([]);
+  }
+  
+  for (let j=0; j < array2D.length; j++){
+    for (let i=0; i < array2D.length; i++){
+      array2DTransposed[i][j] = array2D[j][i];
+    }
+  }
+  
+  return array2DTransposed
+}
+
+console.log("Transposed Matrix:");
+console.log(transposedMatrix(matrix));
+
+
+function verticalProducts(array2D){
+   return horizontalProducts(transposedMatrix(array2D));
+}
+console.log("Vertical Products:")
+console.log(verticalProducts(matrix));
+
+
+function greatestProduct(array2D) {
+  
+  let horizontal = horizontalProducts(array2D);
+  let vertical = verticalProducts(array2D);
+  
+  let mergedProducts = []; 
+  for (let i=0; i<horizontal.length; i++) {
+    mergedProducts.push(horizontal[i]);
+  }
+  for (let i=0; i<vertical.length; i++) {
+    mergedProducts.push(vertical[i]);
+  }
+  console.log("mergedProducts:");
+  console.log(mergedProducts);
+  
+  let largestProduct = mergedProducts[0];
+  for (let i=1; i<mergedProducts.length;i++){
+    if (mergedProducts[i] > largestProduct) {
+      largestProduct = mergedProducts[i];
+    }
+  }
+  return largestProduct;
+}
+console.log("Greatest Product:")
+console.log(greatestProduct(matrix))
 
 
 
