@@ -16,6 +16,9 @@ function maxOfTwoNumbers(a,b) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr) {
+  if (arr.length === 0){
+    return null
+  }
   let longestWord = "";
   for (let i = 0; i < arr.length; i++){
     if (arr[i].length > longestWord.length) {
@@ -88,9 +91,12 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  if (arr.length === 0){
+    return null
+  }
   let newArray = [];
   for (let i = 0; i < arr.length; i++){
-    if (arr.indexOf[i] === arr.lastIndexOf[i]) {
+    if (newArray.indexOf(arr[i]) == -1) {
       newArray.push(arr[i])
     }
   }
@@ -103,11 +109,11 @@ function uniquifyArray(arr) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array,value) {
+  if (array.length === 0){
+    return null
+  }
   for (let i = 0; i < array.length; i++) {
-    if (array.length === 0){
-      return null
-    }
-    else if (array.indexOf(value) != -1) {
+   if (array.indexOf(value) != -1) {
       return true
     }
     else if (array.indexOf(value) == -1) {
