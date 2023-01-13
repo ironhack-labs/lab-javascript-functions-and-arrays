@@ -138,7 +138,6 @@ function doesWordExist(array, word) {
   }
 }
 
-
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -162,8 +161,6 @@ function howManyTimes(array, word) {
   }
   return sum;
 }
-
-
 
 // Iteration #8: Bonus
 const matrix = [
@@ -189,7 +186,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-/* Creates a helper function to transpose the matrix */
+/* Extra function in order to transpose the matrix */
 const transposeMatrix = function(matrixA) {
   const matrixB = [];
   for (let i = 0; i < matrixA[0].length; i++){
@@ -202,39 +199,37 @@ const transposeMatrix = function(matrixA) {
   return matrixB;
 }
 
-
-const checkSumRows = function(addMatrix){
-  scoreArray =[];
-  for (let row of addMatrix){
-    tempScore = [];
-    for (let i of row){
-      tempScore.push(row[i]*row[i+1]*row[i+2]*row[i+4])
-    }
-    scoreArray.push(tempScore)
+/* Function to calculate products */
+function checkMaxProductRows(addMatrix) {
+  let product = 0;
+  for (let i = 0; i < addMatrix[0].length; i++) {
+    for (let j = 0; j < addMatrix.length; j++) {
+      let currentProduct = (addMatrix[i][j] * addMatrix[i][j + 1] * addMatrix[i][j + 2] * addMatrix[i][j + 3]);
+      if (currentProduct > product){
+        product = currentProduct;
+      }
+    }   
   }
-  return scoreArray
+  return product
 }
-
-console.log(checkSumRows(matrix));
-
 
 function greatestProduct(addMatrix) {
-  for (row in matrix){
-
-
+  const maxRowProduct = checkMaxProductRows(addMatrix);
+  const maxColumnProduct =checkMaxProductRows(transposeMatrix(addMatrix));
+  let product = 0;
+  if (maxRowProduct > maxColumnProduct){
+    product = maxRowProduct
+  } else { 
+    product = maxColumnProduct
   }
+  return product
+  // Why does this result in;[Function: result]
+/*   const result = (maxRowProduct, maxColumnProduct) => maxRowProduct > maxColumnProduct ? maxRowProduct : maxColumnProduct;
+  return result
+  console.log(result) */
 }
 
-  /* First I create vertical arrays */
-
-  /* Then I add the horisontal */
-
-  /* Then I check the which one of the horizontal and vertcal arrays has 4 concecutive numbers with the greatest sum */
-
-
-
-
-
+console.log(greatestProduct(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
