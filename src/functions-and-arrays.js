@@ -78,7 +78,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength() 
   {
     let sumOfStrings = 0;
-    if(wordsArr.length == 0 ){
+    if(wordsArr.length){
       return null
     }
   for ( let i = 0 ; i < wordsArr.length; i++){
@@ -89,7 +89,15 @@ function averageWordLength()
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function avg(numbers) {
+  if (numbers.length) {
+    return sumNumbers(numbers) / numbers.length;
+  } else {
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -106,14 +114,24 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+  if(array.length) {
+    let cleanedArray = [];
+    for (let element of array) {
+      if (!cleanedArray.includes(element)) {
+        cleanedArray.push(element);
+      }
+    } return cleanedArray;
+  } else {
+    return null;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
 
 
 
@@ -132,9 +150,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
 
 
+function howManyTimes(wordList, searchWord) {
+  if (wordList.length) {
+    let occurances = 0;
+    for (let word of wordList) {
+      if (word === searchWord) {
+        console.log(word);
+        occurances++;   
+      } else {
+        continue;
+      }
+    } 
+    return occurances;
+  } else {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
