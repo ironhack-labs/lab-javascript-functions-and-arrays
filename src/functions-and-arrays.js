@@ -140,13 +140,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(array,value) {
-  let n = 0
+  let count = 0
   for (let i = 0; i < array.length; i++){
     if(array[i] == value){
-      n++
+      count++
     }
   }
-  return n
+  return count
 }
 
 
