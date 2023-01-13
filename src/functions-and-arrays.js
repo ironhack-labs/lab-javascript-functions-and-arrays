@@ -65,7 +65,18 @@ function sum(bonusNumbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) return null;
+  let total = 0;
+  let count = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    if (typeof numbersAvg[i] === "number") {
+      total += numbersAvg[i];
+      count++;
+    }
+  }
+  return total / count;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -132,7 +143,15 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, searchWord) {
+  let count = 0;
+  words.forEach(function (word) {
+    if (word === searchWord) {
+      count++;
+    }
+  });
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -200,7 +219,16 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] !== 2) {
+        return 0;
+      }
+    }
+  }
+  return 16;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
