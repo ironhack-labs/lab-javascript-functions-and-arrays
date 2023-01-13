@@ -265,3 +265,35 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+function greatestProduct(matrix) {
+    
+  let product = 0
+  const numberOfRows = matrix.length
+  const numberOfColumns = matrix[0].length
+
+  for (let i = 0; i < numberOfColumns - 3; i++) {
+    for (let e = 0; e < numberOfRows - 3; e++) {
+  
+        let downhillProduct = matrix[e][i] * matrix[e + 1][i + 1] * matrix[e + 2][i + 2] * matrix[e + 3][i + 3];
+        if (downhillProduct > product) {
+          product = downhillProduct;
+        }
+    }
+  }
+  
+  for (let i = numberOfColumns-1; i > 3; i--) {
+    for (let e = 0; e < numberOfRows-3; e++) {
+  
+        let uphillProduct = matrix[e][i] * matrix[e + 1][i - 1] * matrix[e + 2][i - 2] * matrix[e + 3][i - 3];
+        if (uphillProduct > product) {
+          product = uphillProduct;
+        }
+    }
+  }
+  
+return product;
+} 
+
+
+console.log(greatestProduct(matrix2));
