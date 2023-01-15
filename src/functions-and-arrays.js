@@ -53,7 +53,7 @@ function sumNumbers(array) {
 }
 // console.log(sumNumbers(numbers));
 
-// Iteration #3.1 Bonus:
+// Iteration #3 Bonus: 3.2 mixed array
 const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function sum(array) {
@@ -74,7 +74,7 @@ function sum(array) {
 console.log(sum(mixedArr));
 
 
-// Iteration #4: Calculate the average
+// Iteration #4.1: Calculate the average
 // Level 1: Array of numbers
 // The logic behind this:
 // Find the sum as we did in the first exercise (or how about reusing the function sumNumbers()?)
@@ -94,7 +94,7 @@ function averageNumbers(array) {
 }
 // console.log(averageNumbers(numbersAvg));
 
-// Level 2: Array of strings
+// 4.2: Array of strings
 // Implement the function averageNumbers that expects an array of numbers and returns the average of the numbers.
 
 const wordsArr = [
@@ -110,19 +110,18 @@ const wordsArr = [
   "palace",
 ];
 
-// function averageWordLength(wordsArr) {
-//   if (!wordsArr.length) {
-//     return null;
-//   } 
-//    let sum = 0;
-//   for (let el of wordsArr) {
-//     sum += el.length; 
-
-//   }
-//     return sum;
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  } 
+   let returnedValue = 0;
+  for (let word of wordsArr) {
+    returnedValue += word.length; 
+  }
+    return returnedValue / wordsArr.length;
   
-// }
-// console.log(averageWordLength(wordsArr))
+}
+console.log(averageWordLength(wordsArr))
 
 
 
