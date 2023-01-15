@@ -11,51 +11,53 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
 
-  if (words.length === 0){
-    return null
+  let palabra ="";
+
+  if (words.length == 0){
+    return null; 
   }
 
-  let palabra ="";
-  for(i=0; i<words.length; i++){
+  for(i=0;i<words.length;i++){
+
+    
+
     if (palabra.length < words[i].length){
-      palabra = words[i];      
+      palabra = words[i];
     }
-  
-    }
+    
+    
+  }
     return palabra;
- 
+
 }
+
+
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+
 function sumNumbers(numbers) {
+  
+  let suma=0;
+  for(i=0;i<numbers.length;i++){
+  numbers.forEach(function(){suma+= numbers[i];});
+ }
+ return suma;
+ 
+}
 
-  if (numbers.length === 0){
-    return 0
-  }
-    let sum = 0;
-
-    for (let i = 0; i < numbers.length; i++) {
-      sum += numbers[i];
-    }
-    
-    return sum;
-
-
-  }
 
 
 // Iteration #3.1 Bonus:
-function sum() {
-
-
-}
+function sum() {}
 
 
 
@@ -63,16 +65,23 @@ function sum() {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbers) {
-
-if (numbers.length === 0){
-  return null
-}else{
-let sum = sumNumbers (numbers)
-  return sum / numbers.length
-}
-
-}
+function averageNumbers(numbersAvg) {
+  
+  
+  if (numbersAvg.length == 0){
+    return null; 
+  }
+  
+    let avg=0;
+    for(j=0;j<numbersAvg.length;j++)
+    {
+    //numbersAvg = numbersAvg.map(j => Math.floor(Math.abs(j)));
+    numbersAvg.forEach(function(){avg = ((numbersAvg[j] + avg)/numbersAvg.length);});
+    }
+    return avg;
+   
+  }
+  
 
 
 
@@ -80,25 +89,24 @@ let sum = sumNumbers (numbers)
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
+
+let palabraLargo = "";
+if (wordsArr.length == 0){
+  return null; 
+}
+
+for(k=0;k<wordsArr.length;k++){
+
   
-  let palabraLargo = "";
-  if (wordsArr.length == 0){
-    return null; 
+
+  if (palabraLargo.length < wordsArr[k].length){
+    palabraLargo = (wordsArr[k].length + palabraLargo)/wordsArr.length;
   }
   
-  for(k=0;k<wordsArr.length;k++){
   
-  
-  
-    if (palabraLargo.length < wordsArr[k].length){
-      palabraLargo = (wordsArr[k].length + palabraLargo)/wordsArr.length;
-    }
-  
-  
-  }
-    return palabraLargo;
-   }
- 
+}
+  return palabraLargo;
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -118,27 +126,27 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(uniqueWord) {
+function uniquifyArray(wordsUnique) {
+  
+  let palabraUnica = [];
 
-let palabraUnica = [];
-
-
-if (uniqueWord.length == 0){
+  
+if (wordsUnique.length == 0){
   return null; 
 }
+  
+  for(p=0;p<wordsUnique.length;p++){
 
-  for(p=0;p<uniqueWord.length;p++){
-
-    uni.forEach(function() {
-      if (!palabraUnica.includes(uniqueWord[p])) {
-        palabraUnica.push(uniqueWord[p]);
+    wordsUnique.forEach(function() {
+      if (!palabraUnica.includes(wordsUnique[p])) {
+        palabraUnica.push(wordsUnique[p]);
       }
     });
   }
 
 return palabraUnica;
 }
-}
+
 
 
 
@@ -146,6 +154,7 @@ return palabraUnica;
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsFind) {
+  
   if (wordsFind.length == ""){
     return null; 
   }
@@ -154,7 +163,7 @@ let wordFound = [];
 
   for(e=0;e<wordsFind.length;e++){
 
-
+    
 
     wordsFind.forEach(function() {
       if (wordsFind[e] === 'machine') {
@@ -165,18 +174,17 @@ let wordFound = [];
         palabraPerdida = false;
         wordsFind.splice(wordsFind[e],1)
       }
-
+      
     });
-
+    
     if (wordsFind.includes('machine')) {
       palabraPerdida = true;
-
+      
     }
-
+  
   }
   return palabraPerdida;
 }
-
 
 
 
@@ -204,7 +212,7 @@ function howManyTimes(wordsCount) {
 
   for(o=0;o<wordsCount.length;o++){
 
-
+    
 
     wordsCount.forEach(function() {
       if (!nuevaCaja.includes(wordsCount[o])) {
@@ -222,6 +230,8 @@ function howManyTimes(wordsCount) {
   return numeroRep;
 }
 
+
+  
 
 
 // Iteration #8: Bonus
@@ -270,4 +280,3 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
-
