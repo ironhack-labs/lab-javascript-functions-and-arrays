@@ -16,6 +16,7 @@ function findLongestWord(words) {
   if (words.length === 0){
     return null
   }
+
   let palabra ="";
   for(i=0; i<words.length; i++){
     if (palabra.length < words[i].length){
@@ -35,21 +36,23 @@ function sumNumbers(numbers) {
   if (numbers.length === 0){
     return 0
   }
+    let sum = 0;
 
-  let suma = 0;
-  for(i=0; i<numbers.length; i++){
-        numbers.forEach (function () {suma += numbers[i]})
-       return suma
-      }      
-      
-  }
-     
+    for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
     
+    return sum;
 
+
+  }
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() {
+
+
+}
 
 
 
@@ -57,13 +60,42 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+
+if (numbers.length === 0){
+  return null
+}else{
+let sum = sumNumbers (numbers)
+  return sum / numbers.length
+}
+
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  
+  let palabraLargo = "";
+  if (wordsArr.length == 0){
+    return null; 
+  }
+  
+  for(k=0;k<wordsArr.length;k++){
+  
+  
+  
+    if (palabraLargo.length < wordsArr[k].length){
+      palabraLargo = (wordsArr[k].length + palabraLargo)/wordsArr.length;
+    }
+  
+  
+  }
+    return palabraLargo;
+   }
+ 
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -83,14 +115,65 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqueWord) {
+
+let palabraUnica = [];
+
+
+if (uniqueWord.length == 0){
+  return null; 
+}
+
+  for(p=0;p<uniqueWord.length;p++){
+
+    uni.forEach(function() {
+      if (!palabraUnica.includes(uniqueWord[p])) {
+        palabraUnica.push(uniqueWord[p]);
+      }
+    });
+  }
+
+return palabraUnica;
+}
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind) {
+  if (wordsFind.length == ""){
+    return null; 
+  }
+let palabraPerdida;
+let wordFound = [];
+
+  for(e=0;e<wordsFind.length;e++){
+
+
+
+    wordsFind.forEach(function() {
+      if (wordsFind[e] === 'machine') {
+        palabraPerdida = true;
+      }
+
+      else if (wordsFind[e] !== 'machine'){
+        palabraPerdida = false;
+        wordsFind.splice(wordsFind[e],1)
+      }
+
+    });
+
+    if (wordsFind.includes('machine')) {
+      palabraPerdida = true;
+
+    }
+
+  }
+  return palabraPerdida;
+}
+
 
 
 
@@ -109,7 +192,32 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount) {
+  if (wordsCount.length == ""){
+    return 0; 
+  }
+  let nuevaCaja = [];
+  let numeroRep = 0;
+
+  for(o=0;o<wordsCount.length;o++){
+
+
+
+    wordsCount.forEach(function() {
+      if (!nuevaCaja.includes(wordsCount[o])) {
+        nuevaCaja.push(wordsCount[o]);
+        if (nuevaCaja.includes(wordsCount[o])){
+          numeroRep++;
+        }
+
+      }
+      else {
+        numeroRep = 0;
+      }
+    });
+  }
+  return numeroRep;
+}
 
 
 
@@ -159,3 +267,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
