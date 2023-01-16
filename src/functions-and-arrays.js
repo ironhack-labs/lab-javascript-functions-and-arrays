@@ -46,12 +46,16 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
   
-  let suma=0;
-  for(i=0;i<numbers.length;i++){
-  numbers.forEach(function(){suma+= numbers[i];});
- }
- return suma;
- 
+  if (numbers.length === 0){
+    return 0
+  }
+    let sum = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
+
+    return sum;
 }
 
 
@@ -65,24 +69,17 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg) {
+function averageNumbers(numbers) {
   
-  
-  if (numbersAvg.length == 0){
-    return null; 
+  let avg = 0
+  if (numbers.length === 0){
+    return null
+  }else{
+  let sum = sumNumbers (numbers)
+    return sum / numbers.length
   }
   
-    let avg=0;
-    for(j=0;j<numbersAvg.length;j++)
-    {
-    //numbersAvg = numbersAvg.map(j => Math.floor(Math.abs(j)));
-    numbersAvg.forEach(function(){avg = ((numbersAvg[j] + avg)/numbersAvg.length);});
-    }
-    return avg;
-   
   }
-  
-
 
 
 // Level 2: Array of strings
@@ -103,9 +100,11 @@ for(k=0;k<wordsArr.length;k++){
     palabraLargo = (wordsArr[k].length + palabraLargo)/wordsArr.length;
   }
   
-  
-}
   return palabraLargo;
+}
+  
+return wordsArr.length / palabraLargo 
+
  }
 
 // Bonus - Iteration #4.1
@@ -215,7 +214,7 @@ function howManyTimes(wordsCount) {
     
 
     wordsCount.forEach(function() {
-      if (!nuevaCaja.includes(wordsCount[o])) {
+      if (nuevaCaja.includes(wordsCount[o])) {
         nuevaCaja.push(wordsCount[o]);
         if (nuevaCaja.includes(wordsCount[o])){
           numeroRep++;
