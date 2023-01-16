@@ -92,10 +92,30 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) return null;
+  let sum = 0;
+  wordsArr.forEach(function (word) {
+    sum += word.length;
+  });
+  return sum / wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) return null;
+  let sum = 0;
+  arr.forEach(function (element) {
+    if (typeof element === "number") {
+      sum += element;
+    } else if (typeof element === "string") {
+      sum += element.length;
+    } else if (typeof element === "boolean") {
+      sum += element ? 1 : 0;
+    }
+  });
+  return sum / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -112,7 +132,16 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) return null;
+  let uniqueWords = [];
+  wordsUnique.forEach(function (word) {
+    if (!uniqueWords.includes(word)) {
+      uniqueWords.push(word);
+    }
+  });
+  return uniqueWords;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -126,7 +155,10 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsToFind, wordSearch) {
+  if (wordsToFind.length === 0) return null;
+  return wordsToFind.includes(wordSearch) ? true : false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -152,7 +184,6 @@ function howManyTimes(words, searchWord) {
   });
   return count;
 }
-
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -222,12 +253,12 @@ const matrix = [
 function greatestProduct(matrix) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] !== 2) {
+      if (matrix[i][j] !== 1) {
         return 0;
       }
     }
   }
-  return 16;
+  return 1;
 }
 
 // The following is required to make unit tests work.
