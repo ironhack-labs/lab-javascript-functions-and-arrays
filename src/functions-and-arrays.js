@@ -64,13 +64,31 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(mediaNum){
+  if (mediaNum.length === 0) return null;
+
+  let long = mediaNum.length;
+  let media = 0;
+  for (let i = 0; i < long; i++){
+      media += mediaNum[i];
+  }
+  return media / long;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(avgNum) {
+  if (avgNum.length === 0) return null;
+  if (avgNum.length === 1) return avgNum[0].length;
+  let long = avgNum.length;
+  let media = 0;
+  for (let i = 0; i < long; i++){
+      media += avgNum[i].length;
+  }
+  return media / long;
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
