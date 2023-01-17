@@ -91,7 +91,7 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  if(arr.length == 0) return null;
+  if(arr == 0) return null;
 
   let newArray = [];
 
@@ -137,9 +137,16 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  if (arr == 0) return null;
+  if (arr == 0) return 0;
 
+  let count = 0;
 
+  for(let i=0; i<arr.length; i++) {
+    if (word === arr[i]) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 
