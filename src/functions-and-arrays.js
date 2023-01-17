@@ -56,7 +56,64 @@ function sumNumbers(sum) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const newArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+  if (arr.length === 0) return 0;
+  if (arr.length === 1) return arr[0];
+  let checkZero = true;
+  let checkNum = true;
+  let checkString = true;
+  let checkMixNs = true;
+  let soma = 0;
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] !== 0){
+      checkZero = false;
+      break
+    }
+  } 
+  if (checkZero === true){
+    return 0;
+  }
+  // checking if it is an array of numbers
+  for (let i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'number'){
+      soma += arr[i];
+    } else {
+      checkNum = false;
+      break;
+    }
+  }
+  if (checkNum === true){
+    return soma;
+  } 
+  // checking if it is an array of strings
+  for (let i = 0; i < arr.length; i++){
+    if (typeof arr[i] === 'string'){
+      soma += arr[i].length;
+    } else {
+      checkString = false;
+      break;
+    }
+  }
+  if (checkString === true){
+    return soma;
+  } 
+// check if it is a mixed array of strings and numbers
+  for (let e = 0; e < arr.length; e++){
+    if (typeof arr[e] === 'string'){
+      soma += arr[e].length;
+    } else if (typeof arr[e] === 'number'){
+      soma += arr[e];
+    } else {
+      checkMixNs = false;
+      break;
+    }
+  }
+  if (checkMixNs === true){
+    return soma;
+  } 
+}
 
 
 
@@ -217,10 +274,6 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct() {}
-
-
 
 
 // The following is required to make unit tests work.
