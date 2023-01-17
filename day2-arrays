@@ -1,7 +1,0 @@
-let myArr = [];
-
-for (i = 100; i >= 0; i--) {
-    myArr.unshift(i);
-}
-
-console.log(myArr);
