@@ -42,7 +42,27 @@ function sumNumbers(arr) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if(arr == 0) return 0;
+
+  let total = 0;
+  for(let i = 0; i < arr.length; i++){
+      if(typeof arr[i] === "boolean"){
+        if(arr[i] === true){
+          total += 1;
+        }else if(arr[i] === false){
+          total += 0;
+        }
+      } else if (typeof arr[i] === "number"){
+        total += arr[i];
+      } else if (typeof arr[i] === "string"){
+        total += arr[i].length;
+      } else if (typeof arr[i] === "array" || (typeof arr[i] === "object")){
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+  }
+  return total;
+}
 
 
 
@@ -65,7 +85,9 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arr) {
   if(arr == 0) return null;
+
   let total = 0;
+
     for(let i = 0; i < arr.length; i++){
         total += arr[i].length;
     }
