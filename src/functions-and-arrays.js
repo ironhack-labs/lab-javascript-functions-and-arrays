@@ -127,10 +127,15 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 
 function doesWordExist(exist, word) {
   if (exist.length === 0) return null;
-  
+  if (exist.includes(word) && exist.length === 1) return true;
+  if (exist.includes(word)){
+    return true;
+  } else {
+    return false;
+  }
 }
 
-doesWordExist(wordsFind, machine)
+doesWordExist(wordsFind, 'machine')
 
 
 // Iteration #7: Count repetition
