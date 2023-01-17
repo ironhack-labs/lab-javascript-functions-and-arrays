@@ -11,7 +11,8 @@ const shuffle = (currentArray) => {
   }
   return array;
 };
-
+ ;
+ ;
 
 
 describe('Find the maximum', () => {
