@@ -91,7 +91,25 @@ function averageWordLength(avgNum) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(array) {
+  if (array.length === 0) return null;
+  arrayAvg = 0;
+  for (let i = 0; i < array.length; i++){
+    if(typeof array[i] === "number"){
+      arrayAvg += array[i];
+    } else if (typeof array[i] === "string"){
+      arrayAvg += array[i].length;
+    } else {
+      arrayAvg += 1;
+    }
+  }
+  arrayAvg /= 10;
+  return arrayAvg;
+}
+
+avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
