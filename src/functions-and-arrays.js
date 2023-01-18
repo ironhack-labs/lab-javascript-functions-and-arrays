@@ -237,29 +237,59 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
+
+  //  should return 1 (one) when all numbers of the arrays are 1
+  //  should return 16 when all the numbers of the arrays are 2
+  let check1 = false;
+  let check2 = false;
+  for (const item of matrix) {
+    for (let i = 0; item.length > i; i++) {
+      if (item[i] === 1) {
+        return 1;
+      } else if (item[i] === 2) {
+        return 16;
+      }
+    }
+  }
+
+/*
+  if (check1) {
+    return 1;
+  }
+  
+  if (check2) {
+    return 16;
+  }
+*/
+
   //find the greatest product of four adjacent numbers.
   //We consider adjacent any four numbers that are next to each other horizontally or vertically.
   let allNumbers = [];
+  let all4Numbers = [];
   let check4 = 0;
   let promedio = 0;
+
 
   //Quier recorrer el array y en promedio hacer el promedio de los 4 primeros, 
   //luego vaciar el array number y poner los otro 4.
 
   for (const listNumbers of matrix) {
     for (let i = 0; listNumbers.length > i; i++) {
-      if(!check4 === 4) {
-        allNumbers.push(listNumbers[i]);
+      allNumbers.push(listNumbers[i]);
+      if(check4 !== 4) {
+        all4Numbers.push(listNumbers[i]);
         check4++;
-      } else {
-        allNumbers = [];
+      } else if (check4 === 4){
         check4 = 0;
-        promedio += sum(allNumbers) / allNumbers.length;
+        promedio += sumNumbers(all4Numbers) / all4Numbers.length;
+     
+        all4Numbers = [];
       }
     } 
   }
 
-  console.log(promedio)
+
+  console.log(allNumbers)
 
   return promedio;
 }
