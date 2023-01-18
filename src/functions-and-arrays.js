@@ -58,8 +58,30 @@ sumNumbers(numbers)
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if(arr.length == 0) return 0;
+    
+  let total = 0;
+  for(let i = 0; i < arr.length; i++ ){
+
+  if(typeof arr[i] === "number"){
+    total += arr[i]
+  }else if(typeof arr[i] === "string"){
+    total += arr[i].length
+  }else if(arr[i] === true){
+      total += 1
+  }else if(arr[i] === false){
+      continue;
+  } else {
+      throw new Error("unsupported data type");
+  }
+  }
+  return total
+}
+
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+sum(mixedArr)
+
 
 
 
@@ -80,6 +102,8 @@ function averageNumbers(arr) {
  averageNumbers(numbersAvg)
 
 
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
@@ -95,8 +119,31 @@ function averageWordLength(arr) {
 }
  averageWordLength(wordsArr)
 
+
+
+
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if(arr.length == 0) return null;
+    let total = 0;
+    for(let i = 0; i < arr.length; i++ ){
+      if(arr[i] === true){
+        total += 1
+      }else if(arr[i] === false){
+        total += 0
+      }else if(typeof arr[i] === "number"){
+      total += arr[i] 
+      } else if(typeof arr[1] !== "number" || "boolean"){
+        total += arr[i].length
+      }
+    }
+  
+      return total / arr.length
+}
+
+  avg(mixedArr)
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -126,6 +173,8 @@ function uniquifyArray(arr) {
 }
 
 uniquifyArray(wordsUnique)
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -162,10 +211,18 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-  if(arr.length == 0) return null;
-  for(let i = 0; i < arr.length; i++){}
-  
+  if(arr.length == 0) return 0;
+  let count = 0
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === word){
+      count++
+    }
+
+  }
+  return count
 }
+
+howManyTimes(wordsCount)
 
 
 
