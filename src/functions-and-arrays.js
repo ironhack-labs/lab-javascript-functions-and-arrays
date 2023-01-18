@@ -59,7 +59,7 @@ function sum(arr) {
         sum += 1;
       }
     } else if (typeof el === 'object') {
-      throw 'error: unsupported data type';
+      throw new Error('error: unsupported data type');
     }
   })
   return sum;
@@ -253,7 +253,7 @@ function greatestProductOfDiagonals(arr) {
         }
       }
       if ((i - 3) >= 0 && (j - 3) <= 0) {
-        result = arr[i][j] * arr[i-1][j+1] * arr[i-2][j+2] * arr[i-3][j]+3;
+        result = arr[i][j] * arr[i-1][j+1] * arr[i-2][j+2] * arr[i-3][j+3];
         if (result > max) {
           max = result;
         } 
