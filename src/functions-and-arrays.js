@@ -13,22 +13,15 @@ console.log(maxOfTwoNumbers( 8, 2));
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(arr1){
-  if (arr1.length === 0){
-    return null;
+  if(arr1.length === 0){
+    return null
   }
-  if (arr1.length === 1) {
-    return arr1[0];
-  }
-  let longest = ["box"];                                             
-
+  
+  let longest = '';
   for (let i = 0; i < arr1.length; i++) {
-    if( longest[i].length < arr1[i].length ){
-      longest.pop(longest[i]);
-      longest.unshift(arr1[i]);
+    if (arr1[i].length > longest.length) {
+      longest = arr1[i];
     }
-    
-
-    
   }
   return longest;
 }
