@@ -1,19 +1,64 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2){
+  return num1;
 
+  }else{
+   return num2;
+
+  }
+
+}
+
+console.log(maxOfTwoNumbers(10,6));
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let longestWord = "";
 
-function findLongestWord() {}
+function findLongestWord(arr) {
 
+  if (!arr.length) {
+    return null;
+  }     
+
+  for(let i = 0; i < arr.length; i++) {
+  
+  if(arr.length < arr[i].length){
+    longestWord = arr[i];
+   return longestWord; 
+
+
+    }
+
+  }
+
+}
+
+
+
+console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+
+function sumNumbers(arr) {
+  let total = 0;
+  if (!arr.length) {
+    return 0;
+  }
+
+  for(let i = 0; i < arr.length; i++){
+   total +=arr[i];
+   
+  }
+  return total;
+
+}
+console.log(sumNumbers(numbers));
 
 
 
@@ -26,13 +71,43 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  
+  if (!arr.length) {
+    return null;  
+  }
+
+  let sumOfTheNumbers = sumNumbers(arr);
+
+  return sumOfTheNumbers / arr.length;
+  
+  }
+  
+  
+
+  console.log(averageNumbers(numbersAvg));
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) { 
+
+  if (!arr.length){
+    return null;  
+  }
+
+  let sum = 0; 
+  for(let i = 0; i < arr.length; i++) {
+    
+    sum += arr[i].length;  
+
+  }   
+return sum / arr.length;
+}
+console.log(averageWordLength(wordsArr));
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,15 +127,50 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+  if (!arr.length){
+    return null;  
+  }
+  
+  let noRepititionsArray = [];
+  for(let i = 0; i < arr.length; i++) {
+
+   if (noRepititionsArray.indexOf(arr[i]) < 0) {
+      noRepititionsArray.push(arr[i]);
+  }
+
+}
+return noRepititionsArray;
+}
+console.log(uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  
+  if (!arr.length){
+    return null;  
+  } 
+  
+    return arr.includes(word);
+}
+  
+// for(let i = 0; i < arr.length; i++){
+    //return arr[i].includes(word);
+  
 
+/* } - Question: When testing with Jasmine using the loop you see commented, I get this:
+"it should return true if the word we are looking for is in the array"
+I eventually figured that the loop maybe wasn't absolutely necessary, which led to my final answer, but I
+don't understand why Jasmine would return this because the function was returning true if the word was there, with the for loop.*/
+
+
+
+console.log(doesWordExist(wordsFind, "machine"))
 
 
 // Iteration #7: Count repetition
@@ -78,7 +188,25 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (!arr.length){
+    return 0;  
+  }
+  let countWord = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(word === arr[i]){
+     countWord++
+
+    }
+    
+  }
+  return countWord
+}
+    
+  
+
+console.log(howManyTimes(wordsCount, "starting"));
+
 
 
 
