@@ -66,7 +66,17 @@ function averageNumbers(array) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
- 
+
+ if (!wordsArr.length) {
+    return null;
+  }
+ let average;
+ let sum = 0;
+ for (let i = 0; i < wordsArr.length; i++) {
+   sum += wordsArr[i].length;
+ }
+ average = sum / wordsArr.length;
+ return average;
  }
 
 // Bonus - Iteration #4.1
@@ -87,7 +97,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!arr.length) {
+     return null;
+  }
+
+  // does not work :
+
+  for (let i = 0; i < arr.length; i++) {
+    let currentWord = arr[i];
+    for (let j = indexOf(currentWord)+1; j < arr.length; j++) {
+      if (currentWord === arr[j]) {
+        arr.splice(j,1);
+      }
+    }
+    return arr
+  }
+}
 
 
 
