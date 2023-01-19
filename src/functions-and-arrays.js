@@ -15,18 +15,36 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 
 function findLongestWord(words) {
-  if (words.length === 0){
+  if (words.length === 0) {
     return null
   }
 
   let longestWord = ""
-  for (let i = 0; i < words.length; i++){
-    if (words[i].length > longestWord.length){
-      longestWord = words[i]
+  words.forEach(word => {
+    if (word.length > longestWord.length) {
+      longestWord = word
     }
-  }
+  })
+  
   return longestWord
 }
+
+// Drinks.forEach(eachDrink => console.log('La bebida es', drinks))
+
+/* FOR 
+for (let i = 0; i < words.length; i++) {
+  if (words[i].length > longestWord.length) {
+    longestWord = words[i]
+  }
+}
+
+FOREACH 
+words.forEach (word => {
+  if(word.length > longestWord.length){
+    longestWord = word
+  }
+})
+*/
 
 
 
@@ -37,40 +55,43 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
 
   let totalSum = 0
-  for (let i = 0; i < numbers.length; i++){
-    totalSum += numbers[i]
-  }
+  
+  numbers.forEach(number => totalSum += number)
 
   return totalSum
 }
 
-
+/*
+for (let i = 0; i < numbers.length; i++) {
+  totalSum += numbers[i]
+}
+*/
 
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(mixedArr) {
-  if (!mixedArr.length){
+  if (!mixedArr.length) {
     return 0
   }
 
   let totalSum = 0
-  for (let i = 0; i < mixedArr.length; i++){
+  for (let i = 0; i < mixedArr.length; i++) {
 
-    if (mixedArr[i] === true){
+    if (mixedArr[i] === true) {
       mixedArr[i] = 1
     }
-    else if (typeof mixedArr[i] === "string"){
+    else if (typeof mixedArr[i] === "string") {
       mixedArr[i] = mixedArr[i].length
     }
-    else if (typeof mixedArr[i] === "number"){
+    else if (typeof mixedArr[i] === "number") {
       mixedArr[i] = mixedArr[i]
     }
-    else if (mixedArr[i] === false){
+    else if (mixedArr[i] === false) {
       mixedArr[i] = 0
     }
-    else if (typeof mixedArr[i] === "object"){
-      throw new Error ("Unsupported data type sir or ma'am")
+    else if (typeof mixedArr[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am")
     }
     // else{
     //   throw new Error ("Unsupported data type sir or ma'am")
@@ -90,15 +111,17 @@ function sum(mixedArr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  
-  if (!numbersAvg.length){
+
+  if (!numbersAvg.length) {
     return null
   }
 
   let totalSum2 = 0
-  for (let i = 0; i < numbersAvg.length; i++){
-    totalSum2 += numbersAvg[i]
-  }
+  // for (let i = 0; i < numbersAvg.length; i++) {
+  //   totalSum2 += numbersAvg[i]
+  // }
+
+  numbersAvg.forEach (number => totalSum2 += number)
 
   return totalSum2 / (numbersAvg.length)
 }
@@ -108,13 +131,13 @@ function averageNumbers(numbersAvg) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) {
-  
-  if (!wordsArr.length){
+
+  if (!wordsArr.length) {
     return null
   }
 
   let totalSum = 0
-  for (let i = 0; i < wordsArr.length; i++){
+  for (let i = 0; i < wordsArr.length; i++) {
     totalSum += wordsArr[i].length
   }
 
@@ -126,23 +149,23 @@ function averageWordLength(wordsArr) {
 // Bonus - Iteration #4.1
 
 function avg(mixedArr) {
-  if (!mixedArr.length){
+  if (!mixedArr.length) {
     return null
   }
 
   let totalSum = 0
-  for (let i = 0; i < mixedArr.length; i++){
+  for (let i = 0; i < mixedArr.length; i++) {
 
-    if (mixedArr[i] === true){
+    if (mixedArr[i] === true) {
       mixedArr[i] = 1
     }
-    else if (typeof mixedArr[i] === "string"){
+    else if (typeof mixedArr[i] === "string") {
       mixedArr[i] = mixedArr[i].length
     }
-    else if (typeof mixedArr[i] === "number"){
+    else if (typeof mixedArr[i] === "number") {
       mixedArr[i] = mixedArr[i]
     }
-    else{
+    else {
       mixedArr[i] = 0
     }
 
@@ -169,16 +192,16 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  if (!wordsUnique.length){
+  if (!wordsUnique.length) {
     return null
   }
 
   const newArray = []
-  for (let i = 0; i < wordsUnique.length; i++){
-    if (!newArray.includes(wordsUnique[i])){
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (!newArray.includes(wordsUnique[i])) {
       newArray.push(wordsUnique[i])
     }
-  //   [...new Set(wordsUnique)]
+    //   [...new Set(wordsUnique)]
   }
   return newArray
 }
@@ -189,7 +212,7 @@ function uniquifyArray(wordsUnique) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsFind, wordSearched) {
-  if (!wordsFind.length){
+  if (!wordsFind.length) {
     return null
   }
   else if (wordsFind.includes(wordSearched)) {
@@ -219,13 +242,19 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsCount, wordSearched) {
-  
+
   let count = 0
-  for (let i = 0; i < wordsCount.length; i++){
-    if (wordsCount[i] === wordSearched){
-      count ++
+  // for (let i = 0; i < wordsCount.length; i++) {
+  //   if (wordsCount[i] === wordSearched) {
+  //     count++
+  //   }
+  // }
+  wordsCount.forEach (word => {
+    if (word === wordSearched) {
+      count++
     }
-  }
+  })
+
   return count
 }
 
@@ -259,11 +288,26 @@ function greatestProduct(matrix) {
 
   let biggestNumber = 0
 
-  for (let i = 0; i < matrix.length; i++){
-    for (let j = 0; j < matrix[i].length; j++){
-      
+  for (let i = 0; i < matrix.length; i++) {
+
+    for (let j = 0; j < matrix[i].length; j++) {
+      const checkI = matrix[i + 1] && matrix[i + 2] && matrix[i + 3]
+      const checkJ = matrix[i][j + 1] && matrix[i][j + 2] && matrix[i][j + 3]
+
+      if (checkI && checkJ) {
+        const multLine = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3]
+        const multCol = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j]
+
+        if (multLine > biggestNumber) {
+          biggestNumber = multLine
+        }
+        else if (multCol > biggestNumber) {
+          biggestNumber = multCol
+        }
+      }
     }
   }
+  return biggestNumber
 }
 
 // let longestWord = ""
