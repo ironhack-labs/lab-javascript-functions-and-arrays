@@ -1,24 +1,76 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  else {
+    return num2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(word) {
+  let compared = 0;
+  let ind = 0;
+  if (word.length === 0) return null;
+  else {
+    for (let i=0; i<word.length; i++) {
+      console.log(i);
+      if (word[i].length > compared) {
+        ind = i;
+        compared = word[i].length ;
+      }
+    }
+    return word[ind];
+  }
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(number) {
+  let acumulated = 0;
+  for (let i=0; i<number.length;i++) {
+    acumulated += number[i];
+  }
+  return acumulated;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+
+function sumNumbers(number) {
+  let acumulated = 0;
+  for (let i=0; i<number.length;i++) {
+    acumulated += number[i];
+  }
+  return acumulated;
+}
+function sum(allTypes) {
+  for (i=0; i<allTypes.length; i++) {
+    if (typeof allTypes[i] == "boolean") {
+      if (allTypes[i]) allTypes[i] = 1;
+      else allTypes[i] = 0;
+    }
+    else if (typeof allTypes[i] == "string") {
+      allTypes[i] = allTypes[i].length;
+    }
+    else if (typeof allTypes[i] == "object") {
+      throw new Error("prueba");
+    }
+  }
+  return sumNumbers(allTypes);
+}
 
 
 
@@ -26,13 +78,32 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function sumNumbers(number) {
+  let acumulated = 0;
+  for (let i=0; i<number.length;i++) {
+    acumulated += number[i];
+  }
+  return acumulated;
+}
+
+function averageNumbers(nums) {
+  if (nums.length === 0) return null;
+  let sum = sumNumbers(nums);
+  return sum/nums.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordAverage) {
+  if (wordAverage.length === 0) return null;
+  wordsLength = 0;
+  for (let i=0; i<wordAverage.length; i++) {
+    wordsLength += wordAverage[i].length;
+  }
+  return wordsLength/wordAverage.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
