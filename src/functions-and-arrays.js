@@ -28,9 +28,10 @@ function findLongestWord(array) {
     let str = '';
     for (let i = 0; i < array.length; i++) {
       if (array[i].length > str.length) {
-        str += array[i];
+        str = array[i];
       }
     }
+    console.log(str);
     return str;
   }
 }
