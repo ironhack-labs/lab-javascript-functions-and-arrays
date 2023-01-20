@@ -44,7 +44,7 @@ function sumNumbers(num) {
   } else {
     let sum = 0
     for (let i = 0; i < num.length; i++) {
-      return sum += num[i]
+      sum += num[i]
     }
     return sum
   }
