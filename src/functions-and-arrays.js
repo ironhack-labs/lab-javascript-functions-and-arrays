@@ -50,7 +50,7 @@ function sum(mixedArray) {
     throw new Error("Unsupported data type sir or ma'am");
   }
 
-  let sumNew = mixedArray
+  let sum = mixedArray
     .map((item) => {
       const itemType = typeof item;
       if (itemType === "string") {
@@ -63,19 +63,6 @@ function sum(mixedArray) {
     })
     .reduce((acc, num) => acc + num, 0);
 
-  let sumNum = mixedArray.filter((item) => typeof item === "number").reduce((acc, num) => acc + num, 0);
-
-  let sumStr = mixedArray
-    .filter((item) => typeof item === "string")
-    .map((item) => item.length)
-    .reduce((acc, num) => acc + num, 0);
-
-  let sumBool = mixedArray
-    .filter((item) => typeof item === "boolean")
-    .map((item) => Number(item))
-    .reduce((acc, num) => acc + num, 0);
-
-  let sum = sumNum + sumStr + sumBool;
   return sum;
 }
 
