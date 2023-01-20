@@ -19,15 +19,9 @@ function findLongestWord(words) {
     return words[0];
   }
 
-  let wordLengths = words.map((word) => {
-    return word.length;
-  });
+  let wordLengths = words.map((word) => word.length);
 
-  let longestWordLength = Math.max(...wordLengths);
-
-  let longestWords = words.filter((word) => {
-    return word.length === longestWordLength;
-  });
+  let longestWords = words.filter((word) => word.length === Math.max(...wordLengths));
 
   return longestWords[0];
 }
@@ -45,53 +39,41 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 function sum(mixedArray) {
-  let uniqueObjects = [
-    ...new Set(
-      mixedArray.map((item) => {
-        return typeof item;
-      })
-    ),
-  ];
+  "use strict";
 
-  allowedObjects = ["number", "string", "boolean"];
+  let uniqueObjects = [...new Set(mixedArray.map((item) => typeof item))];
+  let allowedObjects = ["number", "string", "boolean"];
 
-  let nonAllowedObjects = uniqueObjects.filter((item) => {
-    return item !== "number" && item !== "string" && item !== "boolean";
-  });
+  let nonAllowedObjects = uniqueObjects.filter((item) => !allowedObjects.includes(item));
 
   if (nonAllowedObjects.length > 0) {
     throw new Error("Unsupported data type sir or ma'am");
   }
 
-  let sumNum = mixedArray
-    .filter((item) => {
-      return typeof item === "number";
+  let sumNew = mixedArray
+    .map((item) => {
+      const itemType = typeof item;
+      if (itemType === "string") {
+        return item.length;
+      } else if (itemType === "boolean") {
+        return Number(item);
+      } else {
+        return item;
+      }
     })
-    .reduce((acc, num) => {
-      return acc + num;
-    }, 0);
+    .reduce((acc, num) => acc + num, 0);
+
+  let sumNum = mixedArray.filter((item) => typeof item === "number").reduce((acc, num) => acc + num, 0);
 
   let sumStr = mixedArray
-    .filter((item) => {
-      return typeof item === "string";
-    })
-    .map((item) => {
-      return item.length;
-    })
-    .reduce((acc, num) => {
-      return acc + num;
-    }, 0);
+    .filter((item) => typeof item === "string")
+    .map((item) => item.length)
+    .reduce((acc, num) => acc + num, 0);
 
   let sumBool = mixedArray
-    .filter((item) => {
-      return typeof item === "boolean";
-    })
-    .map((item) => {
-      return Number(item);
-    })
-    .reduce((acc, num) => {
-      return acc + num;
-    }, 0);
+    .filter((item) => typeof item === "boolean")
+    .map((item) => Number(item))
+    .reduce((acc, num) => acc + num, 0);
 
   let sum = sumNum + sumStr + sumBool;
   return sum;
@@ -102,6 +84,7 @@ function sum(mixedArray) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) {
+  "use strict";
   if (numbers.length === 0) {
     return null;
   }
@@ -113,6 +96,7 @@ function averageNumbers(numbers) {
 const wordsArr = ["seat", "correspond", "linen", "motif", "hole", "smell", "smart", "chaos", "fuel", "palace"];
 
 function averageWordLength(wordsArray) {
+  "use strict";
   if (wordsArray.length === 0) {
     return null;
   }
@@ -126,6 +110,7 @@ function averageWordLength(wordsArray) {
 
 // Bonus - Iteration #4.1
 function avg(mixedArray) {
+  "use strict";
   if (mixedArray.length === 0) {
     return null;
   }
@@ -149,6 +134,8 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arry) {
+  "use strict";
+
   if (arry.length === 0) {
     return null;
   }
@@ -161,6 +148,8 @@ function uniquifyArray(arry) {
 const wordsFind = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
 
 function doesWordExist(wordsArray, word) {
+  "use strict";
+
   if (wordsArray.length === 0) {
     return null;
   }
@@ -185,13 +174,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsArray, word) {
+  "use strict";
+
   if (wordsArray.length === 0) {
     return 0;
   }
 
-  let wordCount = wordsArray.filter((item) => {
-    return item === word;
-  });
+  let wordCount = wordsArray.filter((item) => item === word);
 
   return wordCount.length;
 }
@@ -221,6 +210,8 @@ const matrix = [
 ];
 
 function greatestProduct(arr) {
+  "use strict";
+
   let greatestProduct = 0;
   for (let i = 0; i < arr.length - 3; i++) {
     for (let j = 0; j < arr[i].length - 3; j++) {
