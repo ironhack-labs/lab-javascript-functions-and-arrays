@@ -6,7 +6,7 @@ function maxOfTwoNumbers(a, b) {
   } else if (a < b) {
     return b
   } else {
-    return a || b
+    return a || b //return a
   }
 }
 
@@ -23,9 +23,7 @@ function findLongestWord(words) {
   } else {
     let longestWord = words[0];
     for (let i = 0; i < words.length; i++) {
-      if (words.length === 1) {
-        return longestWord
-      } else if (longestWord.length < words[i].length) {
+      if (longestWord.length < words[i].length) {
         longestWord = words[i]
       }
     }
@@ -46,15 +44,12 @@ function sumNumbers(num) {
   } else {
     let sum = 0
     for (let i = 0; i < num.length; i++) {
-      if (num.length === 1) {
-        return num[0]
-      } else {
-        sum += num[i]
-      }
+      return sum += num[i]
     }
     return sum
   }
-}
+  }
+
 
 
 // Iteration #3.1 Bonus:
@@ -67,11 +62,7 @@ function sumNumbers(num) {
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(arr) {
-  if (typeof arr !== 'object') {
-    throw Error(
-      "You should use this function to an array or an object" 
-    )}
-  else if (!arr.length) {
+ if (!arr.length) {
     return 0
   } else if (arr.length === 1) {
     return arr[0]
@@ -85,10 +76,12 @@ function sum(arr) {
         sum += arr[i];
       }
       else if (typeof arr[i] === "boolean") {
-        console.log(arr[i])
         if (arr[i] === true) {
           sum++
         }
+      }
+      else if (typeof arr[i] === 'object' || typeof arr[i] === 'array') {
+        throw Error("unsupported data type (object or array) present in the array")
       }
     }
     return sum
@@ -152,7 +145,9 @@ function avg(arr) {
           sum += arr[i].length
         }
       else if (typeof arr[i] === "boolean") {
-        sum++
+        if (arr[i] === true) {
+          sum++
+        }
       }
     }
     let avgMix = sum / arr.length
