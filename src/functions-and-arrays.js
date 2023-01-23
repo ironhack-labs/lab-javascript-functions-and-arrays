@@ -45,24 +45,27 @@ function sumNumbers(arrayOfNums) {
 
 
 // Iteration #3.1 Bonus:
-function sum(arrayGenerico) {
+function sum(arr) {
   let sum = 0;
-  if(!arrayGenerico.lentgh) return 0;
+  
 
-  for (let i = 0; i < arrayGenerico.length; i++){
-    if(typeof arrayGenerico[i] === "string"){
-      sum += arrayGenerico[i].length;
-    } else if (typeof arrayGenerico[i] === "number"){
-      sum += arrayGenerico[i];
-    }  else if (typeof arrayGenerico[i] === "boolean"){
-        if(arrayGenerico[i] === true){
+  for (let i = 0; i < arr.length; i++){
+    if(typeof arr[i] === "string"){
+      sum += arr[i].length;
+    } else if (typeof arr[i] === "number"){
+      sum += arr[i];
+    }  else if (typeof arr[i] === "boolean"){
+        if(arr[i] === true){
           sum += 1;
         } else {
           sum += 0;
         }    
+    } else if (typeof arr[i] === "object" || Array.isArray(arr[i])) {
+      throw new Error("Unsupported data type present in the array");
     }
-    return sum;
+    
   }
+  return sum;
 }
 
 
