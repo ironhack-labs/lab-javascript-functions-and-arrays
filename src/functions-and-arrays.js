@@ -53,10 +53,7 @@ function sumNumbers(arrNums) {
 // Iteration #3.1 Bonus:
 function sum() {}
 //
-
-
 // const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
 // 6
 // 12
 // 1
@@ -153,15 +150,18 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist(arrPalavras, encontreAPalavra) {
+function doesWordExist(arrPalavras, acheiAPalavra) {
   if (arrPalavras.length === 0) {
     return null;
+  } else {
+    if (arrPalavras.includes(acheiAPalavra)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
-// console.log()
-//
-//
-//
+
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
