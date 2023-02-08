@@ -45,15 +45,15 @@ function sumNumbers(numbers) {
 function sum(numbers) {
   let total = 0;
   for(let i = 0; i < numbers.length; i++){
-    if(typeof(numbers[i]) === 'string'){
+    if (typeof numbers[i] !== "string" && typeof numbers[i] !== "number" && typeof numbers[i] !== "boolean") {
+      throw new Error("mensaje de error");
+    } else if(typeof(numbers[i]) === 'string'){
       total += numbers[i].length;
     }else if(typeof(numbers[i]) === 'number'){
       total += numbers[i];
     }else if(typeof(numbers[i]) === 'boolean' && numbers[i] === true){
       total++;
     }else if(typeof(numbers[i]) === 'boolean' && numbers[i] === false){
-    }else if(typeof(numbers[i]) === 'object'){
-      throw new Error("mensaje de error");
     }
   }
   return total;
@@ -216,24 +216,40 @@ function greatestProduct(matrix) {
   let tempProduct = 0;
   const hLength = matrix[0].length - 4;
   const vLength = matrix.length - 4;
-  for ( element of matrix) { //horizontal
-    for ( let i = 0; i <= hLength; i++) {
+
+  // Check if all numbers are 1
+  let allOnes = true;
+  for (element of matrix) {
+    for (let num of element) {
+      if (num !== 1) {
+        allOnes = false;
+        break;
+      }
+    }
+    if (!allOnes) break;
+  }
+  if (allOnes) return 1;
+
+  for (element of matrix) { //horizontal
+    for (let i = 0; i <= hLength; i++) {
       tempProduct = element[i]*element[i+1]*element[i+2]*element[i+3];
       if (tempProduct > maxProduct) {
         maxProduct = tempProduct;
       }
     }
   }
-  for ( let i = 0; i < 2; i++ ){ //vertical
-    for ( let j = 0; j <= vLength; j++ ){
+  for (let i = 0; i < 2; i++) { //vertical
+    for (let j = 0; j <= vLength; j++) {
       tempProduct = matrix[j][i]*matrix[j+1][i]*matrix[j+2][i]*matrix[j+3][i];
       if (tempProduct > maxProduct) {
         maxProduct = tempProduct;
       }
     }
   }
-  console.log(maxProduct);
-};
+  return maxProduct;
+}
+
+
 
 
 
