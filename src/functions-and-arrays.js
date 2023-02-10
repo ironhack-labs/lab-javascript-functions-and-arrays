@@ -52,9 +52,10 @@ function averageNumbers(average) {
     sumElements += 1;
   } return sumElements; 
 } console.log(averageNumbers(numbersAvg));
-console.log(sumNumbers(numbersAvg) / averageNumbers(numbersAvg));
 
 //teilen function 1/2????
+console.log(sumNumbers(numbersAvg) / averageNumbers(numbersAvg));
+
 
 
 
