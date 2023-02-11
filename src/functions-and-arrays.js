@@ -5,7 +5,8 @@ function maxOfTwoNumbers(a, b) {
   }else {
     return b;
   }
-} console.log(maxOfTwoNumbers(20, 24));
+} 
+console.log(maxOfTwoNumbers(20, 24));
 
 
 
@@ -20,7 +21,8 @@ function findLongestWord(arr) {
     }
   }
   return word;
-} console.log(findLongestWord(words));
+} 
+console.log(findLongestWord(words));
 
 
 
@@ -32,8 +34,10 @@ function sumNumbers(arr) {
   let sum = 0;
   for ( let i = 0; i < arr.length; i++) {
     sum += arr[i];
-  } return sum;
-} console.log(sumNumbers(numbers));
+  } 
+  return sum;
+} 
+console.log(sumNumbers(numbers));
 
 
 
@@ -45,7 +49,10 @@ function sum() {}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// short
+console.log(sumNumbers(numbersAvg) / numbersAvg.length);
 
+// complicated
 function averageNumbers(average) {
   let sumElements = 0;
   for (let i = 0; i < average.length; i++) {
@@ -53,7 +60,6 @@ function averageNumbers(average) {
   } return sumElements; 
 } console.log(averageNumbers(numbersAvg));
 
-//teilen function 1/2????
 console.log(sumNumbers(numbersAvg) / averageNumbers(numbersAvg));
 
 
