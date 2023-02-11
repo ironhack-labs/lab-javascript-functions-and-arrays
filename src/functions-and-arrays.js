@@ -50,8 +50,8 @@ function sum(mixedArr) {
     else if (typeof(mixedArr[i]) === "boolean") {
       sum += Number(mixedArr[i]);
     }
-    else if (isNaN(mixedArr[i])){
-      throw new Error("error unsupported type");
+    else if (typeof(mixedArr[i]) === "object" || typeof(mixedArr[i]) === "array") {
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return sum;
