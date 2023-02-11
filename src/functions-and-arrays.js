@@ -38,7 +38,21 @@ return sum
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sum = 0
+  arr.forEach(element=>{
+    if(typeof element === "string"){
+      sum += element.length
+    }else if(element === true){
+      sum += 1
+    }else if(typeof element === "number"){
+      sum += element
+    }
+  })
+  return sum
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+sum(mixedArr)
 
 
 
