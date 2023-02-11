@@ -217,9 +217,32 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  
-  return ;
+  let maxHorizontalProduct =0;
+  let maxVerticalProduct =0;
+
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix.length; j++) {
+
+      // check max horizontal product 
+           if ((i-3)>=0) {
+             maxHorizontalProduct = matrix[i][j] * matrix[i-1][j] * matrix[i-2][j] * matrix[i-3][j];
+           }
+      // check max vertical product 
+          if ((j-3)>=0) {
+            maxVerticalProduct = matrix[i][j] * matrix[i][j-1] * matrix[i][j-2] * matrix[i][j-3];
+             }
+            }
+          }
+       // check which max is higher
+       if (maxHorizontalProduct > maxVerticalProduct ) {
+        return maxHorizontalProduct;
+      }      
+      else {
+        return maxVerticalProduct;
+      }
 }
+
+greatestProduct(matrix);
 
 
 
