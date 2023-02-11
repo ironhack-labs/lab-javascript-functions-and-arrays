@@ -1,41 +1,106 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(number1,number2) {
+  return number1 > number2 ? number1 : number2;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+
+  else {
+  let longestWord="";
+  for (let i=0; i<words.length; i++) {
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i];
+    }
+   }
+  return longestWord;
+  }
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let sum=0;
+  for (let i=0; i<numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {  
+  let sum=0;
+  for (let i=0; i<mixedArr.length; i++) {
+    if (typeof(mixedArr[i]) === "number") {
+      sum += mixedArr[i];
+    }
+    else if (typeof(mixedArr[i]) === "string") {
+      sum += mixedArr[i].length;
+    }
+    else if (typeof(mixedArr[i]) === "boolean") {
+      sum += Number(mixedArr[i]);
+    }
+    else if (isNaN(mixedArr[i])){
+      throw new Error("error unsupported type");
+    }
+  }
+  return sum;
+}
 
 
 
 // Iteration #4: Calculate the average
-// Level 1: Array of numbers
+// Level 4.1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+  else {
+    return sumNumbers(numbersAvg)/numbersAvg.length;
+  }
+}
 
 
-// Level 2: Array of strings
+// Level 4.2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  
+  let sumLength=0;
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  else {
+    for (let i=0; i<wordsArr.length; i++) {
+      sumLength += wordsArr[i].length;
+    }
+     return sumLength/wordsArr.length;
+  }
+}
 
-// Bonus - Iteration #4.1
-function avg() {}
+
+// Bonus - Iteration #4.3
+
+function avg(mixedArr) {
+  if (mixedArr.length===0) {
+    return null;
+  } 
+  else {
+    return sum(mixedArr)/mixedArr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +117,45 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length===0) {
+    return null;
+  }
+
+  else {
+  newArray=[];
+  for (let i=0; i<wordsUnique.length; i++) {
+      if (newArray.includes(wordsUnique[i])) {
+        continue;
+      }
+      else {
+        newArray.push(wordsUnique[i]);
+      }
+  }
+      return newArray;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind,searchWord) {
+  if (wordsFind.length===0) {
+    return null;
+  }
+  else {
+  for (let i=0; i<wordsFind.length; i++) {
+    if (wordsFind.includes(searchWord)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+}
 
 
 
@@ -78,7 +174,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,searchWord2) {
+  let occurrences=0;
+  if (wordsCount.length===0) {
+    return 0;
+  }
+  else {
+    for (let i=0; i<wordsCount.length;i++) {
+        if (wordsCount[i].includes(searchWord2)) {
+          occurrences++;
+        }
+    }
+    return occurrences;
+  }
+}
+
 
 
 
@@ -106,7 +216,10 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  
+  return ;
+}
 
 
 
