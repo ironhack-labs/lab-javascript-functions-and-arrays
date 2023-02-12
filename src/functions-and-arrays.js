@@ -130,27 +130,26 @@ function sum(array) {
 // Iteration #4: Calculate the average
 // ----------------------------------------
 
-
 // Level 1: Array of numbers
 // ----------------------------------------
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-  let sum = "";
+  let sum = 0;
 
+  // return null if receives an empty array when called
   if (array == "") {
     return null;
   }
-
+  // return the average of the array
+  // (works for one-element arrays and negative values as well)
   else {
     for (let i = 0; i < array.length; i++) {
       sum += array[i];
     }
-  
     return sum / array.length;
   }
 }
-
 averageNumbers(numbersAvg);
 
 
