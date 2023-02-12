@@ -242,6 +242,8 @@ const wordsUnique = [
   'bee',
   'crab',
   'crab',
+  'foo',
+  'foo',
   'foo'
 ];
 
@@ -255,8 +257,8 @@ function uniquifyArray(array) {
     for (let i = array.length - 1; i >= 0; i--) {
       let currentWord = array[i];
 
-      // compare current word to all following words in array
-      for (let j = i+1; j < array.length; j++) {
+      // compare current word to all other words in array
+      for (let j = i+1; j <= array.length; j++) {
         // remove duplicates
         if (currentWord === array[j]) {
           array.splice(j,1);
@@ -354,9 +356,28 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
+function greatestProduct(array) {
+  let biggestResult = 0;
+  let biggestResultText = "";
+  let currentResult = 0;
 
+  // loop over horizontally
+  for (let i = 0; i <= array.length - 4; i++) {
+    for (let j = 0; j <= array[i].length - 4; j++) {
+      currentResult = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+      
+      if (currentResult > biggestResult) {
+        biggestResult = currentResult;
+        biggestResultText = `${biggestResult} horizontally on line ${i+1} column ${j+1}: ${array[i][j]} x ${array[i][j+1]} x ${array[i][j+2]} x ${array[i][j+3]}`;
+      }
+    }
+  }
+  // loop over vertically
+  
+  return biggestResultText;
 }
+
+greatestProduct(matrix);
 
 
 
