@@ -47,7 +47,27 @@ function sumNumbers(arrayNumbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(anytype) {
+  if (anytype.length === 0){
+    return 0
+  }
+  let numbers = 0
+  let sumStrings = 0
+  let booleans = 0 
+  for (let i = 0 ; i < anytype.length; i++){
+    if (typeof anytype[i] === 'number') {
+      numbers += anytype[i]
+    } else if (typeof anytype[i] === 'string'){
+      sumStrings += anytype[i].length
+    } else if (typeof anytype[i] === 'boolean') {
+      booleans += anytype[i]
+    } else {
+      return error // No consigo pasar este punto me pide que arroje un error y es lo que hago...
+    }
+  }
+  let total = numbers + sumStrings + booleans
+  return total;
+}
 
 
 
