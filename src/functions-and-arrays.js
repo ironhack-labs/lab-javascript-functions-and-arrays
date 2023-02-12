@@ -200,7 +200,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  let counter = 0;
+  //Loops trough array argument
+  array.forEach((item) => {
+    //Checks with each Iterations if item is equal to word argument
+    if(item === word){
+      counter++;
+    }
+  })
+  return counter;
+}
 
 
 
