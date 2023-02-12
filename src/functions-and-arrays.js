@@ -145,7 +145,7 @@ sum(mixedArr);
 // Iteration #4: Calculate the average
 // ----------------------------------------
 
-// Level 1: Array of numbers
+// Level 4.1: Array of numbers
 // ----------------------------------------
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
@@ -170,21 +170,22 @@ function averageNumbers(array) {
 averageNumbers(numbersAvg);
 
 
-// Level 2: Array of strings
+// Level 4.2: Array of strings
 // ----------------------------------------
 
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) {
+
+  // return null if receives an empty array when called
   if (array == "") {
     return null;
   }
-  else if (array.length == 1) {
-    return array[0].length;
-  }
+
+  // return the average of the array
+  // (works for one-element arrays as well)
   else {
     let sumWordLength = 0;
-
     for (let i = 0; i <= array.length - 1; i++) {
       sumWordLength += array[i].length;
     }
@@ -192,37 +193,40 @@ function averageWordLength(array) {
   }
 }
 
+// run function
+averageWordLength(wordsArr);
+
+
 // ----------------------------------------
 // Bonus - Iteration #4.1
 // ----------------------------------------
 
 function avg(arr) {
-
+  // return null if receives an empty array when called
   if (arr == "") {
     return null;
   }
-  
+  // return the average of the array
+  // converts data types into numbers:
+  // boolean = 1 (if true), string = string length
   else {
     let counter = 0;
-
-    for(let i = 0; i < arr.length; i++) {
-
+    for (let i = 0; i < arr.length; i++) {
       if (typeof arr[i] == "boolean" && arr[i] === true) {
         counter++;
-      }
-      else if (typeof arr[i] == "number") {
-        counter += arr[i];
-      }
-      else if (typeof arr[i] == "string") {
+      } else if (typeof arr[i] == "string") {
         counter += arr[i].length;
-      }
-      else {}
+      } else if (typeof arr[i] == "number") {
+        counter += arr[i];
+      } else {}
     }
     return counter / arr.length;
   }
 }
 
+// run function
 avg(mixedArr);
+
 
 // ----------------------------------------
 // Iteration #5: Unique arrays
