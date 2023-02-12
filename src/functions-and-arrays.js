@@ -119,7 +119,17 @@ function averageWordLength(words) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(words) {
+  //Checks if words length is greater than one
+  if(words.length >= 1){
+    //Declares variable equal to sum Function with words as an argument
+    let newSum = sum(words);
+    return newSum / words.length;
+    //Checks if words length is equal to zero, if true returns null
+  }else if(words.length === 0){
+     return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
