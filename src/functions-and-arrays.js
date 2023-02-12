@@ -12,6 +12,7 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
+
 // ----------------------------------------
 // Iteration #2: Find longest word
 // ----------------------------------------
@@ -54,32 +55,29 @@ function findLongestWord(array) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
-  let result = "";
+  let result = 0;
+  let zeroCounter = 0;
 
   //  return zero if receives an empty array when called
   if (array.length == 0) {
     return 0;
   }
+  // return the sum with one number array
   else if (array.length == 1) {
     return array[0];
   }
+  // return zero if all elements are zero
+  // return the sum when passed array of numbers
   else {
     for (let i = 0; i < array.length; i++) {
-      let zeroCounter = 0;
-
-      if (array[i] === 0) {
+      if (array[i] == 0) {
         zeroCounter++;
       }
       else {
         result += array[i];
       }
     }
-
-    if (result === 0 && zeroCounter === array.length) {
-      return 0;
-    }
-
-    if (result === 0 && array.forEach((num) => num === 0)) {
+    if (zeroCounter == array.length) {
       return 0;
     }
     else {
@@ -87,10 +85,6 @@ function sumNumbers(array) {
     }
   }
 }
-
-sumNumbers(numbers);
-
-
 
 
 // ----------------------------------------
@@ -100,17 +94,20 @@ sumNumbers(numbers);
 function sum(array) {
   let result = 0;
 
+  // return zero if receives an empty array when called
   if (array.length == 0) {
     return 0;
   }
+  // return sum when passed one number array
   else if (array.length == 1) {
     return array[0];
   }
+  // return sum when passed array of strings, numbers or booleans
+  // return sum when passed array of mixed datatypes
   else {
     for (let i = 0; i < array.length; i++) {
-      //result += array[i];
       if (typeof array[i] === "number") {
-          result += array[i];
+        result += array[i];
       }
       else if(typeof array[i] === "string")  {
         result +=array[i].length;
@@ -118,9 +115,11 @@ function sum(array) {
       else if (typeof array[i] === "boolean" && array[i] === true) {
         result++;
       }
+      // throw error when unsupported data type (object or array) present in array
       else if (typeof array[i] === "object" || typeof array[i] === "array") {
-        throw new Error('SORRY, unsupported datatype');
+        throw new Error("Errow: Unsupported data type (object or array) present in your array! :-(");
       }
+      else{}
     }
     return result;
   }
