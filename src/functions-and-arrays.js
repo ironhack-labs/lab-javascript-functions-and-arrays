@@ -146,7 +146,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  //Checks if words length is equal or greater than one
+  if(words.length >= 1){
+    let newArray = [];
+    //Loops trough words array
+    words.forEach((item) => {
+      //Checks if the array includes the item
+      if(newArray.includes(item) !== true){
+       newArray.push(item);
+      }
+    });
+    return newArray
+    //Checks if words length is equal to zero, if true returns null
+  }else if(words.length === 0){
+    return null;
+  }
+}
 
 
 
