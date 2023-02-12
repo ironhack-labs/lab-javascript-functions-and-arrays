@@ -266,16 +266,18 @@ uniquifyArray(wordsUnique);
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, searchWord) {
+  // return null if array is empty
   if (array == "") {
     return null;
   }
-  else if (array.length = 1 && searchWord == array[0]) {
-    return true;
-  }
+  // return true/false if word is/isn't in the array
   else {
     return array.includes(searchWord);
   }
 }
+
+// run function
+doesWordExist(wordsFind, 'eating');
 
 
 // ----------------------------------------
