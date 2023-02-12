@@ -1,5 +1,16 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1,number2) {
+  //Checks If the number1 is greater than number2, if true returns number1
+  if(number1 > number2){
+    return number1;
+  //Checks if number2 is greater than number1, if true returns number2
+  }else if(number2 > number1){
+    return number2;
+  //Checks if the numbers are equal, if true returns number1
+  }else if(number1 === number2){
+    return number1;
+  }
+}
 
 
 
