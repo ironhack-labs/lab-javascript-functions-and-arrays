@@ -50,10 +50,23 @@ function sumNumbers (numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-
-
+function sum(arrMixed) {
+  let sumResult = 0
+  for(let i = 0; i < arrMixed.length; i++) {
+  if (typeof arrMixed[i] === "string") {
+    sumResult += arrMixed[i].length
+  } else if (typeof arrMixed[i] === "number") {
+    sumResult += arrMixed[i]
+  } else if (typeof arrMixed[i] === "boolean") {
+    sumResult += Number(arrMixed[i])
+  } else {
+    throw new Error("Unsupported data type sir or ma'am")
+  }
+  }
+   return sumResult
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
