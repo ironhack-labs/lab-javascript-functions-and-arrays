@@ -126,7 +126,27 @@ function averageWordLength(wordsArray) {
 console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.3 A generic avg() function
-function avg() {}
+
+function avg(mixedArray) {
+  let sum = 0;
+  if (mixedArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < mixedArray.length; i++) {
+    if (typeof mixedArray[i] === "string") {
+      sum += mixedArray[i].length;
+    } else if (typeof mixedArray[i] === "number") {
+      sum += mixedArray[i];
+    } else if (typeof mixedArray[i] === "boolean") {
+      if (mixedArray[i] === true) {
+        sum += 1;
+      }
+    }
+  }
+  return sum / mixedArray.length;
+}
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -287,7 +307,43 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+const matrixExample = [
+  [02, 02, 02, 02, 02],
+  [02, 02, 02, 02, 02],
+  [02, 02, 02, 02, 02],
+  [02, 02, 02, 02, 02],
+];
+
+function get(matrixArray, y, x) {
+  if (0 <= y && y < matrixArray.length && 0 <= x && x < matrixArray[y].length) {
+    return matrixArray[y][x];
+  }
+  return 0;
+}
+
+function greatestProduct(matrixArray, k) {
+  let max = 0;
+
+  for (let y = 0; y < matrixArray.length; y++) {
+    for (let x = 0; x < matrixArray.length; x++) {
+      let p1 = 1,
+        p2 = 1,
+        p3 = 1,
+        p4 = 1;
+
+      for (let i = 0; i < k; i++) {
+        p1 *= get(matrixArray, y, x + i);
+        p2 *= get(matrixArray, y + i, x);
+        p3 *= get(matrixArray, y + i, x + i);
+        p4 *= get(matrixArray, y + i, x - i);
+      }
+      max = Math.max(p1, p2, p3, p4, max);
+    }
+  }
+  return max;
+}
+
+console.log(greatestProduct(matrixExample, 4));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
