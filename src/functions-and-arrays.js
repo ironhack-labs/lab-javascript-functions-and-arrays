@@ -238,7 +238,11 @@ const wordsUnique = [
   'crab',
   'crab',
   'bee',
-  'bee'
+  'foo',
+  'bee',
+  'crab',
+  'crab',
+  'foo'
 ];
 
 function uniquifyArray(array) {
@@ -247,10 +251,9 @@ function uniquifyArray(array) {
     return null;
   }
   else {
-    // loop over words in array
-    for (let i = 0; i < array.length; i++) {
+    // loop over words in array (looping backwards)
+    for (let i = array.length - 1; i >= 0; i--) {
       let currentWord = array[i];
-      let currentWordIndex = i;
 
       // compare current word to all following words in array
       for (let j = i+1; j < array.length; j++) {
@@ -258,6 +261,7 @@ function uniquifyArray(array) {
         if (currentWord === array[j]) {
           array.splice(j,1);
         }
+        else{}
       }
     }
     return array;
