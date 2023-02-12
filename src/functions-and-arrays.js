@@ -387,6 +387,17 @@ function greatestProduct(array) {
     }
   }
 
+  // loop over diagonally (top left to bottom right)
+  for (let y = 0; y <= array.length - 4; y++) {
+    for (let x = 0; x <= array[x].length - 4; x++) {
+      currentResult = array[y][x] * array[y+1][x+1] * array[y+2][x+2] * array[y+3][x+3];
+      if (currentResult > biggestResult) {
+        biggestResult = currentResult;
+        biggestResultText = `The biggest result is ${biggestResult}, diagonally (top left to bottom right), starting on line ${y+1}, column ${x+1}: ${array[y][x]} x ${array[y+1][x+1]} x ${array[y+2][x+2]} x ${array[y+3][x+3]}`;
+      }
+    }
+  }
+  
   return biggestResult;
 }
 
