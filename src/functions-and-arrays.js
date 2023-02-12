@@ -10,36 +10,38 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
-maxOfTwoNumbers(1222,3989);
-
-
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array) {
   
-  let highestLength = 0;
-  let longestWordNumChars = "";
+  let longestWordLength = 0;
+  let longestWordIndex = 0;
 
+  // return null when called with an empty array
   if (array.length == 0) {
     return null;
-  } else if(array.length == 1) {
+  }
+
+  // return the word when called with a single-word array
+  else if (array.length == 1) {
     return array[0];
-  } else {
-    for (let i = 0; i >= array.length - 1; i++) {
-      if (array[i].length > highestLength) {
-        highestLength = array[i].length;
+  }
+  
+  // return the longest word
+  // (return the first occurence when there are multiple longest words)
+  else {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].length > longestWordLength) {
+        longestWordLength = array[i].length;
+        longestWordIndex = i;
       }
       else {}
-      return array[i];
     }
   }
-  return highestLength;
+  return array[longestWordIndex];
 }
-
-findLongestWord(words);
-
 
 
 // Iteration #3: Calculate the sum
