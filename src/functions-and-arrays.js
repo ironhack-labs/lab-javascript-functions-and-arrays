@@ -75,7 +75,17 @@ function sum(anytype) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if(array.length === 0){
+    return null 
+  }
+  let sum = 0 
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
+  let average = sum / array.length
+  return average 
+}
 
 
 // Level 2: Array of strings
