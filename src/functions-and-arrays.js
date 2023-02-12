@@ -233,25 +233,34 @@ avg(mixedArr);
 // ----------------------------------------
 
 const wordsUnique = [
+  'foo',
   'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  'crab',
+  'crab',
+  'bee',
+  'bee'
 ];
 
 function uniquifyArray(array) {
+  // return null if receives an empty array when called
   if (array == "") {
     return null;
   }
   else {
-    
+    // loop over words in array
+    for (let i = 0; i < array.length; i++) {
+      let currentWord = array[i];
+      let currentWordIndex = i;
+
+      // compare current word to all following words in array
+      for (let j = i+1; j < array.length; j++) {
+        // remove duplicates
+        if (currentWord === array[j]) {
+          array.splice(j,1);
+        }
+      }
+    }
+    return array;
   }
 }
 
