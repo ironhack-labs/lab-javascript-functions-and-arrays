@@ -1,4 +1,6 @@
+// ----------------------------------------
 // Iteration #1: Find the maximum
+// ----------------------------------------
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
@@ -10,8 +12,9 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
-
+// ----------------------------------------
 // Iteration #2: Find longest word
+// ----------------------------------------
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(array) {
@@ -44,13 +47,16 @@ function findLongestWord(array) {
 }
 
 
+// ----------------------------------------
 // Iteration #3: Calculate the sum
+// ----------------------------------------
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(array) {
   let result = "";
 
+  //  return zero if receives an empty array when called
   if (array.length == 0) {
     return 0;
   }
@@ -87,8 +93,10 @@ sumNumbers(numbers);
 
 
 
-
+// ----------------------------------------
 // Iteration #3.1 Bonus:
+// ----------------------------------------
+
 function sum(array) {
   let result = 0;
 
@@ -119,9 +127,13 @@ function sum(array) {
 }
 
 
-
+// ----------------------------------------
 // Iteration #4: Calculate the average
+// ----------------------------------------
+
+
 // Level 1: Array of numbers
+// ----------------------------------------
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
@@ -144,6 +156,8 @@ averageNumbers(numbersAvg);
 
 
 // Level 2: Array of strings
+// ----------------------------------------
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) {
@@ -163,7 +177,9 @@ function averageWordLength(array) {
   }
 }
 
+// ----------------------------------------
 // Bonus - Iteration #4.1
+// ----------------------------------------
 
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
@@ -195,8 +211,10 @@ function avg(arr) {
 
 avg(mixedArr);
 
-
+// ----------------------------------------
 // Iteration #5: Unique arrays
+// ----------------------------------------
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -221,8 +239,10 @@ function uniquifyArray(array) {
 }
 
 
-
+// ----------------------------------------
 // Iteration #6: Find elements
+// ----------------------------------------
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, searchWord) {
@@ -238,8 +258,10 @@ function doesWordExist(array, searchWord) {
 }
 
 
-
+// ----------------------------------------
 // Iteration #7: Count repetition
+// ----------------------------------------
+
 const wordsCount = [
   'machine',
   'matter',
@@ -268,8 +290,10 @@ function howManyTimes(array, searchWord) {
 }
 
 
-
+// ----------------------------------------
 // Iteration #8: Bonus
+// ----------------------------------------
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -299,7 +323,7 @@ function greatestProduct() {
 
 
 
-
+// ----------------------------------------
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
