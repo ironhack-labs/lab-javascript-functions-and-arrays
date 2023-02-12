@@ -160,7 +160,22 @@ function uniquifyArray(array) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array,word) {
+  if (array.length === 0){
+    return null
+  }
+  let onlyArray = []
+  for (let i = 0; i < array.length; i++){
+   if (onlyArray.indexOf(array[i]) === -1){
+    onlyArray.push(array[i])
+   }
+  }
+  if (onlyArray.includes(word)){
+    return true
+  }else{
+    return false
+  }
+  }
 
 
 
