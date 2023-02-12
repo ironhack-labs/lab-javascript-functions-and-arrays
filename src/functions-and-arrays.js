@@ -256,7 +256,56 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(mat) {
+
+  
+  let bigNum = 0;
+
+  //horizontal counter
+for (let i=0; i<mat.length; i++){
+  let nest = mat[i];
+  
+  for (let n=0; n<nest.length; n++) {
+    
+    let aNum = nest[n] * nest[n+1] * nest[n+2] * nest[n+3];
+    
+    if (aNum > bigNum){
+      bigNum = aNum;
+    }
+    
+  
+  }
+
+}
+  //vertical counter
+  for(let j=0;j<mat[0].length;j++){ 
+   let count = 0;
+    for (let r=0; r<mat[0].length; r++){
+  
+  let dNum = [mat[count][r] * mat[count+1][r] * mat[count+2][r] * mat[count+3][r]];
+   if (dNum[0] >bigNum){
+   bigNum = dNum[0];
+   }
+  
+ }
+  count++;
+}
+ 
+  
+  
+  
+return bigNum;
+}
+
+//yippieKayYayyMotherf***er
+
+
+
+
+
+
+
+
 
 
 
