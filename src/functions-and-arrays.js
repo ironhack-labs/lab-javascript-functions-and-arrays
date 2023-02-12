@@ -364,17 +364,30 @@ function greatestProduct(array) {
   // loop over horizontally
   for (let i = 0; i <= array.length - 4; i++) {
     for (let j = 0; j <= array[i].length - 4; j++) {
+      // i = position on line
+      // j = position on column
       currentResult = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
-      
       if (currentResult > biggestResult) {
         biggestResult = currentResult;
-        biggestResultText = `${biggestResult} horizontally on line ${i+1} column ${j+1}: ${array[i][j]} x ${array[i][j+1]} x ${array[i][j+2]} x ${array[i][j+3]}`;
+        biggestResultText = `The biggest result is ${biggestResult}, horizontally on line ${i+1}, column ${j+1}: ${array[i][j]} x ${array[i][j+1]} x ${array[i][j+2]} x ${array[i][j+3]}`;
       }
     }
   }
+
   // loop over vertically
-  
-  return biggestResultText;
+  for (let k = 0; k <= array.length - 4; k++) {
+    for (let l = 0; l <= array[l].length - 4; l++) {
+      // k = position on line
+      // l = position on column
+      currentResult = array[k][l] * array[k+1][l] * array[k+2][l] * array[k+3][l];
+      if (currentResult > biggestResult) {
+        biggestResult = currentResult;
+        biggestResultText = `The biggest result is ${biggestResult}, vertically on line ${k+1}, column ${l+1}: ${array[k][l]} x ${array[k+1][l]} x ${array[k+2][l]} x ${array[k+3][l]}`;
+      }
+    }
+  }
+
+  return biggestResult;
 }
 
 greatestProduct(matrix);
