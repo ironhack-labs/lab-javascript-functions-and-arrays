@@ -238,7 +238,109 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let counter = 0;
+   for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){
+      //Checks if elements are minumum 3 index length from top
+      if(i < 3){
+        const countRight = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        const countLeft = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+        const checkBottom = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        //Checks if elements are minumum 3 index length from left
+        if(j < 3){
+          if(countRight > counter){
+            counter = countRight;
+          }else if(checkBottom > counter){
+            counter = checkBottom;
+          }
+          //Checks if elements are minumum 3 index length from the right
+        }else if(j > matrix[i].length -4){
+          if(countRight > counter){
+            counter = countRight;
+          }else if(checkBottom > counter){
+            counter = checkBottom;
+          }
+         //Checks if elements are between 3-16 index from left/right
+        }else{
+          if(countRight > counter){
+            counter = countRight;
+          }else if(countLeft > counter){
+            counter = countLeft;
+          }else if(checkBottom > counter){
+            counter = checkBottom;
+          }
+        }
+        //Checks if elements are maximum 3 index from the bottom
+      }else if(i > matrix[i].length - 4){
+          const countRight = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+           const countLeft = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+           const checkTop = matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j];
+           //Checks if elements are maximum 3 index left from left
+         if(j < 3){
+          if(countRight > counter){
+            counter = countRight;
+          }else if(checkTop > counter){
+            counter = checkTop;
+          }
+          //Checks if elements are maximum 3 index from right
+        }else if(j > matrix[i].length -4){
+          if(countRight > counter){
+            counter = countRight;
+          }else if(checkTop > counter){
+            counter = checkTop;
+          }
+          //Checks if elements are between 3-16 index from left/right
+        }else{
+          if(countRight > counter){
+            counter = countRight;
+          }else if(countLeft > counter){
+            counter = countLeft;
+          }else if(checkTop > counter){
+            counter = checkTop;
+          }
+        }
+       //Elements sorted out from index 3-16 from top/bottom
+      }else{
+        const countRight = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+           const countLeft = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+           const checkTop = matrix[i][j] * matrix[i - 1][j] * matrix[i - 2][j] * matrix[i - 3][j];
+         const checkBottom = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+         //Checks if element is maximum 3 index from left
+       if(j < 3){
+         if(countRight > counter){
+            counter = countRight;
+         }else if(checkBottom > counter){
+            counter = checkBottom;
+          }else if(checkTop > counter){
+            counter = checkTop;
+          }
+          //Checks if element is maximum 3 index from right
+       }else if(j > matrix[i].length - 4){
+          if(countLeft > counter){
+            counter = countLeft;
+          }else if(checkBottom > counter){
+            counter = checkBottom;
+          }else if(checkTop > counter){
+            counter = checkTop;
+          }
+          //Elements that are between 3-16 indexes
+       }else{
+          if(countRight > counter){
+            counter = countRight;
+         }else if(countLeft > counter){
+           counter = countLeft;
+         }else if(checkBottom > counter){
+            counter = checkBottom;
+          }else if(checkTop > counter){
+            counter = checkTop;
+          }
+       }
+      }
+    }
+   }
+  return counter;
+}
 
 
 
