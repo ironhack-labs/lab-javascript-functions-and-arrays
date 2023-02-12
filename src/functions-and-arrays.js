@@ -85,7 +85,17 @@ function sum(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  //Variable that passes the numbers array to sumNumbers Function
+  const sumOfArray = sumNumbers(numbers);
+  if(numbers.length >= 1){
+    //If numbers length is greater or equal to one returns the avarege
+    return sumOfArray / numbers.length;
+  }else if(numbers.length === 0){
+    //If numbers length is equal to zero return null
+    return null;
+  }
+}
 
 
 // Level 2: Array of strings
