@@ -51,7 +51,29 @@ function sumNumbers(numberArray) {
 console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(inputArray) {
+  let sum = 0;
+  if (inputArray.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < inputArray.length; i++) {
+    if (typeof inputArray[i] === "string") {
+      sum += inputArray[i].length;
+    } else if (typeof inputArray[i] === "number") {
+      sum += inputArray[i];
+    } else if (typeof inputArray[i] === "boolean") {
+      if (inputArray[i] === true) {
+        sum += 1;
+      }
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+}
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average of an array of numbers ..........geht noch nicht
 // Level 1: Array of numbers
