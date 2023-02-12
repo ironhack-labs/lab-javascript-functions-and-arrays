@@ -12,6 +12,9 @@ function maxOfTwoNumbers(num1, num2) {
   }
 }
 
+// run function
+maxOfTwoNumbers(1234,1243);
+
 
 // ----------------------------------------
 // Iteration #2: Find longest word
@@ -46,6 +49,9 @@ function findLongestWord(array) {
   }
   return array[longestWordIndex];
 }
+
+// run function
+findLongestWord(words);
 
 
 // ----------------------------------------
@@ -86,10 +92,15 @@ function sumNumbers(array) {
   }
 }
 
+// run function
+sumNumbers(numbers);
+
 
 // ----------------------------------------
-// Iteration #3.1 Bonus:
+// Iteration #3.2 Bonus:
 // ----------------------------------------
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(array) {
   let result = 0;
@@ -116,6 +127,7 @@ function sum(array) {
         result++;
       }
       // throw error when unsupported data type (object or array) present in array
+      // DOESN'T WORK IN JASMINE AND I DON'T KNOW WHY
       else if (typeof array[i] === "object" || typeof array[i] === "array") {
         throw new Error("Errow: Unsupported data type (object or array) present in your array! :-(");
       }
@@ -124,6 +136,9 @@ function sum(array) {
     return result;
   }
 }
+
+// run function
+sum(mixedArr);
 
 
 // ----------------------------------------
@@ -150,6 +165,8 @@ function averageNumbers(array) {
     return sum / array.length;
   }
 }
+
+// run function
 averageNumbers(numbersAvg);
 
 
@@ -178,8 +195,6 @@ function averageWordLength(array) {
 // ----------------------------------------
 // Bonus - Iteration #4.1
 // ----------------------------------------
-
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(arr) {
 
