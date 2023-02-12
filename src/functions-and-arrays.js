@@ -55,7 +55,29 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  let sum = 0;
+  //Loops trough numbers array
+  numbers.forEach((item) => {
+      //Checks if it is a number, if true adds it to the sum Variable
+      if(typeof item === "number"){
+       sum += item;
+       //Checks if it is a boolean, if true adds it to the sum Variable
+      }else if(item === true){
+       sum += 1;
+       //Checks if it is a boolean, if true adds it to the sum Variable
+      }else if(item === false){
+       sum += 0;
+       //Checks if it is a string, if true adds it to the sum Variable
+      }else if(typeof item === "string"){
+       sum += item.length;
+       //Checks if it is an object, if true throws an error
+      }else if(typeof item === "object"){
+       throw new Error("Unsupported data type sir or ma'am")
+      }
+  })
+  return sum;
+}
 
 
 
