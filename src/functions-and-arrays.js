@@ -255,6 +255,9 @@ function uniquifyArray(array) {
   }
 }
 
+// run function
+uniquifyArray(wordsUnique);
+
 
 // ----------------------------------------
 // Iteration #6: Find elements
@@ -293,10 +296,9 @@ const wordsCount = [
   'matter'
 ];
 
+// return number of occurences of search word
 function howManyTimes(array, searchWord) {
-    
   let wordCount = 0;
-
   for (let i = 0; i < array.length; i++) {
     if(array[i] == searchWord) {
       wordCount++;
@@ -305,6 +307,9 @@ function howManyTimes(array, searchWord) {
   }
   return wordCount;
 }
+
+// run function
+howManyTimes(wordsCount, 'matter');
 
 
 // ----------------------------------------
