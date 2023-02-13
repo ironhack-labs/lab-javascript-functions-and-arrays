@@ -376,7 +376,7 @@ function greatestProduct(array) {
 
   // loop over vertically
   for (let k = 0; k <= array.length - 4; k++) {
-    for (let l = 0; l <= array[l].length - 4; l++) {
+    for (let l = 0; l <= array[k].length - 4; l++) {
       // k = position on line
       // l = position on column
       currentResult = array[k][l] * array[k+1][l] * array[k+2][l] * array[k+3][l];
@@ -389,7 +389,7 @@ function greatestProduct(array) {
 
   // loop over diagonally (top left to bottom right)
   for (let y = 0; y <= array.length - 4; y++) {
-    for (let x = 0; x <= array[x].length - 4; x++) {
+    for (let x = 0; x <= array[y].length - 4; x++) {
       currentResult = array[y][x] * array[y+1][x+1] * array[y+2][x+2] * array[y+3][x+3];
       if (currentResult > biggestResult) {
         biggestResult = currentResult;
@@ -397,10 +397,11 @@ function greatestProduct(array) {
       }
     }
   }
-  
+
   return biggestResult;
 }
 
+// run function
 greatestProduct(matrix);
 
 
