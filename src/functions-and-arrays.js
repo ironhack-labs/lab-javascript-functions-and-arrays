@@ -6,19 +6,90 @@ function maxOfTwoNumbers() {}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+// Implement the function `findLongestWord` that takes as an argument an array of words and returns the longest one. 
+// If there are 2 with the same length, it should return the first occurrence.
 
+
+function findLongestWord (array) {
+  let longestWord = array[0];
+  if (array.length === 0) {
+    return null;
+  }
+
+  array.forEach((word) => {
+  if (word.length > longestWord.length) {
+    longestWord = word;
+   }
+   
+  });
+  return longestWord;
+}
+
+console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
+
+// Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+
+// Implement the function named `sumNumbers` that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array. Later in the course, we will learn how to do this by using the `reduce` array method, which will make your work significantly easier. For now, let's practice _the "declarative"_ way of adding values, using loops.
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayOfNum) {
+  let sumOfArrayNum = 0;
+
+  arrayOfNum.forEach((number) => {
+    sumOfArrayNum += number;
+
+  });
+  return sumOfArrayNum;
+}
+
+sumNumbers(numbers);
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
+
+// Iteration #3.2 Bonus:
+
+// In iteration 3, you created a function that returns the sum of an array of numbers. But what if we wanted to know what was the sum of the length of all of the words in an array? What if we wanted to add _boolean_ values to the mix? We wouldn't be able to use the same function as above, or better saying, we would have to _tweak_ it a little bit so that it can be reused no matter what is in the array that is passed as an argument when function `sumNumbers()` is called.
+
+// Here we are applying a concept we call **polymorphism**, that is, dealing with a function's input independently of the types they are passed as.
+
+// Let's implement the function `sum()` that calculates the sum for an array filled with (_almost_) any type of data. Note that strings should have their length added to the total, and boolean values should be coerced into their corresponding numeric values. Check the tests for more details.
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(array) {
+  let sumOfElements = 0;
+ 
+
+  array.forEach((element) => {
+    let newElement = typeof element;
+
+    if (newElement === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+
+    } else if (newElement === "number") {
+      sumOfElements += element;
+
+    } else if (newElement === "string") {
+      sumOfElements += element.length;
+
+    } else if (element === true) {
+      sumOfElements += 1;
+
+    } else if (element === false) {
+      sumOfElements += 0;
+    }
+
+  });
+  return sumOfElements;
+
+}
+
+sum(mixedArr);
 
 
 
@@ -26,18 +97,71 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+
+  if (numbersArray.length === 0) {
+    return null;
+  }
+
+  let totalSum = sumNumbers(numbersArray);
+
+  return totalSum / numbersArray.length;
+
+}
 
 
 // Level 2: Array of strings
+// Implement the function named `averageWordLength` that receives as a single argument an array of words and returns the average length of the words:
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfWords) { 
+
+  if (arrayOfWords.length == 0) {
+    return null;
+
+  }
+
+  let stringLength = 0;
+
+  arrayOfWords.forEach((string) => {
+    stringLength += string.length;
+
+  });
+
+return stringLength / arrayOfWords.length;
+
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+// Create function `avg(arr)` that receives any mixed array and calculates the average. Consider as a mixed array an array filled with numbers and/or strings and/or booleans.
+
+// The non-numerical values should be counted as follows:
+
+// - Booleans: `true` counts as `1` and `false` counts as `0`.
+// - Strings: use the string `length` as the numeric value.
+
+
+function avg(array) {
+
+  if (array.length == 0) {
+    return null;
+
+  }
+
+  return sum(array) / array.length;
+
+}
+
+
 
 // Iteration #5: Unique arrays
+// Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the Array methods [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) and [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
+
+// Do this in the form of a function `uniquifyArray` that receives an array of words as an argument.
+
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -52,14 +176,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let cleanedArray = [];
+
+  if (array.length == 0) {
+    return null;
+  }
+
+  array.forEach((element) => {
+    if (!cleanedArray.includes(element)) {
+      cleanedArray.push(element);
+    }
+  })
+
+  return cleanedArray;
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, wordWally) {
+
+  if (array.length == 0) {
+    return null;
+
+  } else if (array.includes(wordWally)) {
+    return true;
+
+  } else {
+    return false;
+  }
+}
 
 
 
@@ -78,7 +228,27 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, wordWally) {
+  let repeatCount= 0;
+
+  // array.forEach((word) => {
+  //    if (array[i] == wordWally) <-- when I used this, Jasmine was not accepting the solution and terminal was showing me that i is not defined. I thought i is arbitrary, recognized without defining. I don't get why I was getting this error
+    
+    for(i = 0; i < array.length; i++) {
+      if (array[i] == wordWally) {
+        repeatCount++ ;
+
+
+      }
+      
+    }
+  
+
+  return repeatCount;
+
+}
+
+howManyTimes(wordsCount,'matter');
 
 
 

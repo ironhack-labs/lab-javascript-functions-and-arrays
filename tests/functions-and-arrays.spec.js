@@ -19,6 +19,9 @@ describe('Find the maximum', () => {
     expect(typeof maxOfTwoNumbers).toBe('function');
   });
 
+
+
+
   it('should return greater of two arguments - if the first argument greater', () => {
     expect(maxOfTwoNumbers(2, 1)).toBe(2);
     expect(maxOfTwoNumbers(5, -7)).toBe(5);
@@ -33,6 +36,8 @@ describe('Find the maximum', () => {
     expect(maxOfTwoNumbers(4, 4)).toBe(4);
   });
 });
+
+
 
 describe('Find the longest word', () => {
   it('should declare a function named findLongestWord', () => {
@@ -60,6 +65,11 @@ describe('Find the longest word', () => {
     }
   });
 });
+
+
+
+
+
 
 describe('Calculate the sum of array of numbers', () => {
   it('should declare a function named sumNumbers', () => {
