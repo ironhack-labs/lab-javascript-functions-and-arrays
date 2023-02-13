@@ -232,7 +232,7 @@ function howManyTimes(array, wordWally) {
   let repeatCount= 0;
 
   // array.forEach((word) => {
-  //    if (array[i] == wordWally) <-- when I used this, Jasmine was not accepting the solution and terminal was showing me that i is not defined. I thought i is arbitrary, recognized without defining. I don't get why I was getting this error
+  // if (array[i] == wordWally) <-- when I used this, Jasmine was not accepting the solution and terminal was showing me that i is not defined. I thought i is arbitrary, recognized without defining. I don't get why I was getting this error
     
     for(i = 0; i < array.length; i++) {
       if (array[i] == wordWally) {
@@ -276,7 +276,36 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+
+  let maxProduct = 0;
+  
+
+    for (let i=0; i<array.length; i++) {
+    productHorizontal = array[i] * array[i +1] * array[i +2] * array[i +3];
+
+    if (productHorizontal > maxProduct) {
+      maxProduct = productHorizontal;
+    }
+   };
+
+   for (let j=0; j<array.length; j++) {
+    productVertical = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+
+    if (productVertical > maxProduct) {
+      maxProduct = productVertical;
+    }
+
+   };
+
+   if (productHorizontal > productVertical) {
+    maxProduct = productHorizontal;
+
+   }
+
+  return maxProduct;
+
+}
 
 
 
