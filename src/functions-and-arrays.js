@@ -190,23 +190,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(array, word) {
-  let wordSearch = word;
-  let arrayIndexOf = [];
   let idx = array.indexOf(word);
   let count = 0;
   while (idx > -1) {
-    arrayIndexOf.push(idx);
-    idx = array.indexOf(wordSearch, idx + 1);
+    idx = array.indexOf(word, idx + 1);
     count++;
   }
-  if (array.length == 0 || !array.includes(wordSearch)) {
-    return 0;
-  } else if (arrayIndexOf.length == 1) {
-    return 1;
-  } else if (arrayIndexOf.length == 5) {
-    return 5;
-  }
-  arrayIndexOf = [];
+  return count;
 }
 
 // Iteration #8: Bonus
@@ -275,7 +265,59 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let greatestProduct = 0;
+  let totalproductRow = 0;
+  let totalproductColumn = 0;
+  for (let row = 0; row < array.length; row++) {
+    for (let column = 0; column < array[row].length; column++) {
+      if (column < array[row].length - 3) {
+        totalproductColumn =
+          array[row][column] *
+          array[row][column + 1] *
+          array[row][column + 2] *
+          array[row][column + 3];
+      }
+      if (row < array.length - 3) {
+        totalproductRow =
+          array[row][column] *
+          array[row + 1][column] *
+          array[row + 2][column] *
+          array[row + 3][column];
+      }
+      if (totalproductRow > greatestProduct) {
+        greatestProduct = totalproductRow;
+      } else if (totalproductRow > greatestProduct) {
+        greatestProduct = totalproductColumn;
+      }
+    }
+  }
+  return greatestProduct;
+}
+
+greatestProduct(matrix);
+
+function greatestProductOfDiagonals(array) {
+  let greatestProduct = 0;
+  let totalproduct = 0;
+  for (let row = 0; row < array.length; row++) {
+    for (let column = 0; column < array[row].length; column++) {
+      if (column < array[row].length - 3 && row < array.length - 3) {
+        totalproduct =
+          array[row][column] *
+          array[row + 1][column + 1] *
+          array[row + 2][column + 2] *
+          array[row + 3][column + 3];
+      }
+      if (totalproduct > greatestProduct) {
+        greatestProduct = totalproduct;
+      }
+    }
+  }
+  return greatestProduct;
+}
+
+greatestProductOfDiagonals(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
