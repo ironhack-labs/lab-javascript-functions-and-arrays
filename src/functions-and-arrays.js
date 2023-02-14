@@ -16,7 +16,7 @@ const words = [
 ];
 
 function findLongestWord(array) {
-  let longestWord = array[0];
+  let longestWord = "";
   if (array.length == 0) {
     return null;
   }
@@ -44,24 +44,21 @@ sumNumbers(numbers);
 
 const mixedArr = [6, 12, "miami", 1, "barca", "200", "lisboa", 8, [], {}];
 
-// should return: 57
 // Iteration #3.1 Bonus:
 
 function sum(array) {
   let sumOfElements = 0;
-
+  const error = new Error("Unsupported data type sir or ma'am");
   array.forEach((element) => {
     let elementType = typeof element;
     if (elementType === "object") {
-      throw new Error("Unsupported data type sir or ma'am");
+      throw error;
     } else if (elementType === "number") {
       sumOfElements += element;
     } else if (elementType === "string") {
       sumOfElements += element.length;
-    } else if (element === true) {
-      sumOfElements += 1;
-    } else if (element === false) {
-      sumOfElements += 0;
+    } else if (elementType === "boolean") {
+      sumOfElements += element == true ? 1 : 0;
     }
   });
 
@@ -78,8 +75,7 @@ function averageNumbers(numbersArray) {
     return null;
   }
 
-  let totalSum = sumNumbers(numbersArray);
-  let average = totalSum / numbersArray.length;
+  let average = sumNumbers(numbersArray) / numbersArray.length;
 
   return average;
 }
@@ -105,8 +101,8 @@ function averageWordLength(arrayOfWords) {
     return null;
   }
   let stringLength = 0;
-  arrayOfWords.forEach((string) => {
-    stringLength += string.length;
+  arrayOfWords.forEach((word) => {
+    stringLength += word.length;
   });
   return stringLength / arrayOfWords.length;
 }
@@ -164,11 +160,7 @@ function doesWordExist(array, word) {
     return null;
   }
   let wordSearch = word;
-  if (array.includes(wordSearch)) {
-    return true;
-  } else {
-    return false;
-  }
+  return array.includes(wordSearch) ? true : false;
 }
 
 doesWordExist(wordsFind, "machine");
@@ -287,7 +279,8 @@ function greatestProduct(array) {
       }
       if (totalproductRow > greatestProduct) {
         greatestProduct = totalproductRow;
-      } else if (totalproductRow > greatestProduct) {
+      }
+      if (totalproductColumn > greatestProduct) {
         greatestProduct = totalproductColumn;
       }
     }
