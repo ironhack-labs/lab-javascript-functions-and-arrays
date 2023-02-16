@@ -277,8 +277,19 @@ describe('Bonus Quest - greatestProduct', () => {
     expect(typeof greatestProduct).toBe('function');
   });
 
+  it('should return (32000)', () => {
+      let matrix = [
+      [ 1,  2, 3, 4, 5],
+      [ 1, 20, 3, 4, 5],
+      [ 1, 20, 3, 4, 5],
+      [ 1, 20, 3, 4, 5],
+      [ 1,  4, 3, 4, 5]
+    ];
+    expect(greatestProduct(matrix)).toBe(32000);
+  });
+
   it('should return 1 (one) when all numbers of the arrays are 1', () => {
-    let matrix = [
+      let matrix = [
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
