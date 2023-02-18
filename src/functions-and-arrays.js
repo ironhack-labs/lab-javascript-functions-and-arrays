@@ -284,8 +284,108 @@ const matrix = [
     48,
   ],
 ];
+function productFourNumbers(num1, num2, num3, num4) {
+  return num1 * num2 * num3 * num4;
+}
 
-function greatestProduct(matrix) {}
+function greatestProduct(matrix) {
+  let result = 0;
+
+  //Rows
+  matrix.forEach(function (subArray) {
+    for (let j = 0; j < subArray.length - 3; j++) {
+      if (
+        result <
+        productFourNumbers(
+          subArray[j],
+          subArray[j + 1],
+          subArray[j + 2],
+          subArray[j + 3]
+        )
+      ) {
+        result = productFourNumbers(
+          subArray[j],
+          subArray[j + 1],
+          subArray[j + 2],
+          subArray[j + 3]
+        );
+      }
+    }
+  });
+
+  //Columns
+  matrix.forEach(function (subArray, index) {
+    for (let i = 0; i < matrix[i].length - 3; i++) {
+      if (
+        result <
+        productFourNumbers(
+          matrix[i][index],
+          matrix[i + 1][index],
+          matrix[i + 2][index],
+          matrix[i + 3][index]
+        )
+      ) {
+        result = productFourNumbers(
+          matrix[i][index],
+          matrix[i + 1][index],
+          matrix[i + 2][index],
+          matrix[i + 3][index]
+        );
+      }
+    }
+  });
+
+  return result;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let result = 0;
+  //Columns Left-to-Right
+  for (let j = 0; j < matrix.length - 3; j++) {
+    for (let i = 0; i < matrix[i].length - 3; i++) {
+      if (
+        result <
+        productFourNumbers(
+          matrix[i][j],
+          matrix[i + 1][j + 1],
+          matrix[i + 2][j + 2],
+          matrix[i + 3][j + 3]
+        )
+      ) {
+        result = productFourNumbers(
+          matrix[i][j],
+          matrix[i + 1][j + 1],
+          matrix[i + 2][j + 2],
+          matrix[i + 3][j + 3]
+        );
+      }
+    }
+  }
+
+  //Columns Right-to-Left
+
+  for (let j = matrix.length - 1; j > 3; j--) {
+    for (let i = 0; i < matrix.length - 3; i++) {
+      if (
+        result <
+        productFourNumbers(
+          matrix[i][j],
+          matrix[i + 1][j - 1],
+          matrix[i + 2][j - 2],
+          matrix[i + 3][j - 3]
+        )
+      ) {
+        result = productFourNumbers(
+          matrix[i][j],
+          matrix[i + 1][j - 1],
+          matrix[i + 2][j - 2],
+          matrix[i + 3][j - 3]
+        );
+      }
+    }
+  }
+  return result;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
