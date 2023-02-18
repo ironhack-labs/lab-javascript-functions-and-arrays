@@ -19,10 +19,10 @@ const words = [
 ];
 
 function findLongestWord(words) {
-  let count=0;
-  let sizeMax=0;
-  let maxWord="";
-  if(words.length===0){
+  let count = 0;
+  let sizeMax = 0;
+  let maxWord = "";
+  if (words.length === 0) {
     return null;
   }
   /*for(let i=0 ; i<words.length ; i++){
@@ -33,16 +33,16 @@ function findLongestWord(words) {
     }
   return words[count];
   } */
-  
+
   /*words.forEach(){
     array = 
   }*/
 
-  for(element of words){
-    if(element.length>sizeMax){
-      sizeMax=element.length;
-      maxWord=element;
-  }
+  for (element of words) {
+    if (element.length > sizeMax) {
+      sizeMax = element.length;
+      maxWord = element;
+    }
   }
   return maxWord;
 }
@@ -50,10 +50,34 @@ function findLongestWord(words) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+
+  if (numbers.length == 0) return 0;
+
+  for (number of numbers) {
+    sum += number;
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sum = 0;
+
+  if (arr.length == 0) return 0;
+
+  for (element of arr) {
+    if (typeof element == "number" || typeof element == "boolean") {
+      sum += element;
+    } else if (typeof element == "string") {
+      sum += element.length;
+    } else {
+      throw Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
