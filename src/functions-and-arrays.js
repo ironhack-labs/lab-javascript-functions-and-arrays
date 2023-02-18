@@ -52,13 +52,24 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let average = sumNumbers(numbers)/numbers.length
+  return average
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  let wordLengthSum = 0
+  words.forEach(function(word) {
+    wordLengthSum += word.length
+  })
+  let wordLengthAverage = wordLengthSum/words.length
+  return wordLengthAverage
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
