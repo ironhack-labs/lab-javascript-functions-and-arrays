@@ -21,6 +21,7 @@ function findLongestWord(words = []) {
   if (words.length == 0) {
     return null;
   }
+
   if (words.length == 1) {
     return words[0];
   }
@@ -156,7 +157,20 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqueArray) {
+  if (uniqueArray.length == 0) {
+    return null;
+  }
+  let result = [];
+  result[0] = uniqueArray[0];
+  uniqueArray.forEach(function (element) {
+    if (!result.includes(element)) {
+      result[result.length] = element;
+    }
+  });
+
+  return result;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -170,7 +184,12 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, searchedWord) {
+  if (wordsFind.length == 0) {
+    return null;
+  }
+  return wordsFind.includes(searchedWord);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -187,7 +206,18 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, repeatedWord) {
+  if (wordsCount.length == 0) {
+    return 0;
+  }
+  let result = 0;
+  wordsCount.forEach(function (el) {
+    if (el == repeatedWord) {
+      result++;
+    }
+  });
+  return result;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -255,7 +285,7 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
