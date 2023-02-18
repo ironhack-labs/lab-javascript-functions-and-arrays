@@ -180,11 +180,13 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsCount, word) {
-  let counter = 0 ;
-  if(!wordsCount.length){return 0}
-  for(element of wordsCount){
-    if(element===word){
-      counter +=1;
+  let counter = 0;
+  if (!wordsCount.length) {
+    return 0;
+  }
+  for (element of wordsCount) {
+    if (element === word) {
+      counter += 1;
     }
   }
   return counter;
@@ -257,28 +259,60 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  let max = 0 ;
-  for(let i=0; i<(matrix.length-3) ; i++ ){
-    for(let j=0; j<(matrix[i].length-3) ; j++){
-      let product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
-      if( product > max){
+  let max = 0;
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      let product =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > max) {
         max = product;
       }
     }
   }
-  
-  for(let i=0; i<(matrix.length-3) ; i++ ){
-    for(let j=0; j<(matrix[i].length-3) ; j++){
-      let product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
-      if( product > max){
+
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      let product =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > max) {
         max = product;
       }
-    } 
+    }
   }
   console.log(max);
   return max;
 }
 
+function greatestProductDiagonal(matrix) {
+  let max = 0;
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      let product =
+        matrix[i][j] *
+        matrix[i + 1][j + 1] *
+        matrix[i + 2][j + 2] *
+        matrix[i + 3][j + 3];
+      if (product > max) {
+        max = product;
+      }
+    }
+  }
+
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = matrix[i].length - 1; j >= 3; j--) {
+      let product =
+        matrix[i][j] *
+        matrix[i + 1][j - 1] *
+        matrix[i + 2][j - 2] *
+        matrix[i + 3][j - 3];
+      if (product > max) {
+        max = product;
+      }
+    }
+  }
+  console.log(max);
+  return max;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
