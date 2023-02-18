@@ -84,10 +84,10 @@ function sum(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  if(numbersAvg.length == 0){
+  if (numbersAvg.length == 0) {
     return null;
   }
-  return sumNumbers(numbersAvg)/numbersAvg.length
+  return sumNumbers(numbersAvg) / numbersAvg.length;
 }
 
 // Level 2: Array of strings
@@ -105,17 +105,17 @@ const wordsArr = [
 ];
 
 function averageWordLength(wordsArr) {
-  if(wordsArr.length == 0){
+  if (wordsArr.length == 0) {
     return null;
-}
- return sum(wordsArr)/wordsArr.length;
+  }
+  return sum(wordsArr) / wordsArr.length;
 }
 // Bonus - Iteration #4.1
 function avg(genericArr) {
-  if(genericArr.length == 0){
+  if (genericArr.length == 0) {
     return null;
-}
- return sum(genericArr)/genericArr.length;
+  }
+  return sum(genericArr) / genericArr.length;
 }
 
 // Iteration #5: Unique arrays
@@ -133,7 +133,18 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let newArr = [];
+
+  if (!arr.length) return null;
+
+  for (element of arr) {
+    if (!newArr.includes(element)) {
+      newArr.push(element);
+    }
+  }
+  return newArr;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -147,7 +158,11 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, wordToSearch) {
+  if (!arr.length) return null;
+
+  return arr.includes(wordToSearch);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
