@@ -377,3 +377,19 @@ describe("Bonus Quest - greatestProduct", () => {
     expect(greatestProduct(matrix)).toBe(32000);
   });
 });
+
+describe("Bonus Quest - greatestProduct diagonal", () => {
+  it("should declare a function named greatestProductDiagonal", () => {
+    expect(typeof greatestProductDiagonal).toBe("function");
+  });
+  it("should return 1200", () => {
+    let matrix = [
+      [1, 2, 3, 4, 5],
+      [1, 20, 3, 4, 5],
+      [1, 20, 3, 4, 5],
+      [1, 20, 3, 4, 5],
+      [1, 4, 3, 4, 5],
+    ];
+    expect(greatestProductDiagonal(matrix)).toBe(1200);
+  });
+});
