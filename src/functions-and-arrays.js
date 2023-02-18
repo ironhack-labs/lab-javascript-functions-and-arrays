@@ -18,7 +18,34 @@ const words = [
   "crackpot",
 ];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let count=0;
+  let sizeMax=0;
+  let maxWord="";
+  if(words.length===0){
+    return null;
+  }
+  /*for(let i=0 ; i<words.length ; i++){
+    if(words[i].length>sizeMax){
+      sizeMax=words[i].length;
+      count=i;
+      }
+    }
+  return words[count];
+  } */
+  
+  /*words.forEach(){
+    array = 
+  }*/
+
+  for(element of words){
+    if(element.length>sizeMax){
+      sizeMax=element.length;
+      maxWord=element;
+  }
+  }
+  return maxWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
