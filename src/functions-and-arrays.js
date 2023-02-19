@@ -46,7 +46,16 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(Arr) {
+  let sumArr = 0
+  for (let i=0; i < Arr.length; i++) {
+    if (typeof Arr[i] == 'string') {
+      sumArr += Arr[i].length
+    } else {
+      sumArr += Arr[i]
+    }
+  } return sumArr
+}
 
 
 
@@ -74,7 +83,10 @@ function averageWordLength(words) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(Arr) {
+  let avgArr = sum(Arr)/Arr.length
+  return avgArr
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
