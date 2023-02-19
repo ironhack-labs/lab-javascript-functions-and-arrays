@@ -1,24 +1,67 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1 = 0, num2 = 0) {
+  if( num1 <= num2){
+    return num2
+  }else{
+    return num1;
+  
+  }
+    
+  
 
+}
+//revisar primera clase para ver como lo resolvían.
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+
+if(words.length ==0){
+  return null;
+}
+else if(words.length == 1){
+  return words[0];
+}else{
+let longestWord = words[0];
+words.forEach(function(el) {
+  if(longestWord.length < el.length) {
+    longestWord = el;
+  
+  }
+
+}) ;
+
+
+return longestWord;
+}
+
+};
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+  let sum = 0
 
-function sumNumbers() {}
+for( let i = 0; i< numbers.length; i++){
+  
+  sum += numbers[i]
+}
+return sum;
+
+};
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixOfNumbersWords) {
+
+  let 
+
+};
 
 
 
@@ -26,13 +69,42 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+ function averageNumbers(arrayOfNumbers) {
+  let numbers = 0
+  if(arrayOfNumbers.length == 0){
+    return null;
+  } 
+
+  for(let i = 0; i < arrayOfNumbers.length; i++){
+    numbers += arrayOfNumbers[i];
+  }
+  return numbers / arrayOfNumbers.length;
+}  
+;
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayWords) {
+  if(arrayWords.length == 0){
+    return null;
+  
+  }
+  let wordsArr = 0;
+  for(let i = 0; i < arrayWords.length; i++){
+
+    wordsArr += arrayWords[i].length; //Para poder transformarlo en número, pasarlo a la longuitud.
+   
+  }
+
+  return wordsArr / arrayWords.length;
+
+}; 
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +124,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsRepeat) {
+
+  if(wordsRepeat.length == 0){
+    return null
+  }
+let searchElement = [];
+
+for(let i = 0; i < wordsRepeat.length;i++){
+  if(searchElement.indexOf(wordsRepeat[i]) === -1){
+    searchElement.push(wordsRepeat[i])
+  }
+}
+return searchElement;
+};
+
+/* wordsRepet.forEach(function(wordsRepet){
+  if(searchElement.indexOf(wordsRepet[i])== -1){
+    searchElement.push(wordsRepet[i])
+}
+})
+return searchElement */
+
+
+
 
 
 
