@@ -1,41 +1,137 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
+
+function maxOfTwoNumbers(numberOne, numberTwo) {
+if(numberOne> numberTwo){
+return numberOne
+}
+return numberTwo
+}
+maxOfTwoNumbers(4, 6);
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+ let longest='';
 
+  if (words.length ==0) {
+    return null
+  } 
+  
+  for (i=0; i< words.length; i++){
+
+    if(words[i].length > longest.length){
+      longest= words[i];
+    }  
+    
+  }
+  return longest;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let total=0;
+  
+  for(i=0; i<numbers.length; i++ ){
+    total+= numbers[i];
+  }
+return total;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+let array=[ 'hola', false, 5, true, [], 99];
 
+function sum(array) {
+  let resultado=0;
+  for(i=0; i<array.length; i++){
+
+    if(typeof array[i]== 'number'){
+      resultado+= array[i];
+
+    } else if (typeof array[i]== 'string'){
+      resultado+= array[i].length;
+
+    } else if(typeof array[i]== 'boolean'){
+      if(array[i] == true){
+        resultado+=1;
+      }
+    } else {
+      throw 'error';    // preguntar
+    }
+  
+  }
+  return resultado;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let totalSuma=0;
+  let promedio=0;
 
+  if(numbersAvg.length==0){
+    return null;
+  } 
+  for(i=0; i<numbersAvg.length; i++){
+    totalSuma+= numbersAvg[i];
+  }
+
+  promedio = totalSuma / numbersAvg.length;
+  return promedio;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+let suma= 0;
+if(wordsArr.length===0){
+  return null;
+}
+for(i=0; i<wordsArr.length; i++){
+  suma+= wordsArr[i].length;
+}
+resultado= suma/ wordsArr.length;
+return resultado;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(mixedArr) {
+ let total=0;
+
+if(mixedArr.length ===0){
+  return null
+}
+  for(i=0; i<mixedArr.length; i++){
+    if(typeof mixedArr[i]=== 'boolean'){
+        if(mixedArr[i]== true){
+        total+=1;
+        } 
+    } else if(typeof mixedArr[i]=== 'number'){
+      total+=mixedArr[i];
+    } else if(typeof mixedArr[i]=== 'string'){
+      total+= mixedArr[i].length;
+    } else{
+      console.log('error');
+    }
+  }
+
+let promedio= total/ mixedArr.length;
+return promedio;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +148,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let newArray=[]
+  if(wordsUnique.length==0){
+return null;
+  }
+  for(i=0; i<wordsUnique.length; i++){
+    if(!newArray.includes(wordsUnique[i])){
+      newArray.push(wordsUnique[i])
+    }
+  }
+  return newArray;
+}
 
 
 
 // Iteration #6: Find elements
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.length== 0){
+    return null
+  }
+  for(i=0; i<wordsFind.length; i++){
+    if(word === wordsFind[i]){
+      return true
+    } else if (!wordsFind.includes(word)){
+      return false
+    }
+    return true
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -78,7 +197,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, palabra) {
+let count= 0;
+  if(wordsCount.length==0){
+  return 0;
+  }
+    for(i=0; i< wordsCount.length; i++){
+      if(wordsCount[i]=== palabra){
+      count+=1;
+    } 
+  }
+return count;
+}
 
 
 
