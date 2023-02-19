@@ -1,19 +1,44 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1=0, num2=0) {
+  if (num1>num2) {
+    return num1;
+  }
+  else if (num2>num1) {
+    return num2;
+  }
+  else if (num1=num2) {
+    return num1 && num2
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+    if (words.length === 0) {
+      return null;
+    }
 
+  let longestWord = '';
 
+  for (let i=0; i < words.length; i++) {
+    if (words[i].length > longestWord.length){
+      longestWord = words[i]}
+  }
+  return longestWord;  
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let result = 0;
+
+  for (j=0; j < numbers.length; j++) {
+    result += numbers[j];
+  }
+  return result;
+}
 
 
 
@@ -26,7 +51,14 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg = ['']) {
+    return null;
+  }
+  
+  let average = (sumNumbers(numbersAvg)/numbersAvg.length);
+  return average;
+}
 
 
 // Level 2: Array of strings
@@ -52,14 +84,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique=['']) {
+    return null;
+  }
+
+  let finalArray = [''];
+
+  for (l=0; l < wordsUnique.length; l++) {
+    if (finalArray.includes(uniquifyArray[l])===false){
+      finalArray.indexOf(uniquifyArray[l])
+    } 
+  }
+  return finalArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, findedWord) {
+  if (wordsFind = ['']) {
+    return null;
+  }
+  
+  else if (wordsFind.includes(findedWord)===true) {
+    return true;
+  }
+
+  else if (wordsFind.includes(findedWord)===false) {
+    return false;
+  }
+}
 
 
 
@@ -78,7 +135,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, countedWord) {
+  let counter=0;
+  for (m=0; m<wordsCount.length; m++) {
+    if (wordsCount[m]=== countedWord) {
+      counter++
+    }
+
+  }
+  return counter;
+}
 
 
 
