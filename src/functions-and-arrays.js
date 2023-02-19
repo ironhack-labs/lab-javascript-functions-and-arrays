@@ -89,7 +89,21 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let newArray=[];
+  if (array.length === 0){
+    return null;
+    } 
+      for (let i=0; i<array.length; i++){
+        if (newArray.includes(array[i])){
+          continue;
+        } else {
+          newArray.push(array[i]);
+        }
+    }
+    return (newArray);
+} 
+uniquifyArray(wordsUnrut)
 
 
 
