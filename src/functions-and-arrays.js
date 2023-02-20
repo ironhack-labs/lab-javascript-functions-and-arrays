@@ -43,7 +43,29 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(multiArray) {
+  let finalMultiSum = 0;
+
+  for (p=0; p<multiArray.length; p++) {
+    if (typeof multiArray[p]===number) {
+      finalMultiSum += multiArray[p]
+    }
+    else if (typeof multiArray[p]===String) {
+      finalMultiSum += multiArray[p].length
+    }
+    else if (typeof multiArray[p]===true) {
+      finalMultiSum += 1;
+    }
+    else if (typeof multiArray[p]===false) {
+      finalMultiSum += 0;
+    }
+    else if (typeof multiArray[p]===Object || Array.isArray(multiArray[p])===true) {
+      return null;
+    }
+
+  }
+  return finalMultiSum
+}
 
 
 
@@ -52,22 +74,54 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-  if (numbersAvg = ['']) {
-    return null;
+  if (numbersAvg !== ['']) {let average = (sumNumbers(numbersAvg)/numbersAvg.length);
+  return average}
+
+  else if (numbersAvg = ['']){
+  return null
   }
-  
-  let average = (sumNumbers(numbersAvg)/numbersAvg.length);
-  return average;
 }
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  if (wordsArr !== ['']) {
+  let charsNum = 0;
+  for (n=0; n<wordsArr.length; n++) {
+    charsNum += wordsArr[n].length}
+  return (charsNum/wordsArr.length) }
+
+  else if (wordsArr=['']){
+    return null}
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(multiArrayForAvg) {
+  let finalMultiSumForAvg = 0;
+
+  for (q=0; q<multiArrayForAvg.length; q++) {
+    if (typeof multiArrayForAvg[q]===number) {
+      finalMultiSumForAvg += multiArrayForAvg[q]
+    }
+    else if (typeof multiArrayForAvg[q]===String) {
+      finalMultiSumForAvg += multiArrayForAvg[q].length
+    }
+    else if (typeof multiArrayForAvg[q]===true) {
+      finalMultiSumForAvg += 1;
+    }
+    else if (typeof multiArrayForAvg[q]===false) {
+      finalMultiSumForAvg += 0;
+    }
+    else if (typeof multiArrayForAvg[q]===Object || Array.isArray(multiArrayForAvg[q])===true) {
+      return null;
+    }
+
+  }
+  return (finalMultiSumForAvg/multiArrayForAvg.length)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -92,11 +146,12 @@ function uniquifyArray(wordsUnique) {
   let finalArray = [''];
 
   for (l=0; l < wordsUnique.length; l++) {
-    if (finalArray.includes(uniquifyArray[l])===false){
-      finalArray.indexOf(uniquifyArray[l])
+    if (finalArray.includes(wordsUnique[l])===false){
+      finalArray.indexOf(wordsUnique[l])
     } 
+    return finalArray;
   }
-  return finalArray;
+
 }
 
 
@@ -105,16 +160,17 @@ function uniquifyArray(wordsUnique) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsFind, findedWord) {
-  if (wordsFind = ['']) {
-    return null;
-  }
-  
-  else if (wordsFind.includes(findedWord)===true) {
+
+  if (wordsFind.includes(findedWord)===true) {
     return true;
   }
 
   else if (wordsFind.includes(findedWord)===false) {
     return false;
+  }
+
+  else if (wordsFind = ['']) {
+    return null;
   }
 }
 
