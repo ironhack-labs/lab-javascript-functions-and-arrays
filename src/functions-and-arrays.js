@@ -148,55 +148,66 @@ if (arr.length === 0) {
 }
 
 else {
-
+  
+  function uniquifyArray(arr) {
+  
+  let unifiedArray = [];
+  
+  if (arr.length === 0) {
+    return null;
+  }
+  
+  else {
+  
+  for (let i = 0; i < arr.length; i++) {
+  
+    
+    if (!unifiedArray.includes(arr[i])) {
+    unifiedArray.push(arr[i]);
+        }
+  }
+  return unifiedArray;
+  
+  } }
+  
 for (let i = 0; i < arr.length; i++) {
 
-  for (let j = 1; j < arr.length; j++) {
-
-    if (j === i) {
-      
-    }
-
-    else {
-
-      unifiedArray.push(j[i]);
-      
-    }
-    
-  }
-
+  
+  if (!unifiedArray.includes(arr[i])) {
+  unifiedArray.push(arr[i]);
+      }
 }
-
-}
-
 return unifiedArray;
 
-}
+} }
+
+console.log(uniquifyArray(wordsUnique))
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(str, wrd) {
+function doesWordExist(arr, str) {
 
-  if (str.length === 0) {
+  if (arr.length === 0) {
     return null;
   }
 
-  for (i=0; i < str.length; i++) {
+for (i = 0; i < arr.length; i++) {
 
-    if (str === wrd[i]) {
-      return 'true';
-    }
-
-    else {
-      return 'false';
-    }
-
+  if (str === arr[i]) {
+    return true;
+  }
+    
   }
 
+  return false;
+
 }
+
+
 
 
 
@@ -215,7 +226,29 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, str) {
+
+  let counter = 0;
+
+for (let i = 0; i < arr.length; i++) {
+
+  if (str === arr[i]) {
+    counter++;
+  }
+
+}
+
+if (counter > 0) {
+  return counter;
+}
+
+else {
+
+  return 0
+
+}
+
+}
 
 
 
