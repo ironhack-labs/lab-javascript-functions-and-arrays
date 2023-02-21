@@ -154,8 +154,21 @@ return searchElement */
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(ar,wo) {
+  if(ar.length == 0){
+    return null;
+  }
+  for(let i = 0; i < ar.length; i++){
+    if(wo === ar[0]){
+      return true;
+    }else if(ar.includes(wo)){
+      return true;
 
+    }
+    return false;
+  }
+
+}
 
 
 // Iteration #7: Count repetition
@@ -173,7 +186,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,repeatWords) {
+  let count = 0;
+  
+  if( wordsCount.length === 0){
+    return 0
+  }
+  wordsCount.forEach(function(element){
+    if(element == repeatWords){
+      count++;
+    }
+  });
+  return count;
+
+}
 
 
 
