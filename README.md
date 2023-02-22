@@ -318,49 +318,6 @@ Another possibility is that there is an issue with the tests. It is possible tha
 </details>
 
 
-
-
-
-<details>
-  <summary>How do I loop over an array using the <code>forEach()</code> method?</summary>
-  <br>
-
-  The `forEach()` method executes a provided function once for each array element. It does not return a new array, but rather executes the function on each element in the array.
-
-  The syntax of the `forEach()` method is as follows:
-
-  ```js
-  array.forEach( function(element) {
-    // code to be executed for each element
-  });
-  ```
-
-  <br>
-
-  Here is an example that uses the `forEach()` method to log each element and its index in an array to the console:
-
-  ```js
-  const fruits = ['apple', 'banana', 'cherry'];
-
-  fruits.forEach( function(element, index) {
-    console.log(`${index}: ${element}`);
-  });
-  ```
-
-  <br>
-
-  You can also use an arrow function as the callback function for `forEach()`:
-
-  ```js
-  fruits.forEach((element, index) => {
-    console.log(`${index}: ${element}`);
-  });
-  ```
-
-  [Back to top](#faqs)
-
-</details>
-
 <details>
   <summary>I am unable to push changes to the repository. What should I do?</summary>
   <br>
