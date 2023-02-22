@@ -84,7 +84,9 @@ function sum(arr) {
   
         
         else {
-          return TypeError;
+          
+            throw new Error("Unsupported data type sir or ma'am");
+            
         } 
   
     }        
@@ -146,24 +148,17 @@ function averageWordLength(arr) {
 function avg(arr) {
 
   let total = 0;
-  let result = 0;
-  
-  for (let i=0; i < arr.length; i++) {
 
+  for (i=0; i<arr.length; i++) {
     if (typeof arr[i] === 'string') {
-      result = averageWordLength(arr[i]);
-      total += result;
-    }
-
-    else if (typeof arr[i] === 'number') {
-      result = averageNumbers(arr[i]);
-      total += result;
+      total += averageWordLength(arr[i]);
     }
 
     else {
-      return null;
+      total += averageNumbers(arr[i]);
     }
   }
+  return total / arr.length;
 
 }
 
@@ -319,7 +314,11 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(obj) {
+
+
+
+}
 
 
 
