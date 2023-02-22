@@ -45,22 +45,35 @@ return longestWord;
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
   let sum = 0
-
-for( let i = 0; i< numbers.length; i++){
-  
+for( let i = 0; i< numbers.length; i++){ 
   sum += numbers[i]
 }
 return sum;
-
 };
 
 
 
 // Iteration #3.1 Bonus:
 function sum(mixOfNumbersWords) {
-
-  let 
-
+  let sumWordandNumber = 0;
+  if(mixOfNumbersWords.length === 0){
+    return 0;
+  }
+  for(let i = 0; i < mixOfNumbersWords.length; i++){
+    if(typeof mixOfNumbersWords[i] == "number"){
+      sumWordandNumber += mixOfNumbersWords[i] 
+    }else if(typeof mixOfNumbersWords[i] == "string"){
+      sumWordandNumber += mixOfNumbersWords[i].length
+    }else if(typeof mixOfNumbersWords[i] == "boolean" ){
+      sumWordandNumber += mixOfNumbersWords[i]
+    }else{
+     throw new Error ("Unsupported data type sir or ma'am");
+    }
+    
+    //console.log(typeof mixOfnumbersWords[i]);
+  }
+  console.log(sumWordandNumber)
+ return sumWordandNumber ;
 };
 
 
@@ -107,7 +120,14 @@ function averageWordLength(arrayWords) {
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixArr) {
+  if(mixArr.length == 0){
+    return null
+  }else{
+    return sum(mixArr) / mixArr.length
+  }
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
