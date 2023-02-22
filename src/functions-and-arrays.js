@@ -1,24 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 === num2) {
+    console.log("los numeros son iguales!!")
+ } else if (num1 > num2) {
+    return num1;
+ } else {
+   return num2;
+
+ }
+ }
+
+ console.log(maxOfTwoNumbers(23,12));
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  
+if(array.length === 0) {
+  return null;
+} else {
+  let longestWord = "";
+  for(let i = 0; i < array.length; i++) {
+if(longestWord.length < array[i].length) {
+
+  longestWord = array[i];
+}
+  }
+  return longestWord;
+}
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNumbers) {
+  let counter = 0;
+  for(let i = 0; i < arrayNumbers.length; i++ ){
+    counter += arrayNumbers[i];
+  }
+ return counter;
+}
+console.log(sumNumbers(numbers));
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// aqui porque pones primero .lenght luego solo array numbers y luego solo +1? es porque un valor booleano, por ejemplo, vale solo 1?
+function sum(arrayNumbers){
+  let counter = 0;
+  for(let i=0; i < arrayNumbers.length; i++) {
+    if (typeof(arrayNumbers[i]) == "string") {
+      counter += arrayNumbers[i].length;
+    } else if (typeof(arrayNumbers[i]) == "number") {
+      counter += arrayNumbers[i];
+    } else if (typeof(arrayNumbers[i]) == "boolean") {
+        if (arrayNumbers[i]){
+            counter += 1;
+        } else {
+            counter += 0;
+        }
+    }
+  }
+  return counter;
+  }
+  console.log(sum(mixedArr));
+
 
 
 
@@ -26,16 +79,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arrayNumbers) {
+  average = sumNumbers(arrayNumbers) / arrayNumbers.length;
+  return average
+}
+console.log(averageNumbers(numbersAvg));
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayWords) {
+  let counter = 0;
+  for(let i = 0; i < arrayWords.length; i++) {
+    counter += arrayWords[i].length
+  }
+  return counter / arrayWords.length;
+}
+console.log(averageWordLength(WordsArr));
+
+
+    
+    
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+// aquí porque pones average así tal cual?? y que quiere decir aquí arr.lenght cuando lo divides???
+average = sum(arr)/arr.length
+return average
+  }
+console.log(avg(mixedArr)) //aquí esto quiere decir imprimo la funcion con la variable mixed arr?
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +125,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrayWords) {
+  newArray = []
+  for(let i=0; i < arrayWords.length; i++)
+  {
+      if (newArray.includes(arrayWords[i])) 
+      {
+          continue;
+      } else {
+      newArray.push(arrayWords[i]); // lo que quiere decir es que pasa por la array y cuando ve que no están incluidos lod elementos sigue, entonces
+      //llega al ese que dice incluye las posiciones de dentro de la array "array words" como le dice solo introduce los elementos, si lo ves ve repetidos, entonces no los sube?
 
-
+      }
+  }
+  return newArray;
+}
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(arrayWords, wordSearch) {
+  for (let i = 0; i < arrayWords.length; i++) {
+    if(arrayWords[i] == wordSearch){
+      return true;
+    } else {
+      continue;
+    }
+  }
+  return false;
+  }
+console.log(doesWordExist(wordsFind, "matter"))
 
 
 // Iteration #7: Count repetition
@@ -77,9 +172,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+// nos dice que si la array en la posición [i] es igual al wordsearch (que tu pone cuando la llamas en el console, que sume uno. Como 
+// matter sale cuatro veces, me sale un 4
+function howManyTimes(arrayWords, wordSearch) {
+  let counter = 0;
+  for (let i = 0; i < arrayWords.length; i++)
+  if(arrayWords[i] == wordSearch){
+    counter ++;
+  } else {
+    continue;
+  }
 
-function howManyTimes() {}
-
+  return counter;
+}
+console.log(howManyTimes(wordsCount,"Starting"));
 
 
 // Iteration #8: Bonus
