@@ -62,7 +62,7 @@ console.log(sumNumbers(numbers));
 
 
 
-//----------> Iteration #3.1 Bonus:
+// Iteration #3.1 Bonus:
 function sum(arr) {
   let sum = 0;
 
@@ -105,7 +105,7 @@ function averageNumbers(numbersAvg) {
 console.log('asd', averageNumbers(numbersAvg));
 
 
-//-------> Level 2: Array of strings
+// Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) { 
@@ -157,6 +157,10 @@ function avg(mixedArr) {
 }
 
 // Iteration #5: Unique arrays
+
+// Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the Array methods indexOf and includes.
+
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -173,30 +177,24 @@ const wordsUnique = [
 
 function uniquifyArray(wordsUnique) {
 
-  let result = "";
-
   if (wordsUnique.length === 0) {
     return null;
 
   }
 
+  let uniqueWords = [];
   for (i=0; i < wordsUnique.length; i++) {
 
-   if (wordsUnique[i] == wordsUnique[i]) {
-    return wordsUnique;
+    if (!uniqueWords.includes(wordsUnique[i])){
+      uniqueWords.push(wordsUnique[i]);
+    }
 
    }
 
   
-
-
-  return result;
-
-
-
+  return uniqueWords;
  }
 
-}
 
 
 // Iteration #6: Find elements
