@@ -24,10 +24,10 @@ function findLongestWord(words) {
     return (words[0])
   }
 
-  let longest = 0;
+  let longest = words[0];
   for (let i=0; i<words.length; i++) {
-    if (words[i].length>longest) {
-      longest = words[i].length
+    if (words[i].length>longest.length) {
+      longest = words[i]
     }
   }
   return longest;
@@ -46,9 +46,6 @@ function sumNumbers(numbers) {
   }
   else if (numbers.length === 1) {
     return numbers[0]
-  }
-  else if (numbers=[0]) {
-    return 0
   }
   else {
     let suma = 0;
@@ -69,9 +66,14 @@ function sum(numbers) {
   else if (numbers.length === 1) {
     return numbers[0]
   }
-  else if (numbers=[0]) {
-    return 0
+  else {
+    let suma = 0;
+    for (let i=0; i<numbers.length; i++) {
+      suma += numbers[i]
+    }
+    return suma
   }
+  
 }
 
 
@@ -107,12 +109,31 @@ function averageWordLength(wordsArr) {
   else if (wordsArr.length === 1) {
     return (wordsArr[0].length)
   }
+  else {
+    let suma = 0;
+    for (let i=0; i<wordsArr.length; i++) {
+      suma += wordsArr[i].length
+    }
+    return (suma/wordsArr.length)
+  }
 }
 
 // Bonus - Iteration #4.1
 function avg(mixArr) {
   if (mixArr.length === 0) {
     return null
+  }
+  else {
+    let suma = 0;
+    for (let i=0; i<mixArr.length; i++) {
+      if (typeOf(mixArr[i]) === "string") {
+        suma += mixArr[i].length
+      }
+      else {
+        suma += mixArr[i]
+      }
+    }
+    return (suma/mixArr.length)
   }
 }
 
