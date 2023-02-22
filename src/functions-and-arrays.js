@@ -53,24 +53,45 @@ function sumNumbers(arr) {
 
   let result = 0;
 
-  if (arr.length === 0) {
-    return result;
-  }
-
-  else {
-
-    for (let i = 0; i < arr.length ; i++) {
+  for (let i = 0; i < arr.length ; i++) {
       result += arr[i];
       }
       return result;
 
   }
-}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+
+    let result = 0;
+    let each = 0;
+  
+  
+  
+      for (let i = 0; i < arr.length ; i++) {
+        
+        if (typeof arr[i] === 'string') {
+          each = arr[i].length;
+          result += each;
+  
+        }
+
+        else if (typeof arr[i] === 'number' || typeof arr[i] === 'boolean') {
+          result += arr[i];
+        }
+  
+        
+        else {
+          return TypeError;
+        } 
+  
+    }        
+    
+    return result;
+  }
+
 
 
 
@@ -122,7 +143,29 @@ function averageWordLength(arr) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+
+  let total = 0;
+  let result = 0;
+  
+  for (let i=0; i < arr.length; i++) {
+
+    if (typeof arr[i] === 'string') {
+      result = averageWordLength(arr[i]);
+      total += result;
+    }
+
+    else if (typeof arr[i] === 'number') {
+      result = averageNumbers(arr[i]);
+      total += result;
+    }
+
+    else {
+      return null;
+    }
+  }
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
