@@ -50,25 +50,22 @@ function sumNumbers(numbers) {
 // Iteration #3.1 Bonus:
 function sum(array) {
   let finalMultiSum = 0;
-
-  for (p = 0; p < array.length; p++) {
-    if (typeof array[p] === "number") {
-      finalMultiSum += array[p];
-    } else if (typeof array[p] === "string") {
-      finalMultiSum += array[p].length;
-    } else if (typeof array[p] === "boolean") {
-      if (array[p] === true) {
-        finalMultiSum += 1;
+  if (array.length === 0) {
+    return 0;
+  } else {
+    for (p = 0; p < array.length; p++) {
+      if (typeof array[p] === "number") {
+        finalMultiSum += array[p];
+      } else if (typeof array[p] === "string") {
+        finalMultiSum += array[p].length;
+      } else if (typeof array[p] === "boolean") {
+        if (array[p] === true) {
+          finalMultiSum += 1;
+        }
       }
     }
-    // else if (
-    //   typeof array[p] === "object"
-    //   // Array.isArray(array[p]) === true
-    // ) {
-    //   // return null;
-    //   throw 'error'    }
+    return finalMultiSum;
   }
-  return finalMultiSum;
 }
 
 // Iteration #4: Calculate the average
@@ -117,23 +114,27 @@ function averageWordLength(wordsArr) {
 function avg(array) {
   let finalMultiSumForAvg = 0;
 
-  for (q = 0; q < array.length; q++) {
-    if (typeof array[q] === "number") {
-      finalMultiSumForAvg += array[q];
-    } else if (typeof array[q] === "string") {
-      finalMultiSumForAvg += array[q].length;
-    } else if (typeof array[q] === "boolean") {
-       if (array[q] === true) {
-        finalMultiSumForAvg += 1;
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (q = 0; q < array.length; q++) {
+      if (typeof array[q] === "number") {
+        finalMultiSumForAvg += array[q];
+      } else if (typeof array[q] === "string") {
+        finalMultiSumForAvg += array[q].length;
+      } else if (typeof array[q] === "boolean") {
+        if (array[q] === true) {
+          finalMultiSumForAvg += 1;
+        }
+      } else if (
+        typeof array[q] === "object" ||
+        Array.isArray(array[q]) === true
+      ) {
+        return null;
       }
-    } else if (
-      typeof array[q] === "object" ||
-      Array.isArray(array[q]) === true
-    ) {
-      return null;
     }
+    return finalMultiSumForAvg / array.length;
   }
-  return finalMultiSumForAvg / array.length;
 }
 
 // Iteration #5: Unique arrays
@@ -279,22 +280,83 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+
+  matrix.forEach(function (element, index) {
+    for (let z = 0; z < element.length; z++) {
+      if (
+        element[z] * element[z + 1] * element[z + 2] * element[z + 3] >
+        maxProduct
+      ) {
+        maxProduct =
+          element[z] * element[z + 1] * element[z + 2] * element[z + 3];
+      } else if (
+        matrix[index][z] *
+          matrix[index + 1][z] *
+          matrix[index + 2][z] *
+          matrix[index + 3][z] >
+        maxProduct
+      ) {
+        maxProduct =
+          matrix[index][z] *
+          matrix[index + 1][z] *
+          matrix[index + 2][z] *
+          matrix[index + 3][z];
+      }
+    }
+  });
+  return maxProduct;
+}
+
+// for (y=0; y<matrix.length; y++) {
+//   let everyProduct = 0;
+//   let doneHorizontalProduct = false;
+
+//   if (doneHorizontalProduct = false && everyProduct>finalProduct) {
+//     finalProduct=everyProduct;
+//     doneHorizontalProduct = true;
+//   }
+
+//   else if (doneHorizontalProduct=true)
+//   everyProduct = (matrix[y[y]]) * (matrix[y[y+1]]) * (matrix[y[y+2]]) * (matrix[y[y+3]]);
+
+//   if (everyProduct > finalProduct) {
+//     finalProduct = everyProduct;
+//   }
+
+//   else {
+//     everyProduct = (matrix[y[y]]) * (matrix[y+1[y]]) * (matrix[y+2[y]]) * (matrix[y+3[y]]);
+//   }
+
+// }
+// }
+
+//     if (((matrix[y[y]]) * (matrix[y[y+1]]) * (matrix[y[y+2]]) * (matrix[y[y+3]])) > finalProduct) {
+//       finalProduct = ((matrix[y[y]]) * (matrix[y[y+1]]) * (matrix[y[y+2]]) * (matrix[y[y+3]]))
+//     }
+
+//     else if (((matrix[y[y]]) * (matrix[y+1[y]]) * (matrix[y+2[y]]) * (matrix[y+3[y]])) > finalProduct){
+//       finalProduct = ((matrix[y[y]]) * (matrix[y+1[y]]) * (matrix[y+2[y]]) * (matrix[y+3[y]]))
+//     }
+//   }
+//   return finalProduct;
+// }
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
-if (typeof module !== "undefined") {
-  module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct,
-  };
-}
+// if (typeof module !== "undefined") {
+//   module.exports = {
+//     maxOfTwoNumbers,
+//     findLongestWord,
+//     sumNumbers,
+//     sum,
+//     averageNumbers,
+//     averageWordLength,
+//     avg,
+//     uniquifyArray,
+//     doesWordExist,
+//     howManyTimes,
+//     greatestProduct,
+//   };
+// }
