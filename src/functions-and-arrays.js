@@ -1,16 +1,19 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(num1,num2) {
+
+
+function maxOfTwoNumbers(num1, num2) {
+  
   if (num1 > num2) {
     return num1
   } else if (num2 > num1) {
     return num2
-  } else if (num1==num2)
+  } else if (num1 == num2) {
     return num1
-   else {
+  } else {
     return invalid
   }
   }
-        
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -21,68 +24,68 @@ function findLongestWord(words){
   }
   if (words.length === 1) {
     return words[0]
-  } 
-  let sum
-
-  for (words){
-    let = i; i<words.length
   }
-  
-  
-  // let size
-  // for (let i = 0; i <= words.length; i++){
-  //   if (words.length[i] > words.length[i] + 1)
-  //     size+=words.length[i]
-    
-  // }
-   
+  let longestWord = "";
+  for (let i = 0; i < words.length; i++){
+    if ( words[i].length > longestWord.length) {
+      longestWord = words[i]
+      
+    }
+  }
+  return longestWord
+
 }
-
-
-
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-if (numbers.length === 0) {
-return 0;
+  if (numbers.length === 0) {
+    return 0;
+  }else{
+    let sum = 0;
+    let negative = true;
+  for(let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]; 
+    if (numbers[i] !== 0) {
+      negative = false
+    }
+  }
+    if (negative) {
+      return 0;
+    } else {
+      return sum;
+    }
+  }
 }
-  
-  let words = [1, 2, 3, 4, 5];
-  let max
-  let num0
-for (let i = 0; i < words.length; i++) {
-    if(words[i].lenght>words[i]+1){
-      max = miArray[i].lenght    
-      if (words.length(i) == 0) {
-        num0+=words.length(i)  
-      }
-      if (words.length == num0) {
-        return 0
-      }
-    
-    }      
-  }  
-  
-}
-  
 
 
+//--------------------------------------------
+// debe devolver la suma con una matriz de números
+// debe devolver cero si todos los elementos son cero
+// debe devolver la suma cuando se pasa la matriz de números
+// debe devolver la suma cuando se pasa la matriz de cadenas
+// debe devolver la suma cuando se le pasa una matriz de cadenas y números mixtos -
+// debe devolver la suma cuando se le pasa una matriz de cadenas mixtas, números y booleanos -
+// debe arrojar un error cuando el tipo de datos no admitido (objeto o matriz) está presente en la matriz
+//--------------------------------------------
 
 // Iteration #3.1 Bonus:
-function sum(num) {
-  if (num.length === 0) {
+function sum(array) {
+  if (array.length === 0) {
     return 0;
   }
-  let sum
-  for (let i = 0; i < num.length; i++){
-    sum+=num[i] 
-   }
-
+  let sumArray = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]==typeof "number") {
+      sumArray+=array[i]
+    }else if (array[i] == typeof "string") {
+      sumArray+=array[i].length
+    }
+  } 
+  return sumArray
 }
- 
 
 
 
@@ -90,29 +93,62 @@ function sum(num) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.length === 1) {
+    return arr[0];
+  } else {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++){
+      sum += arr[i]
+    }
+    let averageNumbers = sum / arr.length;
+    return averageNumbers
+  }
+}
 
-function averageNumbers(numbers) {
-  if (numbers.length === 0) {
+
+// Level 2: Array of strings
+const array = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  if (wordsArr.length == 0) {
     return null
+  }
+  let sum = 0;
+  let averageWord=0
+    for (let i = 0; i < wordsArr.length; i++){
+      sum += wordsArr[i].length
+    }
+  averageWord = sum / wordsArr.length;
+  return averageWord;
+  }
+
+
+
+// Bonus - Iteration #4.1
+
+// NO FUNCIONA EL PROMEDIO!!!!!
+function avg(array) {
+  if (array.length == 0) {
+    return null
+  }
+  let sum = 0;
+  let average = 0
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] == "string") {
+      sum += array[i].length
+    } else if (typeof array[i] == "number") {
+      sum += array[i]
+    }
+    average = sum / array.length;
+    return average;
   }
 }
 
 
 
-
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-  function averageWordLength() { 
-  
-}
-
-// Bonus - Iteration #4.1
-function avg() {
-  
-}
-
-// Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
   'poison',
@@ -127,43 +163,41 @@ const wordsUnique = [
   'bring'
 ];
 
-  function uniquifyArray(words) {
-    if (words.length === 0) {
+function uniquifyArray(words) {
+  if (words.length == 0) {
       return null
     }
-  }
+    let totalArray = [];
+      for (let i = 0; i < words.length; i++){
+        if (totalArray.indexOf(words[i])<0) {
+          totalArray.push(words[i])
+          }
+        }
+    return totalArray
+    }
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(words) {
-  if (words.length === 0) {
+function doesWordExist(array, word) {
+  if (array.length === 0) {
     return null
   }
-  if (words.length == 1 && words.indexOf('words')) { 
- return true
+  if (array.length == 1) { 
+  return true
   }
-  if (words.indexOf('words') !==-1) {
+  if (array.indexOf(word) < 0) {
     return false
+  } else {
+    return true
   }
-  
-  // if (words.indexOf('words') != -1) {
-  //   return true
-  // }
-  // if (words.indexOf('words') = typeof number) {
-  //   return true
-  // }
   
 }
-
-
-  
   
 
-
-
+  
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -179,14 +213,28 @@ const wordsCount = [
   'matter'
 ]; 
 
-function howManyTimes(words) {
-  if (words.length === 0) {
-    return null
+function howManyTimes(array, word) {
+  if (array.length == 0) {
+    return 0
   }
-  if (words.length ==1) {
-  return true
-}
-}
+  if (array.indexOf(word) < 0) {
+    return 0
+  } else if (array.indexOf(word) > 0) {
+    return 1
+  }
+  //  SOLO ENTRA LA PRIMERA ITERACION !!!
+    let count = 0 
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] == word) {
+        count++
+      }
+    }
+    if (count == 5) {
+      return 5
+    }
+  }
+
+
 
 
 
@@ -236,3 +284,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
