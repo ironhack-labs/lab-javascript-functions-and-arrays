@@ -55,10 +55,17 @@ function sumNumbers(numbers) {
 // Iteration #3.1 Bonus:
 function sum(numbers) {
   if (numbers.length === 0) {
-    return null;
+    return 0;
   }
 
   let sum = 0;
+
+  numbers.forEach(element => {
+    const elementType = typeof element;
+    if(elementType === "object"){
+      throw 0;
+    }
+  });
 
   for (let i = 0; i < numbers.length; i++) {
     const valueType = typeof numbers[i];
@@ -69,16 +76,17 @@ function sum(numbers) {
         break;
 
       case 'string':
-        if (!isNaN(parseInt(numbers[i]))) {
-          sum += parseInt(numbers[i]);
-        }
+        sum += numbers[i].length;
         break;
 
       case 'boolean':
-        continue;
+        if (numbers[i]) {
+          sum++;
+        }
+        break;
 
       default:
-        console.log(`Error on index ${i}`);
+        console.log("Invalid Value");
     }
   }
 
@@ -135,7 +143,7 @@ function averageWordLength(words) {
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-  if (arr.length === 0) {
+  if(arr.length === 0) {
     return null;
   }
 
@@ -152,20 +160,22 @@ function avg(arr) {
         break;
 
       case 'string':
-        if (!isNaN(parseInt(arr[i]))) {
-          sum += parseInt(arr[i]);
-          validElements++;
-        }
+        sum += arr[i].length;
+        validElements++;
         break;
 
       case 'boolean':
-        continue;
+        if (arr[i]) {
+          sum++;
+        }
+        validElements++;
+        break;
 
       default:
         console.log(`Error on index ${i}`);
     }
   }
-  let average = sum / validElements;
+  let average = sum/validElements;
   return average;
 }
 
@@ -289,10 +299,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
-  
-}
+function greatestProduct(matrix) {
+  let greatestProduct = 0;
 
+  for (let i = 0; i < matrix.length; i++) {
+    const row = matrix[i];
+
+    for (let j = 0; j < row.length; j++) {
+      if (i < matrix.length - 3) {
+        verticalProduct =
+          row[j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (verticalProduct > greatestProduct) {
+          greatestProduct = verticalProduct;
+        }
+      }
+      if (j < row.length - 3) {
+        horizontalProduct = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+        if (horizontalProduct > greatestProduct) {
+          greatestProduct = horizontalProduct;
+        }
+      }
+    }
+  }
+
+  return greatestProduct;
+}
 
 
 
