@@ -45,35 +45,52 @@ function sum() {}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(answer) {
+  if (!Array.isArray(answer) || answer.length === 0) {
+    return null;
+    }
+let total = 0;
+for (let i = 0; i < answer.length; i++) {
+    total += answer[i];
+} let average = total / answer.length;
+return average}
+//////console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
-
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength(stringTotal) {
+    if (stringTotal.length === 0){
+      return null
+    }
+    else {
+    let total = 0
+    for (let i = 0; i < stringTotal.length; i++){
+        total += stringTotal[i].length
+    } 
+    return total/stringTotal.length
+}
+}////////console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(average) {
+  if (average.length > 0){
+    return average[sum]/average.length;
+  } else {
+    return null;
+  }
+}//////////attempted but not complete
+
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
 
-function uniquifyArray() {}
 
 
 
 // Iteration #6: Find elements
+
 
 
 
