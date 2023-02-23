@@ -85,18 +85,95 @@ function avg(average) {
 
 
 // Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
 
+function uniquifyArray(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+  return null;
+  }
+  
+  const uniqueArr = [];
+  for (let i = 0; i < arr.length; i++) {
+  if (uniqueArr.indexOf(arr[i]) === -1) {
+  uniqueArr.push(arr[i]);
+  }
+  }
+  
+  return uniqueArr;
+  }
+  
+  
 
 
 
 // Iteration #6: Find elements
-
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+    function doesWordExist(elements, existence) {
+      if (!Array.isArray(elements) || elements.length === 0) {
+        return null;
+        }
+        let count = 0;
+        if (elements.length !==0) {
+            for (let i = 0; i < elements.length; i++){
+                if (elements[i] === existence)
+            {
+                count = count+1;
+            }
+        }
+        if (count >= 1){
+            return true;
+        }  else {
+            return false;
+        }
+    }}/////console.log(doesWordExist(wordsFind, 'danial'))
+    ////console.log(doesWordExist(wordsFind, 'truth'))
 
 
 
 
 // Iteration #7: Count repetition
-
+const wordsCount = [
+  'machine',
+  'matter',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'matter',
+  'truth',
+  'disobedience',
+  'matter'
+];
+function howManyTimes(element, score){
+    let count = 0;
+    if (element.length !== 0){
+        for (let i=0; i < element.length; i++){
+            if (element[i] === score){
+                count = count + 1;
+            }
+        }
+    }
+    if (count >= 1){
+        return count;
+    }  else {
+        return count;
+    {
+  return count;
+}}}////console.log(howManyTimes(wordsCount, 'danial'))
+/////console.log(howManyTimes(wordsCount, 'matter'))
 
 
 
