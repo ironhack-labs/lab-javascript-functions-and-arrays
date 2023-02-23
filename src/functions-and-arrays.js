@@ -10,7 +10,21 @@ return number2}
 
 
 // Iteration #2: Find longest word
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(elements) {
+  if (elements.length === 0){
+      return null;
+  }
+  let longest = elements[0];
+  for (let i = 0; i < elements.length; i++) {
+      if (elements[i].length > longest.length){
+          longest = elements[i];
+      }
+  }
+  return longest;
+}
+//////console.log(findLongestWord(words))
 
 
 // Iteration #3: Calculate the sum
