@@ -150,7 +150,20 @@ const wordsUnique = [
 	'bring',
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+	if (array.length === 0) {
+		return null;
+	}
+
+	let newArray = [];
+	for (let i = 0; i < array.length; i++) {
+		if (newArray.indexOf(array[i]) === -1) {
+			newArray.push(array[i]);
+		}
+	}
+
+	return newArray;
+}
 
 // // Iteration #6: Find elements
 // const wordsFind = [
