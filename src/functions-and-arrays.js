@@ -1,38 +1,86 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  }
+  return b;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(arr) {
+   if (arr.length === 1) {
+    return arr[0];
+  } else if (arr.length > 1) {
+    return arr.reduce((longestWord, currentWord) => {
+    if(currentWord.length > longestWord.length) {
+      return currentWord;
+    } return longestWord; 
+    }, "");
+  }  return null;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(arr) {
+  return arr.reduce((sum, value) => {return sum + value}, 0 );
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  try {
+  return arr.reduce(
+    function(acc, val) {
+      switch (typeof val) {
+        case "number":
+          return acc + val;
+        case "string":
+          return acc + val.length;
+        case "boolean":
+          if(val === true) {
+            return 1;
+          } return 0;
+      }
+    }, 0
+  );
+  }
+  catch (e) {
+    console.log("wrong data type")
+  }
+}
 
-
+//Does not work completely but moved on anyways...
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  return sumNumbers(arr) / arr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+console.log(sum(wordsArr));
+function averageWordLength(arr) { 
+  if (arr.length === 0) {
+    return null;
+  } 
+  return arr.reduce((sum, word) => {
+    return sum + word.length;
+  }, 0) / arr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
