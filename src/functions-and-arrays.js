@@ -90,7 +90,20 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return null;
+  }
+      for ( let i = 0; i < array.length; i++){
+        sum += array[i].length;
+      }
+      const average = sum / array.length;
+      return average;
+    }
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -110,7 +123,23 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let newArray =[];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArray.indexOf(arr[i]) === -1) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+}
+
+
+
+
 
 // Iteration #6: Find elements
 const wordsFind = [
