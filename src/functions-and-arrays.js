@@ -34,6 +34,8 @@ function findLongestWord(array) {
 			if (word.length > longest.length) {
 				longest = word;
 				longestIndex = index;
+
+				return longest;
 			} else if (word.length === longest.length && index < longestIndex) {
 				longestIndex = index;
 			}
@@ -42,13 +44,29 @@ function findLongestWord(array) {
 	}
 }
 
-// // Iteration #3: Calculate the sum
-// const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+// Iteration #3: Calculate the sum
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-// function sumNumbers() {}
+function sumNumbers(array) {
+	let sum = 0;
 
-// // Iteration #3.1 Bonus:
-// function sum() {}
+	for (let i = 0; i < array.length; i++) {
+		sum += array[i];
+	}
+	return sum;
+}
+
+// Iteration #3.1 Bonus:
+function sum(array) {
+	let sum = 0;
+
+	for (let i = 0; i < array.length; i++) {
+		sum += parseInt(array[i]);
+	}
+	return sum;
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+sum(mixedArr);
 
 // // Iteration #4: Calculate the average
 // // Level 1: Array of numbers
