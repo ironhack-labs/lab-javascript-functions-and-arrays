@@ -1,24 +1,72 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  if (arr.length === 0){
+    return null
+  } else{
+    let word = "";
+    for (let i = 0; i < arr.length; i++) {
+      if (word.length < arr[i].length) {
+        word = arr[i];
+      }
+    }
+    return word;
+  }
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  if (arr.length === 0){
+    return 0
+  } else{
+    let sum = 0
+    for (let i = 0; i < arr.length; i++) {
+      sum = sum + arr[i]
+    }
+    return sum
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0){
+    return 0
+  } else{
+    let sumOfArr = 0
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'number'){
+        sumOfArr = sumOfArr + arr[i]
+      } else if (arr[i] === true){
+        sumOfArr++
+      } else if (typeof arr[i] === 'string'){
+        sumOfArr = sumOfArr + arr[i].length
+      } else if (typeof arr[i] === 'object'){
+        return Error;
+      } else{
+        continue
+      }
+    }
+    return sumOfArr
+  }
+}
 
 
 
@@ -26,16 +74,68 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0){
+    return null
+  } else if (arr.length === 1){
+    return arr[0]
+  } else {
+    let sum = 0
+    let count = 0
+    for (let i = 0; i < arr.length; i++) {
+      sum = sum + arr[i]
+      count++
+    }
+    return sum/count
+  }
+} 
+
+ 
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0){
+    return null
+  }  else if (arr.length === 1){
+    return arr[0].length
+  } else{
+    let wordsLength = 0;
+    let count =0
+    for (let i = 0; i < arr.length; i++) {
+      wordsLength += arr[i].length;
+      count++;
+    }
+    return wordsLength/count;
+  }
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0){
+    return null;
+  } else{
+    let sumOfArr = 0
+    let count = 0
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'number'){
+        sumOfArr = sumOfArr + arr[i];
+        count++;
+      } else if (arr[i] === true){
+        sumOfArr++;
+        count++;
+      } else if (typeof arr[i] === 'string'){
+        sumOfArr = sumOfArr + arr[i].length;
+        count++;
+      } 
+    }
+    return sumOfArr/count;
+  }
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +152,46 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  const unique = []
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i in arr ) {
+      if (unique.indexOf(arr[i]) === -1) {
+        unique.push(arr[i]);
+      } else {
+        continue;
+      }
+    }
+  return unique;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let count =0
+    for (let i in arr ) {
+      if (word.indexOf(arr[i]) === 0) {
+        count++
+      } else {
+        continue;
+      }
+    }
+    if (count === 1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
 
 
@@ -78,7 +210,23 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    let count =0
+    for (let i in arr ) {
+      console.log(word.indexOf(arr[i]))
+      if (word.indexOf(arr[i]) === 0) {
+        count++
+        console.log(count)
+      } else {
+        continue;
+      }
+    }
+    return count
+  }
+}
 
 
 
