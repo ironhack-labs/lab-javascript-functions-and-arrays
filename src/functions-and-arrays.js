@@ -86,7 +86,25 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === true) {
+        count += 1;
+      } else if (arr[i] === false) {
+        count += 0;
+      } else if (Number.isInteger(arr[i])) {
+        count += arr[i];
+      } else {
+        count += arr[i].length;
+      }
+    }
+    return count / arr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -237,7 +255,29 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let count1 = 0;
+  let count2 = 0;
+  for (let i = 0; i < 20; i++) {
+    for (let j = 0; j < 17; j++) {
+      let subSum = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+      if (subSum > count1) {
+        count1 = subSum;
+      }
+    }
+  }
+  for (let j = 0; j < 20; j++) {
+    for (let i = 0; i < 17; i++) {
+      let subSum = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+      if (subSum > count2) {
+        count2 = subSum;
+      }
+    }
+  }
+  if (count1 > count2) {
+    return count1;
+  } else return count2;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
