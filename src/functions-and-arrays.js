@@ -127,7 +127,10 @@ function avg(arr) {
       } else if (arr[i] === true){
         sumOfArr++;
         count++;
-      } else if (typeof arr[i] === 'string'){
+      } else if (arr[i] === false) {
+        count++
+      }
+      else if (typeof arr[i] === 'string'){
         sumOfArr = sumOfArr + arr[i].length;
         count++;
       } 
