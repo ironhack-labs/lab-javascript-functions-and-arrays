@@ -166,35 +166,51 @@ function uniquifyArray(array) {
 }
 
 // // Iteration #6: Find elements
-// const wordsFind = [
-// 	'machine',
-// 	'subset',
-// 	'trouble',
-// 	'starting',
-// 	'matter',
-// 	'eating',
-// 	'truth',
-// 	'disobedience',
-// ];
+const wordsFind = [
+	'machine',
+	'subset',
+	'trouble',
+	'starting',
+	'matter',
+	'eating',
+	'truth',
+	'disobedience',
+];
 
-// function doesWordExist() {}
+function doesWordExist(array, target) {
+	if (array.length > 0) {
+		return array.includes(target);
+	} else {
+		return null;
+	}
+}
 
 // // Iteration #7: Count repetition
-// const wordsCount = [
-// 	'machine',
-// 	'matter',
-// 	'subset',
-// 	'trouble',
-// 	'starting',
-// 	'matter',
-// 	'eating',
-// 	'matter',
-// 	'truth',
-// 	'disobedience',
-// 	'matter',
-// ];
+const wordsCount = [
+	'machine',
+	'matter',
+	'subset',
+	'trouble',
+	'starting',
+	'matter',
+	'eating',
+	'matter',
+	'truth',
+	'disobedience',
+	'matter',
+];
 
-// function howManyTimes() {}
+function howManyTimes(array, target) {
+	let count = 0;
+
+	for (let i = 0; i < array.length; i++) {
+		if (array[i] === target) {
+			count++;
+		}
+	}
+
+	return count;
+}
 
 // // Iteration #8: Bonus
 // const matrix = [
