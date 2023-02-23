@@ -33,7 +33,6 @@ function sumNumbers(arr) {
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
-  try {
   return arr.reduce(
     function(acc, val) {
       switch (typeof val) {
@@ -48,10 +47,6 @@ function sum(arr) {
       }
     }, 0
   );
-  }
-  catch (e) {
-    console.log("wrong data type")
-  }
 }
 
 //Does not work completely but moved on anyways...
@@ -72,7 +67,6 @@ function averageNumbers(arr) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-console.log(sum(wordsArr));
 function averageWordLength(arr) { 
   if (arr.length === 0) {
     return null;
@@ -100,14 +94,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+    if (arr.length === 0) {
+    return null;
+  }
+  const uniqueArray = [];
+  arr.forEach(word => {
+   if (!uniqueArray.includes(word)){
+    uniqueArray.push(word);
+   } 
+  });
+  return uniqueArray;
+}
+uniquifyArray(wordsUnique);
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, word) {
+    if (words.length === 0) {
+      return null;
+    }
+    return words.includes(word);
+}
 
 
 
@@ -126,7 +138,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, word) {
+  if (words.length > 0 && words.includes(word)){
+    let acc = 0;
+    for (element of words) {
+      if (element === word){
+        acc ++;
+      }
+    }
+    return acc;
+  }
+  return 0;
+}
 
 
 
@@ -154,7 +177,6 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
 
 
 
