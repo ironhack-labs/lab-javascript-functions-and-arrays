@@ -139,7 +139,7 @@ function doesWordExist(wordsFind, searchWord) {
     return  wordsFind.includes(searchWord);
   }
  }
- 
+ console.log(doesWordExist)
 }
 
 
@@ -158,9 +158,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(wordsCount) {
+  if (wordsCount.length === 0) {
+    return 0;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
