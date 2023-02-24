@@ -42,16 +42,17 @@ function sum(arr) {
           return acc + val.length;
         case "boolean":
           if(val === true) {
-            return 1;
-          } return 0;
-      }
-    }, 0
-  );
+            return acc + 1;
+          } return acc;
+        case "object" :
+          throw new Error("Unsupported data type sir or ma'am")
+        }
+      } 
+    , 0);
 }
 
-//Does not work completely but moved on anyways...
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
+console.log(sum(mixedArr));
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
