@@ -111,7 +111,7 @@ function uniquifyArray(arr) {
     return null;
   }
   let someA = [];
-  for (let i = 0; i < Array.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (someA.indexOf(arr[i]) === -1) {
       someA.push(arr[i]);
     }
@@ -153,7 +153,7 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr) {
-  if (arr === 0) {
+  if (arr.length === 0) {
     return 0;
   }
 }
