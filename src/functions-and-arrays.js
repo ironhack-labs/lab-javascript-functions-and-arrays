@@ -33,16 +33,17 @@ function findLongestWord(words) {
 }
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(numarray) {
+function sumNumbers(numbArray) {
+
   let sum = 0;
-  for (let i = 0; i < numarray.length; i++) {
-    sum += numarray[i];
+  for (let i = 0; i < numbArray.length; i++) {
+    sum += numbArray[i];
   }
   return sum;
 }
-
 
 
 // Iteration #3.1 Bonus:
@@ -85,7 +86,33 @@ function averageWordLength(wordsArr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg(arr) {
+  let newArr = [];
+
+  for (i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      newArr.push(arr[i]);
+    } else if
+      (typeof arr[i] === "string") {
+      newArr.push(arr[i].length);
+    } else if
+      (typeof arr[i] === "boolean") {
+      newArr.push(Number(arr[i]));
+    }
+  }
+  let arrSum = 0;
+  newArr.forEach(function (element) {
+    arrSum += element
+  })
+
+  if (arr.length === 0) {
+    return (null);
+  } else {
+    return (arrSum / arr.length);
+  }
+}
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -102,13 +129,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(WordsU) {
+function uniquifyArray(words) {
+  if (!words || words.length === 0) {
+    return null;
+  }
 
-  let doublon = 0
+  const uniqueWords = words.filter(function (word, index) {
+    return words.indexOf(word) === index;
+  });
 
-
-
-
+  return uniqueWords;
 }
 
 
@@ -117,11 +147,11 @@ function uniquifyArray(WordsU) {
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, target) {
-	if (array.length > 0) {
-		return array.includes(target);
-	} else {
-		return null;
-	}
+  if (array.length > 0) {
+    return array.includes(target);
+  } else {
+    return null;
+  }
 }
 
 
@@ -142,16 +172,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(array, target) {
-	let count = 0;
-
-	for (let i = 0; i < array.length; i++) {
-		if (array[i] === target) {
-			count++;
-		}
-	}
-
-	return count;
+function howManyTimes(wordsArr, word) {
+  let counter = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === word) {
+      counter++;
+    }
+  }
+  return counter;
 }
 
 
