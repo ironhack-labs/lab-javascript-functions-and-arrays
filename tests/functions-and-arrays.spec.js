@@ -1,3 +1,4 @@
+
 const shuffle = (currentArray) => {
   const array = [...currentArray];
   let counter = array.length;
@@ -11,8 +12,6 @@ const shuffle = (currentArray) => {
   }
   return array;
 };
-
-
 
 describe('Find the maximum', () => {
   it('should declare a function named maxOfTwoNumbers', () => {
