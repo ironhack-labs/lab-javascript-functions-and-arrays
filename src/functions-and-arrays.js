@@ -20,7 +20,7 @@ function findLongestWord(words) {
     return null
   } 
   
-  for (i=0; i< words.length; i++){
+  for(let i=0; i< words.length; i++){
 
     if(words[i].length > longest.length){
       longest= words[i];
@@ -37,7 +37,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers) {
   let total=0;
   
-  for(i=0; i<numbers.length; i++ ){
+  for(let i=0; i<numbers.length; i++ ){
     total+= numbers[i];
   }
 return total;
@@ -51,7 +51,7 @@ let array=[ 'hola', false, 5, true, [], 99];
 
 function sum(array) {
   let resultado=0;
-  for(i=0; i<array.length; i++){
+  for(let i=0; i<array.length; i++){
 
     if(typeof array[i]== 'number'){
       resultado+= array[i];
@@ -64,7 +64,7 @@ function sum(array) {
         resultado+=1;
       }
     } else {
-      throw 'error';    // preguntar
+      throw UnsupportedDataType;   
     }
   
   }
@@ -82,7 +82,7 @@ function averageNumbers(numbersAvg) {
   if(numbersAvg.length==0){
     return null;
   } 
-  for(i=0; i<numbersAvg.length; i++){
+  for(let i=0; i<numbersAvg.length; i++){
     totalSuma+= numbersAvg[i];
   }
 
@@ -98,10 +98,10 @@ let suma= 0;
 if(wordsArr.length===0){
   return null;
 }
-for(i=0; i<wordsArr.length; i++){
+for(let i=0; i<wordsArr.length; i++){
   suma+= wordsArr[i].length;
 }
-resultado= suma/ wordsArr.length;
+let resultado= suma/ wordsArr.length;
 return resultado;
  }
 
@@ -114,7 +114,7 @@ function avg(mixedArr) {
 if(mixedArr.length ===0){
   return null
 }
-  for(i=0; i<mixedArr.length; i++){
+  for(let i=0; i<mixedArr.length; i++){
     if(typeof mixedArr[i]=== 'boolean'){
         if(mixedArr[i]== true){
         total+=1;
@@ -124,7 +124,7 @@ if(mixedArr.length ===0){
     } else if(typeof mixedArr[i]=== 'string'){
       total+= mixedArr[i].length;
     } else{
-      console.log('error');
+       throw new Error('Error');
     }
   }
 
@@ -153,7 +153,7 @@ function uniquifyArray(wordsUnique) {
   if(wordsUnique.length==0){
 return null;
   }
-  for(i=0; i<wordsUnique.length; i++){
+  for(let i=0; i<wordsUnique.length; i++){
     if(!newArray.includes(wordsUnique[i])){
       newArray.push(wordsUnique[i])
     }
@@ -171,7 +171,7 @@ function doesWordExist(wordsFind, word) {
   if(wordsFind.length== 0){
     return null
   }
-  for(i=0; i<wordsFind.length; i++){
+  for(let i=0; i<wordsFind.length; i++){
     if(word === wordsFind[i]){
       return true
     } else if (!wordsFind.includes(word)){
@@ -202,7 +202,7 @@ let count= 0;
   if(wordsCount.length==0){
   return 0;
   }
-    for(i=0; i< wordsCount.length; i++){
+    for(let i=0; i< wordsCount.length; i++){
       if(wordsCount[i]=== palabra){
       count+=1;
     } 
@@ -236,8 +236,38 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
 
+function greatestProduct(matrix) {
+  let total =0;
+  let totalGrupo=1;
+  for(let i=0; i < matrix.length; i++){
+    for(let j=0; j<matrix[i].length-3; j++) {
+      totalGrupo = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
+  for(let k =0; k < matrix.length-3; k++){
+    for(let l=0; l < matrix[k].length; l++){
+      totalGrupo = matrix[k][l] * matrix[k+1][l] * matrix[k][l+2] * matrix[k][l+3];
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
+  for(let m=0; m < matrix.length-3; m++){
+    for(let n=0; n < matrix[m].length-3; n++){
+      totalGrupo = matrix[m][n] * matrix[m+1][n+1] * matrix[m+2][n+2] * matrix[m+3][n+3];
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
+  for(let p = 0; p < matrix.length-3; p++){
+    for(let q = matrix[p].length-1; q > 3; q--){
+      totalGrupo= matrix[p][q]* matrix[p+1][q-1] * matrix[p+2][q-2]* matrix[p+3][q-3];
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
+  return total;
+}
+
+console.log("resultado:", greatestProduct(matrix));
 
 
 
