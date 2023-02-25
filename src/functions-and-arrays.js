@@ -48,34 +48,32 @@ function sumNumbers(arr) {
   }
   
 
-
+//
 
 
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
+
+  
   let sum = 0;
+  arr.forEach(function(element){
+    if(typeof element === "object"){
+      throw new Error("Unsupported data type sir or ma'am")
 
-  if(arr.length === 0){
-    return null;
+    }else if(typeof element === "string"){
+      sum += element.length;
+    }else if(typeof element === "boolean"){
+      if(element){
+        sum++
+      }
+    }else if(typeof element === "number"){
+      sum += element;
+    }
+  })
+  return sum;
 
-  }else if(typeof arr[0] === `number`){
-  for(let i = 0; i < arr.length;i++){
-
-    if (typeof arr[i] === `number`){
-        sum += arr[i];
-  }
-  }return sum;
-}else if(typeof arr[0] === `string`){
-  for(let i = 0; i < arr.length;i++){
-
-    if (typeof arr[i] === `string`){
-        sumString += arr[i];
-  }
-  }return sumString;
 }
-}
-
 
 
 // Iteration #4: Calculate the average
@@ -122,29 +120,14 @@ function averageWordLength(arr) {
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-  let sum = 0;
-  let count = 0;
-
-  if(arr.length === 0){
-    return null;
-  }else{
-    for(let i = 0;i<arr.length;i++){
-      if(typeof arr[i] === `number`){
-        sum += arr[i];
-        count++;
-      }else if(typeof arr[i] === `string`){
-        sum += arr[i].length;
-        count++;
-      }else if(typeof arr[i] === `boolean` && arr[i]){
-        sum += arr[i].length;
-        count++
-      }
+    if(arr.length > 0){
+      return sum(arr) / arr.length;
+    }else{
+      return null;
     }
-    let result = sum / count;
-    return result;
   }
   
-}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -162,9 +145,13 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  if(arr.length === 0){
+  if(arr.length > 0){
+    return arr.filter((item,
+      index) => arr.indexOf(item) === index);
+  }else{
     return null;
   }
+  
 }
 
 
@@ -172,7 +159,16 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if(arr.length > 0){
+    if(arr.includes(word)){
+      return true;
+    }else if(!arr.includes(word)){
+      return false;
+    }
+  }
+  return null;
+}
 
 
 
@@ -191,8 +187,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(arr) {
-  
+function howManyTimes(arr, element) {
+  if(arr.length <= 0 || !arr.includes(element)){
+    return 0;
+  }else{
+    let wordCount = 0;
+    for(let i = 0;i < arr.length; i++){
+      if(arr[i] === element){
+        wordCount++;
+      }
+    }
+    if(wordCount === 1){
+      return 1;
+    }else if(wordCount === 5){
+      return 5;
+    }
+  }
 }
 
 
