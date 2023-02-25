@@ -46,7 +46,7 @@ function sum(arrayOfEverything) {
   let total = 0;
   for (let element of arrayOfEverything) {
     if (typeof(element) === 'array' || typeof(element) === 'object') {
-      throw new Error('invalid input')
+      throw new Error(`Unsupported data type sir or ma'am`);
     }
     else {
       if (typeof(element) === 'string') {
@@ -229,9 +229,49 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let productHorizontal = 0;
+  let productVertical = 0;
+  let maxResult = 0;
+  
+  for (let element = 0; element < matrix.length; element ++) {
+    for (let i = 0; i < matrix[element].length; i++) {
+      // Horizontal
+      if (i + 1 >= matrix[element].length || i + 2 >= matrix[element].length || i + 3 >= matrix[element].length) {
+        console.log('Part horizontal iF statment');
+      }
+      else {
+        productHorizontal = matrix[element][i] * matrix[element][i + 1] * matrix[element][i + 2] * matrix[element][i + 3];
+        console.log(`Horizontal: ${matrix[element][i]} * ${matrix[element][i + 1]} * ${matrix[element][i + 2]} * ${matrix[element][i + 3]}`);
+      }
 
+      //Vertical
+      if (element +1 >= matrix.length || element +2 >= matrix.length || element +3 >= matrix.length) {
+        console.log('Part 1 of iF statment');
+      }
+      else {
+        productVertical = matrix[element][i] * matrix[element +1][i] * matrix[element +2][i] * matrix[element +3][i];
+        console.log(`Vertical: element: ${matrix[element][i]} * ${matrix[element +1][i]} * ${matrix[element +2][i]} * ${matrix[element +3][i]}`);
+      }
 
+      //check if any of the products is higher than the last maxResult
+      if (productHorizontal > maxResult || productVertical > maxResult) {
+        if (productHorizontal > productVertical) {
+          maxResult = productHorizontal;
+        }
+        else {
+          maxResult = productVertical;
+        };
+      }
+      //Reset productHorizontal and productVertical
+      productHorizontal = 0;
+      productVertical = 0;
+    }
+  }
+  return maxResult;
+}
+
+console.log(greatestProduct(matrix))
 
 
 // The following is required to make unit tests work.
