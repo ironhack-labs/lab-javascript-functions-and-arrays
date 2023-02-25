@@ -238,20 +238,16 @@ function greatestProduct(matrix) {
     for (let i = 0; i < matrix[element].length; i++) {
       // Horizontal
       if (i + 1 >= matrix[element].length || i + 2 >= matrix[element].length || i + 3 >= matrix[element].length) {
-        console.log('Part horizontal iF statment');
       }
       else {
         productHorizontal = matrix[element][i] * matrix[element][i + 1] * matrix[element][i + 2] * matrix[element][i + 3];
-        console.log(`Horizontal: ${matrix[element][i]} * ${matrix[element][i + 1]} * ${matrix[element][i + 2]} * ${matrix[element][i + 3]}`);
       }
 
       //Vertical
       if (element +1 >= matrix.length || element +2 >= matrix.length || element +3 >= matrix.length) {
-        console.log('Part 1 of iF statment');
       }
       else {
         productVertical = matrix[element][i] * matrix[element +1][i] * matrix[element +2][i] * matrix[element +3][i];
-        console.log(`Vertical: element: ${matrix[element][i]} * ${matrix[element +1][i]} * ${matrix[element +2][i]} * ${matrix[element +3][i]}`);
       }
 
       //check if any of the products is higher than the last maxResult
@@ -270,9 +266,6 @@ function greatestProduct(matrix) {
   }
   return maxResult;
 }
-
-console.log(greatestProduct(matrix))
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
