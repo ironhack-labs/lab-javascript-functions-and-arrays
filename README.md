@@ -2,6 +2,32 @@
 
 # LAB | JS Clue (mixing objects and arrays)
 
+<details>
+  <summary>
+   <h2>Learning Goals</h2>
+  </summary>
+
+  This exercise is designed to allow you practice and apply the concepts and techniques taught in class. 
+
+  Upon completion of this exercise, you will be able to:
+
+  - Run predefined tests in Jasmine to verify that the program meets the technical requirements.
+  - Identify expected code behavior by reading and understanding test results and errors.
+  - Create objects using the object literal syntax
+  - Declare and invoke functions
+  - Use the `return` keyword to return a value from a function.
+  - Pass arrays to functions as arguments.
+  - Access objects stored in arrays,
+  - Access object properties using the dot notation and bracket notation
+  - Iterate over arrays using the `for` and `forEach` loops.
+
+  <br>
+  <hr> 
+
+</details>
+
+## Introduction
+
 Do you remember the classic detective board game Clue? It was a very popular game in the 90s.
 
 The plot starts with the death of Mr. Boddy, the very wealthy owner of Tudor Manor. He was killed under _highly suspicious circumstances_, and it's the player's mission to uncover which **suspect** murdered him, what **weapon** was used, and in which **room** of the mansion the crime took place.
