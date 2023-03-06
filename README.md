@@ -7,7 +7,7 @@
    <h2>Learning Goals</h2>
   </summary>
 
-  This exercise is designed to allow you practice and apply the concepts and techniques taught in class. 
+ This exercise allows you to practice and apply the concepts and techniques taught in class. 
 
   Upon completion of this exercise, you will be able to:
 
@@ -30,7 +30,7 @@
 
 Do you remember the classic detective board game Clue? It was a very popular game in the 90s.
 
-The plot starts with the death of Mr. Boddy, the very wealthy owner of Tudor Manor. He was killed under _highly suspicious circumstances_, and it's the player's mission to uncover which **suspect** murdered him, what **weapon** was used, and in which **room** of the mansion the crime took place.
+The plot starts with the death of Mr. Boddy, the very wealthy owner of Tudor Manor. He was killed under _highly suspicious circumstances_, and the player's mission is to uncover which **suspect** murdered him, what **weapon** was used, and in which **room** of the mansion the crime took place.
 
 When playing Clue, these three details are represented by a **suspect** card, a **weapon** card and a **room** card that are kept hidden in an envelope for the duration of the game. By progressively revealing the remaining cards, the players can infer which are the three cards that are hidden. When a player is confident that they know the solution to the mystery, they will try to reveal it. If a player guesses correctly, they win the game.
 
@@ -60,7 +60,7 @@ git push origin master
 
 ## Test Your Code
 
-This LAB is equipped with unit tests to provide automated feedback on your lab progress. In case you want to check the tests, they are in the `tests/clue.spec.js` file.
+This LAB is equipped with unit tests to provide automated feedback on your lab progress. If you want to check the tests, they are in the `tests/clue.spec.js` file.
 
 To run the tests and your JavaScript code, open the `SpecRunner.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
 
@@ -70,7 +70,7 @@ To see the outputs of the `console.log` in your JavaScript code, open the [Conso
 
 ## Instructions
 
-You will be working in the `src/clue.js` file, which is already loaded in the `SpecRunner.html` file.
+You will work in the `src/clue.js` file, already loaded in the `SpecRunner.html` file.
 
 To run the tests and your JavaScript code, open the `SpecRunner.html` file using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
 
@@ -129,7 +129,7 @@ At the beginning of the game, players shuffle each of the card stacks to create 
 
 #### Random selector
 
-Declare a function named `selectRandom` to randomly select one element from a card stack. The function should expect an `array` as an argument and should return a random element from the array.
+Declare a function named `selectRandom` to select one element from a card stack randomly. The function should expect an `array` as an argument and should return a random element from the array.
 
 <br>
 
@@ -143,23 +143,21 @@ Declare a function named `pickMystery` that takes no arguments and returns an ob
 
 At last, we are ready to reveal the mystery.
 
-Declare a function named `revealMystery` that receives an _envelope_ `object` (with the shape of the object returned by `pickMystery`) as the single argument, and returns a revealing message in the following format:
+Declare a function named `revealMystery` that receives an _envelope_ `object` (with the shape of the object returned by `pickMystery`) as the single argument and returns a revealing message in the following format:
 
 **\<FIRST NAME\> \<LAST NAME\> killed Mr. Boddy using the \<WEAPON\> in the \<ROOM\>!**
 
 <br>
-
-
-
-**Happy coding!** 💙
-
-
 
 ## Extra Resources
 
 - [Data Structures: Objects and Arrays](http://eloquentjavascript.net/04_data.html)
 - [20 Mind-blowing facts about Cluedo](http://whatculture.com/offbeat/20-mind-blowing-facts-you-didnt-know-about-cluedo)
 - [Cluedo - Wikipedia](https://en.wikipedia.org/wiki/Cluedo)
+
+<br>
+
+**Happy coding!** :heart:
 
 <br>
 
@@ -213,7 +211,7 @@ Declare a function named `revealMystery` that receives an _envelope_ `object` (w
 
   The `while` loop is another way to loop through an array in JavaScript. It consists of a condition and a block of code that is executed as long as the condition is `true`.
 
-  Like the `for` loop, the `while` loop requires a counter variable to keep track of the current position in the array. The counter variable must be initialized before the loop, and incremented or decremented at the end of each iteration.
+  Like the `for` loop, the `while` loop requires a counter variable to keep track of the current position in the array. The counter variable must be initialized before the loop and incremented or decremented at the end of each iteration.
 
   ```js
   const animals = ['cat', 'dog', 'bird'];
@@ -238,7 +236,7 @@ Declare a function named `revealMystery` that receives an _envelope_ `object` (w
   <summary>How do I loop over an array using the <code>forEach()</code> method?</summary>
   <br>
 
-  The `forEach()` method executes a provided function once for each array element. It does not return a new array, but rather executes the function on each element in the array.
+  The `forEach()` method executes a provided function once for each array element. It does not return a new array but rather executes the function on each element in the array.
 
   The syntax of the `forEach()` method is as follows:
 
@@ -278,7 +276,7 @@ Declare a function named `revealMystery` that receives an _envelope_ `object` (w
   <summary>What could cause <code>array.length</code> to return <code>undefined</code>?</summary>
   <br>
 
-  If you try to access the `.length` property on an array (e.g., `array.length`) but you are getting `undefined` it means that the variable you are accessing is not actually an array.
+  If you try to access the `.length` property on an array (e.g., `array.length`) but get `undefined`, it means that the variable you are accessing is not actually an array.
 
 <br>
 
@@ -367,7 +365,7 @@ Another possibility is that there is an issue with the tests. It is possible tha
 
    If the link shown is the same as the main Ironhack repository, you will need to fork the repository to your GitHub account first, and then clone your fork to your local machine to be able to push the changes.
 
-   Note: You may want to make a copy of the code you have locally, to avoid losing it in the process.
+   Note: You should make a copy of your local code to avoid losing it in the process.
 
   [Back to top](#faqs)
   
