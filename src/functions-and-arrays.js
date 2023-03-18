@@ -1,11 +1,10 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
-    maxNumber = num1;
+    return num1;
   } else {
-    maxNumber = num2;
+    return num2;
   }
-  return maxNumber;
 }
 console.log(maxOfTwoNumbers(5, 3));
 
@@ -14,7 +13,21 @@ console.log(maxOfTwoNumbers(5, 3));
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+  let word = '';
+  if (array.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < words.length; i++) {
+    if (word.length < array[i].length) {
+      word = array[i];
+    }
+  }
+  return word;
+}
+
+console.log(findLongestWord(words));
+
 
 
 
@@ -31,9 +44,18 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum(arr) {
+function sum(array) {
+let sumArray = 0; //initialize variable for our sum number to store
 
+// Using for loop, iterate through an array; as we do not know how many values inside an array, we need to use array.length;
+// code inside the loop is 
+for (let i = 0; i < array.length; i++) {
+  sumArray += array[i];
 }
+return sumArray;
+}
+
+console.log(sum([5, 6, 5]));
 
 
 
