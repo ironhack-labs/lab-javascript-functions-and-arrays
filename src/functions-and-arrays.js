@@ -28,6 +28,19 @@ function findLongestWord(array) {
 
 console.log(findLongestWord(words));
 
+// 1. Inside the function declare and initialize variable word = ''.
+// 2. Firstly, condition that checks that an array has values.
+// 3. For loop iterates through the array, and if the length of the variable word less
+// then the length of the word inside the array (recieve it via array[i].length), variable word get assigned the word from the array (array[i]).
+/* 1st iteration i = 0; if (0 < 'mystery'.length)? => if (0 < 6)? word = 6; 
+   2st iteration i = 1; if (6 < 'brother'.length)? => if (6 < 6)? word = 6;
+   3st iteration i = 2; if (6 < 'aviator'.length)? => if (6 < 6)? word = 6;
+   4st iteration i = 3; if (6 < 'crocodile'.length)? => if (6 < 8)? word = 8;
+   5st iteration i = 4; if (8 < 'pearl'.length)? => if (8 < 4)? word = 8;
+   6st iteration i = 5; if (8 < 'orchard'.length)? => if (8 < 6)? word = 8;
+   7st iteration i = 6; if (8 < 'crackpot'.length)? => if (8 < 7)? word = 8;  
+   */   
+
 
 
 
@@ -44,6 +57,10 @@ function sumNumbers(arrayNumbers) {
 }
 
 console.log(sumNumbers(numbers));
+
+// 1. Inside the function declare a variable sum and its value is 0.
+// 2. For loop iterates through arrayNumbers, and each iteration sum adds number from the array (due to array[i]).
+// 3. Return sum and check the function.
 
 
 // Iteration #3.1 Bonus:
