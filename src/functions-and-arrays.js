@@ -33,14 +33,17 @@ console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let numbersSum = 0;
 
-function sumNumbers(numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    return numbersSum += numbers[i];
+
+function sumNumbers(arrayNumbers) {
+  let sum = 0;
+  for (let i = 0; i < arrayNumbers.length; i++) {
+    sum += arrayNumbers[i];
   }
+  return sum;
 }
 
+console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
@@ -48,7 +51,7 @@ function sum(array) {
 let sumArray = 0; //initialize variable for our sum number to store
 
 // Using for loop, iterate through an array; as we do not know how many values inside an array, we need to use array.length;
-// code inside the loop is 
+// code inside the loop: take each array value each itearation and adds it to sumArray variable.  
 for (let i = 0; i < array.length; i++) {
   sumArray += array[i];
 }
@@ -61,9 +64,36 @@ console.log(sum([5, 6, 5]));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
+// Solution # 1
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let sumArray = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    sumArray += array[i];
+  }
+  return  sumArray / array.length;
+}
+
+console.log(averageNumbers(numbersAvg));
+
+// Solution # 2
+function averageNumbers(array) {
+  let sumArray = 0;
+  let count = 0;
+  
+  array.forEach(function(element){
+    sumArray += element;
+    count++;
+  });
+  
+  return sumArray / count;
+}
+
+console.log(averageNumbers(numbersAvg));
+
 
 
 // Level 2: Array of strings
