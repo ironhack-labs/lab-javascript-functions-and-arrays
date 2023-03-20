@@ -65,10 +65,8 @@ console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum(array) {
-let sumArray = 0; //initialize variable for our sum number to store
+let sumArray = 0;
 
-// Using for loop, iterate through an array; as we do not know how many values inside an array, we need to use array.length;
-// code inside the loop: take each array value each itearation and adds it to sumArray variable.  
 for (let i = 0; i < array.length; i++) {
   sumArray += array[i];
 }
@@ -76,6 +74,10 @@ return sumArray;
 }
 
 console.log(sum([5, 6, 5]));
+
+//initialize variable for our sum number to store.
+// Using for loop, iterate through an array; as we do not know how many values inside an array, we need to use array.length;
+// code inside the loop: take each array value each itearation and adds it to sumArray variable.  
 
 
 
@@ -95,6 +97,10 @@ function averageNumbers(array) {
 }
 
 console.log(averageNumbers(numbersAvg));
+
+/* 1. Inside the function declare and initialize variabel sumArray = 0 (sum number of all numbers inside the array).
+   2. For loop iterates through the array, each iteration adds a number to sumArray.
+   3. Return average number via deviding sumArray by total number of numbers of the array.     */
 
 // Solution # 2
 function averageNumbers(array) {
@@ -116,7 +122,20 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  let sumLetters = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    sumLetters += array[i].length;
+  }
+  return sumLetters / array.length;
+}
+
+console.log(averageWordLength(wordsArr));
+
+/* 1. Inside the function declare and initialize variable sumLetters = 0, so we could find the sum of all letters in the string.
+   2. For loop through the array, and every iteration sumLetter += array[i].length (word length).
+   3. Return the sum of all letters devided by the number of all words of the array.   */
 
 // Bonus - Iteration #4.1
 function avg() {}
