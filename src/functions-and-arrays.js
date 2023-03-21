@@ -149,7 +149,7 @@ function avg(array) {
     if (typeof array[i] === 'string' ) {
         sumLetter += array[i].length;
     } else if (typeof array[i] === true) {
-         sumLetter += 1;
+      sumLetter += 1;
     } else if (typeof array[i] === false) {
           sumLetter += 0;
     } else {
