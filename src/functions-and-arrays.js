@@ -138,7 +138,31 @@ console.log(averageWordLength(wordsArr));
    3. Return the sum of all letters devided by the number of all words of the array.   */
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(array) {
+  let sumArray = 0;
+  let sumLetter = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'string' ) {
+        sumLetter += array[i].length;
+    } else if (typeof array[i] === true) {
+         sumLetter += 1;
+    } else if (typeof array[i] === false) {
+          sumLetter += 0;
+    } else {
+      array[i];
+    }
+    
+    sumArray = array[i] + sumLetter;
+    
+  }
+  return sumArray / array.length;
+}
+
+console.log(avg(mixedArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -155,8 +179,69 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
 
+/* Solution #1  */
+function uniquifyArray(array) {
+  let newArr = [];
+ 
+  array.forEach(function(item) {
+    if (newArr.indexOf(item) < 0) {
+      newArr.push(item);
+    }
+  });
+  return newArr;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
+
+/* Solution #2 */
+function uniquifyArray(array) {
+  let newArr = [];
+    
+  for (let i = 0; i < array.length; i++) {
+    
+    if (newArr.indexOf(array[i]) < 0) {
+      newArr.push(array[i]);
+    }
+  }
+    return newArr;
+    }
+  
+  console.log(uniquifyArray(wordsUnique));
+
+  // 1. Declare ad initialize to empty array variable newArr.
+  // 2. For loop through the array, and put condition:
+  // if the index of value (which is array[i]) of newArr less than 0, then
+  // this value (array[i]) is beaing added to newArr.
+  // 3. If check:
+  // Iteration #1: newArr.indexOf('crab') < 0 => true; newArr = ['crab];
+  // Iteration #2: newArr.indexOf('poison') < 0 => true; newArr = ['crab, 'poison'];
+  // and so on until Iteration ## newArr.indexOf('poison') < 0 => false as newArr already has 'poison' and its index is bigger than 0.
+
+
+  /* Solution #3 */
+  function uniquifyArray(array) {
+    let newArr = [];
+    
+    for (let i = 0; i < array.length; i++) {
+      if (!newArr.includes(array[i])) {
+        newArr.push(array[i]);
+      }
+    }
+    return newArr;
+  }
+  
+  console.log(uniquifyArray(wordsUnique));
+
+  // 1. Declare ad initialize to empty array variable newArr.
+  // 2. For loop through the array, and put condition: 
+  // if the value (which is array[i]) does not exist in newArr, =>
+  // the value (array[i]) is being added to newArr.
+  // 3. If check:
+  // Iteration #1: newArr.includes('crab') does not exist in newArr => true => newArr = ['crab'];
+  // Iteration #2: newArr.includes('poison') does not exist in newArr => true => newArr = ['crab', 'poison];
+  // and so on until Iteration ## newArr.includes('poison') does not exist in newArr => false (as it exists) => newArr.push(array[i]) are not executed; 
 
 
 // Iteration #6: Find elements
