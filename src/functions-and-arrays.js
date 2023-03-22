@@ -64,16 +64,30 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
 function sum(array) {
-let sumArray = 0;
-
-for (let i = 0; i < array.length; i++) {
-  sumArray += array[i];
+  let sumArray = 0;
+  let sumLetter = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'string' ) {
+        sumLetter += array[i].length;
+    } else if (typeof array[i] === true) {
+      sumLetter += 1;
+    } else if (typeof array[i] === false) {
+          sumLetter += 0;
+    } else {
+      array[i];
+    }
+    
+    sumArray = array[i] + sumLetter;
+    
+  }
+  return sumArray;
 }
-return sumArray;
-}
 
-console.log(sum([5, 6, 5]));
+console.log(sum(mixedArr));
 
 //initialize variable for our sum number to store.
 // Using for loop, iterate through an array; as we do not know how many values inside an array, we need to use array.length;
@@ -88,12 +102,26 @@ console.log(sum([5, 6, 5]));
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-  let sumArray = 0;
+  if (array.length === 0) {
+    return null
+  } 
+  return sumNumbers(array) / array.length;
+
+  //Longer solution
+
   
-  for (let i = 0; i < array.length; i++) {
-    sumArray += array[i];
+  function averageNumbers(array) {
+    if (array.length === 0) {
+      return null
+    } 
+
+    let sumArray = 0;
+
+ for (let i = 0; i < array.length; i++) {
+ sumArray += array[i];
   }
   return  sumArray / array.length;
+}
 }
 
 console.log(averageNumbers(numbersAvg));
@@ -245,9 +273,20 @@ function uniquifyArray(array) {
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, wordToSearch) {
+  
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(wordToSearch)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+console.log(doesWordExist(words, 'starting'));
 
 
 
@@ -266,7 +305,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, wordToSearch) {
+  let count = 0;
+  
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === wordToSearch) {
+       count++;
+    }
+  }
+  return count;
+}
+
+console.log(howManyTimes(wordsCount,'matter'));
 
 
 
