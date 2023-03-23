@@ -118,7 +118,15 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+  let uniques = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (uniques.includes(wordsUnique[i]) === false) {
+      uniques.push(wordsUnique[i]);
+    }
+  }
+  return uniques;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -132,7 +140,10 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(a, b) {
+  if (a.includes(b)) return true;
+  else return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -149,7 +160,15 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, wordToCount) {
+  let counter = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === wordToCount) {
+      counter = counter + 1;
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
