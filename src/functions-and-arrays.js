@@ -1,12 +1,40 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+  if(num1>num2){
+    return num1
+  }
+  else{
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(words) {
 
-function findLongestWord() {}
+  let longest = [];
+  longest.push(words[0])
+  // let longestLength = 0;
+
+  for(let i=0;i<words.length;i++)
+  {
+    if(longest[0].length<words[i].length){
+      longest[0]=words[i];
+    }
+  }
+
+  if(longest.length==0){
+    return "null"
+  }
+  else{
+  return longest[0]
+  }
+
+}
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+let longestWord=findLongestWord(words)
+console.log(longestWord)
 
 
 
