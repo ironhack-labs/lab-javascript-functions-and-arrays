@@ -191,8 +191,22 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {
-  
+function greatestProduct(matrix) {}
+
+// get the sum
+console.log( matrix[0][0] + matrix[0][0+1] + matrix[0][0+2] + matrix[0][0+3] ) // row
+console.log( matrix[0][0] + matrix[0+1][0] + matrix[0+2][0] + matrix[0+3][0] ) // col
+
+// access row / col
+console.log( matrix.length );  // row
+console.log( matrix[0].length ); // col
+
+// loop row / col
+for ( let row of matrix[0] ) {
+  console.log( row );
+}
+for ( let col of matrix ) {
+  console.log( col[0] );
 }
 
 
