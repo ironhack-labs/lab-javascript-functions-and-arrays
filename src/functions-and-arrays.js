@@ -109,6 +109,13 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arr, word) {
   if(arr.length === 0) return null;
   return arr.includes(word);
+  //other solution with loop
+  // for(let i = 0; i < arr.length; i++){
+  //   if(arr[i] === word){
+  //     return true
+  //   }
+  // }
+  // return false
 }
 
 
@@ -128,7 +135,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let counter = 0
+  arr.forEach(function(w){
+    if(w  === word){
+      counter++
+    }
+  })
+  return counter
+}
 
 
 
