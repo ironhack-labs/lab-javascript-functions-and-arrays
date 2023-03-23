@@ -1,24 +1,57 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) { return num1 }
+  else { return num2 }
+}
+result = maxOfTwoNumbers(3, 5);
+console.log(result);
+
 
 
 
 // Iteration #2: Find longest word
+
+function findLongestWord(words) {
+
+  let wordLength = [];
+  wordLength.push(words[0]);
+  //console.log(wordLength);
+  //console.log(typeof (wordLength));
+
+  for (let i = 0; i < words.length; i++) {
+    if (wordLength.length < words[i].length) {
+      wordLength[0] = words[i]
+    }
+  } 
+  return wordLength[0]
+}
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+let result2 = findLongestWord(words);
+console.log(result2);
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let summedUp = 0;
+  
+  for (let i = 0; i < numbers.length; i++) {
+    summedUp = summedUp + numbers[i]
+  }
+  return summedUp
+}
+
+let result3 = sumNumbers(numbers);
+console.log(result3);
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() { }
 
 
 
@@ -26,16 +59,38 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let averageNumbersSum = 0;
+
+  for (let i = 0; i < numbersAvg.length; i++) {
+    averageNumbersSum = averageNumbersSum + numbersAvg[i]
+  }
+  return averageNumbersSum/2
+}
+
+let result4 = averageNumbers(numbersAvg);
+console.log(result4);
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  let averageWords = 0;
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    averageWords = averageWords + wordsArr[i].length
+}
+  return averageWords/wordsArr.length
+}
+
+let result5 = averageWordLength(wordsArr);
+console.log(result5);
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() { }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +107,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
 
+  let newArray = [];
+
+  for (let i = 0; i < wordsUnique.length; i++) {
+
+    if (newArray.includes(wordsUnique[i])) {
+    continue
+    }
+    else {newArray.push(wordsUnique[i])}
+}
+    return newArray;
+}
+
+let result6 = uniquifyArray(wordsUnique);
+console.log(result6);
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, givenWord) {
 
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind.includes(givenWord)) {
+      console.log("true"); break
+      }
+    else {console.log("false"); break}   
+}
+}
+  let result7 = doesWordExist(wordsFind, "subset");
 
 
 // Iteration #7: Count repetition
@@ -78,8 +155,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, givenWord2) {
 
+  let wordCountNumber = 0;
+
+  for (i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] == givenWord2) {
+      wordCountNumber = wordCountNumber + 1
+    }
+  }
+    return wordCountNumber;
+}
+
+  let result8 = howManyTimes(wordsCount, "matter");
+  console.log (result8);
 
 
 // Iteration #8: Bonus
@@ -106,25 +195,26 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
+
 if (typeof module !== 'undefined') {
-  module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct
-  };
-}
+   module.exports = {
+     maxOfTwoNumbers,
+     findLongestWord,
+     sumNumbers,
+     sum,
+     averageNumbers,
+     averageWordLength,
+     avg,
+     uniquifyArray,
+     doesWordExist,
+     howManyTimes,
+     greatestProduct
+   };
+ }
