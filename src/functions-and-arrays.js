@@ -39,7 +39,6 @@ function sum(array) {
   let sum = 0
   for(let i = 0; i < array.length; i++){
     if (typeof array[i] === 'object' || Array.isArray(array[i])) {
-      console.log("ERROR")
       throw new Error("Unsupported data type sir or ma'am");
     }
     else if(typeof array[i] === typeof "string"){
@@ -176,35 +175,21 @@ function greatestProduct(matrix) {
   for(let i = 0; i < matrix.length - 3; i++){
     let currentArray = matrix[i]
     for(let j = 0; j < currentArray.length - 3; j++){
-      let possibleValue = currentArray[j] * currentArray[j+1] * currentArray[j+2] * currentArray[j+3]
+      let horizontalPossibleValue = currentArray[j] * currentArray[j+1] * currentArray[j+2] * currentArray[j+3]
       let verticalPossibleValue = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
-      
-      if(possibleValue > product){
-        product = possibleValue
+      let diagonalPossibleValue = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3]
+      if(horizontalPossibleValue > product){
+        product = horizontalPossibleValue
       }
       if(verticalPossibleValue > product){
         product = verticalPossibleValue
       }
+      if(diagonalPossibleValue > product){
+        product = diagonalPossibleValue
+      }
     }
-
-
   }
-  console.log(product)
   return product
-
-  //SEARCHES ONLY HORIZONTALLY ----------------------------
-  // let product = 0
-  // for(let i = 0; i < matrix.length; i++){
-  //   let currentArray = matrix[i]
-  //   for(let i = 0; i < currentArray.length; i++){
-  //     let possibleValue = currentArray[i] * currentArray[i + 1] * currentArray[i + 2] * currentArray[i + 3]
-  //     if(possibleValue > product){
-  //       product = possibleValue
-  //     }
-  //   }
-  // }
-  // return product
-  //SEARCHES ONLY HORIZONTALLY ----------------------------
 }
 
 
