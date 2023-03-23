@@ -40,7 +40,7 @@ function sum(mixedArr) {
   for ( let entry of mixedArr ) {
 
     if ( typeof entry === 'object' ) {
-      new Error("Unsupported data type sir or ma'am")
+      throw new Error("Unsupported data type sir or ma'am")
     } else {
       sum += typeof entry === 'string' ? Number(entry.length) : Number(entry)
     }
@@ -57,7 +57,7 @@ console.log( sum(mixedArr) ); // should return: 57  =
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbers) { 
-  return numbers ? sumNumbers(numbers) / numbers.length : null
+  return numbers.length ? sumNumbers(numbers) / numbers.length : null
 }
 console.log( averageNumbers(numbersAvg) );
 
@@ -65,7 +65,13 @@ console.log( averageNumbers(numbersAvg) );
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  let wordsLength = [];
+  for ( let word of words ) {
+    wordsLength.push( word.length );
+  }
+  return averageNumbers( wordsLength );
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
