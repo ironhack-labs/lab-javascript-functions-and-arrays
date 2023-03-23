@@ -138,7 +138,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes( words, search ) {
+  if ( !words.length ) {
+    return 0
+  } else {
+    if ( words.includes(search) ) {
+      let count = 0
+      for ( let word of words ) {
+        word === search ? count++ : false;
+      }
+      return count
+    } else {
+      return 0;
+    }
+  }
+}
+console.log( howManyTimes(wordsCount,"matter") );
 
 
 
