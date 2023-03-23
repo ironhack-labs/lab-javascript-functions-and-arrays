@@ -1,7 +1,7 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
   if (a === b) {
-    return;
+    return a;
   } else if (a > b) {
     return a;
   } else {
@@ -20,18 +20,31 @@ const words = [
   "crackpot",
 ];
 
-function findLongestWord() {
-  const sorted = words.sort((a, b) => a.length - b.length);
-  return sorted[sorted.length - 1];
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let res = "";
+  res = arr.reduce((acc, val) => {
+    return acc.length >= val.length ? acc : val;
+  });
+  return res;
 }
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {
+function sumNumbers(arr) {
   let counter = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    counter = counter + numbers[i];
+
+  if (arr.length === 0) {
+    return 0;
+  } else if (arr.length === 1) {
+    return arr[0];
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      counter = counter + arr[i];
+    }
   }
   return counter;
 }
@@ -49,6 +62,8 @@ function sum(a) {
       counter = counter + Number(a[i].length);
     } else if (typeof a[i] === "boolean") {
       counter = counter + Number(a[i]);
+    } else {
+      throw new Error(`Unsupported data type sir or ma'am`);
     }
   }
   return counter;
@@ -58,12 +73,15 @@ function sum(a) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-  let counter = 0;
-  for (let i = 0; i < numbersAvg.length; i++) {
-    counter = counter + numbersAvg[i];
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
   }
-  return counter / numbersAvg.length;
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    counter = counter + arr[i];
+  }
+  return counter / arr.length;
 }
 
 // Level 2: Array of strings
@@ -80,27 +98,33 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {
-  let counter = 0;
-  for (let i = 0; i < wordsArr.length; i++) {
-    counter = counter + wordsArr[i].length;
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
   }
-  return counter / wordsArr.length;
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    counter = counter + arr[i].length;
+  }
+  return counter / arr.length;
 }
 
 // Bonus - Iteration #4.1
-function avg() {
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
   let counter = 0;
-  for (let i = 0; i < mixedArr.length; i++) {
-    if (typeof mixedArr[i] === "number") {
-      counter = counter + mixedArr[i];
-    } else if (typeof mixedArr[i] === "string") {
-      counter = counter + Number(mixedArr[i].length);
-    } else if (typeof mixedArr[i] === "boolean") {
-      counter = counter + Number(mixedArr[i]);
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      counter = counter + arr[i];
+    } else if (typeof arr[i] === "string") {
+      counter = counter + Number(arr[i].length);
+    } else if (typeof arr[i] === "boolean") {
+      counter = counter + Number(arr[i]);
     }
   }
-  return counter / mixedArr.length;
+  return counter / arr.length;
 }
 
 // Iteration #5: Unique arrays
@@ -118,11 +142,14 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
   let uniques = [];
-  for (let i = 0; i < wordsUnique.length; i++) {
-    if (uniques.includes(wordsUnique[i]) === false) {
-      uniques.push(wordsUnique[i]);
+  for (let i = 0; i < arr.length; i++) {
+    if (uniques.includes(arr[i]) === false) {
+      uniques.push(arr[i]);
     }
   }
   return uniques;
@@ -141,7 +168,9 @@ const wordsFind = [
 ];
 
 function doesWordExist(a, b) {
-  if (a.includes(b)) return true;
+  if (a.length === 0) {
+    return null;
+  } else if (a.includes(b)) return true;
   else return false;
 }
 
@@ -236,7 +265,24 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let products = [];
+  let multipliedHorizontal;
+  let multipliedVertical;
+
+  for (let h = 0; h < arr.length - 3; h++) {
+    for (let i = 0; i < arr[0].length - 3; i++) {
+      multipliedHorizontal =
+        arr[h][i] * arr[h][i + 1] * arr[h][i + 2] * arr[h][i + 3];
+      products.push(multipliedHorizontal);
+      multipliedVertical =
+        arr[h][i] * arr[h + 1][i] * arr[h + 2][i] * arr[h + 3][i];
+      products.push(multipliedVertical);
+    }
+  }
+  let sorted = products.sort();
+  return sorted[sorted.length - 1];
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
