@@ -9,6 +9,7 @@ function maxOfTwoNumbers(n1, n2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 function findLongestWord(words) {
   if(words.length === 0) return null
+
   longestWord = ""
   words.forEach(function(word){
     if(word.length > longestWord.length){
@@ -89,7 +90,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if(words.length === 0 ) return null
+  let newArr = []
+  words.forEach(function(word){
+    if(!newArr.includes(word)){
+      newArr.push(word)
+    }
+  })
+  return newArr
+}
 
 
 
