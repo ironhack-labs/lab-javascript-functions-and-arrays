@@ -16,14 +16,19 @@ function findLongestWord(words) {
 
   return longestWord ? longestWord : null;
 }
-console.log( findLongestWord(words) );
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for ( let number of numbers ) {
+    sum += number; 
+  }
+  return sum;
+}
 
 
 
