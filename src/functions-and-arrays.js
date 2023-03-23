@@ -34,7 +34,22 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0
+  for(let i = 0; i < array.length; i++){
+    if (typeof array[i] === 'object' || Array.isArray(array[i])) {
+      console.log("ERROR")
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    else if(typeof array[i] === typeof "string"){
+      sum += array[i].length
+    } 
+    else{
+      sum += array[i]
+    }
+  }
+  return sum
+}
 
 
 
