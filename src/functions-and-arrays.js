@@ -2,6 +2,7 @@
 function maxOfTwoNumbers(num1, num2) {
   return num1 < num2 ? num2 : num1
 }
+console.log( maxOfTwoNumbers(2,5) ); // 5  =
 
 
 // Iteration #2: Find longest word
@@ -16,6 +17,8 @@ function findLongestWord(words) {
 
   return longestWord ? longestWord : null;
 }
+console.log( findLongestWord(words) ); // crocodile  =
+console.log( findLongestWord([]) ); // null  =
 
 
 
@@ -29,6 +32,7 @@ function sumNumbers(numbers) {
   }
   return sum;
 }
+console.log( sumNumbers(numbers) ); // 87  =
 
 
 
@@ -59,7 +63,8 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbers) { 
   return numbers.length ? sumNumbers(numbers) / numbers.length : null
 }
-console.log( averageNumbers(numbersAvg) );
+console.log( averageNumbers(numbersAvg) ); // 6  =
+console.log( averageNumbers([]) ); // null  =
 
 
 // Level 2: Array of strings
@@ -77,7 +82,8 @@ function averageWordLength(words) {
 function avg(mixedArr) {
   return mixedArr.length ? sum(mixedArr) / mixedArr.length : null;
 }
-console.log( avg(mixedArr) ) // should return: 5.7  =
+console.log( avg(mixedArr) ) // 5.7  =
+console.log( avg([]) ) // null  =
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -101,6 +107,8 @@ function uniquifyArray( words ) {
   }
   return uniqueWords.length ? uniqueWords : null;
 }
+console.log( uniquifyArray(wordsUnique) ); //
+console.log( uniquifyArray([]) ); // null  =
 
 
 
@@ -118,8 +126,9 @@ function doesWordExist( words, search ) {
     }
   }
 }
-console.log( doesWordExist(wordsFind,"machine") )
-console.log( doesWordExist(wordsFind,"machines") )
+console.log( doesWordExist(wordsFind,"machine") ) // true  =
+console.log( doesWordExist(wordsFind,"machines") ) // false  =
+console.log( doesWordExist([],"machine") ) // null  =
 
 
 
@@ -153,7 +162,8 @@ function howManyTimes( words, search ) {
     }
   }
 }
-console.log( howManyTimes(wordsCount,"matter") );
+console.log( howManyTimes(wordsCount,"matter") ); // 4  =
+console.log( howManyTimes([],"matter") ); // 0  =
 
 
 
@@ -181,7 +191,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+  
+}
 
 
 
