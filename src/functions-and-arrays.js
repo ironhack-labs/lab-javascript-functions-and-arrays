@@ -106,26 +106,6 @@ function averageWordLength(wordsArr) {
 console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
-
-// Iteration #5: Unique arrays
-const wordsUnique = [
-  "crab",
-  "poison",
-  "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
-  "poison",
-  "communion",
-  "simple",
-  "bring",
-];
-
-function uniquifyArray() {}
-
-// Iteration #6: Find elements
 const arr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function avg(arr) {
@@ -142,8 +122,8 @@ function avg(arr) {
 }
 console.log(avg(arr));
 
-// Iteration #7: Count repetition
-const arrNew = [
+// Iteration #5: Unique arrays
+const wordsUnique = [
   "crab",
   "poison",
   "contagious",
@@ -156,7 +136,6 @@ const arrNew = [
   "simple",
   "bring",
 ];
-let array = [];
 
 function uniquifyArray(arrNew) {
   const uniqueArr = [];
@@ -169,6 +148,44 @@ function uniquifyArray(arrNew) {
   return uniqueArr;
 }
 console.log(uniquifyArray(arrNew));
+
+// Iteration #6: Find elements
+const wordsFind = [
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience",
+];
+
+function doesWordExist(array, word) {
+  if (wordsFind.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(doesWordExist(wordsFind, "starting"));
+
+// Iteration #7: Count repetition
+const wordsCount = [
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter",
+];
+
+function howManyTimes() {}
 
 // Iteration #8: Bonus
 const matrix = [
