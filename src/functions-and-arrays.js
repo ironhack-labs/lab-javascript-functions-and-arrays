@@ -171,9 +171,41 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let product = 0
+  for(let i = 0; i < matrix.length - 3; i++){
+    let currentArray = matrix[i]
+    for(let j = 0; j < currentArray.length - 3; j++){
+      let possibleValue = currentArray[j] * currentArray[j+1] * currentArray[j+2] * currentArray[j+3]
+      let verticalPossibleValue = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+      
+      if(possibleValue > product){
+        product = possibleValue
+      }
+      if(verticalPossibleValue > product){
+        product = verticalPossibleValue
+      }
+    }
 
 
+  }
+  console.log(product)
+  return product
+
+  //SEARCHES ONLY HORIZONTALLY ----------------------------
+  // let product = 0
+  // for(let i = 0; i < matrix.length; i++){
+  //   let currentArray = matrix[i]
+  //   for(let i = 0; i < currentArray.length; i++){
+  //     let possibleValue = currentArray[i] * currentArray[i + 1] * currentArray[i + 2] * currentArray[i + 3]
+  //     if(possibleValue > product){
+  //       product = possibleValue
+  //     }
+  //   }
+  // }
+  // return product
+  //SEARCHES ONLY HORIZONTALLY ----------------------------
+}
 
 
 // The following is required to make unit tests work.
