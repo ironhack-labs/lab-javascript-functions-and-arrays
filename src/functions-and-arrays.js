@@ -1,24 +1,89 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if(a>b){
+    return a;
+  }
+  else if(b>a){
+    return b;
+  }
+  else{return a}
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length === 0){
+    return null
+  }
+  let longestWord 
+  let numberOfLetters = 0
+
+  for(i=0; i< words.length;i++){
+    if(words[i].length > numberOfLetters){
+      longestWord = words[i]
+      numberOfLetters = words[i].length
+    }
+  }
+return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if(numbers.length === 0){
+    return 0
+  }
+
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum
+  };
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const array = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sum(array) {
+  if(array.length === 0){
+    return 0
+  }
+}
+
+//Iteration #3.2 Bonus:
+
+function sum(mixedArr) {
+  let sum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+
+    if(typeof (mixedArr[i]) === 'boolean'){
+      sum = sum + mixedArr[i]
+    }
+
+    if (typeof (mixedArr[i]) === 'number') {
+      sum = sum + mixedArr[i]
+    }
+    else if (typeof (mixedArr[i]) === 'string') {
+      sum = sum + mixedArr[i].length
+    }
+  }
+  return sum
+
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+let sumOfArr = sum(mixedArr)
+console.log(sumOfArr)
+
+
+
 
 
 
@@ -26,7 +91,9 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+
+}
 
 
 // Level 2: Array of strings
