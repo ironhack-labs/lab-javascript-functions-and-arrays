@@ -48,9 +48,30 @@ function sumNumbers(array) {
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-function sum() {
-}
+function sum(array) {
+  if (array.length === 0){
+    return 0
+  }
 
+  let count = 0
+
+  for(let i = 0; i < array.length; i++){
+    if(typeof array[i] === "number"){
+       count += array[i]
+       } else if (typeof array[i] === "boolean") {
+         if (array[i] === true) {
+           count+=1
+         } else {
+           continue
+         }
+       } else if (typeof array[i] === "string") {
+         count += array[i].length
+       } else {
+        throw new Error("Unsupported data type sir or ma'am")
+       }
+  }
+  return count
+}
 
 // ---------------------------------------------------------------------------------------------------------
 
