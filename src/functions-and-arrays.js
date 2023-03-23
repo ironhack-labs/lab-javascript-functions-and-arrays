@@ -32,8 +32,25 @@ function sumNumbers(numbers) {
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration #3.2 Bonus:
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, {}];
+
+function sum(mixedArr) {
+  let sum = 0;
+  for ( let entry of mixedArr ) {
+
+    if ( typeof entry === typeof [] || typeof entry === typeof {} ) {
+      return Error("Unsupported data type sir or ma'am")
+    } else {
+      sum += typeof entry === typeof '' ? Number(entry.length) : Number(entry)
+    }
+
+  }
+  return sum;
+}
+console.log( sum([mixedArr]) );
+
+// should return: 57
 
 
 
