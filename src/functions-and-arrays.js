@@ -73,8 +73,11 @@ function averageWordLength(words) {
   return averageNumbers( wordsLength );
 }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.3
+function avg(mixedArr) {
+  return mixedArr.length ? sum(mixedArr) / mixedArr.length : null;
+}
+console.log( avg(mixedArr) ) // should return: 5.7  =
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
