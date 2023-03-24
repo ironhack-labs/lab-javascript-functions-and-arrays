@@ -65,7 +65,27 @@ console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 
-function sum() {}
+function sum(arr) {
+  let sum = 0
+
+
+for(let element of arr) {
+  switch (typeof element) {
+    case 'number':
+      case 'boolean':
+        sum += element
+        break
+
+        case 'string':
+       sum += element.length
+       break
+       default:
+        throw new Error("Unsupported data type sir or ma'am")
+  }
+}
+
+return sum  
+}
 
 
 // Iteration #4: Calculate the average
@@ -118,6 +138,8 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 // Bonus - Iteration #4.1
 
+
+
 // Bonus - Iteration #4.2 array of strings
 
 
@@ -168,7 +190,7 @@ function doesWordExist(wordsFind, word) {
 
     return null 
   
-  } else if(wordsFind.includes(word)) {
+  } else if (wordsFind.includes(word)) {
 
     return true  
 
