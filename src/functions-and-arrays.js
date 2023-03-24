@@ -1,24 +1,58 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) 
+  return number1
+  else {
+    return number2
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+  
+function findLongestWord(words) {
+  if (words.length === 0 || words === undefined) {
+    return null
+   }  
+  let longestWord = ""
 
-function findLongestWord() {}
+    words.forEach(element => {
+      if(element.length > longestWord.length){
+        longestWord = element
+      }
+
+    });
+    return longestWord
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0
+  numbers.forEach(num => {
+    sum += num
+  });
 
-
+  return sum
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+function sum(arr) {
+  let total = 0
+  arr.forEach(element => {
+    if (typeof element === 'string') {
+      total += element.length
+    } else {
+      total += +element
+    }
+  });
+  return total
+}
 
 
 
@@ -26,16 +60,31 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let avg = sumNumbers(numbers) / numbers.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  let sum = 0
+
+  words.forEach(word => {
+    sum += word.length
+  });
+
+  return sum/words.lengths
+}
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  return sum(arr) / arr.length
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,7 +101,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+    for(let index = 0 ; index < words.length ; index++) {
+      let word = words[index]
+      let duplicate = words.indexOf(word, index+1)
+      if (duplicate !== -1) {  
+        words.splice(duplicate, 1)
+        words.splice(index, 1)
+        --index
+      }
+    }
+    return words
+  }
 
 
 
