@@ -5,6 +5,8 @@ function maxOfTwoNumbers(num1, num2) {
 console.log( maxOfTwoNumbers(2,5) ); // 5  =
 
 
+
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -12,13 +14,14 @@ function findLongestWord(words) {
 
   let longestWord = '';
   for ( let word of words ) {
-    longestWord.length < word.length ? longestWord = word : false;
+    if ( longestWord.length < word.length ) longestWord = word
   }
 
   return longestWord ? longestWord : null;
 }
 console.log( findLongestWord(words) ); // crocodile  =
 console.log( findLongestWord([]) ); // null  =
+
 
 
 
@@ -36,6 +39,7 @@ console.log( sumNumbers(numbers) ); // 87  =
 
 
 
+
 // Iteration #3.2 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
@@ -46,13 +50,14 @@ function sum(mixedArr) {
     if ( typeof entry === 'object' ) {
       throw new Error("Unsupported data type sir or ma'am")
     } else {
-      sum += typeof entry === 'string' ? Number(entry.length) : Number(entry)
+      sum += typeof entry === 'string' ? entry.length : entry
     }
 
   }
   return sum
 }
 console.log( sum(mixedArr) ); // should return: 57  = 
+
 
 
 
@@ -85,6 +90,9 @@ function avg(mixedArr) {
 console.log( avg(mixedArr) ) // 5.7  =
 console.log( avg([]) ) // null  =
 
+
+
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -103,12 +111,13 @@ const wordsUnique = [
 function uniquifyArray( words ) {
   let uniqueWords = [];
   for ( let word of words ) {
-    !uniqueWords.includes(word) ? uniqueWords.push(word) : false
+    if ( !uniqueWords.includes(word) ) uniqueWords.push(word)
   }
   return uniqueWords.length ? uniqueWords : null;
 }
 console.log( uniquifyArray(wordsUnique) ); //
 console.log( uniquifyArray([]) ); // null  =
+
 
 
 
@@ -129,6 +138,7 @@ function doesWordExist( words, search ) {
 console.log( doesWordExist(wordsFind,"machine") ) // true  =
 console.log( doesWordExist(wordsFind,"machines") ) // false  =
 console.log( doesWordExist([],"machine") ) // null  =
+
 
 
 
@@ -154,7 +164,7 @@ function howManyTimes( words, search ) {
     if ( words.includes(search) ) {
       let count = 0
       for ( let word of words ) {
-        word === search ? count++ : false;
+        if ( word === search ) count++
       }
       return count
     } else {
@@ -208,6 +218,9 @@ for ( let row of matrix[0] ) {
 for ( let col of matrix ) {
   console.log( col[0] );
 }
+
+// stop at the end
+// for ( let i = 0 ; i < col.length -3 ; i++)
 
 
 
