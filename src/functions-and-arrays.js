@@ -51,22 +51,24 @@ console.log(sumNumbers(numbers))
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 57
 
-// function sum(mixedArr) {
-//   let total = 0;
-//   for (i = 0; i < mixedArr.length; i++) {
-//     const val = mixedArr[i];
-//     if(typeof mixedArr === "number") {
-//       total += val;
-//     } else if (typeof mixedArr === "string") {
-//       total += val.length;
-//     } else if (typeof val === "boolean") {
-//       total += Number(val);
-//     }
-//   }
-//   return total;
-// }
+function sum(mixedArr) {
+  let total = 0;
+  for (i = 0; i < mixedArr.length; i++) {
+    const val = mixedArr[i];
+    if(typeof mixedArr[i] === "number") {
+      total += val;
+    } else if (typeof mixedArr[i] === "string") {
+      total += val.length;
+    } else if (typeof val === "boolean") {
+      total += Number(val);
+    } else if (typeof val === 'object' || 'array') {
+      throw new Error(`Unsupported data type sir or ma'am`)
+    }
+  }
+  return total;
+}
 
-// console.log(sum(mixedArr));
+console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -138,11 +140,8 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(wordsFind, word) {
   if (wordsFind.length === 0) {
     return null
-  } else if (wordsFind.includes(word)) {
-    return true;
-  } else if (!wordsFind.includes(word)) {
-    return false;
   } 
+  return wordsFind.includes(word);
 };
 
 
@@ -201,8 +200,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
 
 
 // The following is required to make unit tests work.
