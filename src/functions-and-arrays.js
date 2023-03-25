@@ -66,11 +66,18 @@ console.log(sumNumbers(numbers));
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+// Solution #1
+
 function sum(array) {
   let sumArray = 0;
   let sumLetter = 0;
+
   
   for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'object' || typeof array[i] === 'array') {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+
     if (typeof array[i] === 'string' ) {
         sumLetter += array[i].length;
     } else if (typeof array[i] === true) {
@@ -78,22 +85,45 @@ function sum(array) {
     } else if (typeof array[i] === false) {
           sumLetter += 0;
     } else {
-      array[i];
+      sumArray += array[i];
     }
     
-    sumArray = array[i] + sumLetter;
     
   }
-  return sumArray;
+  return sumArray + sumLetter;
 }
 
 console.log(sum(mixedArr));
+
 
 //initialize variable for our sum number to store.
 // Using for loop, iterate through an array; as we do not know how many values inside an array, we need to use array.length;
 // code inside the loop: take each array value each itearation and adds it to sumArray variable.  
 
+// Solution #2 Cleaner approach
+function sum(array) {
+let sum = 0;
 
+for (let i = 0; i < array.length; i++) {
+  if (typeof array[i] === 'object' || typeof array[i] === 'array') {
+    throw new Error("Unsupported data type sir or ma'am")
+}
+
+if (typeof array[i] === 'string' ) {
+  sum += array[i].length;
+
+} else if (typeof array[i] === true) {
+  sum += 1;
+  
+} else if (typeof array[i] === false) {
+  sum += 0;
+  
+} else {
+  sum += array[i];
+}
+
+
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -172,8 +202,13 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function avg(array) {
   let sumArray = 0;
   let sumLetter = 0;
+
   
   for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'object' || typeof array[i] === 'array') {
+      throw new Error("Unsupported data type sir or ma'am")
+    }
+
     if (typeof array[i] === 'string' ) {
         sumLetter += array[i].length;
     } else if (typeof array[i] === true) {
@@ -181,13 +216,11 @@ function avg(array) {
     } else if (typeof array[i] === false) {
           sumLetter += 0;
     } else {
-      array[i];
+      sumArray += array[i];
     }
     
-    sumArray = array[i] + sumLetter;
-    
   }
-  return sumArray / array.length;
+  return (sumArray + sumLetter) / array.length;
 }
 
 console.log(avg(mixedArr));
@@ -276,8 +309,14 @@ function uniquifyArray(array) {
 const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(array, wordToSearch) {
-  
+  if (!wordToSearch.length) {
+    return null;
+  }
+
+  // return array.includes(wordToSearch);
+  // we do not need to loop through the array with includes as it looks at the whole array
   for (let i = 0; i < array.length; i++) {
+
     if (array.includes(wordToSearch)) {
       return true;
     } else {
@@ -285,6 +324,17 @@ function doesWordExist(array, wordToSearch) {
     }
   }
 }
+
+/*for (let i = 0; i < array.length; i++) {
+
+if (array[i] === wordToSearch) {
+  return true;
+} else {
+  return false;
+}
+}
+}
+*/
 
 console.log(doesWordExist(words, 'starting'));
 
