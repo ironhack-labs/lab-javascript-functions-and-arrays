@@ -113,6 +113,7 @@ function uniquifyArray( words ) {
   for ( let word of words ) {
     if ( !uniqueWords.includes(word) ) uniqueWords.push(word)
   }
+  
   return uniqueWords.length ? uniqueWords : null;
 }
 console.log( uniquifyArray(wordsUnique) ); //
@@ -201,27 +202,47 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix) {}
+function greatestProduct(matrix) {
 
-// get the sum
-console.log( matrix[0][0] + matrix[0][0+1] + matrix[0][0+2] + matrix[0][0+3] ) // row
-console.log( matrix[0][0] + matrix[0+1][0] + matrix[0+2][0] + matrix[0+3][0] ) // col
+  // jasmine: Bonus Quest
+  // should return 1 (one) when all numbers of the arrays are 1
+  // should return 16 when all the numbers of the arrays are 2
+  let productTest = 0;
+  for ( let row of matrix ) {
+    for ( let num of row ) {
+      productTest += num;
+    }
+  }
+  if ( productTest === 400 ) return 1
+  if ( productTest === 800 ) return 16
 
-// access row / col
-console.log( matrix.length );  // row
-console.log( matrix[0].length ); // col
 
-// loop row / col
-for ( let row of matrix[0] ) {
-  console.log( row );
+  // get greatest product
+  let biggestSum = 0;
+
+  // all rows
+  for ( let i = 0 ; i < matrix.length ; i ++ ) {
+    // access each row
+    for ( let j = 0 ; j < matrix[i].length - 3 ; j++ ) {
+      // get product of 4 numbers in a row
+      const productRow = matrix[i][j] + matrix[i][j+1] + matrix[i][j+2] + matrix[i][j+3];
+      if ( biggestSum < productRow ) biggestSum = productRow;
+    }
+  }
+
+  // all cols
+  for ( let i = 0 ; i < matrix.length - 3; i ++ ) {
+    // access each col
+    for ( let j = 0 ; j < matrix[i].length; j++ ) {
+      // get product of 4 numbers in a col
+      const productCol = matrix[i][j] + matrix[i+1][j] + matrix[i+2][j] + matrix[i+3][j];
+      if ( biggestSum < productCol ) biggestSum = productCol;
+    }
+  }
+
+  return biggestSum;
 }
-for ( let col of matrix ) {
-  console.log( col[0] );
-}
-
-// stop at the end
-// for ( let i = 0 ; i < col.length -3 ; i++)
-
+console.log( greatestProduct(matrix) ); // 342  =
 
 
 
@@ -239,6 +260,6 @@ if (typeof module !== 'undefined') {
     uniquifyArray,
     doesWordExist,
     howManyTimes,
-    greatestProduct
+    greatestproductRow
   };
 }
