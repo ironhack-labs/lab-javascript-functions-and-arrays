@@ -39,14 +39,11 @@ function sumNumbers(array) {
   let totalSum = 0
       
   if (array.length === 0){return 0}
-
       for(let i = 0; i < array.length; i++){
         totalSum += array[i]
   }
   return totalSum;
 }
-  
-
 console.log(sumNumbers(numbers))
  
 
@@ -60,7 +57,21 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(newArr) {
+  let av = 0;
+  
+  if (newArr.length === 0) {return null}
+    for(i = 0; i < newArr.length; i++){
+    av += newArr[i]
+    }
+  return av / newArr.length
+
+}
+
+console.log(averageNumbers(numbersAvg))
+
+
+
 
 
 // Level 2: Array of strings
