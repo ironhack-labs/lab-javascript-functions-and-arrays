@@ -54,8 +54,7 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr) {
 
   if(arr.length === 0){return 0}
-  else if(arr.includes('object')){ throw new Error('may')}
-
+ 
   let arraySum = 0;
 
   for(let i = 0; i < arr.length; i++){
