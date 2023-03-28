@@ -142,8 +142,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(words) {
+    if (words.length === 0) {
+      return null;
+    }
+  let newArray = [];
+  for (let i = 0; i < words.length; i++) {
+    if (newArray.includes(words[i])) {
+      continue;
+    }
+    else {
+      newArray.push(words[i]);
+    }
+  }
+  return newArray;
+}
+uniquifyArray(wordsUnique)
 
 
 // Iteration #6: Find elements
