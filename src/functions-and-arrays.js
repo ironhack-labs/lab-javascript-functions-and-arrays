@@ -60,8 +60,8 @@ function sum(arr) {
   for(let i = 0; i < arr.length; i++){
 
     if(typeof arr[i] === 'object'){
-      throw Error('unsupported data type');
-      return;
+      throw Error("Unsupported data type sir or ma'am")
+      
     } else if(typeof arr[i] === "string") {
       arraySum += arr[i].length;
     } else{
