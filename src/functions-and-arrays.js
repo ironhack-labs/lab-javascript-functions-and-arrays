@@ -163,9 +163,18 @@ uniquifyArray(wordsUnique)
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(words, word) {
+  if (words.length === 0) {
+    return null;
+  }
+    for (let i = 0; i < words.length; i++) {
+      if (words[i] === word) {
+        return true;
+      }
+    }
+  return false;
+}
+doesWordExist(wordsFind, "matter")
 
 // Iteration #7: Count repetition
 const wordsCount = [
