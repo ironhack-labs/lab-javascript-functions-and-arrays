@@ -59,14 +59,12 @@ function sum(arr) {
 
   for(let i = 0; i < arr.length; i++){
 
-    if(typeof arr[i] !== 'number' && typeof arr[i] !== 'string' && typeof arr[i] !== 'boolean'){
-      throw new Error('unsupported data type')
-    }
-      else if(typeof arr[i] === 'number') {
-      arraySum += arr[i]; 
+    if(typeof arr[i] === 'object'){
+      throw Error('unsupported data type');
+      return;
     } else if(typeof arr[i] === "string") {
       arraySum += arr[i].length;
-    } else if(typeof arr[i] === "boolean") {
+    } else{
       arraySum += Number(arr[i]);
     } 
   }
