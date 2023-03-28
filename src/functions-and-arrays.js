@@ -52,25 +52,27 @@ console.log(sumNumbers(numbers))
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function sum(arr) {
+
+  if(arr.length === 0){return 0}
+  else if(arr.includes('object')){ throw new Error('may')}
+
   let arraySum = 0;
 
-  for(let i = 0; i < arr.length; i++) {
+  for(let i = 0; i < arr.length; i++){
 
-    if(typeof arr[i] !== 'number' && typeof arr[i] !== 'string' && typeof arr[i] !== 'boolean') {
-      throw new Error("unsupported data");
+    if(typeof arr[i] !== 'number' && typeof arr[i] !== 'string' && typeof arr[i] !== 'boolean'){
+      throw new Error('unsupported data type')
     }
-    if(typeof arr[i] === 'number') {
+      else if(typeof arr[i] === 'number') {
       arraySum += arr[i]; 
     } else if(typeof arr[i] === "string") {
       arraySum += arr[i].length;
     } else if(typeof arr[i] === "boolean") {
       arraySum += Number(arr[i]);
-    } else if(arr[i] === 0) {
-     return 0;
-    }
+    } 
   }
   return arraySum;
-}
+} 
 
  console.log(sum(mixedArr))
   
@@ -233,7 +235,7 @@ const matrix = [
 ];
 
 function greatestProduct() {
-  
+
 }
 
 
