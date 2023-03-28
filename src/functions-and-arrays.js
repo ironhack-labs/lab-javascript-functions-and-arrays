@@ -1,32 +1,85 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  }
+  else {
+    return num2
+  }
+}
 
-
+const result = maxOfTwoNumbers(1, 2)
+console.log(result)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(array) {
+  let word = '';
+  if (array.length === 0) {
+    return null;
+  }
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].length > word.length) {
+        word = '';
+        word += array[i];
+      }
+      else {
+        continue;
+      }
+    }
+  return word;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(num) {
+  sumTotal = 0;
+  for (let i = 0; i < num.length; i++) {
+    sumTotal += num[i];
+  }
+  return sumTotal;
+}
+sumNumbers(numbers)
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
-
+// Iteration #3.1 Bonus: Can't get the Error to work, would love some feedback as to how to add it.
+function sum(arr) {
+  sumTotal = 0;
+     for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'string') {
+        sumTotal += arr[i].length;
+      }
+      else if (typeof arr[i] === 'number') {
+        sumTotal += arr[i];
+      }
+      else if (typeof arr[i] === 'boolean') {
+        sumTotal += arr[i]
+      }
+      else {
+      }
+    }
+  return sumTotal;
+}
+sum(mixedArr);
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(num) {
+  total = 0;
+  if (num.length === 0) {
+    return null;
+  }
+  return avg;
+}
+
+const total = averageNumbers()
 
 
 // Level 2: Array of strings
