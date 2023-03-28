@@ -7,9 +7,7 @@ function maxOfTwoNumbers(num1, num2) {
     return num2
   }
 }
-
 const result = maxOfTwoNumbers(1, 2)
-console.log(result)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -30,13 +28,14 @@ function findLongestWord(array) {
     }
   return word;
 }
+findLongestWord(words)
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(num) {
-  sumTotal = 0;
+  let sumTotal = 0;
   for (let i = 0; i < num.length; i++) {
     sumTotal += num[i];
   }
@@ -47,8 +46,9 @@ sumNumbers(numbers)
 
 
 // Iteration #3.1 Bonus: Can't get the Error to work, would love some feedback as to how to add it.
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr) {
-  sumTotal = 0;
+  let sumTotal = 0;
      for (let i = 0; i < arr.length; i++) {
       if (typeof arr[i] === 'string') {
         sumTotal += arr[i].length;
@@ -71,24 +71,61 @@ sum(mixedArr);
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(num) {
-  total = 0;
-  if (num.length === 0) {
+function averageNumbers(numsArray) {
+  let total = 0;
+  if (numsArray.length === 0) {
     return null;
   }
-  return avg;
+  for (let i = 0; i < numsArray.length; i++) {
+    total += numsArray[i];
+  }
+  return total / numsArray.length;
 }
-
-const total = averageNumbers()
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let charAmount = 0;
+  arr.forEach(elem => {
+    charAmount += elem.length;
+  })
+  return charAmount / arr.length;
+}
+averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sumTotal = 0;
+  if (arr.length === 0) {
+    return null;
+  }
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'string') {
+        sumTotal += arr[i].length;
+      }
+      else if (typeof arr[i] === 'number') {
+        sumTotal += arr[i];
+      }
+      else if (typeof arr[i] === 'boolean') {
+        if (arr[i] === true) {
+          sumTotal += 1;
+        }
+        else if (arr[i] === false) {
+          sumTotal += 0;
+        }
+      }
+      else {
+      }
+    }
+  return sumTotal / arr.length;
+}
+const sumTotal = avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
