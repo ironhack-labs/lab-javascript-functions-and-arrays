@@ -20,31 +20,31 @@ const words = [
 ];
 
 function findLongestWord(array) {
-  let word = "";
-  if (array.length === 0) {
-    return null;
-  }
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].length > word.length) {
-      word = "";
-      word += array[i];
-    } else {
-      continue;
+  if (array.length === 0) { return null; }
+
+  let word = '';
+
+  array.forEach(elem => {
+    if (elem.length > word.length) {
+      word = '',
+      word += elem;
     }
-  }
+  })
   return word;
 }
 findLongestWord(words);
+
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(num) {
-  let sumTotal = 0;
-  for (let i = 0; i < num.length; i++) {
-    sumTotal += num[i];
-  }
-  return sumTotal;
+  let sum = 0;
+
+  num.forEach(elem => {
+    sum += elem;
+  })
+  return sum;
 }
 sumNumbers(numbers);
 
@@ -54,7 +54,7 @@ const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 function sum(arr) {
   let sum = 0;
 
-  arr.forEach(function (elem) {
+  arr.forEach(elem => {
     if (typeof elem === "object") {
       throw new Error("Unsupported data type sir or ma'am");
     } 
