@@ -53,21 +53,18 @@ const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function sum(arr) {
   let sumTotal = 0;
+
   arr.forEach(function (elem) {
-    if (typeof elem  === 'string') {
+    if (typeof elem === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    } 
+    else if (typeof elem === "string") {
       sumTotal += elem.length;
     } 
-    else if (typeof elem === 'number') {
-      sumTotal += elem;
-    } 
-    else if (typeof elem === 'boolean') {
+    else if (typeof elem !== "string") {
       sumTotal += elem;
     }
-    else if (typeof elem === "object") {
-      throw new Error("Unsupported data type sir or ma'am");
-    }
-  });
-  console.log(sumTotal)
+  })
   return sumTotal;
 }
 sum(mixedArr);
