@@ -130,7 +130,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(refArray, newWord) {
+  let count = 0
+  for (let i = 0; i < refArray.length; i++ ) {
+    if (newWord === refArray[i]){
+      count++
+    }
+  }
+  return count
+}
 
 
 
