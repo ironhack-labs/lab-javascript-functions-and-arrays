@@ -1,24 +1,70 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a >= b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
-
+words[i].length === 0
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+    if (words.length === 0) {
+      return null;
+    }
+    let longestWord = "";
+    for (let i = 0; i < words.length; i++) {
+      if (words[i].length > longestWord.length) {
+      longestWord = words[i]; 
+    }
+  } return longestWord;
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum = sum + numbers[i]
+  } return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+  if (mixedArr.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === "number") {
+      sum = sum + mixedArr[i];
+    } else if (typeof mixedArr[i] === "string") {
+      sum = sum + mixedArr[i].length;
+    } else if (typeof mixedArr[i] === 'boolean'){
+      if (mixedArr[i] === true) {
+        sum = sum + 1;
+      } else if (mixedArr[i] === false) {
+        sum = sum + 0;
+      }
+    } 
+  }
+  return sum;
+}
 
 
 
@@ -26,16 +72,53 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    sum = sum + numbersAvg[i];
+    } return sum / numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    sum = sum + wordsArr[i].length;
+  } return sum / wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const arr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      sum = sum + arr[i];
+    } else if (typeof arr[i] === "string"){
+      sum = sum + arr[i].length;
+    } else if (typeof arr[i] === 'boolean'){
+        if (arr[i] === true) {
+          sum = sum + 1;
+        } else if (arr[i] === false) {
+          sum = sum + 0;
+        }
+    }
+  }
+  return sum / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +135,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null;
+  }
+
+  const uniqueWords = [];
+  words.forEach(word => {
+    if (uniqueWords.indexOf(word) === -1) {
+      uniqueWords.push(word);
+    }
+  });
+
+  return uniqueWords;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, wordToFind) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  return wordsArray.includes(wordToFind);
+}
+
 
 
 
@@ -78,7 +180,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+
+function howManyTimes(wordsArray, wordToFind) {
+  let repCounter = 0;
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToFind) {
+      repCounter++;
+    } 
+  }
+  return repCounter;
+}
 
 
 
