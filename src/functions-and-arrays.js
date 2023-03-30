@@ -1,21 +1,41 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(firstNumber, secondNumber) {
+  if (firstNumber >= secondNumber) {
+    return firstNumber
+  } else {
+    return secondNumber
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(randomArray) {
+  if (randomArray.length <= 0) {
+    return null
+  } else if (randomArray.length === 1) {
+    return randomArray[0]
+  } else {
+    let longestWord = ""
+    for (j = 0; j < randomArray.length; j++) {
+      if (longestWord.length < randomArray[j].length){
+        longestWord = randomArray[j]       
+      }
+    }
+    return longestWord
+  }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(refArray) {
+  let result = 0
+  for (let i = 0; i < refArray.length; i++ ){
+    result = result + refArray[i]
+  }
+  return result
+}
 
 // Iteration #3.1 Bonus:
 function sum() {}
