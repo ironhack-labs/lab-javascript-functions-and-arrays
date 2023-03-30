@@ -54,6 +54,8 @@ function sum(arr) {
       sumAll ++
     }else if(ele === false){
       sumAll+0
+    }else {
+       throw new Error("Unsupported data type sir or ma'am")
     }
     })
   }
