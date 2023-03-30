@@ -1,41 +1,117 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let arrLength = arr.length;
+  let numArr = [];
+  if (arrLength === 0) {
+    return null;
+  } else if (arrLength === 1) {
+    return arr[0];
+  } else {
+    arr.forEach(element => {
+      numArr.push(element.length);
+    });
+    let i = numArr.indexOf(Math.max(...numArr));
+    return arr[i];
+  }
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(sumArr) {
+  let sum = 0;
+  if (sumArr === 0 ) {
+    return 0;
+  } else {
+    sumArr.forEach(function(value) {
+      sum += value;
+    });
+    return sum;
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+//const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArray) {
+  
+  let sum = 0;
+
+  mixedArray.forEach(function(value){
+    if (mixedArray === 0) {
+      sum += 0;
+    } else {
+      if (typeof value === "number") {
+        sum += value;
+      } else if (value === true) {
+        sum += 1;
+      } else if (value === false) {
+        sum += 0;
+      } else if (typeof value === "string") {
+        sum += value.length;
+      } else {
+        throw new Error("Error");
+      }
+    }
+  })
+  return sum;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(avgArr) {
+  const lengthAvg = avgArr.length;
+  const sumAvg = sumNumbers(avgArr);
+
+  if (!lengthAvg) {
+    return null;
+  } else {
+    return sumAvg/lengthAvg 
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(awordsArr) {
+  let wordLengthSArr = [];
+  awordsArr.forEach(function(element){
+    wordLengthSArr.push(element.length);
+  })
+  return averageNumbers(wordLengthSArr);
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArray) { 
+  const mixedArraySum = sum(mixedArray);
+  const mixedArrayLength = mixedArray.length;
+  
+  if (!mixedArrayLength) {
+    return null;
+  } else {
+    return mixedArraySum / mixedArrayLength; 
+  }
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +128,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  let newArr = [];
+ 
+  if (arr.length === 0) {
+    return null;
+  } else {
+    arr.forEach(function(element){
+      if (!arr.length) {
+        return null;
+      } else if (newArr.includes(element) === false) {
+        newArr.push(element);
+      } else {
+        return;
+      }
+    })
+    return newArr;
+  } 
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, target) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return arr.includes(target);
+  }
+}
 
 
 
@@ -78,7 +177,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr,target) {
+  let sum = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    arr.forEach(function(element){
+      if (element === target) {
+        sum += 1;
+      } else {
+        return;
+      }
+    })
+  }
+  return sum;
+}
 
 
 
@@ -106,8 +219,27 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+/* My thoughts
 
+1. Loop over each horizontal array, get profuct of every 4 elements next to each other
+2. Push the products back to the ne(w araay, and find the max value
+3. Make vertical array horizontal (by pushing every elements of the same index)
+4. Repeat step 1 & 2 to get the max product mutiplied (of the original vertical arrar)
+5. Get Math.max() for all these value
+
+*/
+
+
+function greatestProduct(matrix) {
+
+  matrix.forEach(function(hArr){
+    let getMaxHorizontal = [];
+    for(let i = 0; i < hArr.length - 3; i++) {
+      getMaxHorizontal.push(hArr[i] * hArr[i+1] * hArr[i+2] * hArr[i+3]);
+    }
+    return Math.max(...getMaxHorizontal)
+  })
+}
 
 
 
