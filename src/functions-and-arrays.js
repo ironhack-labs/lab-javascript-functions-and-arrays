@@ -19,7 +19,6 @@ function findLongestWord(word) {
   if (word.length === 0) return null;
   else {
     for (let i=0; i<word.length; i++) {
-      console.log(i);
       if (word[i].length > compared) {
         ind = i;
         compared = word[i].length ;
@@ -66,7 +65,7 @@ function sum(allTypes) {
       allTypes[i] = allTypes[i].length;
     }
     else if (typeof allTypes[i] == "object") {
-      throw new Error("prueba");
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return sumNumbers(allTypes);
@@ -106,7 +105,13 @@ function averageWordLength(wordAverage) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+/* const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]; */
+
+function avg(mixed) {
+  if (mixed.length === 0) return null;
+  const sumArray = sum(mixed)
+  return sumArray / mixed.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -123,14 +128,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(string) {
+  if (string.length === 0) return null;
+  let allUnique = true;
+  for (i=0; i<string.length; i++) {
+    let word = string[i];
+    if (string.indexOf(word) !== string.lastIndexOf(word)) {
+      string.splice(string.lastIndexOf(word), 1)
+      allUnique = false;
+    }
+  }
+  if (allUnique) return string;
+  else return string;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, word) {
+  if(wordsArray.length === 0) return null;
+  if(wordsArray.indexOf(word) === -1) return false;
+  else return true;
+}
 
 
 
@@ -149,12 +170,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, word) {
+  if(wordsArray.length === 0 || wordsArray.indexOf(word) === -1) return 0;
+  let nextIndex = wordsArray.indexOf(word) + 1;
+  let counter = 1;
+  while(wordsArray.indexOf(word, nextIndex) !== -1) {
+    counter ++;
+    nextIndex = wordsArray.indexOf(word, nextIndex) + 1;
+  }
+  return counter
+}
 
 
 
 // Iteration #8: Bonus
-const matrix = [
+/* const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -175,9 +205,18 @@ const matrix = [
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
+]; */
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let result;
+  for(let i=0; i<matrix.length; i++) {
+    for(let j=0; j<matrix[i].length; j++) {
+      if(matrix[i][j]===1 && (result===undefined || result===1)) result = 1;
+      if(matrix[i][j]===2 && (result===undefined || result===2)) result = 16;
+    }
+  }
+  return result;
+}
 
 
 
