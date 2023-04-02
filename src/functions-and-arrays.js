@@ -28,6 +28,7 @@ function findLongestWord(arr) {
 }
 
 // Iteration #3: Calculate the sum
+// 3.1
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
@@ -36,8 +37,23 @@ function sumNumbers(arr) {
   return sum;
 }
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration #3.2 Bonus:
+function sum(arr) {
+  if (!arr.length) {
+    return 0;
+  }
+  let sum = 0;
+  arr.forEach((elem) => {
+    if (typeof elem === "number" || typeof elem === "boolean") {
+      sum += elem;
+    } else if (typeof elem === "string") {
+      sum += elem.length;
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  });
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -73,12 +89,30 @@ function averageWordLength(arr) {
   let arrLengths = [];
   let average = 0;
   arr.forEach((string) => arrLengths.push(string.length));
-  arrLengths.forEach((num) => (average += num));
-  return average / arr.length;
+  average = averageNumbers(arrLengths);
+
+  return average;
 }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.3
+function avg(arr) {
+  if (!arr.length) {
+    return null;
+  }
+  let convertedToNum = [];
+  let average = 0;
+  arr.forEach((elem) => {
+    if (typeof elem === "number" || typeof elem === "boolean") {
+      convertedToNum.push(Number(elem));
+    } else if (typeof elem === "string") {
+      convertedToNum.push(elem.length);
+    }
+  });
+  average = averageNumbers(convertedToNum);
+  // average = parseFloat(average.toFixed(2));
+
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -121,9 +155,10 @@ const wordsFind = [
 ];
 
 function doesWordExist(word, arr) {
-  if (!arr.length) {
+  if (arr.length === 0) {
     return null;
   }
+
   if (arr.includes(word)) {
     return true;
   } else {
@@ -147,16 +182,17 @@ const wordsCount = [
 ];
 
 function howManyTimes(word, arr) {
-  if (!arr.length) {
+  if (arr.length === 0) {
     return 0;
   }
+
   let counter = 0;
-  //let countRepetition = [...arr];
   arr.forEach((string) => {
-    if (string.includes(word)) {
+    if (string === word) {
       counter++;
     }
   });
+
   return counter;
 }
 
