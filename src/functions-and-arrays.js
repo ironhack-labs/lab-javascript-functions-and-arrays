@@ -207,6 +207,14 @@ function howManyTimes(wordsArray, word) {
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ]; */
 
+const matrix = [
+  [ 1,  2, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1,  4, 3, 4, 5]
+]
+
 function greatestProduct(matrix) {
   let result;
   for(let i=0; i<matrix.length; i++) {
@@ -218,7 +226,26 @@ function greatestProduct(matrix) {
   return result;
 }
 
+function greatestProduct2(matrix) {
+  let result = 0;
+  for(let i=0; i<matrix.length; i++) {
+    for(let j=0; j<matrix[i].length-3; j++) {
+      if(result<(matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3])) {
+        result = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      }
+    }
+  }
+  for(let k=0; k<matrix[0].length; k++) {
+    for(let l=0; l<matrix.length-3; l++) {
+      if(result<(matrix[l][k] * matrix[l+1][k] * matrix[l+2][k] * matrix[l+3][k])) {
+        result = matrix[l][k] * matrix[l+1][k] * matrix[l+2][k] * matrix[l+3][k];
+      }
+    }
+  }
+  return result;
+}
 
+console.log("RESULTADO PRODUCTO linea o columna: ", greatestProduct2(matrix));
 
 
 // The following is required to make unit tests work.
