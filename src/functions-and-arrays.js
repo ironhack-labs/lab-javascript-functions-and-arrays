@@ -18,25 +18,20 @@ maxOfTwoNumbers (30, 45);
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
-  let longestWord = "";
-  if (words.length === 0) {
+function findLongestWord(arr) {
+  if (arr.length === 0) {
     return null;
-  }
-  else if (words.length === 1) {
-    return words[0];
-  }
-  else {
-  for (let i = 0;  i<words.length; i++) {
-    if (words[i].length > longestWord.length) {
-      longestWord = words[i];
-      return longestWord;
+  } else if (arr.length === 1) {
+    return arr[0];
+  } else {
+    let longestWord = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i].length > longestWord.length) {
+        longestWord = arr[i];
+      }
     }
-    else {
-      return longestWord;
-    }
+    return longestWord;
   }
-}
 }
 
 findLongestWord(words);
@@ -78,8 +73,19 @@ function sum() {}
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
+  let roundedSum = 0;
   if (numbersAvg.length === 0) {
     return null;
+  } else {
+    for (let k = 0; k<numbersAvg.length; k++) {
+      if (numbersAvg.length === 1) {
+        roundedSum = (roundedSum + numbersAvg[k]) / numbersAvg.length;
+      }
+      else {
+        roundedSum = (roundedSum + numbersAvg[k]) / numbersAvg.length;
+      }
+    }
+    return roundedSum;
   }
 }
 
@@ -136,6 +142,14 @@ function doesWordExist(wordsFind) {
   if (wordsFind.length === 0) {
     return null;
   }
+  else {
+    wordsFind.forEach((definition)=>{
+      if(wordsFind.includes(definition) === false) {
+        wordsFind.push(definition);
+      }
+    });
+    return wordsFind;
+  }
 }
 
 
@@ -155,7 +169,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordAppears) {
+  let counter = 0; 
+  if (wordAppears.length === 0) {
+    return 0;
+}
+}
 
 
 
