@@ -1,24 +1,84 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  }
+  else{
+    return num1;
+  }
+}
+
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  } else if (words.length === 1) {
+    return words[0];
+  } else {
+    let longest = words[0];
+    for (let i = 1; i < words.length; i++) {
+      if (words[i].length > longest.length) {
+        longest = words[i];
+      }
+    }
+    return longest;
+  }
+}
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (typeof element === 'number') {
+      total += element;
+    }
+    else if (typeof element === 'string') {
+      const num = Number(element);
+      if (isNaN(num)) {
+        throw new Error('Unsupported data type in array: string is not a number');
+      }
+      total += num;
+    }
+    else if (typeof element === 'boolean') {
+      if (element) {
+        total += 1;
+      }
+      else if (Array.isArray(element) || typeof element === 'object') {
+        throw new Error ('Unsupported data type in array: object or array');
+      }
+    }
+  }
+    return total;
+}
+
+
 
 
 
@@ -26,16 +86,63 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum / numbers.length;
+}
+
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsLength) {
+  if (wordsLength.length === 0) {
+    return null;
+  }
+let totalLength = 0;
+  for (let i = 0; i < wordsLength.length; i++) {
+    totalLength += wordsLength[i].length;
+  }
+
+  return totalLength / wordsLength.length;
+}
+
+
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  let count = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] === 'number') {
+      sum += numbers[i];
+      count++;
+    }
+  }
+  if (count === 0) {
+    return null;
+  }
+  let average = sum / count;
+  return average;
+}
+
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +159,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null;
+  }
+
+  let uniqueArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (uniqueArray.indexOf(array[i]) === -1) {
+      uniqueArray.push(array[i]);
+    }
+  }
+
+  return uniqueArray;
+}
+
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, word) {
+  if (words.length === 0) {
+    return null;
+  }
+
+  return words.includes(word);
+}
+
 
 
 
@@ -78,7 +207,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      count++;
+    }
+  }
+  return count;
+}
+
+
 
 
 
