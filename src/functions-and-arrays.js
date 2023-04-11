@@ -1,41 +1,91 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2) {
+    return num1;
+  }else {
+    return num2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  let longestWord = "";
+  for (let i = 0; i < words.length; i++) {
+    if(words[i].length > longestWord.length) {
+    longestWord = words[i];
+  }
+}
+return longestWord;
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(arr) {
+  let totalSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const inputType = arr[i];
+    if (typeof inputType === 'string') {
+      totalSum += inputType.length;
+    } else if (typeof inputType === 'number') {
+      totalSum += inputType;
+    } else if (typeof inputType === 'boolean') {
+      totalSum += inputType ? 1 : 0;  // ternary operator, adds 1 or 0 depending on truthy or falsy
+    } else if (Array.isArray(inputType) || typeof inputType === 'object') {
+      throw new Error('Unsupported data type');
+    }
+  }
+  return totalSum;
+} // error on test, it should throw error if unsupported data type in array or object(not working why ? :X )
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  const sum = sumNumbers(arr);
+ return sum / arr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
-
-// Bonus - Iteration #4.1
-function avg() {}
+function averageWordLength(words) {
+  if (words.length === 0) { //remember to check if input array is empty first
+    return null;
+  }
+  let totalLength = 0;
+  for (let i = 0; i < words.length; i++) {  // going over each word, checking if it is 'string' type and then summing the length of each one.
+    if (typeof words[i] !== 'string') {
+      throw new Error('Unsupported data type found in array');
+    }
+    totalLength += words[i].length; 
+  }
+  return totalLength / words.length; //returning total length divided by number of words in array, equals average ( remember that because it is a array, words.length will = the number of words !)
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +102,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) { // usual check if empty
+    return null;
+  }
+  let uniqueWords = [];
+  for (let i = 0; i < words.length; i++) {  //create a new array, uniqueWords to store the words. run the loop through the input array and check if it exists using include. if it does not, we add it with push!
+    if (!uniqueWords.includes(words[i])) {
+      uniqueWords.push(words[i]);
+    }
+  }
+  return uniqueWords;
+} 
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, wordToSearch) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToSearch) {
+      return true;
+    }
+  }
+  return false;
+}
+
 
 
 
@@ -78,7 +151,28 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, wordToSearch) {
+  if (wordsArray.length === 0) {
+    return 0;
+  }
+  
+  let count = 0;
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToSearch) {
+      count++;
+    }
+  }
+  
+  if (count === 0) {
+    return 0;
+  } else if (count === 1) {
+    return 1;
+  } else if (count === 5) {
+    return 5;
+  } else {
+    return count;
+  }
+}
 
 
 
