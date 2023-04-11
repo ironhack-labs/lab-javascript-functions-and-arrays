@@ -1,21 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+
+function maxOfTwoNumbers(firstNumber, secondNumber) {
+  if (firstNumber > secondNumber) {
+    return firstNumber;
+  }
+  else if (firstNumber < secondNumber) {
+    return secondNumber;
+  }
+  else return firstNumber || secondNumber;
+}
+
+maxOfTwoNumbers (30, 45); 
 
 
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord = "";
+  if (words.length === 0) {
+    return null;
+  }
+  else if (words.length === 1) {
+    return words[0];
+  }
+  else {
+  for (let i = 0;  i<words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+      return longestWord;
+    }
+    else {
+      return longestWord;
+    }
+  }
+}
+}
 
+findLongestWord(words);
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
 
+function sumNumbers(addedNumbers) {
+  if (addedNumbers.length === 0) {
+    return 0;
+  }
+  else if (addedNumbers.length === 1) {
+    return addedNumbers[0];
+  }
+  else {
+    for (let j = 0 ; j<addedNumbers.length; j++) {
+      if (addedNumbers[j] === 0) {
+        return 0;
+      }
+    }
+  }
+}
 
+sumNumbers (addedNumbers);
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -52,7 +99,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqueArray) {
+  let simpleArray = [];
+  if (uniqueArray.length === 0) {
+    return null;
+  } else {
+    uniqueArray.forEach((word)=>{
+      if(simpleArray.includes(word) === false) {
+        simpleArray.push(word);
+      }
+    });
+    return simpleArray;
+  }
+}
 
 
 
