@@ -1,68 +1,131 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num0,num1) {
+  if (num0 > num1) {
+    return num0;
+  }else if (num0 < num1) {
+    return num1;
+  }else{
+    return num0, num1;
+  }
+}
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(wordInput) {
+  let biggestWord = [""];
 
-function findLongestWord() {}
-
-
+  if (wordInput.length === 0 || wordInput.length === undefined) {
+    return null;
+  }else if(wordInput.length === 1){
+    return wordInput[0];
+  }else{
+    for (i = 0; i < wordInput.length; i++) {
+      if(biggestWord[0].length < wordInput[i].length) {
+          biggestWord.unshift(wordInput[i]);
+          biggestWord.pop();
+      }else if(biggestWord.length > wordInput[i].length) {
+          continue
+      }
+    }
+    return biggestWord[0];
+  }
+}
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
-
-
+function sumNumbers(num) {
+  let sumOfNumbers = 0;
+  let total = 0;
+  
+  if (num.length === 0 || num.length === undefined) {
+    return 0;
+  }else if(num.length === 1){
+    return num[0];
+  }else{
+    for (i = 0; i < num.length; i++){
+      sumOfNumbers = num[i];
+      total += sumOfNumbers;  
+    }
+  }
+  return total;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
+function sum(num) {
+  
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-function averageNumbers() {}
-
+function averageNumbers(num) {
+  let sumOfNumbers = 0;
+  let total = 0;
+  let average = 0;
+  
+  if (num.length === 0 || num.length === undefined) {
+    return null;
+  }else if(num.length === 1){
+    return num[0];
+  }else{
+    for (i = 0; i < num.length; i++){
+      sumOfNumbers = num[i];
+      total += sumOfNumbers;  
+    }
+    average = total / num.length;
+    return average;
+  }
+}
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
+function averageWordLength(words) {
+  let sumOfwordsLength = 0;
+  let total = 0;
+  let average = 0;
+  
+  if (words.length === 0 || words.length === undefined) {
+    return null;
+  }else{
+    for (i = 0; i < words.length; i++){
+      sumOfwordsLength = words[i].length;
+      total += sumOfwordsLength;  
+    }
+    average = total / words.length;
+    return average;
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+
+}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
-
-function uniquifyArray() {}
-
-
+function uniquifyArray(words) {
+  let uniqueWordsArray = [];
+  if (words.length === 0 || words.length === undefined) {
+    return null;
+  }else {
+    for (i = 0; i < words.length; i++) {
+      if (words.indexOf(words[i]) === i ) {
+        uniqueWordsArray.push(words[i]);
+      }else {
+        continue;
+      }
+    }
+    return uniqueWordsArray;
+  }
+}
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
-
-
-
+function doesWordExist(words,search) {
+  if (words.length === 0 || words.length === undefined) {
+    return null;
+  }else if(words.indexOf(search) >= 0) {
+    return true;
+  }else {
+    return false;
+  }
+}
+  
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -78,8 +141,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words,search) {
+  let count = 0;
 
+  if (words.length === 0 || words.length === undefined || search === undefined) {
+    return 0;
+  }else {
+    for (i = 0; i < words.length; i++) {
+      if (words[i] === search) {
+        count += 1;
+      } else{
+        continue;
+      }
+    }
+    return count;
+  }
+}
 
 
 // Iteration #8: Bonus
