@@ -96,14 +96,19 @@ function averageNumbers(theNumbers) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(theWords) {
-  let simpleArray = [];
+  let total = 0;
   if (theWords.length === 0){
     return null;
-  } else {
-    
+  } 
+  for (let i = 0; i < theWords.length; i++) {
+    if (theWords.length === 1){
+      return theWords[i].length;
+    } else {
+      total += theWords[i].length
+    }
   }
     
-    
+    return total/theWords.length;
   
 }
 
@@ -144,17 +149,17 @@ function uniquifyArray(uniqueArray) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(words) {
-  if (typeof words.length === undefined || words.length === 0) {
+function doesWordExist(findWord,word) {
+  if (findWord.length === 0) {
     return null;
   }
-  
-  for (let i = 0; i < words.length; i++) {
-    if (words[i]) {
+  for (let i = 0; i < findWord.length; i++) {
+    if (findWord.includes(word)) {
       return true;
+    } else {
+      return false;
     }
   }
-    return false;
 }
 
 
@@ -175,14 +180,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(countWords) {
-  let wordTimes = [];
+function howManyTimes(countWords, word) {
+
   if(countWords.length === 0) {
     return 0;
-  } else if(countWords = 1) {
-    return 1;
   } 
-  
+  let total = 0;
+  for (let i = 0; i < countWords.length; i++) {
+    if (countWords[i] === word){
+      total ++;
+    }
+  }
+  return total;
 }
 
 
