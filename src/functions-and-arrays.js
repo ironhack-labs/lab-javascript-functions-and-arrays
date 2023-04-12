@@ -1,20 +1,66 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(n1,n2){
+  if(n1 > n2) {
+    return n1;
+  } else if (n2 > n1) {
+    return n2;
+  } else if (n1 === n2) {
+    return n1,n2 
+  }
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+
+function findLongestWord(exerciseArray){
+let longestWord = "";
+if (exerciseArray.length === 0) {
+  return null;
+}
+else if (exerciseArray.length === 1) {
+  return exerciseArray[0];
+}
+else {
+  for (let i = 0; i < exerciseArray.length; i++){
+    if (longestWord.length < exerciseArray[i].length){
+      longestWord = exerciseArray[i];
+    }
+  }
+  return longestWord;
+}
+} 
+ 
+  
+
+
+
+
+
+
+
+
+
+  
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(exerciceNumber){
+  if (exerciceNumber.length === 0){
+    return 0;
+  } let sum = 0;
+  for (let i = 0; i < exerciceNumber.length; i +=1){
+    sum += exerciceNumber[i]
+  }
+  return sum 
+}
 
 
 // Iteration #3.1 Bonus:
@@ -26,7 +72,16 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  if (numbersArray.length === 0){
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < numbersArray.length; i++){
+    sum += numbersArray[i];
+  }
+  return sum / numbersArray.length;
+}
 
 
 // Level 2: Array of strings
@@ -52,14 +107,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+
+function uniquifyArray(uniqueArray) {
+  let simpleArray = [];
+  if(uniqueArray.length === 0){
+    return null;
+  } else {
+    uniqueArray.forEach((word) => {
+      if (simpleArray.includes(word) === false) {
+        simpleArray.push(word);
+      }
+      });
+      return simpleArray;
+    }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, wordToSearch) {
+  if (wordsArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < wordsArray.length; i++){
+    if (wordsArray[i] === wordToSearch){
+      return true;
+    }
+  }
+  return false;
+}
 
 
 
@@ -78,7 +156,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, wordToSearch) {
+  let count = 0;
+
+  for (let i = 0; i < wordsArray.length; i++){
+    if (wordsArray[i] === wordToSearch) {
+      count++;
+    }
+  }
+  return count;
+}
 
 
 
