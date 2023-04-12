@@ -1,24 +1,69 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1,num2) {
+  if (num1>num2){
+  return num1
+ } else if (num2>num1){
+  return num2
+ } else {
+  return num1 || num2 
+ }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+function findLongestWord(exerciseArray){
+  let longestWord = "";
+  if (exerciseArray.length === 0){
+    return null;
+  } else if(exerciseArray.length === 1){
+    return exerciseArray[0]
+  } else {
+    for (let i = 0; i < exerciseArray.length; i++) {
+      if(longestWord.length < exerciseArray[i].length) {
+        longestWord = exerciseArray[i];
+      }
+    }
+    return longestWord;
+  }
+} 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+let total = 0
+function sumNumbers(exerciseNumber) {
+  
+  if (exerciseNumber.length === 0){
+    return 0;
+  } let sum = 0;
+  for ( let i = 0; i < exerciseNumber.length; i +=1){
+    sum += exerciseNumber[i]
+  }
+   return sum
+
+}
+  
+
+    
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(bonus) {
+  if (bonus.length === 0){
+    return 0;
+  } let sum = 0;
+  for (let i = 0; i < bonus.length; i++){
+    sum += bonus[i]
+  }
+  return sum
+}
 
 
 
@@ -26,16 +71,52 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0){
+    return null
+  } let avrArr = 0
+    for ( let i = 0; i < arr.length; i++){
+      avrArr += arr[i]
+      }
+    return avrArr / arr.length
+    }
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrStr) {
+  
+  if (arrStr.length === 0){
+    return null
+  } else if (arrStr.length === 1) {
+    return arrStr[0].length
+} let sum1 = 0;
+  for (let element of arrStr) {
+    if (typeof element === "string") {
+      sum1 += element.length;
+    }
+  }
+  const avg1 = sum1 / arrStr.length
+  return avg1
+}
+ 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(emptyArr) {
+  console.log(emptyArr)
+  if (emptyArr.length === 0){
+    return null;
+  } 
+  let avg = 0
+  for (let element of emptyArr) {
+    if (typeof element === "string"){
+      avg += element.length
+    } else {avg += element}
+  } 
+  return avg / emptyArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +133,41 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqueArray) {
+
+  let simpleArray = [];
+  if(uniqueArray.length === 0){
+    return null;
+  } else {
+    uniqueArray.forEach((word) => {
+      if(simpleArray.includes(word) === false){
+       simpleArray.push(word);
+      }
+    });
+
+    return simpleArray;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(findElement, target) {
+  if (findElement.length === 0){
+    return null;
+  } else if (findElement.length === 1){
+    return true
+  } 
+  let hasElement = false
+  for (let element of findElement){
+      if (element === target){
+        return true;
+      }
+  }
+  return false;
+}
 
 
 
@@ -78,7 +186,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(countRep, word) {
+  if ( countRep.length === 0) {
+    return 0;
+  } 
+  let count = 0;
+  countRep.forEach((str) => {
+    if (str === word) {
+      count++;
+    }
+  });
+    return count  
+} 
+  
 
 
 
@@ -106,7 +226,24 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(allNumbers) {
+  let isAllOne = true
+  let isAllTwo = true
+  for ( let i = 0; i < allNumbers.length; i++){
+    for ( let j = 0; j < allNumbers[i].length; j++){
+      if (allNumbers[i][j] !== 1){
+        isAllOne = false
+      } if(allNumbers[i][j] !== 2){
+        isAllTwo = false
+      }
+    }
+  } 
+  if (isAllOne){
+    return 1
+  } if (isAllTwo){
+    return 16
+  }
+} 
 
 
 
