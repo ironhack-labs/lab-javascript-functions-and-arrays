@@ -1,24 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(val1,val2) {
+  if (val1 > val2) {
+    return val1;
+  } else if (val2 > val1 ){
+    return val2
+  } else {
+    return val1
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) { 
+let maxLengthWord = words[0];
+ if (words.length === 0) {
+  return null;
+ } else if (words.length === 1){
+  return words[words.length -1];
+ } 
+ for (let i = 0; i < words.length; i++) {
+   if (words[i].length > maxLengthWord.length){
+    maxLengthWord = words[i];
+    
+ }
+ 
+}
+return maxLengthWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    
+    sum += numbers[i];
+  }
+  return sum
+  
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+let sum = 0;
+for (let i = 0; i < numbers.length; i++) { 
+  if (typeof numbers[i] === 'number') {
+    sum += numbers[i];
+  } else if(typeof numbers[i] === 'string' ){
+    sum += numbers[i].length
+  } else if(typeof numbers[i] === 'boolean'){
+    if (numbers[i] === true) {
+      sum++
+    } 
+      
+    
+  } else{
+    throw new Error("Unsupported data type sir or ma'am")
+  }
+  
+}
+return sum
+}
+
+
+
+
+
 
 
 
@@ -26,16 +79,61 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null
+  }
+  let sum = 0;
+  for(let i = 0; i < numbersAvg.length; i++){
+  sum += numbersAvg[i];
+}
+let average = sum / numbersAvg.length;
+return average;
+ 
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  } else if (wordsArr.length > 0){
+    let strSum = 0
+    wordsArr.forEach(str => {
+      strSum += str.length
+    });
+    let average = strSum / wordsArr.length
+    return average;
+  }
+  
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(wordsArr) {
+  let sum = 0;
+  if (wordsArr.length === 0) {
+    return null;
+  } else{
+    for (let i = 0; i < wordsArr.length; i++) {
+      if (typeof wordsArr[i] === 'string') {
+        sum += wordsArr[i].length;
+      } else if (typeof wordsArr[i] === 'number'){
+        sum += wordsArr[i];
+      } else if(wordsArr[i]){
+        sum++
+      }
+     
+      
+     
+    }
+     return  sum / wordsArr.length;
+     
+  }
+
+ 
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +150,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null
+  }
+    const arrayToReturn = [];
+    for (let i = 0; i < wordsUnique.length; i++) {
+      const element = wordsUnique[i];
+      if (arrayToReturn.includes(element)) {
+        return arrayToReturn;
+      }
+      arrayToReturn.push(element);
+    }
+    
+  
+
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind,find) {
+if (wordsFind.length === 0) {
+     return null } else{
+          return wordsFind.includes(find);
+     }
+
+
+
+
+}
+doesWordExist(wordsFind,'subset');
 
 
 
@@ -78,7 +202,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,palabra) {
+  let counter = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i].includes(palabra)) {
+      counter++
+      
+    }
+   
+    
+  }
+   return counter;
+  
+}
+// howManyTimes(wordsCount,'machine');
 
 
 
