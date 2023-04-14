@@ -1,43 +1,166 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+//Implement the function maxOfTwoNumbers that takes two numbers as arguments and returns the bigger number.
+function maxOfTwoNumbers(value1, value2) {
+  if (value1 > value2) {
+    return value1
 
-
+  } else if (value1 < value2) {
+    return value2
+  } else {
+    return value1
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordArray) {
 
+  if (wordArray.length === 0) {
+    return null
+  } else {
+
+    let longestWord = ""
+
+    for (let i = 0; i < wordArray.length; i++) {
+
+      if (wordArray[i].length > longestWord.length) {
+        longestWord = wordArray[i]
+      }
+    }
+
+
+    return longestWord
+  }
+}
+
+
+findLongestWord(words)
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+
+  return sum
+
+}
+
+sumNumbers(numbers)
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// The function should take an array of mixed values - numbers, strings, and booleans.
+// The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum
+//and return the sum.
+// Check the tests for more details.
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+
+
+function sum(arrThreeB) {
+
+  let miscSum = 0
+  let miscNums = 0
+  let miscLengths = 0
+  let miscBools = 0
+
+  for (let i = 0; i < arrThreeB.length; i++) {
+    let valueAnalysis = arrThreeB[i]
+    if (typeof valueAnalysis === 'number') {
+      miscNums += arrThreeB[i]
+    } else if (typeof valueAnalysis === 'string') {
+      miscLengths += arrThreeB[i].length
+    } else if (typeof valueAnalysis === 'boolean') {
+      if (arrThreeB[i]) {
+        miscBools += 1
+      } else {
+        miscBools += 0
+      }
+    } else {
+      throw Error("Unsupported data")
+    }
+
+  }
+
+  miscSum = miscNums + miscLengths + miscBools
+  return miscSum
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrTwo) {
+
+  if (arrTwo.length === 0) {
+
+    return null
+  } else {
+
+    let average = 0
+    let sumTwo = sumNumbers(arrTwo)
+    average = sumTwo / arrTwo.length
+
+    return average
+  }
+}
+
+averageNumbers(numbersAvg)
+
+
 
 
 // Level 2: Array of strings
+//Implement the function named averageWordLength that receives as a single argument an array of words
+//and returns the average length of the words:
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrWords) {
+
+  if (arrWords.length === 0) {
+    return null
+  } else {
+
+    let wordLength = 0
+    let avgWordLength = 0
+
+    for (let i = 0; i < arrWords.length; i++) {
+      wordLength = arrWords[i].length
+
+    }
+
+    /*arrWords.forEach(function (word) {
+      
+    })*/
+
+    avgWordLength = wordLength / arrWords.length
+    return avgWordLength
+  }
+
+}
+
+averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() { }
 
 // Iteration #5: Unique arrays
+/*Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out
+the Array methods indexOf and includes.
+Do this in the form of a function uniquifyArray that receives an array of words as an argument.
+You can use the following array to test your solution:
+*/
 const wordsUnique = [
   'crab',
   'poison',
@@ -52,18 +175,47 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arrFive) {
 
+  if (arrFive.length === 0) {
+    return null
+  } else {
+
+    let noRepeatArr = []
+
+    for (let i = 0; i < arrFive.length; i++) {
+      if (noRepeatArr.indexOf(arrFive[i]) === -1) {
+
+        noRepeatArr.push(arrFive[i])
+      }
+    }
+
+    return noRepeatArr
+  }
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrSix, searchedWord) {
 
+  if (arrSix.length === 0) {
+    return null
+  } else if (arrSix.includes(searchedWord)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+doesWordExist(wordsFind, 'subset')
 
 
 // Iteration #7: Count repetition
+/*Declare a function named howManyTimes that will take in an array of words as the first argument
+and a word to search for as the second argument.
+The function will return the number of times that word appears in the array.*/
 const wordsCount = [
   'machine',
   'matter',
@@ -78,7 +230,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrSeven, searchedWord) {
+  let wordCount = 0
+
+  for (let i = 0; i < arrSeven.length; i++) {
+    if (arrSeven[i] === searchedWord) {
+      wordCount += 1
+    }
+
+  }
+  return wordCount
+}
+
+
 
 
 
@@ -106,7 +270,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
