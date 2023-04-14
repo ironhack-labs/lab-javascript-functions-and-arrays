@@ -36,14 +36,63 @@ findLongestWord(words);
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let totalNumber = 0
+  array.forEach(function(number) {
+    totalNumber += number;
+  });
+  console.log(totalNumber);
+  return(totalNumber);
+};
+
+sumNumbers(numbers);
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration #3.2 Bonus:
+
+/*   if I understood correctly boolean values should be
+ true == 1 and false == 0, so that's what I've implemented. */
+
+
+/* btw, jasmine tells me that I failed the last objective, but I think I achieved it? */
+
+
+ function sum(array) {
+  let sumArray = 0;
+  let errorResult = false;
+  array.forEach(function(elem) {
+    if (typeof elem === "array") {
+      errorResult = true;
+      };
+    if (typeof elem === "object") {
+       errorResult = true;
+      };
+
+    switch (typeof elem) {
+      case "number":
+       sumArray += elem;
+       break;
+     case "string":
+       sumArray += elem.length;
+       break;
+     case "boolean":
+       if (elem) sumArray += 1;
+       break;
+    }
+  })
+
+  if (errorResult) {
+    console.log("error");
+    return "error";
+  } else {
+    console.log(sumArray);
+    return sumArray;
+  }
+}
 
 
 
@@ -51,7 +100,25 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayReal) {
+  if (arrayReal.length === 0) {
+    return null;
+  } else {
+    function sumNumbers(array) {
+      let totalNumber = 0;
+      array.forEach(function (number) {
+        totalNumber += number;
+      });
+      console.log(totalNumber);
+      return totalNumber;
+    }
+    let suma = sumNumbers(arrayReal);
+    console.log(suma / arrayReal.length);
+    return suma / arrayReal.length;
+  }
+}
+
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
