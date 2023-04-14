@@ -81,8 +81,22 @@ function averageWordLength(wordsArr) {
 }
 
 
+
 // Bonus - Iteration #4.1
-function avg() { }
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+function avg(mixedArr) {
+  if (mixedArr == 0) {
+    return null;
+  }
+  let mixedAverArr = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    mixedAverArr += mixedArr[i].length; i++;
+  } return mixedAverArr / mixedArr.length;
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -122,7 +136,7 @@ function uniquifyArray(wordsUnique) {
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+let existWord = 0;
 function doesWordExist(wordsFind, existWord) {
   if (wordsFind.length === 0) {
     return null;
@@ -158,11 +172,13 @@ function howManyTimes(wordsCount) {
   }
   let myWord = 0;
   for (let i = 0; i < wordsCount.length; i++) {
-    if ([wordsCount[i] + 1] === wordsCount[i]) {
-      myWord++
+    if (wordsCount[i + 1] === wordsCount[i]) {
+      return myWord++
+    } else if (wordsCount[i + 1] === 1) {
+      return 1
     }
-
   }
+  return myWord++
 }
 
 
@@ -191,7 +207,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct(matrix) { }
 
 
 
