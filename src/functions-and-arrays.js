@@ -136,8 +136,10 @@ function uniquifyArray(wordsUnique) {
   const newArray = [];
   for (let i = 0; i < wordsUnique.length; i++) {
     let cleanWord = wordsUnique[i];
-    if (cleanWord.indexOf() === -1) {
-      newArray.push(cleanWord);
+    for (let i = 0; i < newArray.length; i++) {
+      if (cleanWord.indexOf() === -1) {
+        newArray.push(cleanWord);
+      }
     }
   }
   return newArray;
@@ -146,7 +148,7 @@ function uniquifyArray(wordsUnique) {
 
 /* Quiero que me devuelva una array sin repeticiones. 
  variable con una array nuevo sin las palabras repetidas - con .push? (o .pop en el antiguo para eliminarlas?)
- iterar sobre el array viejo y buscar con indexOf() */
+ iterar sobre el array viejo y buscar  si con indexOf() está en el nuevo*/
 
 
 
