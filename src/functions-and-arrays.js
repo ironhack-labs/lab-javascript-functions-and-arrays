@@ -1,24 +1,69 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+
+
+function findLongestWord(words) {
+
+  if (words.length == 0) {
+    return null
+  }
+
+  let sacoVacio = ""
+
+
+  for (let i = 0; i < words.length; i++) {
+
+    if (sacoVacio.length < words[i].length) {
+      sacoVacio = words[i]
+    }
+  }
+  return sacoVacio
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  sacoVacio = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sacoVacio += numbers[i];
+  }
+  return sacoVacio
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+
+  sacoNuevo = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sacoNuevo += numbers[i];
+  }
+  return sacoNuevo
+
+
+}
+
+//let box = 0
+//for (let i = 0; i < puto.length; i++) {
+//if (typeof puto[i] == 'string') {
+//box += puto[i].length;
 
 
 
@@ -26,16 +71,59 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+
+function averageNumbers(numbersAvg) {
+
+  if (numbersAvg.length == 0) {
+    return null
+  }
+
+  saconuevo2 = 0
+  for (let i = 0; i < numbersAvg.length; i++) {
+    saconuevo2 += numbersAvg[i];
+
+
+  }
+  return saconuevo2 / numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length == 0) {
+    return null
+  }
+  cajaVacia = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    cajaVacia += wordsArr[i].length;
+  }
+  return cajaVacia / wordsArr.length;
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(puto) {
+  if (puto.length == 0) {
+    return null
+  }
+
+  let box = 0
+  for (let i = 0; i < puto.length; i++) {
+    if (typeof puto[i] == 'string') {
+      box += puto[i].length;
+    }
+    else if (typeof puto[i] == "number") {
+      box += puto[i];
+    }
+    else if (puto[i]) {
+      box += 1;
+    }
+  }
+  return box / puto.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +140,25 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length == 0) {
+    return null
+  }
+  const box2 = []
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (!box2.includes(wordsUnique[i])) {
+      box2.push(wordsUnique[i])
+    }
+  }
+  return box2
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() { }
 
 
 
@@ -78,7 +177,7 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes() { }
 
 
 
@@ -106,7 +205,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
