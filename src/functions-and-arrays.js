@@ -28,7 +28,7 @@ function findLongestWord(array) {
       }
     }
   }
-  console.log(longestWord);
+  /* console.log(longestWord); */
   return(longestWord);
 }
 
@@ -44,7 +44,7 @@ function sumNumbers(array) {
   array.forEach(function(number) {
     totalNumber += number;
   });
-  console.log(totalNumber);
+  /* console.log(totalNumber); */
   return(totalNumber);
 };
 
@@ -109,11 +109,10 @@ function averageNumbers(arrayReal) {
       array.forEach(function (number) {
         totalNumber += number;
       });
-      console.log(totalNumber);
       return totalNumber;
     }
     let suma = sumNumbers(arrayReal);
-    console.log(suma / arrayReal.length);
+    /* console.log(suma / arrayReal.length); */
     return suma / arrayReal.length;
   }
 }
@@ -124,9 +123,27 @@ averageNumbers(numbersAvg)
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+//estoy orgullosísima de cómo me ha quedado esta función!! *^-^*
 
-// Bonus - Iteration #4.1
+function averageWordLength(strings) {
+  if (strings.length === 0) return null;
+  else {
+    let numbers = [];
+    strings.forEach(function(string) {
+      numbers.push(string.length);
+    })
+    
+    let sumTotal = 0;
+    numbers.forEach(function(number) {
+      sumTotal += number;
+    })
+
+    /* console.log(sumTotal / numbers.length); */
+    return sumTotal / numbers.length;
+  }
+ }
+
+// Bonus - Iteration #4.3
 function avg() {}
 
 // Iteration #5: Unique arrays
@@ -144,14 +161,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) return null;
+  else {
+    let wordsNew = [];
+    words.forEach(function(word) {
+      if (!wordsNew.includes(word)) {
+        wordsNew.push(word);
+      }
+    })
+    /* console.log(wordsNew); */
+    return wordsNew;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, wordSearch) {
+  if (words.length === 0) {
+    return null;
+  } else {
+    if (words.includes(wordSearch)) {
+/*           console.log("true"); */
+          return true;
+        } else {
+/*           console.log("false"); */
+          return false;
+        }
+  }
+}
 
 
 
@@ -170,7 +211,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, wordSearch) {
+  if (words.length === 0) {
+    return 0;
+  } else {
+    let wordsSearch = [];
+    words.forEach(function(word) {
+      if (word === wordSearch) {
+        wordsSearch.push(wordSearch);
+      }
+    })
+/*     console.log(wordsSearch.length); */
+    return wordsSearch.length;
+  }
+}
+
+howManyTimes(wordsCount, "matter")
 
 
 
