@@ -123,11 +123,14 @@ function uniquifyArray(wordsUnique) {
     return null;
   }
 
+  let uniqueWords = [];
+
   for (let i=0; i<wordsUnique.length; i++) {
-    if (wordsUnique[i] === wordsUnique[i+1]) {
-      wordsUnique.slice(wordsUnique[i])
+    if (!uniqueWords.includes(wordsUnique[i])) {
+      wordsUnique.push(wordsUnique[i])
     }
   }
+  return uniqueWords;
 }
 
 
