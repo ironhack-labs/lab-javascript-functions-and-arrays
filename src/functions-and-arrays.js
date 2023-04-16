@@ -104,6 +104,7 @@ function averageWordLength(wordsArr) {
 function avg() {}
 
 // Iteration #5: Unique arrays
+//Specrunner.html stopped working here - unable to test code
 const wordsUnique = [
   'crab',
   'poison',
@@ -136,6 +137,7 @@ function uniquifyArray(wordsUnique) {
 
 
 // Iteration #6: Find elements
+//Specrunner.html stopped working here - unable to understand, what this function needs to do
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist() {}
@@ -143,6 +145,7 @@ function doesWordExist() {}
 
 
 // Iteration #7: Count repetition
+//Specrunner.html stopped working here - unable to test code
 const wordsCount = [
   'machine',
   'matter',
@@ -157,7 +160,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount) {
+  let counts = {};
+  wordsCount.forEach(function(word) {
+    if (counts[word]) {
+      counts[word]++;
+    } else {
+      counts[word] = 1;
+    }
+  });
+  return counts;
+}
 
 
 
