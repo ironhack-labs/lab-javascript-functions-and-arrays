@@ -50,7 +50,32 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sumTotal = 0;
+  arr.forEach(element => {
+    switch (typeof element) {
+      case 'number':
+        sumTotal += element;
+        break;
+      case 'string':
+        sumTotal += element.length;
+        break;
+      case 'boolean':
+        sumTotal += element ? 1 : 0;
+        break;
+      case 'object':
+      case 'array':
+        throw new Error('Unsupported data type in array');
+      default:
+        break;
+    }
+  });
+  return sumTotal;
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+console.log(sum(mixedArr)); // should return 57
 
 
 
@@ -58,16 +83,55 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numeros) {
+  if (numeros.length === 0){
+    return null;
+  }
+  let sumaTotal = numeros.reduce((a, b) => a + b, 0);
+  let cantidadElementos = numeros.length;
+  let promedio = sumaTotal / cantidadElementos;
+  return promedio;
+}
 
-
+let promedio = averageNumbers(numbersAvg);
+console.log("El promedio es:", promedio);
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArray = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(palabras) {
+  if (palabras.length === 0) {
+    return null;
+  }
+  let totalLength = 0;
+  for (let i = 0; i < palabras.length; i++) {
+    totalLength += palabras[i].length;
+  }
+  let averageLength = totalLength / palabras.length;
+  return averageLength;
+}
+let promedioLongitud = averageWordLength(wordsArray);
+console.log("La longitud promedio de las palabras es:", promedioLongitud);
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let total = 0;
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'number') {
+      total += arr[i];
+      count++;
+    } else if (typeof arr[i] === 'string') {
+      total += arr[i].length;
+      count++;
+    } else if (typeof arr[i] === 'boolean') {
+      total += arr[i] ? 1 : 0;
+      count++;
+    }
+  }
+  if (count === 0) {
+    return null;
+  }
+  return total / count;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -83,9 +147,21 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
 
-function uniquifyArray() {}
+  const uniqueArr = [];
 
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueArr.indexOf(arr[i]) === -1) {
+      uniqueArr.push(arr[i]);
+    }
+  }
+
+  return uniqueArr;
+}
 
 
 // Iteration #6: Find elements
