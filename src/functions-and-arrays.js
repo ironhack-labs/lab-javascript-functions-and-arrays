@@ -49,10 +49,23 @@ function sumNumbers(array) {
 
 
 // Iteration #3.1 Bonus:
-function sum(array) {
- 
+function sum(array, index) {
+  let sum = 0
+  
+  for (index of array){
+    if (typeof index===("object"||"array")){
+    return "Unsupported data type sir or ma'am";   
+    }else if(typeof index==="string"){
+    sum += index.length;
+    }else if(typeof index==="boolean"){
+    if (index===true){sum+=1}
+    else if (index===false){sum += 0}
+    }else if(typeof index ==="number"){
+    sum += index
+    }else{return sum}
+  } 
+  return sum
 }
-
 
 
 // Iteration #4: Calculate the average
@@ -85,7 +98,20 @@ function averageWordLength(array) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array, index) {
+  if (array.length===0){return null}
+  let value = 0 
+  for (index of array){
+    if(typeof index ==="number"){
+    value += index
+    }if(typeof index==="string"){
+    value += index.length;
+    }else if(typeof index==="boolean"&&index===true){
+    value += 1
+    }  
+  }
+  return value /= array.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -102,7 +128,25 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  
+  let uniquifiedArray = []
+  
+  for (let elem of array){
+    array.shift(elem);
+    if (uniquifiedArray.includes(elem)===true){
+      array.unshift(elem)
+    }else{uniquifiedArray.push(elem)}
+  }
+  if (uniquifiedArray.length===0){
+    return null
+  }
+  if(uniquifiedArray === array){
+    return array
+  }else return uniquifiedArray
+}
+
+console.log(uniquifyArray(words))
 
 
 
