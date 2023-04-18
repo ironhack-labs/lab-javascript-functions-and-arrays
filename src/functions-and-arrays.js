@@ -54,7 +54,7 @@ function sum(array, index) {
   
   for (index of array){
     if (typeof index===("object"||"array")){
-    return "Unsupported data type sir or ma'am";   
+    throw new Error("Unsupported data type sir or ma'am");   
     }else if(typeof index==="string"){
     sum += index.length;
     }else if(typeof index==="boolean"){
