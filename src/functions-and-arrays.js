@@ -165,14 +165,39 @@ function uniquifyArray(arr) {
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(wordsArray, wordToSearch) {
+  if (wordsArray.length === 0){
+    return null;
+  }
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToSearch) {
+      return true;
+    }
+  }
+  return false;
+}
 
-function doesWordExist() {}
-
+// Ejemplo de uso
+const words1 = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+console.log(doesWordExist(words1, 'truth')); // Devuelve true
+console.log(doesWordExist(words1, 'fiction')); // Devuelve false
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
+function howManyTimes(wordsArray, wordToSearch) {
+  let count = 0;
+  
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === wordToSearch) {
+      count++;
+    }
+  }
+  
+  return count;
+}
+
+// Ejemplo de uso
+const words2 = [
   'machine',
   'matter',
   'subset',
@@ -186,7 +211,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+console.log(howManyTimes(words2, 'matter')); // Devuelve 4
+console.log(howManyTimes(words2, 'disobedience')); // Devuelve 1
+console.log(howManyTimes(words2, 'fiction')); // Devuelve 0
 
 
 
@@ -214,7 +241,53 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let maxProduct = 0;
+
+  // Check horizontal products
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j <= cols - 4; j++) {
+      const product = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check vertical products
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 0; j < cols; j++) {
+      const product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check diagonal products (top-left to bottom-right)
+  for (let i = 0; i <= rows - 4; i++) {
+    for (let j = 0; j <= cols - 4; j++) {
+      const product = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Check diagonal products (bottom-left to top-right)
+  for (let i = 3; i < rows; i++) {
+    for (let j = 0; j <= cols - 4; j++) {
+      const product = matrix[i][j] * matrix[i - 1][j + 1] * matrix[i - 2][j + 2] * matrix[i - 3][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  return maxProduct;
+}
 
 
 
@@ -236,3 +309,5 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+
