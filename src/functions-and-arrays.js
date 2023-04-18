@@ -132,29 +132,34 @@ function uniquifyArray(array) {
   
   let uniquifiedArray = []
   
+  if (array.length===0){
+    return null}
+  
   for (let elem of array){
     array.shift(elem);
-    if (uniquifiedArray.includes(elem)===true){
+    if (uniquifiedArray.includes(elem)===false){      
+      uniquifiedArray.push(elem);
+    }if (uniquifiedArray.includes(elem)===true){
       array.unshift(elem)
-    }else{uniquifiedArray.push(elem)}
-  }
-  if (uniquifiedArray.length===0){
-    return null
-  }
-  if(uniquifiedArray === array){
-    return array
-  }else return uniquifiedArray
+    }
+  }    
+  return uniquifiedArray
 }
-
-console.log(uniquifyArray(words))
-
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(array, word) {
+  
+  if (array.length===0){
+      return null
+    }else if (array.includes(word)){
+      return true
+    }else{
+      return false
+    }  
+  }  
 
 
 // Iteration #7: Count repetition
@@ -172,8 +177,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(array, word) {
+  let count = 0
+  for(let elem of array){
+    if (word===elem){
+      count++
+    }  
+  }    
+  return count
+}
 
 
 // Iteration #8: Bonus
