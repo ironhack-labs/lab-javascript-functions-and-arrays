@@ -1,19 +1,41 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a,b) {
+  if (a>b){
+    return a
+  }else{return b}
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let longestWord = ""
+  wordsArr.forEach(element => {
+      if(element.length>longestWord.length){
+        longestWord = element
+      } 
+    })
+  return longestWord;
+}
+
 
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = ["hola", 12, 1, 18, "perro", 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let acc = 0
+  numbers.forEach((eachNumber)=>{
+   if(typeof(eachNumber) === "number"){
+     acc += eachNumber
+   }
+  })
+  return acc
+}
 
 
 
@@ -26,13 +48,34 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(avg) {
+  let sum = 0
+  let division = avg.length
+  if(division===0){
+    return null
+  }
+  avg.forEach((el)=>{
+    sum+= el
+  }
+  )
+return(sum/division) 
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(avg) { 
+  let sum = 0
+  let division = avg.length
+  if(division===0){
+    return null
+  }
+  avg.forEach((el,i)=>{
+    sum += (avg[i].length)
+  })
+return (sum/ avg.length)
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +95,29 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length===0){
+    return null
+  }
+  let newArr = []
+  wordsUnique.forEach((el)=>{
+    if(newArr.includes(el)===false){
+      newArr.push(el)
+    }
+    
+  })
+  return(newArr)  
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+
+}
 
 
 
