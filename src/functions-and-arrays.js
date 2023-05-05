@@ -1,41 +1,155 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1,number2) {
+  if (number1>number2){
+    return number1 
+  }
+  else if (number2>number1){
+    return number2
+  }
+  else {
+    return number1
+  }
+
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) { 
+  if (!words.length){
+    return null
+  }
+
+  //for(let wprd pf  words)
+  let largestWord = '';
+  words.forEach((word)=> {
+    if(word.length > largestWord.length ){
+      largestWord = "";
+      largestWord = word;
+          }
+    
+      } 
+  )
+  return largestWord  
+
+  }
 
 
+findLongestWord(words) 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+
+    if(numbers.length === 0){
+      return 0
+    }
+    let sum = numbers.reduce(function(a, b){
+     return a + b;
+    });
+  
+    return sum
+
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+
+
+// function sum(array) { 
+
+//   for(const element of array){
+//     if(typeOf element === 'object' || array.isArray(element){
+//       throw new Error ("Unsupported")
+//     }
+//   }
+// }
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  if(numbersAvg.length === 0){
+    return null
+  }
+
+  let sum = 0; 
+
+    numbersAvg.forEach(item => {
+    sum = item+sum; 
+    return sum
+  }
+  );
+
+  let result = (sum)/numbersAvg.length
+
+  return result
+}
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = ['saet', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) {
+
+  if(wordsArray.length === 0){
+    return null
+  }
+
+  let letterSum = 0;
+  
+  for (let i = 0; i < wordsArray.length; i++) {
+    letterSum += wordsArray[i].length;
+  }
+  
+  let average = letterSum/wordsArray.length;
+
+    return average
+
+
+  // let wordsArraylength = 0 
+
+  //   wordsArray.forEach((palabra)=>{
+  //     const numberLetters = palabra.split.length
+  //     return wordsArraylength+=numberLetters 
+      
+  //   })
+
+  //   const response = wordsArraylength/wordsArray.length;
+  //   return response
+
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(wordsArray) { 
+  
+  
+  if(wordsArray.length === 0){
+  return null
+}
+
+let wordsArraylength = 0 
+
+  wordsArray.forEach((palabra)=>{
+    const numberLetters = palabra.split.length
+    return wordsArraylength+=numberLetters 
+    
+  })
+
+  const response = wordsArraylength/wordsArray.length;
+  return response
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +166,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArrayDos) {
+
+    if(wordsArrayDos.length === 0){
+      return null
+    }
+    let arrayUnicas=[];
+
+    for(let i = 0; i < wordsArrayDos.length; i++){  
+      if(!arrayUnicas.includes(wordsArrayDos[i])){
+        arrayUnicas.push(wordsArrayDos[i]) 
+      }
+      
+      
+    }
+     return arrayUnicas
+
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArrayDos,word) {
+  if(wordsArrayDos.length === 0){
+    return null
+  }
+  return wordsArrayDos.includes(word);
+
+  
+  }
 
 
 
@@ -78,7 +216,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArrayDos,words) {
+  
+
+    let counts = 0;
+
+  for(let i = 0; i < wordsArrayDos.length; i++){
+
+    if(wordsArrayDos[i]===words){
+      counts++;
+    }
+  }
+
+  return counts;
+
+}
 
 
 
