@@ -82,9 +82,8 @@ function averageWordLength(wordsArr) {
   if (wordsArr.length === 0){
     return null;
   }let sum4 = 0
-  for ( let i = 0; i < wordsArr.length; i++){
-    const strToNumber = parseInt(wordsArr[i]); 
-    sum4 += strToNumber[i]
+  for ( let i = 0; i < wordsArr.length; i++){ 
+    sum4 += wordsArr[i].length
   }
   const averageWords = sum4/wordsArr.length
   return averageWords
