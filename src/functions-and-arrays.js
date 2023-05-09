@@ -16,10 +16,10 @@ function findLongestWord(words) {
   if (words.length === 0) {
     return null
   }
-  let longestWord = words[0];
+  let longestWord = words[0]; //defino que la palabra mas larga es la primera
   for (i=1; i< words.length; i++){
-    if (words[i].length > longestWord.length){
-      longestWord = words[i]
+    if (words[i].length > longestWord.length){ //Si el largo de la paladra del array en posicion [i] es mayor que el alrgo de mi palabra mas larga
+      longestWord = words[i] //la palabra mas larga pasa a ser la palabra del array en [i]
     }
   }
   return longestWord;
@@ -68,9 +68,9 @@ function averageNumbers(numbersAvg) {
   }
   let sum3 = 0
   for (let i=0; i < numbersAvg.length; i++){
-    sum3 += numbersAvg[i];
+    sum3 += numbersAvg[i]; //se suma el numero
   }
-  const average = sum3/numbersAvg.length
+  const average = sum3/numbersAvg.length //se divide por el largo total del array
   return average
 }
 
@@ -83,9 +83,9 @@ function averageWordLength(wordsArr) {
     return null;
   }let sum4 = 0
   for ( let i = 0; i < wordsArr.length; i++){ 
-    sum4 += wordsArr[i].length
+    sum4 += wordsArr[i].length //se suma el largo del string
   }
-  const averageWords = sum4/wordsArr.length
+  const averageWords = sum4/wordsArr.length 
   return averageWords
 }
 
@@ -107,7 +107,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0){
+    return null;
+} let unifiedArray = []; //me va a devolver un array
+  wordsUnique.forEach(function(singleWord){ //para cada uno de los elementos hacer esa funcion
+    if (!unifiedArray.includes(singleWord)){ //si no(el elemento nuevo está incluido )
+    unifiedArray.push(singleWord)} //añadir el elemento
+  })
+  return unifiedArray
+}
 
 
 
