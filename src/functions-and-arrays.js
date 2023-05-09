@@ -123,15 +123,13 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 /*const searchWord = prompt('escribe la palabra a buscar')*/
-let searchWord = ''
-function doesWordExist(wordsFind, searchWord) {
+let searchWord = '' //el segundo parametro de la matriz que va a ser la palabra que busque
+function doesWordExist(wordsFind, searchWord) { //funcion con dos parametros: un array y un string
   if (wordsFind.length === 0){
     return null;
-}
-for ( let i = 0; i < wordsFind.length; i++){ 
-     if (wordsFind.includes(searchWord)){
+} else if (wordsFind.includes(searchWord)){ //si el string está inclluido en el array es true
      return true}
-}return false
+return false
 }
 
 
@@ -152,8 +150,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
-function howManyTimes() {}
+let toCount = '' //defino que quiero contar algo
+function howManyTimes(wordsCount, toCount) { //dos parametros para utilizar la funcion
+  if (wordsCount.length === 0){
+    return 0;
+}let count = 0 //el contador empieza en 0
+for ( let i = 0; i < wordsCount.length; i++){ 
+  if (wordsCount[i] === toCount){ //si la palabra del array en [i] coincide con lo que quiero contar
+    count++; //suma 1
+  }
+}return count
+}
 
 
 
