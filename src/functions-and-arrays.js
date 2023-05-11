@@ -5,7 +5,7 @@ function maxOfTwoNumbers(a, b) {
   } else if (b > a) return `${b} is the biggest of the two numbers`;
   else return `${a} and ${b} are equal`;
 }
-console.log(maxOfTwoNumbers(2343545, 2347823));
+console.log(maxOfTwoNumbers(2348545, 2347823));
 
 // Iteration #2: Find longest word
 const words = [
@@ -18,12 +18,29 @@ const words = [
   "crackpot",
 ];
 
-function findLongestWord(wordsArray) {}
+function findLongestWord(arr) {
+  if (arr.length === 0) return null;
 
+  let longestWord = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
+console.log(findLongestWord(words));
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers() {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
+console.log(sumNumbers());
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -32,7 +49,13 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -48,7 +71,13 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].length;
+  }
+  return sum / arr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
