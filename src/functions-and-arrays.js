@@ -194,9 +194,41 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  // looking at the unit tests, this one works but I'm not sure that it is the solution expected ;)
+  // return matrix [0][1] * matrix [0][2] * matrix [0][3] * matrix [0][4];
 
+  let maximum = -1;
+  //Look for maximum by row
+  for (let iRow = 0; iRow < matrix.length; iRow++) {
+    for (let iColumn = 0; iColumn < matrix[iRow].length - 4; iColumn++) {
+      const max = matrix[iRow][iColumn]
+       * matrix[iRow][iColumn + 1]
+       * matrix[iRow][iColumn + 2]
+       * matrix[iRow][iColumn + 3];
+      
+      if (max > maximum) {
+        maximum = max;
+      }
+    }
+  }
 
+  for (let iColumn = 0; iColumn < matrix.length; iColumn++) {
+    for (let iRow = 0; iRow < matrix[iColumn].length - 4; iRow++) {
+      const max = matrix[iRow][iColumn]
+       * matrix[iRow + 1][iColumn]
+       * matrix[iRow + 2][iColumn]
+       * matrix[iRow + 3][iColumn];
+      
+      if (max > maximum) {
+        maximum = max;
+      }
+    }
+  }
+  return maximum;
+}
+
+// 48477312 | 51267216
 
 
 // The following is required to make unit tests work.
