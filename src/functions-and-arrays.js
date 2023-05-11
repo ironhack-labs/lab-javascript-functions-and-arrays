@@ -174,7 +174,19 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.length != 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr.includes(word)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -191,7 +203,19 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else if (arr.length != 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === word) {
+        count++;
+      }
+    }
+    return count;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -259,7 +283,22 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  //incomplete
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length - 3; j++) {
+      if (
+        arr[i][j] === arr[i][j + 1] &&
+        arr[i][j] === arr[i][j + 2] &&
+        arr[i][j] === arr[i][j + 3]
+      ) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
