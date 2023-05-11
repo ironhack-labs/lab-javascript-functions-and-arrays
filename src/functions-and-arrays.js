@@ -179,7 +179,7 @@ const wordsUnique = [
   'bring'
 ];
 
-uniquifyArray(wordsUnique);
+uniquifyArray(wordsUnique, 'playground');
 
 function uniquifyArray(arrs){
 
@@ -204,13 +204,21 @@ function uniquifyArray(arrs){
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {
-  if (numbers.length === 0) {
+function doesWordExist(wordsUse, wordSearch) {
+  if (wordsUse.length === 0) {
     return null;
   }
+
   
+  for(let i = 0 ; i < wordsUse.length ; i++){
+    if(wordsUse[i] === wordSearch){
+    return  true;    
+    }
+}
+   return  false; 
 }
 
+doesWordExist(wordsFind, 'starting');
 
 
 // Iteration #7: Count repetition
@@ -228,13 +236,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {
-  if (numbers.length === 0) {
+function howManyTimes(wordsUse, wordSearch) {
+  if (wordsUse.length === 0) {
     return 0;
   }
 
-}
+  let count = 0;
 
+  for (let i = 0; i < wordsUse.length; i++) {
+    if (wordsUse[i] === wordSearch) {
+      count++;
+    }
+  }
+
+  return count;
+}
+howManyTimes(wordsCount, 'matter');
 
 
 // Iteration #8: Bonus
