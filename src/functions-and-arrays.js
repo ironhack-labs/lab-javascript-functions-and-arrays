@@ -283,6 +283,45 @@ function greatestProduct(matrixParam) {
 
 }
 
+// Iteration #8: Bonus // 8.2 NOT IN JASMINE SPECS NOR UNIT TESTS
+// NOT TESTED
+// returns the greatest product of any four values laid out diagonally, in either direction.
+function greatestProductOfDiagonals(matrixParam) {
+  let max = 0;
+  let rowMax = 0 // i
+  let colMax = 0 // j
+
+  for (let i = 0; i < matrixParam.length - 3; i++) {
+    for (let j = 0; j < matrixParam[i].length; j++) {
+      const product = matrixParam[i+0][j+0]
+                    * matrixParam[i+1][j+1]
+                    * matrixParam[i+2][j+2]
+                    * matrixParam[i+3][j+3]
+      if (product > max) {
+        max = product;
+        rowMax = i
+        colMax = j
+      }
+    }
+  }
+
+  // loop again in the other direction
+  for (let i = 0; i < matrixParam.length - 3; i++) {
+    for (let j = 0; j < matrixParam[i].length; j++) {
+      const product = matrixParam[i+0][j+3]
+                    * matrixParam[i+1][j+2]
+                    * matrixParam[i+2][j+1]
+                    * matrixParam[i+3][j+0]
+      if (product > max) {
+        max = product;
+        rowMax = i
+        colMax = j
+      }
+    }
+  }
+
+  return max
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
