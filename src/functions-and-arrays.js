@@ -3,9 +3,6 @@ function maxOfTwoNumbers(num1, num2) {
   return Math.max(num1, num2);
 }
 
-const maximum = maxOfTwoNumbers(10, 20);
-console.log(maximum);
-
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -137,8 +134,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(inputArray, countWord) {
 
+  let sum = 0;
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === countWord) {
+      sum += 1;
+    }
+  }
+  return sum;
+}
 
 
 // Iteration #8: Bonus
@@ -165,7 +170,42 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(bigArray) {
+  let maxProduct = 0;
+
+  // Find the greatest product of four adjacent numbers horizontally
+  for (let i = 0; i < bigArray.length; i++) {
+    for (let j = 0; j < bigArray[i].length - 3; j++) {
+      let product =
+        bigArray[i][j] *
+        bigArray[i][j + 1] *
+        bigArray[i][j + 2] *
+        bigArray[i][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Find the greatest product of four adjacent numbers vertically
+  for (let i = 0; i < bigArray.length - 3; i++) {
+    for (let j = 0; j < bigArray[i].length; j++) {
+      let product =
+        bigArray[i][j] *
+        bigArray[i + 1][j] *
+        bigArray[i + 2][j] *
+        bigArray[i + 3][j];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  return maxProduct;
+}
+
+const result = greatestProduct(matrix);
+console.log(result);
 
 
 
