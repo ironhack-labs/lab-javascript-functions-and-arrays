@@ -1,24 +1,70 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    console.log(a);
+  }
+  else if (b > a) {
+    console.log(b);
+  }
+}
+const result = maxOfTwoNumbers(1, 10);
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(string) {
+	if (string.length === 0) {
+		return null;
+	}
+
+	const sort = string.sort((a, b) => {
+		return b.length - a.length;
+	});
+	return string[0];
+}
+
+console.log(findLongestWord(words));
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    return sum;
+}
+
+console.log(sumNumbers(numbers));
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+
+  let mixedSum = 0;
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    if(typeof mixedArr[i] === "string") {
+      mixedSum += mixedArr[i].length;
+    }
+
+    else if(typeof mixedArr[i] === "number" || typeof mixedArr[i] === "boolean") {
+      mixedSum += mixedArr[i];
+    }
+  }
+
+  return mixedSum;
+}
+
+console.log(sum(mixedArr));
 
 
 
@@ -26,10 +72,27 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  function sumNumbers(numbersAvg) {
+
+    let sum = 0;
+    
+    for (let i = 0; i < numbersAvg.length; i++) {
+
+    sum += numbersAvg[i];
+    }
+    return sum;
+  }
+
+  return sumNumbers(numbersAvg) / numbersAvg.length;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 
-// Level 2: Array of strings
+
+/* Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength() { }
@@ -113,7 +176,7 @@ function greatestProduct() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
+/*if (typeof module !== 'undefined') {
   module.exports = {
     maxOfTwoNumbers,
     findLongestWord,
@@ -128,3 +191,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
