@@ -193,7 +193,7 @@ function howManyTimes(wordsParam, wordSearch) {
   }
 }
 
-// Iteration #8: Bonus
+// Iteration #8: Bonus // 8.1
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -217,7 +217,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrixParam) {
+function greatestProduct2(matrixParam) {
   let temp = []
   matrixParam.forEach(row => {
     if (howManyTimes(row, 1) == row.length) // row of 1s
@@ -229,6 +229,58 @@ function greatestProduct(matrixParam) {
     return 1
   if (howManyTimes(temp, 2) == temp.length && temp.length == matrixParam.length) // temp of 2s
     return 16
+}
+
+// was looking only at the jasmine specs:
+// should return 1 (one) when all numbers of the arrays are 1 (unit test with a 20x20 matrix of 1)
+// should return 16 when all the numbers of the arrays are 2 (unit test with a 20x20 matrix of 2)
+// i missed the spirit of the exercise! : find the greatest product of four adjacent numbers in a column
+
+function greatestProduct(matrixParam) {
+  let max = 0;
+  let rowMax = 0 // i
+  let colMax = 0 // j
+  for (let i = 0; i < matrixParam.length - 3; i++) {
+    for (let j = 0; j < matrixParam[i].length; j++) {
+      const product = matrixParam[i + 0][j]
+                    * matrixParam[i + 1][j]
+                    * matrixParam[i + 2][j]
+                    * matrixParam[i + 3][j]
+      if (product > max) {
+        max = product;
+        rowMax = i
+        colMax = j
+      }
+    }
+  }
+
+  return max
+  // 51267216
+
+  /*
+  return {
+    'max': max,
+    'rowMax': rowMax, 
+    'colMax': colMax, 
+    'matrix': [
+      matrixParam[rowMax+0][colMax], 
+      matrixParam[rowMax+1][colMax], 
+      matrixParam[rowMax+2][colMax], 
+      matrixParam[rowMax+3][colMax]
+    ]
+  }
+  */
+  // returns:
+  // {max: 51267216, rowMax: 6, colMax: 15, matrix: Array[4]}
+  //   max: 51267216
+  //   rowMax: 6
+  //   colMax: 15
+  //   matrix: Array[4]
+  //     0: 66
+  //     1: 91
+  //     2: 88
+  //     3: 97
+
 }
 
 
