@@ -36,7 +36,7 @@ let sum = 0
 
 for (let i = 0; i < arrOfNum.length; i++) {
   let calcNums = arrOfNum[i];
-  sum += arrOfNum[i]
+  sum += arrOfNum[i];
 }
 
 return sum
@@ -47,7 +47,25 @@ console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(anyMixedArr) {
+
+  let sumOfLength = 0
+
+  for (let i =0; i<anyMixedArr.length; i++) {
+    if (typeof anyMixedArr[i] === "number") {
+      sumOfLength += anyMixedArr[i];
+    }
+    else {
+      sumOfLength += anyMixedArr[i].length;
+    }  
+  }
+
+return sumOfLength
+}
+
+console.log(sum(mixedArr));
 
 
 
@@ -55,7 +73,21 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(anyAverarageNum) {
+  if (!anyAverarageNum.length){
+    return null
+  };
+  let sumArr = 0
+  
+  for (let i = 0; i < anyAverarageNum.length; i++) {
+    sumArr += anyAverarageNum[i];     
+  }
+
+return sumArr / anyAverarageNum.length;
+}
+
+console.log(averageNumbers(numbersAvg));
+
 
 
 // Level 2: Array of strings
@@ -63,8 +95,12 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength() { }
 
+
+
 // Bonus - Iteration #4.1
 function avg() {}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
