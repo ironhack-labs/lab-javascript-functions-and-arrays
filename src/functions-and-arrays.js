@@ -17,39 +17,100 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 
 function findLongestWord(words){
+  let hugeWord = "";
+  let hugeWordLength = -1;
 
   if (words.length === 0) {
     return null;
   }
-  let hugeWord = words[0];
+
 
   words.forEach(function(word){
 
-    if(word.length > hugeWord.length){
-      hugeWord += word
-      console.log(hugeWord)
+    if(word.length > hugeWordLength){
+      hugeWordLength = word.length;
+      hugeWord = word;
+
     }
   });
 
   return hugeWord
 }
-
 findLongestWord(words)
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-let summ = 0;
-function sumNumbers(number3) {
- 
+
+function sumNumbers(numbers) {
+
+  let sum = 0;
+   numbers.forEach(function(value){
+     sum +=  value;
+   }); 
   
+    return sum;
+  }
+/*
+
+function sumNumbers(numbers) {
+
+let sum = 0;
+
+ for(let i = 0 ; i < numbers.length ; i++){
+   
+  sum +=  numbers[i];
+
+ }
+  return sum
 }
+const result = sumNumbers(numbers);
+console.log(result);
+
+}*/
 
 sumNumbers(numbers)
 
 
 // Iteration #3.1 Bonus:
-// function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+  
+function sum(words) {
+let wordsLength = 0;
+
+  if (words.length === 0) {
+    return 0;
+  }
+
+  for(let i = 0; i < words.length ; i++){
+
+    if(typeof words[i] === 'number'){
+      
+      wordsLength += words[i]
+
+    }else if(typeof words[i] === true){
+      
+      wordsLength++
+    }else if(typeof words[i] === false){
+
+      continue
+
+    } else if(typeof words[i] === 'string') {
+      
+      wordsLength += words[i].length;
+      
+    } else if(typeof words[i] === 'object'){
+
+      throw new Error("Unsupported data type sir or ma'am");
+     }
+  }
+
+  console.log(wordsLength);
+  
+  return wordsLength
+ }
+ sum(mixedArr);
 
 
 
@@ -57,16 +118,51 @@ sumNumbers(numbers)
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  
+  if (numbers.length === 0) {
+    return null;
+  }
+  return sumNumbers(numbers) / numbers.length ;
+}
 
+const result = averageNumbers(numbersAvg);
+console.log(result)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  let wordsLength = 0;
+  let averageWords = 0;
+
+  if (words.length === 0) {
+    return null;
+  }
+
+  for(let i = 0; i < words.length ; i++){
+    wordsLength += words[i].length;
+  }
+  averageWords = wordsLength / words.length
+  return averageWords
+ }
+
+const result4 = averageWordLength(wordsArr);
+console.log(result4)
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(numbers) {
+
+  if (numbers.length === 0) {
+    return null;
+  }
+
+  return sum(numbers) / numbers.length;
+
+}
+avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -83,14 +179,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+uniquifyArray(wordsUnique);
 
+function uniquifyArray(arrs){
+
+  
+
+  if (arrs.length === 0) {
+    return null;
+  }
+
+  let newArrs = [];
+  let i = 0;
+  arrs.forEach(Element => {
+    if(!arrs.indexOf(Element) == i)
+    newArrs.unshift(Element)
+    i++
+  });
+
+  return newArrs
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist() {
+  if (numbers.length === 0) {
+    return null;
+  }
+  
+}
 
 
 
@@ -109,7 +228,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes() {
+  if (numbers.length === 0) {
+    return 0;
+  }
+
+}
 
 
 
@@ -137,7 +261,12 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+  if (numbers.length === 0) {
+    return null;
+  }
+
+}
 
 
 
