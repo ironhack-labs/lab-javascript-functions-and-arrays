@@ -35,7 +35,31 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  let sum = 0;
+  for(let value of arr) {
+    switch(typeof value) {
+      case "number":
+        sum += value;
+        break;
+      case "boolean":
+          if (value) { sum++; }
+          break;
+      case "string":
+        sum+=value.length;
+        break;
+      case "object":
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+  }
+
+  // console.log()
+  return sum;
+}
 
 
 
@@ -58,11 +82,18 @@ function averageWordLength(wordsArr) {
   if (wordsArr.length === 0) {
     return null;
   }
+
   return sumNumbers(wordsArr.map(e => e.length)) / wordsArr.length;
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  
+  return sum(arr) / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
