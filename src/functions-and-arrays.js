@@ -123,7 +123,15 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  //doesn't work
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.length != 0) {
+    const sum = sumNumbers(arr);
+    return sum / arr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -140,7 +148,19 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  const uniqueWords = [];
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.length != 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (uniqueWords.includes(arr[i]) === false) {
+        uniqueWords.push(arr[i]);
+      }
+    }
+    return uniqueWords;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
