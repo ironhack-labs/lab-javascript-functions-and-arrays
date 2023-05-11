@@ -90,17 +90,16 @@ function averageNumbers(array) {
   for (let i = 0; i < array.length; i++) {
      sum += array[i];
    
-  } return sum/array[i]
+  }  if (sum < 0){
+    return sum / array.length
+  }
+ 
+  else {
+    return sum / array.length
+  }
 
+  
 }
-
-
-
-
-
-
-
-
 
 
 // Level 2: Array of strings
@@ -118,16 +117,24 @@ const wordsArr = [
 ];
 
 function averageWordLength(myArray) {
-  if (myArray.length === 0) {
+   if (myArray.length === 0) {
       return null
+
     } else if (myArray.length === 1) {
       return myArray[0]
-    } else {
+    } 
+    let sum = 0
+  for (let i = 0; i < myArray.length; i++) {
+     sum += myrray[i];
+   
+  } 
+    
+     else {
       let sum = 0
       for (let i = 0; i < myArray.length; i++) {
          sum += myArray[i];
        
-      } return sum/myArray[i]
+      } return sum/myArray.length
 
     }
     
