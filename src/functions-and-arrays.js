@@ -125,7 +125,14 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  
+  if(wordsFind.length === 0){
+    return null;
+  } else {
+    return wordsFind.includes(word);
+  }
+}
 
 
 
@@ -144,7 +151,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+
+  let timesWord = 0;
+  for(let i=0; i<wordsCount.length; i++){
+    if(wordsCount[i] === word){
+      timesWord++;
+    } else{}
+  }
+  return timesWord;
+}
 
 
 
