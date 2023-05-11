@@ -14,11 +14,8 @@ function findLongestWord(anyWord) {
   let longestWord = [];
 
   for (let i = 0; i < anyWord.length; i++) {
-    if (anyWord.length === 0) {
-      console.log('null');
-    }
-    else if (anyWord[i].length > longestWord.length) {
-      longestWord = anyWord[i];
+    if (anyWord[i].length > longestWord.length) {
+        longestWord = anyWord[i];
     }  
   }
   return longestWord;
@@ -77,6 +74,7 @@ function averageNumbers(anyAverarageNum) {
   if (!anyAverarageNum.length){
     return null
   };
+
   let sumArr = 0
   
   for (let i = 0; i < anyAverarageNum.length; i++) {
@@ -93,8 +91,22 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(anyAverageString) { 
 
+  if (!anyAverageString.length){
+  return null
+  };
+
+  let sumArrString = 0
+
+  for (let i = 0; i < anyAverageString[i].length; i++) {
+    sumArr = anyAverageString[i].length;     
+  }
+
+  return sumArrString / anyAverageString.length;
+}
+
+console.log(averageWordLength(wordsArr));
 
 
 // Bonus - Iteration #4.1
