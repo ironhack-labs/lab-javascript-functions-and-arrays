@@ -23,6 +23,10 @@ const words = [
 function findLongestWord(myArray) {
   let longestWord = "";
 
+  if (myArray.length === 0) {
+    return null;
+  }
+
   myArray.forEach(function (word) {
     if (word.length > longestWord.length) {
       longestWord = word;
