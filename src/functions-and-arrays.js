@@ -99,11 +99,7 @@ function averageWordLength(wordsArr) {
   let sumLetters = 0;
 
   for (let i = 0; i < wordsArr.length; i++){
-    let wordInArr = wordsArr[i];
-    
-    if (wordInArr){
-      sumLetters++
-    }
+     sumLetters += wordsArr[i].length;
   }
 
   return sumLetters / wordsArr.length;
@@ -154,12 +150,15 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+
 function doesWordExist(wordsFind, typeWord) {
+
   if (wordsFind.length === 0){
     return null;
   }
 
   for (let i = 0; i < wordsFind.length; i++){
+
     let currentWord = wordsFind[i];
 
     /*if (typeWord === currentWord){
