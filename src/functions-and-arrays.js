@@ -63,7 +63,9 @@ function averageNumbers(avg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {
+function averageWordLength(wordAvg) {
+
+  if (wordAvg.length === 0) return null;
   
 }
 
@@ -85,14 +87,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqArr) {
+
+  if (uniqArr.length === 0) return null;
+
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordExist) {
+
+  if (wordExist.length === 0) return null;
+
+}
 
 
 
