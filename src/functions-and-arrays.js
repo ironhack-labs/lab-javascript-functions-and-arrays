@@ -66,8 +66,14 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(wordAvg) {
 
   if (wordAvg.length === 0) return null;
-  
+
+  let avgArray = 0;
+  wordAvg.forEach(function(word){
+    avgArray += word.length;
+  });
+  return avgArray / wordAvg.length;
 }
+
 
 // Bonus - Iteration #4.1
 function avg() {}
