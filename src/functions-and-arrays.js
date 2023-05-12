@@ -157,12 +157,10 @@ for (let i = 0; i < array.length; i++) {
       count++;
       break;
     }
-    count = 
-  }
+    return count;
 }
-return count;
 }
-
+}
 
 
 
