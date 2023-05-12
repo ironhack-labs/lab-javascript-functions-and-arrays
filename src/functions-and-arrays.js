@@ -82,19 +82,13 @@ let wordsLength = 0;
   if (words.length === 0) {
     return 0;
   }
+  let bool = true;
 
   for(let i = 0; i < words.length ; i++){
 
-    if(typeof words[i] === 'number'){
+    if(typeof words[i] === 'number' || typeof words[i] === 'boolean'){
       
       wordsLength += words[i]
-
-    }else if(typeof words[i] === true){
-      
-      wordsLength++
-    }else if(typeof words[i] === false){
-
-      continue
 
     } else if(typeof words[i] === 'string') {
       
@@ -190,13 +184,16 @@ function uniquifyArray(arrs){
   }
 
   let newArrs = [];
-  let i = 0;
-  arrs.forEach(Element => {
-    if(!arrs.indexOf(Element) == i)
-    newArrs.unshift(Element)
-    i++
-  });
+  let i = 0
+  for(let element of arrs){
+    if(!arrs.includes(element) == i){
+    newArrs.unshift(element);
+      i++
 
+  }else if (newArrs.includes(element)){
+    continue
+  };
+}
   return newArrs
 }
 
@@ -212,9 +209,10 @@ function doesWordExist(wordsUse, wordSearch) {
   
   for(let i = 0 ; i < wordsUse.length ; i++){
     if(wordsUse[i] === wordSearch){
+
     return  true;    
     }
-}
+ }
    return  false; 
 }
 
