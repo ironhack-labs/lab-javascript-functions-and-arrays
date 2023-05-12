@@ -192,7 +192,10 @@ function uniquifyArray(arrs){
 
   }else if (newArrs.includes(element)){
     continue
-  };
+    
+  } else if (arrs.includes(element)){
+      return arrs
+  }
 }
   return newArrs
 }
