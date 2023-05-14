@@ -1,24 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 < num2) {
+    return num2;
+  }
+  return num1;
+}
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let longestWord = "";
+  wordsArr.forEach(function(word) {
+    if(word.length > longestWord.length) {
+      longestWord = word;
+    }
+  })
+  return longestWord;
+
+}
+
+   
+
+
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers (numbers) {
+if (numbers.length === 0){
+  return 0}
+  let sum = 0;
+  for(let i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }
+   return sum;
+}
 
-
+console.log(sumNumbers([1, 2, 3, 4]));
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  arr.forEach(function(element) {
+    if(typeof element === 'string') {
+      sum += element.length;
+    } else if (typeof element === 'number') {
+      sum += element;
+    } else if (typeof element === 'boolean') {
+      if(element) {
+        sum++;
+      }
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  })
+  return sum;
+
+
+}
 
 
 
@@ -26,13 +79,38 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numArr) {
+  if (numArr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  numArr.forEach(function(num) {
+    sum += num;
+  });
+  return sum / numArr.length;
+
+
+}
+
+
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let lengthSum = 0;
+  wordsArr.forEach(function(word) {
+    lengthSum += word.length;
+  })
+  return lengthSum / wordsArr.length;
+
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +130,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  const uniquifiedArr = [];
+  wordsUnique.forEach(function(word) {
+    if (!uniquifiedArr.includes(word)) {
+      uniquifiedArr.push(word);
+    }
+  });
+  return uniquifiedArr;
+
+
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArr, word) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  return wordsArr.includes(word);
+}
+
+
 
 
 
@@ -78,7 +178,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArr, wordToFind) {
+
+  if (wordsArr.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  wordsArr.forEach(function(word) {
+    if (word === wordToFind) {
+      count++;
+    }
+  })
+  return count;
+
+
+}
 
 
 
@@ -106,7 +220,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+
+  let max = 0;
+  let product = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    let row = matrix[i];
+    for (let j = 0; j < row.length; j++) {
+      if (j < row.length - 3) {
+        product = row[j] * row[j + 1] * row[j + 2] * row[j + 3];
+        if (product > max) {
+          max = product;
+        }
+      }
+      if (i < matrix.length - 3) {
+        product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (product > max) {
+          max = product;
+        }
+      }
+    }
+  }
+  return max;
+
+
+}
 
 
 
