@@ -15,9 +15,13 @@ const words = [
 ];
 
 function findLongestWord(array) {
+  if (array.length == 0) {
+    return null;
+  }
+
   let longest = "";
 
-  words.forEach((word) => {
+  array.forEach((word) => {
     if (word.length > longest.length) {
       longest = word;
     }
@@ -30,6 +34,10 @@ function findLongestWord(array) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
+  if (arr.length == 0) {
+    return 0;
+  }
+
   total = 0;
 
   arr.forEach((e) => {
@@ -41,8 +49,28 @@ function sumNumbers(arr) {
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
-  total = arr.reduce((acc, curr) => {
-    return acc + curr;
+  if (arr.length == 0) {
+    return 0;
+  }
+
+  let total = 0;
+
+  arr.forEach((element) => {
+    if (element === true) {
+      total++;
+    }
+
+    if (typeof element == "number") {
+      total += element;
+    }
+
+    if (typeof element == "string") {
+      total += element.length;
+    }
+
+    if (typeof element == "object") {
+      throw new Error("invalid data type!");
+    }
   });
 
   return total;
@@ -53,6 +81,10 @@ function sum(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   total = arr.reduce((acc, curr) => {
     return acc + curr;
   });
@@ -75,6 +107,10 @@ const wordsArr = [
 ];
 
 function averageWordLength(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   let letterCount = 0;
 
   arr.forEach((word) => {
@@ -86,6 +122,10 @@ function averageWordLength(arr) {
 
 // Bonus - Iteration #4.3
 function avg(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   let total = 0;
 
   arr.forEach((e) => {
@@ -121,6 +161,10 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   let uniqueWords = 0;
   let wordsCounted = [];
 
@@ -131,7 +175,7 @@ function uniquifyArray(arr) {
     }
   });
 
-  return uniqueWords;
+  return uniqueWords == arr.length ? arr : wordsCounted;
 }
 
 // Iteration #6: Find elements
@@ -147,6 +191,10 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word) {
+  if (arr.length == 0) {
+    return null;
+  }
+
   if (arr.indexOf(word) != -1) {
     return true;
   } else {
@@ -169,7 +217,11 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  return arr.filter((element) => {
+    return element == word;
+  }).length;
+}
 
 // Iteration #8: Bonus
 const matrix = [
