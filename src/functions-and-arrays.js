@@ -306,8 +306,8 @@ function greatestProduct(arr) {
 
   let indexesOfGreatest = [];
 
-  for (let i = 0; i < arr.length - 3; i++) {
-    for (let j = 0; j < arr[i].length - 3; j++) {
+  for (let i = 0; i < arr.length - 4; i++) {
+    for (let j = 0; j < arr[i].length - 4; j++) {
       let vertical = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
       let horizontal =
         arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
