@@ -18,21 +18,83 @@ const words = [
   "crackpot"
 ];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  // if (words.length === 1) {
+  //   return words[0];
+  // }
+  const wordLengths = {};
+  let length_array = [];
+  for (let i = 0; i < words.length; i++) {
+    wordLengths[words[i]] = words[i].length;
+  }
+  for (let key in wordLengths) {
+    let length = wordLengths[key];
+    length_array.push(length);
+  }
+  // return length_array
+  let max = Math.max(...length_array);
+  let longestWord = Object.keys(wordLengths).find(
+    (key) => wordLengths[key] === max
+  );
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return sum;
+  } else if (array.length === 1) {
+    return (sum += array[0]);
+  }
+  for (let i = 0; i < array.length; i++) {
+    let currentNumber = array[i];
+    sum += currentNumber;
+  }
+  return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return sum;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number") {
+      sum += array[i];
+    } else if (typeof array[i] === "string") {
+      let length = array[i].length;
+      sum += length;
+    } else if (typeof array[i] === "boolean" && array[i] === true) {
+      sum += 1;
+    } else if (typeof array[i] === "boolean" && array[i] === true) {
+      sum += 0;
+    } else if (typeof array[i] === "object" || typeof array[i] === "array") {
+      throw new Error("Objects and Arrays not allowed");
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let sum = 0;
+  if (array.length === 0) return null;
+  for (let i = 0; i < array.length; i++) {
+    let currentNum = array[i];
+    sum += currentNum;
+  }
+  return sum / array.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -48,7 +110,15 @@ const wordsArr = [
   "palace"
 ];
 
-function averageWordLength() {}
+function averageWordLength(array) {
+  let totalLengthOfWord = 0;
+  array.forEach((word) => {
+    let length = word.length;
+    totalLengthOfWord += length;
+  });
+  let arrayLength = array.length;
+  return totalLengthOfWord / arrayLength;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
