@@ -45,7 +45,26 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(arr) {
+  let totalSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      totalSum += arr[i];
+    } else if (typeof arr[i] === "boolean") {
+      totalSum += arr[i] ? 1 : 0;
+    } else if (typeof arr[i] === "string") {
+      totalSum += arr[i].length;
+    } else if (typeof arr[i] === "object") {
+      throw new Error(`Unsupported data type sir or ma'am`);
+    }
+  }
+
+  return totalSum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -74,8 +93,8 @@ const wordsArr = [
   "palace",
 ];
 
-let sumOfLength = 0;
 function averageWordLength(arr) {
+  let sumOfLength = 0;
   if (arr.length < 1) {
     return null;
   }
@@ -85,8 +104,36 @@ function averageWordLength(arr) {
   return sumOfLength / arr.length;
 }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.
+const mixedArr2 = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+// should return: 5.7
+
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      sum += arr[i];
+      count++;
+    } else if (typeof arr[i] === "boolean") {
+      sum += arr[i] ? 1 : 0;
+      count++;
+    } else if (typeof arr[i] === "string") {
+      sum += arr[i].length;
+      count++;
+    }
+  }
+
+  if (count === 0) {
+    return 0;
+  }
+
+  return sum / count;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -103,10 +150,19 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray(arr) {
-  if (arr.length < 1) {
+function uniquifyArray(wordList) {
+  if (wordList.length === 0) {
     return null;
   }
+  const uniqueArray = [];
+
+  for (let i = 0; i < wordList.length; i++) {
+    if (!uniqueArray.includes(wordList[i])) {
+      uniqueArray.push(wordList[i]);
+    }
+  }
+
+  return uniqueArray;
 }
 
 // Iteration #6: Find elements
@@ -121,17 +177,16 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist(arr, wantedWord) {
-  if (arr.length < 1) {
+function doesWordExist(wordList, searchWord) {
+  if (wordList.length === 0) {
     return null;
   }
-  for (let i = 0; i < arr.length; i++) {
-    if (wantedWord === arr[i]) {
+  for (let i = 0; i < wordList.length; i++) {
+    if (wordList[i] === searchWord) {
       return true;
-    } else {
-      return false;
     }
   }
+  return false;
 }
 
 // Iteration #7: Count repetition
