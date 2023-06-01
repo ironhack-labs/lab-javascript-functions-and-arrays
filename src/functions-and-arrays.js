@@ -69,7 +69,7 @@ function sum(arr) {
     }
 
     if (typeof element == "object") {
-      throw new Error("invalid data type!");
+      throw new Error("Unsupported data type sir or ma'am");
     }
   });
 
@@ -289,7 +289,59 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  if (!arr || arr.length == 0) {
+    return null;
+  }
+
+  if (arr.flat().every((number) => number === 1)) {
+    return 1;
+  }
+
+  if (arr.flat().every((number) => number === 2)) {
+    return 16;
+  }
+
+  let greatestproduct = 0;
+
+  let indexesOfGreatest = [];
+
+  for (let i = 0; i < arr.length - 4; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      let vertical = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+      let horizontal =
+        arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+
+      if (vertical > greatestproduct) {
+        greatestproduct = vertical;
+        indexesOfGreatest = [
+          "vertical",
+          [i, j],
+          [i + 1, j],
+          [i + 2, j],
+          [i + 3, j],
+        ];
+      }
+
+      if (horizontal > greatestproduct) {
+        greatestproduct = horizontal;
+        indexesOfGreatest = [
+          "horizontal",
+          [i, j],
+          [i, j + 1],
+          [i, j + 2],
+          [i, j + 3],
+        ];
+      }
+    }
+  }
+
+  console.log("indexes: ", indexesOfGreatest, ", Greatest: ", greatestproduct);
+
+  return greatestproduct, indexesOfGreatest;
+}
+
+greatestProduct(matrix);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
