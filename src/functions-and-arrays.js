@@ -20,7 +20,18 @@ const words = [
   "crackpot",
 ];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord = "";
+  if (words.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -78,12 +89,6 @@ function averageWordLength(arr) {
 function avg() {}
 
 // Iteration #5: Unique arrays
-function uniquifyArray(value, index, array) {
-  if (arr.length < 1) {
-    return null;
-  }
-  return array.indexOf(value) === index;
-}
 const wordsUnique = [
   "crab",
   "poison",
@@ -98,8 +103,11 @@ const wordsUnique = [
   "bring",
 ];
 
-const uniqueVals = wordsUnique.filter(uniquifyArray);
-uniqueVals;
+function uniquifyArray(arr) {
+  if (arr.length < 1) {
+    return null;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -113,7 +121,18 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, wantedWord) {
+  if (arr.length < 1) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (wantedWord === arr[i]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -130,7 +149,15 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordList, searchWord) {
+  let count = 0;
+  for (let i = 0; i < wordList.length; i++) {
+    if (wordList[i] === searchWord) {
+      count++;
+    }
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
