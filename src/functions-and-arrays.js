@@ -128,10 +128,6 @@ function avg(arr) {
     }
   }
 
-  if (count === 0) {
-    return 0;
-  }
-
   return sum / count;
 }
 
