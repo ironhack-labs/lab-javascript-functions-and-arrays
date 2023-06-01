@@ -111,6 +111,7 @@ const wordsArr = [
 ];
 
 function averageWordLength(array) {
+  if (array.length === 0) return null;
   let totalLengthOfWord = 0;
   array.forEach((word) => {
     let length = word.length;
@@ -121,7 +122,26 @@ function averageWordLength(array) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number") {
+      sum += array[i];
+    } else if (typeof array[i] === "string") {
+      let length = array[i].length;
+      sum += length;
+    } else if (typeof array[i] === "boolean" && array[i] === true) {
+      sum += 1;
+    } else if (typeof array[i] === "boolean" && array[i] === true) {
+      sum += 0;
+    }
+  }
+  let avg = sum / array.length;
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -138,7 +158,19 @@ const wordsUnique = [
   "bring"
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let uniqueList = [];
+  if (array.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < array.length; i++) {
+    let currentItem = array[i];
+    if (!uniqueList.includes(currentItem)) {
+      uniqueList.push(currentItem);
+    }
+  }
+  return uniqueList;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -152,7 +184,15 @@ const wordsFind = [
   "disobedience"
 ];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return null;
+  }
+  if (array.includes(word)) {
+    return true;
+  }
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -169,7 +209,18 @@ const wordsCount = [
   "matter"
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  let repetitions = 0;
+  if (array.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      repetitions += 1;
+    }
+  }
+  return repetitions;
+}
 
 // Iteration #8: Bonus
 const matrix = [
