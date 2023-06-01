@@ -82,8 +82,6 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
 
-  let average = 0;
-
 if (array.length == 0) {
   return null;
 }
@@ -108,7 +106,25 @@ else {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+
+  if (array.length == 0) {
+    return null;
+  }
+
+  else if (array.length === 1) {
+    return array[0].length;
+  }
+  else {
+    let sum = 0;
+
+    for (let i = 0; i < array.length; i++) {
+      sum += array[i].length;
+    }
+    const average = sum / array.length;
+    return average;
+  }
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -128,7 +144,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+
+  if (array.length == 0) {
+    return null;
+  }
+
+  else if (array.length === 1) {
+    return array[0].length;
+  }
+}
 
 
 
