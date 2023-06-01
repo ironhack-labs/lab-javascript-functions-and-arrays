@@ -114,17 +114,16 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word) {
-    if (arr.length === 0) {
-      return null;
-    }
-    if (arr.includes(word) === true) {
-      return true;
-    }
-    if (arr.includes(word) !== true) {
-      return false;
-    }
+  if (arr.length === 0) {
+    return null;
   }
-
+  if (arr.includes(word) === true) {
+    return true;
+  }
+  if (arr.includes(word) !== true) {
+    return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -142,11 +141,10 @@ const wordsCount = [
 ];
 
 function howManyTimes(arr, word) {
-   let numberOfWords = 0;
+  let numberOfWords = 0;
 
-   if (arr.length === 0)
-   return 0;
-   arr.forEach((item) => {
+  if (arr.length === 0) return 0;
+  arr.forEach((item) => {
     if (item.includes(word)) {
       numberOfWords++;
     }
@@ -240,4 +238,3 @@ if (typeof module !== "undefined") {
     greatestProduct,
   };
 }
-‚
