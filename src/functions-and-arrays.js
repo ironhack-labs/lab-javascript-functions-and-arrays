@@ -224,7 +224,14 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let greatest = 0;
+
+  let horizontal = 0;
+  let vertical = 0;
+  let diagonal = 0;
+  let inverseDiagonal = 0;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
