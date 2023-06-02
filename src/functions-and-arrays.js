@@ -1,54 +1,20 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers(num1, num2) {
-  if (num1 < num2) {
-    return num2;
-  } else if (num1 > num2) {
-    return num1;
-  } else { return num1;}
-}
-console.log(maxOfTwoNumbers( 8, 2));
+function maxOfTwoNumbers() {}
+
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(wordsArr) {
-  if (wordsArr.length === 0) {
-    return null;
-  }
-  if (wordsArr.length === 1) {
-    return wordsArr[0];
-  }
-  let bigWord = wordsArr[0];
-  for (let words of wordsArr) {
-    if (words.length > bigWord.length) {
-      bigWord = words;
-    }
-  }
-  return bigWord;
- }
-//este es el código que he intentado aplicar sin embargo no me aprueba el test. Por el momento
-
-
-
+function findLongestWord() {}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(arrayNum) {
+function sumNumbers() {}
 
-let result = 0;
-
-for (let i = 0; i < arrayNum.length; i++) {
-  let number = arrayNum[i];
-  result += number;
-  
-}
-return result;
-}
-console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
@@ -60,41 +26,13 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(arrNumb) {
- 
-  if ( arrNumb.length === 0) {
-    return null;
-  }
-
-  let avrg = sumNumbers(arrNumb)/arrNumb.length;
-  return avrg;
-
-
-
-}
+function averageNumbers() {}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(arrNumb) {
-  
-  let totalStr = 0;
-  
-  if (arrNumb.length === 0){
-    return null;
-
-   }
-  
-   for (let i = 0; i < arrNumb.length; i++) {
-    totalStr += arrNumb[i].length;
-    }
-
-    let avrg = totalStr / arrNumb.length;
-
-  return avrg 
- 
- }
+function averageWordLength() { }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -114,27 +52,7 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(words) {
-  
-  if (words.length === 0){
-    return null;
-  }
-  
-  
-  let unifiedArr = []
-  
-  
-  for (let i = 0; i < words.length; i++) {
-    
-     if( !unifiedArr.includes(words[i]) ){
-      unifiedArr.push(words[i]);
-    } 
-    
-  }
-  
- return unifiedArr;
-}
-
+function uniquifyArray() {}
 
 
 
