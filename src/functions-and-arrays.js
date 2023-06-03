@@ -41,9 +41,31 @@ function sumNumbers(numbersList) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedList) {
+  let sum = 0;
 
+  for (const element of mixedList) {
+    switch (true) {
+      case (element === true):
+        sum += 1;
+        break;
+      case (element === false):
+        sum += 0;
+        break;
+      case (typeof element === "string"):
+        sum += element.length;
+        break;
+      case (typeof element === "number"):
+        sum += element;
+        break;
+        case (typeof element === "object"):
+        throw new TypeError("Unsupported data type (object or array) present in the array");
+    }
 
+  }
+
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -78,26 +100,7 @@ function avg(mixedList) {
     return null;
   }
   
-  const filterdList = [];
-
-  for (const element of mixedList) {
-    switch (true) {
-      case (element === true):
-        filterdList.push(1);
-        break;
-      case (element === false):
-        filterdList.push(0);
-        break;
-      case (typeof element === "string"):
-        filterdList.push(element.length);
-        break;
-      case (typeof element === "number"):
-        filterdList.push(element)
-        break;
-    }
-  }
-
-  return averageNumbers(filterdList)
+  return sum(mixedList) / mixedList.length
 }
 
 // Iteration #5: Unique arrays
