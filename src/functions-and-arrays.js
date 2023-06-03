@@ -31,10 +31,6 @@ function findLongestWord(wordsList) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbersList) {
-  if (numbersList.length === 0) {
-    return 0;
-  }
-  
   let sum = 0;
 
   for (const number of numbersList) {
@@ -161,9 +157,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsList, searchWord) {
+  let count = 0;
 
+  for (const word of wordsList) {
+    if (word === searchWord) {
+      count++;
+    }
+  }
 
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
