@@ -60,28 +60,44 @@ function sumNumbers(array) {
 }
 
 // Iteration #3.1 Bonus:
-function sum(array) {
+// function sum(array) {
+//   let sum = 0;
+//   if (array.length === 0) {
+//     return sum;
+//   }
+//   for (let i = 0; i < array.length; i++) {
+//     if (typeof array[i] === "number") {
+//       sum += array[i];
+//     } else if (typeof array[i] === "string") {
+//       let length = array[i].length;
+//       sum += length;
+//     } else if (typeof array[i] === "boolean" && array[i] === true) {
+//       sum += 1;
+//     } else if (typeof array[i] === "boolean" && array[i] === false) {
+//       sum += 0;
+//     } else {
+//       throw new Error("error");
+//     }
+//   }
+//   return sum;
+// }
+const sum = (arr) => {
   let sum = 0;
-  if (array.length === 0) {
-    return sum;
-  }
-  for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === "number") {
-      sum += array[i];
-    } else if (typeof array[i] === "string") {
-      let length = array[i].length;
-      sum += length;
-    } else if (typeof array[i] === "boolean" && array[i] === true) {
-      sum += 1;
-    } else if (typeof array[i] === "boolean" && array[i] === true) {
-      sum += 0;
-    } else if (typeof array[i] === "object" || typeof array[i] === "array") {
-      throw new Error("Objects and Arrays not allowed");
+  for (let el of arr) {
+    switch (typeof el) {
+      case "number":
+      case "boolean":
+        sum += el;
+        break;
+      case "string":
+        sum += el.length;
+        break;
+      default:
+        throw new Error("Unsupported data type");
     }
   }
   return sum;
-}
-
+};
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -278,7 +294,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let maxProduct = 0;
+
+  // Iterate over rows
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols - 3; j++) {
+      const product =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  // Iterate over columns
+  for (let i = 0; i < rows - 3; i++) {
+    for (let j = 0; j < cols; j++) {
+      const product =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > maxProduct) {
+        maxProduct = product;
+      }
+    }
+  }
+
+  return maxProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
