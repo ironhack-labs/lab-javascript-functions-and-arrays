@@ -42,7 +42,8 @@ function sum(numbers) {
   for (const number of numbers) {
     switch (typeof number) {
       case "string":
-        sum += Number.isNaN(number) ? Number(number) : number.length;
+        // sum += !Number.isNaN(Number(number)) ? Number(number) : number.length;
+        sum += number.length;
         break;
       case "object":
       case "array":
@@ -82,10 +83,29 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(wordsArr) {
+  let sum = 0;
+  for (const word of wordsArr) {
+    sum += word.length;
+  }
+  const result = wordsArr.length > 0 ? sum / wordsArr.length : null;
+  return result;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixArrs) {
+  let sum = 0;
+  for (const mixArr of mixArrs) {
+    if (typeof mixArr === "string") {
+      // sum += !Number.isNaN(Number(mixArr)) ? Number(mixArr) : mixArr.length;
+      sum += mixArr.length;
+    } else {
+      sum += Number(mixArr);
+    }
+  }
+  const result = mixArrs.length > 0 ? sum / mixArrs.length : null;
+  return result;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -102,7 +122,19 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  // - Solution with Set
+  // const unifyWords = new Set(wordsUnique);
+  // return [...unifyWords].length > 0 ? [...unifyWords] : null
+
+  const unifyWords = [];
+  for (const word of wordsUnique) {
+    if(unifyWords.indexOf(word) === -1){
+      unifyWords.push(word);
+    }
+  }
+  return unifyWords.length > 0 ? unifyWords : null;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
