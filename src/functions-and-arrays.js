@@ -44,7 +44,23 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] === "number") {
+      sum += numbers[i];
+    } else if (typeof numbers[i] === "string") {
+      sum += numbers[i].length;
+    } else if (typeof numbers[i] === "boolean") {
+      sum += numbers[i];
+    } else {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -79,7 +95,12 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+  return sum(numbers) / numbers.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -231,8 +252,48 @@ function greatestProduct(matrix) {
   let vertical = 0;
   let diagonal = 0;
   let inverseDiagonal = 0;
-}
 
+  for (let ver = 0; ver < matrix.length - 3; ver++) {
+    for (let hor = 0; hor < matrix.length - 3; hor++) {
+      horizontal =
+        matrix[ver][hor] *
+        matrix[ver][hor + 1] *
+        matrix[ver][hor + 2] *
+        matrix[ver][hor + 3];
+      if (horizontal > greatest) {
+        greatest = horizontal;
+      }
+
+      vertical =
+        matrix[ver][hor] *
+        matrix[ver + 1][hor] *
+        matrix[ver + 2][hor] *
+        matrix[ver + 3][hor];
+      if (vertical > greatest) {
+        greatest = vertical;
+      }
+
+      diagonal =
+        matrix[ver][hor] *
+        matrix[ver + 1][hor + 1] *
+        matrix[ver + 2][hor + 2] *
+        matrix[ver + 3][hor + 3];
+      if (diagonal > greatest) {
+        greatest = diagonal;
+      }
+
+      inverseDiagonal =
+        matrix[ver][hor + 3] *
+        matrix[ver + 1][hor + 2] *
+        matrix[ver + 2][hor + 1] *
+        matrix[ver + 3][hor];
+      if (inverseDiagonal > greatest) {
+        greatest = inverseDiagonal;
+      }
+    }
+  }
+  return greatest;
+}
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== "undefined") {
