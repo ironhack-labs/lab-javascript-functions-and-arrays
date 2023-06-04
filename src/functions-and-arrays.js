@@ -44,8 +44,6 @@ function sumNumbers(array) {
   return total;
 }
 
-
-
 // Iteration #3.1 Bonus:
 function sum(array) {
   let total = 0;
@@ -75,15 +73,15 @@ function sum(array) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(array) {
-  let total = 0;
-  if ( array.length === 0 ) {
+
+  if (array.length === 0) {
     return null;
-  } else {
-    array.forEach(element => {
-      total += element
-    });
-  }
-  return total/array.length   
+  };
+
+  let sum = sumNumbers(array);
+
+  return sum / array.length;
+
 }
 
 
@@ -155,13 +153,24 @@ function uniquifyArray(array) {
 }
 return uniquifyArray
 }
+//console.log(uniquifyArray(wordsUnique))
  
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, search) {
+
+  if ( words.length === 0 ) {
+    return null;
+  } else if ( words.includes(search) ) {
+    return true;
+  } else {
+    return false;
+  }
+
+}
 
 
 
@@ -180,7 +189,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, search) {
+
+  let count = 0;
+  
+  if ( words.length === 0 ) {
+    return 0;
+  } else {
+    for ( let i = 0; i < words.length; i++){
+      const word = words[i];
+      if ( word === search ){
+        count++
+      }
+    }
+  } 
+  
+  return count;
+}
+console.log(howManyTimes(wordsCount, "matter"))
 
 
 
