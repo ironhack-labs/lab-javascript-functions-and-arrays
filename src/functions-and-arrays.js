@@ -50,7 +50,30 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  let countChar = 0;
+  let countNum = 0;
+  let countBol = 0;
+  
+  if (mixedArr.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < mixedArr.length; i++) {
+      let element = mixedArr[i];
+      if (typeof element === 'number') {
+        countNum += element;
+      } else if (typeof element === 'string') {
+        countChar += element.length;
+      } else if (typeof element === 'boolean'){
+        countBol += element;
+      } else {
+        throw new Error("Unsupported data type sir or ma'am");
+      }
+    }
+  }
+  let sumNumChar = countChar + countNum+ countBol;
+  return sumNumChar;
+}
 
 
 
@@ -79,7 +102,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(wordsArr) { 
   let count = 0;
  if (wordsArr.length === 0){
-  return null
+  return null;
  } else {
   for (let i = 0; i < wordsArr.length; i++) {
     let char = wordsArr[i];
@@ -91,7 +114,28 @@ function averageWordLength(wordsArr) {
 
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(wordsArr) {
+  let countChar = 0;
+  let countNum = 0;
+  let countBol = 0;
+  
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordsArr.length; i++) {
+      let element = wordsArr[i];
+      if (typeof element === 'number') {
+        countNum += element;
+      } else if (typeof element === 'string') {
+        countChar += element.length;
+      } else if (typeof element === 'boolean'){
+        countBol += element;
+      } 
+    }
+  }
+  let sumNumChar = countChar + countNum + countBol;
+  return sumNumChar / wordsArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
