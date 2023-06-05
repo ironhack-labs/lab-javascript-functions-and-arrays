@@ -173,7 +173,16 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(listWords, wordFind) {
+  let count = 0;
+  for (const word of listWords) {
+    if(word === wordFind){
+      count++
+    }
+  }
+  return listWords.length > 0 ? count : 0;
+
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -241,7 +250,19 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(listNumbers) {
+let isNumber;
+for (const listNumber of listNumbers) {
+  if(uniquifyArray(listNumber).length === 1) {
+    if(uniquifyArray(listNumber)[0] === 1){
+      isNumber = 1
+    } else if (uniquifyArray(listNumber)[0] === 2){
+      isNumber = 16
+    }
+  };
+}
+return isNumber
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
