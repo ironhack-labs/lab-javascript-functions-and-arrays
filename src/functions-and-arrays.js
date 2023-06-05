@@ -66,6 +66,7 @@ function sum(array) {
   let sum = 0;
 
   for (const data of array) {
+
     if (typeof data === 'number') {
       sum += data;
     } else if (typeof data === 'string') {
@@ -78,17 +79,12 @@ function sum(array) {
       } else {
         sum += 0;
       }
-    } else {
-      throw new Error('Unsupported data type (object or array) present in the array');
+    } else if (Array.isArray(data) || typeof data === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
-
   return sum;
 }
-
-// No consigo que devuelva el error.
-
-
 
 
 // Iteration #4: Calculate the average
@@ -185,7 +181,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+
+if (arr.length = 0) {}
+
+
+
+
+}
 
 
 
