@@ -222,8 +222,17 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(words, word) {
 
+let repetition = 0;
 
+for (const data of words) {
+  if (word === data) {
+    repetition += 1
+  }
+}
+return repetition;
+}
 
 // Iteration #8: Bonus
 const matrix = [
