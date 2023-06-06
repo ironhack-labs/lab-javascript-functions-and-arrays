@@ -99,17 +99,7 @@ if (numbers.length === 0) {
   return (numbers[0]/ 1)
   }
 
-let sum;
-
-for (const number of numbers) {
-  if (!sum) {
-    sum = number
-    } else {
-    sum += number
-    }
-  }
-
-const average = sum/numbers.length
+const average = sumNumbers(numbers)/numbers.length
 return average;
 
 }
