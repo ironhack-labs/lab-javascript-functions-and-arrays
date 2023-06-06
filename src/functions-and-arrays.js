@@ -19,27 +19,35 @@ const words = [
   "crackpot",
 ];
 
-function findLongestWord(words) {
-  let longestWordChar = 0;
+function findLongestWord(wordsArr) {
+  if (wordsArr.length == 0) {
+    return null;
+  }
   let longestWord = "";
-  for (i = 0; i <= words.length; i++) {
-    if (words.length == 0) {
-      console.log(null);
-      return null;
-    } else if (words.length === 1) {
-      console.log(words);
-      return longestWord;
-    } else if (words[i].length >= longestWordChar) {
-      longestWordChar = words[i].length;
-      longestWord = words[i];
-    } else if ((i = words.length)) {
-      console.log(longestWord);
-    } else {
-      return longestWord;
+  for (let word of wordsArr) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
     }
   }
+  return longestWord;
 }
+
 findLongestWord(words);
+
+/* solution in class
+function findLongestWord(wordsArr) {
+if (words.length === 0) {
+return null;
+}
+let longestWord = ""
+for  (let word of wordsArr) {
+  if word.length > longestWord.length) {
+    longestWord = word
+  }
+}
+return longestWord;
+}
+*/
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -56,8 +64,26 @@ function sumNumbers(numbers) {
 }
 console.log(sumNumbers(numbers));
 
+/* This is the solution from the CodePen provided as solution and it does not work 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sum = 0;
+  for (let el of arr) {
+    switch (typeof el) {
+      case "number":
+      case "boolean":
+        sum  += el;
+        break;
+      case "string":
+        sum += el.length;
+        break;
+        default:
+          throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+return sum;
+} 
+*/
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -119,20 +145,25 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray(wordsUnique) {
-  let nweArr = [];
-  if (wordsUnique.length == 0) return null;
-  console.log(wordsUnique.indexOf("bring"));
+function uniquifyArray(wordsArr) {
+  if (wordsArr.length === 0) return null;
+
+  let uniqueArr = [];
+
+  for (i = 0; i < wordsArr.length; i++) {
+    const word = wordsArr[i];
+
+    if (!uniqueArr.includes(word)) uniqueArr.push(word);
+  }
+  return uniqueArr;
 }
-/* ideas but wrong
-function uniquifyArray(wordsUnique) {
-for (i = 0; i < wordsUnique.length; i++) {
-    if (console.log(wordsUnique.indexOf([i]) >= 2) {      newArr.push(wordsUnique[i]); 
-}
-  console.log(newArr);
-}
-}
-console.log(uniquifyArray(wordsUnique)); */
+/* solution in class
+for i = 0 i < words.arr.length i ++
+const word = wordsArr[i]
+
+if uniqueArr.includes(word) uniqueArr.push(word);
+return uniqueArr;
+;*/
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -157,6 +188,10 @@ function doesWordExist(wordsFind, word) {
 }
 console.log(doesWordExist(wordsFind, word));
 
+/* solution in class
+return wordArr.includes(wordToSearch);
+*/
+
 // Iteration #7: Count repetition
 const wordsCount = [
   "machine",
@@ -172,10 +207,23 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes(wordsCount, word) {
+function howManyTimes(wordsArr, word) {
   let count = 0;
-  if (wordsCount.length == 0) return 0;
+  if (wordsArr.length == 0) return 0;
+  for (i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === word) {
+      count++;
+    }
+  }
+  return count;
 }
+
+/*
+for (let i = 0; i < wordsArr.length: i++)
+if (wordsArr[i] === word) {
+  count ++;
+}
+*/
 
 // Iteration #8: Bonus
 const matrix = [
