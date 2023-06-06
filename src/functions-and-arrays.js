@@ -173,9 +173,18 @@ const wordsUnique = [
 
 function uniquifyArray(arr) {
 
-if (arr.length = 0) {}
+const uniquifyArray = [];
 
+if (arr.length === 0) {
+  return null;
+} 
 
+for (const word of arr) {
+  if (!uniquifyArray.includes(word)) {
+    uniquifyArray.push(word);
+  }
+}
+return uniquifyArray
 
 
 }
