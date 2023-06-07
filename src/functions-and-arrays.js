@@ -90,9 +90,15 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length === 0) {
+    return null;
+  }
   let uniqueWords = [];
   for (let i = 0; i < wordsUnique.length; i++) {
-  
+  const currentWord = wordsUnique[i]; //crab
+    if (!uniqueWords.includes(currentWord)) {
+      uniqueWords.push(currentWord)
+    }
   }
   return uniqueWords
 }
