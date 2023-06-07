@@ -132,7 +132,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let count = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if(word === wordsCount[i]){
+      count++;
+    }
+  }
+  return count
+}
 
 
 
