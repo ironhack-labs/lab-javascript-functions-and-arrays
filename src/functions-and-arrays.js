@@ -81,7 +81,6 @@ function averageNumbers(numbers) {
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 const average = averageNumbers(numbersAvg);
-console.log(average);
 
 const emptyArray = [];
 const emptyAverage = averageNumbers(emptyArray);
