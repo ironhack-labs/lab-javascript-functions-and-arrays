@@ -53,15 +53,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    nums = numbers[i];
+    sum += nums;
+  }
+  const average = sum / numbers.length;
+  return average
+
+  if (!numbers.length) {
+    return null;
+  } 
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArray) { 
+  let numSum = 0;
+  if (wordArray.length === 0) {
+    return null;
+  }
+  for (let i = 0 ; i < wordArray.length; i++) {
+    numSUm += wordArray[i].length;
+  }
+  return numSum / wordArray.length;
+}
 
-// Bonus - Iteration #4.1
+// Bonus - Iteration #4.1 // Qué se pregunta?? 
 function avg() {}
 
 // Iteration #5: Unique arrays
@@ -79,14 +100,37 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
-
+function uniquifyArray(array) {
+  if (array.length === 0) {
+    return null
+  } else {
+    for (let i = 0 ; i < array.length; i++) {
+      for (let j = i+1; j < array.length; j++) {
+        if (array[i] === array[j]) {
+          array.splice(j, i);
+          j--;
+        }
+      }
+      return array;
+    }
+  }
+}
+ 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordArray, word) {
+  if (wordArray.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordArray.length; i++) {
+      if (wordArray[i] === word){
+        return true;
+      }
+    }
+ }
+    return false;
+}
 
 
 
@@ -105,7 +149,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArray, word) {
+  let repeatCount = 0;
+  if (wordArray.length === 0) {
+    reutrn 0;
+  } else {
+    for (let i = 0; i < wordArray.length; i++) {
+      if (wordArray[i] === word) {
+        repeatCount += 1;
+      }
+    }
+  }
+  return repeatCount;
+}
 
 
 
