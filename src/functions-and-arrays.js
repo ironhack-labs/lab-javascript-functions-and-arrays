@@ -59,7 +59,7 @@ function sum(mixedList) {
         sum += element;
         break;
         case (typeof element === "object"):
-        throw new TypeError("Unsupported data type (object or array) present in the array");
+          throw new Error(`Unsupported data type sir or ma'am`);
     }
 
   }
