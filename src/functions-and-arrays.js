@@ -319,53 +319,53 @@ function greatestProduct(matrix) {
   }
 }
 
-function greatestProductOfDiagonals(matrix){if(matrix.length === 0){
+function greatestProductOfDiagonals(matrix){
+  if(matrix.length === 0){
   return null
-}
-
-console.log(matrix[0][1])
-
-let highestD= 0;
-let highestU=0;
-
-  // DOWN
-
-  for(let i=0; i<matrix.length; i++) {
-    for(let j=0; j<matrix[i].length; j++){
-      if(matrix[i][j+4] && matrix[i+4]){
-        let product = matrix[i][j] * matrix[i+1][j+1]* matrix[i+2][j+2]* matrix[i]+3[j+3];
-        if(product>highestD){
-          highestHD= product
-        }
-      }
-
-    }
   }
 
-  // UP
+  console.log(matrix[0][1])
 
-  for(let j=0; j<matrix.length; j++) {
-    for(let i=0; i<matrix[j].length; i++){
-      if(matrix[i][j-4] && matrix[i-4]){
-        let product = matrix[i][j] * matrix[i-1][j-1]* matrix[i-2][j-2]* matrix[i-3][j-3];
-        if(product>highestU){
-          highestU = product
+  let highestD= 0;
+  let highestU=0;
+
+    // DOWN
+
+    for(let i=0; i<matrix.length; i++) {
+      for(let j=0; j<matrix[i].length; j++){
+        if(matrix[i][j+4] && matrix[i+4]){
+          let product = matrix[i][j] * matrix[i+1][j+1]* matrix[i+2][j+2]* matrix[i]+3[j+3];
+          if(product>highestD){
+            highestHD= product
+          }
         }
-      }
 
+      }
     }
 
+    // UP
+
+    for(let j=0; j<matrix.length; j++) {
+      for(let i=0; i<matrix[j].length; i++){
+        if(matrix[i][j-4] && matrix[i-4]){
+          let product = matrix[i][j] * matrix[i-1][j-1]* matrix[i-2][j-2]* matrix[i-3][j-3];
+          if(product>highestU){
+            highestU = product
+          }
+        }
+
+      }
+
+
+  }
+
+  if(highestD>highestU){
+    return highestD
+  } else {
+    return highestU
+  }
 
 }
-
-if(highestD>highestU){
-  return highestD
-} else {
-  return highestU
-}
-
-}
-
 
 
 // const matrix3 = [
