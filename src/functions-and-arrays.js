@@ -56,7 +56,7 @@ function sum(arr) {
     } else if (typeof value === 'boolean') {
       totalSum += value ? 1 : 0;
     } else {
-      throw (`Unsupported data type: ${typeof value}`);
+      throw new Error ("Unsupported data type");
     }
   }
   return totalSum;
@@ -179,8 +179,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrToCountIn, wordToCount) {
+let counter = 0;
 
+if (arrToCountIn.length === 0){
+  return 0;
+}
+for (let i=0; i < arrToCountIn.length; i++){
+  if(arrToCountIn[i] === wordToCount){
+    counter++;
+  }
+}
+return counter;
+}
 
 
 // Iteration #8: Bonus
