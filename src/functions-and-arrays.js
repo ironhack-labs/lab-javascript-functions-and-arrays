@@ -212,12 +212,69 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct(productsArr) {
-
+function multiply(firstNumb, secondNumb) {
+  const product = firstNumb * secondNumb;
+  return product;
 }
 
+function calculateRow(row) {
+  let rowProducts = [];
+  for (let i = 0; i < row.length - 1; i++) {
+    let adjacentsProduct = multiply(row[i], row[i + 1]);
+    rowProducts.push(adjacentsProduct);
+  }
+  return rowProducts;
+}
 
+function calculateColumn(firstRow, secondRow) {
+  let columnProducts = [];
+  if (firstRow.length > secondRow.length) {
+    for (let i = 0; i < firstRow.length; i++) {
+      let product = multiply(firstRow[i], secondRow[i]);
+      columnProducts.push(product);
+    }
+  } else {
+    for (let i = 0; i < secondRow.length; i++) {
+      let product = multiply(firstRow[i], secondRow[i]);
+      columnProducts.push(product);
+    }
+  }
+  return columnProducts;
+}
+
+function greatestProduct(matrix) {
+  let resultsArray = [];
+  let greatestProductValue = 0;
+
+  matrix.forEach((element, index) => {
+    let rowProducts = calculateRow(element);
+    if (index < matrix.length - 1) {
+      let columnProducts = calculateColumn(element, matrix[index + 1]);
+
+      if (columnProducts.length > 0) {
+        columnProducts.forEach((val) => {
+          resultsArray.push(val);
+        });
+      }
+    }
+
+    if (rowProducts.length > 0) {
+      rowProducts.forEach((val) => {
+        resultsArray.push(val);
+      });
+    }
+  });
+
+  resultsArray.forEach((val) => {
+    if (val > greatestProductValue) {
+      greatestProductValue = val;
+    }
+  });
+
+  return greatestProductValue;
+}
+
+console.log(greatestProduct(matrix));
 
 
 // The following is required to make unit tests work.
