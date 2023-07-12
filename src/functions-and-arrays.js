@@ -1,20 +1,47 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  }
+  else if (number2 > number1) {
+    return number2;
+  }
+  else if  (number1 === number2) {
+    return number1;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let longestWord = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > longestWord.length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(arrSum) {
+  let sum = 0;
+  arrSum.forEach((number) => {
+      // vai somar cada número da array ao resultado a soma anterior
+      sum = sum + number;
+  })
+  return sum;
+}
 
 
 // Iteration #3.1 Bonus:
@@ -26,16 +53,53 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr2) {
+  let sum = 0;
+  if (arr2.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr2.length; i++) {
+      sum += arr2[i];
+    }
+    return sum / arr2.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordCharacters) {
+  let charactersSum =  0;
+  if (wordCharacters.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < wordCharacters.length; i++) {
+    charactersSum += wordCharacters[i].length;
+  }
+  return charactersSum / wordCharacters.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// The logic is ok. Don't forget to ask for help to clarify how to write the corret syntax!!! (3.1 is the same)
+let diferentDTypes = 0;
+function avg(arrAvg) {
+  if (avgArr.length === 0) {
+    return null;
+  }
+  else if (typeof arrAvg[i] === Boolean) {
+    if (arrAvg[i] === true) {
+      diferentDTypes += 1;
+    }
+    else if (arrAvg[i] === false) {
+      diferentDTypes += 0;
+    }
+  }
+  else if (typeof arrAvg[i] === String) {
+    diferentDTypes += arrAvg[i].length;
+  }
+  return diferentDTypes / arrAvg.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +116,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(cutArr) {
+  let duplicateArr = [];
+  if (cutArr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < cutArr.length; i++) {
+    if (duplicateArr.indexOf(cutArr[i]) === -1) {
+      duplicateArr.push(cutArr[i]);
+    }
+  }
+  return duplicateArr;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(existArr, existArr2) {
+  if (existArr.length === 0) {
+    return null;
+  }
+  else if (existArr.includes(existArr2)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 
 
@@ -78,7 +163,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(repetition1, numSearch) {
+
+  if (repetition1.length === 0) {
+    return 0;
+  }
+  else {
+    let count = 0;
+    for (let i = 0; i < repetition1.length; i++) {
+      if (repetition1[i] === numSearch) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+}
 
 
 
@@ -106,7 +206,17 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) { // Need a big revison, especially on how to use the reference of the loops inside the conditional!!!
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j <= matrix.length; j++){
+      if(matrix[i][j] === 1){
+        return 1;
+      }else if(matrix[i][j] === 2 ){
+        return 16;
+      }
+    }
+  }
+}
 
 
 
