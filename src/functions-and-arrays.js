@@ -22,12 +22,12 @@ function findLongestWord(arg1) {
   } else if (arg1.length === 1) {
     response = arg1[0]
   } else {
-    for (i = 1; i <= arg1.length - 1; i++) {
-      word2 = arg1[i]
+    arg1.forEach(function (eachWord) {
+      word2 = eachWord
       if (word2.length > word1.length) {
         word1 = word2
       }
-    }
+    })
     response = word1
   }
   return response
@@ -48,9 +48,9 @@ function sumNumbers(arg) {
   } else if (arg.length === 1) {
     response = arg[0]
   } else {
-    for (i = 0; i <= arg.length - 1; i++) {
-      sum += arg[i]
-    }
+    arg.forEach(eachArg => {
+      sum += eachArg
+    });
     response = sum
   }
   return response
@@ -95,9 +95,9 @@ function averageNumbers(arg) {
   } else if (arg.length === 1) {
     response = arg[0]
   } else {
-    for (i = 0; i <= arg.length - 1; i++) {
-      sum += arg[i]
-    }
+    arg.forEach(eachArg => {
+      sum += eachArg
+    });
     response = sum / arg.length
   }
   return response
@@ -116,9 +116,9 @@ function averageWordLength(arg) {
   } else if (arg.length === 1) {
     response = arg[0].length
   } else {
-    for (i = 0; i <= arg.length - 1; i++) {
-      sum += arg[i].length
-    }
+    arg.forEach(eachArg => {
+      sum += eachArg.length
+    });
     response = sum / arg.length
   }
   return response
@@ -151,13 +151,12 @@ function uniquifyArray(arg) {
   if (arg.length === 0) {
     response = null
   } else if (arg.length > 0) {
-    for (i = 1; i <= arg.length - 1; i++) {
-      word2 = arg[i]
+    arg.forEach(eachArg => {
+      word2 = eachArg
       if (word1 !== word2) {
         newArray.push(word2)
       }
-    }
-
+    });
     response = newArray
   }
   return response
@@ -211,8 +210,8 @@ function howManyTimes(arg, search) {
   if (arg.length === 0) {
     response = 0
   } else {
-    for (i = 0; i <= arg.length - 1; i++) {
-      if (arg[i] === search) {
+    arg.forEach(eachArg => {
+      if (eachArg === search) {
         sum++
         if (sum === 1 || 5) {
           response = sum
@@ -220,8 +219,7 @@ function howManyTimes(arg, search) {
       } else {
         response = 0
       }
-
-    }
+    });
   }
   return response
 }
