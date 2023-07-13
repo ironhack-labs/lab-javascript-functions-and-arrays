@@ -1,24 +1,85 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(var1, var2) {
+  if (var1 > var2) {
+    return var1
+  } else {
+    return var2
+  }
 
+}
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']
 
-function findLongestWord() {}
+function findLongestWord(arg1) {
+  let response
+  let word1 = arg1[0]
+  let word2
+
+  if (arg1.length === 0) {
+    response = null
+  } else if (arg1.length === 1) {
+    response = arg1[0]
+  } else {
+    arg1.forEach(function (eachWord) {
+      word2 = eachWord
+      if (word2.length > word1.length) {
+        word1 = word2
+      }
+    })
+    response = word1
+  }
+  return response
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+
+function sumNumbers(arg) {
+  let response
+  let sum = 0
+  if (arg.length === 0) {
+    response = 0
+  } else if (arg.length === 1) {
+    response = arg[0]
+  } else {
+    arg.forEach(eachArg => {
+      sum += eachArg
+    });
+    response = sum
+  }
+  return response
+}
+
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arg) {
+  let response
+  let sum = 0
+  if (arg.length === 0) {
+    response = 0
+  } else if (arg.length === 1) {
+    response = arg[0]
+  } else {
+    for (i = 0; i <= arg.length - 1; i++) {
+      if (typeof arg[i] === "string") {
+        sum += arg[i].length
+      } else {
+        sum += arg[i]
+      }
+      response = sum
+    }
+  }
+  return response
+}
 
 
 
@@ -26,16 +87,46 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arg) {
+  let response
+  let sum = 0
+  if (arg.length === 0) {
+    response = null
+  } else if (arg.length === 1) {
+    response = arg[0]
+  } else {
+    arg.forEach(eachArg => {
+      sum += eachArg
+    });
+    response = sum / arg.length
+  }
+  return response
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arg) {
+
+  let response
+  let sum = 0
+  if (arg.length === 0) {
+    response = null
+  } else if (arg.length === 1) {
+    response = arg[0].length
+  } else {
+    arg.forEach(eachArg => {
+      sum += eachArg.length
+    });
+    response = sum / arg.length
+  }
+  return response
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() { }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +143,49 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(arg) {
+  let response
+  let word1 = arg[0]
+  let word2
+  let newArray = [arg[0]]
+  if (arg.length === 0) {
+    response = null
+  } else if (arg.length > 0) {
+    arg.forEach(eachArg => {
+      word2 = eachArg
+      if (word1 !== word2) {
+        newArray.push(word2)
+      }
+    });
+    response = newArray
+  }
+  return response
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arg, search) {
+  let response
+  if (arg.length === 0) {
+    response = null
+  } else if (arg.length === 1) {
+    if (arg[0] === search) {
+      response = true
+    }
+  } else {
+    for (i = 0; i <= arg.length - 1; i++) {
+      if (arg[i] === search) {
+        response = true
+        break
+      } else {
+        response = false
+      }
+    }
+  }
+  return response
+}
 
 
 
@@ -78,7 +204,25 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arg, search) {
+  let response
+  let sum = 0
+  if (arg.length === 0) {
+    response = 0
+  } else {
+    arg.forEach(eachArg => {
+      if (eachArg === search) {
+        sum++
+        if (sum === 1 || 5) {
+          response = sum
+        }
+      } else {
+        response = 0
+      }
+    });
+  }
+  return response
+}
 
 
 
@@ -106,7 +250,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
