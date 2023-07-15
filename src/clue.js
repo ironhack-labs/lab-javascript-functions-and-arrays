@@ -147,6 +147,5 @@ function pickMystery() {
 
 function revealMystery(randomMystery) {
 
-
     return `${randomMystery.suspect.firstName} ${randomMystery.suspect.lastName} killed Mr. Boddy using the ${randomMystery.weapon.name} in the ${randomMystery.room.name}!`
 }
