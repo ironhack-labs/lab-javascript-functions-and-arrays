@@ -26,32 +26,9 @@ function sumNumbers(numbersArray)
 
 // Iteration #3.1 Bonus:
 
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
-const strings = [true, true, true];
-
 function sum(array)
 {
-
   if(array.length === 0) return 0;
-
-  // return array.map(e => 
-  //   {
-  //     if(typeof e === "string")
-  //     {
-  //       return e.length;
-  //     }
-
-  //     if(typeof e === "number")
-  //     {
-  //       return e;
-  //     }
-
-  //     if(typeof e === "boolean")
-  //     {
-  //       return e === true ? 1 : -1;
-  //     }
-  //   }).reduce((acc, e) => acc + e);
 
   let counter = 0;
 
@@ -74,13 +51,14 @@ function sum(array)
       i == true ? counter += 1 : 0;
     }
 
-    if(typeof i == "object" || typeof i == "array") return null;
+    if(typeof i == "object" || Array.isArray(i))
+    {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
   }
 
   return counter;
 }
-
-console.log(sum(strings))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -104,6 +82,9 @@ function averageWordLength(arrayWords)
 }
 
 // Bonus - Iteration #4.1
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
 function avg(arr)
 {
   if(arr.length === 0) return null;
@@ -145,8 +126,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array)
+{
+  if(array.length === 0) return null;
 
+  let duplicates = array.filter((e, index) => {array.indexOf(e) != index})
+
+  return duplicates
+}
+
+console.log(uniquifyArray(wordsUnique))
 
 
 // Iteration #6: Find elements
