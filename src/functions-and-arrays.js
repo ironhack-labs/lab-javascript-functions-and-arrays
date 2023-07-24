@@ -89,7 +89,7 @@ function avg(arr)
 {
   if(arr.length === 0) return null;
 
-  return arr.map(e => 
+  return number = arr.map(e => 
     {
       if(typeof e === "string")
       {
@@ -103,12 +103,10 @@ function avg(arr)
 
       if(typeof e === "boolean")
       {
-        return e === true ? 1 : -1
+        return e === true ? 1 : 0
       }
     }).reduce((acc, e) => acc + e) / arr.length;
 }
-
-console.log(avg(mixedArr))
 
 
 // Iteration #5: Unique arrays
@@ -200,16 +198,14 @@ const matrix = [
 function greatestProduct(matrix) 
 {
   let numbers = [];
+
   for(let [i, k] of matrix.entries())
   {
     numbers.push(matrix.map(e => e[i]).reduce((acc, e) => e * acc));
   }
 
-  return Math.max(...numbers)
+  return Math.max(...numbers);
 }
-console.log(greatestProduct(matrix));
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
