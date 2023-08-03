@@ -73,10 +73,25 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(myArr) {
+  if (myArr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  myArr.forEach((element) => {
+    sum += element.length;
+  });
+  return sum / myArr.length;
+}
 
+// should return: 5.7
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  console.log(array);
+  if (array.length === 0) {
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -93,7 +108,32 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+const words1 = [
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring",
+];
+
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let result = [];
+  arr.forEach((element) => {
+    if (result.indexOf(element) < 0) {
+      result.push(element);
+    }
+  });
+  return result;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -107,7 +147,16 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(array, searchWord) {
+  let index = array.indexOf(searchWord);
+  if (array.length === 0) {
+    return null;
+  } else if (index >= 0) {
+    return true;
+  } else if (index < 0) {
+    return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -124,7 +173,7 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, value) {}
 
 // Iteration #8: Bonus
 const matrix = [
