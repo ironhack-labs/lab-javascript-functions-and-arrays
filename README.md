@@ -166,14 +166,12 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 ```
 
 
-Note: if your function receives an array with anything different than numbers, strings or booleans (for example, if the array contains an object), you should [throw an error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw). You can do that with something like this:
-
+Note: Your function should only accept an array with numbers, strings, or booleans. If the array contains any other data type, such as an object, you should [throw an error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw). In JavaScript, the syntax for throwing an error is as follows:
 ```javascript
-throw new Error('oops, something went wrong...');
+throw new Error("Error message goes here");
 ```
 
-The tests expect you to throw an error with a *specific* message, check the file with the tests for more details 👀
-
+When specifying the error message, you should be specific and descriptive in explaining the error.
 
 <br>
 
