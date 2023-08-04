@@ -155,7 +155,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 In iteration 3, you created a function that returns the sum of an array of numbers. But what if we want to calculate the sum of the length of words in an array? What if it also includes _boolean_ values? To achieve this, we must create a function allowing this flexibility.
 
-You should implement the function `sum()` in this iteration. The function should take an array of mixed values - numbers, strings, and booleans. The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum. Check the tests for more details.
+You should implement the function `sum()` in this iteration. The function should take an array of mixed values - numbers, strings, and booleans. The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum. 
 
 You can use the following array to test your solution:
 
@@ -164,6 +164,14 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // should return: 57
 ```
+
+
+Note: Your function should only accept an array with numbers, strings, or booleans. If the array contains any other data type, such as an object, you should [throw an error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw). In JavaScript, the syntax for throwing an error is as follows:
+```javascript
+throw new Error("Error message goes here");
+```
+
+When specifying the error message, you should be specific and descriptive in explaining the error.
 
 <br>
 

@@ -120,9 +120,7 @@ describe('Bonus: Calculate the sum', () => {
   });
 
   it('should throw an error when unsupported data type (object or array) present in the array', () => {
-    expect(() => sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])).toThrow(
-      new Error("Unsupported data type sir or ma'am")
-    );
+    expect(() => sum([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, [], {}])).toThrow();
   });
 
 });
