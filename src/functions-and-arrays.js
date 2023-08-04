@@ -108,7 +108,7 @@ const matrix = [
 
 function greatestProduct() {}
 
-
+// can't find the option to check the code live. already checked for it. will push and return to this lab during weekend.
 
 
 // The following is required to make unit tests work.
