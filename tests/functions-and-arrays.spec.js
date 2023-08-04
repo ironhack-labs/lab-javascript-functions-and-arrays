@@ -19,6 +19,7 @@ describe('Find the maximum', () => {
     expect(typeof maxOfTwoNumbers).toBe('function');
   });
 
+
   it('should return greater of two arguments - if the first argument greater', () => {
     expect(maxOfTwoNumbers(2, 1)).toBe(2);
     expect(maxOfTwoNumbers(5, -7)).toBe(5);
@@ -33,6 +34,18 @@ describe('Find the maximum', () => {
     expect(maxOfTwoNumbers(4, 4)).toBe(4);
   });
 });
+
+  /* Function maxOfTwoNumber Iteration 1 */
+
+  function maxOfTwoNumbers(num1, num2) {
+
+    if (num1 > num2) {
+       return num1; 
+      } else {
+       return num2;
+      };
+  }
+  /* END max of two numbers */
 
 describe('Find the longest word', () => {
   it('should declare a function named findLongestWord', () => {
@@ -61,6 +74,22 @@ describe('Find the longest word', () => {
   });
 });
 
+/* Function Find the longest word Iteration 2 */
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(wordlist) {
+
+  let LongestWord = wordlist[0];
+  for(let i=0; i< wordlist.length; i++) {
+    if (wordlist[i].length > LongestWord.length)  {
+      LongestWord= wordlist [i];
+     }
+    }
+    return LongestWord;
+  }
+/* END Longest word iteration 2*/
+
+
 describe('Calculate the sum of array of numbers', () => {
   it('should declare a function named sumNumbers', () => {
     expect(typeof sumNumbers).toBe('function');
@@ -82,6 +111,22 @@ describe('Calculate the sum of array of numbers', () => {
     expect(sumNumbers([10, 5, 4, 32, 8])).toBe(59);
   });
 });
+
+// Function Iteration #3: Calculate the sum
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(arg) {
+  if (arg.length === 0 ) {
+    return null;
+  }
+let sum = 0;
+for (let i= 0; i< arg.length; i++) {
+  sum = sum + arg[i];
+}
+return sum;
+
+}
+/* END Sum Iteration 3 */
 
 describe('Bonus: Calculate the sum', () => {
   it('should declare a function named sum', () => {
@@ -148,6 +193,26 @@ describe('Calculate the average of an array of numbers', () => {
   
 });
 
+// Function Iteration #4: Calculate the AVERAGE
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arg) {
+  if (arg.length === 0 ) {
+    return null;
+  }
+let sum = 0;
+let avg = 0;
+
+for (let i= 0; i< arg.length; i++) {
+  sum = sum + arg[i];
+}
+avg= sum /arg.length;
+
+return avg;
+
+}
+/* END Average Iteration 4 */
+
 describe('Calculate the average of an array of strings', () => {
   it('should declare a function named averageWordLength', () => {
     expect(typeof averageWordLength).toBe('function');
@@ -167,6 +232,25 @@ describe('Calculate the average of an array of strings', () => {
     ).toBe(7);
   });
 });
+
+// Level 2: Array of strings iteration 5
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arg) { 
+  if (arg.length === 0 ) {
+    return null;
+  }
+  let wordlenght = 0;
+  let avglenth= 0;
+
+  for(let i=0; i< arg.length; i++) {
+    wordlenght = wordlenght + arg[i].length;
+
+     }
+    avglenth =wordlenght /arg.length;
+    return avglenth;
+  }
+/* END Average word Lenght */
 
 describe('Bonus: Calculate the average of a mixed elements array', () => {
   it('should declare a function named avg', () => {
@@ -209,6 +293,37 @@ describe('Unique array', () => {
   });
 });
 
+// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray (wordsUnique) {
+  if (wordUnique.length === 0 ) {
+    return null;
+  }
+  const uniquearray = [];
+
+  for (let i = 0; i < wordsUnique.length;i ++) {
+    if (uniquearray.indexOf(wordsUnique[i]) === -1) {
+      uniquearray.push(wordsUnique[i]);
+    };
+  }
+return uniquearray;
+}
+
+// End//
+
 describe('Find elements', () => {
   it('should declare a function named doesWordExist', () => {
     expect(typeof doesWordExist).toBe('function');
@@ -229,7 +344,27 @@ describe('Find elements', () => {
   it('should return true if the word we are looking for is in the array', () => {
     expect(doesWordExist(['pizza', 'sandwich', 'snack', 'soda', 'book', 'computer'], 'book')).toBe(true);
   });
-});
+}); 
+// Iteration #6: Find elements
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(arg, word){
+if (arg.length === 0 ) {
+  return null;
+}
+const uniquearray = [];
+
+  for (let i = 0; i < arg.length;i ++) {
+    if (arg[i] === word) {
+      return true;
+    };
+  }
+return false;
+}
+
+
+
+// End//
 
 describe('Count repetition', () => {
   it('should declare a function named howManyTimes', () => {
