@@ -1,4 +1,4 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
+
 
 # LAB | JS Functions & Arrays
 
@@ -7,7 +7,7 @@
    <h2>Learning Goals</h2>
   </summary>
 
-  This exercise allows you to practice and apply the concepts and techniques taught in class. 
+  This exercise allows you to practice and apply the concepts and techniques taught in class.
 
   Upon completion of this exercise, you will be able to:
 
@@ -22,7 +22,7 @@
   - Iterate over arrays using the `for`  and `forEach` loops.
 
   <br>
-  <hr> 
+  <hr>
 
 </details>
 
@@ -87,7 +87,7 @@ lab-js-functions-and-arrays
       └── functions-and-arrays.spec.js
 ```
 
-We will be working with the `src/functions-and-arrays.js`. You can find all the files in the `jasmine` folder needed to use Jasmine. All these files are already linked with the `SpecRunner.html` file. 
+We will be working with the `src/functions-and-arrays.js`. You can find all the files in the `jasmine` folder needed to use Jasmine. All these files are already linked with the `SpecRunner.html` file.
 
 If you want to check the tests, they are in the `tests/functions-and-arrays.spec.js` file.
 
@@ -300,7 +300,7 @@ const words = [
 
 #### Bonus - Iteration #8.1: Product of adjacent numbers
 
-Given multiple arrays, find the greatest product of four adjacent numbers. 
+Given multiple arrays, find the greatest product of four adjacent numbers.
 
 We consider adjacent any four numbers that are next to each other horizontally or vertically. For example, if we have a 5x5 Matrix like:
 
@@ -370,7 +370,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
   If you are stuck in your code and don't know how to solve the problem or where to start, you should take a step back and try to form a clear question about the specific issue you are facing. This will help you narrow down the problem and come up with potential solutions.
 
 
-  For example, is it a concept that you don't understand, or are you receiving an error message that you don't know how to fix? It is usually helpful to try to state the problem as clearly as possible, including any error messages you are receiving. This can help you communicate the issue to others and potentially get help from classmates or online resources. 
+  For example, is it a concept that you don't understand, or are you receiving an error message that you don't know how to fix? It is usually helpful to try to state the problem as clearly as possible, including any error messages you are receiving. This can help you communicate the issue to others and potentially get help from classmates or online resources.
 
 
   Once you have a clear understanding of the problem, you will be able to start working toward the solution.
@@ -435,7 +435,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
 
   In initialization, you declare a counter variable and set its initial value.
 
-  The condition is a boolean expression that is evaluated before each iteration of the loop. If the condition is `true`, the loop will continue. Once the condition turns `false`, the loop will terminate. 
+  The condition is a boolean expression that is evaluated before each iteration of the loop. If the condition is `true`, the loop will continue. Once the condition turns `false`, the loop will terminate.
 
   The increment/decrement is where you update the counter variable and it happens at the end of each iteration.
 
@@ -458,7 +458,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
   // set condition (i < animals.length)
   while (i < animals.length) {
     console.log(animals[i]);
-    
+
     // increment counter (i++)
     i++;
   }
@@ -516,7 +516,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
 
   <br>
 
-  **How do I fix this?** 
+  **How do I fix this?**
 
   Check that the variable you are trying to access is actually an array.
 
