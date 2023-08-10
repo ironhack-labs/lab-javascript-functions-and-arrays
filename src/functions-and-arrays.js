@@ -1,20 +1,55 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2){
+    return num1;
+  } else if (num1 < num2) {
+    return num2; 
+  } else {
+      return num1;
+    }
+  }
+console.log(maxOfTwoNumbers(968,253));
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longWord= ""; 
+  let noArray = 0;
+  
+  if (words.length === 0) {
+    return null;
+  } else {
+   for (let i = 0; i < words.length; i++) { 
+    let currentWord = words[i];
+    if (currentWord.length > longWord.length) { 
+      longWord  = currentWord; 
+    }
+  }
+}
+  return longWord;
+}
+const longWord = findLongestWord(words);
+console.log(longWord);
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(array) {
+  let sum = 0;
+  
+  for (let i=0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
@@ -22,20 +57,71 @@ function sum() {}
 
 
 
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(avg) {
+  let calAvg = 0;
+
+  if (avg.length === 0) {
+    return null
+  } else {
+  for (let i = 0; i < avg.length; i++) {
+    calAvg += avg[i];
+  }
+  return calAvg / avg.length;
+}
+}
+console.log(averageNumbers(numbersAvg))
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(avgLen) { 
+  let wordLength = 0;
+
+  if (avgLen.length === 0){
+    return null;
+  } else {
+  for (let i = 0; i < avgLen.length; i++){
+    wordLength += avgLen[i].length;
+  }
+  return wordLength/avgLen.length;
+}
+}
+
+console.log(averageWordLength(wordsArr))
+
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 5.7
+function avg(arr) {
+  let mixAvg = 0;
+  if (arr.length === 0) {
+    return null
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === "true"){
+        mixAvg += 1;
+      } else if (typeof arr[i] === "string"){
+        mixAvg += arr[i].length;
+      } else {
+         mixAvg += arr[i];
+      }
+    }
+    return mixAvg/arr.length;
+  }
+  }
+  console.log(avg(mixedArr))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,7 +138,15 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniArr) {
+  if (uniArr === []){
+    return null
+  } else {
+    for (let i=0; i < uniArr.length; i++){
+    
+    }
+  }
+}
 
 
 
