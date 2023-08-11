@@ -45,14 +45,14 @@ function sumNumbers(numbers) {
   })
 return sum;
 }
-console.log(`result for exercise 3 is ${sumNumbers(numbers)}`);
 
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
-  const newArray=[];
+const newArray=[];
 let sum =0;
 for (i=0; i< arr.length; i++){
+
  if (typeof arr[i]=== `string`){
    newArray.push(arr[i].length);
  } else if (typeof arr[i]=== `number`){
@@ -170,6 +170,13 @@ function uniquifyArray(arr) {
   if (arr.length === 0){
     return null;
   }
+let uniqueArray=[];
+
+for (i=0; i<arr.length; i++){
+    if (uniqueArray.indexOf(arr[i])< 0){
+      uniqueArray.push(arr[i])}
+ }
+ return uniqueArray
 }
 
 
@@ -207,7 +214,6 @@ const wordsCount = [
 function howManyTimes(arr, sampleWord) {
   let wordCnt=0
   for (let i=0; i< arr.length; i++)
-   //console.log(wordsCount[i]);
     if (arr[i] === sampleWord) {
       wordCnt++
     }
@@ -239,8 +245,19 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
+function greatestProduct(arr) {
+  let highestProduct=1;
+  for (i=0; i<arr.length; i++ ){
+    let productObj =1
+    for (j=0; j< arr[i].length; j++){
+      productObj *= arr[i][j];
+      } 
+      if (productObj > highestProduct){
+    highestProduct = productObj;
+    }
+    }
+    return highestProduct;
+  }
 
 
 
