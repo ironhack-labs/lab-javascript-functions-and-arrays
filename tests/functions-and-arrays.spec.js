@@ -145,7 +145,7 @@ describe('Calculate the average of an array of numbers', () => {
   it('should return the average of the array', () => {
     expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
   });
-  
+
 });
 
 describe('Calculate the average of an array of strings', () => {
@@ -179,9 +179,9 @@ describe('Bonus: Calculate the average of a mixed elements array', () => {
 
   it('should return the average of the array', () => {
     // false is counted as 0
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46/9);
+    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false])).toBe(46 / 9);
     // true is counted as 1
-    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47/9);
+    expect(avg([6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true])).toBe(47 / 9);
   });
 });
 
