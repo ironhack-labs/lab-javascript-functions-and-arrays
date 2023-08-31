@@ -14,9 +14,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord(arrOfWords) {
 
-  if (!arrOfWords.length) {
-    return null;
-  }
+  if (!arrOfWords.length) return null;
 
   let longestWord = '';
 
@@ -37,7 +35,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arrOfNums) {
 
-  if (arrOfNums.length === 0) return 0;
+  if (!arrOfNums.length) return 0;
 
   let sum = 0;
 
@@ -64,7 +62,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arrOfNums) {
 
-  if (arrOfNums.length === 0) return null;
+  if (!arrOfNums.length) return null;
 
   const length = arrOfNums.length;
   let avg;
@@ -82,7 +80,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 
 function averageWordLength(arrOfWords) {
 
-  if (arrOfWords.length === 0) return null;
+  if (!arrOfWords.length) return null;
 
   const length = arrOfWords.length;
   let sum = 0;
@@ -121,7 +119,7 @@ const wordsUnique = [
 
 function uniquifyArray(arrOfWords) {
 
-  if (arrOfWords.length === 0) return null;
+  if (!arrOfWords.length) return null;
 
   let uniqeArray = [];
   let wordCounter = 1;
@@ -133,7 +131,7 @@ function uniquifyArray(arrOfWords) {
   });
 
   return uniqeArray.length === arrOfWords ? arrOfWords : uniqeArray;
-  
+
 }
 
 
@@ -141,7 +139,17 @@ function uniquifyArray(arrOfWords) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrOfWords, wordToSearch) {
+
+  if (!arrOfWords.length) return null;
+
+  if (arrOfWords.length === 1 && arrOfWords.includes(wordToSearch)) {
+    return true;
+  }
+
+  return arrOfWords.includes(wordToSearch) ? true : false;
+
+}
 
 
 
