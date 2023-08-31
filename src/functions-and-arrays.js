@@ -5,10 +5,6 @@ function maxOfTwoNumbers(num1, num2) {
 
 }
 
-maxOfTwoNumbers(1, 2);
-
-
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -47,14 +43,10 @@ function sumNumbers(arrOfNums) {
 
 }
 
-
-
 // Iteration #3.1 Bonus:
 function sum() {
 
 }
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -73,7 +65,6 @@ function averageNumbers(arrOfNums) {
   return avg;
 
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -134,8 +125,6 @@ function uniquifyArray(arrOfWords) {
 
 }
 
-
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
@@ -150,8 +139,6 @@ function doesWordExist(arrOfWords, wordToSearch) {
   return arrOfWords.includes(wordToSearch) ? true : false;
 
 }
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -185,8 +172,6 @@ function howManyTimes(arrOfWords, wordToSearch) {
 
 }
 
-
-
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -212,8 +197,6 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
 
 
 // The following is required to make unit tests work.
