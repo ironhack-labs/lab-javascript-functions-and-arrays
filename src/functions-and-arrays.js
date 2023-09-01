@@ -44,8 +44,23 @@ function sumNumbers(arrOfNums) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {
+function sum(arr) {
+  let result = 0;
 
+  arr.map(element => {
+    if(typeof element === 'string') {
+      return result += element.length;
+    }  else if (typeof element === 'boolean') {
+      return result += element === true ? 1 : 0;
+    }  else if (typeof element === 'number') {
+      return result += element;
+    } else {
+      throw new Error("The values in the array can only be numbers, strings or booleans");
+    }
+  });
+
+  return result;
+  
 }
 
 // Iteration #4: Calculate the average
