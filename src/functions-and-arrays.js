@@ -60,7 +60,7 @@ function sum(arr) {
   });
 
   return result;
-  
+
 }
 
 // Iteration #4: Calculate the average
@@ -106,7 +106,32 @@ function averageWordLength(arrOfWords) {
  }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+
+  if (!arr.length) return null;
+
+  const length = arr.length;
+
+  const arrOfNumbers = arr.map(element => {
+    if(typeof element === 'string') {
+      return element.length;
+    }  else if (typeof element === 'boolean') {
+      return element === true ? 1 : 0;
+    }  else if (typeof element === 'number') {
+      return element;
+    }
+  });
+
+  let sum = 0;
+
+  arrOfNumbers.forEach(number => {
+    sum += number;
+  });
+
+  const avg = sum / length;
+
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
