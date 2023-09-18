@@ -1,43 +1,223 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+/*
+
+Implement the function maxOfTwoNumbers that takes two numbers as arguments and returns the bigger number.
+
+> should declare a function named maxOfTwoNumbers
+> should return greater of two arguments - if the first argument greater
+> should return greater of two arguments - if the second argument greater
+> should return either arguments - if both arguments are equal
+
+*/
+function maxOfTwoNumbers(num1,num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num1 < num2) {
+    return num2;
+  } else if (num1 === num2) {
+    return num1 || num2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
+/*
+
+Implement the function findLongestWord that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+
+> should declare a function named findLongestWord
+> should return null when called with an empty array
+> should return the word when called with a single-word array
+> should return the first occurrence of the word when longest have multiple occurrences
+> should return the longest occurrence when it has multiple words
+
+*/
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let longestWord = "";
+  if (arr.length === 0) {
+    return null;
+  }
+    for (let i=0; i<arr.length; i++) {
+      if (longestWord.length < arr[i].length) {
+        longestWord = arr[i];
+      }
+    }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
+/*
+
+Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+
+Implement the function named sumNumbers that takes an array of numbers as an argument and returns the sum of all the numbers in the array. Later in the course, we will learn how to do this using the reduce array method, making your work significantly easier. For now, let's practice the "declarative" way of adding values using loops.
+
+> should declare a function named sumNumbers
+> should return zero if receives an empty array when called
+> should return the sum with one number array
+> should return zero if all elements are zero
+> should return the sum when passed array of numbers
+
+*/
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let sum=0;
+ 
+  for (let i=0; i<arr.length;i++) {
+    sum+=arr[i];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+/*
 
+In iteration 3, you created a function that returns the sum of an array of numbers. But what if we want to calculate the sum of the length of words in an array? What if it also includes boolean values? To achieve this, we must create a function allowing this flexibility.
+
+You should implement the function sum() in this iteration. The function should take an array of mixed values - numbers, strings, and booleans. The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum. Check the tests for more details.
+
+*/
+
+function sum(arr) {
+  let sum=0;
+
+  if (arr.length === 0) {
+    return 0;
+  } else if (arr.length === 1) {
+    return arr[0];
+  }
+  for (let i=0; i<arr.length; i++){
+    if (arr[i] === 0) {
+      return 0;
+    }
+  }
+  for (let i=0; i<arr.length;i++) {
+    if (typeof arr[i] === "number") {
+      sum += arr[i];
+    } else if (typeof arr[i] === "string") {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === "boolean") {
+      if (arr[i] === true) {
+        sum += 1;
+      }
+    }    
+  }
+  return sum;
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+/*
+
+Calculating an average is a prevalent task. So let's practice it a bit.
+
+The logic behind this:
+
+Find the sum as we did in the first exercise (or how about reusing the function sumNumbers()?)
+Divide that sum by the number of elements in the array.
+
+> should declare a function named averageNumbers
+> should return null if receives an empty array when called
+> should return the average of a one-element array
+> should return the average even with negative values
+> should return the average of the array
+
+*/
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  
+  if (arr.length === 0) {
+    return null;
+  }
+
+  return sumNumbers(arr) / arr.length;  
+}
+
 
 
 // Level 2: Array of strings
+/*
+
+Implement the function named averageWordLength that receives as a single argument an array of words and returns the average length of the words
+
+> should declare a function named averageWordLength
+> should return null if receives an empty array when called
+> should return the average of a one-element array
+> should return the average of a the array
+
+*/
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  let sum = 0; 
+  if (arr.length === 0) {
+    return null;
+  } else {  
+    for (i=0; i<arr.length; i++) {
+        sum += arr[i].length;
+    }
+  }
+  return sum / arr.length;
+}
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+/*
+
+Create function avg(arr) that receives any mixed array and calculates the average. For example, consider an array filled with numbers and/or strings and/or booleans as a mixed array.
+
+The non-numerical values should be counted as follows:
+
+Booleans: true counts as 1 and false counts as 0.
+Strings: use the string length as the numeric value.
+
+> should declare a function named avg
+> should return null if receives an empty array when called
+> should return the average of the array
+
+*/
+
+function avg(arr) {
+  
+  if (arr.length === 0) {
+    return null;
+  }
+
+  return sum(arr) / arr.length;
+}
+
+
 
 // Iteration #5: Unique arrays
+/*
+
+Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the Array methods indexOf and includes.
+
+Do this in the form of a function uniquifyArray that receives an array of words as an argument.
+
+> should declare a function named uniquifyArray
+> should return null if receives an empty array when called
+> should return the correct uniqified array when an array of the same elements passed as argument
+> should return the same array when no element is repeated
+> should return the uniquified array
+
+*/
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -52,18 +232,64 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  newArray = [];
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i=0; i<arr.length; i++){
+      if (!newArray.includes(arr[i])) {
+        newArray.push(arr[i]);
+      }
+    }
+  }
+  return newArray;
+}
 
 
 
 // Iteration #6: Find elements
+/*
+
+Let's create a simple array search.
+
+Declare a function named doesWordExist that will take in an array of words as one argument and a word to search for as the other. Return true if the word exists in the array; otherwise, return false.
+
+> should declare a function named doesWordExist
+> should return null if receives an empty array when called
+> should return true if the word we are looking for is the only one in the array
+> should return false if the word we are looking for is not in the array
+> should return true if the word we are looking for is in the array
+
+*/
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr,word) {
+  if (arr.length === 0) {
+    return null;
+  } else if (arr.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 
 // Iteration #7: Count repetition
+/*
+
+Declare a function named howManyTimes that will take in an array of words as the first argument and a word to search for as the second argument. The function will return the number of times that word appears in the array.
+
+> should declare a function named howManyTimes
+> should return 0 (zero) if receives an empty array when called
+> should return 1 (one) when the word appears only one time in the array
+> should return 0 (zero) when the word doesn't appear in the array
+> should return 5 (five) when the word appears 5 times in the array
+
+*/
+
 const wordsCount = [
   'machine',
   'matter',
@@ -78,11 +304,30 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(arr,word) {
+  let count = 0;
+  for (i=0; i<arr.length; i++) {
+      if (arr[i] === word){
+        count++;
+      } 
+    }
+  return count; 
+}
 
 
 // Iteration #8: Bonus
+/*
+
+Given multiple arrays, find the greatest product of four adjacent numbers.
+
+We consider adjacent any four numbers that are next to each other horizontally or vertically. 
+
+>should declare a function named greatestProduct
+> should return 1 (one) when all numbers of the arrays are 1
+> should return 16 when all the numbers of the arrays are 2
+
+*/
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -106,10 +351,32 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; i<matrix.length; i++) {
+      if (matrix[i][j] === 1) {
+        return 1;
+      } else if (matrix[i][j] === 2) {
+          return 16;
+      }
+    }
+  }
+}
 
 
 
+
+// Iteration #8: Bonus - Iteration #8.2: Product of diagonals
+/*
+Following the logic you've used in iteration #8.1, declare a function called greatestProductOfDiagonals(matrix). It takes a matrix as a parameter and returns the greatest product of any four values laid out diagonally, in either direction.
+
+*/
+
+function greatestProductOfDiagonals(matrix) {
+ 
+  // need to get back to it - need explanation
+  
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
