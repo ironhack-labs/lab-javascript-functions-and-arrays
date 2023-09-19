@@ -1,24 +1,65 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(numb1, numb2) {
+  if (numb1 > numb2) {
+    return numb1;
+  } else if (numb1 < numb2) {
+    return numb2;
+  } else if (numb1 === numb2) {
+    return numb1 || numb2
+  } else {
+    return console.log("Could not calculate the maximum of two numbers")
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(wordsArray) {
+  let longestWord = "";
+  if (!wordsArray.length) return null;
+  wordsArray.forEach((word) => {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  })
+  return longestWord;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+  let sum = 0;
+  if (!numbersArray.length) return 0;
+  numbersArray.forEach((number) => {
+    sum += number;
+  })
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArray) {
+  let sum = 0;
+    if (!mixedArray.length) return sum;
+    mixedArray.forEach((value) => {
+      if (typeof value === "number") {
+        sum += value;
+      } else if (typeof value === "boolean") {
+        if (value === true) {
+          sum += 1;
+        }
+      } else if (typeof value === "string") {
+        sum += value.length;
+      } else {
+        throw new Error("Unsupported Data Type found in Array");
+      }
+    })
+    return sum;
+}
 
 
 
@@ -26,16 +67,57 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function sumNumbersArray(numbersArray) {
+  let sum = 0;
+  if (!numbersArray.length) return sum;
+  numbersArray.forEach((number) => {
+    sum += number;
+  })
+  return sum;
+}
+
+function averageNumbers(numbersArray) {
+  if (!numbersArray.length) return null;
+  let average = sumNumbersArray(numbersArray) / numbersArray.length;
+  return average;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function sumAllWords(wordsArray) {
+  sumOfWords = 0;
+  wordsArray.forEach((word) => {
+    sumOfWords += word.length;
+  })
+  return sumOfWords;
+}
+
+function averageWordLength(wordsArray) {
+  if (!wordsArray.length) return null;
+  let averageWordLength = sumAllWords(wordsArray) / wordsArray.length
+  return averageWordLength;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixArr) {
+  if (!mixArr.length) return null;
+  let sum = 0;
+  for (let i = 0; i < mixArr.length; i++) {
+    if (typeof mixArr[i] === "number") {
+      sum += mixArr[i];
+    } else if (typeof mixArr[i] === "string") {
+      sum += mixArr[i].length;
+    } else if (mixArr[i] === true) {
+      sum += 1;
+    } else {
+      sum = sum;
+    }
+  }
+  let average = sum / mixArr.length
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +134,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArray) {
+  if (!wordsArray.length) return null;
+  let uniquifiedWordsArr = []
+  wordsArray.forEach((word) => {
+    if (!uniquifiedWordsArr.includes(word)) {
+      uniquifiedWordsArr.push(word);
+    }
+  })
+  return uniquifiedWordsArr;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArr, searchWord) {
+  if (!wordsArr.length) return null;
+  if (wordsArr.includes(searchWord)) {
+    return true;
+  } else if (!wordsArr.includes(searchWord)) {
+    return false;
+  }
+}
 
 
 
@@ -78,7 +176,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArr, searchWord) {
+  if (!wordsArr.length) return 0;
+  let wordCount = 0;
+  wordsArr.forEach((word) => {
+    if (word === searchWord) {
+      wordCount += 1;
+    }
+  })
+return wordCount;
+}
 
 
 
@@ -105,10 +212,69 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function multiply(firstNumb, secondNumb) {
+  const product = firstNumb * secondNumb;
+  return product;
+}
 
-function greatestProduct() {}
+function calculateRow(row) {
+  let rowProducts = [];
+  for (let i = 0; i < row.length - 1; i++) {
+    let adjacentsProduct = multiply(row[i], row[i + 1]);
+    rowProducts.push(adjacentsProduct);
+  }
+  return rowProducts;
+}
 
+function calculateColumn(firstRow, secondRow) {
+  let columnProducts = [];
+  if (firstRow.length > secondRow.length) {
+    for (let i = 0; i < firstRow.length; i++) {
+      let product = multiply(firstRow[i], secondRow[i]);
+      columnProducts.push(product);
+    }
+  } else {
+    for (let i = 0; i < secondRow.length; i++) {
+      let product = multiply(firstRow[i], secondRow[i]);
+      columnProducts.push(product);
+    }
+  }
+  return columnProducts;
+}
 
+function greatestProduct(matrix) {
+  let resultsArray = [];
+  let greatestProductValue = 0;
+
+  matrix.forEach((element, index) => {
+    let rowProducts = calculateRow(element);
+    if (index < matrix.length - 1) {
+      let columnProducts = calculateColumn(element, matrix[index + 1]);
+
+      if (columnProducts.length > 0) {
+        columnProducts.forEach((val) => {
+          resultsArray.push(val);
+        });
+      }
+    }
+
+    if (rowProducts.length > 0) {
+      rowProducts.forEach((val) => {
+        resultsArray.push(val);
+      });
+    }
+  });
+
+  resultsArray.forEach((val) => {
+    if (val > greatestProductValue) {
+      greatestProductValue = val;
+    }
+  });
+
+  return greatestProductValue;
+}
+
+console.log(greatestProduct(matrix));
 
 
 // The following is required to make unit tests work.
