@@ -1,41 +1,137 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
 
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else if (num2 > num1) {
+    return num2;
+  } else {
+    return num1, num2;
+  }
+}
 
 // Iteration #2: Find longest word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordArr) {
+  if (wordArr.length === 0) {
+    return null;
+  }
+
+  let longestWord = '';
+  wordArr.forEach(function(word) {
+    if (word.length > longestWord.length) {
+    longestWord = word;
+    }
+  })
+  return longestWord;
+
+}
 
 
 
 // Iteration #3: Calculate the sum
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numArr) {
+  if (numArr.length === 0) {
+    return 0;
+  }
+  
+  let sum = 0;
+  numArr.forEach(function(numbers) {
+    sum += numbers;
+    })
+    return sum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(numArr) {
+  if (numArr.length === 0) {
+    return 0;
+  }
+  let sum = 0;
+  numArr.forEach(function(numbers) {
+    if (typeof numbers === 'number') {
+      sum += numbers;
+    } else if (typeof numbers === 'string') {
+      sum += numbers.length;
+    } else if (typeof numbers === 'boolean') {
+        sum += Number(numbers);
+    } else {
+      throw new Error("Error: unsupported type of data in array")
+    }
+    })
+    
+    return sum;
+}
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+const numbersToCheck = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numArr) {
+  if (numArr.length === 0) {
+    return null;
+  }
+
+  const sum = sumNumbers(numArr);
+  const average = sum / numArr.length;
+
+  return average;
+}
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  let totalLength = 0;
+
+  wordsArr.forEach(function(word) {
+    totalLength += word.length;
+  });
+
+  const average = totalLength / wordsArr.length;
+  return average;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const multiTypeArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]
+function avg(multiTypeArr) {
+  if (multiTypeArr.length === 0) {
+    return null;
+  }
+
+  let sum = 0;
+  
+  multiTypeArr.forEach(function (elem) {
+    if (typeof elem === 'number') {
+      sum += elem;
+    } else if (typeof elem === 'string') {
+      sum += elem.length;
+    } else if (typeof elem === 'boolean') {
+      sum += Number(elem)
+    } 
+  });
+
+  const average = sum / multiTypeArr.length; 
+
+  return average;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +148,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordArr) {
+  if (wordArr.length === 0) {
+    return null;
+  }
 
+  const noRepeatArray = [];
+
+  wordArr.forEach(function(wordArr) {
+    if (!noRepeatArray.includes(wordArr)) {
+      noRepeatArray.push(wordArr);
+    }
+  })
+  return noRepeatArray;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordArray, targetWord) {
+  if (wordArray.length === 0) {
+    return null;
+  }
+
+  if (wordArray.includes(targetWord)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 
@@ -78,9 +196,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArray, wordToCount) {
 
+  let count = 0;
 
+  wordArray.forEach(function(word) {
+    if (word === wordToCount) {
+      count++;
+    }
+  })
+
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
