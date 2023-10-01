@@ -1,41 +1,115 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if(a>b)
+    return a
+  else if(a<b)
+    return b
+  else 
+    return a
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(wordsParam) {
+  /* if (wordsParam == []) */
+  // console.log(typeof []) return object
+  // the equality comparison (loose and strict) compares values, which for an array is actually the reference of the objects instead of the content, and here they are different objects in memory, so with different references
+  if (wordsParam.length == 0)
+    return null 
+  else if (wordsParam.length == 1)
+  {
+    return wordsParam[0]
+  }
+  else 
+    {
+      let max = 0
+      let index = 0
+      for (let i = 0; i < wordsParam.length; i++) {
+        console.log(i, wordsParam[i].length)
+        if (wordsParam[i].length > max) { // when using the syntax without the {} only the first line that follows is in the if block
+          max = wordsParam[i].length      //
+          index = i                       // so if more than 1 line needed, {} required
+        }
+      }
+      return wordsParam[index]
+    } 
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbersParam) {
+  let sum = 0
+  if (numbersParam.length == 0)
+    return 0
+  else {
+    numbersParam.forEach(function(number) {sum += number})
+    return sum
+  }
+   
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(param) {
+  let temp = 0
+  if (Array.isArray(param) && param.length == 0)
+    return 0
+  else if (Array.isArray(param)) {
+    param.forEach(function(element) {
+    if (typeof element == "object")  // will cover both object AND array types
+      // throw new Error('Error: passed array argument contains forbidden data types (object or array)')
+      throw new Error("Unsupported data type sir or ma'am") // jasmine testing only this exact message
+    if (typeof element == "string") // no need to test for boolean type because they are implicitly coerced to numbers by the operators
+        element = element.length
+      temp += element
+    })
+    return temp
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbersParam) {
+  if (numbersParam.length == 0)
+    return null
+  return sum(numbersParam) / numbersParam.length
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsParam) {
+  if (wordsParam.length == 0)
+    return null
+  return sum(wordsParam) / wordsParam.length
+}
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.3 // WAS "4.1" IN SOURCE LAB REPO
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]; // WAS MISSING TOO
+function avg(mixedParam) {
+  let mixedLen = 0
+  if (mixedParam.length == 0)
+    return null
+  /*
+  mixedArr.forEach(element => {
+  // need to coerce boolean to number because true.length is undefined
+  // https://stackoverflow.com/questions/7820683/convert-boolean-result-into-number-integer
+  // cannot use the unary operator + because +string is NaN
+  // cannot use the ternary operator because test ? 1 : 0 will return 1 for non empty string (which are truthy) instead of their length
+  // cannot bitwise or | because string | 0 returns 0 even for empty string
+  // cannot use Number(element) because returns NaN for a string element
+  // double bitwise NOT operator ~~
+  // http://web.archive.org/web/20210517190429/https://j11y.io/javascript/double-bitwise-not/
+  mixedLen += typeof element == "string" ? element.length : +element
+  })
+  return sum(mixedParam) / mixedLen
+  // returns 1... useless, but mixedLen is correct!
+  */
+    return sum(mixedParam) / mixedParam.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +126,42 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arrayParam) {
+  if (arrayParam.length == 0)
+    return null
+  /*
+  let i = 0
+  let uniquifiedArray = []
+  arrayParam.forEach(element => {
+    if (!arrayParam.includes(element, i + 1))
+      // then unique, the element does not exist somewhere further in the array, so unique
+      uniquifiedArray.push(element)
+    i += 1
+  })
+  return uniquifiedArray
+  // order is important to pass the test, and the first occurence should be kept, this solution keep the last one
+  */
+  let i = 0
+  let uniquifiedArray = []
+  arrayParam.forEach(element => {
+    if (arrayParam.indexOf(element) == i)
+      uniquifiedArray.push(element)
+    i += 1
+  })
+  return uniquifiedArray
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsParam, wordSearch) {
+  if (wordsParam.length == 0)
+    return null
+  if (wordsParam.includes(wordSearch))
+    return true
+  else
+    return false
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,11 +178,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsParam, wordSearch) {
+  let count = 0
+  if (wordsParam.length == 0)
+    return 0
+  if (!wordsParam.includes(wordSearch))
+    return 0
+  else {
+    wordsParam.forEach(function (word) {
+      if (word == wordSearch)
+        count += 1
+    })
+    return count
+  }
+}
 
-
-
-// Iteration #8: Bonus
+// Iteration #8: Bonus // 8.1
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -106,10 +217,111 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct2(matrixParam) {
+  let temp = []
+  matrixParam.forEach(row => {
+    if (howManyTimes(row, 1) == row.length) // row of 1s
+      temp.push(1)
+    if (howManyTimes(row, 2) == row.length) // row of 2s
+      temp.push(2)
+  })
+  if (howManyTimes(temp, 1) == temp.length && temp.length == matrixParam.length) // temp of 1s
+    return 1
+  if (howManyTimes(temp, 2) == temp.length && temp.length == matrixParam.length) // temp of 2s
+    return 16
+}
 
+// was looking only at the jasmine specs:
+// should return 1 (one) when all numbers of the arrays are 1 (unit test with a 20x20 matrix of 1)
+// should return 16 when all the numbers of the arrays are 2 (unit test with a 20x20 matrix of 2)
+// i missed the spirit of the exercise! : find the greatest product of four adjacent numbers in a column
 
+function greatestProduct(matrixParam) {
+  let max = 0;
+  let rowMax = 0 // i
+  let colMax = 0 // j
+  for (let i = 0; i < matrixParam.length - 3; i++) {
+    for (let j = 0; j < matrixParam[i].length; j++) {
+      const product = matrixParam[i + 0][j]
+                    * matrixParam[i + 1][j]
+                    * matrixParam[i + 2][j]
+                    * matrixParam[i + 3][j]
+      if (product > max) {
+        max = product;
+        rowMax = i
+        colMax = j
+      }
+    }
+  }
 
+  return max
+  // 51267216
+
+  /*
+  return {
+    'max': max,
+    'rowMax': rowMax, 
+    'colMax': colMax, 
+    'matrix': [
+      matrixParam[rowMax+0][colMax], 
+      matrixParam[rowMax+1][colMax], 
+      matrixParam[rowMax+2][colMax], 
+      matrixParam[rowMax+3][colMax]
+    ]
+  }
+  */
+  // returns:
+  // {max: 51267216, rowMax: 6, colMax: 15, matrix: Array[4]}
+  //   max: 51267216
+  //   rowMax: 6
+  //   colMax: 15
+  //   matrix: Array[4]
+  //     0: 66
+  //     1: 91
+  //     2: 88
+  //     3: 97
+
+}
+
+// Iteration #8: Bonus // 8.2 NOT IN JASMINE SPECS NOR UNIT TESTS
+// NOT TESTED
+// returns the greatest product of any four values laid out diagonally, in either direction.
+function greatestProductOfDiagonals(matrixParam) {
+  let max = 0;
+  let rowMax = 0 // i
+  let colMax = 0 // j
+
+  for (let i = 0; i < matrixParam.length - 3; i++) {
+    for (let j = 0; j < matrixParam[i].length; j++) {
+      const product = matrixParam[i+0][j+0]
+                    * matrixParam[i+1][j+1]
+                    * matrixParam[i+2][j+2]
+                    * matrixParam[i+3][j+3]
+      if (product > max) {
+        max = product;
+        rowMax = i
+        colMax = j
+      }
+    }
+  }
+
+  // loop again in the other direction
+  for (let i = 0; i < matrixParam.length - 3; i++) {
+    for (let j = 0; j < matrixParam[i].length; j++) {
+      const product = matrixParam[i+0][j+3]
+                    * matrixParam[i+1][j+2]
+                    * matrixParam[i+2][j+1]
+                    * matrixParam[i+3][j+0]
+      if (product > max) {
+        max = product;
+        rowMax = i
+        colMax = j
+      }
+    }
+  }
+
+  return max
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
