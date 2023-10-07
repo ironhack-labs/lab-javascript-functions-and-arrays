@@ -57,9 +57,15 @@ function sum(expression) {
       totalSum += index.length;
     } else if (typeof index === "number") {
       totalSum += index;
-    }
-    return totalSum;
+    } else if (typeof index === "boolean") {
+      if (index === true) {
+          totalSum += 1;
+      } else {
+          totalSum += 0;
+      }
+     } 
   }
+  return totalSum;
 }
  
 
