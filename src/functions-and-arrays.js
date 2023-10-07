@@ -63,7 +63,9 @@ function sum(expression) {
       } else {
           totalSum += 0;
       }
-     } 
+     } else if (Array.isArray(index) || typeof index === "object") {
+      throw new Error("Unsupported data type present in the array");
+    }
   }
   return totalSum;
 }
