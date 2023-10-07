@@ -43,9 +43,25 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(expression) {
+  if (expression.length === 0) {
+    return 0;
+  }
 
+  let totalSum = 0;
 
+  for (let i = 0; i < expression.length; i++) {
+    let index = expression[i];
+
+    if (typeof index === "string") {
+      totalSum += index.length;
+    } else if (typeof index === "number") {
+      totalSum += index;
+    }
+    return totalSum;
+  }
+}
+ 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
