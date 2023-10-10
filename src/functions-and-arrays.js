@@ -69,22 +69,61 @@ function sum(expression) {
   }
   return totalSum;
 }
- 
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(expressionBis) {
+  if (expressionBis.length === 0) {
+    return null;
+  }
+  return sumNumbers(expressionBis)/expressionBis.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordSalad) { 
+  if (wordSalad.length === 0) {
+    return null;
+  }
+  let totalWordSum = 0;
+  for (i = 0; i < wordSalad.length; i++) {
+    totalWordSum += wordSalad[i].length
+  }
+  return totalWordSum / wordSalad.length
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let totalSumBis = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let index = arr[i];
+
+    if (typeof index === "string") {
+      totalSumBis += index.length;
+    } else if (typeof index === "number") {
+      totalSumBis += index;
+    } else if (typeof index === "boolean") {
+      if (index === true) {
+          totalSumBis += 1;
+      } else {
+          totalSumBis += 0;
+      }
+     } 
+    }
+  return totalSumBis / arr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -101,7 +140,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(StringArr) {
+  if (StringArr.length === 0) {
+    return null;
+  }
+
+  let cleanArr = []
+  for (let i = 0; i < StringArr.length; i++) {
+    let word = StringArr[i];
+    if (!cleanArr.includes(word)) {
+      cleanArr.push(word);
+    }
+  }
+  return cleanArr;
+}
 
 
 
