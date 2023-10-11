@@ -224,8 +224,39 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(numbersArr) {
+  if (numbersArr.length === 0) {
+    return null;
+  }
 
+
+  
+  for (let i = 0; i < numbersArr.length - 1; i++) {
+   // console.log(numbersArr[1][2]);
+    console.log(numbersArr[0][0]);
+    console.log(numbersArr[0][numbersArr.length -1]);
+    console.log(numbersArr[numbersArr.length -1][0]);
+    console.log(numbersArr[numbersArr.length - 1][numbersArr.length - 1]);
+
+
+    
+    
+    /*let row = numbersArr[i][] * numbersArr[i + 1] * numbersArr[i + 2] * numbersArr[i + 3]
+    for (let j = 0; j < row.length; j++) {
+      let column = row[i] * row[i + 1] * row[i + 2] * row[i + 3]
+    }*/
+  }
+
+  
+}
+
+greatestProduct(matrix)
+
+// Beofre trying the problem, print each element and visualize where are the elements
+// 00 01 02 03 04 05 06 07 08 09 010 011 012 013 014 015 016 017 018 019 numbersArr.length - 1
+//10 11 10 13 14 15 16 17 18 19 110 111 122 113 114 115 116 117 118 119
+
+  
 
 
 
