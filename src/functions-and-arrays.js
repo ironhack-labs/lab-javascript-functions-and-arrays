@@ -186,7 +186,48 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+function greatestProduct(matrix) {
+  let row = 0
+  let numbers = [0, 0, 0, 0]
+  let col = 0
+
+  //acotamos la matriz por los ejes
+  matrix.forEach(matrixRow => {
+    if (Math.max(...matrixRow) > numbers[0]) {
+      numbers[0] = Math.max(...matrixRow)
+      row = matrix.indexOf(matrixRow)
+      col = matrixRow.indexOf(numbers[0])
+    }
+  })
+
+  //iteramos por el eje horizontal para encontrar 3 numeros mas grandes
+  matrix[row].slice(col).forEach(num => {
+    if (num < numbers[0] && num > numbers[1]) {
+      numbers[1] = num
+    } else if (num < numbers[1] && num > numbers[2]) {
+      numbers[2] = num
+    } else if (num < numbers[2] && num > numbers[3]) {
+      numbers[3] = num
+    }
+  })
+
+  //iteramos por el eje vertical para encontrar 3 numeros mas grandes
+  matrix.slice(row).forEach(matrixRow => {
+    if (matrixRow[col] < numbers[0] && matrixRow[col] > numbers[1]) {
+      numbers[1] = matrixRow[col]
+    } else if (matrixRow[col] < numbers[1] && matrixRow[col] > numbers[2]) {
+      numbers[2] = matrixRow[col]
+    } else if (matrixRow[col] < numbers[2] && matrixRow[col] > numbers[3]) {
+      numbers[3] = matrixRow[col]
+    }
+  })
+
+  let multiple = 1
+  for (number of numbers) {
+    multiple *= number
+  }
+  return multiple
+}
 
 
 
