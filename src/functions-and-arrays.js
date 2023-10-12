@@ -1,24 +1,71 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if(number1>number2){
+    return number1;
+  }else if(number2>number1){
+    return number2;
+  }else{
+    return number1,number2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord = '';
+    let maxLength = 0;
+
+    if(words.length===0){
+      return null
+    }
+
+    for (let i = 0; i < words.length; i++) {
+        const currentWord = words[i];
+        const currentLength = currentWord.length;
+
+        if (currentLength > maxLength) {
+            longestWord = currentWord;
+            maxLength = currentLength;
+        }
+    }
+
+    return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum =0;
+    for (let i=0; i<numbers.length; i++){
+        sum+=numbers[i];
+    }
+    return sum;
+}
+
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  let total = 0;
+  for (let value of numbers) {
+     if (typeof value === 'string') {
+       total += value.length;
+     } else if (typeof value === 'number' || typeof value === 'boolean') {
+       total += value;
+     } else if (typeof value === "object" || typeof value == []){
+        throw new Error
+     }
+  }
+  return total;
+ }
 
 
 
@@ -26,16 +73,56 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sum=0;
+  if(numbersAvg.length===0){
+    return null
+  }
+  for(let i=0; i<numbersAvg.length; i++){
+    sum+=numbersAvg[i];
+  }
+  return sum/numbersAvg.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let sum=0;
+  if(wordsArr.length===0){
+    return null
+  }
+  for(let i=0; i<wordsArr.length;i++){
+    sum+=wordsArr[i].length
+  }
+  return sum/wordsArr.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let total = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === 'number') {
+          total += arr[i];
+          count++;
+      } else if (typeof arr[i] === 'boolean') {
+          total += arr[i] ? 1 : 0;
+          count++;
+      } else if (typeof arr[i] === 'string') {
+          total += arr[i].length;
+          count++;
+      }
+  }
+
+  if (count === 0) {
+      return null;
+  } else {
+      return total / count;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +139,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length===0){
+    return null
+  }
+  let unique = [];
+  wordsUnique.forEach(word => {
+    if(!unique.includes(word)){
+      unique.push(word)
+    }
+    
+  });
+
+  return unique
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if(wordsFind.length===0){
+    return null
+  }else if(wordsFind.includes(word)){
+    return true
+  }else if(!(wordsFind.includes(word))){
+    return false
+  }
+}
 
 
 
@@ -75,10 +184,29 @@ const wordsCount = [
   'matter',
   'truth',
   'disobedience',
+  'matter',
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let count=0;
+  if(wordsCount.length===0){
+    return 0;
+  }
+  for (let i=0; i<wordsCount.length;i++){
+    if(wordsCount[i]===word){
+      count ++
+    }
+    else if(!(wordsCount.includes(word))){
+      count= 0
+    }
+    
+  }
+  return count
+
+}
+
+console.log(howManyTimes(wordsCount, "matter"))
 
 
 
