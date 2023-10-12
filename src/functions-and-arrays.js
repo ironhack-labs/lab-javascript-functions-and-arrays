@@ -94,7 +94,15 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(wordsUnique) {
+  let pas = []
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (wordsUnique[i].indexOf === -1)
+      push(pas)
+  }
+  return pas
+}
+
 
 
 
