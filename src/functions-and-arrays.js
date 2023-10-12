@@ -191,7 +191,7 @@ function greatestProduct(matrix) {
   let numbers = [0, 0, 0, 0]
   let col = 0
 
-  //acotamos la matriz por los ejes
+  // acotamos la matriz
   matrix.forEach(matrixRow => {
     if (Math.max(...matrixRow) > numbers[0]) {
       numbers[0] = Math.max(...matrixRow)
@@ -200,7 +200,7 @@ function greatestProduct(matrix) {
     }
   })
 
-  //iteramos por el eje horizontal para encontrar 3 numeros mas grandes
+  //iteramos sobre eje horizontal
   matrix[row].slice(col).forEach(num => {
     if (num < numbers[0] && num > numbers[1]) {
       numbers[1] = num
@@ -211,7 +211,7 @@ function greatestProduct(matrix) {
     }
   })
 
-  //iteramos por el eje vertical para encontrar 3 numeros mas grandes
+  //iteramos sobre eje vertical
   matrix.slice(row).forEach(matrixRow => {
     if (matrixRow[col] < numbers[0] && matrixRow[col] > numbers[1]) {
       numbers[1] = matrixRow[col]
@@ -226,9 +226,43 @@ function greatestProduct(matrix) {
   for (number of numbers) {
     multiple *= number
   }
+
   return multiple
 }
 
+// Bonus - Iteration #8.2: Product of diagonals
+function greatestProductDiagonal(matrix) {
+  let row = 0
+  let numbers = [0, 0, 0, 0]
+  let col = 0
+
+  // acotamos la matriz
+  matrix.forEach(matrixRow => {
+    if (Math.max(...matrixRow) > numbers[0]) {
+      numbers[0] = Math.max(...matrixRow)
+      row = matrix.indexOf(matrixRow)
+      col = matrixRow.indexOf(numbers[0])
+    }
+  })
+
+  //iteramos sobre la diagonal
+  matrix.slice(row).forEach(matrixRow => {
+    if (matrixRow[col] < numbers[0] && matrixRow[col] > numbers[1]) {
+      numbers[1] = matrixRow[col]
+    } else if (matrixRow[col] < numbers[1] && matrixRow[col] > numbers[2]) {
+      numbers[2] = matrixRow[col]
+    } else if (matrixRow[col] < numbers[2] && matrixRow[col] > numbers[3]) {
+      numbers[3] = matrixRow[col]
+    }
+    col++
+  })
+
+  let multiple = 1
+  for (number of numbers) {
+    multiple *= number
+  }
+  return multiple
+}
 
 
 
