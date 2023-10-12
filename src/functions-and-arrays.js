@@ -1,24 +1,96 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  } else if (number2 > number1) {
+    return number2;
+  } else {
+    return number1 && number2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null
+  }
+  let longestWord = ""
+  words.forEach((eachWord) => {
+    if (eachWord.length > longestWord.length) {
+      longestWord = eachWord
+    }
+  }
+  )
+  return longestWord
+}
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0
+  numbers.forEach((eachNumber) => {
+    sum += eachNumber
+  })
+  if (numbers.length === 0) {
+    return 0
+  } else if (numbers.length === 1) {
+    return numbers[0]
+  } else {
+    return sum
+  }
+
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10]
+
+function sum(mixedArr) {
+  for (i = 0; i < mixedArr; i++) {
+    if (typeof mixedArr[i] !== "number" && typeof mixedArr[i] !== "string" && typeof mixedArr[i] !== "boolean") {
+      throw new Error("Error message goes here")
+    }
+  }
+
+  let arrSum = 0
+  mixedArr.forEach((eachElem) => {
+    if (typeof eachElem === "string") {
+      arrSum += eachElem.length
+    } else if (typeof eachElem === "number") {
+      arrSum += eachElem
+    }
+  })
+
+}
+
+
+
+
+
+// Bonus - Iteration #3.2: A generic sum() function
+//   In iteration 3, you created a function that returns the sum of an array of numbers.But what if we want to calculate the sum of the length of words in an array ? What if it also includes boolean values ? To achieve this, we must create a function allowing this flexibility.
+
+// You should implement the function sum() in this iteration.The function should take an array of mixed values - numbers, strings, and booleans.The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum.
+
+// You can use the following array to test your solution:
+
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// // should return: 57
+// Note: Your function should only accept an array with numbers, strings, or booleans.If the array contains any other data type, such as an object, you should throw an error.In JavaScript, the syntax for throwing an error is as follows:
+
+// throw new Error("Error message goes here");
+// When specifying the error message, you should be specific and descriptive in explaining the error.
 
 
 
@@ -26,16 +98,71 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let totalOfNumbers = 0;
+  for (i = 0; i < numbersAvg.length; i++) {
+    totalOfNumbers += numbersAvg[i]
+  }
+  let avg = 0
+  avg = totalOfNumbers / numbersAvg.length
+  if (numbersAvg.length === 0) {
+    return null
+  } else {
+    return avg
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let wordsArrNumber = wordsArr.length
+  let totalLength = 0
+  wordsArr.forEach((eachWord) => {
+    totalLength += eachWord.length
+  })
+  let avgWords = totalLength / wordsArrNumber
+  if (wordsArr.length === 0) {
+    return null
+  } else {
+    return avgWords
+  }
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null
+  }
+  let totalCount = 0
+  mixedArr.forEach((eachElem) => {
+    if (typeof eachElem === "number") {
+      totalCount += eachElem
+    } else if (typeof eachElem === "string") {
+      totalCount += eachElem.length
+    } else if (eachElem === true) {
+      totalCount++
+    } else if (eachElem === false) {
+      totalCount += 0
+    }
+  }
+  )
+  let avg = totalCount / mixedArr.length
+  return avg
+
+}
+
+
+// Create function avg(arr) that receives any mixed array and calculates the average.For example, consider an array filled with numbers and / or strings and / or booleans as a mixed array.
+
+// The non - numerical values should be counted as follows:
+
+// Booleans: true counts as 1 and false counts as 0.
+// Strings: use the string length as the numeric value.
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +179,38 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null
+  }
+  let uniqueWords = []
+  wordsUnique.forEach((eachWord) => {
+    if (!uniqueWords.includes(eachWord)) {
+      uniqueWords.push(eachWord)
+    }
+  }
+  )
+  return uniqueWords
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
+let exist = false
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null
+  }
+  let exist = false
+  wordsFind.forEach((eachWord) => {
+    if (eachWord === word) {
+      exist = true
+    }
+  })
+  return exist
+}
 
 
 
@@ -78,7 +229,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  if (wordsCount.length === 0) {
+    return 0
+  }
+  let wordCount = 0
+  wordsCount.forEach((eachWord => {
+    if (eachWord === word) {
+      wordCount++
+    }
+  }))
+  return wordCount
+}
 
 
 
@@ -106,7 +268,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
