@@ -1,12 +1,10 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-  if (num1 > num2) {
+  if (num1 >= num2) {
     return num1
   } else if (num1 < num2) {
     return num2
-  } else {
-    return num1
-  }
+  } 
 }
 
 
@@ -223,10 +221,7 @@ function greatestProduct(matrix) {
   })
 
   let multiple = 1
-  for (number of numbers) {
-    multiple *= number
-  }
-
+  numbers.forEach(number => multiple *= number)
   return multiple
 }
 
@@ -258,9 +253,7 @@ function greatestProductDiagonal(matrix) {
   })
 
   let multiple = 1
-  for (number of numbers) {
-    multiple *= number
-  }
+  numbers.forEach(number => multiple *= number)
   return multiple
 }
 
