@@ -1,19 +1,59 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if(number1 > number2) {
+    return number1;
+  }
+  else if(number2 > number1) {
+    return number2;
+  }
+  else if (number2 && number1) { //cheguei lá com a minha cuca
+   return number1, number2;
+  }
+  else{
+    console.log("Something is wrong.");
+  }
+}
+maxOfTwoNumbers();
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
-
+// let emptyArray = 0;
+function findLongestWord(wordsGroup) {
+    if (wordsGroup.length === 0){
+      return null;
+    }
+    
+    let longestWord = wordsGroup[0];
+  
+    wordsGroup.forEach((words, index)=> {
+      if (words.length > longestWord.length) {
+        longestWord = words
+      }
+    })
+    return longestWord;
+}
+//findLongestWord(words); //não precisa chamar a função, Jasmine que chama a função
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersGroup) {
+  let sumArray = 0;
+  if (numbersGroup.length === 0){
+    return 0;
+  }
+  else{
+    for(let i = 0; i < numbersGroup.length; i++) {
+      sumArray += numbersGroup[i];
+    }
+    return sumArray;
+  }
+}
+//numbers(); //não precisa chamar a função, Jasmine que chama a função
+
 
 
 
@@ -26,7 +66,22 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+if (countNumbers.length === 0){
+  return null;
+}
+
+function averageNumbers(countNumbers) {
+  let sum = 0;
+  for (let i = 0; i < countNumbers.length; i++){
+    sum+= countNumbers[i];
+  }
+  return sum;
+}
+
+function averageOfNumbers(countNumbers){
+  return console.log(averageNumbers(countNumbers)/countNumbers.length);
+}
+//averageOfNumbers(); //não precisa chamar a função, Jasmine que chama a função
 
 
 // Level 2: Array of strings
