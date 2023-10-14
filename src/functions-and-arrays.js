@@ -1,44 +1,161 @@
-// Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+// Iteration 1 - Implement the function maxOfTwoNumbers that takes two numbers as arguments and returns the bigger number.
 
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 === number2) {
+    return number2;
+  } else if (number1 > number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+}
 
+let number1 = 1;
+let number2 = 2;
+const max = maxOfTwoNumbers(number1, number2);
+console.log(max);
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+// Iteration 2 - Implement the function findLongestWord that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
 
-function findLongestWord() {}
+function findLongestWord(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let longest = '';
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].length > longest.length) {
+      longest = wordsArr[i];
+    }
+  }
+  return longest;
+}
 
+const words = [
+  'mystery',
+  'brother',
+  'aviator',
+  'crocodile',
+  'pearl',
+  'orchard',
+  'crackpot',
+];
+const longestWord = findLongestWord(words);
+console.log(longestWord);
 
+// Iteration 3.1 - Implement the function named sumNumbers that takes an array of numbers as an argument and returns the sum of all the numbers in the array.
 
-// Iteration #3: Calculate the sum
+function sumNumbers(numbersArr) {
+  let sum = 0;
+  for (let i = 0; i < numbersArr.length; i++) {
+    sum += numbersArr[i];
+  }
+  return sum;
+}
+
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const sumArr = sumNumbers(numbers);
+console.log(sumArr);
 
-function sumNumbers() {}
+// Iteration 3.2 - Implement the function sum() in this iteration. The function should take an array of mixed values - numbers, strings, and booleans. The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum.
 
+function sum(mixedArr) {
+  let sum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'boolean') {
+      if (mixedArr[i] === true) sum += 1;
+    } else if (typeof mixedArr[i] === 'string') {
+      sum += mixedArr[i].length;
+    } else if (typeof mixedArr[i] === 'number') {
+      sum += mixedArr[i];
+    } else {
+      throw new Error('Sorry, this data type is not accepted');
+    }
+  }
+  return sum;
+}
 
+const mixedArray = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const sumResult = sum(mixedArray);
+console.log(sumResult);
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration 4.1 - Implement the function averageNumbers that expects an array of numbers and returns the average of the numbers.
 
+function averageNumbers(numArr) {
+  if (numArr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0; i < numArr.length; i++) {
+    sum += numArr[i];
+  }
+  return sum / numArr.length;
+}
 
-
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const avgResult = averageNumbers(numbersAvg);
+console.log(avgResult);
 
-function averageNumbers() {}
+// Iteration 4.2 - Implement the function named averageWordLength that receives as a single argument an array of words and returns the average length of the words.
 
+function averageWordLength(avgWordsArr) {
+  if (avgWordsArr.length === 0) {
+    return null;
+  }
+  let average = 0;
+  for (let i = 0; i < avgWordsArr.length; i++) {
+    average += avgWordsArr[i].length;
+  }
+  return average / avgWordsArr.length;
+}
+const wordsAvg = [
+  'seat',
+  'correspond',
+  'linen',
+  'motif',
+  'hole',
+  'smell',
+  'smart',
+  'chaos',
+  'fuel',
+  'palace',
+];
+const wordsAvgResult = averageWordLength(wordsAvg);
+console.log(wordsAvgResult);
 
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+// Iteration 4.3 - Create function avg(arr) that receives any mixed array and calculates the average. For example, consider an array filled with numbers and/or strings and/or booleans as a mixed array.
 
-function averageWordLength() { }
+/*Booleans: true counts as 1 and false counts as 0.
+Strings: use the string length as the numeric value.*/
 
-// Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  let average = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === 'boolean') {
+      if (arr[i] === true) {
+        sum += 1;
+      } else {
+        sum += 0;
+      }
+    } else if (typeof arr[i] === 'string') {
+      sum += arr[i].length;
+    } else if (typeof arr[i] === 'number') {
+      sum += arr[i];
+    }
+  }
+  average = sum / arr.length;
+  return average;
+}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedAvgResult = avg(mixedArr);
+console.log(mixedAvgResult);
 
-// Iteration #5: Unique arrays
-const wordsUnique = [
+// Iteration 5 - Take the following array, remove the duplicates, and return a new array. Do this in the form of a function uniquifyArray that receives an array of words as an argument.
+
+const uniqWords = [
   'crab',
   'poison',
   'contagious',
@@ -49,22 +166,59 @@ const wordsUnique = [
   'poison',
   'communion',
   'simple',
-  'bring'
+  'bring',
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(uniqArr) {
+  if (uniqArr.length === 0) {
+    return null;
+  }
+  let unique = [];
+  for (let i = 0; i < uniqArr.length; i++) {
+    if (!unique.includes(uniqArr[i])) {
+      unique.push(uniqArr[i]);
+    }
+  }
+  return unique;
+}
 
+const uniqResult = uniquifyArray(uniqWords);
+console.log(uniqResult);
 
+// Iteration 6 - Declare a function named doesWordExist that will take in an array of words as one argument and a word to search for as the other. Return true if the word exists in the array; otherwise, return false.
 
-// Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(wordsArr, searchWord) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  return wordsArr.includes(searchWord);
+}
+const wordsSearch = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience',
+];
+console.log(doesWordExist(wordsSearch, 'trouble'));
+console.log(doesWordExist(wordsSearch, 'rain'));
 
-function doesWordExist() {}
+// Iteration 7 - Declare a function named howManyTimes that will take in an array of words as the first argument and a word to search for as the second argument. The function will return the number of times that word appears in the array.
 
+function howManyTimes(wordsArr, wordSearch) {
+  let wordsCount = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === wordSearch) {
+      wordsCount += 1;
+    }
+  }
+  return wordsCount;
+}
 
-
-// Iteration #7: Count repetition
-const wordsCount = [
+const wordsRepeat = [
   'machine',
   'matter',
   'subset',
@@ -75,56 +229,9 @@ const wordsCount = [
   'matter',
   'truth',
   'disobedience',
-  'matter'
+  'matter',
 ];
 
-function howManyTimes() {}
-
-
-
-// Iteration #8: Bonus
-const matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
-  [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
-  [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
-  [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
-  [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
-  [24, 47, 32, 60, 99, 3, 45, 2, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50],
-  [32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70],
-  [67, 26, 20, 68, 2, 62, 12, 20, 95, 63, 94, 39, 63, 8, 40, 91, 66, 49, 94, 21],
-  [24, 55, 58, 5, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72],
-  [21, 36, 23, 9, 75, 0, 76, 44, 20, 45, 35, 14, 0, 61, 33, 97, 34, 31, 33, 95],
-  [78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 3, 80, 4, 62, 16, 14, 9, 53, 56, 92],
-  [16, 39, 5, 42, 96, 35, 31, 47, 55, 58, 88, 24, 0, 17, 54, 24, 36, 29, 85, 57],
-  [86, 56, 0, 48, 35, 71, 89, 7, 5, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58],
-  [19, 80, 81, 68, 5, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 4, 89, 55, 40],
-  [4, 52, 8, 83, 97, 35, 99, 16, 7, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66],
-  [88, 36, 68, 87, 57, 62, 20, 72, 3, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69],
-  [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
-  [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
-  [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
-  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
-];
-
-function greatestProduct() {}
-
-
-
-
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
-  module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct
-  };
-}
+console.log(howManyTimes(wordsRepeat, 'matter'));
+console.log(howManyTimes(wordsRepeat, 'subset'));
+console.log(howManyTimes(wordsRepeat, 'sun'));
