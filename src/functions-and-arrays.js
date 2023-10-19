@@ -71,7 +71,6 @@ function sum(arr) {
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
-  sumNumbers(arr);
   let sum = sumNumbers(arr);
   if (arr.length < 1) {
     return null;
@@ -160,6 +159,9 @@ function uniquifyArray(wordList) {
 
   return uniqueArray;
 }
+
+// extra method with spread operator + Set method
+const uniqueWords = [...new Set(wordsUnique)];
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -279,7 +281,6 @@ const matrix = [
 const greatestProduct = (matrix) => {
   let maxProduct = 0;
 
-  // Yatayda kontrol etme
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length - 3; j++) {
       const product =
@@ -288,35 +289,10 @@ const greatestProduct = (matrix) => {
     }
   }
 
-  // Dikeyde kontrol etme
   for (let i = 0; i < matrix.length - 3; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
       const product =
         matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
-      maxProduct = Math.max(maxProduct, product);
-    }
-  }
-
-  // Sağ çapraz kontrol etme (üst köşegen)
-  for (let i = 0; i < matrix.length - 3; i++) {
-    for (let j = 0; j < matrix[i].length - 3; j++) {
-      const product =
-        matrix[i][j] *
-        matrix[i + 1][j + 1] *
-        matrix[i + 2][j + 2] *
-        matrix[i + 3][j + 3];
-      maxProduct = Math.max(maxProduct, product);
-    }
-  }
-
-  // Sol çapraz kontrol etme (alt köşegen)
-  for (let i = 3; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length - 3; j++) {
-      const product =
-        matrix[i][j] *
-        matrix[i - 1][j + 1] *
-        matrix[i - 2][j + 2] *
-        matrix[i - 3][j + 3];
       maxProduct = Math.max(maxProduct, product);
     }
   }
