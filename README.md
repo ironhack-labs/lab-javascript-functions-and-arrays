@@ -249,7 +249,7 @@ const words = [
   'communion',
   'simple',
   'bring'
-];
+]
 ```
 
 <br>
