@@ -1,24 +1,64 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 !== number2) {
+    if (number1>number2) {
+      return number1;
+    } else {
+      return number2;
+    }
+  }
+  return number1;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordsArray) {  
+  if (wordsArray.length == 0){
+    return null;
+  } 
+  let longestWord = '';
+  for (let i=0; i<wordsArray.length; i++) {
+    if (wordsArray[i].length > longestWord.length) {
+      longestWord = wordsArray[i];
+    }
+  }  
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+  let sum = 0;
+  for (let i=0; i<numbersArray.length; i++) {
+    sum += numbersArray[i];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArray) {
+  let sum = 0;
+  for (i=0; i<mixedArray.length; i++) {
+    if (typeof mixedArray[i] == "number") {
+      sum += mixedArray[i];
+    } else if (typeof mixedArray[i] == "string") {
+      sum += mixedArray[i].length;
+    } else if (typeof mixedArray[i] == "boolean") {
+      sum += mixedArray[i];
+    } else {
+      throw new Error("An element in the provided array is not a number, string or boolean.");
+    }
+  }
+  return sum;
+}
 
 
 
@@ -26,16 +66,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  if (numbersArray.length == 0) {
+    return null;
+  }
+  let sum = sumNumbers(numbersArray);
+  return sum / numbersArray.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) { 
+  if (wordsArray.length == 0) {
+    return null;
+  }
+  let sumWordLength = 0;
+  for (let i=0; i<wordsArray.length; i++) {
+    sumWordLength += wordsArray[i].length;
+  }
+  return sumWordLength / wordsArray.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArray) {
+  if (mixedArray.length == 0) {
+    return null;
+  }
+  return sum(mixedArray) / mixedArray.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +112,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArray) {
+  if (wordsArray.length == 0) {
+    return null;
+  }
+  for (i=0; i<wordsArray.length; i++) {
+    // idea: if indexOF == lastIndexOf there are no dublicates.
+    // will only work if there are max 2 dublicates. 
+    // maybe a recursive function would be idea to check for multiple dublicates.
+    let firstOccurrence = wordsArray.indexOf(wordsArray[i]);
+    let lastOccurance = wordsArray.lastIndexOf(wordsArray[i])
+    if (firstOccurrence !== lastOccurance) {
+      wordsArray.splice(lastOccurance, 1);
+    }
+  }
+  return wordsArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, searchedWord) {
+  if (wordsArray.length == 0) {
+    return null;
+  }
+  return wordsArray.includes(searchedWord);
+}
 
 
 
@@ -78,7 +158,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArray, searchedWord) {
+  if (wordsArray.length == 0) {
+    return 0;
+  }
+  let numberOfOccurancies = 0;
+
+  if (doesWordExist(wordsArray, searchedWord)) {
+    for (let i=0; i<wordsArray.length; i++) {      
+      if (wordsArray[i] == searchedWord) {
+        numberOfOccurancies += 1;
+      }    
+    }
+  }
+  return numberOfOccurancies;
+}
 
 
 
@@ -106,7 +200,72 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+/* some simple matrix for better understanding
+      [1, 2, 3, 1],
+      [2, 3, 4, 2],
+      [1, 2, 5, 1],
+      [2, 1, 1, 6]
+*/
+
+function greatestProduct(matrix) {
+  let greatestProduct = 1;
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix[i].length; j++) {
+      // horizontally
+
+      // check if there are 3 more elements left in the horizontal
+      if (j + 3 < matrix[i].length) {
+        let currentHorizontalProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        if (currentHorizontalProduct > greatestProduct){
+          greatestProduct = currentHorizontalProduct;
+        }  
+      }
+      
+      // vertically
+      // Note: the tests dont check for vertically adjacent products!
+
+      // check if there are 3 more elements left in the vertical
+      if (i + 3 < matrix.length){
+        let currentVerticalProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];        
+        if (currentVerticalProduct > greatestProduct){
+          greatestProduct = currentVerticalProduct;
+        }
+      }
+    }
+  }
+  return greatestProduct;
+}
+
+// Bonus - Iteration #8.2: Product of diagonals
+
+// Idea; going from each element of the matrix in two direction: top left and top right
+// Since we are going through each element of the matrix, 
+// this should ensure we look at each possible combination of the diagonally adjacent elements.
+// This will be _Very_ unefficient, since we are looking multiple times at same elements
+// But for now its quick & dirty :)
+function greatestProductOfDiagonals(matrix) {
+  let greatestProduct = 1;
+  let currentProduct = 1;
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix[i].length; j++) {
+      // top left
+      if (j - 3 >= 0 && i - 3 >= 0) {
+        currentProduct = matrix[i][j] * matrix[i-1][j-1] * matrix[i-2][j-2] * matrix[i-3][j-3];
+        if (currentProduct > greatestProduct) {
+          greatestProduct = currentProduct
+        }
+      }
+      // top right
+      if (j + 3 < matrix[i].length && i - 3 >= 0) {
+        currentProduct = matrix[i][j] * matrix[i-1][j+1] * matrix[i-2][j+2] * matrix[i-3][j+3];
+        if (currentProduct > greatestProduct) {
+          greatestProduct = currentProduct
+        }
+      }      
+    }
+  }
+  return greatestProduct;
+}
 
 
 
