@@ -1,24 +1,65 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2)
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordArray) {
+  let longestWord = "";
+
+  if (!wordArray.length) {
+    return null
+  } else if (wordArray.length === 1) {
+    return wordArray[0] 
+  } else {
+    
+    for(i = 0; i < wordArray.length; i++) {
+      if(wordArray[i].length > longestWord.length) {
+        longestWord = wordArray[i]
+      } 
+    }
+    
+    return longestWord
+  }
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNumbers) {
+
+  if(!arrayNumbers.length) {
+    return 0
+  } else {
+    let arraySum = 0;
+
+    for(i = 0; i < arrayNumbers.length; i++){
+      arraySum += arrayNumbers[i];
+    } 
+
+    return arraySum
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+/* function sum(arrayMixed) {
+
+  switch(true) {
+    case !arrayMixed.length:
+      return 0;
+      break;
+    
+    case 
+  }
+} */
 
 
 
@@ -26,13 +67,50 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arrayOfNumbers) {
+
+  switch (true) {
+
+    case !arrayOfNumbers.length:
+      return null;
+      break;
+    
+    case arrayOfNumbers.length === 1:
+      return arrayOfNumbers[0];
+      break;
+    
+    default:
+      let arraySum = 0;
+      for(i = 0; i < arrayOfNumbers.length; i++) {
+        arraySum += arrayOfNumbers[i]
+      }
+      return arraySum / arrayOfNumbers.length
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfWords) {
+
+  switch(true) {
+
+    case !arrayOfWords.length:
+      return null;
+      break;
+    
+    default:
+      let sum = 0;
+
+      for(i = 0; i < arrayOfWords.length; i++) {
+      sum += arrayOfWords[i].length
+      }
+
+      let averageOfStrings = sum/ arrayOfWords.length
+      return averageOfStrings
+  }
+ }
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,14 +130,65 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+/* function uniquifyArray(arrayOfWords) {
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    let wordForCheck = arrayOfWords[i]
 
+    for(let j = i+1; j < arrayOfWords.length-1; j++) {
+      if (arrayOfWords[j].includes(wordForCheck)) {
+        arrayOfWords.splice(j, 1)
+      }
+    }
+  }
+  return arrayOfWords
+}
+ */
+
+function uniquifyArray(arrayOfWords) {
+  switch (true) {
+  case !arrayOfWords.length:
+    return null;
+    break;
+  
+  default:
+    const uniqueWords = [];
+  
+    for (let i = 0; i < arrayOfWords.length; i++) {
+      let wordForCheck = arrayOfWords[i];
+      let isUnique = true;
+  
+      for (let j = 0; j < uniqueWords.length; j++) {
+        if (uniqueWords[j] === wordForCheck) {
+          isUnique = false;
+          break;
+        }
+      }
+  
+      if (isUnique) {
+        uniqueWords.push(wordForCheck);
+      }
+    }
+    
+    return uniqueWords;
+  
+}
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayOfWords, wordToSearchFor) {
+
+  switch (true) {
+    case !arrayOfWords.length:
+      return null
+      break;
+    
+    default:
+      return arrayOfWords.includes(wordToSearchFor)
+  }
+}
 
 
 
@@ -78,7 +207,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfWords, repeatedWord) {
+  let count = 0;
+
+  for(let i = 0; i < arrayOfWords.length; i++) {
+  if(arrayOfWords[i].includes(repeatedWord)){
+    count++
+  }
+}
+
+  return count
+}
 
 
 
