@@ -19,14 +19,16 @@ const words = [
 ];
 
 function findLongestWord(str) {
+	if(str.length === 0){
+		return null;
+	}
 	const splStrArray = str.slice(' ');
 	let longestWord = '';
+	
 	for (let i = 0; i < splStrArray.length; i++) {
 		if (splStrArray[i].length > longestWord.length) {
 			longestWord = splStrArray[i];
-		} else if (str.length === 0) {
-			return null;
-		}
+		} 
 	}
 	return longestWord;
 }
@@ -53,8 +55,19 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+	let total = 0;
+	if(arr.length > 0){
+		arr.forEach(function (num) {
+			total += num;
+		  }); 
+		  return total / arr.length;
+	} else if(arr.length === 0) {
+		return total = null;
+	}
+  }
 
+//console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = [
 	'seat',
@@ -69,7 +82,22 @@ const wordsArr = [
 	'palace',
 ];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+	if(arr.length === 0){
+		return null;
+	}
+	let emptyArr = [];
+	let total = 0;
+	arr.forEach(function(word){
+		emptyArr.push(word.length);
+	})
+	emptyArr.forEach(function(num){
+		total += num;
+	})
+	return total/arr.length;
+}
+//console.log(averageWordLength(wordsArr));
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -89,7 +117,14 @@ const wordsUnique = [
 	'bring',
 ];
 
-function uniquifyArray() {}
+
+function uniquifyArray(arr) {
+	arr.forEach(function (value, index) {
+	  console.log(`${value}, ${index}`);
+	});
+  }
+
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
