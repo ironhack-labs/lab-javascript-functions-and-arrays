@@ -164,8 +164,6 @@ function howManyTimes(wordsCount, words) {
   } return counter;    
 }
 
-// ich loope wordsCount. kriege ein einziges wort und checke WIE OFT es in index 1 drinne ist, falls nein, bleibt mein counter bei 0, falls ja, geht der counter auf +1
-
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
