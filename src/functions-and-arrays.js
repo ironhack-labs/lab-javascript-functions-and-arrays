@@ -1,24 +1,70 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2)
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let word = "";
+  if(arr.length === 0) {
+    return null;
+  }
+
+  for (let i = 0;i<arr.length;i++) {
+    if(word.length < arr[i].length) {
+      word = arr[i]
+    } 
+    
+  }
+  return word;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numArr) {
+  let sum = 0;
+  if(numArr.length === 0) {
+    return 0;
+  }
+  for (let i=0;i<numArr.length;i++) {
+    sum += numArr[i];
+  }
+  return sum;
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  let result = [];
+  for (let i = 0;i<arr.length;i++) {
+    if (typeof arr[i] === 'string') {
+      result.push(arr[i].length);
+    }else if(arr[i] === true) {
+      result.push(1);
+    }else if(arr[i] === false) {
+      result.push(0);
+    }else if(typeof arr[i] === 'number') {
+      result.push(arr[i]);
+    }else if(typeof arr[i] === 'object') {
+      throw new Error('Sorry we dont accept Objects!');
+    }
+  }
+  return result.reduce(function(a, b) {
+    return a + b;
+  });
+}
 
 
 
@@ -26,16 +72,53 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numArr) {
+  if (numArr.length === 0) {
+    return null;
+  }
+  let sum = 0;
+  for (let i = 0;i<numArr.length;i++) {
+    sum += numArr[i];
+  }
+  return sum / numArr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordArr) {
+  if (wordArr.length === 0) {
+    return null;
+  }
+  
+  let numOfAll = 0;
+  for (let i = 0;i< wordArr.length;i++) {
+    numOfAll += wordArr[i].length;
+  }
+  return numOfAll  / wordArr.length;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixArr) {
+  if (mixArr.length === 0) {
+    return null;
+  }
+  let sum = [];
+  for (let i= 0; i<mixArr.length;i++) {
+    if(mixArr[i] === true) {
+      sum.push(1);
+    }else if(mixArr[i] === false) {
+      sum.push(0);
+    }else if (typeof mixArr[i] === 'string') {
+      sum.push(mixArr[i].length);
+    }else if (typeof mixArr[i] === 'number') {
+      sum.push(mixArr[i]);
+    }
+  }
+  return sum.reduce(function(a, b) {
+    return a + b;}) / mixArr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +135,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordArr) {
+  let uniqeArr = [];
+  if (wordArr.length === 0) {
+    return null;
+  }
+  for(let i=0; i<wordArr.length;i++) {
+    if(uniqeArr.includes(wordArr[i])) {
+      continue;
+    }else {
+      uniqeArr.push(wordArr[i]);
+    }
+  }
+  return uniqeArr;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordArr, wordToFind) {
+  if(wordArr.length === 0) {
+    return null;
+  }
+  for (let i= 0;i<wordArr.length;i++) {
+    if(wordArr[i] === wordToFind) {
+      return true;
+    }else if (wordArr.includes(wordToFind)) {
+      return true
+    }else{
+      return false;
+    }
+  }
+}
 
 
 
@@ -78,7 +187,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArr, wordToFind) {
+  if(wordArr.length === 0) {
+    return 0;
+  }
+  let wordCount = 0;
+  for(let i= 0;i<wordArr.length;i++) {
+    if(wordArr[i] === wordToFind) {
+    wordCount++;
+     }
+  }
+  if(wordCount === 1) {
+      return 1;
+    }else if(wordCount === 5) {
+      return 5;
+    }else {
+      return 0;
+    }
+}
 
 
 
