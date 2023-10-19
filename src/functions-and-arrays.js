@@ -276,6 +276,54 @@ const matrix = [
   ],
 ];
 
+const greatestProduct = (matrix) => {
+  let maxProduct = 0;
+
+  // Yatayda kontrol etme
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      const product =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Dikeyde kontrol etme
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      const product =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Sağ çapraz kontrol etme (üst köşegen)
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      const product =
+        matrix[i][j] *
+        matrix[i + 1][j + 1] *
+        matrix[i + 2][j + 2] *
+        matrix[i + 3][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  // Sol çapraz kontrol etme (alt köşegen)
+  for (let i = 3; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      const product =
+        matrix[i][j] *
+        matrix[i - 1][j + 1] *
+        matrix[i - 2][j + 2] *
+        matrix[i - 3][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+    }
+  }
+
+  return maxProduct;
+};
+
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== "undefined") {
