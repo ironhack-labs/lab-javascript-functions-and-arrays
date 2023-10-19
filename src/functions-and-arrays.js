@@ -31,12 +31,20 @@ function findLongestWord(str) {
 	return longestWord;
 }
 
-console.log(findLongestWord(words));
+//console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+	let total = 0;
+	arr.forEach(function (num) {
+	  total += num;
+	});
+	return total;
+  }
+  
+  console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum() {}
