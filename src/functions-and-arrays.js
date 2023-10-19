@@ -260,7 +260,26 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(newArr) {
+  let greatNumber =0;
+  let fourAdj;
+  for(let i=0;i<matrix.length-3;i++){
+    fourAdj = newArr[i][i]* newArr[i+1][i]*newArr[i+2][i]*newArr[i+3][i]
+    if(fourAdj>greatNumber){
+      greatNumber=fourAdj
+    }
+    for(let j=0; j<matrix[i].length-3;j++){
+      fourAdj = newArr[i][j]* newArr[i][j+1]*newArr[i][j+2]*newArr[i][j+3]
+      if(fourAdj>greatNumber){
+        greatNumber=fourAdj;
+      }
+
+    }
+  }  
+  return greatNumber
+}
+
+console.log(greatestProduct(matrix))
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
