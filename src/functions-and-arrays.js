@@ -1,88 +1,83 @@
-// Iteration #1: Find the maximum
+// Iteration 1 | Find the Maximum
 function maxOfTwoNumbers() {}
 
 
 
-// Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+// Iteration 2 | Find the Longest Word
+const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
 
 function findLongestWord() {}
 
 
 
-// Iteration #3: Calculate the sum
+
+// Iteration 3 | Sum Numbers
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers() {}
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
 
-
-
-// Iteration #4: Calculate the average
-// Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+// Iteration 4 | Numbers Average
+const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers() {}
 
 
-// Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
-
-// Bonus - Iteration #4.1
-function avg() {}
-
-// Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
-
-function uniquifyArray() {}
 
 
-
-// Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+// Iteration 5 | Find Elements
+const words2 = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
 
 function doesWordExist() {}
 
 
 
-// Iteration #7: Count repetition
-const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+
+// Bonus: Iteration 6 | Count Repetition
+const repeatedWords = [
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter"
 ];
 
 function howManyTimes() {}
 
 
 
-// Iteration #8: Bonus
+
+// Bonus: Iteration 7 | Unique Arrays
+
+const duplicateWords = [
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring"
+];
+
+function uniquifyArray() {}
+
+
+
+
+// Bonus: Iteration 8 | Product of Adjacent Numbers
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -107,24 +102,3 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
-
-
-
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
-  module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct
-  };
-}
