@@ -1,42 +1,4 @@
-// Iteration 1 | Find the Maximum
-function maxOfTwoNumbers() {}
-
-
-
-
-// Iteration 2 | Find the Longest Word
-const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
-
-function findLongestWord() {}
-
-
-
-
-// Iteration 3 | Sum Numbers
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers() {}
-
-
-
-
-// Iteration 4 | Numbers Average
-const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
-
-function averageNumbers() {}
-
-
-
-
-// Iteration 5 | Find Elements
-const words2 = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
-
-function doesWordExist() {}
-
-
-
-
-// Bonus: Iteration 6 | Count Repetition
+// Iteration 1 | Count Repetition
 const repeatedWords = [
   "machine",
   "matter",
@@ -56,8 +18,30 @@ function howManyTimes() {}
 
 
 
-// Bonus: Iteration 7 | Unique Arrays
+// Iteration 2 | Number Sequence
+function createSequence() {}
 
+
+
+
+// Iteration 3 | Multiply for Each
+const numbers = [1, 2, 5, 10, 13, 50];
+
+function multiplyBy() {}
+
+
+
+
+// Iteration 4 | Filter Out
+const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
+const toRemove = ["cat", "dog"];
+
+function filterOut() {}
+
+
+
+
+// Iteration 5 | Unique Arrays
 const duplicateWords = [
   "crab",
   "poison",
@@ -77,7 +61,7 @@ function uniquifyArray() {}
 
 
 
-// Bonus: Iteration 8 | Product of Adjacent Numbers
+// Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],

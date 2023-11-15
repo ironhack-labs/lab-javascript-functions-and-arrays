@@ -12,134 +12,7 @@ const shuffle = (currentArray) => {
   return array;
 };
 
-describe("Iteration 1 | Find the maximum", () => {
-  describe("function maxOfTwoNumbers()", () => {
-    it("should be defined as a function", () => {
-      expect(typeof maxOfTwoNumbers).toBe("function");
-    });
-
-    it("should return greater of two arguments - if the first argument greater", () => {
-      expect(maxOfTwoNumbers(2, 1)).toBe(2);
-      expect(maxOfTwoNumbers(5, -7)).toBe(5);
-    });
-
-    it("should return greater of two arguments - if the second argument greater", () => {
-      expect(maxOfTwoNumbers(1, 3)).toBe(3);
-      expect(maxOfTwoNumbers(-5, 3)).toBe(3);
-    });
-
-    it("should return either arguments - if both arguments are equal", () => {
-      expect(maxOfTwoNumbers(4, 4)).toBe(4);
-    });
-  });
-});
-
-
-describe("Iteration 2 | Find the Longest Word", () => {
-  describe("function findLongestWord()", () => {
-    it("should be defined as a function", () => {
-      expect(typeof findLongestWord).toBe("function");
-    });
-
-    it("should return the longest word when called with an array of words", () => {
-      let words = ["a", "zab", "12abc", "$$abcd", "abcde", "ironhack"];
-      for (let i = 0; i < 10; i++) {
-        words = shuffle(words);
-        expect(findLongestWord(words)).toBe("ironhack");
-      }
-    });
-
-    it("should return 0 when called with an empty array", () => {
-      expect(findLongestWord([])).toBe(0);
-    });
-
-    it("should return the first word when called with a single-word array", () => {
-      expect(findLongestWord(["foo"])).toBe("foo");
-    });
-
-    it("should return the first occuring longest word when there are multiple words with the same length", () => {
-      expect(findLongestWord(["foo", "bar"])).toBe("foo");
-      expect(findLongestWord(["bar", "foo"])).toBe("bar");
-    });
-
-  });
-});
-
-
-describe("Iteration 3 | Sum Numbers", () => {
-  describe("function sumNumbers()", () => {
-    it("should be defined as a function", () => {
-      expect(typeof sumNumbers).toBe("function");
-    });
-
-    it("should return the sum when passed an array of numbers", () => {
-      expect(sumNumbers([10, 5, 4, 32, 8])).toBe(59);
-    });
-
-    it("should return 0 when called with an empty array", () => {
-      expect(sumNumbers([])).toBe(0);
-    });
-
-    it("should return the first number when called with a single-element array", () => {
-      expect(sumNumbers([4])).toBe(4);
-    });
-  });
-});
-
-
-describe("Iteration 4 | Numbers Average", () => {
-  describe("function averageNumbers()", () => {
-    it("should be defined as a function", () => {
-      expect(typeof averageNumbers).toBe("function");
-    });
-
-    it("should return the average number when passed an array of numbers", () => {
-      expect(averageNumbers([9, 10, 82, 92, 32, 102, 58])).toBe(55);
-    });
-
-    it("should return 0 if receives an empty array when called", () => {
-      expect(averageNumbers([])).toBe(0);
-    });
-
-    it("should return the average when called with a single-element array", () => {
-      expect(averageNumbers([9])).toBe(9);
-    });
-  });
-});
-
-
-describe("Iteration 5 | Find Elements", () => {
-  describe("function doesWordExist()", () => {
-    it("should be defined as a function", () => {
-      expect(typeof doesWordExist).toBe("function");
-    });
-
-    it("should return null if receives an empty array when called", () => {
-      expect(doesWordExist([])).toBe(null);
-    });
-
-    it("should return false if the word we are looking for is not in the array", () => {
-      expect(
-        doesWordExist(
-          ["machine", "poison", "eat", "apple", "horse"],
-          "ratatouille"
-        )
-      ).toBe(false);
-    });
-
-    it("should return true if the word we are looking for is in the array", () => {
-      expect(
-        doesWordExist(
-          ["pizza", "sandwich", "snack", "soda", "book", "computer"],
-          "book"
-        )
-      ).toBe(true);
-    });
-  });
-});
-
-
-describe("Bonus: Iteration 6 | Count Repetition", () => {
+describe("Iteration 1 | Count Repetition", () => {
   describe("function howManyTimes()", () => {
     it("should be defined as a function", () => {
       expect(typeof howManyTimes).toBe("function");
@@ -184,8 +57,76 @@ describe("Bonus: Iteration 6 | Count Repetition", () => {
   });
 });
 
+describe("Iteration 2 | Number Sequence", () => {
+  describe("function createSequence()", () => {
+    it("should be defined as a function", () => {
+      expect(typeof createSequence).toBe("function");
+    });
 
-describe("Bonus: Iteration 7 | Unique Arrays", () => {
+    it("should return an empty array if receives 0 (zero) as argument", () => {
+      expect(createSequence(0)).toEqual([]);
+    });
+
+    it("should return an array with the numbers in range from 0 to n", () => {
+      expect(createSequence(5)).toEqual([0, 1, 2, 3, 4, 5]);
+      expect(createSequence(11)).toEqual([
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+      ]);
+    });
+  });
+});
+
+describe("Iteration 3 | Multiply for Each", () => {
+  describe("function multiplyBy()", () => {
+    it("should be defined as a function", () => {
+      expect(typeof multiplyBy).toBe("function");
+    });
+
+    it("should call the forEach() method on the original array to iterate over it", () => {
+      const testArray = [1, 2, 5, 10, 13, 50];
+      const forEachSpy = spyOn(testArray, "forEach").and.callThrough();
+
+      multiplyBy(testArray, 3);
+      expect(forEachSpy).toHaveBeenCalled();
+      // Expect the forEach() method to be called correctly with a callback function as argument
+      expect(forEachSpy.calls.argsFor(0)[0]).toEqual(jasmine.any(Function));
+
+      forEachSpy.calls.reset();
+    });
+
+    it("should return an empty array if receives an empty array as argument", () => {
+      expect(multiplyBy([], 3)).toEqual([]);
+    });
+
+    it("should return an array with the numbers multiplied by the multiplier", () => {
+      expect(multiplyBy([1, 2, 13], 3)).toEqual([3, 6, 39]);
+      expect(multiplyBy([7, 23, 50], 4)).toEqual([28, 92, 200]);
+    });
+  });
+});
+
+describe("Iteration 4 | Filter Out", () => {
+  describe("function filterOut()", () => {
+    it("should be defined as a function", () => {
+      expect(typeof filterOut).toBe("function");
+    });
+
+    it("should return null if receives an empty array as the first argument", () => {
+      expect(filterOut([], ["a", "b"])).toEqual(null);
+    });
+
+    it("should return the original array if receives an empty array as the second argument", () => {
+      expect(filterOut(["a", "b"], [])).toEqual(["a", "b"]);
+    });
+
+    it("should correctly filter out the elements of the second array from the first array", () => {
+      expect(filterOut(["a", "b", "c", "a", "b"], ["a", "b"])).toEqual(["c"]);
+      expect(filterOut(["a", "b", "c", "a", "b"], ["a"])).toEqual(["b", "c", "b"]);
+    });
+  });
+});
+
+describe("Iteration 5 | Unique Arrays", () => {
   describe("function uniquifyArray()", () => {
     it("should be defined as a function", () => {
       expect(typeof uniquifyArray).toBe("function");
@@ -227,8 +168,7 @@ describe("Bonus: Iteration 7 | Unique Arrays", () => {
   });
 });
 
-
-describe("Bonus: Iteration 8 | Product of Adjacent Numbers", () => {
+describe("Bonus: Iteration 6 | Product of Adjacent Numbers", () => {
   describe("function ()", () => {
     it("should be defined as a function", () => {
       expect(typeof greatestProduct).toBe("function");

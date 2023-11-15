@@ -1,6 +1,6 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | JS Functions & Arrays
+# LAB | JS Array & Function Challenges
 
 <details>
   <summary>
@@ -13,11 +13,10 @@
 
   - Run predefined tests in Jasmine to check that JavaScript program meets the technical requirements.
   - Identify expected code behavior by reading and understanding test results and errors.
-  - Create and invoke functions in JavaScript.
   - Pass arrays and primitive values as arguments to functions.
   - Use the `return` keyword to return a value from a function.
   - Access, add, remove, and check for items in an array using the index and array methods (`unshift`, `push`, `splice`, `shift`, `pop`, `indexOf`, and `includes`).
-  - Use conditional statements and loops in a function.
+  - Use loops and `forEach` method to iterate over arrays.
 
   <br>
   <hr> 
@@ -26,7 +25,11 @@
 
 ## Introduction
 
-Array manipulation is a common task in programming. Whether you are calculating a total for a shopping cart, grabbing only the first names from a list of people, or moving a piece on a chessboard, you are probably modifying or manipulating an array somewhere in the code.
+Arrays are an important data structure as they allow us to group related data together. Similarly, functions are as essential as they help us organize our code and make it reusable in the form of blocks of code that can be called multiple times.
+In this lab, we are going to continue our journey using arrays and functions. You will work on a set of coding challenges that will help you to solidify your knowledge of arrays and functions.
+
+We will be using the same setup as the previous lab, which includes the Jasmine testing library and a set of predefined tests.
+
 <br>
 
 
@@ -35,6 +38,9 @@ Array manipulation is a common task in programming. Whether you are calculating 
 
 - Fork this repo
 - Clone it to your machine
+
+<br>
+
 
 ## Submission
 
@@ -48,43 +54,22 @@ git push origin master
 
 - Create a Pull Request and submit your assignment.
 
-
-
-## Automated Testing Introduction
-
-### What is automated testing?
-
-Automated software testing is the process of programmatically executing an application to validate and verify that it meets the business needs, as well as the technical requirements, and that it behaves as expected.
-
-Testing should be viewed as a continuous process, not a discrete operation or single activity in the development lifecycle. Designing tests at the beginning of the product lifecycle can mitigate common issues that arise when developing complex code bases.
-
-Having a strong *test suite* can provide you with ease of mind since you will be able to confidently improve upon your work while knowing that your not breaking a previously developed feature.
 <br>
 
 
 
-### Testing labs
+## Automated Testing
 
-This lab and some labs you will work on during the bootcamp are equipped with unit tests to provide automated feedback on your lab progress.
+This LAB is equipped with [Jasmine](https://jasmine.github.io/) testing library and unit tests to provide automated feedback on your lab progress.
+
 <br>
-
-
-
-### Testing with Jasmine
-
-Jasmine is an automated testing framework for JavaScript. It is designed to be used in Behavior-driven Development (**BDD**) programming, focusing more on the business value than the technical details.
-
-We have already included Jasmine in the project you just forked, so let's see how to use it to implement our code.
-<br>
-
-
 
 ### Usage
 
 Before starting coding, we will explain the project structure we have provided you:
 
 ```
-lab-js-functions-and-arrays
+lab-js-array-and-function-challenges
   ├── README.md
   │
   ├── SpecRunner.html
@@ -93,10 +78,10 @@ lab-js-functions-and-arrays
   │   └── ...
   │
   ├── src/
-  │   └── functions-and-arrays.js
+  │   └── array-and-function.js
   │
   └── tests/
-      └── functions-and-arrays.spec.js
+      └── array-and-function.spec.js
 ```
 
 All the needed Jasmine testing library files from the `jasmine/` folder are already linked with `SpecRunner.html` and everything is set up for you to start coding.
@@ -105,9 +90,9 @@ All the needed Jasmine testing library files from the `jasmine/` folder are alre
 
 
 
-You should write your code and do all the work in the `src/functions-and-arrays.js` file.
+You should write your code and do all the work in the `src/array-and-function.js` file.
 
-If you want to check the tests, they are located in the `tests/` folder in the file `tests/functions-and-arrays.spec.js` file.
+If you want to check the tests, they are located in the `tests/` folder in the file `tests/array-and-function.spec.js` file.
 
 
 
@@ -116,25 +101,34 @@ If you want to check the tests, they are located in the `tests/` folder in the f
 
 #### Run tests
 
-Running automated tests with Jasmine is super easy. All you need to do is open the `SpecRunner.html` file in your browserusing the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension. You should see something similar to this:
+Running automated tests with Jasmine is super easy. All you need to do is open the `SpecRunner.html` file in your browser using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) VSCode extension.
+You should see something similar to this:
 
 
 
 [![image](https://user-images.githubusercontent.com/23629340/33389609-c2f3965c-d533-11e7-9a03-e0a89314dd98.png)](https://user-images.githubusercontent.com/23629340/33389609-c2f3965c-d533-11e7-9a03-e0a89314dd98.png)
 
+<br>
+
 
 
 #### Pass the tests
 
-You should write your code on the `src/functions-and-arrays.js` file. While following the instructions for each iteration, you should check every test and ensure it's *passing*, before moving on.
+You should write your code on the `src/array-and-function.js` file.
 
-Do not rush. You should take your time to read every iteration carefully and address the *breaking* tests as you progress through the exercise.
+Take your time to read each iteration instructions carefully and address any *breaking* tests as you progress through the exercise. Before moving on to the next iteration, make sure that all tests for the current iteration are passing.
 
-When coding with tests, it is super important that you carefully read and understand the errors you are getting. This way, you will know what's expected from your code.
 
-To see the output of your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
 
-**Important:** Note that **you don't need to execute the functions yourself**; the tests will automatically load and execute the functions on each test run. All you need to do is declare the functions, ensure they handle the parameters passed and return what is indicated in the iteration instructions and the test description. We provide you with a sample array for some iterations, so you can do some **manual** testing if you wish.
+To see the `console.log` output of your JavaScript code, open the [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/#console).
+
+<br>
+
+
+
+**Important:** **You don't need to execute the functions yourself**; the tests will automatically do this for you on each test run. All you need to do is make sure the function is declared, that it takes correct parameters, and returns what the instructions and tests ask for.
+
+We provided you with a sample arrays in some iterations, so you can optionaly do some **manual** testing.
 
 <br>
 
@@ -142,96 +136,18 @@ To see the output of your JavaScript code, open the [Console in the Developer To
 
 ## Instructions
 
-While following the instructions for each iteration, carefully read the instructions and test descriptions to understand the task requirements fully. Do not rush. It would be best if you took your time to read every iteration carefully.
-
-<br>
-
-### Iteration 1 | Find the Maximum
-
-Implement the function `maxOfTwoNumbers` that takes two numbers as arguments and returns the bigger number.
+For each iteration, make sure to read the instructions and test descriptions carefully to understand the task requirements. Don't rush. Take your time to read the instructions and test descriptions thoroughly.
 
 <br>
 
 
 
-### Iteration 2 | Find the Longest Word
 
-Implement the function `findLongestWord` that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
-
-You can use the following array to test your solution:
-
-```javascript
-const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
-```
-
-<br>
-
-
-
-### Iteration 3 | Sum Numbers
-
-Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
-
-Implement the function named `sumNumbers` that takes an array of numbers as an argument and returns the sum of all the numbers in the array. Later in the course, we will learn how to do this using the `reduce` array method, making your work significantly easier. For now, let's practice _the "declarative"_ way of adding values using loops.
-
-You can use the following array to test your solution:
-
-```javascript
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-```
-
-<br>
-
-
-
-### Iteration 4 | Numbers Average
-
-Calculating an average is a prevalent task. So let's practice it a bit.
-
-**The logic behind this:**
-
-1. Find the sum as we did in the first exercise (or how about reusing the function `sumNumbers()`?)
-2. Divide that sum by the number of elements in the array.
-
-<br>
-
-
-
-Implement the function `averageNumbers` that expects an array of numbers and returns the average of the numbers.
-
-You can use the following array to test your solution:
-
-```javascript
-const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
-```
-<br>
-
-
-
-### Iteration 5 | Find Element
-
-Let's create a simple array search.
-
-Declare a function named `doesWordExist` that will take in an *array of words* as one argument and a *word to search* for as the other. Return `true` if the word exists in the array; otherwise, return `false`.
-<br>
-
-The function should return `null` if an empty array is passed as an argument.
-
-
-
-You can use the following array to test your solution:
-
-```javascript
-const words2 = ["machine", "subset", "trouble", "starting", "matter", "eating", "truth", "disobedience"];
-```
-
-<br>
-
-
-
-### Bonus: Iteration 6 | Count Repetition
+### Iteration 1 | Count Repetition
 
 Declare a function named `howManyTimes` that will take in an *array of words* as the first argument and a *word to search* for as the second argument. The function should return the number of times the word appears in the array.
+
+
 
 You can use the following array to test your solution:
 
@@ -255,7 +171,118 @@ const repeatedWords = [
 
 
 
-### Bonus: Iteration 7 | Unique Arrays
+**Example:**
+
+```javascript
+howManyTimes(repeatedWords, "matter");
+```
+
+**Expected output:**
+
+```javascript
+4
+```
+
+<br>
+
+
+
+
+### Iteration 2 | Number Sequence
+
+Declare a function named `createSequence`. The function should take one argument: a number (`n`). The function should return an array of numbers in the range from `0` to `n`.
+
+<br>
+
+
+
+**Example:**
+
+```javascript
+createSequence(7);
+```
+
+**Expected output:**
+
+```javascript
+[0, 1, 2, 3, 4, 5, 6, 7]
+```
+
+<br>
+
+
+
+
+### Iteration 3 | Multiply for Each
+
+Implement the function `multiplyBy` that takes two arguments: an *array of numbers* and a *number* (multiplier). It should return a new array containing each number of the first array multiplied by the multiplier.
+
+
+
+**Important:** **You must use the `forEach()` method** in the function to iterate over the array. If you need a refresher on the `forEach()` method, check today's lesson or the following [MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
+
+
+
+
+You can use the following array to test your solution:
+
+```javascript
+const numbers = [1, 2, 5, 10, 13, 50];
+```
+
+<br>
+
+
+
+**Example:**
+
+```javascript
+multiplyBy(numbers, 3);
+```
+
+**Expected output:**
+
+```javascript
+[3, 6, 15, 30, 39, 150]
+```
+
+<br>
+
+
+
+### Iteration 4 | Filter Out
+
+Declare a function `filterOut`. The function should take two arguments: an *array of strings* (original), and an *array of strings to filter out*.
+
+The function should return a new array that only includes the strings from the original array that are not present in the second array. In other words, you should **remove** all the strings listed in the second array.
+
+
+
+You can use the following array to test your solution:
+
+```javascript
+const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
+const toRemove = ["cat", "dog"];
+```
+
+
+
+**Example:**
+
+```javascript
+filterOut(original, toRemove);
+```
+
+**Expected output:**
+
+```javascript
+["fish", "bird", "fish"]
+```
+<br>
+
+
+
+### Iteration 5 | Unique Arrays
 
 Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the Array methods [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) and [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
 
@@ -270,22 +297,38 @@ const duplicateWords = [
   "crab",
   "poison",
   "contagious",
-  "simple",
-  "bring",
-  "sharp",
-  "playground",
   "poison",
-  "communion",
   "simple",
-  "bring"
+  "sharp",
+  "simple"
 ];
+```
+
+<br>
+
+**Example:**
+
+```javascript
+uniquifyArray(duplicateWords);
+```
+
+**Expected output:**
+
+```javascript
+[
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "sharp"
+]
 ```
 
 <br>
 
 
 
-### Bonus: Iteration 8 | Product of Adjacent Numbers
+### Bonus: Iteration 6 | Product of Adjacent Numbers
 
 Given multiple arrays, find the greatest product of four adjacent numbers. 
 
@@ -334,7 +377,7 @@ const matrix = [
 
 <br>
 
-**Happy coding!** :heart:
+**Happy coding!** :blue_heart:
 
 <br>
 
