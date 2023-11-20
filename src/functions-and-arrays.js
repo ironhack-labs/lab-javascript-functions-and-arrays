@@ -56,37 +56,37 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+
 function averageNumbers(arr){
   if (arr.length === 0){
     return null;
   }
-    
-  let sum = 0;
-  for (i = 0; i < arr.length; i++){
-    sum += arr[i];
-  }
-  return sum;
-  
-}
-const number = averageNumbers(numbersAvg);
-console.log(number);
 
-function average(array){
-   return number / numbersAvg.length;
+  return sumNumbers(arr) / arr.length;
+    
+   
 }
-console.log(average(numbersAvg));
+
+
+
+
+
 
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {
-  let sum = 0;
-  for (i = 0; i < wordsArr.length; i++){
-    sum += wordsArr[i].length;
+function averageWordLength(word) {
+  if (word.length === 0){
+    return null;
   }
-  return sum / wordsArr.length;
+
+  let sum = 0;
+  for (i = 0; i < word.length; i++){
+    sum += word[i].length;
+  }
+  return sum / word.length;
   
 }
 
@@ -108,14 +108,55 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(newArray) {
+  if (newArray.length === 0){
+    return null;
+  }
+
+  let unique = [];
+
+  newArray.forEach((word) => {
+    if (!unique.includes(word)) {
+      unique.push(word);
+    }
+  });
+
+  return unique;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  
+  if (arr.length === 0){
+    return null;
+  }
+
+  // if (arr.includes(word)){
+  //   return true;
+  // }
+  // else {
+  //   return false;
+  // }
+
+  let eval = false
+  
+  arr.forEach((el) => {
+    if (el === word) {
+      eval = true
+    }
+  })
+
+return eval
+  }
+
+ 
+
+  
+
 
 
 
@@ -134,7 +175,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  let count = 0;
+
+  arr.forEach((element) => {
+    if (element === word) {
+      count++;
+    }
+  });
+  return count;
+}
 
 
 
