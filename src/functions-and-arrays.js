@@ -10,18 +10,19 @@ function maxOfTwoNumbers(value1, value2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-  let longestword = '';
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i]
-    if (words.length > longestword.length) {
-      longestword = word;
-    }
-  }
   if (words.length === 0) {
     return null;
-  } else {
-    return longestword;
   }
+
+  let longestWord = '';
+  for (elem of words) {
+    if (elem.length > longestWord.length) {
+      longestWord = elem;
+    }
+  }
+  return longestWord;
+
+
 }
 
 
@@ -104,14 +105,27 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(wordsUnique) {
-  let arr = [poison, simple, bring]
-  for (let i = 0; i < wordsUnique.length; i++) {
-    if (arr.indexOf(wordsUnique[i]) === -1) {
-      arr.push(wordsUnique[i]);
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+
+  let newArr = [];
+
+  for (word of wordsUnique) {
+    if (!newArr.includes(word)) {
+      newArr.push(word)
     }
 
+
+
+    // if the word doens't exist on newArr
+    // add word to newArr
+    // else nothing
   }
-  return arr;
+
+  return newArr;
+
+
 }
 
 
@@ -119,7 +133,22 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(wordsFind, theWord) {
+  if (wordsFind.length === 0) {
+    return null;
+  }
+  if (wordsFind.length === 1 && wordsFind[0] === theWord) {
+    return true;
+  }
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === theWord) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
 
 
 
@@ -138,7 +167,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(wordsCount, theWord) {
+  if (wordsCount.length === 0) {
+    return 0;
+  }
+  let count = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === theWord) {
+      count++;
+    }
+  }
+  return count;
+}
 
 
 
