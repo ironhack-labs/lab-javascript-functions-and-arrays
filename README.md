@@ -78,7 +78,7 @@ lab-js-array-and-function-challenges
   │   └── ...
   │
   ├── src/
-  │   └── array-and-function.js
+  │   └── challenges.js
   │
   └── tests/
       └── array-and-function.spec.js
@@ -90,7 +90,7 @@ All the needed Jasmine testing library files from the `jasmine/` folder are alre
 
 
 
-You should write your code and do all the work in the `src/array-and-function.js` file.
+You should write your code and do all the work in the `src/challenges.js` file.
 
 If you want to check the tests, they are located in the `tests/` folder in the file `tests/array-and-function.spec.js` file.
 
@@ -114,7 +114,7 @@ You should see something similar to this:
 
 #### Pass the tests
 
-You should write your code on the `src/array-and-function.js` file.
+You should write your code on the `src/challenges.js` file.
 
 Take your time to read each iteration instructions carefully and address any *breaking* tests as you progress through the exercise. Before moving on to the next iteration, make sure that all tests for the current iteration are passing.
 
