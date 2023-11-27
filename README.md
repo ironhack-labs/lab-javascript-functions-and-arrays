@@ -69,7 +69,7 @@ This LAB is equipped with [Jasmine](https://jasmine.github.io/) testing library 
 Before starting coding, we will explain the project structure we have provided you:
 
 ```
-lab-js-array-and-function-challenges
+lab-js-challenges-array-function
   ├── README.md
   │
   ├── SpecRunner.html
@@ -81,7 +81,7 @@ lab-js-array-and-function-challenges
   │   └── challenges.js
   │
   └── tests/
-      └── array-and-function.spec.js
+      └── challenges.spec.js
 ```
 
 All the needed Jasmine testing library files from the `jasmine/` folder are already linked with `SpecRunner.html` and everything is set up for you to start coding.
@@ -92,7 +92,7 @@ All the needed Jasmine testing library files from the `jasmine/` folder are alre
 
 You should write your code and do all the work in the `src/challenges.js` file.
 
-If you want to check the tests, they are located in the `tests/` folder in the file `tests/array-and-function.spec.js` file.
+If you want to check the tests, they are located in the `tests/` folder in the file `tests/challenges.spec.js` file.
 
 
 
