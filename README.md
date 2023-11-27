@@ -2,6 +2,10 @@
 
 # LAB | JS Challenges - Arrays & Functions
 
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDQ3cjY2bmg5a3ljNG93enZkaTU4dTc4M3N3MzB3NHUyb2Rlazd6MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2reDg2WJtfaPS1t1Ea/source.gif" />
+</p>
+
 <details>
   <summary>
    <h2>Learning Goals</h2>
