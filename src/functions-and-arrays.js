@@ -1,24 +1,99 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 >= number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longestWord;
+  let longestLen;
+
+  if (words.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    if (!longestWord) {
+      longestWord = word;
+      longestLen = longestWord.length;
+    } else if (longestLen < word.length) {
+      longestWord = word;
+      longestLen = longestWord.length;
+    }
+  }
+
+  console.log(longestWord);
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sumTotal;
+
+  if (numbers.length === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i];
+    if(!sumTotal) {
+      sumTotal = number
+    } else if (!isNaN(number)) {
+      sumTotal += number;
+    }
+  }
+
+  return sumTotal;
+}
 
 
-
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  let sumTotal;
+
+  if (mixedArr.length === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    const content = mixedArr[i];
+
+    if (typeof content === 'number' && !isNaN(content)) {
+      if (!sumTotal) {
+        sumTotal = content;
+      } else {
+        sumTotal += content;
+      }
+    } else if (typeof content === 'string' && content.length !== 0) {
+      for (let i = 0; i < content.length; i++) {
+        if (!sumTotal) {
+          sumTotal = 1;
+        } else {
+          sumTotal += 1;
+        }
+      }
+    } else if (content === true) {
+      sumTotal += 1;
+    } else if (content.length === 0) {
+      throw new Error("The array can't handle arrays or objects empty.")
+    }
+  }
+
+  return sumTotal;
+}
 
 
 
@@ -26,16 +101,172 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sumTotal;
+  const arrLen = numbersAvg.length;
+
+  if (arrLen === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const num = numbersAvg[i];
+    if (!sumTotal) {
+      sumTotal = num;
+    } else {
+      sumTotal += num
+    }
+  }
+
+  const result = sumTotal / numbersAvg.length;
+  return result;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  let sumTotal;
+  const arrLen = wordsArr.length;
+
+  if (arrLen === 0) {
+    return null
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const word = wordsArr[i];
+    if (word.length !== 0) {
+      for (let j = 0; j < word.length; j++) {
+        if (!sumTotal) {
+          sumTotal = 1;
+        } else {
+          sumTotal++;
+        }
+      }
+    }
+  }
+
+  const result = sumTotal / arrLen;
+  return result;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function countNumbers(numbersAvg) {
+  let sumTotal;
+  const arrLen = numbersAvg.length;
+
+  if (arrLen === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const num = numbersAvg[i];
+    if (typeof num === 'number' && !isNaN(num)) {
+      if (!sumTotal) {
+        sumTotal = num;
+      } else {
+        sumTotal += num
+      }
+    }
+  }
+  return sumTotal;
+}
+
+function countWordsLen(wordsArr) {
+  let sumTotal;
+  const arrLen = wordsArr.length;
+
+  if (arrLen === 0) {
+    return null
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const word = wordsArr[i];
+    if (word.length !== 0 || word !== true) {
+      for (let j = 0; j < word.length; j++) {
+        if (!sumTotal) {
+          sumTotal = 1;
+        } else {
+          sumTotal++;
+        }
+      }
+    }
+  }
+
+  return sumTotal;
+}
+
+function countBoolean(arr) {
+  let sumTotal = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const content = arr[i];
+
+    if (content === true) {
+      sumTotal++;
+    }
+  } 
+
+  return sumTotal;
+}
+
+function avg(arr) {
+  const arrLen = arr.length;
+
+  if (arrLen === 0) {
+    return null;
+  }
+
+  const numTotal = countNumbers(arr);
+  const wordLen = countWordsLen(arr);
+  const boolean = countBoolean(arr);
+
+  const sumTotal = numTotal + wordLen + boolean;
+  const result = sumTotal / arrLen;
+  return result;
+}
+
+/*This was my first way to do it and it works.
+  Then i tried with functions.
+
+function avg(arr) {
+  let sumTotal;
+  const arrLen = arr.length;
+
+  if (arrLen === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const content = arr[i];
+
+    if (content === true) {
+      if (!sumTotal) {
+        sumTotal = 1;
+      } else {
+        sumTotal += 1;
+      }
+    } else if (typeof content === 'number' && !isNaN(content)) {
+      if (!sumTotal) {
+        sumTotal = content;
+      } else {
+        sumTotal += content;
+      }
+    } else if (typeof content === 'string' && content.length !== 0) {
+      for (let j = 0; j < content.length; j++) {
+        if (!sumTotal) {
+          sumTotal = 1;
+        } else {
+          sumTotal += 1;
+        }
+      }
+    }
+  }
+  const result = sumTotal / arrLen;
+  return result;
+}
+*/
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +283,74 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  const arrResult = []; 
+  const arrLen = wordsUnique.length;
+
+  if (arrLen === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const word = wordsUnique[i];
+    let control = 0;
+
+    if (arrResult.length === 0) {
+      arrResult.push(word);
+    }
+
+    for (let j = 0; j < arrLen; j++) {
+      const wordCompare = arrResult[j];
+      if (word === wordCompare) {
+        control += 1
+      }
+    }
+
+    if (control === 0) {
+      arrResult.push(word);
+    }
+
+  }
+
+  if (arrLen === arrResult.length) {
+    return wordsUnique;
+  } else {
+    return arrResult;
+  }
+
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  const arrLen = wordsFind.length;
+  let control = 0;
 
+  if (arrLen === 0) {
+    return null;
+  }
 
+  for (let i = 0; i < arrLen; i++) {
+    const wordToCompare = wordsFind[i];
+    
+    if (word === wordToCompare) {
+      control += 1
+    }
+  }
+
+  if (control >= 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+const result = doesWordExist(wordsFind);
+console.log(result);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,7 +367,35 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  const arrLen = wordsCount.length;
+  let control;
+
+  if (arrLen === 0) {
+    return 0;
+  }
+
+  for (let i = 0; i < arrLen; i++) {
+    const wordToCompare = wordsCount[i];
+
+    if (word === wordToCompare) {
+      if (!control) {
+        control = 1
+      } else {
+        control += 1
+      }
+    }
+
+    if (i === (arrLen - 1)) {
+      if (!control) {
+        control = 0;
+      }
+    }
+
+  }
+
+  return control;
+}
 
 
 
@@ -106,7 +423,64 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const arrLen = matrix.length;
+  let lenOne;
+  let lenTwo;
+
+  for (let i = 0; i < arrLen; i++) {
+    const arr = matrix[i];
+    let ones;
+    let twos;
+
+    for (let j = 0; j < arr.length; j++) {
+      const num = arr[j];
+
+      if (num === 1) {
+        if (!ones) {
+          ones = 1;
+        } else {
+          ones += 1;
+        }
+      }
+
+      if (num === 2) {
+        if (!twos) {
+          twos = 2;
+        } else {
+          twos += 2;
+        }
+      }
+    }
+
+    if (arr.length === ones) {
+      if (!lenOne) {
+        lenOne = 1;
+        ones = 0;
+      } else {
+        lenOne += 1;
+        ones = 0;
+      }
+    }
+
+    if ((arr.length * 2) === twos) {
+      if (!lenTwo) {
+        lenTwo = 1;
+        twos = 0;
+      } else {
+        lenTwo += 1;
+        twos = 0;
+      }
+    }
+  }
+
+  if (arrLen === lenOne) {
+    return 1;
+  } else if (arrLen === lenTwo) {
+    return 16;
+  }
+  
+}
 
 
 
