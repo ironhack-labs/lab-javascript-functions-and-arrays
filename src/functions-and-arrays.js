@@ -18,6 +18,9 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(words) {
   let longest
 
+  if (words.length === 0) {
+    return null
+  }
   for (i = 0; i < words.length; i++) {
     const word = words[i]
 
@@ -25,7 +28,7 @@ function findLongestWord(words) {
       longest = word 
     } else if (word.length > longest.length){
       longest = word
-    } 
+    }
   }
   return longest
 }
@@ -53,7 +56,9 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  
+}
 
 
 
@@ -61,15 +66,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  if (numbersAvg.length === 0) {
+    return null
+  }
+  return sumNumbers(numbersAvg) / numbersAvg.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
 
-// Bonus - Iteration #4.1
+  if (wordsArr.length === 0) {
+    return null
+  }
+
+let sum = 0
+  
+for (i = 0; i < wordsArr.length; i++) {
+    const wordlength = wordsArr[i].length
+
+    if (sum === undefined) {
+      sum = wordlength
+    } else {
+      sum += wordlength
+    }
+  }
+  return sum / wordsArr.length
+}
+
+// Bonus - Iteration #4.3
 function avg() {}
 
 // Iteration #5: Unique arrays
