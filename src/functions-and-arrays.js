@@ -1,24 +1,61 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(words) {
+  let longestWord = null;
+  for (let i = 0; i < words.length; i++) {
+    if (longestWord === null) {
+      longestWord = words[0];
+    }
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
+console.log(findLongestWord(words))
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }
+  return sum;
+}
+
+console.log(sumNumbers(numbers));
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedList) {
+  let result = 0;
+  for (let i = 0; i < mixedList.length; i++) {
+    if (typeof mixedList[i] === "number" || typeof mixedList[i] === "boolean") {
+      result += mixedList[i];
+    } else if (typeof mixedList[i] === "string") {
+      result += mixedList[i].length;
+    } else {
+      throw new Error("Error message goes here");
+    }
+  }
+  return result;
+}
+console.log(sum([6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10]));
 
 
 
@@ -26,41 +63,73 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0){
+    return null;
+  } else {
+    return sumNumbers(numbers)/numbers.length;
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    let sumChar = 0;
+    for (let i = 0; i < wordsArr.length; i++) {
+      sumChar += wordsArr[i].length;
+    }
+    return sumChar / wordsArr.length;
+  }
+}
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedList) {
+  if (mixedList.length === 0){
+    return null;
+  } else {
+    return sum(mixedList)/mixedList.length;
+  }
+}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const wordsList = ['crab','poison','contagious','simple','bring','sharp','playground','poison','communion','simple','bring'];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null;
+  } else {
+    const wordsUnique = [];
+    for (let i = 0; i < words.length; i++) {
+      if (!wordsUnique.includes(words[i])) {
+        wordsUnique.push(words[i]);
+      }
+    }
+    return wordsUnique;
+  }
+}
+console.log(uniquifyArray(wordsList));
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
 
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null;
+  } else {
+    return wordsFind.includes(word);
+  }
+}
+
+console.log(doesWordExist(wordsFind, "subset"));
 
 
 // Iteration #7: Count repetition
@@ -78,9 +147,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let count = 0;
+  if (wordsCount.length === 0 || wordsCount.includes(word) === false) {
+    return 0;
+  } else {
+    for (let i = 0; i < wordsCount.length; i++) {
+      if (wordsCount[i] === word) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
 
-
+console.log(howManyTimes(wordsCount, "matter"));
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +187,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+
+}
 
 
 
