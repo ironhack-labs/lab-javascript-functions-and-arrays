@@ -121,6 +121,7 @@ function avg(mixedArray) {
 
 
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -135,8 +136,25 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(wordsArray) {
+  if (wordsArray[0] === undefined) {
+    return null;
+  } else {
+    let result = [wordsArray[0]];
+    for (let i = 1; i < wordsArray.length; i++) {
+      let countUniqueWords = 0;
+      for (let j = 0; j < result.length; j++) {
+        if (wordsArray[i] !== result[j]) {
+          countUniqueWords++;          
+        }
+      }
+      if (countUniqueWords === result.length) {
+        result.push(wordsArray[i]);
+      }      
+    }
+    return result;
+  }
+}
 
 
 // Iteration #6: Find elements
