@@ -66,19 +66,59 @@ function sum(mixedArray) {
 
 
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  if (numbersArray[0] === undefined) {
+    return null;
+  } else {
+    const result = sumNumbers(numbersArray) / numbersArray.length;
+    return result;
+  }
+}
 
 
 // Level 2: Array of strings
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) {
+  if (wordsArray[0] === undefined) {
+    return null;
+  } else {
+    let accWordLength = 0;
+    for (let i = 0; i < wordsArray.length; i++) {
+      accWordLength += wordsArray[i].length;
+    }
+    const result = accWordLength / wordsArray.length;
+    return result;
+  }
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+function avg(mixedArray) {
+  if (mixedArray[0] === undefined) {
+    return null;
+  } else {
+    let accNumAndBoolean = 0;
+    let accWordLength = 0;
+    for (let i = 0; i < mixedArray.length; i++) {
+      if (typeof(mixedArray[i]) === "string") {
+        accWordLength += mixedArray[i].length;
+      } else {
+        accNumAndBoolean += mixedArray[i];
+      }
+    }
+    const result = (accWordLength + accNumAndBoolean) / mixedArray.length;
+    return result;
+  }
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
