@@ -124,27 +124,76 @@ return result
 
 console.log(averageNumbers(numbersAvg))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = ['seat','machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let result=0
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if(arr.length<=0){
+    return null}
+    
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    console.log(element.length)
+    result+=element.length
+    console.log(result)
+    
+  }  
+  
+  return Math.round(result/arr.length) 
+  
+  }
+
+  console.log(averageWordLength(wordsArr))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Bonus - Iteration #4.1
 function avg() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
