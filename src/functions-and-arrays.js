@@ -182,20 +182,7 @@ const wordsCount = [
 
 function howManyTimes(wordsCount) {
 
-  if (wordsCount === 0) {
-    return 0
   }
-
-  for (let i = 0; i < wordsCount.length; i++) {
-    const word = wordsCount[i]
-
-    if (!word.includes(wordsCount)) {
-      return 0
-    } else if (word.includes(wordsCount)) {
-      return 1
-    }
-  }
-}
 
 
 
