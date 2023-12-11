@@ -10,16 +10,93 @@ function maxOfTwoNumbers(num1,num2) {
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
 
+/*
+ / debe devolver la primera aparición de la palabra cuando la más larga tenga varias apariciones
+ / debería devolver la aparición más larga cuando tenga varias palabras*/ 
+  const words = ['mystery', 'brother', 'aviator ggggggg', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+  
+  let wordLenght;
+  let wordNow;
+  let resultado;
+  function findLongestWord(arr) {
+    if(arr.length===0){
+      return null
+    }
+    if (arr.length===1) {
+      return(arr[0])
+      
+    }
+    for ( let i = 0 ; i < arr.length ; i++ ){
+      wordNow=arr[i]
+      console.log(wordNow)
+  
+      if(wordLenght===undefined){
+        wordLenght=wordNow.length;
+        console.log(wordLenght); 
+  
+      } else if (wordLenght <  wordNow.length ){
+        wordLenght=wordNow;
+        console.log(wordLenght) 
+
+       if (wordLenght.split(' ')) {
+        var palabras = wordLenght.split(' ');
+        console.log(palabras)
+        console.log(wordLenght)
+
+
+            var palabra1 = palabras[0];
+            var palabra2 = palabras[1];
+            console.log(palabra1)
+            
+       }
+       if (palabra1.length>palabra2.length) {
+        wordLenght=palabra1
+        
+       }else if(palabra1.length<palabra2.length){
+          wordLenght=palabra2 } 
+     
+          return wordLenght
+  }}}
+  
+
+console.log(findLongestWord(words))
+  
+/*Calcular una suma puede ser tan simple como iterar sobre una matriz y sumar cada uno de los elementos. Implemente la función denominada sumNumbers que toma una matriz de números como argumento y devuelve la suma de todos los números de la matriz. Más adelante en el curso, aprenderemos cómo hacer esto usando el método de reducción de matriz, lo que facilitará significativamente su trabajo. Por ahora, practiquemos la forma "declarativa" de agregar valores usando bucles. Puede utilizar la siguiente matriz para probar su solución:*/
+/*debería declarar una función llamada sumNumbers //
+//debería devolver cero si recibe una matriz vacía //
+//cuando se llama debería devolver la suma con una matriz numérica //
+//debería devolver cero si todos los elementos son cero //
+//debe devolver la suma cuando se pasa una matriz de números*/ 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+
+function sumNumbers(numbers) {
+  // Manejar caso de matriz vacía
+  if (numbers.length === 0) {
+    return 0;
+  }
+
+  
+  let suma = 0;
+
+  
+  for (let i = 0; i < numbers.length; i++) {
+    suma += numbers[i];
+    console.log(suma)
+  }
+
+  
+  return suma;
+}
+
+console.log(sumNumbers(numbers))
+
+
 
 
 
@@ -27,12 +104,38 @@ function sumNumbers() {}
 function sum() {}
 
 
-
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  let count=0
+  let result;
+ 
+  if(arr.length<=0){
+    return null
+  }
+for (let i = 0; i < arr.length+1; i++) {
+  count=i 
+}
+result=sumNumbers(arr)/count
+return result
+}
+
+console.log(averageNumbers(numbersAvg))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Level 2: Array of strings
