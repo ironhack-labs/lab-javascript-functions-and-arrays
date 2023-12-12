@@ -136,6 +136,7 @@ function avg(mixedArr) {
 }  
 
 
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -172,6 +173,8 @@ function uniquifyArray(wordsUnique) {
 
 
 // Iteration #6: Find elements
+
+//solucion Carlos
 function doesWordExist(words, wordToFind) {
   if (words.length === 0) {
     return null
