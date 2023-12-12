@@ -207,6 +207,7 @@ function howManyTimes(wordsArray, word) {
 
 
 // Iteration #8: Bonus
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -230,9 +231,20 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
+function greatestProduct(arraysNumbers) {
+  let result = 0;
+  for (let i = 0; i < arraysNumbers.length; i++) {
+    for (let j = 3; j < arraysNumbers[i].length; j++) {
+      if (arraysNumbers[i][j-3] * arraysNumbers[i][j-2] * arraysNumbers[i][j-1] * arraysNumbers[i][j] > result) {
+        result = arraysNumbers[i][j-3] * arraysNumbers[i][j-2] * arraysNumbers[i][j-1] * arraysNumbers[i][j];
+      }
+      if (arraysNumbers[j-3][i] * arraysNumbers[j-2][i] * arraysNumbers[j-1][i] * arraysNumbers[j][i] > result) {
+        result = arraysNumbers[j-3][i] * arraysNumbers[j-2][i] * arraysNumbers[j-1][i] * arraysNumbers[j][i];
+      }
+    }
+  }
+  return result;
+}
 
 
 // The following is required to make unit tests work.
