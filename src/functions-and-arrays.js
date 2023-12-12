@@ -2,10 +2,8 @@
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
-  } else if (num2 > num1) {
+  } else {
     return num2;
-  } else if (num1 === num2) {
-    return num1;
   }
 }
 
@@ -43,7 +41,22 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(mixedArr) {
+  let add = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    const element = mixedArr[i];
+    if (typeof element === 'string') {
+      add += element.length;
+    } else if ((typeof element === 'boolean') || (typeof element === 'number')) {
+      add += element;
+    } else {
+      throw new Error('Error message goes here')
+    }
+  }
+  return add;
+}
 
 
 
@@ -70,12 +83,19 @@ function averageWordLength(wordsArr) {
     let sumCharacters = 0;
     for (let i = 0; i < wordsArr.length; i++) {
       sumCharacters += wordsArr[i].length;
-    } return sumCharacters / wordsArr.length;
+    }
+    return sumCharacters / wordsArr.length;
   }
  }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.3
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null;
+  } else {
+    return sum(mixedArr)/mixedArr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -96,6 +116,15 @@ function uniquifyArray(wordsUnique) {
   if (wordsUnique.length === 0) {
     return null;
   }
+
+  const result = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    const word = wordsUnique[i];
+    if (!result.includes(word)) {
+      result.push(word);
+    }
+  }
+  return result;
 }
 
 
@@ -103,7 +132,20 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null;
+  }
+
+  let exists = false;
+  let i = 0;
+  while (!exists && i < wordsFind.length) {
+    const wordInArray = wordsFind[i];
+    exists = word === wordInArray;
+    i++;
+  }
+  return exists;
+}
 
 
 
@@ -122,7 +164,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let counter = 0;
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (word === wordsCount[i]) {
+      counter++; 
+    }
+  }
+  return counter;
+}
 
 
 
