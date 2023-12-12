@@ -41,13 +41,8 @@ function sumNumbers(numbers) {
   let sum = 0
 
   for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i]
 
-    if (sum === undefined) {
-      sum = number
-    } else {
-      sum += number
-    }
+      sum += numbers[i]
   }
   return sum
 }
@@ -87,13 +82,8 @@ function averageWordLength(wordsArr) {
 let sum = 0
   
 for (let i = 0; i < wordsArr.length; i++) {
-    const wordlength = wordsArr[i].length
+    sum += wordsArr[i].length
 
-    if (sum === undefined) {
-      sum = wordlength
-    } else {
-      sum += wordlength
-    }
   }
   return sum / wordsArr.length
 }
