@@ -44,8 +44,8 @@ function sumNumbers(numbers) {
   let sum = 0
 
   for (let i = 0; i < numbers.length; i++) {
-
-      sum += numbers[i]
+      const number = numbers[i]
+      sum += number
   }
   return sum
 }
@@ -54,8 +54,25 @@ function sumNumbers(numbers) {
 
 // Iteration #3.1 Bonus:
 
-function sum(numbers) {
-  
+function sum(mixedArr) {
+  let sum = 0
+
+  for(let i = 0; i < mixedArr.length; i++) {
+    const mix = mixedArr[i]
+
+    if (typeof mix === "string") {
+      sum += mix.length
+    } else if (typeof mix === "boolean") {
+      if (mix) {
+        sum += 1
+      }
+    } else if (typeof mix === "number") {
+      sum += mix
+    } else {
+      throw new Error("Error message goes here")
+    }
+  }
+  return sum
 }
 
 
@@ -97,7 +114,25 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 function avg(mixedArr) {
 
+  let sum = 0
+  if (mixedArr.length === 0) {
+    return null
+  }
 
+  for(let i = 0; i < mixedArr.length; i++) {
+    const mix = mixedArr[i]
+
+    if (typeof mix === "string") {
+      sum += mix.length
+    } else if (typeof mix === "boolean") {
+      if (mix) {
+        sum += 1
+      }
+    } else if (typeof mix === "number") {
+      sum += mix
+    }
+  }
+  return sum / mixedArr.length
 }  
 
 
@@ -137,6 +172,20 @@ function uniquifyArray(wordsUnique) {
 
 
 // Iteration #6: Find elements
+function doesWordExist(words, wordToFind) {
+  if (words.length === 0) {
+    return null
+  }
+  let exists = false
+  let i = 0
+  while (!exists && i < words.length) {
+      exists = words[i] === wordToFind
+      i++
+    }
+  return exists
+}
+
+/*
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(wordsFind, wordToSearch) {
@@ -156,6 +205,7 @@ function doesWordExist(wordsFind, wordToSearch) {
   }
   return result
 }
+*/
 
 
 
@@ -179,10 +229,11 @@ function howManyTimes(wordsCount, element) {
   let counter = 0
   for (let i = 0; i < wordsCount.length; i++) {
     const word = wordsCount[i]
-
-    if (word === element) {
+    //counter += (wordsCount === element) ? 1 : 0
+     if (word === element) {
       counter++
     }
+    
   }
   return counter
 }
@@ -235,3 +286,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
