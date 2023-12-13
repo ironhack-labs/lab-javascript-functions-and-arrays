@@ -16,21 +16,22 @@ console.log(maxOfTwoNumbers(8,5));
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-  let longest;
 
   if (words.length === 0) {
     return null;
   }
+  let longest = null;
   for ( let i = 0; i <words.length; i++) {
     const word = words[i];
-    if (longest === undefined) {
+    if (longest === null) {  //!longest
       longest = word;
-    } else if (words.length > longest.length) {
+    } else if (word.length > longest.length) {
       longest = word;
     }
   } 
+  return longest;
 }
-console.log('the longest word is ${words}');
+console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
