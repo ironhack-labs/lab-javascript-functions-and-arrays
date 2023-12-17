@@ -43,7 +43,26 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+	if(numbers.length===0){
+		return 0
+	}
+	let total = 0
+	for(i=0;i<=numbers.length-1;i++){
+		if(typeof(numbers[i])==='boolean'){
+			if(numbers[i]===true){
+				total = total + 1
+			}else
+				total = total + 0
+		}else if(typeof(numbers[i])==='number'){
+			total = total + numbers[i]
+		}else if(typeof(numbers[i])==='string'){
+			total = total + numbers[i].length
+		}else
+			return error
+	}
+	return total
+}
 
 
 
