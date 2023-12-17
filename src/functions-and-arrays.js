@@ -31,7 +31,7 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
 	if(numbers.length===0){
-	return 0
+		return 0
 	}
 	let total = 0
 	for(i=0;i<=numbers.length-1;i++){
@@ -50,6 +50,7 @@ function sum(numbers) {
 	let total = 0
 	for(i=0;i<=numbers.length-1;i++){
 		if(typeof(numbers[i])==='boolean'){
+			// for the boolean case, is necessary this form, because the triple equal sign in javascript means equality without type coercion.
 			if(numbers[i]===true){
 				total = total + 1
 			}else
@@ -59,7 +60,7 @@ function sum(numbers) {
 		}else if(typeof(numbers[i])==='string'){
 			total = total + numbers[i].length
 		}else
-			return error
+			throw new Error("The array contains a non-readable data type");
 	}
 	return total
 }
@@ -69,26 +70,41 @@ function sum(numbers) {
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+	//This exercise is great for demostrating how to use one function in another!
 function averageNumbers(numbersAvg) {
-	if(numbersAvg.length === 0){
+	if(numbersAvg.length===0){
 		return null
 	}
-	let total = 0
-	numbersAvg.forEach(num => {
-		total = (total+num)/numbersAvg.length
-	})
+	let totalNumbers = sumNumbers(numbersAvg);
+	let total = totalNumbers/numbersAvg.length
 	return total
-}
+	}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+	if(wordsArr.length===0){
+		return null
+	}
+	let total = 0
+	for(i=0;i<=wordsArr.length-1;i++){
+		total = total + wordsArr[i].length
+	}
+	return total/wordsArr.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 5.7
+function avg(mixedArr) {
+	if(mixedArr.length===0){
+		return null
+	}
+	let sumMixArr = sum(mixedArr);
+	return sumMixArr/mixedArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -105,7 +121,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+	if(wordsUnique.length===0){
+		return null
+	}
+	let uniqArr = ['default']
+	//for(i=0;i<=wordsUnique.length-1;i++){
+	//	for(j=0;j<=uniqArr.length-1;i++){
+	//		if(wordsUnique[i]===uniqArr[j]){
+	//		}else
+							
+	//	}
+	//}
+}
 
 
 
