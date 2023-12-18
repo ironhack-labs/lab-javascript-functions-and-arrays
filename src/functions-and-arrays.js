@@ -125,14 +125,15 @@ function uniquifyArray(wordsUnique) {
 	if(wordsUnique.length===0){
 		return null
 	}
-	let uniqArr = ['default']
-	//for(i=0;i<=wordsUnique.length-1;i++){
-	//	for(j=0;j<=uniqArr.length-1;i++){
-	//		if(wordsUnique[i]===uniqArr[j]){
-	//		}else
-							
-	//	}
-	//}
+	let uniqArr = [] 
+	for(i=0;i<=wordsUnique.length-1;i++){
+		const currentWord = wordsUnique[i]
+		if(uniqArr.indexOf(currentWord)===-1){
+			uniqArr.push(currentWord)
+		}
+		
+	}
+	return uniqArr
 }
 
 
