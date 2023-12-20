@@ -1,41 +1,110 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a,b) {
+	if(a>b){
+		return a
+	}
+	else if(a=b){
+		return a
+	}
+	else{
+		return b
+	}
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+	let longWord = ''
+	if(words.length===0){
+		return null
+	}
+	for(i=0;i<words.length;i++){
+		if(words[i].length>longWord.length){
+			longWord = words[i]
+		}
+	}
+	return longWord
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+	if(numbers.length===0){
+		return 0
+	}
+	let total = 0
+	for(i=0;i<=numbers.length-1;i++){
+		total = total+numbers[i]
+	}
+	return total
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+	if(numbers.length===0){
+		return 0
+	}
+	let total = 0
+	for(i=0;i<=numbers.length-1;i++){
+		if(typeof(numbers[i])==='boolean'){
+			// for the boolean case, is necessary this form, because the triple equal sign in javascript means equality without type coercion.
+			if(numbers[i]===true){
+				total = total + 1
+			}else
+				total = total + 0
+		}else if(typeof(numbers[i])==='number'){
+			total = total + numbers[i]
+		}else if(typeof(numbers[i])==='string'){
+			total = total + numbers[i].length
+		}else
+			throw new Error("The array contains a non-readable data type");
+	}
+	return total
+}
 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
-function averageNumbers() {}
+	//This exercise is great for demostrating how to use one function in another!
+function averageNumbers(numbersAvg) {
+	if(numbersAvg.length===0){
+		return null
+	}
+	let totalNumbers = sumNumbers(numbersAvg);
+	let total = totalNumbers/numbersAvg.length
+	return total
+	}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+	if(wordsArr.length===0){
+		return null
+	}
+	let total = 0
+	for(i=0;i<=wordsArr.length-1;i++){
+		total = total + wordsArr[i].length
+	}
+	return total/wordsArr.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 5.7
+function avg(mixedArr) {
+	if(mixedArr.length===0){
+		return null
+	}
+	let sumMixArr = sum(mixedArr);
+	return sumMixArr/mixedArr.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +121,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(wordsUnique) {
+	if(wordsUnique.length===0){
+		return null
+	}
+	let uniqArr = [] 
+	for(i=0;i<=wordsUnique.length-1;i++){
+		const currentWord = wordsUnique[i]
+		if(uniqArr.indexOf(currentWord)===-1){
+			uniqArr.push(currentWord)
+		}
+	}
+	return uniqArr
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrWords,findWord) {
+	if(arrWords.length===0){
+		return null
+	}
+	let count = 0
+	for(i=0;i<=arrWords.length-1;i++){
+		if(arrWords[i]===findWord){
+			count = count + 1
+		}
+	}
+	if(count>=1){
+		return true
+	}else
+		return false
+}
 
 
 
@@ -78,7 +172,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrWords, findWord) {
+	 if(arrWords.length===0){
+                return 0
+        }
+        let count = 0
+        for(i=0;i<=arrWords.length-1;i++){
+                if(arrWords[i]===findWord){
+                        count = count + 1
+                }
+        }
+        if(count>=1){
+                return count
+        }else
+                return 0
+}
 
 
 
@@ -106,7 +214,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+
+}
 
 
 
