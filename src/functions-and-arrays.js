@@ -50,6 +50,16 @@ function sumNumbers(numbers) {
   return sum
 }
 
+/* advanced fuctions
+
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+const total = numbers.reduce(function (a, b) {
+  return a + b
+})
+console.log(`total: ${total}`)
+
+*/
 
 
 // Iteration #3.1 Bonus:
@@ -88,7 +98,15 @@ function averageNumbers(numbersAvg) {
   }
   return sumNumbers(numbersAvg) / numbersAvg.length
 }
+/*
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+const total = numbersAvg.reduce(function (a, b) {
+  return (a + b) / numbersAvg.length
+})
+
+console.log(total)
+*/
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
