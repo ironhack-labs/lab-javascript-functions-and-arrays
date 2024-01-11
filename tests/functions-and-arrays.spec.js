@@ -34,6 +34,12 @@ describe("Iteration 1 | Find the maximum", () => {
   });
 });
 
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
+
+var result = maxOfTwoNumbers(5, 10);
+console.log(result);
 
 describe("Iteration 2 | Find the Longest Word", () => {
   describe("function findLongestWord()", () => {
@@ -61,10 +67,26 @@ describe("Iteration 2 | Find the Longest Word", () => {
       expect(findLongestWord(["foo", "bar"])).toBe("foo");
       expect(findLongestWord(["bar", "foo"])).toBe("bar");
     });
-
   });
 });
 
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return 0;
+  } else if (words.length === 1) {
+    return words[0];
+  } else {
+    let longestWord = words[0];
+    for (let i = 1; i < words.length; i++) {
+      if (words[i].length > longestWord.length) {
+        longestWord = words[i];
+      }
+    }
+    return longestWord;
+  }
+}
+
+console.log(findLongestWord(words));
 
 describe("Iteration 3 | Sum Numbers", () => {
   describe("function sumNumbers()", () => {
@@ -86,6 +108,24 @@ describe("Iteration 3 | Sum Numbers", () => {
   });
 });
 
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+
+  return sum;
+}
+
+console.log(sumNumbers(numbers));
+
+console.log(sumNumbers([]));
+console.log(sumNumbers([5]));
 
 describe("Iteration 4 | Numbers Average", () => {
   describe("function averageNumbers()", () => {
@@ -107,6 +147,22 @@ describe("Iteration 4 | Numbers Average", () => {
   });
 });
 
+function sumNumbers(numbers) {
+  return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+
+  const sum = sumNumbers(numbers);
+  const average = sum / numbers.length;
+  return average;
+}
+
+const result = averageNumbers(numbers2);
+console.log(result);
 
 describe("Iteration 5 | Find Elements", () => {
   describe("function doesWordExist()", () => {
