@@ -6,11 +6,9 @@ function maxOfTwoNumbers(num1, num2) {
   } else if (num1 < num2) {
     return num2;
   } else {
-    return "The numbers are equal";
+    return num1;
   }
 }
-
-console.log(maxOfTwoNumbers(8, 9));
 
 // Iteration 2 | Find the Longest Word
 
@@ -25,6 +23,11 @@ const words = [
 ];
 
 function findLongestWord(arr) {
+
+  if (arr.length === 0) {
+    return 0;
+  }
+
   let longestWord = "";
   let maxLength = 0;
 
@@ -34,7 +37,7 @@ function findLongestWord(arr) {
       longestWord = arr[i];
     }
   }
-  console.log(`The longest word is: ${longestWord}`);
+  return longestWord;
 }
 
 findLongestWord(words);
