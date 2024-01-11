@@ -23,7 +23,6 @@ const words = [
 ];
 
 function findLongestWord(arr) {
-
   if (arr.length === 0) {
     return 0;
   }
@@ -51,7 +50,7 @@ function sumNumbers(arr) {
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
-  console.log(sum);
+  return sum;
 }
 
 sumNumbers(numbers);
@@ -60,13 +59,17 @@ sumNumbers(numbers);
 const numbers2 = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i];
   }
 
   let averageNumber = sum / arr.length;
-  console.log(averageNumber);
+  return averageNumber;
 }
 
 averageNumbers(numbers2);
@@ -84,6 +87,10 @@ const words2 = [
 ];
 
 function doesWordExist(arrayOfWords, wordToSearchFor) {
+  if (arrayOfWords.length === 0) {
+    return null;
+  }
+
   let index = arrayOfWords.indexOf(wordToSearchFor);
 
   if (index !== -1) {
@@ -92,5 +99,3 @@ function doesWordExist(arrayOfWords, wordToSearchFor) {
     return false;
   }
 }
-
-console.log(doesWordExist(words2, "Natalia"));
