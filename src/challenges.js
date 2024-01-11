@@ -160,16 +160,80 @@ const matrix = [
   ],
 ];
 
+// function greatestProduct(matrix) {
+//   for (let i = 0; i < matrix.length; i++) {
+//     for (let j = 0; j < matrix[i].length; i++) {
+//       if (matrix[i][j] === 1) {
+//         return 1;
+//       }
+
+//       if (matrix[i][j] === 2) {
+//         return 16;
+//       }
+//     }
+//   }
+// }
+
+const matrix2 = [
+  [1, 2, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 20, 3, 4, 5],
+  [1, 4, 3, 4, 5],
+];
+
+//challenge
+
 function greatestProduct(matrix) {
+  let greatest = 0;
+
   for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; i++) {
-      if (matrix[i][j] === 1) {
-        return 1;
+    for (let j = 0; j < matrix[i].length; j++) {
+      // Horizontal
+      if (j < matrix[i].length - 3) {
+        let horizontalProduct =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        if (horizontalProduct > greatest) {
+          greatest = horizontalProduct;
+        }
       }
 
-      if (matrix[i][j] === 2) {
-        return 16;
+      // Vertical
+      if (i < matrix.length - 3) {
+        let verticalProduct =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (verticalProduct > greatest) {
+          greatest = verticalProduct;
+        }
+      }
+
+      // Diagonal (right and down)
+      if (i < matrix.length - 3 && j < matrix[i].length - 3) {
+        let diagonalProduct =
+          matrix[i][j] *
+          matrix[i + 1][j + 1] *
+          matrix[i + 2][j + 2] *
+          matrix[i + 3][j + 3];
+        if (diagonalProduct > greatest) {
+          greatest = diagonalProduct;
+        }
+      }
+
+      // Diagonal (right and up)
+      if (i >= 3 && j < matrix[i].length - 3) {
+        let diagonalProduct =
+          matrix[i][j] *
+          matrix[i - 1][j + 1] *
+          matrix[i - 2][j + 2] *
+          matrix[i - 3][j + 3];
+        if (diagonalProduct > greatest) {
+          greatest = diagonalProduct;
+        }
       }
     }
   }
+
+  return greatest;
 }
+
+console.log(greatestProduct(matrix2));
