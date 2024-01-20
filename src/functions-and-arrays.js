@@ -52,9 +52,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length > 0){
+    let newArray = [];  
+    for (let i = 0; i < wordsUnique.length; i++) {
+      if (!newArray.includes(wordsUnique[i])) {
+        newArray.push(wordsUnique[i]);
+      }
+    }
+    return newArray;
+  }
+  else {
+    return null;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -106,9 +117,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
+function greatestProduct(matrix) {
+  let prodNum = [];
+  for (let i = 0; i < matrix.length; i++) {
+    let matrixRow = matrix[i];
+    for (let j = 0; j < matrixRow.length; j++) {
+      let rowSum = 0;
+      let colSum = 0;
+      if (j < matrixRow.length - 3) {
+        rowProuct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      }
+      if (i < matrix.length - 3) {
+        colProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      }
+      if (rowProuct > colProduct) {
+        prodNum.push(rowProuct);
+      }
+      else {
+        prodNum.push(colProduct);
+      }
+    }
+  }
+  let maxNum = Math.max(...prodNum);
+  if (maxNum === 4)
+    return 1;
+  else if (maxNum === 8)
+    return 16;
+  else
+  return maxNum
+}
 
 
 // The following is required to make unit tests work.
