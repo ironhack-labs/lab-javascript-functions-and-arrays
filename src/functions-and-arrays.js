@@ -72,7 +72,19 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length == 0) {
+    return null;
+  } else if (numbers.length === 1) {
+    return numbers[0];
+  } else {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
+    return sum / numbers.length;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = [
