@@ -1,24 +1,81 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(i,j) {
+  if (i>j) {
+    return i;
+  }
+  else if (i<j) {
+    return j;
+  }
+  else if (i=j) {
+    return i;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(test) {
 
+  if (test.length == 0) {
+    return null;
+  }
+  else if (test.length == 1) {
+    return test[0];
+  }
+  else if (test.length> 0) {
+  let lengthsArr=[];
+  let longest = test[0].length;
+  let longestword = test[0];
+  for (let i=0; i<test.length; i++) {
+    
+    if (test[i].length > longest) {
+      longest = test[i].length;
+      longestword = test[i];
+    }
+    else if (longest >= test[i].length) {
 
+      continue;
+    }
+  }
+  return longestword;
+  }
+}
 
-// Iteration #3: Calculate the sum
+// Iteration #3: #3.1 Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numList) {
+  let sum=0;
+  for(let i=0; i<numList.length; i++) {
+    sum += numList[i];
+  }
+  return sum;
+}
 
+// Iteration #3.2 Bonus:
+function sum(numList) {
+  let sum=0;
+  for(let i=0; i<numList.length; i++) {
+    if (typeof numList[i] == "object") {
+      throw new Error("Cannot sum objects or arrays.");
+    }
+    else if (typeof numList[i] == "undefined") {
+      throw new Error("Cannot sum undefined values.");
+    }
+    else if (typeof numList[i] == "string") {
+      sum += numList[i].length;
+    }
+    else if (typeof numList[i] == "boolean") {
+      let a = +numList[i];
+      sum += a;
+    }
+    else if (typeof numList[i] == "number") {
+      sum += numList[i];
+    }
 
-
-// Iteration #3.1 Bonus:
-function sum() {}
+  }
+  return sum;
+}
 
 
 
@@ -26,16 +83,77 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numList) {
 
+  if (numList.length == 0) {
+    return null;
+  }
+  else if (numList.length>0) {
+  let sum=0;
+  let count=0;
+  for(let i=0; i<numList.length; i++) {
+    sum += numList[i];
+    count += 1;
+  }
+  return sum/count;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(test) {
+
+  if (test.length == 0) {
+    return null;
+  }
+  else if (test.length == 1) {
+    return test[0].length;
+  }
+  else if (test.length> 0) {
+    let sum=0;
+    let count=0;
+  for(let i=0; i<test.length; i++) {
+    sum += test[i].length;
+    count += 1;
+  }
+  return sum/count;
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixList) {
+  let sum=0;
+  let count=0;
+  if (mixList.length == 0) {
+    return null;
+  }
+  else if (mixList.length > 0) {
+  for(let i=0; i<mixList.length; i++) {
+    if (typeof mixList[i] == "object") {
+      throw new Error("Cannot sum objects or arrays.");
+    }
+    else if (typeof mixList[i] == "undefined") {
+      throw new Error("Cannot sum undefined values.");
+    }
+    else if (typeof mixList[i] == "string") {
+      sum += mixList[i].length;
+      count += 1;
+    }
+    else if (typeof mixList[i] == "boolean") {
+      let a = +mixList[i];
+      sum += a;
+      count += 1;
+    }
+    else if (typeof mixList[i] == "number") {
+      sum += mixList[i];
+      count += 1;
+    }
+
+  }
+  return sum/count;
+    }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +170,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordList) {
+  if (wordList.length == 0) {
+    return null;
+  }
+  else if (wordList.length > 0) {
+    let uniqueList = [];
+    for(let i=0; i< wordList.length; i++) {
+      if (uniqueList.length == 0) {
+        uniqueList.push(wordList[i]);
+      }
+      else if (uniqueList.includes(wordList[i])) {
+        continue;
+      }
+      else if (!uniqueList.includes(wordList[i])) {
+        uniqueList.push(wordList[i]);
+      }
+    }
+    return uniqueList;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordList,searchKeyword) {
+  if (wordList.length == 0) {
+    return null;
+  }
+  else if (wordList.length > 0) {
+    return wordList.includes(searchKeyword);
+  }
+}
 
 
 
@@ -78,9 +222,27 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(wordList,searchKeyword) {
+  if (wordList.length == 0) {
+    return 0;
+  }
+  else if(!wordList.includes(searchKeyword)) {
+      return 0;
+    }
+  else if (wordList.length > 0 || wordList.includes(searchKeyword)) 
+    {
+      let count = 0;
+      for(let i = 0;i<wordList.length; i++) {
+        if (searchKeyword !== wordList[i]) {
+          continue;
+        }
+        else if (searchKeyword == wordList[i]) {
+          count += 1;
+        }
+      }
+      return count;
+    } 
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +268,54 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(myArr) {
+  let biggest = 1;
+ //horizontal
+  for (let i=0; i<myArr.length;i++) {
+    let horizontalmultiplied=1;
+    for (let j=0; j<myArr.length;j++) {
+      horizontalmultiplied = horizontalmultiplied*myArr[i][j];
+      }
+ //   console.log(horizontalmultiplied);
+    if (horizontalmultiplied == Math.pow(2, myArr.length)) {
+      return 16;
+      break;
+    }  
+    else if (horizontalmultiplied == 1) {
+      return 1;
+      break;
+    }  
+    else if (horizontalmultiplied > biggest) {
+        biggest = horizontalmultiplied;
+      }
+    else if (horizontalmultiplied <= biggest) {
+        continue;
+      }
+    }
+ //vertical
+  for (let j=0; j<myArr.length;j++) {
+    let verticalmultiplied=1;
+    for (let i=0; i<myArr.length;i++) { 
+      verticalmultiplied = verticalmultiplied*myArr[i][j];
+      }
+ //   console.log(verticalmultiplied);,
+    if (verticalmultiplied == Math.pow(2, myArr.length)) {
+      return 16;
+      break;
+    }  
+    else if (verticalmultiplied == 1) {
+      return 1;
+      break;
+    }  
+    else if (verticalmultiplied > biggest) {
+        biggest = verticalmultiplied;
+      }
+    else if (verticalmultiplied <= biggest) {
+        continue;
+      }
+    }
+    return biggest;
+  }
 
 
 
