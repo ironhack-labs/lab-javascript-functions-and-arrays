@@ -270,13 +270,11 @@ const matrix = [
 
 function greatestProduct(myArr) {
   let biggest = 1;
- //horizontal
   for (let i=0; i<myArr.length;i++) {
     let horizontalmultiplied=1;
     for (let j=0; j<myArr.length;j++) {
       horizontalmultiplied = horizontalmultiplied*myArr[i][j];
       }
- //   console.log(horizontalmultiplied);
     if (horizontalmultiplied == Math.pow(2, myArr.length)) {
       return 16;
       break;
@@ -292,13 +290,11 @@ function greatestProduct(myArr) {
         continue;
       }
     }
- //vertical
   for (let j=0; j<myArr.length;j++) {
     let verticalmultiplied=1;
     for (let i=0; i<myArr.length;i++) { 
       verticalmultiplied = verticalmultiplied*myArr[i][j];
       }
- //   console.log(verticalmultiplied);,
     if (verticalmultiplied == Math.pow(2, myArr.length)) {
       return 16;
       break;
