@@ -57,9 +57,9 @@ function sumNumbers(numbers) {
       return 0;
     } else {
       let sum = 0;
-       for (i = 0; i < numbers.length; i++) {
-         sum += numbers[i];
-       }
+      for (i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+      }
       return sum;
     }
   }
@@ -100,7 +100,19 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(wordArray) {
+  if (wordArray.length == 0) {
+    return null;
+  } else if (wordArray.length === 1) {
+    return wordArray[0].length;
+  } else {
+    let sum = 0;
+    for (let i = 0; i < wordArray.length; i++) {
+      sum += wordArray[i].length;
+    }
+    return sum / wordArray.length;
+  }
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
