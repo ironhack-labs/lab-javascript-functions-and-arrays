@@ -162,7 +162,7 @@ function avg(array) {
         break;
     }
   });
-  return sum / array.length;
+  return (sum / array.length);
 }
 
 // Iteration #5: Unique arrays
