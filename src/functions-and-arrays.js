@@ -326,6 +326,89 @@ function greatestProduct(matrix) {
   return biggestProduct;
 }
 
+function greatestProductOfDiagonals(matrix) {
+  let i = 0;
+  let j;
+  let currentProduct = 0;
+  let biggestProduct = 0;
+  let maxIterationsRow;
+  let maxIterationsCol;
+  let numFactors = 4;
+
+  // Iterations in each row and columns to allow for diagonal length
+  maxIterationsRow = matrix.length - numFactors;
+  maxIterationsCol = matrix[0].length - numFactors;
+
+  // Forward slash diagonal product comparison
+  for (i; i <= maxIterationsRow; i++) {
+    j = 0;
+    for (j; j <= maxIterationsCol; j++) {
+      currentProduct =
+        matrix[i][j] *
+        matrix[i + 1][j + 1] *
+        matrix[i + 2][j + 2] *
+        matrix[i + 3][j + 3];
+      if (currentProduct > biggestProduct) {
+        biggestProduct = currentProduct;
+      }
+      // if there is space for more multiplications along same diagonal, keep going
+      if (i <= maxIterationsRow) {
+        let k = i + 1;
+        let l = j + 1;
+        while (k <= maxIterationsRow) {
+          currentProduct =
+            matrix[k][l] *
+            matrix[k + 1][l + 1] *
+            matrix[k + 2][l + 2] *
+            matrix[k + 3][l + 3];
+          if (currentProduct > biggestProduct) {
+            biggestProduct = currentProduct;
+          }
+          l++;
+          k++;
+        }
+      }
+    }
+  }
+
+  i = 0;
+  j = 0;
+  let row = 0;
+  let col = matrix.length - 1;
+
+  // Backwards slash diagonal product comparison, starting at bottom left
+  for (i; i <= maxIterationsRow; i++) {
+    for (j; j <= maxIterationsCol; j++) {
+      currentProduct =
+        matrix[row][col] *
+        matrix[row + 1][col - 1] *
+        matrix[row + 2][col - 2] *
+        matrix[row + 3][col - 3];
+      if (currentProduct > biggestProduct) {
+        biggestProduct = currentProduct;
+      }
+      // if there is space for more multiplications along same diagonal, keep going
+      if (i <= maxIterationsRow) {
+        let k = row + 1;
+        let l = col - 1;
+        while (k <= maxIterationsRow) {
+          currentProduct =
+            matrix[k][l] *
+            matrix[k + 1][l - 1] *
+            matrix[k + 2][l - 2] *
+            matrix[k + 3][l - 3];
+          if (currentProduct > biggestProduct) {
+            biggestProduct = currentProduct;
+          }
+          l--;
+          k++;
+        }
+      }
+    }
+  }
+  return biggestProduct;
+}
+
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== "undefined") {
