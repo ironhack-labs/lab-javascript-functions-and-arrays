@@ -134,18 +134,18 @@ const wordsUnique = [
 
 function uniquifyArray(wordsArray) {
   if (wordsArray.length == 0) {
-    return null
+    return null;
   }
-    const uniquifiedArray = [];
+  const uniquifiedArray = [];
 
-    for (let i = 0; i < wordsArray.length; i++) {
-        const word = wordsArray[i];
+  for (let i = 0; i < wordsArray.length; i++) {
+    const word = wordsArray[i];
 
-        if (uniquifiedArray.indexOf(word) === -1) {
-          uniquifiedArray.push(word);
-        }
-      }
-    return uniquifiedArray
+    if (uniquifiedArray.indexOf(word) === -1) {
+      uniquifiedArray.push(word);
+    }
+  }
+  return uniquifiedArray;
 }
 
 // Iteration #6: Find elements
@@ -163,13 +163,16 @@ const wordsFind = [
 function doesWordExist(wordsToEvaluate, wordToFind) {
   if (wordsToEvaluate.length == 0) {
     return null;
-  } else if (wordToFind === wordsToEvaluate[0] && wordsToEvaluate.length === 1) {
+  } else if (
+    wordToFind === wordsToEvaluate[0] &&
+    wordsToEvaluate.length === 1
+  ) {
     return true;
   } else {
     if (wordsToEvaluate.indexOf(wordToFind) === -1) {
       return false;
       //Could also be modified to: else {return true}
-    } else if (wordsToEvaluate.indexOf(wordToFind) !== -1){
+    } else if (wordsToEvaluate.indexOf(wordToFind) !== -1) {
       return true;
     }
   }
@@ -272,7 +275,58 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let i = 0;
+  let j;
+  let k = 0;
+  let currentProduct = 0;
+  let biggestProduct = 0;
+  let maxIterations;
+  let numFactors = 4;
+
+  // Check if all elements are 1 or 2 with arrow function on a flat matrix
+  let flatMatrix = matrix.flat();
+  let isAllOne = flatMatrix.every((element) => element === 1);
+  let isAllTwo = flatMatrix.every((element) => element === 2);
+
+  // Exit function in case of all ones or all twos
+  if (isAllOne || isAllTwo) {
+    isAllOne ? (sum = 1) : (sum = 16);
+    return sum;
+  }
+
+  // Iterations in each row so that j+3 is not out of bounds
+  maxIterations = matrix[0].length - numFactors;
+
+  for (i; i < matrix.length; i++) {
+    j = 0;
+    for (j; j <= maxIterations; j++) {
+      currentProduct =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (currentProduct > biggestProduct) {
+        biggestProduct = currentProduct;
+      }
+    }
+  }
+
+  i = 0;
+  // Iterations in each row so that j+3 is not out of bounds
+  maxIterations = matrix.length - numFactors;
+
+  // Compare biggestProduct with matrix column products
+  for (i; i < matrix[0].length; i++) {
+    j = 0;
+    for (j; j <= maxIterations; j++) {
+      currentProduct =
+        matrix[j][i] * matrix[j + 1][i] * matrix[j + 2][i] * matrix[j + 3][i];
+      if (currentProduct > biggestProduct) {
+        biggestProduct = currentProduct;
+      }
+    }
+  }
+
+  return biggestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
