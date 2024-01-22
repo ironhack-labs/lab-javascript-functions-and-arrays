@@ -146,9 +146,7 @@ function uniquifyArray(wordsArray) {
         }
       }
     return uniquifiedArray
-  }
-
-
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -162,7 +160,19 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsToEvaluate, wordToFind) {
+  if (wordsToEvaluate.length == 0) {
+    return null;
+  } else if (wordsToEvaluate == wordsToEvaluate[0]) {
+    return true;
+  } else {
+    if (wordsToEvaluate.indexOf(wordToFind) === -1) {
+      return false;
+    } else if (wordsToEvaluate.indexOf(wordToFind) !== -1){
+      return true;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
