@@ -163,11 +163,12 @@ const wordsFind = [
 function doesWordExist(wordsToEvaluate, wordToFind) {
   if (wordsToEvaluate.length == 0) {
     return null;
-  } else if (wordsToEvaluate == wordsToEvaluate[0]) {
+  } else if (wordToFind === wordsToEvaluate[0] && wordsToEvaluate.length === 1) {
     return true;
   } else {
     if (wordsToEvaluate.indexOf(wordToFind) === -1) {
       return false;
+      //Could also be modified to: else {return true}
     } else if (wordsToEvaluate.indexOf(wordToFind) !== -1){
       return true;
     }
