@@ -66,7 +66,31 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0;
+  // For each element in the array, do a switch case
+  array.forEach((element) => {
+    switch (typeof element) {
+      case "object":
+        throw new Error("Function cannot take objects as arguments");
+      case "number":
+        sum += element;
+        break;
+      case "string":
+        sum += element.length;
+        break;
+      case "boolean":
+        if (element) {
+          sum += 1;
+        }
+        break;
+      default:
+        // do nothing if any other typeof contingency
+        break;
+    }
+  });
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
