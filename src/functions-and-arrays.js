@@ -278,10 +278,8 @@ const matrix = [
 function greatestProduct(matrix) {
   let i = 0;
   let j;
-  let k = 0;
   let currentProduct = 0;
   let biggestProduct = 0;
-  let maxIterations;
   let numFactors = 4;
 
   // Check if all elements are 1 or 2 with arrow function on a flat matrix
@@ -296,7 +294,7 @@ function greatestProduct(matrix) {
   }
 
   // Iterations in each row so that j+3 is not out of bounds
-  maxIterations = matrix[0].length - numFactors;
+  let maxIterations = matrix[0].length - numFactors;
 
   for (i; i < matrix.length; i++) {
     j = 0;
