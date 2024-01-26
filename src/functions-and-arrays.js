@@ -37,14 +37,40 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numberArray) {
   let numberSum = 0;
-  numberArray.forEach(number => {
+  numberArray.forEach((number) => {
     numberSum += number;
   });
   return numberSum;
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+// should return: 57
+function sum(mixedArray) {
+  sumNumberMixedArray = 0;
+  mixedArray.forEach((arrayEl) => {
+    if (typeof arrayEl === "string" || typeof arrayEl === "number" || typeof arrayEl === "boolean") {
+      switch (typeof arrayEl) {
+        case "string":
+          sumNumberMixedArray += arrayEl.length;
+          break;
+        case "number":
+          sumNumberMixedArray += arrayEl;
+          break;
+        case "boolean":
+          sumNumberMixedArray += Number(arrayEl);
+          break;
+        default:
+      }
+} else {
+      throw new Error(
+        "This array has elements that are not strings, numbers or booleans. Please try again."
+      );
+    }
+  });
+  return sumNumberMixedArray;
+}
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
