@@ -107,12 +107,12 @@ function uniquifyArray(stringsArray) {
   const indexOfDuplicates = [];
   for (let i = stringsArray.length - 1; i >= 0; i--) {
     const firstTime = stringsArray.indexOf(stringsArray[i], i + 1);
-    if(firstTime!==-1){
-          indexOfDuplicates.push(firstTime);
-      }
+    if (firstTime !== -1) {
+      indexOfDuplicates.push(firstTime);
+    }
   }
   console.log(indexOfDuplicates)
-  for(const index of indexOfDuplicates){
+  for (const index of indexOfDuplicates) {
     stringsArray.splice(index, 1);
   }
   return stringsArray;
@@ -208,10 +208,39 @@ function greatestProduct(bigMatrix) {
   }
   return greatestProd;
 }
-console.log("hola")
-console.log(greatestProduct(matrix))
+
+console.log(greatestProduct(matrix));
+
+//Iteraction #8.2 Bonus 
+function greatestProductOfDiagonals(bigMatrix) {
+  const rows = bigMatrix.length;
+  const columns = bigMatrix[0].length;
+  let greatestProd = 0;
 
 
+  for (let i = 3; i < rows; i++) {
+    for (let j = 3; j < columns; j++) {
+      if (i - 3 >= 0 && j - 3 >= 0) {
+        let diagonalULProd = bigMatrix[i][j] * bigMatrix[i - 1][j - 1] * bigMatrix[i - 2][j - 2] * bigMatrix[i - 3][j - 3];
+        greatestProd = Math.max(greatestProd, diagonalULProd);
+      }
+      if (i - 3 >= 0 && j + 3 < columns) {
+        let diagonalURProd = bigMatrix[i][j] * bigMatrix[i - 1][j + 1] * bigMatrix[i - 2][j + 2] * bigMatrix[i - 3][j + 3];
+        greatestProd = Math.max(greatestProd, diagonalURProd);
+      }
+      if (i + 3 < rows && j - 3 >= 0) {
+        let diagonalDLProd = bigMatrix[i][j] * bigMatrix[i + 1][j - 1] * bigMatrix[i + 2][j - 2] * bigMatrix[i + 3][j - 3];
+        greatestProd = Math.max(greatestProd, diagonalDLProd);
+      }
+      if (i + 3 < rows && j + 3 < columns) {
+        let diagonalDRProd = bigMatrix[i][j] * bigMatrix[i + 1][j + 1] * bigMatrix[i + 2][j + 2] * bigMatrix[i + 3][j + 3];
+        greatestProd = Math.max(greatestProd, diagonalDRProd);
+      }
+    }
+  }
+  return greatestProd;
+}
+console.log(greatestProductOfDiagonals(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
