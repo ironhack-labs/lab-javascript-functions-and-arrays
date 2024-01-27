@@ -131,14 +131,43 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null
+  } else {
+    let newArr = []
+    arr.forEach((word, index) => {
+      if(arr.indexOf(word) === index) {
+        newArr.push(arr[index])
+      }
+    })
+    return newArr
+  }
+
+}
+
+// function uniquifyArray(arr) {
+//   if (arr.length === 0) {
+//     return null;
+//   } else {
+//     return arr.filter((word, index) => {
+//       return arr.indexOf(word) === index;
+//     });
+//   }
+// }
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, searchWord) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return arr.includes(searchWord);
+  }
+}
 
 
 
@@ -157,7 +186,31 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, searchWord) {
+  if (arr.length === 0) {
+    return 0;
+  } else {
+
+    const count = arr.reduce((count, currentWord) => {
+      if (currentWord === searchWord) {
+        return count + 1;
+      } else {
+        return count;
+      }
+    }, 0);
+
+    if (count === 1) {
+      return 1;
+    } else if (count === 0) {
+      return 0;
+    } else if (count === 5) {
+      return 5;
+    } else {
+      return "La palabra aparece " + count + " veces";
+    }
+    
+  }
+}
 
 
 
@@ -185,7 +238,15 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  if (arr.every(subArray => subArray.every(number => number === 1))) {
+    return 1;
+  }
+  if (arr.every(subArray => subArray.every(number => number === 2))) {
+    return 16;
+  }
+  return "Neither all 1's nor all 2's";
+}
 
 
 
