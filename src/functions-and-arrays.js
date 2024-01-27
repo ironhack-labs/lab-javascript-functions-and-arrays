@@ -43,15 +43,40 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {
-  
+function sum(mixedArr) {
+  sumLength = 0;
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    const value = mixedArr[i];
+
+    if (typeof value === 'string') {
+      sumLength += value.length;
+    } else if (typeof value === 'number') {
+      sumLength += value;
+    } else if (typeof value === 'boolean') {
+      sumLength += value ? 1 : 0;
+    } else if (typeof value === 'object') {
+      throw new Error('not a primitive data type');
+    }
+  }
+
+  return sumLength;
 }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+  //here I reuse the function created above
+  const sum = sumNumbers(numbersAvg);
+
+  const avg = sum / numbersAvg.length;
+  return avg;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -67,10 +92,31 @@ const wordsArr = [
   'palace',
 ];
 
-function averageWordLength() {}
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  //get the sum of the lengths
+  let sumLength = 0;
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    sumLength = wordsArr[i].length;
+  }
+  const avgLength = sumLength / wordsArr.length;
+  return avgLength;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
+    return null;
+  }
+  //here I reuse the function created above
+  const total = sum(mixedArr);
+
+  const average = total / mixedArr.length;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -87,7 +133,35 @@ const wordsUnique = [
   'bring',
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+  const uniqueArr = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (uniqueArr.indexOf(wordsUnique[i] === -1)) {
+      //here is where I build the new array
+      uniqueArr.push(wordsUnique[i]);
+    }
+  }
+  return uniqueArr;
+}
+//test example
+const words1 = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring',
+];
+const only = uniquifyArray(words1);
+console.log(only);
 
 // Iteration #6: Find elements
 const wordsFind = [
