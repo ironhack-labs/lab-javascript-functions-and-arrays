@@ -1,43 +1,113 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numA, numB) {
+  if (numA >= numB) {
+    return numA
+  }
+  else {
+    return numB
+  }
+}
 
+console.log(maxOfTwoNumbers(1,2))
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const emptyWords = [];
 
-function findLongestWord() {}
+function findLongestWord(arrayOfWords) {
+  if (arrayOfWords.length == 0) {
+    return null
+  }
+  let wordLenght = 0
+  let longestWord = ""
+  for (value of arrayOfWords) {
+    if (value.length > wordLenght) {
+      longestWord = value
+      wordLenght = value.length
+    }
+  }
+  return longestWord
+}
 
+console.log(findLongestWord(words))
+console.log(findLongestWord(emptyWords))
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayOfNumbers) {
+  let totalSum = 0
+  for (value of arrayOfNumbers) {
+    totalSum+=value
+  }
+  return totalSum
+}
 
-
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(arrayOfMix) {
+  let totalSum = 0
+  for (value of arrayOfMix) {
+    if (value == true) {
+      totalSum+=1
+    }
+    else if (value == false) {
+      totalSum+=0
+    }
+    else if (typeof value === "number") {
+      totalSum+=value
+    }
+    else if (typeof value === "string") {
+      totalSum+=value.length
+    }
+    else {
+      throw new Error("The array contains unacceptable variable types: not boolean, number nor string");
+    }
+  }
+  return totalSum
+}
 
+console.log(sum(mixedArr))
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arrayOfNumbers) {
+  if (arrayOfNumbers.length == 0) {
+    return null
+  }
+  return sumNumbers(arrayOfNumbers)/arrayOfNumbers.length
+}
+console.log(averageNumbers(numbersAvg))
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrayOfWords) { 
+  if (arrayOfWords.length == 0) {
+    return null
+  }
+  return sum(arrayOfWords)/arrayOfWords.length
+}
+
+console.log(averageWordLength(wordsArr))
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+const avg = averageWordLength
+
+console.log(avg(mixedArr))
+
 
 // Iteration #5: Unique arrays
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -50,21 +120,44 @@ const wordsUnique = [
   'communion',
   'simple',
   'bring'
-];
+]
 
-function uniquifyArray() {}
+function uniquifyArray(arrayOfRepWords) {
+  if (arrayOfRepWords.length == 0) {
+    return null
+  }
+  let indexesToDelete = []
+  let arrayOfUniqueWords = Array.from(arrayOfRepWords) // create a new array that does not reference the initial one
+  let finalArrayOfUniqueWords = []
+  for (let i = 0; i<arrayOfRepWords.length; i++) {
+    indexesToDelete.push(arrayOfRepWords.indexOf(arrayOfRepWords[i],i+1))
+    if (indexesToDelete[i] != -1) {
+      delete arrayOfUniqueWords[indexesToDelete[i]]
+    }
+    if (arrayOfUniqueWords[i] != undefined) {
+      finalArrayOfUniqueWords.push(arrayOfUniqueWords[i])
+    }
+  }
+  return finalArrayOfUniqueWords
+}
 
+console.log(uniquifyArray(wordsUnique))
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arrayOfExWords, wordToCheck) {
+  if (arrayOfExWords.length == 0) {
+    return null
+  }
+  return arrayOfExWords.includes(wordToCheck)
+}
 
-
+console.log(doesWordExist(wordsFind,"machine"))
 
 // Iteration #7: Count repetition
-const wordsCount = [
+const wordsNumCount = [
   'machine',
   'matter',
   'subset',
@@ -78,9 +171,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arrayOfTimesWords, repeatedWord) {
+  let numRepeats = 0
+  for (value of arrayOfTimesWords) {
+    if (value == repeatedWord) {
+      numRepeats+=1
+    }
+  }
+  return numRepeats
+}
 
-
+console.log(howManyTimes(wordsNumCount,"matter"))
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,9 +207,53 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arrayMatrix) {
+  let resultNum = 0
+  for (let i = 0; i < arrayMatrix.length; i++) {
+    for (let j = 0; j< arrayMatrix[0].length; j++) {
+      if (j+3 < arrayMatrix[0].length) {
+        let multiNumX = arrayMatrix[i][j]*arrayMatrix[i][j+1]*arrayMatrix[i][j+2]*arrayMatrix[i][j+3]
+        if (multiNumX > resultNum) {
+          resultNum = multiNumX
+        }
+      }
+      if (i+3 < arrayMatrix.length) {
+        let multiNumY = arrayMatrix[j][i]*arrayMatrix[j][i+1]*arrayMatrix[j][i+2]*arrayMatrix[j][i+3]
+        if (multiNumY > resultNum) {
+          resultNum = multiNumY
+        }
+      }
+    }
+  }
+  return resultNum
+}
 
+console.log(greatestProduct(matrix))
 
+// Iteration 8.1. Bonus
+
+function greatestProductOfDiagonals(arrayMatrix) {
+  let resultNum = 0
+  for (let i = 0; i < arrayMatrix.length; i++) {
+    for (let j = 0; j< arrayMatrix[0].length; j++) {
+      if (i+3 < arrayMatrix.length && j+3 < arrayMatrix[0].length) {
+        let multiNumX = arrayMatrix[i][j]*arrayMatrix[i+1][j+1]*arrayMatrix[i+2][j+2]*arrayMatrix[i+3][j+3]
+        if (multiNumX > resultNum) {
+          resultNum = multiNumX
+        }
+      }
+      if (i-3 >= 0 && j+3 < arrayMatrix[0].length) {
+        let multiNumY = arrayMatrix[i][j]*arrayMatrix[i-1][j+1]*arrayMatrix[i-2][j+2]*arrayMatrix[i-3][j+3]
+        if (multiNumY > resultNum) {
+          resultNum = multiNumY
+        }
+      }
+    }
+  }
+  return resultNum
+}
+
+console.log(greatestProductOfDiagonals(matrix))
 
 
 // The following is required to make unit tests work.
