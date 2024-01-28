@@ -229,21 +229,35 @@ function doesWordExist(wordsFind, wordToSearch) {
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToSearch) {
 
+  if (wordsCount.length === 0) {
+    return 0;
+  }
+
+  let count = 0
+
+  for (let word of wordsCount) {
+    if (word === wordToSearch) {
+      count++
+    }
+  } return count
+}
+
+// console.log(howManyTimes(wordsCount, "disobedience"))
 
 
 // Iteration #8: Bonus
