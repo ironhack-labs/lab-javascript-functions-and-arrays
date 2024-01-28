@@ -101,8 +101,6 @@ function sum(mixedArr) {
 
   let totalSum = numberSum + stringSum + booleanSum;
 
-  console.log (totalSum)
-
   return totalSum
 }
 
@@ -163,16 +161,41 @@ function averageWordLength(wordsArr) {
 // console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
-const numberList = [2, 6, 9, 10, 7, 4, 1, 9];
 
+/*
+Create function avg(arr) that receives any mixed array and calculates the average. For example, consider an array filled with numbers and/or strings and/or booleans as a mixed array.
 
-function avg(numberList) {
-  if (numberList.length === 0) {
+The non-numerical values should be counted as follows:
+
+Booleans: true counts as 1 and false counts as 0.
+Strings: use the string length as the numeric value.
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 5.7
+*/
+
+/* const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10]; */ 
+
+function avg(mixedArr) {
+  if (mixedArr.length === 0) {
     return null;
-} return sum / count
 }
 
-console.log(avg(numberList))
+let somma = 0
+let count = mixedArr.length
+
+somma = somma + sum(mixedArr)
+/*let sum = 0
+let count = mixed.length
+
+for (let i = 0; i < numberList.length; i++) {
+  sum += numberList[i];
+} */
+
+return somma / count
+}
+
+// console.log(avg(mixedArr))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
