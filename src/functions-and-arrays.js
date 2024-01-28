@@ -114,7 +114,22 @@ function sum(mixedArr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+
+  let count = 0
+  let sum = 0
+
+  count = count + numbersAvg.length
+  // should we use count = numbersAvg.length or count = count + numbersAvg.length?
+  sum = sumNumbers(numbersAvg)
+  return sum / count;
+}
+
+// console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
