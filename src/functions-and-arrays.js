@@ -1,6 +1,7 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(numA, numB) {
-  return numA > numB ? numA : numB
+  // return numA > numB ? numA : numB
+  return Math.max(numA, numB)
 }
 
 
@@ -8,17 +9,25 @@ function maxOfTwoNumbers(numA, numB) {
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+// function findLongestWord(arr) {
+//   if (arr.length === 0) {
+//     return null
+//   } else {
+//     let longestWord = ""
+//     arr.forEach(word => {
+//       if(word.length > longestWord.length) {
+//         longestWord = word
+//       }
+//     })
+//     return longestWord
+//   }
+// }
+
 function findLongestWord(arr) {
   if (arr.length === 0) {
     return null
   } else {
-    let longestWord = ""
-    arr.forEach(word => {
-      if(word.length > longestWord.length) {
-        longestWord = word
-      }
-    })
-    return longestWord
+    return arr.reduce((longest, currentWord) => currentWord.length > longest.length ? currentWord : longest, "")
   }
 }
 
@@ -27,12 +36,16 @@ function findLongestWord(arr) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+// function sumNumbers(arr) {
+//   let sumTotal = 0
+//   arr.forEach(num => {
+//     sumTotal += num
+//   })
+//   return sumTotal
+// }
+
 function sumNumbers(arr) {
-  let sumTotal = 0
-  arr.forEach(num => {
-    sumTotal += num
-  })
-  return sumTotal
+  return arr.reduce((sumTotal, currentNumb) => sumTotal + currentNumb, 0)
 }
 
 
@@ -76,19 +89,29 @@ function averageNumbers(arr) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+// function averageWordLength(arr) {
+//   if (arr.length === 0) {
+//     return null
+//   } else {
+//     let total = 0
+//     arr.forEach(word => {
+//       total += word.length
+//     })
+//     let average = total / arr.length
+//     return average
+//   }
+// }
+
 function averageWordLength(arr) {
   if (arr.length === 0) {
     return null
   } else {
-    let total = 0
-    arr.forEach(word => {
-      total += word.length
-    })
+    let total = arr.reduce((totalChar, currentWord) => totalChar + currentWord.length, 0 )
     let average = total / arr.length
     return average
   }
-
 }
+
 
 // Bonus - Iteration #4.1
 const mixedArrTest = [6, 12, 'miami', 1, false, 'barca', '200', 'lisboa', 8, 10];
@@ -131,30 +154,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(arr) {
-  if (arr.length === 0) {
-    return null
-  } else {
-    let newArr = []
-    arr.forEach((word, index) => {
-      if(arr.indexOf(word) === index) {
-        newArr.push(arr[index])
-      }
-    })
-    return newArr
-  }
-
-}
-
 // function uniquifyArray(arr) {
 //   if (arr.length === 0) {
-//     return null;
+//     return null
 //   } else {
-//     return arr.filter((word, index) => {
-//       return arr.indexOf(word) === index;
-//     });
+//     let newArr = []
+//     arr.forEach((word, index) => {
+//       if(arr.indexOf(word) === index) {
+//         newArr.push(arr[index])
+//       }
+//     })
+//     return newArr
 //   }
+
 // }
+
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return arr.filter((word, index) => {
+      return arr.indexOf(word) === index;
+    });
+  }
+}
+
+// let newArray = uniquifyArray(wordsUnique)
+// console.log(newArray)
 
 
 
@@ -191,13 +217,15 @@ function howManyTimes(arr, searchWord) {
     return 0;
   } else {
 
-    const count = arr.reduce((count, currentWord) => {
-      if (currentWord === searchWord) {
-        return count + 1;
-      } else {
-        return count;
-      }
-    }, 0);
+    // const count = arr.reduce((count, currentWord) => {
+    //   if (currentWord === searchWord) {
+    //     return count + 1;
+    //   } else {
+    //     return count;
+    //   }
+    // }, 0);
+
+    const count = arr.reduce((count, currentWord) => currentWord === searchWord ? count + 1 : count, 0)
 
     if (count === 1) {
       return 1;
@@ -247,6 +275,39 @@ function greatestProduct(arr) {
   }
   return "Neither all 1's nor all 2's";
 }
+
+function productoDeNumeros(numeros) {
+  return numeros.reduce((producto, numero) => producto * numero, 1);
+}
+
+function maximoProductoAdyacente(arr) {
+  let maxProducto = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      // Producto horizontal
+      if (j <= arr[i].length - 4) {
+        let horizontal = productoDeNumeros(arr[i].slice(j, j + 4));
+        maxProducto = Math.max(maxProducto, horizontal);
+      }
+
+      // Producto vertical
+      if (i <= arr.length - 4) {
+        let vertical = productoDeNumeros([
+          arr[i][j],
+          arr[i + 1][j],
+          arr[i + 2][j],
+          arr[i + 3][j]
+        ]);
+        maxProducto = Math.max(maxProducto, vertical);
+      }
+    }
+  }
+
+  return maxProducto;
+}
+
+
 
 
 
