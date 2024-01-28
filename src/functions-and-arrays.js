@@ -167,20 +167,35 @@ function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+
+  let uniqueWords = []
+
+  for (let word of wordsUnique) {
+    if (!uniqueWords.includes(word)) {
+      uniqueWords.push(word)
+    }
+  }
+  return uniqueWords
+}
+
+// console.log(uniquifyArray(wordsUnique))
 
 
 
