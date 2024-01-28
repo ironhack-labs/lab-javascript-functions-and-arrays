@@ -133,9 +133,32 @@ function averageNumbers(numbersAvg) {
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = [
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace",
+];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  let length = 0
+  let count = wordsArr.length
+
+  for (let i = 0; i < wordsArr.length; i++) {
+  length += wordsArr[i].length;
+}
+  return length / count
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
