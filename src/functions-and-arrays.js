@@ -48,7 +48,6 @@ function sumNumbers(numbers) {
 console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
 
 
@@ -56,13 +55,46 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+  
+  let total = 0;
+
+  for (let i = 0; i < numbersAvg.length; i += 1) {
+    total += numbersAvg[i];
+  }
+
+const average = total / numbersAvg.length;
+
+return average;
+}
+
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+
+  let totalLength = 0;
+
+  for (let i = 0; i < wordsArr.length; i++) {
+    totalLength += wordsArr[i].length;
+  }
+
+  const averageLength = totalLength / wordsArr.length;
+
+  return averageLength;
+}
+
+console.log(averageWordLength(wordsArr));
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -82,7 +114,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) {
+    return null;
+  }
+
+  const uniqueArray = [];
+
+  for (let i = 0; i < wordsUnique.length; i++) {
+  if (!uniqueArray.includes(wordsUnique[i])) {
+    uniqueArray.push(wordsUnique[i]);
+  }
+}
+return uniqueArray
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 
 
