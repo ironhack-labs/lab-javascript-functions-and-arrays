@@ -78,7 +78,35 @@ console.log(sumNumbers(numbers))
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(mixedArr) {
+  if (mixedArr.length === 0) {
+    return 0;
+  }
+
+  let numberSum = 0;
+  let stringSum = 0;
+  let booleanSum = 0;
+
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === "number") {
+      numberSum = numberSum += mixedArr[i];
+    } else if (typeof mixedArr[i] === "string") {
+      stringSum = stringSum + mixedArr[i].length;
+    } else if (typeof mixedArr[i] === "boolean") {
+      booleanSum = booleanSum += mixedArr[i];
+    } else throw new Error("Error message goes here");
+  }
+
+  let totalSum = numberSum + stringSum + booleanSum;
+
+  console.log (totalSum)
+
+  return totalSum
+}
+
+// console.log(sum(mixedArr))
 
 
 
