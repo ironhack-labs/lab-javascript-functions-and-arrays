@@ -163,7 +163,16 @@ function averageWordLength(wordsArr) {
 // console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
-function avg() {}
+const numberList = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function avg(numberList) {
+  if (numberList.length === 0) {
+    return null;
+} return sum / count
+}
+
+console.log(avg(numberList))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
