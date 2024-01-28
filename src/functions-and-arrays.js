@@ -160,6 +160,8 @@ function averageWordLength(wordsArr) {
   return length / count
 }
 
+// console.log(averageWordLength(wordsArr))
+
 // Bonus - Iteration #4.1
 function avg() {}
 
