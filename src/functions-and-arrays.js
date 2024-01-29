@@ -138,14 +138,17 @@ function uniquifyArray(wordsUnique) {
     return null;
   }
   const uniqueArr = [];
+
   for (let i = 0; i < wordsUnique.length; i++) {
-    if (uniqueArr.indexOf(wordsUnique[i] === -1)) {
+    let word = wordsUnique[i];
+    if (uniqueArr.indexOf(word === -1)) {
       //here is where I build the new array
-      uniqueArr.push(wordsUnique[i]);
+      uniqueArr.push(word);
     }
   }
   return uniqueArr;
 }
+
 //test example
 const words1 = [
   'crab',
@@ -175,7 +178,32 @@ const wordsFind = [
   'disobedience',
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, wordsSearch) {
+  if (wordsFind.length === 0) {
+    return null;
+  } else {
+    if (wordsFind.includes(wordsSearch)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+//test case
+
+const wordsF = [
+  'machine',
+  'subset',
+  'trouble',
+  'starting',
+  'matter',
+  'eating',
+  'truth',
+  'disobedience',
+];
+const wordsFF = doesWordExist('machine', 'machine');
+console.log(wordsFF);
 
 // Iteration #7: Count repetition
 const wordsCount = [
