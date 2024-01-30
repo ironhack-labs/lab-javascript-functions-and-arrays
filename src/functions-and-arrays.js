@@ -1,86 +1,102 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null; // o cualquier valor que desees para el caso vacío
+  }
 
+  let longestWord = words[0];
 
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  return numbers.reduce((sum, num) => sum + num, 0);
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  if (array.length === 0) {
+    return 0;
+  }
 
-
+  return array.reduce((accumulator, currentValue) => accumulator + currentValue);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) {
+    return null; // o cualquier valor que desees para el caso vacío
+  }
 
+  const sum = sumNumbers(numbers);
+  return sum / numbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) {
+    return null; // o cualquier valor que desees para el caso vacío
+  }
+
+  const totalLength = words.reduce((sum, word) => sum + word.length, 0);
+  return totalLength / words.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  if (array.length === 0) {
+    return null;
+  }
+
+  const total = sum(array);
+  return total / array.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  'crab', 'poison', 'contagious', 'simple', 'bring', 'sharp', 'playground', 'poison', 'communion', 'simple', 'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(words) {
+  return Array.from(new Set(words));
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(words, word) {
+  return words.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  'machine', 'matter', 'subset', 'trouble', 'starting', 'matter', 'eating', 'matter', 'truth', 'disobedience', 'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(words, word) {
+  return words.filter(w => w === word).length;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +122,40 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      // Check horizontally
+      if (j + 3 < matrix[i].length) {
+        const productHorizontal = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        maxProduct = Math.max(maxProduct, productHorizontal);
+      }
+
+      // Check vertically
+      if (i + 3 < matrix.length) {
+        const productVertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        maxProduct = Math.max(maxProduct, productVertical);
+      }
+
+      // Check diagonally (top-left to bottom-right)
+      if (i + 3 < matrix.length && j + 3 < matrix[i].length) {
+        const productDiagonal1 = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+        maxProduct = Math.max(maxProduct, productDiagonal1);
+      }
+
+      // Check diagonally (top-right to bottom-left)
+      if (i + 3 < matrix.length && j - 3 >= 0) {
+        const productDiagonal2 = matrix[i][j] * matrix[i + 1][j - 1] * matrix[i + 2][j - 2] * matrix[i + 3][j - 3];
+        maxProduct = Math.max(maxProduct, productDiagonal2);
+      }
+    }
+  }
+
+  return maxProduct;
+}
+
 
 
 
