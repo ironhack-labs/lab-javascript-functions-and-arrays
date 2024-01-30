@@ -30,7 +30,7 @@ function findLongestWord(arrayWords) {
   return longestWord;
 }
 
-console.log(findLongestWord(words))
+//console.log(findLongestWord(words))
 
 
 
@@ -50,8 +50,15 @@ function sumNumbers(arrNum) {
 //console.log(sumNumbers(numbersVuota))
 
 
-// Iteration #3.1 Bonus:
-function sum() { }
+// Iteration #3.2 Bonus:
+
+const mixArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(numStrArr) {
+  if (numStrArr.length === 0){
+    return null;
+  }
+ }
 
 
 // Iteration #4: Calculate the average
@@ -71,6 +78,7 @@ function averageNumbers(numbersAvg) {
 
   return somma / count;
 }
+
 
 //console.log(averageNumbers(numbersAvg));
 
@@ -102,11 +110,37 @@ console.log(averageWordLength(wordsArr));
 
 
 
-// Bonus - Iteration #4.1
-function avg() { }
+// Bonus - Iteration #4.3
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 
+function avg(arr) {
 
+  if (arr.length === 0) {
+    return null;
+  }
+  let contador = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+      let elementType = typeof arr[i];
+      if(elementType === "number"){
+        contador = contador + arr[i];
+      }
+      else if (elementType === "string"){
+        contador = contador + arr[i].length;
+      }
+      else if (elementType === "boolean"){
+        if(arr[i] === true){
+          contador = contador + 1;
+        }
+      }
+  }
+  return contador / arr.length;
+}
+console.log(avg(mixedArr))
+
+//prendi un array e per ogni elemento verifica il typeOf e poi aggiugi un count
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -181,20 +215,19 @@ const wordsCount = [
 ];
 
 function howManyTimes(wordsCount, wordToSearch) {
-  
+
   let count = 0;
-  
-  if(wordsCount.length === 0) {
+
+  if (wordsCount.length === 0) {
     return 0;
   }
 
-  for(let i = 0; i < wordsCount.length; i++)
-  {
+  for (let i = 0; i < wordsCount.length; i++) {
     if (wordsCount[i] === wordToSearch)
-        count++;
+      count++;
   }
-  return(count);
- }
+  return (count);
+}
 
 
 
