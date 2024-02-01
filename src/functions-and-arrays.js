@@ -141,7 +141,7 @@ function uniquifyArray(wordsUnique) {
 
   for (let i = 0; i < wordsUnique.length; i++) {
     let word = wordsUnique[i];
-    if (uniqueArr.indexOf(word === -1)) {
+    if (uniqueArr.indexOf(word) === -1) {
       //here is where I build the new array
       uniqueArr.push(word);
     }
@@ -220,7 +220,20 @@ const wordsCount = [
   'matter',
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordSearch) {
+  if (wordsCount.length === 0) {
+    return 0;
+  }
+  let times = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === wordSearch) {
+      times++;
+    }
+  }
+  return times;
+}
+const timestest = howManyTimes(wordsCount, 'machine');
+console.log(timestest);
 
 // Iteration #8: Bonus
 const matrix = [
