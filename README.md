@@ -237,7 +237,7 @@ Do this in the form of a function `uniquifyArray` that receives an array of word
 You can use the following array to test your solution:
 
 ```javascript
-const words = [
+const words = [ 
   'crab',
   'poison',
   'contagious',
