@@ -19,7 +19,7 @@ function findLongestWord(arrayWord) {
 
   let longWord = "";
 
-  if(arrayWord === 0){
+  if(arrayWord.length === 0){
     return null;
   }  
   for(let i of arrayWord){
@@ -56,13 +56,37 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!numbers || numbers.length === 0) {
+    return null;
+  }
+    let sum = 0;
+
+    for (let i of numbers){
+      sum += i
+    }
+  return sum / numbers.length
+}
+
+//console.log(averageNumbers(numbersAvg))
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if( !words || words.length === 0 ){
+    return null
+  }
+  let totalWords = 0;
+
+   for (let i  of words){
+    totalWords += i.length;
+   }
+   return totalWords / words.length
+ }
+
+ //console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -79,18 +103,53 @@ const wordsUnique = [
   'poison',
   'communion',
   'simple',
+  'bring',
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if ( wordsUnique.length === 0 ) {
+    return null;
+  }
+  let uniqueArray = []
 
+  for (let i of wordsUnique) {
+    if (!uniqueArray.includes(i)) {
+      uniqueArray.push(i)
+    }
+  }
+  return uniqueArray
+}
+  
+//console.log(uniquifyArray(wordsUnique))
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist( wordsFind, wordSearch ) {
+  if (wordsFind.length === 0){
+    return null;
+  }
 
+  if (wordsFind.indexOf(wordSearch) !== -1){
+    return true
+  } else {
+    return false
+  }
+}
+
+//console.log(doesWordExist(wordsFind, 'machine'))
 
 
 // Iteration #7: Count repetition
@@ -108,8 +167,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToSearch) {
+  if (wordsCount.length === 0) {
+    return 0;
+  }
 
+  let count = 0;
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === wordToSearch) {
+      count++;
+    }
+  }
+  return count;
+}
+
+//console.log(howManyTimes(wordsCount, 'matter'));
 
 
 // Iteration #8: Bonus
