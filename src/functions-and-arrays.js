@@ -114,7 +114,28 @@ return media
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg(mixedArr) {
+  if (mixedArr.length === 0){
+    return null
+  }
+  
+  let sumaDeTodo = 0
+  for (let i = 0; i < mixedArr.length; i++){
+    if (typeof mixedArr[i] === "number"){
+sumaDeTodo += mixedArr[i] 
+    } else if (mixedArr[i] === true){
+      sumaDeTodo += 1
+    } else if (mixedArr[i] === false){
+      sumaDeTodo += 0
+    } else {
+      sumaDeTodo += mixedArr[i].length
+    }
+  }
+  const average = sumaDeTodo/mixedArr.length
+  
+  return average
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -131,7 +152,18 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0){
+return null
+  }
+let wordsNoDuplicados = []
+for (let i = 0; i<wordsUnique.length; i++){
+  if (wordsNoDuplicados.indexOf(wordsUnique[i]) === -1){
+    wordsNoDuplicados.push(wordsUnique[i])
+  }
+}
+return wordsNoDuplicados
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -145,7 +177,19 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, wordToFind) {
+  if (wordsFind.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < wordsFind.length; i++) {
+    if (wordsFind[i] === wordToFind) {
+      return true; 
+    }
+  }
+
+  return false;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -162,7 +206,17 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, words) {
+  if (wordsCount.length === 0){
+    return 0
+  }
+  let sumWords = 0
+  for (let i = 0; i < wordsCount.length; i++){
+    if (wordsCount[i] === words){
+sumWords++} 
+}
+return sumWords
+}
 
 // Iteration #8: Bonus
 const matrix = [
