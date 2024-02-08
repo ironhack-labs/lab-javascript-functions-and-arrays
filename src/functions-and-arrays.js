@@ -164,9 +164,18 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arr) {
-  if(arr.length == 0) return null
   
-  for
+  if(arr.length === 0) return null
+
+  let newArr = []
+  
+  for(value of arr) {
+    if(!newArr.includes(value)) {
+      newArr.push(value)
+    } 
+    
+  }
+  return newArr
 }
 
 
@@ -174,7 +183,20 @@ function uniquifyArray(arr) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if(arr.length === 0) return null
+  
+  let isWordInArray = false
+
+  for(let value of arr) {
+    if (value === word ) {
+      isWordInArray = true 
+    } 
+
+  }
+
+  return isWordInArray
+}
 
 
 
@@ -191,9 +213,21 @@ const wordsCount = [
   'truth',
   'disobedience',
   'matter'
+
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if(arr.length === 0) return 0
+
+  let counter = 0
+
+  for(let value of arr) {
+    if(value === word) {
+      counter++
+    } 
+  }
+  return counter
+}
 
 
 
@@ -221,7 +255,12 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() {
+
+  
+
+
+}
 
 
 
