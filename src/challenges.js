@@ -37,7 +37,17 @@ function createSequence(num) {
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
 
-function multiplyBy() {}
+function multiplyBy(arr, num) {
+  let result = [];
+  if (arr != 0) {
+    arr.forEach((element) => {
+      result.push(element * num);
+    });
+  }
+  return result;
+}
+
+console.log(multiplyBy(numbers, 3));
 
 // Iteration 4 | Filter Out
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
