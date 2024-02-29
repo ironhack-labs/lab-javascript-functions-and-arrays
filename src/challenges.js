@@ -47,13 +47,24 @@ function multiplyBy(arr, num) {
   return result;
 }
 
-console.log(multiplyBy(numbers, 3));
-
 // Iteration 4 | Filter Out
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(arr, arrRemove) {
+  let newArr = [];
+  if (arr != 0) {
+    for (let element of arr) {
+      if (arrRemove.includes(element)) {
+        continue;
+      } else {
+        newArr.push(element);
+      }
+    }
+    return newArr;
+  }
+  return null;
+}
 
 // Iteration 5 | Unique Arrays
 const duplicateWords = [
