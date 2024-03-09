@@ -44,13 +44,33 @@ function createSequence(num) {
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
 
-function multiplyBy(num) {}
+function multiplyBy(numbers, multiplier) {
+  let newArr = [];
+  if (numbers.length === 0) {
+    return [];
+  }
+
+  numbers.forEach((number) => {
+    newArr.push(number * multiplier);
+  });
+  return newArr;
+}
 
 // Iteration 4 | Filter Out
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(original, toRemove) {
+  if (original.length === 0) {
+    return null;
+  } else if (toRemove.length === 0) {
+    return original
+  } else {
+    // return original.filterOut(toRemove);
+    return original.filter(item => !toRemove.includes(item));
+  }
+
+}
 
 // Iteration 5 | Unique Arrays
 const duplicateWords = [
@@ -67,8 +87,17 @@ const duplicateWords = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(duplicateWords) {
+  if (duplicateWords.length === 0) {
+    return null;
+  }
 
+  let uniqueSet = new Set(duplicateWords);
+
+  let uniqueArray = Array.from(uniqueSet);
+
+  return uniqueArray;
+}
 // Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -135,4 +164,4 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
