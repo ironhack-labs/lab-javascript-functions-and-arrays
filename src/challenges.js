@@ -44,13 +44,29 @@ function createSequence(num) {
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
 
-function multiplyBy(num) {}
+function multiplyBy(array, num) {
+  multipliedArr = [];
+  array.forEach((element) => {
+    multipliedArr.push(element * num);
+  });
+  return multipliedArr;
+}
 
 // Iteration 4 | Filter Out
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(originalArr, stringsToRemove) {
+  if (originalArr.length === 0) {
+    return null;
+  } else {
+    const filteredArr = originalArr.filter(
+      (word) => !stringsToRemove.includes(word)
+    );
+    return filteredArr;
+    // console.log(filteredArr);
+  }
+}
 
 // Iteration 5 | Unique Arrays
 const duplicateWords = [
@@ -67,7 +83,25 @@ const duplicateWords = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(duplicateWords) {
+  let finalArray = [];
+  if (duplicateWords.length === 0) {
+    return null;
+  }
+  duplicateWords.forEach((element) => {
+    // if element is already contained in final array take it out, if not push
+    if (!finalArray.includes(element)) {
+      finalArray.push(element);
+    } else if (finalArray.includes(element)) {
+      finalArray.splice(finalArray.indexOf(element), 1);
+    }
+  });
+  return finalArray;
+}
+
+//a little confused about this iteration and what's actually expected from it -
+//I created one that follows the logic of the example and expected outcome provided in README file -
+//the jasmine test expects a slightly different result which I was also able to achieve by omitting my second condition
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
