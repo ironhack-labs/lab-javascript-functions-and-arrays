@@ -187,13 +187,35 @@ const matrix = [
 ];
 
 function greatestProduct(matrix){
-  
+  let mayorProducto = 0;
+  let cuentaDerecha = 0;
+  let cuentaArriba = 0;
+  let cuentaAbajo = 0;
+  let cuentaIzquierda = 0;
+  for (let j = 0; j < matrix.length; j++) {
+    for (let i = 0; i < matrix[j].length; i++) {
+      if (i + 3 < matrix[j].length) {
+        cuentaDerecha = matrix[j][i] * matrix[j][i+1] * matrix[j][i+2] * matrix[j][i+3];
+        mayorProducto = Math.max(mayorProducto,cuentaDerecha);
+      }
+      if (i - 3 > matrix[j].length) {
+        cuentaIzquierda = matrix[j][i] * matrix[j][i-1] * matrix[j][i-2] * matrix[j][i-3];
+        mayorProducto = Math.max(mayorProducto,cuentaIzquierda);
+      }
+      if (j + 3 < matrix.length) {
+        cuentaArriba = matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i];
+        mayorProducto = Math.max(mayorProducto,cuentaArriba);
+      }
+      if (j - 3 > matrix.length) {
+        cuentaAbajo = matrix[j][i] * matrix[j-1][i] * matrix[j-2][i] * matrix[j-3][i];
+        mayorProducto = Math.max(mayorProducto,cuentaAbajo);
+      }
+    }
+    console.log(mayorProducto)
+  }
+  return mayorProducto;  
 }
-
-
-
-
-// The following is required to make unit tests work.
+    // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
   module.exports = {
