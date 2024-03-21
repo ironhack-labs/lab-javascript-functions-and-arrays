@@ -211,10 +211,42 @@ function greatestProduct(matrix){
         mayorProducto = Math.max(mayorProducto,cuentaAbajo);
       }
     }
+  }
+  return mayorProducto;  
+}
+function greatestProductOfDiagonals(matrix){
+  let mayorProducto = 0;
+  let cuentaDerechaArriba = 0;
+  let cuentaDerechaAbajo = 0;
+  let cuentaIzquierdaArriba = 0;
+  let cuentaIzquierdaAbajo = 0;
+  for (let j = 0; j < matrix.length; j++) {
+    for (let i = 0; i < matrix[j].length; i++) {
+      if (i + 3 < matrix[j].length && j - 3 >= 0) {
+        cuentaDerechaArriba = matrix[j][i] * matrix[j-1][i+1] * matrix[j-2][i+2] * matrix[j-3][i+3];
+        mayorProducto = Math.max(mayorProducto,cuentaDerechaArriba);
+      }
+      if (i + 3 < matrix[j].length && j + 3 < matrix.length) {
+        cuentaDerechaAbajo = matrix[j][i] * matrix[j+1][i+1] * matrix[j+2][i+2] * matrix[j+3][i+3];
+        mayorProducto = Math.max(mayorProducto,cuentaDerechaAbajo);
+      }
+      if (i - 3 >= 0 && j - 3 >= 0) {
+        cuentaIzquierdaArriba = matrix[j][i] * matrix[j-1][i-1] * matrix[j-2][i-2] * matrix[j-3][i-3];
+        mayorProducto = Math.max(mayorProducto,cuentaIzquierdaArriba);
+      }
+      if (i - 3 >= 0 && j + 3 < matrix.length) {
+        cuentaIzquierdaAbajo = matrix[j][i] * matrix[j+1][i-1] * matrix[j+2][i-2] * matrix[j+3][i-3];
+        mayorProducto = Math.max(mayorProducto,cuentaIzquierdaAbajo);
+      }
+    }
     console.log(mayorProducto)
   }
   return mayorProducto;  
 }
+
+
+
+
     // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
