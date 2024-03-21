@@ -1,41 +1,102 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }else if (num1 < num2){
+    return num2;
+  }else{
+    return num1, num2
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+    if(words.length === 0){
+      return null;
+    }
+    let longest = words[0];
 
-
-
+    for (let i = 0; i < words.length; i++) {
+      if(words[i].length > longest.length){
+        longest = words[i];
+      }
+    }
+    return longest;
+}
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
-
+function sumNumbers(numbers) {
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i]
+  }
+  return result;
+}
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
-
+function sum(mixedArr) {
+  let result = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'string') {
+      result += mixedArr[i].length;  
+    } else if(typeof mixedArr[i] === 'number'){
+      result += mixedArr[i];
+    } else if(typeof mixedArr[i] === 'boolean'){
+      result += mixedArr[i];
+    } else{
+      throw new Error("Error message goes here");
+    }
+    
+  }
+  return result;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
-
+function averageNumbers(numbersAvg) {
+  let result = 0;
+  let sum = sumNumbers(numbersAvg);
+  result = sum/numbersAvg.length;
+  if (numbersAvg.length === 0){
+    result = null;
+  }
+  return result;
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
-
+function averageWordLength(wordsArr) {
+  let chars = 0
+  let result = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    chars += wordsArr[i].length;
+  }
+  result = chars/wordsArr.length;
+  if (wordsArr.length === 0){
+    result = null;
+  }
+  return result;
+}
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  let sum = 0;
+  let result = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    if (typeof mixedArr[i] === 'string') {
+      sum += mixedArr[i].length;  
+    } else if(typeof mixedArr[i] === 'number'){
+      sum += mixedArr[i];
+    } else if(typeof mixedArr[i] === 'boolean'){
+      sum += mixedArr[i];
+    }
+  }
+  result = sum / mixedArr.length;
+  if (mixedArr.length === 0){
+    result = null;
+  }
+  return result;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,17 +113,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
-
+function uniquifyArray(wordsUnique) {
+  let nonRepeat = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (!nonRepeat.includes(wordsUnique[i])) {
+      nonRepeat.push(wordsUnique[i])
+    }
+  }
+  if (wordsUnique.length === 0){
+    nonRepeat = null;
+  }
+  return nonRepeat;
+}
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
-
+function doesWordExist(wordsFind, word){
+  let wordExist = false;
+  if (wordsFind.includes(word)) {
+    wordExist = true;
+  }
+  if (wordsFind.length === 0){
+    wordExist = null;
+  }
+  return wordExist;
+}
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -78,10 +153,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
-
+function howManyTimes(wordsCount, word){
+  let count = 0;
+  for (let i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] === word) {
+      count++;
+    }
+  }
+  return count;
+}
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -106,12 +186,68 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix){
+  let mayorProducto = 0;
+  let cuentaDerecha = 0;
+  let cuentaArriba = 0;
+  let cuentaAbajo = 0;
+  let cuentaIzquierda = 0;
+  for (let j = 0; j < matrix.length; j++) {
+    for (let i = 0; i < matrix[j].length; i++) {
+      if (i + 3 < matrix[j].length) {
+        cuentaDerecha = matrix[j][i] * matrix[j][i+1] * matrix[j][i+2] * matrix[j][i+3];
+        mayorProducto = Math.max(mayorProducto,cuentaDerecha);
+      }
+      if (i - 3 > matrix[j].length) {
+        cuentaIzquierda = matrix[j][i] * matrix[j][i-1] * matrix[j][i-2] * matrix[j][i-3];
+        mayorProducto = Math.max(mayorProducto,cuentaIzquierda);
+      }
+      if (j + 3 < matrix.length) {
+        cuentaArriba = matrix[j][i] * matrix[j+1][i] * matrix[j+2][i] * matrix[j+3][i];
+        mayorProducto = Math.max(mayorProducto,cuentaArriba);
+      }
+      if (j - 3 > matrix.length) {
+        cuentaAbajo = matrix[j][i] * matrix[j-1][i] * matrix[j-2][i] * matrix[j-3][i];
+        mayorProducto = Math.max(mayorProducto,cuentaAbajo);
+      }
+    }
+  }
+  return mayorProducto;  
+}
+function greatestProductOfDiagonals(matrix){
+  let mayorProducto = 0;
+  let cuentaDerechaArriba = 0;
+  let cuentaDerechaAbajo = 0;
+  let cuentaIzquierdaArriba = 0;
+  let cuentaIzquierdaAbajo = 0;
+  for (let j = 0; j < matrix.length; j++) {
+    for (let i = 0; i < matrix[j].length; i++) {
+      if (i + 3 < matrix[j].length && j - 3 >= 0) {
+        cuentaDerechaArriba = matrix[j][i] * matrix[j-1][i+1] * matrix[j-2][i+2] * matrix[j-3][i+3];
+        mayorProducto = Math.max(mayorProducto,cuentaDerechaArriba);
+      }
+      if (i + 3 < matrix[j].length && j + 3 < matrix.length) {
+        cuentaDerechaAbajo = matrix[j][i] * matrix[j+1][i+1] * matrix[j+2][i+2] * matrix[j+3][i+3];
+        mayorProducto = Math.max(mayorProducto,cuentaDerechaAbajo);
+      }
+      if (i - 3 >= 0 && j - 3 >= 0) {
+        cuentaIzquierdaArriba = matrix[j][i] * matrix[j-1][i-1] * matrix[j-2][i-2] * matrix[j-3][i-3];
+        mayorProducto = Math.max(mayorProducto,cuentaIzquierdaArriba);
+      }
+      if (i - 3 >= 0 && j + 3 < matrix.length) {
+        cuentaIzquierdaAbajo = matrix[j][i] * matrix[j+1][i-1] * matrix[j+2][i-2] * matrix[j+3][i-3];
+        mayorProducto = Math.max(mayorProducto,cuentaIzquierdaAbajo);
+      }
+    }
+    console.log(mayorProducto)
+  }
+  return mayorProducto;  
+}
 
 
 
 
-// The following is required to make unit tests work.
+    // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
   module.exports = {
