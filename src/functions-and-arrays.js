@@ -1,24 +1,99 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a
+  } 
+  else if (b > a) {
+    return b
+  }
+  else {
+    return a
+  }
+  }
+
+
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot']; 
 
-function findLongestWord() {}
+
+function findLongestWord(input) {
+  if (input.length === 0) {
+    return null
+  } 
+  else {
+    let longestWord = ""
+  for (let i=0; i<input.length; i++) {
+    if (input[i].length > longestWord.length) {
+      longestWord = input[i]
+    }
+    }
+  return longestWord
+  }
+  
+}
+
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNums) {
+  if (arrayNums.length === 0) {
+    return 0
+  }
+  else {
+    let sumN = 0
+  for (let i=0; i<arrayNums.length; i++) {
+      sumN += arrayNums[i]
+    }
+  return sumN
+  }
+}
+
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+
+function sum(inputArray) {
+  if (inputArray.length === 0) {
+    return 0 
+  }
+  else {
+    let sumArray = 0
+    for (let i = 0; i < inputArray.length; i++) {
+      
+      if (typeof inputArray[i] === "number") {
+        sumArray += inputArray[i]
+      }
+      else if (typeof inputArray[i] === "string") {
+        sumArray += inputArray[i].length
+      }
+      else if (inputArray[i] === true) {
+        sumArray += 1
+      }
+      else if (inputArray[i] === false) {
+        sumArray += 0
+      }
+      /* else if (typeof inputArray[i] !== "number" || typeof inputArray[i] !== "string" || typeof inputArray[i] !== "boolean") */ 
+      else {
+        throw new Error(`Wrong type of parameter ${inputArray[i]}. The accepted types are "number", "string" or "boolean".`) /* Should 'Throw new error' return the very long error message including the line of code? Yes */
+      }
+
+    }
+    return sumArray /* How return should be indented? on the same level as condition or loop? - Same level as a loop */
+  }
+
+}
+
 
 
 
@@ -26,16 +101,50 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(inputNumbers) {
+  if (inputNumbers.length === 0) {
+    return null
+  }
+  else {
+    let average = sumNumbers(inputNumbers)/inputNumbers.length
+  return average} 
+}
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(inputWords) { /* Can we give the same names to parameters in functions if we have several functions? Answ: Only if we need the same paramter as an input e.g.: user's email */
+  if (inputWords.length === 0) {
+    return null
+  }
+  else {
+    let wordsAvg = 0
+    for (let i = 0; i < inputWords.length; i++) {
+      wordsAvg += inputWords[i].length
+    }
+    return wordsAvg/inputWords.length
+  }
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 5.7
+
+function avg(inputAvg) {
+  if (inputAvg.length === 0) {
+    return null
+  }
+  else {
+    return sum(inputAvg)/inputAvg.length}
+  }
+  
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +161,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(inputWords) {
+  if (inputWords.length === 0) {
+    return null
+  }
+  else {
+    let simplifiedArray = []
+    for (let i = 0; i < inputWords.length; i++) {
+      if (simplifiedArray.includes(inputWords[i]) === false){
+        simplifiedArray.push(inputWords[i])
+      }
+      else {
+        continue
+      }
+      
+
+    }
+    return simplifiedArray
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, searchWord) {
+  if (wordsArray.length === 0) {
+    return null
+  }
+  else if (wordsArray.includes(searchWord)) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+
 
 
 
@@ -78,11 +217,63 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(inputArr, wordToCheck) {
+  if (inputArr.length === 0) {
+    return 0
+  }
+  else {
+    let howMany = 0;
+    for (let i = 0; i < inputArr.length; i++) {
+      if (inputArr[i] === wordToCheck) {
+        howMany++
+      }
+      else {
+        continue
+      }
+    }
+    return howMany
+  }
+}
+
 
 
 
 // Iteration #8: Bonus
+
+
+function greatestProduct(matrixInput) {
+  
+  for (let i = 0; i < matrixInput.length; i++) {
+    matrixInput[i]
+    let maxNumHorizontal = 0;
+    for (let j = 0; j < matrixInput[i].length; j++) {
+      let multipliedValues = (matrixInput[i][j]) * (matrixInput[i][j+1]) * (matrixInput[i][j+2]) * (matrixInput[i][j+3])
+      if (multipliedValues > maxNumHorizontal) {
+        maxNumHorizontal = multipliedValues
+      }
+    return maxNumHorizontal
+    }
+    let maxNumVertical = 0;
+    for (let k = 0; k < matrixInput.length; k++) {
+      let multipliedVert = (matrixInput[i][k]) * (matrixInput[i+1][k]) * (matrixInput[i+2][k]) * (matrixInput[i+3][k])
+      if (multipliedVert > maxNumVertical) {
+        maxNumVertical = multipliedVert
+      }
+    return maxNumVertical
+    }
+    if (maxNumHorizontal > maxNumVertical) {
+      return maxNumHorizontal
+    }
+    else if(maxNumVertical > maxNumHorizontal) {
+      return maxNumVertical
+    }
+    else if (maxNumVertical === maxNumHorizontal) {
+      return maxNumVertical
+    }
+  }
+  }
+
+
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -106,7 +297,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+
 
 
 
@@ -128,3 +319,38 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+
+// Iteration #8.2 Bonus
+
+function greatestProductOfDiagonals(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    matrix[i]
+    let maxNumDiag1 = 0;
+    for (let j = 0; j < matrix[i].length; j++) {
+      let multipliedDiag1 = (matrix[i][j]) * (matrix[i+1][j+1]) * (matrix[i+2][j+2]) * (matrix[i+3][j+3])
+      if (multipliedDiag1 > maxNumDiag1) {
+        maxNumDiag1 = multipliedDiag1
+      }
+    return maxNumDiag1
+    }
+    let maxNumDiag2 = 0;
+    for (let k = 0; k < matrix.length; k++) {
+      let multipliedDiag2 = (matrix[i][k]) * (matrix[i-1][k-1]) * (matrix[i-2][k-2]) * (matrix[i-3][k-3])
+      if (multipliedDiag2 > maxNumDiag2) {
+        maxNumDiag2 = multipliedDiag2
+      }
+    return maxNumDiag2
+    }
+    if (maxNumDiag1 > maxNumDiag2) {
+      return maxNumDiag1
+    }
+    else if(maxNumDiag2 > maxNumDiag1) {
+      return maxNumDiag2
+    }
+    else if (maxNumDiag2 === maxNumDiag1) {
+      return maxNumDiag2
+    }
+  }
+}
+
