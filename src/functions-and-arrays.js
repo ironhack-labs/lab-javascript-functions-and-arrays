@@ -1,41 +1,80 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  return num1 > num2 ? num1 : num2
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if (words.length == 0) return null
+  var lengths = words.map(w => w.length)
+  var max = Math.max(...lengths)
+  var index = lengths.indexOf(max)
+  return words[index]
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  var sum = 0
+  for (let n of numbers) {
+    sum += n
+  }
+  return sum
+}
 
-
-
-// Iteration #3.1 Bonus:
-function sum() {}
-
-
+// Iteration #3.2 Bonus:
+function sum(values) {
+  if (values.some(v => typeof v !== 'number' && typeof v !== 'boolean' && typeof v !== 'string')) throw new Error("Array includes invalid data type");
+  var numbers = values.map(v => {
+    switch(typeof v) {
+      case 'number': return v
+      case 'string': return v.length
+      case 'boolean': return v ? 1 : 0
+    }
+  })
+  return sumNumbers(numbers)
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length == 0) return null
+  if (numbers.length == 1) return numbers[0]
+  numbers.forEach(n => Math.abs(n))
+  var sum = sumNumbers(numbers)
+  return sum / numbers.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length == 0) return null
+  if (words.length == 1) return words[0].length
+  words = words.map(w => w.length)
+  var sum = sumNumbers(words)
+  return sum / words.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(values) {
+  if (values.length == 0) return null
+  var values = values.map(v => {
+    switch(typeof v) {
+      case 'number': return v
+      case 'string': return v.length
+      case 'boolean': return v ? 1 : 0
+    }
+  })
+  var sum = sumNumbers(values)
+  return sum / values.length
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +91,22 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(words) {
+  if (words.length == 0) return null
+  var uniqueWords = []
+  for (let word of words) {
+    if (!uniqueWords.includes(word)) uniqueWords.push(word)
+  }
+  return uniqueWords
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(words, wordToSearch) {
+  if (words.length == 0) return null
+  return words.includes(wordToSearch)
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +123,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(words, wordToSearch) {
+  if (words.length == 0) return 0
+  var repetitions = 0
+  for (let word of words) {
+    if (word === wordToSearch) repetitions ++
+  }
+  return repetitions
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +156,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  var maxProduct = 0
 
+  for (let i = 0; i < 20; i++) {
+    for (let j = 0; j < 17; j++) {
+        var productHorz = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        if (productHorz > maxProduct) {
+            maxProduct = productHorz;
+        }
+    }
+}
 
+for (let i = 0; i < 17; i++) {
+    for (let j = 0; j < 20; j++) {
+        var productVert = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (productVert > maxProduct) {
+            maxProduct = productVert;
+        }
+    }
+}
 
+return maxProduct
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
