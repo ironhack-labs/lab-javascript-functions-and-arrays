@@ -37,7 +37,39 @@ function averageWordLength() { }
 // Bonus - Iteration #4.1
 function avg() {}
 
+
+
 // Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray() {}// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray() {}// Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
   'poison',
@@ -54,6 +86,38 @@ const wordsUnique = [
 
 function uniquifyArray() {}
 
+// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray() {}
+// Iteration #5: Unique arrays
+const wordsUnique = [
+  'crab',
+  'poison',
+  'contagious',
+  'simple',
+  'bring',
+  'sharp',
+  'playground',
+  'poison',
+  'communion',
+  'simple',
+  'bring'
+];
+
+function uniquifyArray() {}
 
 
 // Iteration #6: Find elements
