@@ -1,24 +1,96 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numOne, numTwo) {
+
+   //Version 01 - To have all tests passing!
+  // If - else - conditionals
+
+   // should return greater of two arguments - if the first argument greater
+   if (numOne > numTwo) {
+    console.log(`${numOne} is greater than ${numTwo}`);
+    return numOne;
+}
+ //should return greater of two arguments - if the second argument greater
+ else if (numOne < numTwo) {
+  console.log(`${numTwo} is greater than ${numOne}`);
+  return numTwo;
+}
+else {
+  console.log(`${numTwo} is the same as ${numOne}`);
+  return numOne;
+}
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(array) {
+
+  if (!array.length) return null;
+
+  let longestWord = "";
+
+  for (let i = 0; i < array.length; i++) {
+    if (longestWord.length < array[i].length) {
+      longestWord = array[i];
+    }
+  }
+  return longestWord;
+}
+
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(sumArray) {
+
+  let totalSum = 0;
+  // For each - method
+  // given thsat we have an implied return inside the for Each, let's remove the curlyBrackets!
+  sumArray.forEach((number) => (totalSum += number));
+
+  // Return totalSunm
+  console.log(totalSum);
+  return totalSum;
+}
+
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10]
+function sum(array) {
+  let mixedTotalSum = 0;
+  for (let i = 0; i < array.length; i++) {
+    // Here if we get a string, we will split that string and add each position of thespliitedStirng into the mixedTotalSum !
+    if (typeof array[i] === "string") {
+      let string = array[i].split("");
+      // we will be addsing each position of the string as a numeric value to the mixedTotalSum
+      for (let i = 0; i < string.length; i++) {
+        mixedTotalSum += string[i].length;
+      }
+    } // for booleans we will create a else-if condition, thatn will cehck the boolean data and if is true we will add +1 to the count
+    else if (array[i] === true) {
+      mixedTotalSum += 1;
+    } // conndiiton if we get an obnject or array inside, what do we do ? , in those cases we will generate an error and not take into account for the sum!
+    else if (typeof array[i] === "object" || typeof array[i] === "array") {
+      throw new Error(
+        "no no, we will not count any arrays or objects into consideration....."
+      );
+    } else {
+      // addding each inidivual possition of the array to the count!
+      mixedTotalSum += array[i];
+  }
+}
+console.log(mixedTotalSum);
+return mixedTotalSum;
+}
+
 
 
 
@@ -26,16 +98,59 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  // return null if empty
+  if (!numbersAvg.length) return null;
+  // Use this to store operation
+  let total = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    total += numbersAvg[i];
+  }
+  return total / numbersAvg.length;
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+   // should return null if receives an empty array when called
+   if (!wordsArr.length) return null;
+   // should return the average of a one-element array
+   let total = 0;
+   for (let i = 0; i < wordsArr.length; i++) {
+     total += wordsArr[i].length;
+   }
+   // should return the average of a the array
+   let totalAverage = total / wordsArr.length;
+   console.log(totalAverage);
+   return totalAverage;
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArrTwo = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+function avg(mixedArray) {
+  if (!mixedArr.length) {
+    return null;
+  } else {
+    console.log(sum(mixedArray) / mixedArray.length);
+    sum(mixedArray) / mixedArray.length;
+  }
+}
+avg(mixedArrTwo);
+
+const averageTwo = (mixedArr) => {
+  let test = !mixedArr.length ? null : sum(mixedArr) / mixedArr.length;
+  console.log(test);
+  return test;
+
+};
+!mixedArr.length ? null : sum(mixedArr) / mixedArr.length;
+averageTwo(mixedArrTwo);
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -51,17 +166,38 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+console.table(wordsUnique);
+function uniquifyArray(array) {
+   // should return null if receives an empty array when called
+   if (!array.length) return null;
+   // should return the correct uniqified array when an array of the same elements passed as argument
+   // should return the same array when no element is repeated
+   // should return the uniquified array
+   let uniqueArray = [];
+   array.forEach((word) => {
+     if (!uniqueArray.includes(word)) {
+       uniqueArray.push(word);
+     }
+   })
+   // Return new array with the words that are not duplicated
+   console.table(uniqueArray);
+   return uniqueArray;
+ }
+ uniquifyArray(wordsUnique);
+ 
 
-function uniquifyArray() {}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist() {}
-
-
+// Declare a function named doesWordExist that will take in an array of words as one argument and a word to search for as the other. Return true if the word exists in the array; otherwise, return false.
+function doesWordExist(array,word) {
+  if (!array.length) return null;
+  console.log(array.includes(word));
+  return array.includes(word);
+}
+doesWordExist(wordsFind, "truth");
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,7 +214,26 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount) {
+  for (const word of wordsCount) {
+    if (wordCountMap[word]) {
+      wordCountMap[word]++;
+    } else {
+      wordCountMap[word] = 1;
+    }
+}
+}
+console.log (wordsCount);{
+  machine: 1
+  matter: 4
+  subset: 1
+  trouble: 1
+  starting: 1
+  eating: 1
+  truth: 1
+  disobedience: 1
+};
+
 
 
 
