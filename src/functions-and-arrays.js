@@ -1,19 +1,73 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a,b) {
+  if (a > b){
+    return a
+  }
+
+  else{
+    return b
+  }
+
+}
+
+console.log(maxOfTwoNumber(3,5));
+console.log(maxOfTwoNumber(8,3));
+console.log(maxOfTwoNumber(9,9));
+
+
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0){
+    return null;
+  }
+
+  let longestWord = words [0]
+
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words [i];
+    }
+  }
+
+  return longestWord;
+
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if(numbers.length === 0){
+    return 0;
+  }
+  var total = 0;
+  for (var i = 0; i < numbers.length; i++){
+    total += numbers[i];
+  }
+
+  return total;
+
+  if (total === 0){
+    return 0;
+  }
+  return total
+
+}
+
+
+
+console.log(sumNumbers([]));
+console.log(sumNumbers([5]));
+console.log(sumNumbers([6, 12, 1, 18, 13, 16, 2, 1, 8, 10]));
+
 
 
 
@@ -26,40 +80,89 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0){
+    return null
+  }
+  let sum = 0;
+  for (let i = 0; i < numbersAvg.length; i++){
+    sum += numbersAvg[i]
+  }
+  return sum / numbersAvg.length;
+  
+}
+const average = averageNumbers(numbersAvg);
+console. log(average)
+
+
+
+
+
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+
+
+function averageWordLength(wordsArr) {
+    if (wordsArr.length === 0) {
+        return null; 
+    }
+
+    let totalLength = 0;
+
+    for (let i = 0; i < wordsArr.length; i++) {
+        totalLength += wordsArr[i].length;
+    }
+
+    const averageLength = totalLength / wordsArr.length;
+    return averageLength;
+}
+
+
+console.log(averageWordLength([])); 
+console.log(averageWordLength(['apple'])); 
+console.log(averageWordLength(['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'])); // Should return the average length of these words
+
 
 // Bonus - Iteration #4.1
 function avg() {}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+const wordsUnique = ['crab','poison','contagious','simple','bring','sharp','playground','poison','communion','simple','bring'];
 
-function uniquifyArray() {}
+
+function uniquifyArray(words) {
+  if (words.length === 0){
+    return null;
+  }
+  return words.filter ((word, index) => words.indexOf (word) === index);
+}
+
+console.log(uniquifyArray([]));
+console.log(uniquifyArray(['apple', 'apple', 'apple']));
+console.log(uniquifyArray(['apple', 'banana', 'cherry']));
+console.log(uniquifyArray(wordsUnique));
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, word) {
+  if (words.length === 0) {
+  return null;
+}
+  return words.includes(word);
+
+}
+
+console.log(doesWordExist.includes(wordsFind, 'subset'));
+console.log(doesWordExist.includes(wordsFind, 'guitar'));
+
+
 
 
 
@@ -78,7 +181,30 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, word) {
+  if (words.length === 0) {
+    return 0; 
+  }
+
+  let count = 0;
+
+  
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === word) {
+      count++;
+    }
+  }
+
+  return count; 
+}
+
+// Test cases
+console.log(howManyTimes([], 'matter')); 
+console.log(howManyTimes(['machine', 'subset', 'trouble'], 'matter')); 
+console.log(howManyTimes(['machine', 'matter', 'subset', 'matter'], 'matter')); 
+console.log(howManyTimes(wordsCount, 'matter')); 
+
+ 
 
 
 
