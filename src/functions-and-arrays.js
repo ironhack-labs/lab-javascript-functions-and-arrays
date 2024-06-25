@@ -1,41 +1,89 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  return Math.max(num1, num2);
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  const lengths = words.map((word) => word.length);
+  const maxLength = Math.max(...lengths);
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length === maxLength) {
+      return words[i];
+    }
+  }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let currentSum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    currentSum += numbers[i];
+  }
+  return currentSum;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function getNumericValue(element) {
+  const type = typeof element;
+  if (type === 'number') {
+    return element;
+  } else if (type === 'string') {
+    return element.length;
+  } else if (element === true) {
+    return 1;
+  } else if (element === false) {
+    return 0;
+  } else {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
+}
 
-
+function sum(mixedArray) {
+  const numbers = mixedArray.map(getNumericValue);
+  return sumNumbers(numbers);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  const n = numbers.length;
+  if (n === 0) {
+    return null;
+  }
 
+  const sum = sumNumbers(numbers);
+  return sum / n;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  const lengths = words.map((word) => word.length);
+  const n = lengths.length;
+  if (n === 0) {
+    return null;
+  }
+
+  const sum = sumNumbers(lengths);
+  return sum / n;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArray) {
+  const numbers = mixedArray.map(getNumericValue);
+  return averageNumbers(numbers);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +100,30 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  const uniqueArray = [];
+  words.forEach((word) => {
+    const isRepeated = uniqueArray.some((previousWord) => previousWord === word);
+    if (!isRepeated) {
+      uniqueArray.push(word);
+    }
+  });
+  return uniqueArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+// Declare una función llamada doesWordExist que recibirá un array de palabras como un argumento, y una palabra a buscar como el otro. Devuelve true si existe, en caso contrario, devuelve false. No utilice indexOf para esta función.
+function doesWordExist(words, wordToFind) {
+  if (words.length === 0) {
+    return null;
+  }
+  return words.some((word) => word === wordToFind);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +140,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(words, wordToFind) {
+  return words.filter((word) => word === wordToFind).length;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +168,100 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const ADJACENT_NUMBERS = 4;
 
+function multiplyNums(nums) {
+  let currentProduct = 1;
+  for (let i = 0; i < nums.length; i++) {
+    currentProduct = currentProduct * nums[i];
+  }
+  return currentProduct;
+}
 
+function getProductsOfLines(matrix, lineType) {
+  // Get a list of lines, each one represented by a list of coordinates:
+  const sideLength = matrix.length;
 
+  const getLineIndex = {
+    horizontal: (row, col) => row,
+    vertical: (row, col) => col,
+    diagonal_ltr: (row, col) => row + col,
+    diagonal_rtl: (row, col) => sideLength + col - row - 1
+  };
+
+  const lines = [];
+  for (let row = 0; row < sideLength; row++) {
+    for (let col = 0; col < sideLength; col++) {
+      const lineIndex = getLineIndex[lineType](row, col);
+      lines[lineIndex] ??= [];
+      lines[lineIndex].push([row, col]);
+    }
+  }
+
+  // Get products of the lines:
+  const products = [];
+  const lineToProduct = (lineCoordinates) => {
+    const valuesInLine = lineCoordinates.map(([row, col]) => matrix[row][col]);
+    const product = multiplyNums(valuesInLine);
+    products.push(product);
+  };
+
+  lines.forEach((lineCoordinates) => {
+    const lineLength = lineCoordinates.length;
+
+    // If the line is short enough, we can just process it all (as in some diagonals):
+    if (lineLength <= ADJACENT_NUMBERS) {
+      lineToProduct(lineCoordinates);
+      return;
+    }
+
+    // If the line is longer than ADJACENT_NUMBERS, we need to calculate every chunk separately:
+    const lastSliceIndex = lineLength - ADJACENT_NUMBERS;
+    for (let sliceIndex = 0; sliceIndex <= lastSliceIndex; sliceIndex++) {
+      const sliceEndIndex = sliceIndex + ADJACENT_NUMBERS;
+      const sliceCoordinates = lineCoordinates.slice(sliceIndex, sliceEndIndex);
+      lineToProduct(sliceCoordinates);
+    }
+  });
+
+  return products;
+}
+
+function greatestProduct(matrix) {
+  const verticalProducts = getProductsOfLines(matrix, 'vertical');
+  const horizontProducts = getProductsOfLines(matrix, 'horizontal');
+
+  return Math.max(...verticalProducts, ...horizontProducts);
+}
+
+function greatestProductOfDiagonals(matrix) {
+  const diagonal1Products = getProductsOfLines(matrix, 'diagonal_ltr');
+  const diagonal2Products = getProductsOfLines(matrix, 'diagonal_rtl');
+
+  return Math.max(...diagonal1Products, ...diagonal2Products);
+}
+
+// Diagonal coordinates ltr:
+// [                                 [0, 0] ],
+// [                         [1, 0], [0, 1] ],
+// [                 [2, 0], [1, 1], [0, 2] ],
+// [         [3, 0], [2, 1], [1, 2], [0, 3] ],
+// [ [4, 0], [3, 1], [2, 2], [1, 3], [0, 4] ],
+// [ [4, 1], [3, 2], [2, 3], [1, 4]         ],
+// [ [4, 2], [3, 3], [2, 4]                 ],
+// [ [4, 3], [3, 4]                         ],
+// [ [4, 4]                                 ],
+
+// Diagonal coordinates rtl:
+// [                                 [0, 4] ],
+// [                         [0, 3], [1, 4] ],
+// [                 [0, 2], [1, 3], [2, 4] ],
+// [         [0, 1], [1, 2], [2, 3], [3, 4] ],
+// [ [0, 0], [1, 1], [2, 2], [3, 3], [4, 4] ],
+// [ [1, 0], [2, 1], [3, 2], [4, 3]         ],
+// [ [2, 0], [3, 1], [4, 2]                 ],
+// [ [3, 0], [4, 1]                         ],
+// [ [4, 0]                                 ],
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
