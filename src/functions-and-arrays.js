@@ -1,24 +1,64 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(x, y) {
+  
+  return Math.max(x, y);
+
+}
+console.log(maxOfTwoNumbers(3, 4))
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) return null;
+  let longestWord = words[0];
+  for (let i = 1; i < words.length; i++) {
+      if (words[i].length > longestWord.length) {
+          longestWord = words[i];
+      }
+  }
 
+  return longestWord;
+}
+console.log(findLongestWord(words))
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  if(numbers.length === 0) return null;
+  let arraySummation = 0;
+  for(let i = 1; i < numbers.length; i++){
+   arraySummation += numbers[i];
+  }
+  return arraySummation;
+}
+console.log(sumNumbers(numbers))
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixedArr) {
+  let totalSum = 0;
+  for (let i = 0; i < mixedArr.length; i++) {
+    let value = mixedArr[i];
+    
+    if (typeof value === 'number') {
+        totalSum += value; // Add the numeric value
+    } else if (typeof value === 'string') {
+        totalSum += value.length; // Add the length of the string
+    } else if (typeof value === 'boolean') {
+        totalSum += value ? 1 : 0; // Add 1 for true, 0 for false
+    }
+    else {
+      throw new Error(`Unsupported data type at index ${i}: ${typeof value}`);
+  }
+}
+return totalSum;
+}
+console.log(sum(mixedArr))
 
 
 
@@ -26,16 +66,61 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbersAvg) {
+  let sum = 0;
+   for(let i= 0; i < numbersAvg.length; i++){
+       sum += numbersAvg[i]
+   }
+   let result = sum/numbersAvg.length;
+   return result;
+}
+console.log(averageNumbers(numbersAvg))
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+    let totalLength = 0;
+    for (let i = 0; i < words.length; i++) {
+        totalLength += wordsArr[i].length;
+    }
+
+    let average = totalLength / wordsArr.length;
+    return average;
+}
+console.log(averageWordLength(wordsArr))
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+const mixedArray = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function avg() {
+  let totalSum = 0;
+  let count = 0;
+
+  for (let i = 0; i < mixedArray.length; i++) {
+      let value = mixedArray[i];
+      
+      if (typeof value === 'number') {
+          totalSum += value;
+          count++;
+      } else if (typeof value === 'string') {
+          totalSum += value.length;
+          count++;
+      } else if (typeof value === 'boolean') {
+          totalSum += value ? 1 : 0;
+          count++;
+      } else {
+          throw new Error(`Unsupported data type at index ${i}: ${typeof value}`);
+      }
+  }
+
+  if (count === 0) return null;
+  
+  return totalSum / count;
+}
+console.log(avg(mixedArray))
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -106,7 +191,52 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const numRows = matrix.length;
+    const numCols = matrix[0].length;
+    let maxProduct = 0;
+
+    for (let row = 0; row < numRows; row++) {
+        for (let col = 0; col < numCols; col++) {
+            if (col <= numCols - 4) {
+                const horizontalProduct =
+                    matrix[row][col] *
+                    matrix[row][col + 1] *
+                    matrix[row][col + 2] *
+                    matrix[row][col + 3];
+                maxProduct = Math.max(maxProduct, horizontalProduct);
+            }
+            if (row <= numRows - 4) {
+                const verticalProduct =
+                    matrix[row][col] *
+                    matrix[row + 1][col] *
+                    matrix[row + 2][col] *
+                    matrix[row + 3][col];
+                maxProduct = Math.max(maxProduct, verticalProduct);
+            }
+            if (row <= numRows - 4 && col <= numCols - 4) {
+                const diagonalDownRightProduct =
+                    matrix[row][col] *
+                    matrix[row + 1][col + 1] *
+                    matrix[row + 2][col + 2] *
+                    matrix[row + 3][col + 3];
+                maxProduct = Math.max(maxProduct, diagonalDownRightProduct);
+            }
+
+            // Check diagonal (down-left) product
+            if (row <= numRows - 4 && col >= 3) {
+                const diagonalDownLeftProduct =
+                    matrix[row][col] *
+                    matrix[row + 1][col - 1] *
+                    matrix[row + 2][col - 2] *
+                    matrix[row + 3][col - 3];
+                maxProduct = Math.max(maxProduct, diagonalDownLeftProduct);
+            }
+        }
+    }
+
+    return maxProduct;
+}
 
 
 
