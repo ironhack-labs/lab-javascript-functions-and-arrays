@@ -1,24 +1,60 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+   if (number1 > number2) {
+     return number1;
+    } else {
+      return number2;
+    }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) { 
+    return null;
+  }
+
+  let longestWord = words[0]; 
+
+  for (let i = 1; i < words.length; i++) { 
+    if (words[i].length > longestWord.length) { 
+      longestWord = words[i]; 
+    }
+  }
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  let result = 0;
+  mixedArr.forEach(function (amount) {
+    if (typeof amount === 'number' || typeof amount === 'boolean') {
+     result += amount;
+    } else if (typeof amount === 'string') {
+      result += amount.length;
+    }
+  });
+  return result;
+}
 
 
 
@@ -26,16 +62,51 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) { 
+    return null;
+  }
+
+  let sum = 0;
+  for (let i = 0; i < numbersAvg.length; i++) { 
+    sum += numbersAvg[i];
+  }
+
+  return sum / numbersAvg.length; 
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) { 
+    return null;
+  }
+
+  let totalLength = 0;
+  for (let i = 0; i < wordsArr.length; i++) { 
+    totalLength += wordsArr[i].length;
+  }
+
+  return totalLength / wordsArr.length; 
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let sum = 0;
+  let count = 0;
+  arr.forEach(function (amount) {
+    if (typeof amount === 'number' || typeof amount === 'boolean') {
+      sum += amount;
+      count++;
+    } else if (typeof amount === 'string') {
+      sum += amount.length;
+      count++;
+    }
+  });
+  return sum / count;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +123,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) { 
+    return null;
+  }
 
+  const singularWords = [];
+  for (let i = 0; i < wordsUnique.length; i++) { 
+    const info = wordsUnique[i];
+
+    if (singularWords.indexOf(info) === -1) { 
+      singularWords.push(info); 
+    }
+  }
+
+  return singularWords;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, info) {
+  if (wordsFind.length === 0) { 
+    return null;
+  }
+
+  for (let i = 0; i < wordsFind.length; i++) { 
+    if (wordsFind[i] === info) { 
+      return true; 
+    }
+  }
+
+  return false; 
+}
 
 
 
@@ -78,7 +175,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToSearch) {
+  let count = 0;
+  wordsCount.forEach(function (info) {
+    if (info === wordToSearch) {
+      count++;
+    }
+  });
+  return count;
+}
 
 
 
