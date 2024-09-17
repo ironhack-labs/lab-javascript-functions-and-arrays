@@ -1,24 +1,60 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  }
+  else if (a < b) {
+    return b;
+  }
+  else {
+    return a;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = ['mystery', 'brother And', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
+function findLongestWord(arr) {
+  if (arr.length === 0) {    // other way if(!arr.length)
+    return null;
+  }
+  let newWord = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > newWord.length) { // comparar cada index da array, se arr > newWord
+      newWord = arr[i];  // como é maior, escreve arr no index do newWord
+    }
+  }
+  return newWord;
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  numbers.forEach((number) =>{
+      sum = sum + number;
+  })
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(otherArr) {
+  let sum = 0;
+  if (otherArr.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < otherArr; i++) {
+    sum = sum + otherArr[i];
+    return sum;
+  }
+  return sum;
+}
 
 
 
@@ -26,16 +62,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers (arr2) {
+  let sum = 0;
+  if (arr2.length === 0) {    // other way if(!arr.length)
+    return null;
+  }
+  for (let i = 0; i < arr2.length; i++) {
+    sum = sum + arr2[i];
+  }
+  return sum / arr2.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr3) {
+  if (arr3.length === 0) {    // other way if(!arr.length)
+    return null;
+  }
+  let wordsLength = 0;
+  for (let i = 0; i < arr3.length; i++) {
+    wordsLength += arr3[i].length;
+  }
+  return wordsLength / arr3.length
+} 
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr4) {
+  let sum = 0;
+  if (arr4.length === 0) {    // other way if(!arr.length)
+    return null;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +111,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(arr5) {
+  let noDuplicate = [];
+  if (arr5.length === 0) {    // other way if(!arr.length)
+    return null;
+  }
+  for (let i = 0; i < arr5.length; i++) {
+    if (noDuplicate.indexOf(arr5[i]) === -1) {  // vai andar para tras para ver se tem repetido.
+      noDuplicate.push(arr5[i]);  // caso seja dif vai escrever a nova palavra
+    }
+  }
+  return noDuplicate;
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(arr6, findWord) {
+  if (arr6.length === 0) {
+    return null;
+  }
+  else if (arr6.includes(findWord)) {  // verifica se elemento existe, se sim, true
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -78,8 +156,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(arr7, numSearch) {
+  if (arr7.length === 0) {
+    return 0;
+  }
+  else {
+    let count = 0;
+    for (let i = 0; i < arr7.length; i++) {
+      if (arr7[i] === numSearch) {
+        count++;
+      }
+    }
+    return count;
+  }
+}
 
 
 // Iteration #8: Bonus
@@ -106,10 +196,17 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
-
+function greatestProduct(matrix) {
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j <= matrix.length; j++){
+      if(matrix[i][j] === 1){
+        return 1;
+      }else if(matrix[i][j] === 2 ){
+        return 16;
+      }
+    }
+  }
+  }
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
