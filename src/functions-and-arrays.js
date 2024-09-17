@@ -1,24 +1,55 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  let number = Math.max(num1, num2);
+  return number
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  } else {
+    let longestWord = '';
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i]
+      if (words.length > longestWord.length) {
+        longestWord = word;
+
+      }
+    }
+    if (words.length === 0) {
+      return null;
+    } else {
+      return longestWord
+    }
+
+  }
+
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let num = 0
+  for (let i = 0; i < numbers.length; i++) {
+    num += numbers[i]
+  }
+  return num
+}
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum() { }
 
 
 
@@ -26,16 +57,77 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  } else {
+    let num = 0
+    for (let i = 0; i < numbersAvg.length; i++) {
+      num += numbersAvg[i]
+
+    }
+    let avg = num / (numbersAvg.length)
+    return avg
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    let num = 0
+    for (let i = 0; i < wordsArr.length; i++) {
+      num += wordsArr[i].length
+    }
+    let avg = num / (wordsArr.length)
+    return avg;
+
+  }
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) {
+    return null
+  } else {
+    let sum = 0;
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      const element = arr[i];
+
+      if (typeof element === 'number') {
+        sum += element;
+        count++;
+      } else if (typeof element === 'boolean') {
+        if (element) {
+          sum += 1;
+        } else {
+          sum += 0;
+        }
+        count++;
+      } else if (typeof element === 'string') {
+        sum += element.length;
+        count++;
+      }
+    }
+
+    if (count === 0) {
+      return 0;
+    } else {
+      return sum / count;
+    }
+
+  }
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +144,42 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    const uniqueArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      const word = arr[i];
+
+      if (!uniqueArray.includes(word)) {
+        uniqueArray.push(word);
+      }
+    }
+    return uniqueArray;
+  }
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null
+  } else {
+    for (let i = 0; i < wordsFind.length; i++) {
+      if (wordsFind[i] === word) {
+        return true
+      }
 
-function doesWordExist() {}
+    }
+    return false
+  }
+
+
+}
 
 
 
@@ -78,7 +198,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  if (wordsCount.length === 0) {
+    return 0
+  }
+  else {
+    let count = 0;
+    for (let i = 0; i < wordsCount.length; i++)
+      if (wordsCount[i].includes(word)) {
+        count++
+      }
+    return count
+
+  }
+}
+
+
 
 
 
@@ -106,7 +241,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
