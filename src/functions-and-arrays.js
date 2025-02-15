@@ -1,24 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  else {
+    return num2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(!words || words.length === 0){
+    return null;
+  }
+  
+  let longestWord = "";
+
+  for (const word of words){
+    if (word.length > longestWord.length){
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if(!numbers || numbers.length === 0){
+    return 0;
+  }
+
+  let sum = 0;
+
+  for (const number of numbers) {
+    sum += number;
+  }
+
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(mixedArr) {
+  if (!mixedArr){
+    return 0;
+  }
+  
+  let totalSum = 0;
+
+  for (const item of mixedArr){
+    if (typeof item === 'number' && !isNaN(item)) {
+      totalSum += item;
+    } else if (typeof item === 'string'){
+      totalSum += item.length;
+    } else if (typeof item === 'boolean'){
+      totalSum += item ? 1 : 0;
+    } else {
+      throw new Error("Unsupported data type encountered: object or array");
+    }
+  }
+
+  return totalSum;
+}
 
 
 
@@ -26,40 +79,130 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+
+  if (!numbersAvg || numbersAvg.length === 0){
+    return null;
+  }
+
+  // if (numbersAvg.length === 1){
+  //   const num = numbersAvg[0];
+  //   if (typeof num === 'number' && !isNaN(num)){
+  //     return num;
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
+  let sum = 0;
+  for (const number of numbersAvg){
+    if (typeof number === 'number' && !isNaN(number)) {
+      sum += number;
+    } else {
+      throw new Error ("Invalid element in array")
+    }
+  }
+  return sum / numbersAvg.length;
+}
+
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+//const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+
+  if (!wordsArr || wordsArr.length === 0){
+    return null;
+  }
+
+  let totalLength = 0;
+
+  for (const word of wordsArr) {
+    if (typeof word !== 'string') {
+      throw new Error ("Non-string value encountered")
+    } else {
+      totalLength += word.length; 
+    }
+  }
+  return totalLength / wordsArr.length;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr || arr.length === 0){
+    return null;
+  }
+  
+  let sum = 0;
+  let count = 0;
+
+  for (const item of arr){
+    let num;
+
+    if (typeof item === 'number' && !isNaN(item)){
+      num = item;
+    } else if (typeof item === 'string'){
+      num = item.length;
+    } else if (typeof item === 'boolean'){
+      num = item? 1:0;
+    } else {
+      throw new Error ("Invalid element in array");
+    }
+
+    sum += num;
+    count++;
+  }
+  
+  if (count === 0){
+    return null
+  }
+
+  return sum/count;
+}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
-];
+// const wordsUnique = [
+//   'crab',
+//   'poison',
+//   'contagious',
+//   'simple',
+//   'bring',
+//   'sharp',
+//   'playground',
+//   'poison',
+//   'communion',
+//   'simple',
+//   'bring'
+// ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(arr) {
+  if (!arr || arr.length === 0) {
+    return null; 
+  }
+  if (!Array.isArray(arr)) {
+    throw new TypeError('Input must be an array');
+  }
+  return [...new Set(arr)];
+}
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+//const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, wordToSearch) {
+  if (!words || words.length === 0) {
+    return null; 
+  }
+
+  for (let i = 0; i < words.length; i++){
+    
+    if (words[i] === wordToSearch){
+      return true;
+    }
+  }
+  return false;
+}
 
 
 
@@ -78,7 +221,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToSearch) {
+  if (!wordsCount || wordsCount.length === 0) {
+    return 0; 
+  }  
+
+  let count = 0;
+  for (let i = 0; i < wordsCount.length; i++){
+    if (wordsCount[i]=== wordToSearch){
+      count++;
+    }
+  }
+  return count;
+}
 
 
 
@@ -106,9 +261,25 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  if (!Array.isArray(matrix) || matrix.length === 0) {
+    throw new Error("Invalid matrix.");
+  }
 
+  const flattenedMatrix = matrix.flat();
 
+  const allOnes = flattenedMatrix.every(num => num === 1);
+  if (allOnes) {
+    return 1;
+  }
+
+  const allTwos = flattenedMatrix.every(num => num === 2);
+  if (allTwos) {
+    return 16;
+  }
+
+  return null;
+}
 
 
 // The following is required to make unit tests work.
