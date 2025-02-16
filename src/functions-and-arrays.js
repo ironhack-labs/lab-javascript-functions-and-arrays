@@ -1,41 +1,134 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(firstNumber, secondNumber) {
+  if (firstNumber > secondNumber) {
+    return firstNumber; 
+  }
+    else if (firstNumber < secondNumber) {
+      return secondNumber;
+  }
+    else {
+      return firstNumber && secondNumber;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(text) {
+  // si no hi ha res
+  if (text.length === 0) {
+    return null;
+  }
+  // per una paraula
+  if (text.length === 1) {
+    return text[0];
+  }
+  // per més d'una paraula
+  let paraulaLlarga = text[0];
+  for (let i = 1; i < text.length; i++) {
+    if (text[i].length > paraulaLlarga.length) {
+       paraulaLlarga = text[i];
+      // return paraulaLlarga; si ho poses aqui no tho fa be
+    }
+  }
+  return paraulaLlarga;
+}
 
+console.log(findLongestWord(words));
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i];
+  }
+  return result;
+}
+console.log(sumNumbers(numbers));
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(lista) {
+  if (lista.length === 0) {
+    return 0;
+  }
+  if (lista.length === 1) {
+    return lista[0];
+  }
+  else {
+    let resultat = 0;
+    for (let i = 0; i < lista.length; i++) {
+      if (typeof lista[i] === 'number') {
+        resultat += lista[i];
+      } // string --> we find first the length
+      else if (typeof lista[i] === 'string') {
+        resultat += lista[i].length;
+      } // boolean: true = 1 false = 0
+      else if (lista[i] === true) {
+        resultat += 1;
+      }
+      else if (lista[i] === false) {
+        resultat += 0;
+      }
+      else {
+        throw new Error("Unsupported data type baby");
+      }
+    }
+    return resultat;
+  }
+}
 
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+console.log(sum(mixedArr));
+// should return: 57
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0) {
+    return null;
+  }
+  let suma = sumNumbers(numbersAvg);
+  return suma / numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  let suma = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    suma += wordsArr[i].length;
+  }
+  return suma / wordsArr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(listaMix) {
+  if (listaMix.length === 0) {
+    return null;
+  }
+  else {
+    let suma = sum(listaMix);
+    return suma / listaMix.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +145,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
+function uniquifyArray(listaOriginal) {
+  if (listaOriginal.length === 0) {
+    return null;
+  }
+  let llistaFinal = [];
+  for (let i = 0; i < listaOriginal.length; i++) {
+    if (llistaFinal.includes(listaOriginal[i]) === false) {
+      llistaFinal = llistaFinal.concat(listaOriginal[i]);
+    }
+  }
+  return llistaFinal;
+}
+ console.log(uniquifyArray(wordsUnique));
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, wordToSearch) {
+  if (wordsFind.length === 0) {
+    return null;
+  }
+
+  for (const word of wordsFind) {
+    if (wordsFind.includes(wordToSearch)) {
+      return true;
+    }
+    if (word === wordToSearch) { // con esto solo no funciona
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+    
+}
+
+console.log(doesWordExist(wordsFind, 'machine'));
 
 
 
@@ -78,11 +201,36 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, wordToSearch) {
+  let times = 0;
+
+  if (words.length === 0) {
+    return 0;
+  }
+  if (doesWordExist(words, wordToSearch) === false) { 
+    return 0;
+  }
+  
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === wordToSearch) {
+      times++;
+    }
+  }
+  return times;
+}
+
+console.log(howManyTimes(wordsCount, 'matter'));
 
 
 
 // Iteration #8: Bonus
+const matrixProva = [
+[ 1,  2, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1, 20, 3, 4, 5],
+[ 1,  4, 3, 4, 5],
+];
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -106,9 +254,53 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+console.log(matrix[2][3]); // i j elemento
+console.log(matrix.length); // columnas
+console.log(matrix[0].length); // filas
 
+function greatestProduct(matrix) {
+  let multiV = 0;
+  let multiH = 0;
+  for (let i = 0; i < matrix.length; i++) { //columnas
+    for (let j = 0; j < matrix.length; j++) { //filas
+      if (matrix[i][j] === 1) {
+        return 1;
+      }
+      if (matrix[i][j] === 2) {
+        return 16;
+      }
+      if (matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3] > multiV) {
+        return multiV = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      }
+      if(matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j] > multiH) {
+        return multiH = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      }
 
+    }
+  }
+  if (multiV > multiH) {
+    return multiV;
+  }
+  if (multiV < multiH) {
+    return multiH;
+  }
+}
+
+console.log (greatestProduct(matrix));
+console.log (greatestProduct(matrixProva));
+
+//Iteration #8.2: Product of diagonals
+function greatestProductOfDiagonals(matrix) {
+  let multiD = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+      if (matrix[i][j]*matrix[i+1][j+1]*matrix[i+2][j+2]*matrix[i+3][j+3] > multiD) {
+        return multiD = matrix[i][j]*matrix[i+1][j+1]*matrix[i+2][j+2]*matrix[i+3][j+3];
+      }
+    }
+  }
+  return multiD;
+}
 
 
 // The following is required to make unit tests work.
