@@ -1,41 +1,94 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(x, y) {
+  if (x > y) return x;
+  else return y;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord(words) {
 
-function findLongestWord() {}
-
-
+  if (words.length === 0) return null;
+  
+  return words.reduce((longest, current) => 
+    current.length > longest.length ? current : longest
+  );
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
 
+  if (arr.length === 0) {
+    return 0;
+}
 
+return arr.reduce((acc, curr) => {
+
+  if (typeof curr === 'number') {
+    return acc + curr;
+  }
+  return acc;
+}, 0);
+
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0) { return 0;
+}
 
-
+return arr.reduce((acc, curr) => {
+  if (typeof curr === 'number') {
+    return acc + curr;
+  } 
+  if (typeof curr === 'string') {
+    return acc + curr.length;
+  }
+  if (typeof curr === 'boolean') {
+    return acc + (curr ? 1 : 0);
+  }
+  
+  throw new Error('Unsupported data type');
+}, 0);
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(arr) {
+  if (arr.length === 0) return null; 
+  const sum = arr.reduce((acc, curr) => acc + curr, 0); 
+  return sum / arr.length; 
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) return null; 
+  const sumLengths = arr.reduce((acc, word) => acc + word.length, 0); 
+  return sumLengths / arr.length; 
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) return null; 
+
+  const sum = arr.reduce((acc, curr) => {
+    if (typeof curr === 'number') {
+      return acc + curr; 
+    } else if (typeof curr === 'string') {
+      return acc + curr.length; 
+    } else if (typeof curr === 'boolean') {
+      return acc + (curr ? 1 : 0); 
+    }
+    return acc; 
+  }, 0);
+
+  return sum / arr.length; 
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +105,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+  
+  return [...new Set(arr)];
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(words, word) {
+  if (words.length === 0) return null;
+  
+  return words.includes(word);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,8 +135,11 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(words, word) {
+  if (words.length === 0) return 0;
+  
+  return words.filter(w => w === word).length;
+}
 
 
 // Iteration #8: Bonus
@@ -105,10 +165,22 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct() {}
-
-
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+    for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j < matrix[i].length - 3) {
+        let horizontal = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        maxProduct = Math.max(maxProduct, horizontal);
+      }
+      if (i < matrix.length - 3) {
+        let vertical = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        maxProduct = Math.max(maxProduct, vertical);
+      }
+    }
+    return maxProduct || 1;
+}
+}
 
 
 // The following is required to make unit tests work.
