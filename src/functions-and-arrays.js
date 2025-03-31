@@ -1,24 +1,48 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(first, second) {
+  return first >= second ? first : second;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) return null;
+  let result = '';
+  words.forEach((word) => {
+    if (word.length > result.length) result = word;
+  })
+  return result;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+  numbers.forEach((n) => sum += n);
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  if (array.length === 0) return 0;
+
+  let sum = 0;
+  array.forEach((el) => {
+    if (typeof el === 'object') throw new Error()
+    if (typeof el === 'number') sum += el;
+    if (typeof el === 'string') sum += el.length;
+    if (el === true) sum += 1;
+  })
+  return sum;
+}
 
 
 
@@ -26,16 +50,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (arr.length === 0) return null;
+
+  return sumNumbers(arr) / arr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (arr.length === 0) return null;
+
+  const arrOfNumbers = [];
+  arr.forEach(el => arrOfNumbers.push(el.length));
+  return averageNumbers(arrOfNumbers);
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if (mixedArr.length === 0) return null;
+
+  const normalizedArr = [];
+  mixedArr.forEach((el) => {
+    if (typeof el === 'number') normalizedArr.push(el);
+    if (typeof el === 'string') normalizedArr.push(el.length);
+    if (typeof el === 'boolean') el === true ? normalizedArr.push(1) : normalizedArr.push(0);
+  })
+  return averageNumbers(normalizedArr);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +96,23 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null;
+
+  const res = [];
+  arr.forEach(el => res.includes(el) ? false : res.push(el));
+  return res;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null;
+  return arr.includes(word);
+}
 
 
 
@@ -78,7 +131,12 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) return 0;
+  let res = 0;
+  arr.forEach(w => w === word ? res += 1 : false);
+  return res;
+}
 
 
 
@@ -106,7 +164,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  const arrOfProducts = [];
+  let res = 0;
+
+  matrix.forEach((arr) => {
+    arr.forEach((el, index) => {
+      if (index < arr.length - 3) {
+        arrOfProducts.push(el * arr[index + 1] * arr[index + 2] * arr[index + 3]);
+      }
+    })
+  });
+
+  matrix.forEach((arr, index) => {
+    arr.forEach((el, i) => {
+      if (index < matrix.length - 3) {
+        arrOfProducts.push(el * matrix[index + 1][i] * matrix[index + 2][i] * matrix[index + 3][i])
+      }
+    })
+  });
+
+  arrOfProducts.forEach((num) => res < num ? res = num : false);
+  return res;
+}
 
 
 
@@ -127,4 +207,30 @@ if (typeof module !== 'undefined') {
     howManyTimes,
     greatestProduct
   };
+}
+
+function greatestProductOfDiagonals(matrix) {
+  const arrOfProducts = [];
+  let result = 0;
+
+  matrix.forEach((arr, index) => {
+    arr.forEach((num, i) => {
+      if (i > 2 && index < matrix.length - 3) {
+        const product = num * matrix[index + 1][i - 1] * matrix[index + 2][i -2] * matrix[index + 3][i -3];
+        arrOfProducts.push(product);
+      }
+    })
+  })
+
+  matrix.forEach((arr, index) => {
+    arr.forEach((num, i) => {
+      if (i < arr.length - 3 && index < matrix.length - 3) {
+        const product = num * matrix[index + 1][i + 1] * matrix[index + 2][i + 2] * matrix[index + 3][i +3];
+        arrOfProducts.push(product); 
+      }
+    })
+  })
+
+  arrOfProducts.forEach((num) => result < num ? result = num : false);
+  return result;
 }
