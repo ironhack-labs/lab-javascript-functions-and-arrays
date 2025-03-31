@@ -1,24 +1,68 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  return Math.max(a, b);
+}
 
-
+console.log(maxOfTwoNumbers(10, 5));
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) return null; // Si el array está vacío, retornamos null
+
+  let longestWord = words[0]; // Asumimos que la primera palabra es la más larga
+
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i]; // Si encontramos una palabra más larga, la actualizamos
+    }
+  }
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  if (numbers.length === 0) return 0; // Si el array está vacío, retornamos 0
+
+  let sum = 0; // Inicializamos la suma en 0
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i]; // Sumamos cada número del array
+  }
+
+  return sum; // Retornamos la suma total
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if (arr.length === 0) return 0; // Si el array está vacío, retornamos 0
+
+  let total = 0; // Inicializamos la suma
+
+  for (let item of arr) {
+    if (typeof item === "number") {
+      total += item; // Sumamos los números directamente
+    } else if (typeof item === "string") {
+      total += item.length; // Sumamos la longitud de los strings
+    } else if (typeof item === "boolean") {
+      total += item ? 1 : 0; // true cuenta como 1, false como 0
+    } else {
+      throw new Error("Unsupported data type"); // Error si hay un objeto o array
+    }
+  }
+
+  return total;
+}
+
+
 
 
 
@@ -26,16 +70,46 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) return null; // Si el array está vacío, retorna null
+
+  let sum = numbers.reduce((total, num) => total + num, 0); // Sumamos todos los elementos
+  return sum / numbers.length; // Dividimos la suma entre la cantidad de elementos
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) return null; // Si el array está vacío, retorna null
+
+  let totalLength = words.reduce((total, word) => total + word.length, 0); // Sumamos las longitudes
+  return totalLength / words.length; // Dividimos entre la cantidad de palabras
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length === 0) return null; // Si el array está vacío, retorna null
+
+  let sum = 0; // Inicializamos la suma
+  let count = arr.length; // Contamos los elementos
+
+  for (let item of arr) {
+    if (typeof item === "number") {
+      sum += item;
+    } else if (typeof item === "string") {
+      sum += item.length; // Sumamos la longitud del string
+    } else if (typeof item === "boolean") {
+      sum += item ? 1 : 0; // true = 1, false = 0
+    }
+  }
+
+  return sum / count; // Calculamos el promedio
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +126,24 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (arr.length === 0) return null; // Si el array está vacío, retorna null
+
+  return [...new Set(arr)]; // Usamos un Set para eliminar duplicados y lo convertimos en array
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) return null; // Si el array está vacío, retorna false
+
+  return arr.includes(word); // Usa el método includes() para verificar si el elemento está presente
+}
+
 
 
 
@@ -78,7 +162,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  if (arr.length === 0) return 0; // Si el array está vacío, retorna 0
+
+  return arr.filter((item) => item === word).length; // Filtramos los elementos que coinciden con 'word' y contamos la cantidad
+}
+
+console.log(howManyTimes(wordsCount, 'matter')); // 4
 
 
 
@@ -106,7 +196,51 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+
+  // Recorremos todas las filas
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      // Horizontal (hacia la derecha)
+      if (j + 3 < matrix[i].length) {
+        const horizontalProduct =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        maxProduct = Math.max(maxProduct, horizontalProduct);
+      }
+
+      // Vertical (hacia abajo)
+      if (i + 3 < matrix.length) {
+        const verticalProduct =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        maxProduct = Math.max(maxProduct, verticalProduct);
+      }
+
+      // Diagonal (hacia abajo y derecha)
+      if (i + 3 < matrix.length && j + 3 < matrix[i].length) {
+        const diagonalProduct =
+          matrix[i][j] *
+          matrix[i + 1][j + 1] *
+          matrix[i + 2][j + 2] *
+          matrix[i + 3][j + 3];
+        maxProduct = Math.max(maxProduct, diagonalProduct);
+      }
+
+      // Diagonal (hacia abajo y izquierda)
+      if (i + 3 < matrix.length && j - 3 >= 0) {
+        const diagonalProductLeft =
+          matrix[i][j] *
+          matrix[i + 1][j - 1] *
+          matrix[i + 2][j - 2] *
+          matrix[i + 3][j - 3];
+        maxProduct = Math.max(maxProduct, diagonalProductLeft);
+      }
+    }
+  }
+
+  return maxProduct;
+}
+
 
 
 
