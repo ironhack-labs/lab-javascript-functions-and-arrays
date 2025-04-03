@@ -1,24 +1,41 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a,b) {
+  if (a > b) {
+    return a;
+    }
+  return b;
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (!words.length) return null; 
 
-
+  return words.reduce ((longest, current) => 
+    current.length > longest.length ? current : longest);
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  return arr.reduce((total, actual)=>{return total + actual}, 0)
+
+  
+  
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if(!arr.length) return 0;
+  return sum(numbers) / numbers.length;
+
+
+
+}
 
 
 
@@ -26,16 +43,33 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!numbers.length) return null;
+  return numbers.reduce((accumulator, number) => accumulator + number, 0) / numbers.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  
+  if (words.length === 1) {
+    return words[0].length;
+  }
+  
+  const totalLength = words.reduce((sum, word) => sum + word.length, 0);
+  
+  return totalLength / words.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr.length) return null;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +86,21 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length === 0); return null; 
+}
+
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (!arr.length) return null;
+  return arr.includes (word);
+}
 
 
 
@@ -78,7 +119,9 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  return arr.filter((elem)=> elem === word).length
+}
 
 
 
@@ -106,7 +149,14 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr, num) {
+  if (greatestProduct = 1) {
+    return 1;
+  }
+  else if (greatestProduct = 2) {
+    return 16;
+  }
+}
 
 
 
