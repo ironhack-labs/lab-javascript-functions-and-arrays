@@ -1,43 +1,131 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(x, y) {
+if (x > y){
+  return(x);
+}else if (y < x){
+  return(y)
+} else {
+  return (x,y)//preguntar porque no devuelve (x,y)
+}
+}
+console.log(maxOfTwoNumbers(9,20)) // 20 ya que es mas grande que 9
 
 
 
-// Iteration #2: Find longest word
+// Iteration #2: Find longest word!
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if (words.length === 0) /*"words.length" muestra el nuemro de ELEMENTOS del array*/ {
+    return (null);
+  } else if (words.length === 1){
+    return (words[0]) // muestra el elemento dentro del array "words" de la posición cero que sería "mystery"
+  } 
+  let longest = words[0]
+  for (let i=1; i<words.length; i++){
+    if (words[i].length > longest.length){
+      longest = words[i]
+    }
+  }
+    return longest
+}
+console.log(findLongestWord(words)) // crocodile ya que es la palabra con mas letras o mas larga
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers(numbers) {
+  if (numbers.length === 0){
+    return 0;
+  } else if (numbers.length === 1){
+    return numbers[0];
+  } else if ( numbers.length >1){
+    let suma = 0 // nueva variable dpmde el bucle incicia a contar la ejecución
+    for (let i=0; i<=numbers.length-1; i++)/*Bucle para recorrer una lista*/ {
+      suma = suma + numbers [i]
+    }
+    return suma;
+  }
+  }
+console.log(sumNumbers(numbers)) //87 suma de toda el array
 
-function sumNumbers() {}
 
 
+// Iteration #3.1 Bonus: Suma de los elementos de una array con diferentes tipos de datos
+const mixArray = [1, "movil", true, 5, "pc", 12,];
+function sum(mixArray) {
+  let total = 0; // Se crea esta variable para acumular el resultado final
 
-// Iteration #3.1 Bonus:
-function sum() {}
+  for (let i = 0; i < mixArray.length; i++)/*Bucle para recorrer la arry, i = indice*/ {
+    const value = mixArray[i];
+    if (typeof value === "number")/*typeOf para identificar dato*/ {
+      total += value; 
+    } else if (typeof value === "string") {
+      total += value.length; 
+    } else if (typeof value === "boolean") {
+      total += value ? 1 : 0;
+    }else {
+      throw new Error (`Tipo de dato no permitido ${i}: ${value}`) // hacemos uso de la palabra reservada THROW para detener la ejecución y anunciar un error
+    }
+  }
+  return total;
+}
+//En este caso la suma se calcula extrayendo los valores de lo numero, los strings (suma de las letras de cada palabra) y boleanos (true vale 1 y false vale 0)
 
+console.log (sum(mixArray)) // 26 
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
-
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0){
+    return null;
+  } else {
+    return sumNumbers (numbersAvg) / numbersAvg.length
+  }
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr){
+  if (wordsArr.length === 0){
+    return null;
+  }
+  let total = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    total += wordsArr[i].length; 
+  } 
+  const average = total / wordsArr.length;
+     return average;
+ }
 
-// Bonus - Iteration #4.1
-function avg() {}
+// Bonus - Iteration #4.1: Calcula el promedio pero con una lista con datos diferentes.
+function avg(mixArray) {
+  if (mixArray.length === 0){
+    return null;
+  }
+  let total = 0;
+  for (let i = 0; i < mixArray.length; i++){
+    const value = mixArray[i];  
+    if (typeof value === "number")/*typeOf para identificar dato*/ {
+      total += value; 
+    } else if (typeof value === "string") {
+      total += value.length; 
+    } else if (typeof value === "boolean") {
+      total += value ? 1 : 0;
+    }
+  }
+  return total / mixArray.length
+}
+console.log(avg(mixArray)) // 4,333...
 
-// Iteration #5: Unique arrays
+
+
+
+// Iteration #5: Unique arrays; objetivo eliminar los elementos duplicados del array y crear una nueva array sin los elementos repetidos
 const wordsUnique = [
   'crab',
   'poison',
@@ -52,18 +140,44 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0){
+    return null
+  }
+  let newArray = []; // declaración de un array vacío para poner los elementos no repetidos de la "wordsunique"
+
+  for (let i = 0; i< wordsUnique.length; i++){
+    let word = wordsUnique[i]; 
+    if (newArray.includes(word) === false) /* se crea una nueva variable con .include para analizar si esta en la lista (TRUE) o no(FALSE)*/{
+      newArray.push(word)/* En caso de que se repita la palabra reservada .push añade el elemento en la nueva array "newArry";*/
+    } 
+  }
+  return newArray;
+}
+
+console.log(uniquifyArray(wordsUnique)) // (8) ['crab', 'poison', 'contagious', 'simple', 'bring', 'sharp', 'playground', 'communion']
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, wordToFind)/*se debe poner dos argumentos con el objetivo de indicar que valor "wordtofind"  se ha de buscar el en el array "wordsfind"*/ {
+  if (wordsFind.length === 0 ){
+    return null;
+  } 
+  if (wordsFind.includes(wordToFind))/* Es como que se pregunta esta palabra a buscar esta incluida en la lista wordsFind?*/ {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(doesWordExist(wordsFind, `cafe`)) // false
 
 
 
-// Iteration #7: Count repetition
+// Iteration #7: Count repetition: 
 const wordsCount = [
   'machine',
   'matter',
@@ -78,9 +192,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, wordToCount)/*Objetivo contar cuantas veces aparece una palabra en el array*/ {
 
+  if (wordsCount.length === 0) {
+    return 0;
+  }
 
+  let appearances = 0;
+
+  for (let i = 0; i < wordsCount.length; i++) {
+    let word = wordsCount[i];
+    if (word === wordToCount) {
+      appearances += 1;
+    }
+  }
+
+  return appearances;
+}
+console.log(howManyTimes(wordsCount, "matter"))
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,9 +235,31 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix)/*calcula el mayor producto de 4 valores de la "matrix"*/ {
+  let result = -1; //Esta variable almacenará el mayor producto encontrado durante la iteración de la matriz. Además de que se usa -1 ya que recordemos que la primera pocision es 0
+  for (const indexX in matrix) /*los dos bucles for cada valor del eje x e y se va acumulando en las nuevas variable indX e indY */{
+    const indX = parseInt (indexX);
+    for (const indexY in matrix[indX]){
+      const indY = parseInt (indexY);
+      const actualRow = matrix[indX]; // calculo del eje horizontal
+      const actualAdjacentH = [0, 1, 2, 3] 
+      .map ((pos) => actualRow [pos + indY]) // actualRow + map crea un array con los 4 valores de "matrix" aduacente a partir de la posición actual
+      .filter (Boolean)
+      .reduce ((acc, el) => acc * el); // calculo del producto
 
+      const actualAdjacentY = [0, 1, 2, 3]// calculo del eje vertival
+      .map ((pos) => (matrix [pos + indX] ? matrix [pos + indX][indY] : null)) // esta linea verifica si existe elementos
+      .filter (Boolean)
+      .reduce ((acc, el) => acc * el);
 
+      const maxAdjacent = //momento de comparar entre el calculo horitzontal y vertical cual es el mas grande para guardarlo en la nueva variable "maxAdjacent"
+        actualAdjacentH > actualAdjacentY ? actualAdjacentH : actualAdjacentY;
+      result = maxAdjacent > result ? maxAdjacent : result; // tras comparar los valores x e y se compara con el valor actual de "result" si es mayor se actualiza "result"
+    }
+  }
+return result;
+}
+/*los dos bucles for cada valor del eje x e y se va acumulando en las nuevas variable indX e indY 
 
 
 // The following is required to make unit tests work.
