@@ -8,6 +8,22 @@ function maxOfTwoNumbers(n1, n2) {
   return n1; // son iguales, es indiferente cuál devolver
 }
 
+// Corrección Clase \\
+
+// Simplificando condiciones
+function maxOfTwoNumbers(n1, n2) {
+  
+  if (n1 > n2) return n1;
+  return n2;
+}
+
+// Con operador ternario. El ideal. En front se usa mucho.
+function maxOfTwoNumbers(n1, n2) {
+  return n1 > n2 ? n1 : n2;
+}
+
+// ------------------------------------------------------------------- \\
+
 // Iteration #2: Find longest word
 const words = [
   "mystery",
@@ -39,6 +55,16 @@ function findLongestWord(words) {
   return wordProxy; // Devuelvo la palabra más larga, que es la primera del array ya ordenado
 }
 
+// Corrección Clase \\
+
+function findLongestWord(words) {
+  if(!words.length) return null;
+  return words.reduce((longest, current) => 
+    current.length > longest.length ? current : longest);
+}
+
+// ------------------------------------------------------------------- \\
+
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -57,6 +83,15 @@ function sumNumbers(numbers) {
   }
   return sum; // Devuelvo la suma total
 }
+
+// Corrección Clase \\
+
+function sumNumbers(numbers) {
+  return numbers.reduce((total, current) => {
+    return total + current;}, 0);
+}
+
+// ------------------------------------------------------------------- \\
 
 // Iteration #3.1 Bonus:
 function sum(numbers) {
@@ -103,6 +138,19 @@ function sum(numbers) {
   }
 }
 
+// Corrección Clase \\
+
+function sum(numbers) {
+return numbers.reduce((total, current) => {
+      if (typeof numbers[i] === "number")  return total + current;
+      else if (typeof numbers[i] === "string") return total + current.length;
+      else if (typeof numbers[i] === "boolean") return total + (current ? 1 : 0);
+      throw new Error("Meh. ERROR: Unsupported data type!");
+    }, 0);
+}
+
+// ------------------------------------------------------------------- \\
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -135,6 +183,16 @@ function averageNumbers(numbersAvg) {
   return sum / count; // Calculo y devuelvo el promedio
 }
 
+// Corrección Clase \\
+
+// Utilizo la función sum() porque es más robusta y estable
+function averageNumbers(numbersAvg) {
+  if (!numbersAvg.length) return null;
+  return sum(numbersAvg) / numbersAvg.length;
+}
+
+// ------------------------------------------------------------------- \\
+
 // Level 2: Array of strings
 const wordsArr = [
   "seat",
@@ -151,7 +209,6 @@ const wordsArr = [
 
 function averageWordLength(wordsArr) {
   let arrayLength = wordsArr.length;
-  let count = 0;
   let sum = 0;
 
   // Check vacío y un elemento
@@ -167,6 +224,15 @@ function averageWordLength(wordsArr) {
   }
   return sum / arrayLength; // Calculo y devuelvo el promedio directamente
 }
+
+// Corrección Clase \\
+
+function averageWordLength(wordsArr) {
+  if (!wordsArr.length) return null;
+  return sum(wordsArr) / wordsArr.length;
+}
+
+// ------------------------------------------------------------------- \\
 
 // Bonus - Iteration #4.1
 function avg(wordsArr) {
@@ -197,6 +263,16 @@ function avg(wordsArr) {
   }
   return sum / count;
 }
+
+// Corrección Clase \\
+
+// Es la misma que averageWordLength realmente
+function avg(wordsArr) {
+  if (!wordsArr.length) return null;
+  return sum(wordsArr) / wordsArr.length;
+}
+
+// ------------------------------------------------------------------- \\
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -234,6 +310,28 @@ function uniquifyArray(wordsUnique) {
   return arrayUnique; // Devuelvo el array con los elementos únicos
 }
 
+// Corrección Clase \\
+
+// Set para eliminar duplicados y luego convierto a nuevo array con Spread Operator
+function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length) return null;
+  return [...new Set(wordsUnique)];
+}
+
+// Otra forma de hacerlo sin Set ni Spread Operator. Con un bucle, .includes() y .push()
+function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length) return null;
+  const arrayUnique = [];
+  for (let i = 0; i < wordsUnique.length; i++) {
+    if (!arrayUnique.includes(wordsUnique[i])) {
+      arrayUnique.push(wordsUnique[i]);
+    }
+  }
+  return arrayUnique;
+}
+
+// ------------------------------------------------------------------- \\
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -265,6 +363,15 @@ function doesWordExist(wordsFind, word) {
   }
   return false; // Si no existe, devuelvo false
 }
+
+// Corrección Clase \\
+
+function doesWordExist(wordsFind, word) {
+  if (!wordsFind.length) return null;
+  return wordsFind.includes(word);
+}
+
+// ------------------------------------------------------------------- \\
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -301,6 +408,32 @@ function howManyTimes(wordsCount, word) {
   }
   return count; // Devuelvo el número de veces que aparece la palabra (puede ser 0)
 }
+
+// Corrección Clase \\
+
+function howManyTimes(wordsCount, word) {
+let count = 0;
+let i = 0;
+if (!wordsCount.length) return 0;
+while (wordsCount[i++])
+  if (wordsCount.includes(word)) count++;
+}
+
+// Con .reduce() y ternario
+function howManyTimes(wordsCount, word) {
+if (!wordsCount.length) return 0;
+return wordsCount.reduce((count, current) => {
+  return current === word ? count + 1 : count;
+}, 0);
+}
+
+// Con .filter()
+function howManyTimes(wordsCount, word) {
+if (!wordsCount.length) return 0;
+return wordsCount.filter((elem) => elem === word).length;
+}
+
+// ------------------------------------------------------------------- \\
 
 // Iteration #8: Bonus
 const matrix = [
@@ -368,6 +501,14 @@ function greatestProduct(greatestProduct) {
     }
   }
 }
+
+// Corrección Clase \\
+
+function greatestProduct(greatestProduct) {
+
+}
+
+// ------------------------------------------------------------------- \\
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
