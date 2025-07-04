@@ -43,9 +43,42 @@ function sumNumbers(numbers) {
 
 }
 
-// Iteration #3.1 Bonus:
-/*function sum(numbers) {
-  return numbers.reduce((acc, curr) => acc + curr, 0);*/
+/**
+ * Bonus – Iteration #3.1: generic sum()
+ * Suma números, longitudes de strings y valores de booleanos.
+ *  - number  → su valor
+ *  - string  → length
+ *  - boolean → 1 si es true, 0 si es false
+ * Lanza un error si aparece cualquier otro tipo.
+ *
+ * @param {Array<Number|String|Boolean>} arr
+ * @returns {number} total de la suma (0 si el array está vacío)
+ */
+function sum(arr = []) {
+  if (!Array.isArray(arr) || arr.length === 0) return 0; // “empty array” ⇒ 0
+
+  let total = 0;
+
+  for (const el of arr) {
+    switch (typeof el) {
+      case 'number':
+        total += el;
+        break;
+      case 'string':
+        total += el.length;
+        break;
+      case 'boolean':
+        total += el ? 1 : 0;
+        break;
+      default:
+        throw new Error(
+          `Unsupported data type (${typeof el}) found in array – only numbers, strings and booleans are allowed.`
+        );
+    }
+  }
+
+  return total;
+}
 
 /// Iteration #4: Calculate the average
 // Level 1: Array of numbers
