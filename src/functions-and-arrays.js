@@ -32,11 +32,14 @@ function findLongestWord(word) {
 
 // Iteration #3: Calculate the sum of array numbers
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
 function sumNumbers(numbers) {
-for (let i = 0; i < numbers.length; i++) {
+  if (!Array.isArray(numbers) || numbers.length === 0) return 0; // guard clause
 
-}
+  let sum = 0;                        // accumulator
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];                // add each element
+  }
+  return sum;                         // give back the total
 
 }
 
@@ -69,11 +72,33 @@ function averageWordLength(words) {
 
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = [
+  'seat', 'correspond', 'linen', 'motif',
+  'hole', 'smell', 'smart', 'chaos',
+  'fuel', 'palace'
+];
 
-function averageWordLength() {
+/**
+ * Computes the average word length of an array of strings.
+ * @param {string[]} words – Array of words.
+ * @returns {number|null} Average length, or null if the array is empty.
+ */
+function averageWordLength(words = []) {
+  if (!Array.isArray(words) || words.length === 0) return null;   // 1️⃣
 
+  // 2️⃣ & 3️⃣ – works for one‑element arrays and larger ones
+  let total = 0;
+  for (let i = 0; i < words.length; i++) {
+    total += words[i].length;
+  }
+  return total / words.length;
 }
+
+// Quick checks
+console.log(averageWordLength([]));         // → null
+console.log(averageWordLength(['hello']));  // → 5
+console.log(averageWordLength(wordsArr));   // → 5.3
+
  
 
 // Bonus - Iteration #4.1
