@@ -88,7 +88,7 @@ lab-js-functions-and-arrays
 ```
 
 We will be working with the `src/functions-and-arrays.js`. You can find all the files in the `jasmine` folder needed to use Jasmine. All these files are already linked with the `SpecRunner.html` file. 
-
+<>
 If you want to check the tests, they are in the `tests/functions-and-arrays.spec.js` file.
 
 
