@@ -101,6 +101,7 @@ function averageWordLength(arr) {
   }
   return totalLength /arr.length
 }
+console.log(averageWordLength(wordsArr));
 
 // Bonus - Iteration #4.1
 function avg(arr) {
