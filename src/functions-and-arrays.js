@@ -1,24 +1,57 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  return a >= b ? a : b;
+}
 
+// print
+console.log(maxOfTwoNumbers(5, 9));   // 9
+console.log(maxOfTwoNumbers(10, 3));  // 10
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let longest = '';
+
+  for (const word of words) {
+    if (word.length > longest.length) {
+      longest = word;
+    }
+  }
+
+  return longest;
+}
+// print
+console.log(findLongestWord(words)); // crocodile
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0;
+
+  for (const number of numbers) {
+    sum += number;
+  }
+
+  return sum;
+}
+
+// print
+console.log(sumNumbers(numbers)); // 87
+
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  return numbers.reduce((total, n) => total + n, 0);
+}
+
 
 
 
@@ -26,16 +59,34 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (!numbers.length) return 0;
+
+  const sum = numbers.reduce((total, n) => total + n, 0);
+  return sum / numbers.length;
+}
+
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (!words.length) return 0;
+
+  const totalLength = words.reduce((sum, word) => sum + word.length, 0);
+  return totalLength / words.length;
+}
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr.length) return 0; // handle empty array
+
+  const sum = arr.reduce((total, n) => total + n, 0);
+  return sum / arr.length;
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +103,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+// my script!
+function uniquifyArray(arr) {
+  if (!arr.length) return [];
+
+  const uniqueArray = [];
+  for (const item of arr) {
+    if (!uniqueArray.includes(item)) {
+      uniqueArray.push(item);
+    }
+  }
+  return uniqueArray;
+}
+
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+// my script
+function doesWordExist(arr, word) {
+  if (!arr.length) return false;
+  return arr.includes(word);
+}
+
 
 
 
@@ -78,7 +146,23 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+// my script - counting occurences
+function howManyTimes(arr, word) {
+  if (!arr.length) return 0;
+
+  let count = 0;
+  for (const item of arr) {
+    if (item === word) {
+      count++;
+    }
+  }
+  return count;
+}
+
+// better code?
+const howManyTimes = (arr, word) =>
+  arr.filter(item => item === word).length;
+
 
 
 
@@ -107,6 +191,44 @@ const matrix = [
 ];
 
 function greatestProduct() {}
+// my script
+function greatestProduct(matrix) {
+  let maxProduct = 0;
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+  const n = 4; // number of adjacent numbers
+
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      // Horizontal product
+      if (j + n <= numCols) {
+        const horizontal = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        if (horizontal > maxProduct) maxProduct = horizontal;
+      }
+
+      // Vertical product
+      if (i + n <= numRows) {
+        const vertical = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        if (vertical > maxProduct) maxProduct = vertical;
+      }
+
+      // Diagonal down-right
+      if (i + n <= numRows && j + n <= numCols) {
+        const diagRight = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+        if (diagRight > maxProduct) maxProduct = diagRight;
+      }
+
+      // Diagonal down-left
+      if (i + n <= numRows && j - n + 1 >= 0) {
+        const diagLeft = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
+        if (diagLeft > maxProduct) maxProduct = diagLeft;
+      }
+    }
+  }
+
+  return maxProduct;
+}
+
 
 
 
@@ -128,3 +250,25 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+// interesting
+const {
+  maxOfTwoNumbers,
+  findLongestWord,
+  sumNumbers,
+  sum,
+  averageNumbers,
+  averageWordLength,
+  avg,
+  uniquifyArray,
+  doesWordExist,
+  howManyTimes,
+  greatestProduct
+} = require('./yourFileName.js');
+
+// the first code is already good - here's what I think
+// typeof module !== 'undefined' → ensures it only runs in Node.js, not in the browser.
+
+// module.exports = { ... } → exports all the functions so test frameworks (like Mocha, Jest, or 
+//  custom tests) can import and run them as well.
+
+// The property names match the function names you implemented earlier, so the tests can call them directly.
