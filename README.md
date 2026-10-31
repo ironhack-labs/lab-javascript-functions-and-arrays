@@ -1,44 +1,44 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | JS Functions & Arrays
+# LAB | Funciones y arrays en JavaScript
 
 <details>
   <summary>
-   <h2>Learning Goals</h2>
+   <h2>Objetivos de aprendizaje</h2>
   </summary>
 
-  This exercise allows you to practice and apply the concepts and techniques taught in class. 
+  Este ejercicio te permite practicar y aplicar los conceptos y las técnicas que se han enseñado en clase.
 
-  Upon completion of this exercise, you will be able to:
+  Al completar este ejercicio, podrás:
 
-  - Run predefined tests in Jasmine to verify that the program meets the technical requirements.
-  - Identify expected code behavior by reading and understanding test results and errors.
-  - Declare and invoke functions using function declaration, function expression, and arrow function syntax.
-  - Use the `return`  keyword to return a value from a function.
-  - Pass primitive values as arguments to functions.
-  - Pass arrays to functions as arguments.
-  - Access items stored in arrays using the indexes,
-  - Add, remove and check for items in an array using the index and array methods (`unshift`, `push`, `splice`, `shift`, `pop`, `indexOf`, and `includes`).
-  - Iterate over arrays using the `for`  and `forEach` loops.
+  - Ejecutar pruebas predefinidas en Jasmine para comprobar que el programa cumple los requisitos técnicos.
+  - Identificar el comportamiento esperado del código leyendo y comprendiendo los resultados de las pruebas y los errores.
+  - Declarar e invocar funciones mediante declaraciones de función, expresiones de función y funciones flecha.
+  - Usar la palabra clave `return` para devolver un valor desde una función.
+  - Pasar valores primitivos como argumentos a las funciones.
+  - Pasar arrays como argumentos a las funciones.
+  - Acceder a los elementos almacenados en los arrays mediante sus índices.
+  - Añadir, eliminar y comprobar la presencia de elementos en un array mediante el índice y los métodos de array (`unshift`, `push`, `splice`, `shift`, `pop`, `indexOf` e `includes`).
+  - Recorrer arrays mediante `for` y `forEach`.
 
   <br>
-  <hr> 
+  <hr>
 
 </details>
 
-## Introduction
+## Introducción
 
-Array manipulation is a common task in programming. Whether you are calculating a total for a shopping cart, grabbing only the first names from a list of people, or moving a piece on a chessboard, you are probably modifying or manipulating an array somewhere in the code.
+Manipular arrays es una tarea habitual en programación. Tanto si calculas el total de un carrito de la compra como si extraes solo los nombres de una lista de personas o mueves una pieza en un tablero de ajedrez, probablemente estés modificando o manipulando un array en alguna parte del código.
 <br>
 
-## Requirements
+## Requisitos
 
-- Fork this repo
-- Clone it to your machine
+- Haz un fork de este repositorio.
+- Clónalo en tu equipo.
 
-## Submission
+## Entrega
 
-- Upon completion, run the following commands:
+- Al terminar, ejecuta los siguientes comandos:
 
 ```bash
 git add .
@@ -46,34 +46,34 @@ git commit -m "Solved lab"
 git push origin master
 ```
 
-- Create a Pull Request so that your TAs can check your work.
+- Crea una pull request para que tus asistentes de enseñanza puedan revisar tu trabajo.
 
-## Automated Testing Introduction
+## Introducción a las pruebas automatizadas
 
-### What is automated testing?
+### ¿Qué son las pruebas automatizadas?
 
-Automated software testing is the process of programmatically executing an application to validate and verify that it meets the business needs, as well as the technical requirements, and that it behaves as expected.
+Las pruebas automatizadas de software consisten en ejecutar una aplicación mediante código para validar y comprobar que satisface las necesidades del negocio y los requisitos técnicos, y que se comporta como se espera.
 
-Testing should be viewed as a continuous process, not a discrete operation or single activity in the development lifecycle. Designing tests at the beginning of the product lifecycle can mitigate common issues that arise when developing complex code bases.
+Las pruebas deben considerarse un proceso continuo, no una operación aislada ni una actividad puntual del ciclo de desarrollo. Diseñar pruebas al principio del ciclo de vida del producto puede reducir los problemas habituales que surgen al desarrollar bases de código complejas.
 
-Having a strong *test suite* can provide you the ease of mind since you will be able to confidently improve upon your work while knowing that your not breaking a previously developed feature.
+Contar con un buen *conjunto de pruebas* te da tranquilidad, ya que podrás mejorar tu trabajo con la confianza de que no estás rompiendo una funcionalidad desarrollada previamente.
 <br>
 
-### Testing labs
+### Pruebas en los laboratorios
 
-This LAB and some labs you will work on during the bootcamp are equipped with unit tests to provide automated feedback on your lab progress.
+Este laboratorio y algunos de los que realizarás durante el bootcamp incluyen pruebas unitarias que te proporcionarán información automática sobre tu progreso.
 <br>
 
-### Testing with Jasmine
+### Pruebas con Jasmine
 
-Jasmine is an automated testing framework for JavaScript. It is designed to be used in Behavior-driven Development (**BDD**) programming, focusing more on the business value than the technical details.
+Jasmine es un framework de pruebas automatizadas para JavaScript. Está diseñado para utilizarse en el desarrollo guiado por el comportamiento (**BDD**), que se centra más en el valor para el negocio que en los detalles técnicos.
 
-We have already included Jasmine in the project you just forked, so let's see how to use it to implement our code.
+Ya hemos incluido Jasmine en el proyecto del que acabas de hacer un fork, así que vamos a ver cómo utilizarlo para implementar nuestro código.
 <br>
 
-### Usage
+### Uso
 
-Before starting coding, we will explain the project structure we have provided you:
+Antes de empezar a programar, explicaremos la estructura del proyecto que te hemos proporcionado:
 
 ```
 lab-js-functions-and-arrays
@@ -87,47 +87,45 @@ lab-js-functions-and-arrays
       └── functions-and-arrays.spec.js
 ```
 
-We will be working with the `src/functions-and-arrays.js`. You can find all the files in the `jasmine` folder needed to use Jasmine. All these files are already linked with the `SpecRunner.html` file. 
+Trabajaremos en `src/functions-and-arrays.js`. En la carpeta `jasmine` encontrarás todos los archivos necesarios para utilizar Jasmine. Todos estos archivos ya están enlazados con el archivo `SpecRunner.html`.
 
-If you want to check the tests, they are in the `tests/functions-and-arrays.spec.js` file.
+Si quieres consultar las pruebas, están en el archivo `tests/functions-and-arrays.spec.js`.
 
+#### Ejecutar las pruebas
 
-#### Run tests
+Ejecutar pruebas automatizadas con Jasmine es muy fácil. Solo tienes que abrir el archivo `SpecRunner.html` en tu navegador. Verás algo parecido a esto:
 
-Running automated tests with Jasmine is super easy. All you need to do is open the `SpecRunner.html` file in your browser. You will find something similar to this:
+[![imagen](https://user-images.githubusercontent.com/23629340/33389609-c2f3965c-d533-11e7-9a03-e0a89314dd98.png)](https://user-images.githubusercontent.com/23629340/33389609-c2f3965c-d533-11e7-9a03-e0a89314dd98.png)
 
-[![image](https://user-images.githubusercontent.com/23629340/33389609-c2f3965c-d533-11e7-9a03-e0a89314dd98.png)](https://user-images.githubusercontent.com/23629340/33389609-c2f3965c-d533-11e7-9a03-e0a89314dd98.png)
+#### Superar las pruebas
 
+Debes escribir tu código en el archivo `src/functions-and-arrays.js`. Mientras sigues las instrucciones de cada iteración, revisa cada prueba y asegúrate de que se *supera* antes de continuar.
 
-#### Pass the tests
+No tengas prisa. Dedica tiempo a leer cada iteración con atención y a resolver las pruebas que *fallan* a medida que avanzas en el ejercicio.
 
-You should write your code on the `src/functions-and-arrays.js` file. While following the instructions for each iteration, you should check every test and ensure it's *passing*, before moving on.
+Cuando programas con pruebas, es muy importante leer con atención y comprender los errores que aparecen. Así sabrás qué se espera de tu código.
 
-Do not rush. You should take your time to read every iteration carefully and address the *breaking* tests as you progress through the exercise.
+Para ver la salida de tu código JavaScript, abre la [consola de las herramientas para desarrolladores](https://developer.chrome.com/docs/devtools/open/#console).
 
-When coding with tests, it is super important that you carefully read and understand the errors you are getting. This way, you will know what's expected from your code.
+**Importante:** Ten en cuenta que **no necesitas ejecutar las funciones por tu cuenta**; las pruebas cargarán y ejecutarán las funciones automáticamente cada vez que se ejecuten. Solo tienes que declarar las funciones, asegurarte de que gestionan los parámetros recibidos y de que devuelven lo indicado en las instrucciones de la iteración y en la descripción de la prueba. En algunas iteraciones te proporcionamos un array de ejemplo para que puedas hacer pruebas **manuales** si lo deseas.
 
-To see the output of your JavaScript code, open the [Console in the Developer Tools](https://developer.chrome.com/docs/devtools/open/#console).
+## Instrucciones
 
-**Important:** Note that **you don't need to execute the functions yourself**; the tests will automatically load and execute the functions on each test run. All you need to do is declare the functions, ensure they handle the parameters passed and return what is indicated in the iteration instructions and the test description. We provide you with a sample array for some iterations, so you can do some **manual** testing if you wish.
-
-## Instructions
-
-While following the instructions for each iteration, carefully read the instructions and test descriptions to understand the task requirements fully. Do not rush. It would be best if you took your time to read every iteration carefully.
+Al seguir las instrucciones de cada iteración, lee con atención tanto las instrucciones como las descripciones de las pruebas para comprender todos los requisitos de la tarea. No tengas prisa. Dedica tiempo a leer cada iteración con cuidado.
 
 <br>
 
-### Iteration #1: Find the maximum
+### Iteración n.º 1: Encontrar el máximo
 
-Implement the function `maxOfTwoNumbers` that takes two numbers as arguments and returns the bigger number.
+Implementa la función `maxOfTwoNumbers`, que recibe dos números como argumentos y devuelve el mayor.
 
 <br>
 
-### Iteration #2: Find the longest word
+### Iteración n.º 2: Encontrar la palabra más larga
 
-Implement the function `findLongestWord` that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.
+Implementa la función `findLongestWord`, que recibe como argumento un array de palabras y devuelve la más larga. Si hay dos con la misma longitud, debe devolver la primera que aparezca.
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
@@ -135,15 +133,15 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 <br>
 
-### Iteration #3: Calculate the sum
+### Iteración n.º 3: Calcular la suma
 
-#### Iteration #3.1: Sum numbers
+#### Iteración n.º 3.1: Sumar números
 
-Calculating a sum can be as simple as iterating over an array and adding each of the elements together.
+Calcular una suma puede ser tan sencillo como recorrer un array y sumar todos sus elementos.
 
-Implement the function named `sumNumbers` that takes an array of numbers as an argument and returns the sum of all the numbers in the array. Later in the course, we will learn how to do this using the `reduce` array method, making your work significantly easier. For now, let's practice _the "declarative"_ way of adding values using loops.
+Implementa la función `sumNumbers`, que recibe un array de números como argumento y devuelve la suma de todos los números del array. Más adelante en el curso aprenderemos a hacerlo con el método `reduce` de los arrays, que facilitará mucho el trabajo. Por ahora, practiquemos la forma _«declarativa»_ de sumar valores utilizando bucles.
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -151,13 +149,13 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 <br>
 
-#### Bonus - Iteration #3.2: A generic `sum()` function
+#### Extra - Iteración n.º 3.2: Una función `sum()` genérica
 
-In iteration 3, you created a function that returns the sum of an array of numbers. But what if we want to calculate the sum of the length of words in an array? What if it also includes _boolean_ values? To achieve this, we must create a function allowing this flexibility.
+En la iteración 3 creaste una función que devuelve la suma de un array de números. Pero ¿qué ocurre si queremos calcular la suma de las longitudes de las palabras de un array? ¿Y si también incluye valores _booleanos_? Para conseguirlo, debemos crear una función que permita esta flexibilidad.
 
-You should implement the function `sum()` in this iteration. The function should take an array of mixed values - numbers, strings, and booleans. The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum. 
+En esta iteración debes implementar la función `sum()`. La función debe recibir un array con valores de distintos tipos: números, cadenas de texto y booleanos. Debe sumar las longitudes de todas las cadenas, los valores numéricos y los valores numéricos de los booleanos, y devolver la suma total.
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -165,43 +163,44 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 57
 ```
 
+Nota: Tu función solo debe aceptar un array con números, cadenas de texto o booleanos. Si el array contiene otro tipo de dato, como un objeto, debes [lanzar un error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw). En JavaScript, la sintaxis para lanzar un error es la siguiente:
 
-Note: Your function should only accept an array with numbers, strings, or booleans. If the array contains any other data type, such as an object, you should [throw an error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw). In JavaScript, the syntax for throwing an error is as follows:
 ```javascript
 throw new Error("Error message goes here");
 ```
 
-When specifying the error message, you should be specific and descriptive in explaining the error.
+Al escribir el mensaje de error, explica el problema de forma concreta y descriptiva.
 
 <br>
 
-### Iteration #4: Calculate the average
+### Iteración n.º 4: Calcular la media
 
-Calculating an average is a prevalent task. So let's practice it a bit.
+Calcular una media es una tarea muy habitual. Vamos a practicarla un poco.
 
-**The logic behind this:**
+**La lógica es la siguiente:**
 
-1. Find the sum as we did in the first exercise (or how about reusing the function `sumNumbers()`?)
-2. Divide that sum by the number of elements in the array.
+1. Calcula la suma como hicimos en el primer ejercicio (¿o qué tal si reutilizas la función `sumNumbers()`?).
+2. Divide esa suma entre el número de elementos del array.
 
 <br>
 
-#### Iteration #4.1: Array of numbers
+#### Iteración n.º 4.1: Array de números
 
-Implement the function `averageNumbers` that expects an array of numbers and returns the average of the numbers.
+Implementa la función `averageNumbers`, que recibe un array de números y devuelve su media.
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const numbers = [2, 6, 9, 10, 7, 4, 1, 9];
 ```
+
 <br>
 
-#### Iteration #4.2: Array of strings
+#### Iteración n.º 4.2: Array de cadenas de texto
 
-Implement the function named `averageWordLength` that receives as a single argument an array of words and returns the average length of the words:
+Implementa la función `averageWordLength`, que recibe como único argumento un array de palabras y devuelve la longitud media de las palabras:
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const words = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -209,14 +208,14 @@ const words = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart',
 
 <br>
 
-#### Bonus - Iteration #4.3: A generic `avg()` function
+#### Extra - Iteración n.º 4.3: Una función `avg()` genérica
 
-Create function `avg(arr)` that receives any mixed array and calculates the average. For example, consider an array filled with numbers and/or strings and/or booleans as a mixed array.
+Crea la función `avg(arr)`, que recibe un array con valores de distintos tipos y calcula la media. Por ejemplo, considera un array que contenga números, cadenas de texto y/o booleanos.
 
-The non-numerical values should be counted as follows:
+Los valores no numéricos deben contabilizarse así:
 
-- Booleans: `true` counts as `1` and `false` counts as `0`.
-- Strings: use the string `length` as the numeric value.
+- Booleanos: `true` cuenta como `1` y `false` como `0`.
+- Cadenas de texto: utiliza su longitud (`length`) como valor numérico.
 
 ```javascript
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -226,15 +225,13 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 <br>
 
-### Iteration #5: Unique arrays
+### Iteración n.º 5: Arrays sin duplicados
 
-Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the Array methods [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) and [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
+Toma el siguiente array, elimina los duplicados y devuelve un nuevo array. Seguramente te interese consultar los métodos de array [`indexOf`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) e [`includes`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes).
 
-Do this in the form of a function `uniquifyArray` that receives an array of words as an argument.
+Hazlo mediante una función `uniquifyArray` que reciba un array de palabras como argumento.
 
-
-
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const words = [
@@ -254,13 +251,13 @@ const words = [
 
 <br>
 
-### Iteration #6: Find elements
+### Iteración n.º 6: Encontrar elementos
 
-Let's create a simple array search.
+Vamos a crear una búsqueda sencilla en un array.
 
-Declare a function named `doesWordExist` that will take in an array of words as one argument and a *word to search* for as the other. Return `true` if the word exists in the array; otherwise, return `false`.
+Declara una función llamada `doesWordExist` que reciba un array de palabras como argumento y una *palabra que buscar* como otro argumento. Devuelve `true` si la palabra existe en el array; en caso contrario, devuelve `false`.
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
@@ -268,11 +265,11 @@ const words = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', '
 
 <br>
 
-### Iteration #7: Count repetition
+### Iteración n.º 7: Contar repeticiones
 
-Declare a function named `howManyTimes` that will take in an array of words as the first argument and a word to search for as the second argument. The function will return the number of times that word appears in the array.
+Declara una función llamada `howManyTimes` que reciba un array de palabras como primer argumento y una palabra que buscar como segundo argumento. La función devolverá el número de veces que esa palabra aparece en el array.
 
-You can use the following array to test your solution:
+Puedes utilizar el siguiente array para probar tu solución:
 
 ```javascript
 const words = [
@@ -292,17 +289,13 @@ const words = [
 
 <br>
 
+### Extra - Iteración n.º 8
 
+#### Extra - Iteración n.º 8.1: Producto de números adyacentes
 
-### Bonus - Iteration #8
+Dados varios arrays, encuentra el mayor producto de cuatro números adyacentes.
 
-
-
-#### Bonus - Iteration #8.1: Product of adjacent numbers
-
-Given multiple arrays, find the greatest product of four adjacent numbers. 
-
-We consider adjacent any four numbers that are next to each other horizontally or vertically. For example, if we have a 5x5 Matrix like:
+Consideramos adyacentes cuatro números que estén uno junto a otro en horizontal o en vertical. Por ejemplo, si tenemos una matriz de 5 × 5 como esta:
 
 ```bash
 [ 1,  2, 3, 4, 5]
@@ -312,13 +305,11 @@ We consider adjacent any four numbers that are next to each other horizontally o
 [ 1,  4, 3, 4, 5]
 ```
 
-The greatest product will be the `20`x`20`x`20`x`4` = `32000`.
+El mayor producto será `20` × `20` × `20` × `4` = `32000`.
 
 <br>
 
-
-
-Declare a function named `greatestProduct(matrix)` to find it in the 20×20 grid below!
+¡Declara una función llamada `greatestProduct(matrix)` para encontrarlo en la siguiente cuadrícula de 20 × 20!
 
 ```javascript
 const matrix = [
@@ -347,80 +338,76 @@ const matrix = [
 
 <br>
 
+#### Extra - Iteración n.º 8.2: Producto de diagonales
 
-
-#### Bonus - Iteration #8.2: Product of diagonals
-
-Following the logic you've used in iteration #8.1, declare a function called `greatestProductOfDiagonals(matrix)`. It takes a matrix as a parameter and returns the greatest product of any four values laid out diagonally, in either direction.
+Siguiendo la lógica que has utilizado en la iteración n.º 8.1, declara una función llamada `greatestProductOfDiagonals(matrix)`. Recibe una matriz como parámetro y devuelve el mayor producto de cuatro valores consecutivos situados en diagonal, en cualquiera de las dos direcciones.
 
 <br>
 
-**Happy coding!** :heart:
+**¡A programar!** :heart:
 
 <br>
 
-## FAQs
+## Preguntas frecuentes
 
 <br>
 
 <details>
-  <summary>I am stuck in the exercise and don't know how to solve the problem or where to start.</summary>
+  <summary>Me he atascado en el ejercicio y no sé cómo resolver el problema ni por dónde empezar.</summary>
   <br>
 
-  If you are stuck in your code and don't know how to solve the problem or where to start, you should take a step back and try to form a clear question about the specific issue you are facing. This will help you narrow down the problem and come up with potential solutions.
+  Si te has atascado con tu código y no sabes cómo resolver el problema ni por dónde empezar, da un paso atrás e intenta formular una pregunta clara sobre la dificultad concreta que tienes. Esto te ayudará a delimitar el problema y a pensar en posibles soluciones.
 
+  Por ejemplo, ¿hay algún concepto que no entiendes o recibes un mensaje de error que no sabes cómo solucionar? Suele ser útil intentar describir el problema con la mayor claridad posible, incluyendo los mensajes de error que recibes. Esto puede ayudarte a explicar el problema a otras personas y a obtener ayuda de tus compañeros o de recursos en línea.
 
-  For example, is it a concept that you don't understand, or are you receiving an error message that you don't know how to fix? It is usually helpful to try to state the problem as clearly as possible, including any error messages you are receiving. This can help you communicate the issue to others and potentially get help from classmates or online resources. 
+  Una vez que comprendas claramente el problema, podrás empezar a trabajar en la solución.
 
-
-  Once you have a clear understanding of the problem, you will be able to start working toward the solution.
-
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>All of the Jasmine tests are failing and in red. Why did this happen?</summary>
+  <summary>Todas las pruebas de Jasmine fallan y aparecen en rojo. ¿Por qué ocurre?</summary>
   <br>
 
-  One possible reason why all of the Jasmine tests are failing is that there is a syntax error in the code being tested. If the code contains a syntax error, it will not be loaded properly and none of the tests will be able to run. This will cause all of the tests to fail.
+  Una posible razón por la que todas las pruebas de Jasmine fallan es que haya un error de sintaxis en el código que se está probando. Si el código contiene un error de sintaxis, no se cargará correctamente y no podrá ejecutarse ninguna prueba. Esto hará que todas fallen.
 
-  To troubleshoot this issue, you will need to examine the code being tested for syntax errors. Look for missing brackets, semicolons, or other syntax issues that could be causing the problem. If you find a syntax error, correct it and try running the tests again.
+  Para solucionar este problema, revisa el código en busca de errores de sintaxis. Busca corchetes o llaves sin cerrar, puntos y coma que falten u otros errores de sintaxis que puedan estar causando el problema. Si encuentras alguno, corrígelo y vuelve a ejecutar las pruebas.
 
-  Another possibility is that there is an issue with the tests. It is possible that you may have modified the test file and caused an issue. If you have made changes to the test file, try copying and pasting the original test file and running the tests again to see if this resolves the issue.
+  Otra posibilidad es que haya un problema en las pruebas. Puede que hayas modificado el archivo de pruebas y provocado un fallo. Si has hecho cambios en ese archivo, prueba a copiar y pegar el archivo de pruebas original y vuelve a ejecutarlas para comprobar si se resuelve el problema.
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>How do you find a length of a string in JavaScript?</summary>
+  <summary>¿Cómo se obtiene la longitud de una cadena de texto en JavaScript?</summary>
   <br>
 
-  To find the length of a string, use the `length` property. Here is an example:
+  Para obtener la longitud de una cadena de texto, utiliza la propiedad `length`. Aquí tienes un ejemplo:
 
   ```js
   const str = "Hello, world!"";
   console.log(str.length); // 13
   ```
 
-  The `length` property returns the number of characters in the string, including spaces and special characters.
+  La propiedad `length` devuelve el número de caracteres de la cadena, incluidos los espacios y los caracteres especiales.
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>How do I loop over an array?</summary>
+  <summary>¿Cómo recorro un array?</summary>
   <br>
 
-  Loops allow you to repeat a block of code a certain number of times. There are several ways to loop over an array in JavaScript:
+  Los bucles permiten repetir un bloque de código un número determinado de veces. Hay varias formas de recorrer un array en JavaScript:
 
 <br>
 
-  #### For loop
+  #### Bucle for
 
-  The `for` loop is the most traditional way to loop through an array in JavaScript. It consists of three parts: the *initialization*, the *condition*, and the *increment/decrement*:
+  El bucle `for` es la forma más tradicional de recorrer un array en JavaScript. Consta de tres partes: la *inicialización*, la *condición* y el *incremento/decremento*:
 
   ```js
   const animals = ['cat', 'dog', 'bird'];
@@ -433,21 +420,21 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
   }
   ```
 
-  In initialization, you declare a counter variable and set its initial value.
+  En la inicialización, declaras una variable que actúa como contador y estableces su valor inicial.
 
-  The condition is a boolean expression that is evaluated before each iteration of the loop. If the condition is `true`, the loop will continue. Once the condition turns `false`, the loop will terminate. 
+  La condición es una expresión booleana que se evalúa antes de cada iteración del bucle. Si la condición es `true`, el bucle continúa. Cuando pasa a ser `false`, el bucle termina.
 
-  The increment/decrement is where you update the counter variable and it happens at the end of each iteration.
+  En el incremento/decremento se actualiza la variable contador, al final de cada iteración.
 
-  The block of code inside the loop is repeated during each iteration.
+  El bloque de código dentro del bucle se repite en cada iteración.
 
 <br>
 
-  #### While loop
+  #### Bucle while
 
-  The `while` loop is another way to loop through an array in JavaScript. It consists of a condition and a block of code that is executed as long as the condition is `true`.
+  El bucle `while` es otra forma de recorrer un array en JavaScript. Consta de una condición y un bloque de código que se ejecuta mientras la condición sea `true`.
 
-  Like the `for` loop, the `while` loop requires a counter variable to keep track of the current position in the array. The counter variable must be initialized before the loop and incremented or decremented at the end of each iteration.
+  Al igual que el bucle `for`, el bucle `while` necesita una variable contador para llevar el seguimiento de la posición actual en el array. Esta variable debe inicializarse antes del bucle e incrementarse o decrementarse al final de cada iteración.
 
   ```js
   const animals = ['cat', 'dog', 'bird'];
@@ -464,17 +451,17 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
   }
   ```
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>How do I loop over an array using the <code>forEach()</code> method?</summary>
+  <summary>¿Cómo recorro un array utilizando el método <code>forEach()</code>?</summary>
   <br>
 
-  The `forEach()` method executes a provided function once for each array element. It does not return a new array but rather executes the function on each element in the array.
+  El método `forEach()` ejecuta una función proporcionada una vez por cada elemento del array. No devuelve un nuevo array, sino que ejecuta la función sobre cada uno de sus elementos.
 
-  The syntax of the `forEach()` method is as follows:
+  La sintaxis del método `forEach()` es la siguiente:
 
   ```js
   array.forEach( function(element) {
@@ -484,7 +471,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
 
   <br>
 
-  Here is an example that uses the `forEach()` method to log each element and its index in an array to the console:
+  Aquí tienes un ejemplo que utiliza el método `forEach()` para mostrar en la consola cada elemento de un array y su índice:
 
   ```js
   const fruits = ['apple', 'banana', 'cherry'];
@@ -496,7 +483,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
 
 <br>
 
-  You can also use an arrow function as the callback function for `forEach()`:
+  También puedes utilizar una función flecha como función de callback de `forEach()`:
 
   ```js
   fruits.forEach((element, index) => {
@@ -504,45 +491,45 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
   });
   ```
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>What could cause <code>array.length</code> to return <code>undefined</code>?</summary>
+  <summary>¿Qué puede hacer que <code>array.length</code> devuelva <code>undefined</code>?</summary>
   <br>
 
-  If you try to access the `.length` property on an array (e.g., `array.length`) but get `undefined`, it means that the variable you are accessing is not actually an array.
+  Si intentas acceder a la propiedad `.length` de un array (por ejemplo, `array.length`) y obtienes `undefined`, significa que la variable a la que estás accediendo no es realmente un array.
 
   <br>
 
-  **How do I fix this?** 
+  **¿Cómo lo soluciono?**
 
-  Check that the variable you are trying to access is actually an array.
+  Comprueba que la variable a la que intentas acceder sea realmente un array.
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>Why is my function returning the last element of the array instead of the longest one?</summary>
+  <summary>¿Por qué mi función devuelve el último elemento del array en lugar del más largo?</summary>
   <br>
 
-  Your function might not be correctly checking for the longest element in the array. In other words, there may be an issue with the logic of the conditional statements in the function or with the comparison being used in the conditionals.
+  Es posible que tu función no esté comprobando correctamente cuál es el elemento más largo del array. Es decir, puede haber un problema en la lógica de las sentencias condicionales de la función o en la comparación utilizada en ellas.
 
-  To fix this issue, you should check the logic of the conditional statements in the function.
+  Para resolverlo, revisa la lógica de las sentencias condicionales de la función.
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>How can I compare the length of each word in an array in JavaScript?</summary>
+  <summary>¿Cómo puedo comparar la longitud de cada palabra de un array en JavaScript?</summary>
   <br>
 
-  To compare the length of each word in an array in JavaScript, you can use a loop to iterate through the array and compare the length of each element using the `.length` property.
+  Para comparar la longitud de cada palabra de un array en JavaScript, puedes utilizar un bucle que recorra el array y comparar la longitud de cada elemento mediante la propiedad `.length`.
 
-  Here is an example of how you loop over an array:
+  Aquí tienes un ejemplo de cómo recorrer un array:
 
   ```js
   function findLongestWord(words) {
@@ -554,7 +541,7 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
 
   <br>
 
-  To compare the length of each element, you should use a conditional statement in the following way:
+  Para comparar la longitud de cada elemento, debes utilizar una sentencia condicional de la siguiente forma:
 
   ```js
     if ( words[i].length > longestWord.length) {
@@ -562,31 +549,36 @@ Following the logic you've used in iteration #8.1, declare a function called `gr
     }
   ```
 
-  [Back to top](#faqs)
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
 
 <details>
-  <summary>I am unable to push changes to the repository. What should I do?</summary>
+  <summary>No puedo subir cambios al repositorio. ¿Qué debo hacer?</summary>
   <br>
 
-There are a couple of possible reasons why you may be unable to *push* changes to a Git repository:
+Hay varios motivos por los que podrías no poder subir cambios (*push*) a un repositorio Git:
 
-1. **You have not committed your changes:** Before you can push your changes to the repository, you need to commit them using the `git commit` command. Make sure you have committed your changes and try pushing again. To do this, run the following terminal commands from the project folder:
+1. **No has creado un commit con tus cambios:** Antes de subir los cambios al repositorio, debes guardarlos en un commit con el comando `git commit`. Asegúrate de haberlo hecho y vuelve a intentar subirlos. Para ello, ejecuta los siguientes comandos en la terminal desde la carpeta del proyecto:
+
   ```bash
   git add .
   git commit -m "Your commit message"
   git push
   ```
-2. **You do not have permission to push to the repository:** If you have cloned the repository directly from the main Ironhack repository without making a *Fork* first, you do not have write access to the repository.
-To check which remote repository you have cloned, run the following terminal command from the project folder:
+
+2. **No tienes permiso para subir cambios al repositorio:** Si has clonado directamente el repositorio principal de Ironhack sin hacer antes un *fork*, no tienes acceso de escritura al repositorio.
+
+Para comprobar qué repositorio remoto has clonado, ejecuta el siguiente comando en la terminal desde la carpeta del proyecto:
+
   ```bash
   git remote -v
   ```
-If the link shown is the same as the main Ironhack repository, you will need to fork the repository to your GitHub account first and then clone your fork to your local machine to be able to push the changes.
 
-**Note**: You should make a copy of your local code to avoid losing it in the process.
+Si el enlace mostrado coincide con el del repositorio principal de Ironhack, primero tendrás que hacer un fork del repositorio en tu cuenta de GitHub y después clonar ese fork en tu equipo para poder subir los cambios.
 
-  [Back to top](#faqs)
+**Nota:** Haz una copia de tu código local para evitar perderlo durante el proceso.
+
+  [Volver al inicio](#preguntas-frecuentes)
 
 </details>
