@@ -118,7 +118,10 @@ function uniquifyArray(wordsArray) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsArray, wordToSearch) {
+  if (wordsArray.length === 0) return null;
+  return wordsArray.includes(wordToSearch);
+}
 
 
 
@@ -189,10 +192,12 @@ if (typeof module !== 'undefined') {
 }
 
 
-if (typeof words, numbers, averageNumbers, averageWordLength, uniquifyArray !== "undefined") {
+if (typeof words, numbers, averageNumbers, averageWordLength, uniquifyArray, doesWordExist !== "undefined") {
   console.log(findLongestWord(words));
   console.log(sumNumbers(numbers));
   console.log(averageNumbers(numbers));
   console.log(averageWordLength(words));
   console.log(uniquifyArray(wordsUnique));
+  console.log(doesWordExist(wordsFind, "machine"));
+  console.log(doesWordExist(wordsFind, "notfound"));
 }
